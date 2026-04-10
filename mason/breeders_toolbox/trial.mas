@@ -1,4 +1,3 @@
-
 <%doc>
 
 =head1 NAME
@@ -63,65 +62,66 @@ $latest_trial_activity => undef
 
 <br/>
 
-<& /page/page_title.mas, title=>"Trial detail for ".$trial_name &>
+<& /page/page_title.mas, title=>"試驗詳細資料：".$trial_name &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Trial Details</h4>", info_section_subtitle => 'View and edit basic information about the experiment.', buttons_html => '<button class="btn btn-primary btn-sm" id="edit_trial_details" style="margin:3px">Edit Trial Details</button>', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "trial_details", trial_name => $trial_name, breeding_program_name => $breeding_program_name, breeding_program_id => $breeding_program_id, location_name => $location_name, country_name => $country_name, year => $year, trial_type => $trial_type, planting_date => $planting_date, harvest_date => $harvest_date, trial_description => $trial_description, plot_width => $plot_width, plot_length => $plot_length, field_size => $field_size, field_trial_is_planned_to_be_genotyped => $field_trial_is_planned_to_be_genotyped, field_trial_is_planned_to_cross => $field_trial_is_planned_to_cross, folder_name => $folder_name, folder_id => $folder_id, identifier_prefix => $identifier_prefix, trial_stock_type => $trial_stock_type, trial_owner => $trial_owner, latest_trial_activity => $latest_trial_activity, company_id => $private_company_id, company_name => $private_company_name, company_project_is_private => $project_is_private  &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>試驗詳細資料</h4>", info_section_subtitle => '檢視並編輯有關此實驗的基本資訊。', buttons_html => '<button class="btn btn-primary btn-sm" id="edit_trial_details" style="margin:3px">編輯試驗詳細資料</button>', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "trial_details", trial_name => $trial_name, breeding_program_name => $breeding_program_name, breeding_program_id => $breeding_program_id, location_name => $location_name, country_name => $country_name, year => $year, trial_type => $trial_type, planting_date => $planting_date, harvest_date => $harvest_date, trial_description => $trial_description, plot_width => $plot_width, plot_length => $plot_length, field_size => $field_size, field_trial_is_planned_to_be_genotyped => $field_trial_is_planned_to_be_genotyped, field_trial_is_planned_to_cross => $field_trial_is_planned_to_cross, folder_name => $folder_name, folder_id => $folder_id, identifier_prefix => $identifier_prefix, trial_stock_type => $trial_stock_type, trial_owner => $trial_owner, latest_trial_activity => $latest_trial_activity, company_id => $private_company_id, company_name => $private_company_name, company_project_is_private => $project_is_private  &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, trial_name => $trial_name, breeding_program_name => $breeding_program_name, location_name => $location_name, year => $year, trial_type => $trial_type, planting_date => $planting_date, harvest_date => $harvest_date, trial_description => $trial_description, folder_id => $folder_id, design_name => $design_name, has_plant_entries => $has_plant_entries, phenotypes_fully_uploaded => $phenotypes_fully_uploaded, user_can_modify => $user_can_modify, user_name => $user_name, info_section_title => "<h4 style='display:inline'>Trial Status</h4>", info_section_subtitle => 'View progress of this trial.', icon_class => "glyphicon glyphicon-forward", info_section_id => "trial_status_section" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, trial_name => $trial_name, breeding_program_name => $breeding_program_name, location_name => $location_name, year => $year, trial_type => $trial_type, planting_date => $planting_date, harvest_date => $harvest_date, trial_description => $trial_description, folder_id => $folder_id, design_name => $design_name, has_plant_entries => $has_plant_entries, phenotypes_fully_uploaded => $phenotypes_fully_uploaded, user_can_modify => $user_can_modify, user_name => $user_name, info_section_title => "<h4 style='display:inline'>試驗狀態</h4>", info_section_subtitle => '檢視此試驗的進度。', icon_class => "glyphicon glyphicon-forward", info_section_id => "trial_status_section" &>
 
 % my $barcode_section_title = '';
 % if ($trial_stock_type eq 'family_name') {
-%     $barcode_section_title = 'Generate barcode labels for plots or plants or family names in this trial.';
+%     $barcode_section_title = '為此試驗中的小區、植株或家族名稱產生條碼標籤。';
 % } elsif ($trial_stock_type eq 'cross') {
-%     $barcode_section_title = 'Generate barcode labels for plots or plants or cross unique ids in this trial.';
+%     $barcode_section_title = '為此試驗中的小區、植株或雜交唯一識別碼產生條碼標籤。';
 % } else {
-%     $barcode_section_title = 'Generate barcode labels for plots or plants or accessions in this trial.';
+%     $barcode_section_title = '為此試驗中的小區、植株或種原產生條碼標籤。';
 % }
 <div class="row">
     <div class="col-sm-6">
         <& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-qrcode", title => $barcode_section_title, button_id => "generate_trial_barcode_link" &>
     </div>
     <div class="col-sm-6">
-        <& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-pencil", title => "Directly record phenotypes to database for this trial.", button_id => "direct_phenotyping_link" &>
+        <& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-pencil", title => "直接將此試驗的表型數據記錄到資料庫。", button_id => "direct_phenotyping_link" &>
     </div>
 </div>
 
-% my $subtitle = 'View and edit the spatial layout of the experiment. Also view a heatmap for phenotyped traits.';
+% my $subtitle = '檢視並編輯實驗的空間配置。同時檢視已分析表型性狀的熱圖。';
 % my $layout_buttons = '';
 % if ($has_col_and_row_numbers){
-%     $layout_buttons = '<h3><span class="glyphicon glyphicon-ok-sign text-success"></span>&nbsp;&nbsp;&nbsp;This experiment has spatial layout info uploaded!</h3><button class="btn btn-success btn-sm" style="margin:3px" id="gps_field_map_link">Goto Geo Field Layout</button><button class="btn btn-primary btn-sm" style="margin:3px" id="edit_field_map_link">Edit Field Layout</button><button class="btn btn-default btn-sm" style="margin:3px" id="trial_fieldmap_download_layout_button">Download Spatial Layout</button><button class="btn btn-danger btn-sm" id="delete_field_map_hm_link" style="margin:3px">Delete Spatial Layout</button><button class="btn btn-default btn-sm" style="margin:3px" data-toggle="modal" data-target="#fieldmap_usage_modal">Usage Help <span class="glyphicon glyphicon-question-sign"></span></button>';
+%     $layout_buttons = '<h3><span class="glyphicon glyphicon-ok-sign text-success"></span>&nbsp;&nbsp;&nbsp;此實驗已上傳空間配置資訊！</h3><button class="btn btn-success btn-sm" style="margin:3px" id="gps_field_map_link">前往地理田間配置</button><button class="btn btn-primary btn-sm" style="margin:3px" id="edit_field_map_link">編輯田間配置</button><button class="btn btn-default btn-sm" style="margin:3px" id="trial_fieldmap_download_layout_button">下載空間配置</button><button class="btn btn-danger btn-sm" id="delete_field_map_hm_link" style="margin:3px">刪除空間配置</button><button class="btn btn-default btn-sm" style="margin:3px" data-toggle="modal" data-target="#fieldmap_usage_modal">使用說明 <span class="glyphicon glyphicon-question-sign"></span></button>';
 % } else {
-%    $layout_buttons = '<h3><span class="glyphicon glyphicon-remove-sign text-danger"></span>&nbsp;&nbsp;&nbsp;This experiment does not have spatial layout info!</h3><button class="btn btn-success btn-sm" style="margin:3px" id="gps_field_map_link">Goto Geo Field Layout</button><button class="btn btn-primary btn-sm" style="margin:3px" id="heatmap_upload_trial_coords_link">Upload Spatial Layout</button><button class="btn btn-primary btn-sm" style="margin:3px" id="edit_field_map_link">Edit Field Layout</button><button class="btn btn-default btn-sm" style="margin:3px" data-toggle="modal" data-target="#fieldmap_usage_modal">Usage Help <span class="glyphicon glyphicon-question-sign"></span></button>';
+%    $layout_buttons = '<h3><span class="glyphicon glyphicon-remove-sign text-danger"></span>&nbsp;&nbsp;&nbsp;此實驗尚未擁有空間配置資訊！</h3><button class="btn btn-success btn-sm" style="margin:3px" id="gps_field_map_link">前往地理田間配置</button><button class="btn btn-primary btn-sm" style="margin:3px" id="heatmap_upload_trial_coords_link">上傳空間配置</button><button class="btn btn-primary btn-sm" style="margin:3px" id="edit_field_map_link">編輯田間配置</button><button class="btn btn-default btn-sm" style="margin:3px" data-toggle="modal" data-target="#fieldmap_usage_modal">使用說明 <span class="glyphicon glyphicon-question-sign"></span></button>';
 % }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Field Layout Tools and Phenotype Heatmap</h4>", info_section_subtitle => $subtitle, buttons_html => $layout_buttons, icon_class => "glyphicon glyphicon-th", info_section_id => "pheno_heatmap" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>田間配置工具與表型熱圖</h4>", info_section_subtitle => $subtitle, buttons_html => $layout_buttons, icon_class => "glyphicon glyphicon-th", info_section_id => "pheno_heatmap" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, trial_name => $trial_name, info_section_title => "<h4 style='display:inline'>Experimental Design</h4>", info_section_subtitle => 'View and add experimental design information. Add plant entries and tissue sample entries.', buttons_html => '<button class="btn btn-sm btn-primary" style="margin:3px" id="trial_download_layout_button">Download Layout</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_upload_seedlot_button" >Upload Seedlots Planted In Trial</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_upload_plot_gps_button" >Upload GPS Coordinates</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_detail_page_add_treatment">Add Management Factor</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_detail_page_change_accessions">Change Accessions</button>', icon_class => "glyphicon glyphicon-list-alt", info_section_id => "trial_design_section", has_plant_entries => $has_plant_entries, has_subplot_entries => $has_subplot_entries, has_tissue_sample_entries => $has_tissue_sample_entries, trial_stock_type => $trial_stock_type &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, trial_name => $trial_name, info_section_title => "<h4 style='display:inline'>實驗設計</h4>", info_section_subtitle => '檢視並新增實驗設計資訊。新增植株條目和組織樣本條目。', buttons_html => '<button class="btn btn-sm btn-primary" style="margin:3px" id="trial_download_layout_button">下載配置</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_upload_seedlot_button" >上傳試驗種植的種子批</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_upload_plot_gps_button" >上傳 GPS 座標</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_detail_page_add_treatment">新增管理因子</button> <button class="btn btn-sm btn-default" style="margin:3px" id="trial_detail_page_change_accessions">變更種原</button>', icon_class => "glyphicon glyphicon-list-alt", info_section_id => "trial_design_section", has_plant_entries => $has_plant_entries, has_subplot_entries => $has_subplot_entries, has_tissue_sample_entries => $has_tissue_sample_entries, trial_stock_type => $trial_stock_type &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Genomic Relationship Matrices</h4>", info_section_subtitle => 'View genomic relationships between accessions in this trial.', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' name='upload_genotyping_data_link'>Create Genomic Relationship Matrix</button><button class='btn btn-sm btn-default' style='margin:3px' id='trial_genomic_relationships_link_button'>Link Genomic Relationship Matrix</button>", icon_class => "glyphicon glyphicon-random", info_section_id => "trial_detail_genomic_relationships", &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>基因組關係矩陣</h4>", info_section_subtitle => '檢視此試驗中種原間的基因組關係。', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' name='upload_genotyping_data_link'>建立基因組關係矩陣</button><button class='btn btn-sm btn-default' style='margin:3px' id='trial_genomic_relationships_link_button'>連結基因組關係矩陣</button>", icon_class => "glyphicon glyphicon-random", info_section_id => "trial_detail_genomic_relationships", &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Phenotype Summary Statistics</h4>", info_section_subtitle => 'View and download uploaded phenotype data.', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_download_phenotypes_button'>Download Trial Phenotype Data</button>", icon_class => "glyphicon glyphicon-equalizer", info_section_id => "trial_detail_traits_assayed", has_expression_atlas => $has_expression_atlas, trial_name => $trial_name, expression_atlas_url => $expression_atlas_url, site_project_name => $site_project_name, sgn_session_id => $sgn_session_id, user_name => $user_name, main_production_site_url => $main_production_site_url, trial_stock_type => $trial_stock_type &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>表型摘要統計</h4>", info_section_subtitle => '檢視並下載已上傳的表型數據。', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_download_phenotypes_button'>下載試驗表型數據</button>", icon_class => "glyphicon glyphicon-equalizer", info_section_id => "trial_detail_traits_assayed", has_expression_atlas => $has_expression_atlas, trial_name => $trial_name, expression_atlas_url => $expression_atlas_url, site_project_name => $site_project_name, sgn_session_id => $sgn_session_id, user_name => $user_name, main_production_site_url => $main_production_site_url, trial_stock_type => $trial_stock_type &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Analysis Tools</h4>", info_section_subtitle => 'Run correlation, spatial correction, time-series plots, etc.', icon_class => "glyphicon glyphicon-signal", info_section_id => "trial_analysis_tools", hidap_enabled => $hidap_enabled, main_production_site_url => $main_production_site_url, breeding_program_name => $breeding_program_name, folder_name => $folder_name, trial_name => $trial_name &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>分析工具</h4>", info_section_subtitle => '執行相關性分析、空間校正、時間序列繪圖等。', icon_class => "glyphicon glyphicon-signal", info_section_id => "trial_analysis_tools", hidap_enabled => $hidap_enabled, main_production_site_url => $main_production_site_url, breeding_program_name => $breeding_program_name, folder_name => $folder_name, trial_name => $trial_name &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Weather Data</h4>", info_section_subtitle => 'View rainfall, temperature, light intensity and other weather data for this location.', icon_class => "glyphicon glyphicon-cloud", info_section_id => "trial_weather_data", location_name => $location_name, location_id => $location_id, planting_date => $planting_date, harvest_date => $harvest_date &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>氣象數據</h4>", info_section_subtitle => '檢視此地點的降雨量、溫度、光照強度及其他氣象數據。', icon_class => "glyphicon glyphicon-cloud", info_section_id => "trial_weather_data", location_name => $location_name, location_id => $location_id, planting_date => $planting_date, harvest_date => $harvest_date &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Upload Data Files</h4>", info_section_subtitle => 'Phenotypic data collection using Excel or Android Fieldbook. Also upload any additional files for this trial.', icon_class => "glyphicon glyphicon-cloud-upload", info_section_id => "trial_upload_files", trial_stock_type => $trial_stock_type &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>上傳數據檔案</h4>", info_section_subtitle => '使用 Excel 或 Android Fieldbook 收集表型數據。也可上傳此試驗的任何額外檔案。', icon_class => "glyphicon glyphicon-cloud-upload", info_section_id => "trial_upload_files", trial_stock_type => $trial_stock_type &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Compute New Phenotypes</h4>", info_section_subtitle => 'Compute derived traits or compute plot phenotypes from plant phenotypes.', icon_class => "glyphicon glyphicon-floppy-save", info_section_id => "compute_derived_traits" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>計算新表型</h4>", info_section_subtitle => '計算衍生性狀或從植株表型計算小區表型。', icon_class => "glyphicon glyphicon-floppy-save", info_section_id => "compute_derived_traits" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Soil Data</h4>", info_section_subtitle => 'View and upload soil data for this trial.', icon_class => "glyphicon glyphicon-info-sign", buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_upload_soil_data_button' >Upload Soil Data</button>", info_section_id => "trial_soil_data_section"&>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>土壤數據</h4>", info_section_subtitle => '檢視並上傳此試驗的土壤數據。', icon_class => "glyphicon glyphicon-info-sign", buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_upload_soil_data_button' >上傳土壤數據</button>", info_section_id => "trial_soil_data_section"&>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>JBrowse Genome Alignments For this Experiment</h4>", info_section_subtitle => 'View JBrowse alignments for accessions in this trial.', icon_class => "glyphicon glyphicon-align-left", info_section_id => "trial_jbrowse_data" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>此實驗的 JBrowse 基因組比對</h4>", info_section_subtitle => '檢視此試驗中種原的 JBrowse 比對。', icon_class => "glyphicon glyphicon-align-left", info_section_id => "trial_jbrowse_data" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Experiment Linkage</h4>", info_section_subtitle => 'View other experiments, crosses, and genotyping plates linked to this experiment.', icon_class => "glyphicon glyphicon-link", info_section_id => "trial_linkage_section" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>實驗連結</h4>", info_section_subtitle => '檢視連結到此實驗的其他實驗、雜交和基因型分析盤。', icon_class => "glyphicon glyphicon-link", info_section_id => "trial_linkage_section" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Delete Experiment Data</h4>", info_section_subtitle => 'Delete phenotypes, field layout, and/or the entire experiment from the database.', icon_class => "glyphicon glyphicon-trash", info_section_id => "trial_deletion_section" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>刪除實驗數據</h4>", info_section_subtitle => '從資料庫中刪除表型、田間配置和/或整個實驗。', icon_class => "glyphicon glyphicon-trash", info_section_id => "trial_deletion_section" &>
 
-% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">Add/edit data agreement</button>';
-% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">Add/edit data agreement</button>'; }
+% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">新增/編輯數據協議</button>';
+% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">新增/編輯數據協議</button>';
+% }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Data Agreement License</h4>", info_section_subtitle => 'View and edit the public data agreement on this experiment.', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>數據協議授權</h4>", info_section_subtitle => '檢視並編輯此實驗的公開數據協議。', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
 
 <& /breeders_toolbox/folder/folder_set.mas, project_type => 'field_trial', breeding_program_id => $breeding_program_id, breeding_program_name =>$breeding_program_name, trial_id => $trial_id, trial_name =>$trial_name &>
 <& /breeders_toolbox/folder/folder_new.mas, breeding_program_id => $breeding_program_id, breeding_program_name =>$breeding_program_name, project_type => 'field_trial', company_id => $private_company_id, company_name => $private_company_name, company_project_is_private => $project_is_private &>
@@ -182,7 +182,7 @@ jQuery(document).ready(function () {
      function() {
         var trial_id = get_trial_id();
 
-	var yes = confirm("Do you really want to remove this trial from the breeding program?");
+	var yes = confirm("您確定要將此試驗從育種計畫中移除嗎？");
 	if (yes) {
             jQuery.ajax( {
 		url: '/breeders/program/remove/<% $breeding_program_id %>/'+trial_id,
@@ -207,7 +207,6 @@ jQuery(document).ready(function () {
         var  id = <% $trial_id %>;
         window.open('/tools/fieldmap?trial_id=' + id ,'_blank');
     });
-
 });
 
 </script>
