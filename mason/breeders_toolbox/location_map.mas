@@ -329,9 +329,9 @@ $user_id => undef
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-6 control-label">Nearest NOAA Weather Station ID: (<a href="https://www.ncdc.noaa.gov/cdo-web/datatools/findstation" target="_blank">Search Here</a>)</label>
+            <label class="col-sm-6 control-label">Nearest CWA Weather Station ID: (<a href="https://hdps.cwa.gov.tw/static/state.html" target="_blank">Search Here</a>)</label>
             <div class="col-sm-6">
-                <input class="form-control" name="location_noaa_station_id" id="location_noaa_station_id" type="text" placeholder="e.g. GHCND:USC00300331"/>
+                <input class="form-control" name="location_noaa_station_id" id="location_noaa_station_id" type="text" placeholder="e.g. 466920"/>
             </div>
         </div>
 	  </form>
@@ -410,18 +410,26 @@ jQuery(document).ready(function() {
                 if (response.error) { alert(response.error); }
                 else {
                     var token = '<% $c->config->{noaa_ncdc_access_token} %>';
+                    var cwa_token = '<% $c->config->{cwa_token} %>';
                     if (noaa_station_id == '') {
                       // do nothing
                     } else if (token == 'NULL') {
                       alert(`Configuration variable 'noaa_ncdc_access_token' is undefined. Data from station `+noaa_station_id+` can't be accessed without a token.\r\nPlease visit https://www.ncdc.noaa.gov/cdo-web/token to generate a valid access token, then include the token in sgn_local.conf`);
                     } else {
                         $.ajax({
-                            url:'https://www.ncdc.noaa.gov/cdo-web/api/v2/stations/'+noaa_station_id,
-                            headers:{ token: token },
+                            // url:'https://www.ncdc.noaa.gov/cdo-web/api/v2/stations/'+noaa_station_id,
+                            // headers:{ token: token },
+                            url: 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/O-A0001-001',
+                            type: 'GET',
+                            data:{
+                                'Authorization': cwa_token, 
+                                'format':'JSON',
+                                'StationId':noaa_station_id,
+                                'WeatherElement':'AirTemperature'},
                             success: function(response) {
                                 console.log(response);
-                                if (response.name) {
-                                    alert('Found NOAA Station from given NOAA StationID: '+response.name);
+                                if (response.records.Station[0].StationName) {
+                                    alert('Found CWA Weather Station from given StationID: '+response.records.Station[0].StationName);
                                 }
                                 else {
                                     alert('Could not verify the NOAA StationID you provided, however, your details were still updated.');
