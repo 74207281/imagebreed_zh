@@ -150,7 +150,7 @@ jQuery(document).ready(function() {
                                 alert('Found a valid CWA Station for this location: '+response.Current.Name);
                                 
                                 // Build new table for current weatheraders
-                                var currentHead = '<tr><th scope="col">Observe Time</th><th scope="col">Weather</th><th scope="col">Temperature(&deg;C)</th><th scope="col">RH</th><th scope="col">Air Pressure</th><th scope="col">Wind Speed</th><th scope="col">Wind Direction/th><th scope="col">Precipitation</th></tr>';
+                                var currentHead = '<tr><th scope="col">Observe Time</th><th scope="col">Weather</th><th scope="col">Temperature(&deg;C)</th><th scope="col">RH</th><th scope="col">Air Pressure</th><th scope="col">Wind Speed</th><th scope="col">Wind Direction</th><th scope="col">Precipitation</th></tr>';
                                 
                                 // Loop through the response object and build new rows
                                 var currentData = response.Current;
