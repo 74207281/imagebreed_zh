@@ -146,14 +146,14 @@ jQuery(document).ready(function() {
                                 data : JSON.stringify({StationId:noaa_ncdc_analysis_location_station_id}), 
                         success: function(response) {
                             console.log(response);
-                            if (response.Name) {
-                                alert('Found a valid CWA Station for this location: '+response.Name);
+                            if (response.Current.Name) {
+                                alert('Found a valid CWA Station for this location: '+response.Current.Name);
                                 
                                 // Build new table for current weatheraders
                                 var currentHead = '<tr><th scope="col">Observe Time</th><th scope="col">Weather</th><th scope="col">Temperature(&deg;C)</th><th scope="col">RH</th><th scope="col">Air Pressure</th><th scope="col">Wind Speed</th><th scope="col">Wind Direction/th><th scope="col">Precipitation</th></tr>';
                                 
                                 // Loop through the response object and build new rows
-                                var currentData = response.current_data;
+                                var currentData = response.Current;
                                 var currentBody = '';
                                 // jQuery.each(response, function(key, value) {
                                 // console.log(value);
@@ -182,7 +182,7 @@ jQuery(document).ready(function() {
                                     <th scope="col">Sunshine Duration</th>\
                                 </tr>';
                                 var pastBody = '';
-                                var pastData = response.past_data;
+                                var pastData = response.Past;
                                 // Loop through the response object and build new rows
                                 jQuery.each(pastData, function(key, value) {
                                     console.log(value);
