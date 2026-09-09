@@ -13,26 +13,26 @@ $design_types => ()
 
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form', 'CXGN.BreedersToolbox.AddTrial03152022', 'CXGN.BreedersToolbox.UploadTrial03152022', 'CXGN.BreedersToolbox.Trial03152022', 'CXGN.Trial03152022', 'CXGN.BreedersToolbox.GenotypingTrial08232022', 'CXGN.BreedersToolbox.Accessions03152022',  'CXGN.BreedersToolbox.UploadPedigrees03152022', 'CXGN.BreedersToolbox.Crosses03152022', 'CXGN.BreedersToolbox.FieldBook03152022', 'CXGN.BreedersToolbox.UploadPhenotype03152022', 'CXGN.TrialTreeFolders03152022' ] &>
 
-<& /page/page_title.mas, title=>"Upload Data" &>
+<& /page/page_title.mas, title=>"上傳資料(Upload Data)" &>
 
 <div class="container-fluid">
 
 <div class="well well-sm">
-<h1>Traits</h1><br/>
+<h1>性狀(Traits)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a href="http://submit.rtbbase.org"><p>Go To Trait Request Form</p></a>
+<a href="http://submit.rtbbase.org"><p>前往性狀申請表</p></a>
 </td>
 <td>
-<a href="/tools/onto"><p>Go To Ontology Browser</p></a>
+<a href="/tools/onto"><p>前往本體論瀏覽器</p></a>
 </td>
 <td>
-<a href="/search/traits"><p>Go To Trait Search</p></a>
+<a href="/search/traits"><p>前往性狀搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -40,22 +40,22 @@ $design_types => ()
 </div>
 
 <div class="well well-sm">
-<h1>Field Trials</h1><br/>
+<h1>田間試驗(Field Trials)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a name="upload_trial_link"><p>Upload An Existing Trial</p></a>
-<a id="add_project_link"><p>Design A New Trial</p></a>
+<a name="upload_trial_link"><p>上傳現有試驗</p></a>
+<a id="add_project_link"><p>設計新試驗</p></a>
 </td>
 <td>
-<a href="/breeders/trials"><p>Go To Manage Trials</p></a>
+<a href="/breeders/trials"><p>前往管理試驗</p></a>
 </td>
 <td>
-<a href="/search/trials"><p>Go To Trial Search</p></a>
+<a href="/search/trials"><p>前往試驗搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -65,21 +65,21 @@ $design_types => ()
 <& /breeders_toolbox/trial/trial_upload_dialogs.mas, locations => $geojson_locations, breeding_programs => $breeding_programs, design_types => $design_types &>
 
 <div class="well well-sm">
-<h1>Genotyping Plates</h1><br/>
+<h1>基因型分析盤(Genotyping Plates)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a name="create_genotyping_trial_link"><p>Create An IGD Genotyping Plate</p></a>
+<a name="create_genotyping_trial_link"><p>建立 IGD 基因型分析盤</p></a>
 </td>
 <td>
-<a href="/breeders/genotyping"><p>Go To Manage Genotyping Plates</p></a>
+<a href="/breeders/genotyping"><p>前往管理基因型分析盤</p></a>
 </td>
 <td>
-<a href="/search/trials"><p>Go To Trial Search</p></a>
+<a href="/search/trials"><p>前往試驗搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -88,21 +88,21 @@ $design_types => ()
 <& /breeders_toolbox/genotyping_trials/create_genotyping_trial_dialogs.mas, facilities => $facilities &>
 
 <div class="well well-sm">
-<h1>Locations</h1><br/>
+<h1>地點(Locations)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a id="upload_locations_link"><p>Upload Many New Locations</p></a>
+<a id="upload_locations_link"><p>批量上傳新地點</p></a>
 </td>
 <td>
-<a href="/breeders/locations"><p>Go To Manage Locations</p></a>
+<a href="/breeders/locations"><p>前往管理地點</p></a>
 </td>
 <td>
-<a href="/breeders/locations"><p>Go To Manage Locations</p></a>
+<a href="/breeders/locations"><p>前往管理地點</p></a>
 </td>
 </tr>
 </tbody>
@@ -111,21 +111,21 @@ $design_types => ()
 <& /breeders_toolbox/upload_locations_dialogs.mas &>
 
 <div class="well well-sm">
-<h1>Accessions</h1><br/>
+<h1>種原(Accessions)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a name="add_accessions_link"><p>Add Accessions Using List or File Upload</p></a>
+<a name="add_accessions_link"><p>使用清單或檔案上傳新增種原</p></a>
 </td>
 <td>
-<a href="/breeders/accessions"><p>Go To Manage Accessions Page</p></a>
+<a href="/breeders/accessions"><p>前往管理種原頁面</p></a>
 </td>
 <td>
-<a href="/search/stocks"><p>Go To Accessions Search</p></a>
+<a href="/search/stocks"><p>前往種原搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -134,21 +134,21 @@ $design_types => ()
 <& /breeders_toolbox/add_accessions_dialogs.mas, preferred_species=>$preferred_species, editable_stock_props=>$editable_stock_props, editable_stock_props_definitions=>$editable_stock_props_definitions &>
 
 <div class="well well-sm">
-<h1>Populations</h1><br/>
+<h1>族群(Populations)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a id="manage_accessions_populations_new"><p>Add New Population</p></a>
+<a id="manage_accessions_populations_new"><p>新增族群</p></a>
 </td>
 <td>
-<a href="/breeders/accessions"><p>Go To Manage Accessions Page</p></a>
+<a href="/breeders/accessions"><p>前往管理種原頁面</p></a>
 </td>
 <td>
-<a href="/search/stocks"><p>Go To Stock Search</p></a>
+<a href="/search/stocks"><p>前往庫存搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -158,22 +158,22 @@ $design_types => ()
 
 
 <div class="well well-sm">
-<h1>Seedlots</h1><br/>
+<h1>種子批次(Seedlots)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a name="seedlot_bulk_upload"><p>Upload Many Seedlots</p></a>
-<a name="add_seedlot_button"><p>Add A Seedlot</p></a>
+<a name="seedlot_bulk_upload"><p>批量上傳種子批次</p></a>
+<a name="add_seedlot_button"><p>新增種子批次</p></a>
 </td>
 <td>
-<a href="/breeders/seedlots"><p>Go To Manage Seedlots Page</p></a>
+<a href="/breeders/seedlots"><p>前往管理種子批次頁面</p></a>
 </td>
 <td>
-<a href="/breeders/seedlots"><p>Go To Manage Seedlots Page</p></a>
+<a href="/breeders/seedlots"><p>前往管理種子批次頁面</p></a>
 </td>
 </tr>
 </tbody>
@@ -183,21 +183,21 @@ $design_types => ()
 <& /breeders_toolbox/add_seedlot_dialogs.mas, timestamp=>$timestamp &>
 
 <div class="well well-sm">
-<h1>Pedigrees</h1><br/>
+<h1>系譜(Pedigrees)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a id="upload_pedigrees_link"><p>Upload Many Pedigrees</p></a>
+<a id="upload_pedigrees_link"><p>批量上傳系譜</p></a>
 </td>
 <td>
-<a href="/breeders/accessions"><p>Go To Manage Accessions Page</p></a>
+<a href="/breeders/accessions"><p>前往管理種原頁面</p></a>
 </td>
 <td>
-<a href="/search/cross"><p>Go To Search Crosses</p></a>
+<a href="/search/cross"><p>前往雜交搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -206,29 +206,29 @@ $design_types => ()
 <& /breeders_toolbox/upload_pedigrees_dialogs.mas &>
 
 <div class="well well-sm">
-<h1>Crosses</h1><br/>
+<h1>雜交(Crosses)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Plan</th><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>規劃(Plan)</th><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a id="create_cross_wishlist" >Create Cross Wishlist</a>
+<a id="create_cross_wishlist" >建立雜交願望清單</a>
 </td>
 <td>
-<a name="upload_crosses_link"><p>Upload Many New Crosses</p></a>
-<a name="create_cross_link"><p>Add A Cross</p></a>
-<a name="upload_cross_info"><p>Upload Cross Info of Existing Crosses</p></a>
-<a name="upload_progenies_new_accessions_link"><p>Upload progeny names that are NOT in database</p></a>
-<a name="upload_progenies_existing_accessions_link"><p>Upload progeny names that already EXIST in database</p></a>
-<a name="upload_family_names_link"><p>Upload Family Names</p></a>
+<a name="upload_crosses_link"><p>批量上傳新雜交</p></a>
+<a name="create_cross_link"><p>新增雜交</p></a>
+<a name="upload_cross_info"><p>上傳現有雜交的資訊</p></a>
+<a name="upload_progenies_new_accessions_link"><p>上傳尚未在資料庫中的後代名稱</p></a>
+<a name="upload_progenies_existing_accessions_link"><p>上傳已存在於資料庫中的後代名稱</p></a>
+<a name="upload_family_names_link"><p>上傳家族名稱</p></a>
 </td>
 <td>
-<a href="/breeders/crosses"><p>Go To Manage Crosses Page</p></a>
+<a href="/breeders/crosses"><p>前往管理雜交頁面</p></a>
 </td>
 <td>
-<a href="/search/cross"><p>Go To Search Crosses</p></a>
+<a href="/search/cross"><p>前往雜交搜尋</p></a>
 </td>
 </tr>
 </tbody>
@@ -241,27 +241,27 @@ $design_types => ()
 <& /breeders_toolbox/cross/add_progenies_dialogs.mas &>
 
 <div class="well well-sm">
-<h1>Phenotypes</h1><br/>
+<h1>表型(Phenotypes)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Collection</th><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>收集(Collection)</th><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<a name="create_fieldbook_link"><p>Create Fieldbook Layout File</p></a>
-<a id="create_new_trait_file_link"><p>Create Fieldbook Trait File</p></a>
-<a name="create_spreadsheet_link"><p>Create Phenotyping Spreadsheet</p></a>
+<a name="create_fieldbook_link"><p>建立 Fieldbook 配置檔案</p></a>
+<a id="create_new_trait_file_link"><p>建立 Fieldbook 性狀檔案</p></a>
+<a name="create_spreadsheet_link"><p>建立表型試算表</p></a>
 </td>
 <td>
-<a id="upload_fieldbook_phenotypes_link"><p>Upload Fieldbook Database File</p></a>
-<a id="upload_spreadsheet_phenotypes_link"><p>Upload Phenotyping Spreadsheet</p></a>
+<a id="upload_fieldbook_phenotypes_link"><p>上傳 Fieldbook 資料庫檔案</p></a>
+<a id="upload_spreadsheet_phenotypes_link"><p>上傳表型試算表</p></a>
 </td>
 <td>
-<a href="/breeders/phenotyping"><p>Go To Manage Phenotypes Page</p></a>
+<a href="/breeders/phenotyping"><p>前往管理表型頁面</p></a>
 </td>
 <td>
-<a href="/breeders/search"><p>Go To Search Wizard</p></a>
+<a href="/breeders/search"><p>前往搜尋精靈</p></a>
 </td>
 </tr>
 </tbody>
@@ -274,22 +274,22 @@ $design_types => ()
 <& /breeders_toolbox/trial/create_spreadsheet_dialog.mas &>
 
 <div class="well well-sm">
-<h1>Genotypes</h1><br/>
+<h1>基因型(Genotypes)</h1><br/>
 <table class="table table-bordered">
 <thead>
-<tr><th>Add</th><th>Manage</th><th>Search</th></tr>
+<tr><th>新增(Add)</th><th>管理(Manage)</th><th>搜尋(Search)</th></tr>
 </thead>
 <tbody>
 <tr>
 <td>
-<button class="btn btn-sm btn-default" name="upload_genotyping_data_link"><p>Upload Genotyping Data File (VCF, Intertek, SSR, etc)</button>
+<button class="btn btn-sm btn-default" name="upload_genotyping_data_link"><p>上傳基因型分析資料檔（VCF、Intertek、SSR 等）(Upload Genotyping Data File (VCF, Intertek, SSR, etc))</button>
 </td>
 <td>
-<a href="/breeders/genotyping"><p>Go To Manage Genotyping Page</p></a>
+<a href="/breeders/genotyping"><p>前往管理基因型分析頁面</p></a>
 </td>
 <td>
-<a href="/search/genotyping_protocols"><p>Go To Search Genotyping Protocols</p></a>
-<a href="/search/genotyping_data_projects"><p>Go To Search Genotyping Projects</p></a>
+<a href="/search/genotyping_protocols"><p>前往搜尋基因型分析協定</p></a>
+<a href="/search/genotyping_data_projects"><p>前往搜尋基因型分析專案</p></a>
 </td>
 </tr>
 </tbody>
