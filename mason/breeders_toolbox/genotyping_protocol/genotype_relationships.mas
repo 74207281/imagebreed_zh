@@ -8,18 +8,18 @@ $protocol_id
 
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-3 control-label">Download Format: </label>
+                    <label class="col-sm-3 control-label">下載格式：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="genotyping_protocol_grm_relationships_download_format">
-                            <option value="matrix_uniquenames">Matrix Stock Names (.tsv)</option>
-                            <option value="three_column_uniquenames">3-Column Stock Names (.tsv)</option>
-                            <option value="three_column_reciprocal_uniquenames">3-Column Reciprocal Stock Names (.tsv)</option>
-                            <option value="heatmap">Heatmap (.pdf)</option>
-                            <option value="matrix">Matrix Stock IDs (.tsv)</option>
-                            <option value="three_column">3-Column Stock IDs(.tsv)</option>
-                            <option value="three_column_stock_id_integer">3-Column Stock IDs Integer (.tsv)</option>
-                            <option value="three_column_reciprocal">3-Column Reciprocal Stock IDs (.tsv)</option>
-                            <option value="three_column_reciprocal_stock_id_integer">3-Column Reciprocal Stock IDs Integer (.tsv)</option>
+                            <option value="matrix_uniquenames">矩陣種質名稱 (.tsv)</option>
+                            <option value="three_column_uniquenames">三欄種質名稱 (.tsv)</option>
+                            <option value="three_column_reciprocal_uniquenames">三欄反向種質名稱 (.tsv)</option>
+                            <option value="heatmap">熱圖 (.pdf)</option>
+                            <option value="matrix">矩陣種質 ID (.tsv)</option>
+                            <option value="three_column">三欄種質 ID (.tsv)</option>
+                            <option value="three_column_stock_id_integer">三欄整數種質 ID (.tsv)</option>
+                            <option value="three_column_reciprocal">三欄反向種質 ID (.tsv)</option>
+                            <option value="three_column_reciprocal_stock_id_integer">三欄反向整數種質 ID (.tsv)</option>
                         </select>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ $protocol_id
 
         </div>
         <div class="col-sm-3">
-            <button class="btn btn-primary" id="genotyping_protocol_grm_relationships_download_button">Download</button>
+            <button class="btn btn-primary" id="genotyping_protocol_grm_relationships_download_button">下載(Download)</button>
         </div>
     </div>
 </div>
@@ -35,13 +35,13 @@ $protocol_id
 <div class="well well-sm">
     <div class="form-horizontal">
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Minimum Hue (0-360): </label>
+            <label class="col-sm-3 control-label">最小色相 (0-360)：</label>
             <div class="col-sm-9" >
                 <input class="form-control" type="number" id="genotyping_protocol_grm_relationships_min_color" value=0 />
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Maximum Hue (0-360): </label>
+            <label class="col-sm-3 control-label">最大色相 (0-360)：</label>
             <div class="col-sm-9" >
                 <input class="form-control" type="number" id="genotyping_protocol_grm_relationships_max_color" value=160 />
             </div>
@@ -87,7 +87,7 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 else if (response.num_stocks > 1000) {
-                    alert('The GRM is too large to display because it has more than 1000 accessions ('+response.num_stocks+') involved. Please download a file instead to view the relationships!');
+                    alert('GRM 包含超過 1000 個品系 ('+response.num_stocks+')，資料量過大無法直接顯示。請下載檔案檢視關聯！');
                     return false;
                 }
                 else {
@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
                     var min_hue = jQuery('#genotyping_protocol_grm_relationships_min_color').val();
                     var max_hue = jQuery('#genotyping_protocol_grm_relationships_max_color').val();
 
-                    var html = '<table class="table table-bordered table-hover"><thead><tr><th>Accessions</th>';
+                    var html = '<table class="table table-bordered table-hover"><thead><tr><th>品系(Accessions)</th>';
 
                     for (var a_stock_id in response.grm.a_stock_id_map) {
                         if (response.grm.a_stock_id_map.hasOwnProperty(a_stock_id)) {
@@ -136,7 +136,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('Error getting genotype relationships for genotyping protocol!');
+                alert('取得基因分型協定的基因型關係時發生錯誤！');
             }
         });
     }
