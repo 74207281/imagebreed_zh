@@ -5,29 +5,29 @@ $protocol_id
 <div class="well well-sm">
     <div class="form form-horizontal" id="markers_table_search_form">
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Marker Name(s): </label>
+            <label class="col-sm-3 control-label">標記名稱：</label>
             <div class="col-sm-9" >
-                <input class="form-control" id="markers_table_search_marker_name" type="text" placeholder="Marker name(s) (comma separated)"/>
+                <input class="form-control" id="markers_table_search_marker_name" type="text" placeholder="標記名稱 (以逗號分隔)"/>
             </div>
         </div>
     </div>
     <center>
-    <button class="btn btn-primary btn-sm" id="marker_table_search_submit">Search</button>
+    <button class="btn btn-primary btn-sm" id="marker_table_search_submit">搜尋(Search)</button>
     </center>
 </div>
 
 <table id="protocol_markers_table" class="table table-hover table-bordered">
     <thead>
         <tr>
-            <th>Marker Name</th>
-            <th>Chromosome</th>
-            <th>Position</th>
-            <th>Alternate</th>
-            <th>Reference</th>
-            <th>Quality</th>
-            <th>Filter</th>
-            <th>Info</th>
-            <th>Format</th>
+            <th>標記名稱(Marker Name)</th>
+            <th>染色體(Chromosome)</th>
+            <th>位置(Position)</th>
+            <th>變異等位基因(Alternate)</th>
+            <th>參考等位基因(Reference)</th>
+            <th>品質(Quality)</th>
+            <th>過濾條件(Filter)</th>
+            <th>資訊(Info)</th>
+            <th>格式(Format)</th>
         </tr>
     </thead>
     </tbody>
