@@ -16,14 +16,14 @@ $editable_stock_props_definitions
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addAccessionsDialog">Add Accessions</h4>
+        <h4 class="modal-title" id="addAccessionsDialog">新增種原(Add Accessions)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <ul class="nav nav-pills nav-justified" id="add_new_accessions_tab_select">
-                <li class="active" id="add_new_accessions_list_tab"><a data-toggle="tab" href="#with_list_tab">Using Lists</a></li>
-                <li id="add_new_accessions_file_tab"><a data-toggle="tab" href="#with_file_tab">Uploading a File</a></li>
+                <li class="active" id="add_new_accessions_list_tab"><a data-toggle="tab" href="#with_list_tab">使用清單(Using Lists)</a></li>
+                <li id="add_new_accessions_file_tab"><a data-toggle="tab" href="#with_file_tab">上傳檔案(Uploading a File)</a></li>
             </ul>
 
             <div class="tab-content">
@@ -32,18 +32,18 @@ $editable_stock_props_definitions
                     <hr>
                     <form class="form-horizontal" role="form" name="new_accessions_form" id="new_accessions_form">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Choose a List of Accessions to Add: </label>
+                            <label class="col-sm-4 control-label">選擇要加入的種原清單：</label>
                             <div class="col-sm-8" id="list_div" name="list_div">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-4 control-label"></label>
                             <div class="col-sm-8">
-                                <button name="lists_link" class="btn btn-info btn-sm" style="margin:6px 0px 0px 0px" type="button" >Manage Lists</button>
+                                <button name="lists_link" class="btn btn-info btn-sm" style="margin:6px 0px 0px 0px" type="button" >管理清單(Manage Lists)</button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Use Fuzzy Search: </label>
+                            <label class="col-sm-4 control-label">使用模糊搜尋：</label>
                             <div class="col-sm-8">
 % if ( $user_role eq 'curator' ) {
                                 <input type="checkbox" id="fuzzy_check" name="fuzzy_check" checked></input>
@@ -51,7 +51,7 @@ $editable_stock_props_definitions
                                 <input type="checkbox" id="fuzzy_check" name="fuzzy_check" checked disabled></input>
 % }
                                 <br/>
-                                <small>Note: Use the fuzzy search to match similar names to prevent uploading of duplicate accessions. Fuzzy searching is much slower than regular search. Only a curator can disable the fuzzy search.</small>
+                                <small>注意：使用模糊搜尋比對相似名稱，以避免上傳重複的種原。模糊搜尋比一般搜尋慢得多。只有管理員（Curator）可以停用模糊搜尋。</small>
                             </div>
                         </div>
                     </form>
@@ -59,28 +59,28 @@ $editable_stock_props_definitions
 
                 <div id="with_file_tab" class="tab-pane fade">
                     <hr>
-                    <&| /page/explanation.mas, title=>'Template information' &>
+                    <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                         <p>
-                            <b>File format information</b>
+                            <b>檔案格式資訊</b>
                             <br>
-                            <a id="accessions_upload_spreadsheet_format_info">Spreadsheet format</a>
+                            <a id="accessions_upload_spreadsheet_format_info">試算表格式</a>
                         </p>
                     </&>
 
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_new_accessions_form" name="upload_new_accessions_form">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Choose Your Company: </label>
+                            <label class="col-sm-4 control-label">選擇您的公司：</label>
                             <div class="col-sm-8" id="add_accessions_file_private_company_div" name="add_accessions_file_private_company_div">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Upload File: </label>
+                            <label class="col-sm-4 control-label">上傳檔案：</label>
                             <div class="col-sm-8" >
                                 <input type="file" name="new_accessions_upload_file" id="new_accessions_upload_file" encoding="multipart/form-data" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Use Fuzzy Search: </label>
+                            <label class="col-sm-4 control-label">使用模糊搜尋：</label>
                             <div class="col-sm-8">
 % if ( $user_role eq 'curator' ) {
                                 <input type="checkbox" id="fuzzy_check_upload_accessions" name="fuzzy_check_upload_accessions" checked></input>
@@ -88,7 +88,7 @@ $editable_stock_props_definitions
                                 <input type="checkbox" id="fuzzy_check_upload_accessions" name="fuzzy_check_upload_accessions" checked disabled></input>
 % }
                                 <br/>
-                                <small>Note: Use the fuzzy search to match similar names to prevent uploading of duplicate accessions. Fuzzy searching is much slower than regular search. Only a curator can disable the fuzzy search.</small>
+                                <small>注意：使用模糊搜尋比對相似名稱，以避免上傳重複的種原。模糊搜尋比一般搜尋慢得多。只有管理員（Curator）可以停用模糊搜尋。</small>
                             </div>
                         </div>
                     </form>
@@ -100,8 +100,8 @@ $editable_stock_props_definitions
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="new_accessions_submit" id="new_accessions_submit">Continue</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="new_accessions_submit" id="new_accessions_submit">繼續(Continue)</button>
       </div>
     </div>
   </div>
@@ -112,15 +112,15 @@ $editable_stock_props_definitions
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadAccessionsInfoDialog">Upload Accessions Template Information</h4>
+                <h4 class="modal-title" id="uploadAccessionsInfoDialog">上傳種原範本資訊(Upload Accessions Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>Accessions may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>種原可以 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br /><br />
-                    <b>Header:</b>
+                    <b>表頭：</b>
                     <br>
-                    The first row (header) should contain the following:
+                    第一列（表頭）應包含以下內容：
                     <br />
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -139,37 +139,37 @@ $editable_stock_props_definitions
                         </tbody>
                     </table>
 
-                    <b>Comma Separated Fields:</b>
+                    <b>以逗號分隔的欄位：</b>
                     <ul>
-                    <li>The following fields can take comma-separated values to indicate there are several values for the accession: organization_name, synonym
+                    <li>以下欄位可使用逗號分隔值，以表示該種原有多個數值：organization_name, synonym
 %  foreach my $editable_stockprop (sort keys %$editable_stock_props) {
 %                   print ", $editable_stockprop";
 %  }
                     </li>
                     </ul>
 
-                    <b>Required Fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                    <li>accession_name (must be unique)</li>
-                    <li>species_name (must exist in the database)</li>
+                    <li>accession_name（必須唯一）</li>
+                    <li>species_name（必須存在於資料庫中）</li>
                     </ul>
-                    <b>Optional Fields:</b>
+                    <b>選填欄位：</b>
                     <ul>
-                    <li>population_name (a population is a grouping of accessions. if the population already exists in the database, the accession will be added into it, otherwise, the new population will be created.)</li>
-                    <li>organization_name (the name(s) of the organization(s) which use this accession e.g. NARO,IITA)</li>
-                    <li>synonym (an accession can be known by many names including local popular names. a synonym name can be used instead of the accession_name throughout the database; because of this, synonyms must themselves be unique. e.g. accession_synonym1,accession_synonym001)</li>
+                    <li>population_name（族群是種原的分組。若族群已存在於資料庫中，種原將被加入其中；否則將建立新族群。）</li>
+                    <li>organization_name（使用該種原的機構名稱，例如：NARO, IITA）</li>
+                    <li>synonym（同義詞。一個種原可能有許多名稱，包括在地常用名稱。同義詞名稱可在整個資料庫中替代 accession_name 使用；因此，同義詞本身也必須是唯一的。例如：accession_synonym1, accession_synonym001）</li>
 %  foreach my $editable_stockprop (sort keys %$editable_stock_props) {
 %    if (exists($editable_stock_props_definitions->{$editable_stockprop})) {
 %                   print "<li>$editable_stockprop (".$editable_stock_props_definitions->{$editable_stockprop}.")</li>";
 %    } else {
-%                   print "<li>$editable_stockprop (no definition available)</li>";
+%                   print "<li>$editable_stockprop (無可用定義)</li>";
 %    }
 %  }
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_trial_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_trial_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -180,7 +180,7 @@ $editable_stock_props_definitions
     <div class="modal-content ui-front">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="reviewAbsentDialog">Accessions to be Added</h4>
+        <h4 class="modal-title" id="reviewAbsentDialog">待新增的種原(Accessions to be Added)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -188,25 +188,25 @@ $editable_stock_props_definitions
 
                 <div class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Organism Species: </label>
+                        <label class="col-sm-4 control-label">物種名稱：</label>
                         <div class="col-sm-8">
                             <input class="form-control" type="text" id="species_name_input" value="<% $preferred_species %>"></input>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Company: </label>
+                        <label class="col-sm-4 control-label">公司：</label>
                         <div class="col-sm-8">
                             <div id="private_company_name_input"></div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Population Name: </label>
+                        <label class="col-sm-4 control-label">族群名稱：</label>
                         <div class="col-sm-8">
                             <input class="form-control" type="text" id="population_name_input"></input>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label">Organization Name: </label>
+                        <label class="col-sm-4 control-label">機構名稱：</label>
                         <div class="col-sm-8">
                             <input class="form-control" type="text" id="organization_name_input"></input>
                         </div>
@@ -214,7 +214,7 @@ $editable_stock_props_definitions
                 </div>
                 <hr>
 
-                <b>The following accessions are new and will be added to the database:</b>
+                <b>以下種原為新種原，將被新增至資料庫中：</b>
                 <div id="count_of_absent_accessions"></div>
                 <br>
                 <div id="view_absent"></div>
@@ -223,8 +223,8 @@ $editable_stock_props_definitions
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	<button type="button" class="btn btn-primary" name="review_absent_accessions_submit" id="review_absent_accessions_submit">Add Accessions</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	<button type="button" class="btn btn-primary" name="review_absent_accessions_submit" id="review_absent_accessions_submit">新增種原(Add Accessions)</button>
       </div>
     </div>
   </div>
@@ -235,18 +235,18 @@ $editable_stock_props_definitions
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="reviewFuzzyDialog">Fuzzy Matches</h4>
+        <h4 class="modal-title" id="reviewFuzzyDialog">模糊比對結果(Fuzzy Matches)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-    	  <b>Accessions were found with similar names.</b>
+    	  <b>發現具有相似名稱的種原。</b>
   	  <br/><br/>
   	  <div id="view_fuzzy_matches"></div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="review_fuzzy_matches_download" id="review_fuzzy_matches_download">Download Fuzzy Matches</button>
-        <button type="button" class="btn btn-primary" name="review_fuzzy_matches_continue" id="review_fuzzy_matches_continue" data-dismiss="modal">Make Changes and Continue</button>
+        <button type="button" class="btn btn-default" name="review_fuzzy_matches_download" id="review_fuzzy_matches_download">下載模糊比對結果(Download Fuzzy Matches)</button>
+        <button type="button" class="btn btn-primary" name="review_fuzzy_matches_continue" id="review_fuzzy_matches_continue" data-dismiss="modal">進行修改並繼續(Make Changes and Continue)</button>
       </div>
     </div>
   </div>
@@ -257,18 +257,18 @@ $editable_stock_props_definitions
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="reviewFoundDialog">Found Accessions</h4>
+        <h4 class="modal-title" id="reviewFoundDialog">已存在的種原(Found Accessions)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-    	  <b>The following accessions already exist in the database:</b>
+    	  <b>以下種原已存在於資料庫中：</b>
   	  <div id="count_of_found_accessions"></div>
   	  <br/>
   	  <div id="view_found_matches"></div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" name="review_found_matches_hide" id="review_found_matches_hide" data-dismiss="modal">Continue</button>
+        <button type="button" class="btn btn-primary" name="review_found_matches_hide" id="review_found_matches_hide" data-dismiss="modal">繼續(Continue)</button>
       </div>
     </div>
   </div>
@@ -279,7 +279,7 @@ $editable_stock_props_definitions
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addAccessionsSavedDialog">Accessions Saved</h4>
+                <h4 class="modal-title" id="addAccessionsSavedDialog">種原已儲存(Accessions Saved)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -287,7 +287,7 @@ $editable_stock_props_definitions
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_add_accessions_saved_message_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_add_accessions_saved_message_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
