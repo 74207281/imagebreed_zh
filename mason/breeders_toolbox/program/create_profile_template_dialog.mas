@@ -4,19 +4,19 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createProfileTemplateDialog">To create product profile template, please provide file name and a list of traits </h4>
+                <h4 class="modal-title" id="createProfileTemplateDialog">建立產品概況範本，請提供檔案名稱及性狀清單(Create Product Profile Template)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Template File Name: </label>
+                            <label class="col-sm-3 control-label">範本檔案名稱：</label>
                             <div class="col-sm-9">
-                                <input class="form-control" id="template_file_name" name="template_file_name" type="text" placeholder="Enter template file name"/>
+                                <input class="form-control" id="template_file_name" name="template_file_name" type="text" placeholder="輸入範本檔案名稱"/>
                             </div>
                         </div><br/><br/>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="select_list_list_select">Select a List of Traits: </label>
+                            <label class="col-sm-3 control-label" for="select_list_list_select">選擇性狀清單：</label>
                             <div class="col-sm-9">
                                 <span id="select_list_div"></span>
                             </div>
@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-info" id="create_profile_template" >Create Template</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-info" id="create_profile_template" >建立範本(Create Template)</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -37,21 +37,21 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createProfileTemplateSavedDialog">Product Profile Template Created</h4>
+                <h4 class="modal-title" id="createProfileTemplateSavedDialog">產品概況範本已建立(Product Profile Template Created)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The product profile template was created successfully.
+                        產品概況範本已成功建立。
                     </p>
                     <p>
-                        <a id="profile_template_download_link">Download Template</a>
+                        <a id="profile_template_download_link">下載範本(Download Template)</a>
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="profile_template_close_button" id="profile_template_close_button" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" name="profile_template_close_button" id="profile_template_close_button" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -70,12 +70,12 @@ jQuery(document).ready(function () {
         trait_list_json = JSON.stringify(trait_list);
 
         if (template_file_name === '') {
-            alert("Please supply a template file name");
+            alert("請提供範本檔案名稱");
             return;
         }
 
         if (trait_list_id === '') {
-            alert("Please select a trait list");
+            alert("請選擇性狀清單");
             return;
         }
 
@@ -102,7 +102,7 @@ jQuery(document).ready(function () {
             },
             error: function() {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred creating the profile template.');
+                alert('建立概況範本時發生錯誤。');
                 jQuery('#create_profile_template_dialog').modal("hide");
             },
 
