@@ -48,11 +48,11 @@ jQuery(document).ready(function(){
                     }
             },
             columns: [
-                { title: "種子批次名稱", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/seedlot/"+row.seedlot_stock_id+"'>"+row.seedlot_stock_uniquename+"</a>"; } },
-                { title: "育種計畫", "data": "breeding_program_name" },
-                { title: "內容物", "data": "contents_html" },
-                { title: "種子批次地點", "data": "location" },
-                { title: "數量", "data": "count" },
+                { title: "種子批次名稱(Seedlot Name)", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/seedlot/"+row.seedlot_stock_id+"'>"+row.seedlot_stock_uniquename+"</a>"; } },
+                { title: "育種計畫(Breeding Program)", "data": "breeding_program_name" },
+                { title: "內容物(Contents)", "data": "contents_html" },
+                { title: "種子批次地點(Seedlot Location)", "data": "location" },
+                { title: "數量(Count)", "data": "count" },
             ],
             "fnInitComplete": function(oSettings, json) {
                 //console.log(json);
