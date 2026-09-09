@@ -8,66 +8,66 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryCalculateStatisticsDialog">Calculate statistics on aerial image phenotypes</h4>
+        <h4 class="modal-title" id="droneImageryCalculateStatisticsDialog">計算空中影像表型統計值(Calculate Statistics on Aerial Image Phenotypes)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "drone_imagery_calculate_statistics_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Intro" &>
-                    <& /page/page_title.mas, title=>"Select the type of analysis to perform" &>
+                <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                    <& /page/page_title.mas, title=>"選擇要執行的分析類型(Select the Type of Analysis to Perform)" &>
                     <center>
-                    <button class="btn btn-default" id="drone_imagery_calculate_statistics_intro_single_trial_select_step">Single Trial Field Analysis</button>
+                    <button class="btn btn-default" id="drone_imagery_calculate_statistics_intro_single_trial_select_step">單一試驗田間分析(Single Trial Field Analysis)</button>
                     </center>
                     <br/>
                     <!--center>
-                    <button class="btn btn-default" id="drone_imagery_calculate_statistics_intro_single_trial_multiseason_select_step">Single Trial Multi-Season Field Analysis</button>
+                    <button class="btn btn-default" id="drone_imagery_calculate_statistics_intro_single_trial_multiseason_select_step">單一試驗跨產季田間分析(Single Trial Multi-Season Field Analysis)</button>
                     </center-->
                 </&>
-                <&| /util/workflow.mas:step, title=> "Field Trial" &>
-                    <& /page/page_title.mas, title=>"Select the field trial you are interested in. Select only one." &>
+                <&| /util/workflow.mas:step, title=> "田間試驗(Field Trial)" &>
+                    <& /page/page_title.mas, title=>"選取您感興趣的田間試驗。僅能選取一個。(Select the Field Trial You are Interested In. Select Only One.)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Field Trial(s): </label>
+                            <label class="col-sm-3 control-label">田間試驗：</label>
                             <div class="col-sm-9" >
                                 <div id="drone_imagery_calculate_statistics_trial_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_field_trial_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_field_trial_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Trait Selection" &>
-                    <& /page/page_title.mas, title=>"Select the observation variable(s) you are interested in" &>
+                <&| /util/workflow.mas:step, title=> "性狀選取(Trait Selection)" &>
+                    <& /page/page_title.mas, title=>"選取您感興趣的觀測變數(Select the Observation Variable(s) You are Interested In)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Observation Variable Type: </label>
+                            <label class="col-sm-3 control-label">觀測變數類型：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="drone_imagery_calculate_statistics_select_observation_variable_type">
-                                    <option value="time_ontology">Time Series</option>
-                                    <option value="">Single Trait</option>
+                                    <option value="time_ontology">時間序列</option>
+                                    <option value="">單一性狀</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Observation Variables Phenotyped in the Selected Field Trial: </label>
+                            <label class="col-sm-3 control-label">選定田間試驗中已測量表型的觀測變數：</label>
                             <div class="col-sm-9" >
                                 <div id="drone_imagery_calculate_statistics_trait_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_trait_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_trait_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Statistics" &>
-                    <& /page/page_title.mas, title=>"Select statistics to calculate" &>
+                <&| /util/workflow.mas:step, title=> "統計分析(Statistics)" &>
+                    <& /page/page_title.mas, title=>"選取要計算的統計值(Select Statistics to Calculate)" &>
 
                     <select class="form-control" id="drone_imagery_calculate_statistics_select_input">
-                        <option value="">Select A Model</option>
+                        <option value="">選擇模型</option>
                         <!--option value="lmer_germplasmname_replicate">LMER BLUPs y~replicate+1|Germplasm. Univariate genetic effects</option-->
 
                         <option value="sommer_grm_genetic_blups">Sommer GBLUPs Y~replicate+GRM. Multivariate genetic effects using GRM</option>
@@ -91,12 +91,12 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Relationship Matrix Type: </label>
+                                <label class="col-sm-3 control-label">關係矩陣類型：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_imagery_calculate_statistics_relationship_matrix_type_select_div">
-                                        <option value="">Identity</option>
-                                        <option value="htp_phenotypes">High-throughput Phenotyping Data</option>
-                                        <option value="genotypes">Genotyping Data</option>
+                                        <option value="">單位矩陣</option>
+                                        <option value="htp_phenotypes">高通量表型資料</option>
+                                        <option value="genotypes">基因分型資料</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,35 +106,35 @@
                     <div id="drone_imagery_calculate_statistics_genotyping_protocol_div" class="well well-sm" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Genotyping Protocol To Calculate Genomic Relationship Matrix (optional. If none selected, an identity matrix is used): </label>
+                                <label class="col-sm-3 control-label">用於計算基因組關係矩陣的基因分型協定 (可選，若未選取則使用單位矩陣)：</label>
                                 <div class="col-sm-9" >
                                     <div id="drone_imagery_calculate_statistics_genotyping_protocol_select_div"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Compute Genotypes From Parents: </label>
+                                <label class="col-sm-3 control-label">由親本計算基因型：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_genotyping_protocol_compute_from_parents_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_genotyping_protocol_use_parental_grms_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">Use Parental Relationship Matrices: </label>
+                                <label class="col-sm-3 control-label">使用親本關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_genotyping_protocol_use_parental_grms_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_genotyping_protocol_include_pedigree_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">Include Pedigree Info Into Relationship Matrix: </label>
+                                <label class="col-sm-3 control-label">將譜系資訊納入關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_genotyping_protocol_include_pedigree_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,28 +144,28 @@
                     <div id="drone_imagery_calculate_statistics_htp_phenotypes_rel_matrix_div" class="well well-sm" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">How to calculate the relationship matrix with high-throughput phenotypes: </label>
+                                <label class="col-sm-3 control-label">如何使用高通量表型計算關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_htp_phenotypes_rel_matrix_select">
-                                        <option value="correlations">Correlations</option>
+                                        <option value="correlations">相關係數</option>
                                         <option value="blues">BLUEs</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Time Points to Use: </label>
+                                <label class="col-sm-3 control-label">使用的時間點：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_htp_phenotypes_rel_matrix_times_select">
-                                        <option value="all">All Available</option>
-                                        <option value="latest_trait">Up to the latest date selected in traits</option>
-                                        <option value="vegetative" disabled>Vegetative Growth Stage</option>
-                                        <option value="reproductive" disabled>Reproductive Growth Stage</option>
-                                        <option value="mature" disabled>Mature Growth Stage</option>
+                                        <option value="all">所有可用</option>
+                                        <option value="latest_trait">至性狀所選的最新日期為止</option>
+                                        <option value="vegetative" disabled>營養生長階段</option>
+                                        <option value="reproductive" disabled>生殖生長階段</option>
+                                        <option value="mature" disabled>成熟生長階段</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_htp_phenotypes_rel_matrix_inversion_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">HTP BLUEs Inversion Tolerance: </label>
+                                <label class="col-sm-3 control-label">HTP BLUEs 反轉容差：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_htp_phenotypes_rel_matrix_inversion_select">
                                         <option value="0.00001">0.00001</option>
@@ -184,11 +184,11 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Use Cumulative Area-Under-Curve Phenotype in Analysis: </label>
+                                <label class="col-sm-3 control-label">在分析中使用累積曲線下面積表型：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_use_area_under_curve_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
@@ -199,7 +199,7 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Inversion Tolerance: </label>
+                                <label class="col-sm-3 control-label">反轉容差：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_tolparinv_select">
                                         <option value="0.000001">0.000001</option>
@@ -224,7 +224,7 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Legendre Polynomial Order: </label>
+                                <label class="col-sm-3 control-label">勒壤得多項式階數：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_legendre_order_number_select">
                                         <!--option value="1">1</option>
@@ -242,8 +242,8 @@
                         $$x_t = Bx_{t-1} + u + w_t\\ w_t \sim MVN(0,Q)\\ y_t = Zx_t + a + v_t\\ v_t \sim MVN(0,R)\\ x_0 \sim MVN(\pi, \Lambda)$$
                         <hr>
                         <select class="form-control" id="drone_imagery_calculate_statistics_select_marss" name="drone_imagery_calculate_statistics_select_marss">
-                            <option value="marss_predict_last_time_point">Predict Last Time Point</option>
-                            <option value="marss_predict_last_two_time_points">Predict Last Two Time Point</option>
+                            <option value="marss_predict_last_time_point">預測最後一個時間點</option>
+                            <option value="marss_predict_last_two_time_points">預測最後兩個時間點</option>
                         </select>
                     </div>
 
@@ -251,12 +251,12 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Permanent Environment Structure: </label>
+                                <label class="col-sm-3 control-label">永久環境效應結構：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_permanent_env_structure_select">
-                                        <option value="identity">Identity Matrix</option>
-                                        <option value="phenotype_correlation">Phenotype Correlation Matrix</option>
-                                        <option value="euclidean_rows_and_columns">Euclidean Distance From Rows and Columns Matrix</option>
+                                        <option value="identity">單位矩陣</option>
+                                        <option value="phenotype_correlation">表型相關矩陣</option>
+                                        <option value="euclidean_rows_and_columns">行列歐氏距離矩陣</option>
                                     </select>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@
                         <div id="drone_imagery_calculate_statistics_permanent_env_structure_phenotype_correlation_div" style="display:none">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Phenotypes For Correlation Matrix: </label>
+                                    <label class="col-sm-3 control-label">用於相關矩陣的表型：</label>
                                     <div class="col-sm-9" >
                                         <div id="drone_imagery_calculate_statistics_permanent_env_structure_phenotype_correlation_select_div"></div>
                                     </div>
@@ -277,19 +277,19 @@
 
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_select_step">Submit</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_select_step">送出(Submit)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Results" &>
-                    <& /page/page_title.mas, title=>"Statistics results" &>
+                <&| /util/workflow.mas:step, title=> "結果(Results)" &>
+                    <& /page/page_title.mas, title=>"統計結果(Statistics Results)" &>
 
                     <hr>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_genetic_pe_residual" style="display:none">Go To Save Analysis Results For Genetic and Environment BLUPS and Residuals</button>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_genetic" style="display:none">Go To Save Analysis Results For Genetic BLUPS</button>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_spatial" style="display:none">Go To Save Analysis Results For Spatial BLUPS</button>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_pe" style="display:none">Go To Save Analysis Results For Permanent Environmental BLUPS</button>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_residuals" style="display:none">Go To Save Analysis Results For Residuals</button>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_fitted" style="display:none">Go To Save Analysis Results For Fitted Values</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_genetic_pe_residual" style="display:none">前往儲存遺傳與環境 BLUP 及殘差分析結果(Go To Save Analysis Results For Genetic and Environment BLUPS and Residuals)</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_genetic" style="display:none">前往儲存遺傳 BLUP 分析結果(Go To Save Analysis Results For Genetic BLUPS)</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_spatial" style="display:none">前往儲存空間 BLUP 分析結果(Go To Save Analysis Results For Spatial BLUPS)</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_blups_pe" style="display:none">前往儲存永久環境 BLUP 分析結果(Go To Save Analysis Results For Permanent Environmental BLUPS)</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_residuals" style="display:none">前往儲存殘差分析結果(Go To Save Analysis Results For Residuals)</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_analysis_save_fitted" style="display:none">前往儲存擬合值分析結果(Go To Save Analysis Results For Fitted Values)</button>
                     <hr>
 
                     <div id ="drone_imagery_calculate_statistics_result_div">
@@ -301,7 +301,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -312,47 +312,47 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryCalculateStatisticsSingleTrialMultiSeasonDialog">Calculate statistics on aerial image phenotypes</h4>
+        <h4 class="modal-title" id="droneImageryCalculateStatisticsSingleTrialMultiSeasonDialog">計算空中影像表型統計值(Calculate Statistics on Aerial Image Phenotypes)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "drone_imagery_calculate_statistics_single_trial_multiseason_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Field Trial" &>
-                    <& /page/page_title.mas, title=>"Select the field trial you are interested in. Select only one." &>
+                <&| /util/workflow.mas:step, title=> "田間試驗(Field Trial)" &>
+                    <& /page/page_title.mas, title=>"選取您感興趣的田間試驗。僅能選取一個。(Select the Field Trial You are Interested In. Select Only One.)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Field Trial(s): </label>
+                            <label class="col-sm-3 control-label">田間試驗：</label>
                             <div class="col-sm-9" >
                                 <div id="drone_imagery_calculate_statistics_multiseason_trial_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_field_trial_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_field_trial_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Trait Selection" &>
-                    <& /page/page_title.mas, title=>"Select the observation variable(s) you are interested in" &>
+                <&| /util/workflow.mas:step, title=> "性狀選取(Trait Selection)" &>
+                    <& /page/page_title.mas, title=>"選取您感興趣的觀測變數(Select the Observation Variable(s) You are Interested In)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Observation Variables Phenotyped in the Selected Field Trial: </label>
+                            <label class="col-sm-3 control-label">選定田間試驗中已測量表型的觀測變數：</label>
                             <div class="col-sm-9" >
                                 <div id="drone_imagery_calculate_statistics_multiseason_trait_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_trait_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_trait_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Statistics" &>
-                    <& /page/page_title.mas, title=>"Select statistics to calculate" &>
+                <&| /util/workflow.mas:step, title=> "統計分析(Statistics)" &>
+                    <& /page/page_title.mas, title=>"選取要計算的統計值(Select Statistics to Calculate)" &>
 
                     <select class="form-control" id="drone_imagery_calculate_statistics_multiseason_select_input">
-                        <option value="">Select A Model</option>
+                        <option value="">選擇模型</option>
 
                         <option value="sommer_grm_genetic_blups">Sommer GBLUPs Y~replicate+GRM. Multivariate genetic effects using GRM</option>
                         <option value="sommer_grm_spatial_genetic_blups">Sommer Spatial GBLUPs Y~replicate+GRM+spatial. Multivariate genetic + 2Dspl spatial effects</option>
@@ -361,12 +361,12 @@
                     <hr>
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Relationship Matrix Type: </label>
+                            <label class="col-sm-3 control-label">關係矩陣類型：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="drone_imagery_calculate_statistics_multiseason_relationship_matrix_type_select_div">
-                                    <option value="">Identity</option>
-                                    <option value="htp_phenotypes">High-throughput Phenotyping Data</option>
-                                    <option value="genotypes">Genotyping Data</option>
+                                    <option value="">單位矩陣</option>
+                                    <option value="htp_phenotypes">高通量表型資料</option>
+                                    <option value="genotypes">基因分型資料</option>
                                 </select>
                             </div>
                         </div>
@@ -375,35 +375,35 @@
                     <div id="drone_imagery_calculate_statistics_multiseason_genotyping_protocol_div" class="well well-sm" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Genotyping Protocol To Calculate Genomic Relationship Matrix (optional. If none selected, an identity matrix is used): </label>
+                                <label class="col-sm-3 control-label">用於計算基因組關係矩陣的基因分型協定 (可選，若未選取則使用單位矩陣)：</label>
                                 <div class="col-sm-9" >
                                     <div id="drone_imagery_calculate_statistics_multiseason_genotyping_protocol_select_div"></div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Compute Genotypes From Parents: </label>
+                                <label class="col-sm-3 control-label">由親本計算基因型：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_genotyping_protocol_compute_from_parents_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_multiseason_genotyping_protocol_use_parental_grms_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">Use Parental Relationship Matrices: </label>
+                                <label class="col-sm-3 control-label">使用親本關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_genotyping_protocol_use_parental_grms_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_multiseason_genotyping_protocol_include_pedigree_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">Include Pedigree Info Into Relationship Matrix: </label>
+                                <label class="col-sm-3 control-label">將譜系資訊納入關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_genotyping_protocol_include_pedigree_select">
-                                        <option value="no">No</option>
-                                        <option value="yes">Yes</option>
+                                        <option value="no">否</option>
+                                        <option value="yes">是</option>
                                     </select>
                                 </div>
                             </div>
@@ -413,28 +413,28 @@
                     <div id="drone_imagery_calculate_statistics_multiseason_htp_phenotypes_rel_matrix_div" class="well well-sm" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">How to calculate the relationship matrix with high-throughput phenotypes: </label>
+                                <label class="col-sm-3 control-label">如何使用高通量表型計算關係矩陣：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_htp_phenotypes_rel_matrix_select">
-                                        <option value="correlations">Correlations</option>
+                                        <option value="correlations">相關係數</option>
                                         <option value="blues">BLUEs</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Time Points to Use: </label>
+                                <label class="col-sm-3 control-label">使用的時間點：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_htp_phenotypes_rel_matrix_times_select">
-                                        <option value="all">All Available</option>
-                                        <option value="latest_trait">Up to the latest date selected in traits</option>
-                                        <option value="vegetative" disabled>Vegetative Growth Stage</option>
-                                        <option value="reproductive" disabled>Reproductive Growth Stage</option>
-                                        <option value="mature" disabled>Mature Growth Stage</option>
+                                        <option value="all">所有可用</option>
+                                        <option value="latest_trait">至性狀所選的最新日期為止</option>
+                                        <option value="vegetative" disabled>營養生長階段</option>
+                                        <option value="reproductive" disabled>生殖生長階段</option>
+                                        <option value="mature" disabled>成熟生長階段</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group" id="drone_image_calculate_statistics_multiseason_htp_phenotypes_rel_matrix_inversion_select_div" style="display:none">
-                                <label class="col-sm-3 control-label">HTP BLUEs Inversion Tolerance: </label>
+                                <label class="col-sm-3 control-label">HTP BLUEs 反轉容差：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_htp_phenotypes_rel_matrix_inversion_select">
                                         <option value="0.00001">0.00001</option>
@@ -452,7 +452,7 @@
                     <hr>
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Inversion Tolerance: </label>
+                            <label class="col-sm-3 control-label">反轉容差：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="drone_image_calculate_statistics_multiseason_tolparinv_select">
                                     <option value="0.000001">0.000001</option>
@@ -476,7 +476,7 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Legendre Polynomial Order: </label>
+                                <label class="col-sm-3 control-label">勒壤得多項式階數：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_legendre_order_number_select">
                                         <option value="1">1</option>
@@ -494,12 +494,12 @@
                         <hr>
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Permanent Environment Structure: </label>
+                                <label class="col-sm-3 control-label">永久環境效應結構：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="drone_image_calculate_statistics_multiseason_permanent_env_structure_select">
-                                        <option value="identity">Identity Matrix</option>
-                                        <option value="phenotype_correlation">Phenotype Correlation Matrix</option>
-                                        <option value="euclidean_rows_and_columns">Euclidean Distance From Rows and Columns Matrix</option>
+                                        <option value="identity">單位矩陣</option>
+                                        <option value="phenotype_correlation">表型相關矩陣</option>
+                                        <option value="euclidean_rows_and_columns">行列歐氏距離矩陣</option>
                                     </select>
                                 </div>
                             </div>
@@ -508,7 +508,7 @@
                         <div id="drone_imagery_calculate_statistics_multiseason_permanent_env_structure_phenotype_correlation_div" style="display:none">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Phenotypes For Correlation Matrix: </label>
+                                    <label class="col-sm-3 control-label">用於相關矩陣的表型：</label>
                                     <div class="col-sm-9" >
                                         <div id="drone_imagery_calculate_statistics_multiseason_permanent_env_structure_phenotype_correlation_select_div"></div>
                                     </div>
@@ -520,11 +520,11 @@
 
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_select_step">Submit</button>
+                    <button class="btn btn-primary" id="drone_imagery_calculate_statistics_multiseason_select_step">送出(Submit)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Results" &>
-                    <& /page/page_title.mas, title=>"Statistics results" &>
+                <&| /util/workflow.mas:step, title=> "結果(Results)" &>
+                    <& /page/page_title.mas, title=>"統計結果(Statistics Results)" &>
 
                     <div id ="drone_imagery_calculate_statistics_multiseason_result_div">
                     </div>
@@ -535,7 +535,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -605,14 +605,14 @@ jQuery(document).ready(function() {
         manage_drone_imagery_calculate_statistics_field_trial_id_array = jQuery('#drone_imagery_calculate_statistics_field_trial_id').val();
 
         if (manage_drone_imagery_calculate_statistics_field_trial_id_array.length > 1) {
-            alert('Please only select a single field trial for now!');
+            alert('目前請僅選取單一田間試驗！');
             return false;
         }
 
         manage_drone_imagery_calculate_statistics_field_trial_id_string = manage_drone_imagery_calculate_statistics_field_trial_id_array.join(",");
         manage_drone_imagery_calculate_statistics_observation_variable_type = jQuery('#drone_imagery_calculate_statistics_select_observation_variable_type').val();
         if (manage_drone_imagery_calculate_statistics_field_trial_id_string == '') {
-            alert('Please select a field trial first!');
+            alert('請先選取田間試驗！');
         } else {
             if (manage_drone_imagery_calculate_statistics_observation_variable_type == 'time_ontology') {
                 get_select_box('traits', 'drone_imagery_calculate_statistics_trait_select_div', { 'name' : 'drone_imagery_calculate_statistics_trait_id_select', 'id' : 'drone_imagery_calculate_statistics_trait_id_select', 'empty':1, 'multiple':1, 'size': 20, 'trial_ids':manage_drone_imagery_calculate_statistics_field_trial_id_string, 'stock_type':'plot', 'contains_composable_cv_type':manage_drone_imagery_calculate_statistics_observation_variable_type, 'select_format':'component_table_select' });
@@ -635,7 +635,7 @@ jQuery(document).ready(function() {
         manage_drone_imagery_calculate_statistics_multiseason_field_trial_id_array = jQuery('#drone_imagery_calculate_statistics_multiseason_field_trial_id').val();
 
         if (manage_drone_imagery_calculate_statistics_multiseason_field_trial_id_array.length > 1) {
-            alert('Please only select a single field trial for now!');
+            alert('目前請僅選取單一田間試驗！');
             return false;
         }
 
@@ -664,13 +664,13 @@ jQuery(document).ready(function() {
         else {
             manage_drone_imagery_calculate_statistics_trait_ids = jQuery('#drone_imagery_calculate_statistics_trait_id_select').val();
             if (manage_drone_imagery_calculate_statistics_trait_ids == null || manage_drone_imagery_calculate_statistics_trait_ids == undefined) {
-                alert('Please select at least one observation variable!');
+                alert('請至少選取一個觀測變數！');
                 return false;
             }
         }
 
         if (manage_drone_imagery_calculate_statistics_trait_ids.length < 1){
-            alert('Please select at least one observation variable!');
+            alert('請至少選取一個觀測變數！');
         } else {
             Workflow.complete("#drone_imagery_calculate_statistics_trait_select_step");
             Workflow.focus('#drone_imagery_calculate_statistics_workflow', 3);
@@ -870,15 +870,15 @@ jQuery(document).ready(function() {
         manage_drone_imagery_calculate_statistics_select = jQuery('#drone_imagery_calculate_statistics_select_input').val();
 
         if (manage_drone_imagery_calculate_statistics_select == 'marss_germplasmname_block' && manage_drone_imagery_calculate_statistics_observation_variable_type != 'time_ontology') {
-            alert('The MARSS model fit and prediction only works for Time Series traits! Please go to Trait Selection and select time series traits.');
+            alert('MARSS 模型擬合與預測僅適用於時間序列性狀！請前往性狀選取並選擇時間序列性狀。');
             return false;
         }
         if (jQuery('#drone_image_calculate_statistics_genotyping_protocol_include_pedigree_select').val() == 'yes' && jQuery('#drone_image_calculate_statistics_genotyping_protocol_compute_from_parents_select').val() != 'yes') {
-            alert('You can only use pedigree info in the relationship matrix if you will compute the genotypes from the parents!');
+            alert('僅在您由親本計算基因型時，才能在關係矩陣中使用譜系資訊！');
             return false;
         }
         if (jQuery('#drone_image_calculate_statistics_genotyping_protocol_use_parental_grms_select').val() == 'yes' && jQuery('#drone_image_calculate_statistics_genotyping_protocol_compute_from_parents_select').val() != 'yes') {
-            alert('You can only use parental relationship matrices if you will compute the genotypes from the parents!');
+            alert('僅在您由親本計算基因型時，才能使用親本關係矩陣！');
             return false;
         }
 
@@ -886,7 +886,7 @@ jQuery(document).ready(function() {
         if (jQuery('#drone_image_calculate_statistics_permanent_env_structure_select').val() == 'phenotype_correlation') {
             manage_drone_imagery_calculate_statistics_rr_structure_phenotype_correlation = jQuery('#drone_imagery_calculate_statistics_permanent_env_structure_phenotype_correlation_select').val();
             if (!manage_drone_imagery_calculate_statistics_rr_structure_phenotype_correlation || manage_drone_imagery_calculate_statistics_rr_structure_phenotype_correlation.length < 3) {
-                alert('Please select at least three phenotypes to use in random regression phenotype correlation structure!');
+                alert('請至少選取三個表型用於隨機回歸表型相關結構！');
                 return false;
             }
         }
@@ -948,7 +948,7 @@ jQuery(document).ready(function() {
                         manage_drone_imagery_calculate_statistics_phenotype_training_file = response.stats_tempfile;
                         manage_drone_imagery_calculate_statistics_grm_training_file = response.grm_file;
 
-                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>Accessions</th>';
+                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>品系(Accessions)</th>';
                         for (var i=0; i<manage_drone_imagery_calculate_statistics_trait_names.length; i++) {
                             html = html + '<th>'+manage_drone_imagery_calculate_statistics_trait_names[i]+'</th>';
                         }
@@ -973,7 +973,7 @@ jQuery(document).ready(function() {
                         manage_drone_imagery_calculate_statistics_plot_names = response.unique_plots;
                         manage_drone_imagery_calculate_statistics_trait_names = response.unique_traits;
 
-                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>Plots</th>';
+                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>小區(Plots)</th>';
                         for (var i=0; i<response.unique_traits.length; i++) {
                             html = html + '<th>'+response.unique_traits[i]+'</th>';
                         }
@@ -993,7 +993,7 @@ jQuery(document).ready(function() {
                         manage_drone_imagery_calculate_statistics_plot_names = response.unique_plots;
                         manage_drone_imagery_calculate_statistics_trait_names = response.unique_traits;
 
-                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>Plots</th>';
+                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>小區(Plots)</th>';
                         for (var i=0; i<response.unique_traits.length; i++) {
                             html = html + '<th>'+response.unique_traits[i]+'</th>';
                         }
@@ -1015,7 +1015,7 @@ jQuery(document).ready(function() {
                     }
 
                     if (response.results.length > 0) {
-                        html = '<table class="table table-bordered table-hover"><thead><tr><th>Observation Variable</th><th>Statistics</th><th>Plot</th></tr></thead><tbody>';
+                        html = '<table class="table table-bordered table-hover"><thead><tr><th>觀測變數(Observation Variable)</th><th>統計值(Statistics)</th><th>小區(Plot)</th></tr></thead><tbody>';
                         for (var i=0; i<response.results.length; i++) {
                             html = html + '<tr><td>'+response.results[i][0]+'</td><td>'+response.results[i][1]+'</td><td><img src="'+response.results[i][2]+'"></td></tr>';
                         }
@@ -1036,7 +1036,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error calculating statistics!')
+                alert('計算統計值時發生錯誤！')
             }
         });
     });
@@ -1052,15 +1052,15 @@ jQuery(document).ready(function() {
         var generic_save_analysis_template_breeding_program_id = jQuery('#generic_save_analysis_template_breeding_program_id').val();
 
         if (generic_save_analysis_template_analysis_name == '') {
-            alert('Please give an analysis template name');
+            alert('請提供分析範本名稱');
             return false;
         }
         if (generic_save_analysis_template_analysis_description == '') {
-            alert('Please give an analysis template description');
+            alert('請提供分析範本描述');
             return false;
         }
         if (generic_save_analysis_template_analysis_year == '') {
-            alert('Please give an analysis template year');
+            alert('請提供分析範本年份');
             return false;
         }
 
@@ -1608,7 +1608,7 @@ jQuery(document).ready(function() {
 
                                 if (manage_drone_imagery_calculate_statistics_select == 'sommer_grm_spatial_genetic_blups') {
                                     jQuery('#working_modal').modal('hide');
-                                    alert('Analysis and/or model saved!');
+                                    alert('分析及/或模型已儲存！');
                                     return false;
                                 }
 
@@ -1653,7 +1653,7 @@ jQuery(document).ready(function() {
                                             alert(response.error);
                                         }
                                         if (response.success) {
-                                            alert('Analysis and/or model saved!');
+                                            alert('分析及/或模型已儲存！');
                                             html = html + '<center>';
                                             if (response.analysis_id) {
                                                 html = html + '<p>Go to saved <a href="/analyses/'+response.analysis_id+'" target=_blank >residuals analysis</a></p>';
@@ -1663,20 +1663,20 @@ jQuery(document).ready(function() {
                                         }
                                     },
                                     error: function(response){
-                                        alert('Error saving analysis multiple!');
+                                        alert('儲存多項分析時發生錯誤！');
                                     }
                                 });
                             }
                         },
                         error: function(response){
-                            alert('Error saving analysis multiple!');
+                            alert('儲存多項分析時發生錯誤！');
                         }
                     });
                 }
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('Error saving analysis multiple!');
+                alert('儲存多項分析時發生錯誤！');
             }
         });
     });
@@ -1936,7 +1936,7 @@ jQuery(document).ready(function() {
 
     jQuery('#drone_imagery_calculate_statistics_analysis_save_blups_spatial').click(function(){
         if (manage_drone_imagery_calculate_statistics_field_trial_id_array.length>1) {
-            alert('Saving spatial BLUPs currently only implemented for a single trial, so only select one field trial in your analysis');
+            alert('儲存空間 BLUP 目前僅支援單一試驗，因此分析中請僅選取一個田間試驗');
             return false;
         }
 
@@ -1993,7 +1993,7 @@ jQuery(document).ready(function() {
 
     jQuery('#drone_imagery_calculate_statistics_analysis_save_blups_pe').click(function(){
         if (manage_drone_imagery_calculate_statistics_field_trial_id_array.length>1) {
-            alert('Saving spatial BLUPs currently only implemented for a single trial, so only select one field trial in your analysis');
+            alert('儲存空間 BLUP 目前僅支援單一試驗，因此分析中請僅選取一個田間試驗');
             return false;
         }
 
