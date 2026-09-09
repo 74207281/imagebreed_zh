@@ -46,15 +46,15 @@ $goto_url => '/'
                         <input type="hidden" value="<% $goto_url %>" id="goto_url" name="goto_url" />
 
                         <div>
-                            <button class="btn btn-default" id="new_user_modal_show" style="float:left" tabindex="6">新使用者</button>
-                            <button class="btn btn-primary" id="submit_password" name="submit_password" type="submit" style="float:right" tabindex="3">登入</button>
+                            <button class="btn btn-default" id="new_user_modal_show" style="float:left" tabindex="6">新使用者(New User)</button>
+                            <button class="btn btn-primary" id="submit_password" name="submit_password" type="submit" style="float:right" tabindex="3">登入(Login)</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
 %  if (!$c->config->{require_login}) {
-                <button id="close_site_login_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉</button>
+                <button id="close_site_login_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉(Close)</button>
 %  }
             </div>
         </div>
@@ -78,13 +78,13 @@ $goto_url => '/'
                         <div style="white-space:nowrap; align:center">
                             <label class="textlabel">電子郵件地址</label>
                             <input class="form-control" style="width:200px; white-space:nowrap; float:center" id="forgot_username_email" name="forgot_username_email" /><br />
-                            <button type="submit" class="btn btn-primary" id="submit_forgot_username_email" style="float:center" >取得使用者名稱</button>
+                            <button type="submit" class="btn btn-primary" id="submit_forgot_username_email" style="float:center" >取得使用者名稱(Get Username(s))</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_site_login_forgot_username_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉</button>
+                <button id="close_site_login_forgot_username_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -107,13 +107,13 @@ $goto_url => '/'
                         <div style="white-space:nowrap; align:center">
                             <label class="textlabel">電子郵件地址</label>
                             <input class="form-control" style="width:200px; white-space:nowrap; float:center" id="password_reset_email" name="password_reset_email" /><br />
-                            <button type="submit" class="btn btn-primary" id="submit_password_reset_email" style="float:center" >取得連結</button>
+                            <button type="submit" class="btn btn-primary" id="submit_password_reset_email" style="float:center" >取得連結(Get link)</button>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_site_login_reset_password_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉</button>
+                <button id="close_site_login_reset_password_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -207,8 +207,8 @@ $goto_url => '/'
                                     </div>
 
                                     <div align="right">
-                                        <button class="btn btn-default btn-lg" type="reset" >重設</button>
-                                        <button class="btn btn-primary btn-lg" type="submit" name="create_account" >建立帳號</button>
+                                        <button class="btn btn-default btn-lg" type="reset" >重設(Reset)</button>
+                                        <button class="btn btn-primary btn-lg" type="submit" name="create_account" >建立帳號(Create Account)</button>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@ $goto_url => '/'
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_site_login_new_user_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉</button>
+                <button id="close_site_login_new_user_dialog_button" type="button" class="btn btn-default" data-dismiss="modal" style="float:left">關閉(Close)</button>
             </div>
         </div>
     </div>
