@@ -12,16 +12,16 @@ $odk_phenotyping_data_service_url => undef
 <& /util/import_css.mas, paths => ['/static/documents/inc/jstree_theme/jstree-bstheme-min.css'] &>
 
 
-<& /page/page_title.mas, title=>"Manage ODK Data Collection" &>
+<& /page/page_title.mas, title=>"管理 ODK 資料收集(Manage ODK Data Collection)" &>
 
 <div class="container-fluid">
 
 <div class="well">
-<h4>What is ODK?</h4>
-<ul><li>ODK is an application that allows mobile data collection using user defined forms on Android or IOS devices. Data collected on the device can be instantaneously synched to the ODK server. To find out more go to the <a href="https://opendatakit.org/">ODK site</a>. Many services have developed web interfaces to better streamline the ODK experience. These services assist in creating forms, deploying forms to your mobile application, and visualizing data uploaded back from the mobile device. Currently we are working with <a href="https://ona.io/home/">ONA</a> as an ODK service.</li></ul>
-<h4>What do I do from this page?</h4>
+<h4>什麼是 ODK？</h4>
+<ul><li>ODK 是一個允許在 Android 或 iOS 裝置上使用使用者自訂表單進行行動資料收集的應用程式。在裝置上收集的資料可以即時同步到 ODK 伺服器。若要瞭解更多資訊，請造訪 <a href="https://opendatakit.org/">ODK 網站</a>。許多服務已開發網頁介面以簡化 ODK 體驗。這些服務協助建立表單、將表單部署到您的行動應用程式，並將從行動裝置上傳回來的資料進行視覺化。目前我們正與 <a href="https://ona.io/home/">ONA</a> 合作作為 ODK 服務。</li></ul>
+<h4>在此頁面我可以做什麼？</h4>
 <ul>
-<li>ONA is currently being used for collecting crossing information. This requires exporting a crossing plan from here to the ONA server. The crossing plan guides collection of cross information and this data is synched with ONA using ODK. From here, we run a script twice a day, which pulls data on ONA into our database.
+<li>ONA 目前用於收集雜交資訊。這需要從此處將雜交計畫匯出到 ONA 伺服器。雜交計畫引導雜交資訊的收集，並使用 ODK 將此資料與 ONA 同步。在此，我們每天執行兩次指令碼，將 ONA 上的資料提取到我們的資料庫中。
 </li>
 <!--
 <li>SMAP is currently being used for collecting phenotype information. The user collects phenotypes using a form they previously created. The questions in the form map directly to terms in the ontology. As they collect data on the mobile device, the data is synched to SMAP. From here, we run a script twice a day, which pulls data on SMAP into our database.
@@ -32,22 +32,22 @@ $odk_phenotyping_data_service_url => undef
 
 <div class="well">
 
-<&| /page/info_section.mas, title=>'Crossing Data: ONA ODK Application', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
+<&| /page/info_section.mas, title=>'雜交資料：ONA ODK 應用程式(Crossing Data: ONA ODK Application)', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
 
 <div class="panel panel-default">
     <div class="panel-body">
         <form class="form-horizontal" id="import_odk_cross_data_form" name="import_odk_cross_data_form">
             <div class="form-group">
-                <label class="col-sm-4 control-label">Select An ODK Form on ONA: </label>
+                <label class="col-sm-4 control-label">在 ONA 上選取 ODK 表單: </label>
                 <div class="col-sm-8" >
-                    <div id="import_odk_cross_data_available_forms">LOADING...</div>
+                    <div id="import_odk_cross_data_available_forms">載入中...</div>
                 </div>
             </div>
         </form>
     </div>
 </div>
 
-<&| /page/info_section.mas, title=>'Management', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
+<&| /page/info_section.mas, title=>'管理(Management)', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
 
 <div class="panel panel-default">
     <div class="panel-body">
@@ -56,7 +56,7 @@ $odk_phenotyping_data_service_url => undef
                 <span style="font-size:3em;" class="glyphicon glyphicon-transfer"></span>
             </div>
             <div class="col-sm-11">
-                <button class="pull-right btn btn-info btn-sm" id="import_odk_cross_data" >Import Crossing Data from Selected Form on ONA</button>
+                <button class="pull-right btn btn-info btn-sm" id="import_odk_cross_data" >從 ONA 上選取的表單匯入雜交資料(Import Crossing Data from Selected Form on ONA)</button>
             </div>
         </div>
     </div>
@@ -103,15 +103,15 @@ $odk_phenotyping_data_service_url => undef
 
 </&>
 
-<&| /page/info_section.mas, title=>'Progress', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
+<&| /page/info_section.mas, title=>'進度(Progress)', collapsible=>1, collapsed=>0, is_subsection=>1, subtitle=>'' &>
 
 <div id="testing_div"></div>
 
 <div class="panel panel-default">
     <div class="panel-body">
-        <h3>Summary of Received Plant Status</h3>
+        <h3>接收之植株狀態摘要(Summary of Received Plant Status)</h3>
         <div id="odk_cross_plant_status_progress_summary_div">
-        [LOADING...]
+        [載入中...]
         </div>
     </div>
 </div>
@@ -220,7 +220,7 @@ jQuery(document).ready(function () {
                                     console.log(response);
                                     summary = response.summary;
                                     plot_data_fill = [];
-                                    html = '<table id="odk_cross_info_status_table" class="table table-hover table-bordered"><thead><tr><th>Cross Information</th><th>Seeds Produced Graphs</th></tr></thead><tbody>';
+                                    html = '<table id="odk_cross_info_status_table" class="table table-hover table-bordered"><thead><tr><th>雜交資訊(Cross Information)</th><th>種子產量圖表(Seeds Produced Graphs)</th></tr></thead><tbody>';
                                     for (var top_level in summary) {
                                         if (summary.hasOwnProperty(top_level)) {
                                             for (var cross_name in summary[top_level]){
@@ -313,7 +313,7 @@ jQuery(document).ready(function () {
                                         "order": [[ 0, "desc" ]]
                                     });
 
-                                    var plant_status_html = '<table id="odk_cross_plant_status_table" class="table table-hover table-bordered"><thead><tr><th>Plot Name</th><th>Date</th><th>Status</th></tr></thead><tbody>';
+                                    var plant_status_html = '<table id="odk_cross_plant_status_table" class="table table-hover table-bordered"><thead><tr><th>小區名稱(Plot Name)</th><th>日期(Date)</th><th>狀態(Status)</th></tr></thead><tbody>';
                                     var plant_status_summary = response.plant_status_summary;
                                     console.log(plant_status_summary);
                                     for (var plot_name in plant_status_summary){
@@ -344,7 +344,7 @@ jQuery(document).ready(function () {
                                     });
                                 },
                                 error: function(response){
-                                    alert("Error retrieving available ODK cross summary");
+                                    alert("擷取可用的 ODK 雜交摘要時發生錯誤");
                                 }
                             });
 
@@ -372,7 +372,7 @@ jQuery(document).ready(function () {
                         }
                     },
                     error: function(response_forms){
-                        alert("Error retrieving saved ODK ONA forms");
+                        alert("擷取已儲存的 ODK ONA 表單時發生錯誤");
                     }
                 });
 
@@ -380,7 +380,7 @@ jQuery(document).ready(function () {
         },
         error: function(response){
             jQuery("#working_modal").modal("hide");
-            alert("Error retrieving available ODK crossing forms");
+            alert("擷取可用的 ODK 雜交表單時發生錯誤");
         }
     });
 
@@ -431,11 +431,11 @@ jQuery(document).ready(function () {
                 if (response.error){
                     alert(response.error);
                 }
-                alert('Not currently working.');
+                alert('目前未啟用。');
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving ODK phenotyping data.");
+                alert("擷取 ODK 表型資料時發生錯誤。");
             }
         });
     });
@@ -457,7 +457,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving ODK crossing data.");
+                alert("擷取 ODK 雜交資料時發生錯誤。");
             }
         });
     });
@@ -478,7 +478,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error scheduling import of ODK crossing data.");
+                alert("排程匯入 ODK 雜交資料時發生錯誤。");
             }
         });
     });
