@@ -8,7 +8,7 @@ $trial_id
 
 <div id="trial_design_html" >
 <div class="well">
-[LOADING...]
+[載入中...]
 <br/>
 </div>
 </div>
@@ -22,16 +22,16 @@ jQuery(document).ready(function () {
 		success: function(response){
 			if (!response.design_type) {
 				jQuery('#trial_design_html').empty();
-				var html = "<div class='well well-sm'>There is no design data for this trial.</div>";
+				var html = "<div class='well well-sm'>此試驗沒有設計資料。</div>";
 					jQuery('#trial_design_html').html(html);
 	    	} else {
-				var trial_design_html = "<table class='table table-hover table-condensed table-bordered table-striped' id='trial_controls_table'><thead><tr><th>Attribute</th><th>Value</th></tr></thead><tbody><tr><td>Design</td><td><b>"+response.design_type+"</b></td></tr><tr><td>Number of Blocks</td><td>"+response.num_blocks+"</td></tr><tr><td>Number of Replicates</td><td>"+response.num_reps+"</td></tr><tr><td>Plot Length</td><td>"+response.plot_length+"</td></tr><tr><td>Plot Width</td><td>"+response.plot_width+"</td></tr><tr><td>Subplots Per Plot</td><td>"+response.subplots_per_plot+"</td></tr><tr><td>Plants Per Plot</td><td>"+response.plants_per_plot+"</td></tr></tbody></table>";
+				var trial_design_html = "<table class='table table-hover table-condensed table-bordered table-striped' id='trial_controls_table'><thead><tr><th>屬性(Attribute)</th><th>數值(Value)</th></tr></thead><tbody><tr><td>設計(Design)</td><td><b>"+response.design_type+"</b></td></tr><tr><td>區集數量(Number of Blocks)</td><td>"+response.num_blocks+"</td></tr><tr><td>重複次數(Number of Replicates)</td><td>"+response.num_reps+"</td></tr><tr><td>小區長度(Plot Length)</td><td>"+response.plot_length+"</td></tr><tr><td>小區寬度(Plot Width)</td><td>"+response.plot_width+"</td></tr><tr><td>每小區次小區數(Subplots Per Plot)</td><td>"+response.subplots_per_plot+"</td></tr><tr><td>每小區植株數(Plants Per Plot)</td><td>"+response.plants_per_plot+"</td></tr></tbody></table>";
 				jQuery('#trial_design_html').empty();
 				jQuery('#trial_design_html').html(trial_design_html);
 			}
 		},
 		error: function(response){
-			alert("Error retrieving design.");
+			alert("檢索設計資料時發生錯誤。");
 		}
 	});
 });
