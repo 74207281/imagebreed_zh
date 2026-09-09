@@ -1,30 +1,30 @@
-<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" href="/breeders/home">Manage</a>
+<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" href="/breeders/home">管理(Manage)</a>
 <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools<span class="caret"></span></a> -->
   <ul class="dropdown-menu">
-    <li><a href="/breeders/manage_roles/">User Roles</a></li>
-    <li><a href="/breeders/manage_programs/">Breeding Programs</a></li>
-    <li><a href="/breeders/locations">Locations</a></li>
+    <li><a href="/breeders/manage_roles/">使用者角色(User Roles)</a></li>
+    <li><a href="/breeders/manage_programs/">育種計畫(Breeding Programs)</a></li>
+    <li><a href="/breeders/locations">地點(Locations)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li><a href="/breeders/accessions/">Accessions</a></li>
-    <li><a href="/breeders/seedlots/">Seed Lots</a></li>
-    <li><a href="/breeders/crosses/">Crosses</a></li>
+    <li><a href="/breeders/accessions/">種原(Accessions)</a></li>
+    <li><a href="/breeders/seedlots/">種子批次(Seed Lots)</a></li>
+    <li><a href="/breeders/crosses/">雜交(Crosses)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li><a href="/order/stocks/view">Order Stocks</a></li>
+    <li><a href="/order/stocks/view">訂購材料(Order Stocks)</a></li>
     
     <li role="separator" class="divider"></li>
-    <li><a href="/breeders/trials/">Field Trials</a></li>
-    <li><a href="/breeders/genotyping/">Genotyping Trials</a></li>
-    <li><a href="/fieldbook">Field Book App</a></li>
-    <li><a href="/breeders/phenotyping/">Phenotyping</a></li>
-    <li><a href="/barcode">Barcodes</a></li>
-    <li><a href="/tools/label_designer">Label Designer</a></li>
+    <li><a href="/breeders/trials/">田間試驗(Field Trials)</a></li>
+    <li><a href="/breeders/genotyping/">基因型分型試驗(Genotyping Trials)</a></li>
+    <li><a href="/fieldbook">田間簿應用程式(Field Book App)</a></li>
+    <li><a href="/breeders/phenotyping/">表型分析(Phenotyping)</a></li>
+    <li><a href="/barcode">條碼(Barcodes)</a></li>
+    <li><a href="/tools/label_designer">標籤設計器(Label Designer)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li><a href="/breeders/download">Download</a></li>
-    <li><a href="/breeders/upload">Upload</a></li>
-    <li><a href="/breeders/odk">ODK Data Collection</a></li>
-    <li><a href="/breeders/file_share_dump">File Share</a></li>
+    <li><a href="/breeders/download">下載(Download)</a></li>
+    <li><a href="/breeders/upload">上傳(Upload)</a></li>
+    <li><a href="/breeders/odk">ODK 數據收集(ODK Data Collection)</a></li>
+    <li><a href="/breeders/file_share_dump">檔案分享(File Share)</a></li>
   </ul>
 </li>
