@@ -15,13 +15,13 @@ $genotyping_plate_ids => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addPlatesToProjectDialog">Move Genotyping Plate(s) to this Project</h4>
+                <h4 class="modal-title" id="addPlatesToProjectDialog">將基因分型盤移動至此專案(Move Genotyping Plate(s) to this Project)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" id="add_existing_plates_dialog_form" name="add_existing_plates_dialog_form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Breeding Program: </label>
+                            <label class="col-sm-3 control-label">育種計畫：</label>
                             <div class="col-sm-9" >
                                 <div id="genotyping_plate_breeding_program_div">
                                     <input type="text" class="form-control" value="<% $breeding_program_name %>" disabled/>
@@ -31,7 +31,7 @@ $genotyping_plate_ids => undef
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Genotyping Project: </label>
+                            <label class="col-sm-3 control-label">基因分型專案：</label>
                             <div class="col-sm-9" >
                                 <div id="genotyping_project_div">
                                     <input type="text" class="form-control" value="<% $trial_name %>" disabled/>
@@ -39,8 +39,8 @@ $genotyping_plate_ids => undef
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Genotyping Plates: </label>
-      	                    <div class="col-sm-9" >
+                            <label class="col-sm-3 control-label">基因分型盤：</label>
+       	                    <div class="col-sm-9" >
                                 <div id="select_genotyping_plate_for_project">
                                     <input type="text" class="form-control" value="<% $trial_name %>" disabled/>
                                     <input type="hidden" id="html_select_plate_for_project" name="html_select_plate_for_project" value="<% $trial_id %>" />
@@ -51,8 +51,8 @@ $genotyping_plate_ids => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="set_project_for_genotyping_plate" id="set_project_for_genotyping_plate" title="Save genotyping plate to a project">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="set_project_for_genotyping_plate" id="set_project_for_genotyping_plate" title="將基因分型盤儲存至專案(Save genotyping plate to a project)">儲存(Save)</button>
             </div>
         </div>
     </div>
@@ -63,18 +63,18 @@ $genotyping_plate_ids => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="movePlateToProjectSuccessDialog">Success</h4>
+                <h4 class="modal-title" id="movePlateToProjectSuccessDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The genotyping plates were added successfully
+                        基因分型盤已成功新增
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_move_plate_to_project_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_move_plate_to_project_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -85,7 +85,7 @@ $genotyping_plate_ids => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="movePlateToProjectErrorDialog">Move Genotyping Plate to Project Error</h4>
+                <h4 class="modal-title" id="movePlateToProjectErrorDialog">移動基因分型盤至專案錯誤(Move Genotyping Plate to Project Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -95,7 +95,7 @@ $genotyping_plate_ids => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -117,7 +117,7 @@ jQuery(document).ready(function() {
         var plate_ids = jQuery('#html_select_plate_for_project').val();
 
         if (!plate_ids) {
-            alert ("Please select at least one genotyping plate");
+            alert ("請至少選取一個基因分型盤");
             return;
         }
 
@@ -149,7 +149,7 @@ jQuery(document).ready(function() {
             error: function(response){
                 jQuery('#working_modal').modal('hide');
                 jQuery('#add_existing_plate_to_project_dialog').modal('hide');
-                alert('An error occurred adding genotyping plate(s) to this project');
+                alert('將基因分型盤新增至此專案時發生錯誤');
             }
 
         });
