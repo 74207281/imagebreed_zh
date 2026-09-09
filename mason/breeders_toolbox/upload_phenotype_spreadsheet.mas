@@ -9,58 +9,58 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addSpreadsheetPhenotypeDialog">Upload Phenotype Spreadsheet</h4>
+        <h4 class="modal-title" id="addSpreadsheetPhenotypeDialog">上傳表型試算表(Upload Phenotype Spreadsheet)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <&| /page/explanation.mas, title=>'Template Information' &>
+            <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                 <p>
-                <b>File format information</b>
+                <b>檔案格式資訊</b>
                 <br>
-                <a id="phenotype_upload_spreadsheet_format_info">Spreadsheet Format</a>
+                <a id="phenotype_upload_spreadsheet_format_info">試算表格式</a>
                 </p>
             </&>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_spreadsheet_phenotype_file_form" name="upload_spreadsheet_phenotype_file_form">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Spreadsheet Format: </label>
+                    <label class="col-sm-3 control-label">試算表格式：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="upload_spreadsheet_phenotype_file_format" name="upload_spreadsheet_phenotype_file_format">
-                            <option value="detailed">Detailed</option>
-                            <option value="simple">Simple</option>
+                            <option value="detailed">詳細格式（Detailed）</option>
+                            <option value="simple">簡易格式（Simple）</option>
                             <!--option value="associated_images">Associated Images</option-->
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Timestamps Included: </label>
+                    <label class="col-sm-3 control-label">包含時間戳記：</label>
                     <div class="col-sm-9" >
                         <input type="checkbox" id="upload_spreadsheet_phenotype_timestamp_checkbox" name="upload_spreadsheet_phenotype_timestamp_checkbox" />
                     </div>
                 </div>
                 <div id="upload_spreadsheet_phenotype_data_level_div">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Data Level: </label>
+                        <label class="col-sm-3 control-label">資料層級：</label>
                         <div class="col-sm-9" >
                             <select class="form-control" id="upload_spreadsheet_phenotype_data_level" name="upload_spreadsheet_phenotype_data_level">
-                                <option value="plots">Plots</option>
-                                <option value="plants">Plants</option>
-                                <option value="subplots">Subplots</option>
-                                <option value="tissue_samples">Tissue Samples</option>
+                                <option value="plots">小區</option>
+                                <option value="plants">植株</option>
+                                <option value="subplots">子小區</option>
+                                <option value="tissue_samples">組織樣本</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Phenotype Spreadsheet: </label>
+                    <label class="col-sm-3 control-label">表型試算表：</label>
                     <div class="col-sm-9" >
                         <input type="file" id="upload_spreadsheet_phenotype_file_input" name="upload_spreadsheet_phenotype_file_input" encoding="multipart/form-data" />
                     </div>
                 </div>
                 <div id="phenotype_upload_associated_images_div" style="display:none">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Associated Images (.zip): </label>
+                        <label class="col-sm-3 control-label">關聯影像（.zip）：</label>
                         <div class="col-sm-9" >
                             <input type="file" id="upload_spreadsheet_phenotype_associated_images_file_input" name="upload_spreadsheet_phenotype_associated_images_file_input" encoding="multipart/form-data" />
                         </div>
@@ -74,9 +74,9 @@
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info" name="upload_spreadsheet_phenotype_submit_verify" id="upload_spreadsheet_phenotype_submit_verify">Verify</button>
-            <button disabled type="button" class="btn btn-primary" name="upload_spreadsheet_phenotype_submit_store" id="upload_spreadsheet_phenotype_submit_store" title="First Verify Your File">Store</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+            <button type="button" class="btn btn-info" name="upload_spreadsheet_phenotype_submit_verify" id="upload_spreadsheet_phenotype_submit_verify">驗證(Verify)</button>
+            <button disabled type="button" class="btn btn-primary" name="upload_spreadsheet_phenotype_submit_store" id="upload_spreadsheet_phenotype_submit_store" title="請先驗證您的檔案">儲存(Store)</button>
         </div>
 
     </div>
@@ -88,44 +88,44 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="phenotypeUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="phenotypeUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h4>Phenotype spreadsheet must be uploaded in .xls or .xlsx excel file format</h4>
-            <p>(tab-delimited text formats are NOT supported)</p>
+            <h4>表型試算表必須以 .xls 或 .xlsx Excel 檔案格式上傳</h4>
+            <p>（不支援 Tab 分隔文字格式）</p>
 
             <hr>
-            <button class="btn btn-primary" name="create_spreadsheet_link">Create Phenotyping Spreadsheet for Trial</button>
+            <button class="btn btn-primary" name="create_spreadsheet_link">建立試驗表型試算表(Create Phenotyping Spreadsheet for Trial)</button>
             <hr>
 
-            <h4>Required Data:</h4>
+            <h4>必要資料(Required Data)：</h4>
             <ul>
-                <li>Please click the above button to generate the required phenotype spreadsheet.</li>
+                <li>請點擊上方按鈕產生所需的表型試算表。</li>
             </ul>
 
-            <h4>Notes:</h4>
+            <h4>注意事項(Notes)：</h4>
             <ul>
-                <li>For <i>"sprouting proportion"</i>, <i>"trait name|trait id"</i><br> should be written as <i>"sprouting proportion|CO_334:0000008"</i>.</li>
-                <li>If spreadsheet file was not generated from the database, </br>consult the <i>Trait Ontology</i> to ensure you have the correct trait id.</li>
-                <li>Two or more traits can be uploaded at the same time.</li>
+                <li>對於 <i>"sprouting proportion"</i>，<i>"性狀名稱|性狀編號"</i><br>應寫為 <i>"sprouting proportion|CO_334:0000008"</i>。</li>
+                <li>若試算表檔案並非從資料庫產生，</br>請查閱<i>性狀本體論（Trait Ontology）</i>以確保您擁有正確的性狀編號。</li>
+                <li>可同時上傳兩個或多個性狀。</li>
             </ul>
 
-            <h4>Simple and Detailed Spreadsheet Format:</h4>
+            <h4>簡易與詳細試算表格式(Simple and Detailed Spreadsheet Format)：</h4>
             <ul>
-                <li>The "Simple" format requires only a column called 'observationunit_name' followed by your trait columns.</li>
-                <li>The "Detailed" format includes a special header as well as additional columns for design information.</li>
-                <li>The "NIRS" format is built on top of the simple format - a column called 'observationunit_name' followed by trait columns derived from the NIR spectra, followed by columns of NIR spectra data themselves. Trait column names must come form the trait ontology but NIR spectra column names should simply be copied from whateve standard output file the NIR device produces.
-                <li>The "Associated Images" format is useful for uploading a zipfile of images in association with phenotype values. It has the following columns: observationunit_name, observationvariable_name, phenotype_value, phenotype_timestamp, image_name, username. Image name should exist as the image name in the uploaded zipfile.</li>
+                <li>「簡易（Simple）」格式僅需要名為「observationunit_name」的欄位，其後緊接您的性狀欄位。</li>
+                <li>「詳細（Detailed）」格式包含特殊的表頭以及用於試驗設計資訊的額外欄位。</li>
+                <li>「近紅外光譜（NIRS）」格式建構於簡易格式之上——名為「observationunit_name」的欄位後緊接來自 NIR 光譜推導的性狀欄位，其後再接 NIR 光譜資料本身的欄位。性狀欄位名稱必須來自性狀本體論，但 NIR 光譜欄位名稱只需從 NIR 設備產生的任何標準輸出檔案複製即可。</li>
+                <li>「關聯影像（Associated Images）」格式適用於上傳與表型值關聯的影像 zip 壓縮檔。其包含以下欄位：observationunit_name, observationvariable_name, phenotype_value, phenotype_timestamp, image_name, username。影像名稱必須與上傳之 zip 壓縮檔內的影像名稱一致。</li>
             </ul>
 
-            <h4>Timestamps:</h4>
+            <h4>時間戳記(Timestamps)：</h4>
             <ul>
-                <li>To include timestamp information for your measurements, click the checkbox "Includes Timestamps".</li>
-                <li>For timestamps, values should be recorded as <i>"Value,Timestamp"</i>.<br/>For no timestamps, values should be recorded as <i>"Value"</i>.</li>
-                <li>Timestamp format must be YYYY-MM-DD HH:MM:SS-0000 or YYYY-MM-DD HH:MM:SS+0000</li><br/>
-                <li>Example with timestamps: <br/><br/>
+                <li>若要在測量值中包含時間戳記資訊，請勾選「包含時間戳記」核取方塊。</li>
+                <li>對於時間戳記，數值應記錄為 <i>"數值,時間戳記"</i>。<br/>若無時間戳記，數值應記錄為 <i>"數值"</i>。</li>
+                <li>時間戳記格式必須為 YYYY-MM-DD HH:MM:SS-0000 或 YYYY-MM-DD HH:MM:SS+0000</li><br/>
+                <li>包含時間戳記範例：<br/><br/>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -139,7 +139,7 @@
                     </tbody>
                 </table>
                 </li>
-                <li>Example without timestamps: <br/><br/>
+                <li>無時間戳記範例：<br/><br/>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -158,7 +158,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
