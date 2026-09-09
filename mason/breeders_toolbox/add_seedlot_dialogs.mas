@@ -9,47 +9,47 @@ $cross_uniquename => ''
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="seedlot_dialog">Create New Seedlot</h4>
+        <h4 class="modal-title" id="seedlot_dialog">建立新種子批次(Create New Seedlot)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <form class="form-horizontal" role="form" method="post" id="create_new_seedlot_form" name="create_new_seedlot_form">
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Seedlot Name: </label>
+                    <label class="col-sm-3 control-label">種子批次名稱：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_name" placeholder="Required">
+                        <input class="form-control" id="seedlot_name" placeholder="必填">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Company: </label>
+                    <label class="col-sm-3 control-label">公司：</label>
                     <div class="col-sm-9" >
                         <div id="seedlot_private_company_div"></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                    <label class="col-sm-3 control-label">育種計畫：</label>
                     <div class="col-sm-9" >
                         <div id="seedlot_breeding_program_div"></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Location: </label>
+                    <label class="col-sm-3 control-label">地點：</label>
                     <div class="col-sm-9" >
                         <div id="seedlot_location_div"></div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Box Name: </label>
+                    <label class="col-sm-3 control-label">箱號名稱：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_box_name" placeholder="Required">
+                        <input class="form-control" id="seedlot_box_name" placeholder="必填">
                     </div>
                 </div>
 
 		<div class="form-group">
-                    <label class="col-sm-3 control-label">Quality issues:</label>
+                    <label class="col-sm-3 control-label">品質問題：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_quality" placeholder="list quality issues here, or 'ok' for good quality seed" >
+                        <input class="form-control" id="seedlot_quality" placeholder="在此列出品管問題，或填入「ok」表示種子品質良好" >
                     </div>
                 </div>
 
@@ -57,7 +57,7 @@ $cross_uniquename => ''
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="col-sm-12 control-label">Contents: </label>
+                                <label class="col-sm-12 control-label">內容物：</label>
                             </div>
                         </div>
                         <div class="col-sm-9">
@@ -65,20 +65,20 @@ $cross_uniquename => ''
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Accession name: </label>
+                                        <label class="col-sm-3 control-label">種原名稱：</label>
                                         <div class="col-sm-9" >
-                                            <input class="form-control" id="seedlot_accession_uniquename" placeholder="One Content Required" disabled value="<% $accession_uniquename %>">
+                                            <input class="form-control" id="seedlot_accession_uniquename" placeholder="需填寫其中一項內容" disabled value="<% $accession_uniquename %>">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <center><h4>OR</h4></center>
+                            <center><h4>或</h4></center>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Cross Unique ID: </label>
+                                        <label class="col-sm-3 control-label">雜交唯一識別碼：</label>
                                         <div class="col-sm-9" >
-                                            <input class="form-control" id="seedlot_cross_uniquename" placeholder="One Content Required" disabled value="<% $cross_uniquename %>">
+                                            <input class="form-control" id="seedlot_cross_uniquename" placeholder="需填寫其中一項內容" disabled value="<% $cross_uniquename %>">
                                         </div>
                                     </div>
                                 </div>
@@ -87,20 +87,20 @@ $cross_uniquename => ''
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Accession name: </label>
+                                        <label class="col-sm-3 control-label">種原名稱：</label>
                                         <div class="col-sm-9" >
-                                            <input class="form-control" id="seedlot_accession_uniquename" placeholder="One Content Required">
+                                            <input class="form-control" id="seedlot_accession_uniquename" placeholder="需填寫其中一項內容">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <center><h4>OR</h4></center>
+                            <center><h4>或</h4></center>
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Cross Unique ID: </label>
+                                        <label class="col-sm-3 control-label">雜交唯一識別碼：</label>
                                         <div class="col-sm-9" >
-                                            <input class="form-control" id="seedlot_cross_uniquename" placeholder="One Content Required">
+                                            <input class="form-control" id="seedlot_cross_uniquename" placeholder="需填寫其中一項內容">
                                         </div>
                                     </div>
                                 </div>
@@ -111,15 +111,15 @@ $cross_uniquename => ''
                 </div>
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Amount (number of seeds): </label>
+                    <label class="col-sm-3 control-label">數量（種子粒數）：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_amount" placeholder="Amount OR Weight(g) Required">
+                        <input class="form-control" id="seedlot_amount" placeholder="需填寫數量或重量（克）">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Weight (g): </label>
+                    <label class="col-sm-3 control-label">重量（克）：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_weight" placeholder="Amount OR Weight(g) Required">
+                        <input class="form-control" id="seedlot_weight" placeholder="需填寫數量或重量（克）">
                     </div>
                 </div>
                 <!--
@@ -131,28 +131,28 @@ $cross_uniquename => ''
                 </div>
                 -->
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Organization: </label>
+                    <label class="col-sm-3 control-label">機構／單位：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_organization" placeholder="Optional">
+                        <input class="form-control" id="seedlot_organization" placeholder="選填">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Timestamp: </label>
+                    <label class="col-sm-3 control-label">時間戳記：</label>
                     <div class="col-sm-9" >
                         <input class="form-control" id="seedlot_timestamp" value="<% $timestamp %>" placeholder="<% $timestamp %>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Description: </label>
+                    <label class="col-sm-3 control-label">描述：</label>
                     <div class="col-sm-9" >
-                        <input class="form-control" id="seedlot_description" placeholder="Optional">
+                        <input class="form-control" id="seedlot_description" placeholder="選填">
                     </div>
                 </div>
             </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button id="create_new_seedlot_button" type="button" class="btn btn-primary" >OK</button>
+        <button id="create_new_seedlot_button" type="button" class="btn btn-primary" >確定(OK)</button>
       </div>
     </div>
   </div>
@@ -197,16 +197,16 @@ jQuery(document).ready(function(){
         var seedlot_quality = jQuery('#seedlot_quality').val();
         var private_company_id = jQuery('#seedlot_private_company_id').val();
 
-        if (name == '') { alert("Please provide a seedlot name"); return; }
-        else if (location == '') { alert("Please provide a location"); return; }
-        else if (box_name == '') { alert("Please provide a box name"); return; }
-        else if (amount == '' && weight == '') { alert("Please provide an seed count amount or a weight in grams!"); return; }
-        else if (breeding_program_id == '') { alert("Please select a breeding program"); return; }
+        if (name == '') { alert("請提供種子批次名稱"); return; }
+        else if (location == '') { alert("請提供地點"); return; }
+        else if (box_name == '') { alert("請提供箱號名稱"); return; }
+        else if (amount == '' && weight == '') { alert("請提供種子數量或以克為單位的重量！"); return; }
+        else if (breeding_program_id == '') { alert("請選擇育種計畫"); return; }
         else if (accession_uniquename == '' && cross_uniquename == '') {
-            alert("Please provide an accession name or a cross unique id as the content of the seedlot."); return;
+            alert("請提供種原名稱或雜交唯一識別碼作為種子批次的內容物。"); return;
         }
         else if (accession_uniquename != '' && cross_uniquename != '') {
-            alert("Please provide an accession name OR a cross unique id as the content of the seedlot. Not both."); return;
+            alert("請僅提供種原名稱或雜交唯一識別碼其中之一作為種子批次內容物，不可同時填寫兩者。"); return;
         }
         else {
 
@@ -235,7 +235,7 @@ jQuery(document).ready(function(){
                 success: function(response) {
                     jQuery('#working_modal').modal('hide');
                     if (response.success == 1) {
-                        alert("The seedlot has been created.");
+                        alert("種子批次已成功建立。");
                         jQuery('#add_seedlot_dialog').modal('hide');
                         //seedlots_table.ajax.reload();
                         //document.location.reload();
@@ -246,7 +246,7 @@ jQuery(document).ready(function(){
                 },
                 error: function(response){
                     jQuery('#working_modal').modal('hide');
-                    alert('An error occurred creating seed lot');
+                    alert('建立種子批次時發生錯誤');
                 }
             });
         }
