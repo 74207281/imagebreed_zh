@@ -11,38 +11,38 @@ $locations
         <div class="modal-content ui-front">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <center><h4 class="modal-title" id="creatCrossingTrial">Add New Crossing Experiment</h4></center>
+                <center><h4 class="modal-title" id="creatCrossingTrial">新增雜交實驗(Add New Crossing Experiment)</h4></center>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "add_crossing_trial_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"What are crossing experiments?" &>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"什麼是雜交實驗？(What are crossing experiments?)" &>
 
-                            <p>Crossing experiments group crosses. The grouping can reflect crosses done in the same field trial, crosses in a breeding program in a given year, or crosses that have the same breeding objective. This grouping can be used to encapsulate all the crosses done in a crossing block field trial that you have saved in the database (e.g. in Manage Trials your crossing block will appear as a field trial with plots)</p>
+                            <p>雜交實驗用於將雜交組合分組。此分組可以反映在同一個田間試驗中進行的雜交、在特定年份的育種計畫中的雜交，或具有相同育種目標的雜交。此分組可用於封裝您在資料庫中儲存的雜交區田間試驗中進行的所有雜交（例如在「管理試驗」中，您的雜交區將顯示為具有小區的田間試驗）。</p>
                             <hr>
 
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
                         <form class="form-horizontal" role="form" name="create_crossingtrial_form" id="create_crossingtrial_form">
-                            <&| /util/workflow.mas:step, title=> "Add a crossing experiment" &>
-                                <& /page/page_title.mas, title=>"Enter basic information about the crossing experiment" &>
+                            <&| /util/workflow.mas:step, title=> "新增雜交實驗(Add a crossing experiment)" &>
+                                <& /page/page_title.mas, title=>"輸入雜交實驗基本資訊(Enter basic information about the crossing experiment)" &>
                                     <br/>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-lable">Crossing Experiment Name: </label>
+                                        <label class="col-sm-4 control-lable">雜交實驗名稱：</label>
                                         <div class="col-sm-8">
                                             <input class="form-control" type="text" id="crossingtrial_name" name="crossingtrial_name"  />
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Breeding Program: </label>
+                                        <label class="col-sm-4 control-label">育種計畫：</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="crossingtrial_program" name="crossingtrial_program">
-                                                <option value="">Select Breeding Program</option>
+                                                <option value="">選擇育種計畫</option>
 <%perl>
 foreach my $program (@$programs) {
     if (@$program[3]) {
@@ -56,10 +56,10 @@ foreach my $program (@$programs) {
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Location of crossing experiment: </label>
+                                        <label class="col-sm-4 control-label">雜交實驗地點：</label>
                                         <div class="col-sm-8">
                                             <select class="form-control" id="crossingtrial_location" name="crossingtrial_location">
-                                                <option value="">Select Location</option>
+                                                <option value="">選擇地點</option>
 <%perl>
     foreach my $location_hashref (@$locations) {
         my $properties = $location_hashref->{'properties'};
@@ -72,13 +72,13 @@ foreach my $program (@$programs) {
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Year:</label>
+                                        <label class="col-sm-4 control-label">年份：</label>
                                         <div class="col-sm-8">
                                             <div id="crosses_add_project_year" name="crosses_add_project_year" ></div>
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-4 control-label">Description:</label>
+                                        <label class="col-sm-4 control-label">描述：</label>
                                         <div class="col-sm-8">
                                             <textarea class="form-control" id="crosses_add_project_description" name="crosses_add_project_description" ></textarea>
                                         </div>
@@ -87,22 +87,22 @@ foreach my $program (@$programs) {
                                 <br/>
                                 <br/>
                                 <center>
-                                    <button type="button" class="btn btn-primary" onclick="Workflow.complete(this, false);" name="create_crossingtrial_submit" id="create_crossingtrial_submit">Submit</button>
+                                    <button type="button" class="btn btn-primary" onclick="Workflow.complete(this, false);" name="create_crossingtrial_submit" id="create_crossingtrial_submit">提交(Submit)</button>
                                 </center>
                             </&>
                         </form>
 
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your crossing experiment is now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的雜交實驗現已儲存在資料庫中(Finished! Your crossing experiment is now in the database)" &>
                             <p>
                                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                Crossing experiment was added successfully
+                                雜交實驗已成功新增
                             </p>
 
                             <ul>
-                                <li>You may want to proceed to the crossing experiment detail page you just created.</li>
-                                <li>You can add or upload crosses into your crossing experiment as they become available.</li>
-                                <li>You can add crossing information as it becomes available (e.g. number of seeds, progeny, etc).</li>
+                                <li>您可以前往剛建立的雜交實驗詳細資訊頁面。</li>
+                                <li>當雜交組合可用時，您可以將其新增或上傳至您的雜交實驗中。</li>
+                                <li>當雜交資訊可用時，您可以新增相關資訊（例如種子數量、後代等）。</li>
                             </ul>
                             <br/>
                         </&>
@@ -110,7 +110,7 @@ foreach my $program (@$programs) {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
