@@ -11,104 +11,104 @@ $dialog_name => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="downloadTrialPhenotypesDialog">Download Phenotypes for <% $dialog_type %>  <% $dialog_name %></h4>
+        <h4 class="modal-title" id="downloadTrialPhenotypesDialog">下載表型(Download Phenotypes) - <% $dialog_type %>  <% $dialog_name %></h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
           <form class="form-horizontal" role="form" method="post" >
             <div class="form-group">
-                <label class="col-sm-3 control-label">Format: </label>
+                <label class="col-sm-3 control-label">格式：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trial_phenotypes_format">
-                        <option value="csv">CSV Wide Format</option>
-                        <option value="csv_long">CSV Long Format</option>
-                        <option value="xlsx">Excel (xlsx) Wide Format</option>
-                        <option value="xlsx_long">Excel (xlsx) Long Format</option>
+                        <option value="csv">CSV 寬格式 (Wide Format)</option>
+                        <option value="csv_long">CSV 長格式 (Long Format)</option>
+                        <option value="xlsx">Excel (xlsx) 寬格式 (Wide Format)</option>
+                        <option value="xlsx_long">Excel (xlsx) 長格式 (Long Format)</option>
                     </select>
                 </div>
 	        </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Data Level: </label>
+                <label class="col-sm-3 control-label">資料層級：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trial_phenotypes_level_option">
-                        <option value="all">All Levels</option>
+                        <option value="all">所有層級</option>
 %  if ($dialog_type ne 'Analysis') {
-                        <option value="plot">Plots</option>
-                        <option value="plant">Plants</option>
-                        <option value="subplot">Subplots</option>
+                        <option value="plot">小區</option>
+                        <option value="plant">植株</option>
+                        <option value="subplot">次小區</option>
 %  }
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Repeated Measurements: </label>
+                <label class="col-sm-3 control-label">重複測量值：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trial_phenotypes_repeated_measurements">
-                        <option value="all">All Values</option>
-                        <option value="average">Average Repeated Value</option>
-                        <option value="first">First Value</option>
+                        <option value="all">所有數值</option>
+                        <option value="average">平均重複數值</option>
+                        <option value="first">第一筆數值</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Traits:<br/><small>(Select none for all traits)</small></label>
+                <label class="col-sm-3 control-label">性狀：<br/><small>（不選擇即代表所有性狀）</small></label>
                 <div class="col-sm-9" >
                     <div id="download_trial_phenotypes_traits">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Trait Components:<br/><small>(Select none for all)</small></label>
+                <label class="col-sm-3 control-label">性狀組成部分：<br/><small>（不選擇即代表全部）</small></label>
                 <div class="col-sm-9" >
                     <div id="download_trial_phenotypes_trait_components">
                     </div>
                 </div>
             </div>
 
-<&| /page/info_section.mas, title=>"Additional Search Options",  collapsible => 1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>"其他搜尋選項(Additional Search Options)",  collapsible => 1, collapsed=>1 &>
 
             <div class="row">
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Include Timestamps: </label>
+                        <label class="col-sm-6 control-label">包含時間戳記：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trial_phenotypes_timestamp_option">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Suppress User Defined Outliers: </label>
+                        <label class="col-sm-6 control-label">排除使用者定義的離群值：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trial_phenotypes_exclude_outliers">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Include Header: </label>
+                        <label class="col-sm-6 control-label">包含標頭：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trial_phenotypes_include_headers">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Include Accession Entry Numbers: </label>
+                        <label class="col-sm-6 control-label">包含種原項目編號：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trial_phenotypes_entry_numbers_option">
-                                <option value="1">Yes</option>
-                                <option value="0">No</option>
+                                <option value="1">是</option>
+                                <option value="0">否</option>
                             </select>
                         </div>
                     </div>
@@ -116,16 +116,16 @@ $dialog_name => undef
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">Trait Name Contains: </label>
+                <label class="col-sm-3 control-label">性狀名稱包含：</label>
                 <div class="col-sm-9" >
-                    <input id="download_trial_phenotype_trait_contains" name="download_trial_phenotype_trait_contains" type="text" class="form-control" placeholder="Example: storage root,oxoglutarate"/>
+                    <input id="download_trial_phenotype_trait_contains" name="download_trial_phenotype_trait_contains" type="text" class="form-control" placeholder="例如：storage root,oxoglutarate"/>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-8 control-label">Minimum Phenotype Value: </label>
+                        <label class="col-sm-8 control-label">最小表型值：</label>
                         <div class="col-sm-4" >
                             <input id="download_trial_phenotype_phenotype_min" name="download_trial_phenotype_phenotype_min" type="number" class="form-control" />
                         </div>
@@ -133,7 +133,7 @@ $dialog_name => undef
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-8 control-label">Maximum Phenotype Value: </label>
+                        <label class="col-sm-8 control-label">最大表型值：</label>
                         <div class="col-sm-4" >
                             <input id="download_trial_phenotype_phenotype_max" name="download_trial_phenotype_phenotype_max" type="number" class="form-control" />
                         </div>
@@ -146,8 +146,8 @@ $dialog_name => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="download_trial_phenotypes_cancel_button" id="download_trial_phenotypes_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="download_trial_phenotypes_submit_button" id="download_trial_phenotypes_submit_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="download_trial_phenotypes_cancel_button" id="download_trial_phenotypes_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="download_trial_phenotypes_submit_button" id="download_trial_phenotypes_submit_button" title="送出(Submit)">送出(Submit)</button>
       </div>
     </div>
   </div>
