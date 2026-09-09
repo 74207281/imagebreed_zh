@@ -10,42 +10,42 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialDesignChangeAccessionsDialog">Change Accessions</h4>
+                <h4 class="modal-title" id="trialDesignChangeAccessionsDialog">變更種原(Change Accessions)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <div class="well well-sm">
-                        <b>Upload a CSV file (.csv)</b>
+                        <b>上傳 CSV 檔案（.csv）</b>
                         <br/><br/>
 
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <b>Header:</b><br>
-                                The first row (header) must contain the columns 'plot_name' and 'accession_name'.<br>
-                                An optional additional column, 'new_plot_name' can be added to change the plot names:<br>
+                                <b>標題欄（Header）：</b><br>
+                                第一列（標題欄）必須包含「plot_name」和「accession_name」欄位。<br>
+                                可新增選填欄位「new_plot_name」以變更小區名稱：<br>
 
                                 <table style="margin-top: 3%;" class="table table-bordered table-hover">
                                   <tbody>
                                   <tr>
                                     <td>plot_name</td>
                                     <td>accession_name</td>
-                                    <td>new_plot_name (optional)</td>
+                                    <td>new_plot_name（選填）</td>
                                   </tr>
                                   </tbody>
                                 </table>
                             </div>
                         </div>
-                        <b>Required columns:</b><br>
-                        <b>plot_name:</b> name of plot to change the accession for<br>
-                        <b>accession_name:</b> name of the accession that the plot should be connected to.<br>
-                        <br><b>Optional column:</b><br>
-                        <b>new_plot_name:</b> new name for plot.<br>
+                        <b>必填欄位：</b><br>
+                        <b>plot_name：</b>要變更種原的小區名稱<br>
+                        <b>accession_name：</b>小區應連結的種原名稱。<br>
+                        <br><b>選填欄位：</b><br>
+                        <b>new_plot_name：</b>小區的新名稱。<br>
                     </div>
 
                     <form class="form-horizontal" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="trial_design_change_accessions_form" name="trial_design_change_accessions_form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Upload File (.csv): </label>
+                            <label class="col-sm-3 control-label">上傳檔案 (.csv)：</label>
                             <div class="col-sm-9" >
                                 <input type="file" name="trial_design_change_accessions_file" id="trial_design_change_accessions_file" encoding="multipart/form-data" />
                             </div>
@@ -55,8 +55,8 @@ $trial_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="trial_design_change_accessions_submit" >Submit</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="trial_design_change_accessions_submit" >提交(Submit)</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -67,17 +67,17 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="tDDialog"><b>Replace Plot Accessions</b></h4>
+                <h4 class="modal-title" id="tDDialog"><b>替換小區種原(Replace Plot Accessions)</b></h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <p3> Plot accession was replaced successfully...</p3>
+                    <p3> 小區種原已成功替換...</p3>
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_replace_accession_dialog" type="button" onclick=location.reload() class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_replace_accession_dialog" type="button" onclick=location.reload() class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -89,11 +89,11 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="change_accsn_err_dialog"><b>Error Changing Plot Accessions</b></h4>
+                <h4 class="modal-title" id="change_accsn_err_dialog"><b>變更小區種原時發生錯誤(Error Changing Plot Accessions)</b></h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <p3> Accessions were not changed due to these errors:</p3><br><br>
+                    <p3> 由於以下錯誤，種原未變更：</p3><br><br>
                     <div style="background-color: light-gray;" class="well well-sm">
                         <table>
                             <tbody></tbody>
@@ -102,7 +102,7 @@ $trial_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_error_change_accsn" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_error_change_accsn" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -122,7 +122,7 @@ jQuery(document).ready(function () {
         var uploadFile = jQuery("#trial_design_change_accessions_file").val();
         jQuery('#trial_design_change_accessions_form').attr("action", "/ajax/breeders/trial/<% $trial_id %>/change_plot_accessions_using_file");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選擇檔案");
             return;
         }
         jQuery("#trial_design_change_accessions_form").submit();
@@ -150,7 +150,7 @@ jQuery(document).ready(function () {
         },
         error: function(response) {
             jQuery('#working_modal').modal("hide");
-            alert("An error occurred changing plot accessions");
+            alert("變更小區種原時發生錯誤");
         }
     });
 
