@@ -13,7 +13,7 @@
 
   <table class="table">
     <tr>
-      <th width="100">選取性狀</th>
+      <th width="100">選取性狀(Select Trait)</th>
 
     </tr>
 
@@ -46,10 +46,10 @@ jQuery('#display_stats_button').click(function () {
         ajax: '/ajax/progress?trait_id=' + trait_id,
         destroy: true,
         columns: [
-            { "title": "年份" },
-            { "title": "平均值" },
-            { "title": "標準差" },
-            { "title": "觀測數 [計數]" }
+            { "title": "年份(Year)" },
+            { "title": "平均值(Average)" },
+            { "title": "標準差(Std Dev)" },
+            { "title": "觀測數 [計數](Observations [Count])" }
         ]
     });
 });
