@@ -13,29 +13,29 @@
 
 <div id="manage_drone_imagery_standard_process_raw_images_interactive_div" style="display:none">
 
-    <& /page/page_title.mas, title=>"Manage Aerial Imagery: Run A Standard Process On Raw Images Interactively" &>
+    <& /page/page_title.mas, title=>"管理空中影像：以互動方式對原始影像執行標準流程(Manage Aerial Imagery: Run A Standard Process On Raw Images Interactively)" &>
 
     <&| /util/workflow.mas, id=> "manage_drone_imagery_standard_process_raw_images_interactive_workflow" &>
-        <&| /util/workflow.mas:step, title=> "Intro" &>
-            <& /page/page_title.mas, title=>"This workflow will guide you through applying a standard process to your aerial imaging bands interactively" &>
+        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+            <& /page/page_title.mas, title=>"此工作流程將引導您以互動方式將標準流程套用至空中成像波段(This Workflow Will Guide You Through Applying A Standard Process To Your Aerial Imaging Bands Interactively)" &>
 
             <div class="well well-sm">
                 <center>
-                <p>This process will allow you to assign plot-polygons to the raw images.</p>
-                <p><b>Please finish uploading your raw images before proceeding!</b></p>
+                <p>此流程將允許您將小區多邊形指派給原始影像。</p>
+                <p><b>請在繼續之前完成原始影像的上傳！</b></p>
                 </center>
             </div>
 
             <br/><br/>
             <center>
-            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
             </center>
         </&>
-        <&| /util/workflow.mas:step, title=> "Imaging Band Select" &>
-            <& /page/page_title.mas, title=>"Select a drone run band" &>
+        <&| /util/workflow.mas:step, title=> "選取成像波段(Imaging Band Select)" &>
+            <& /page/page_title.mas, title=>"選取無人機航次波段(Select A Drone Run Band)" &>
 
             <div class="well well-sm">
-                <p>Please select one drone run band to take through the process. The NIR band is currently implemented and provides best contrast.</p>
+                <p>請選取一個無人機航次波段以執行流程。目前已實作近紅外 (NIR) 波段，該波段可提供最佳對比度。</p>
             </div>
 
             <div class="well well-sm">
@@ -44,15 +44,15 @@
                         <table class="table table-bordered table-hover" id="manage_drone_imagery_standard_process_interactive_drone_run_bands_table">
                             <thead>
                                 <tr>
-                                    <th>Select</th>
-                                    <th>Drone Run Band Name</th>
-                                    <th>Drone Run Band Description</th>
-                                    <th>Drone Run Band Type</th>
-                                    <th>Drone Run Name</th>
-                                    <th>Drone Run Description</th>
-                                    <th>Drone Run Date</th>
-                                    <th>Field Trial Name</th>
-                                    <th>Field Trial Description</th>
+                                    <th>選取(Select)</th>
+                                    <th>無人機航次波段名稱(Drone Run Band Name)</th>
+                                    <th>無人機航次波段描述(Drone Run Band Description)</th>
+                                    <th>無人機航次波段類型(Drone Run Band Type)</th>
+                                    <th>無人機航次名稱(Drone Run Name)</th>
+                                    <th>無人機航次描述(Drone Run Description)</th>
+                                    <th>無人機航次日期(Drone Run Date)</th>
+                                    <th>田間試驗名稱(Field Trial Name)</th>
+                                    <th>田間試驗描述(Field Trial Description)</th>
                                 </tr>
                             </thead>
                         </table>
@@ -62,31 +62,31 @@
 
             <br/><br/>
             <center>
-            <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_select_drone_run_band_step">Go to Next Step</button>
+            <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_select_drone_run_band_step">前往下一步(Go to Next Step)</button>
             </center>
         </&>
-        <&| /util/workflow.mas:step, title=> "Passes" &>
-            <& /page/page_title.mas, title=>"Separated imaging passes" &>
+        <&| /util/workflow.mas:step, title=> "航次(Passes)" &>
+            <& /page/page_title.mas, title=>"分開的成像航次(Separated Imaging Passes)" &>
 
             <div class="well well-sm">
-                <p>The process will be applied to each imaging pass at a time. An imaging pass corresponds to the camera moving in one direction over the field experiment, such as an aerial vehicle flying a pass over the field. The passes are automatically separated from the images you uploaded using GPS.</p>
+                <p>此流程將一次套用至一個成像航次。成像航次對應於相機在田間試驗上方朝單一方向移動，例如航載設備飛越田區。系統會利用 GPS 自動從您上傳的影像中分離出各航次。</p>
             </div>
 
             <div id="manage_drone_imagery_standard_process_interactive_separated_passes_info"></div>
 
             <br/><br/>
             <center>
-            <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_separated_passes_step">Go to Next Step</button>
+            <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_separated_passes_step">前往下一步(Go to Next Step)</button>
             </center>
         </&>
-        <&| /util/workflow.mas:step, title=> "Rotate" &>
-            <& /page/page_title.mas, title=>"Rotate images to help with alignment" &>
+        <&| /util/workflow.mas:step, title=> "旋轉(Rotate)" &>
+            <& /page/page_title.mas, title=>"旋轉影像以輔助對齊(Rotate Images To Help With Alignment)" &>
 
             <div class="well well-sm">
-                <p>Please rotate the images so that they make sense as far as your field experiment</p>
-                <p>The plots should be in a vertically straight orientation</p>
-                <p>You should zoom out on your browser (Cntrl + -)</p>
-                <p><b>This process will cycle over the different imaging event passes.</b></p>
+                <p>請旋轉影像使其符合您的田間試驗方向</p>
+                <p>各小區應保持垂直直線方向</p>
+                <p>您應在瀏覽器中縮小檢視畫面 (Ctrl + -)</p>
+                <p><b>此流程將循環處理各個不同的成像事件航次。</b></p>
 
                 <div id="drone_imagery_standard_process_interactive_rotate_flight_pass"></div>
 
@@ -94,19 +94,19 @@
 
                 <form class="form-horizontal">
                     <div class="form-group form-group-sm">
-                        <label class="col-sm-6 control-label">Rotate Images (Use Left and Right Arrows For Fine Tuning): </label>
+                        <label class="col-sm-6 control-label">旋轉影像（使用左右箭頭微調）：</label>
                         <div class="col-sm-6">
                             <input type="range" min="-180" max="180" step="0.01" id="drone_imagery_standard_process_raw_images_interactive_bulk_rotate_degrees_input" name="drone_imagery_standard_process_raw_images_interactive_bulk_rotate_degrees_input" value="0.00"><div id="drone_imagery_standard_process_raw_images_interactive_bulk_rotate_degrees_input_text"></div>
                         </div>
                     </div>
                 </form>
 
-                <button class="btn btn-default" id="drone_imagery_standard_process_interactive_rotate_crosshairs">Draw Crosshairs Assist</button>
-                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_rotate_step">Save Rotation And Go To Next</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_previous_pass">Go To Previous Imaging Pass</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_next_pass">Go To Next Imaging Pass</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_restart">Start Over Rotation</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_skip_forward">Go To Plot Polygons</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_interactive_rotate_crosshairs">繪製十字準線輔助(Draw Crosshairs Assist)</button>
+                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_rotate_step">儲存旋轉並前往下一步(Save Rotation And Go To Next)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_previous_pass">前往上一成像航次(Go To Previous Imaging Pass)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_next_pass">前往下一成像航次(Go To Next Imaging Pass)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_restart">重新開始旋轉(Start Over Rotation)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_rotate_skip_forward">前往小區多邊形(Go To Plot Polygons)</button>
             </div>
 
             <hr>
@@ -163,21 +163,21 @@
             <div id="drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div_1"></div>
 
         </&>
-        <&| /util/workflow.mas:step, title=> "Plot Polygons" &>
-            <& /page/page_title.mas, title=>"Assign plot-polygons to raw images" &>
+        <&| /util/workflow.mas:step, title=> "小區多邊形(Plot Polygons)" &>
+            <& /page/page_title.mas, title=>"將小區多邊形指派給原始影像(Assign Plot-Polygons To Raw Images)" &>
 
             <div class="well well-sm">
                 <ul>
-                    <li>(0) You should zoom out on your browser (Cntrl + -).</li>
-                    <li>(0) Please be very careful with the mouse clicking.</li>
-                    <li>(1) Give the number of rows and columns in the area of interest.</li>
-                    <li>(2) Use the templating tools below to generate plot polygons. There are three templating tools to choose from:</li>
+                    <li>(0) 您應在瀏覽器中縮小檢視畫面 (Ctrl + -)。</li>
+                    <li>(0) 滑鼠點選時請特別小心。</li>
+                    <li>(1) 輸入感興趣區域中的列數與行數。</li>
+                    <li>(2) 使用下方的範本工具產生小區多邊形。有兩種範本工具可供選擇：</li>
                     <ul>
-                        <li>(A) Click the four light blue buttons and then click the four corners encompassing the area of interest.</li>
-                        <li>(B) Or paste a previously used template onto the area of interest.</li>
+                        <li>(A) 點選四個淺藍色按鈕，然後點選涵蓋感興趣區域的四個角落。</li>
+                        <li>(B) 或將先前使用過的範本貼至感興趣區域。</li>
                     </ul>
-                    <li>(3) Assign plot numbers to the generated plot polygons, either automatically or manually. Click blue button to go to next.</li>
-                    <li>(4)<b> This process will cycle over the different imaging event passes.</b></li>
+                    <li>(3) 自動或手動將小區編號指派給產生的小區多邊形。點選藍色按鈕前往下一步。</li>
+                    <li>(4)<b>此流程將循環處理各個不同的成像事件航次。</b></li>
                 </ul>
 
                 <hr>
@@ -186,10 +186,10 @@
                 <hr>
                 <!-- button class="btn btn-primary" id="drone_imagery_standard_process_raw_images_interactive_match">Match and Align Images</button -->
                 <!-- button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_view">View Match</button -->
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_previous_pass">Go To Previous Imaging Pass</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_next_pass">Go To Next Imaging Pass</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_restart">Start Over Alignment</button>
-                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_drop_pin">Drop Pin Marker</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_previous_pass">前往上一成像航次(Go To Previous Imaging Pass)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_next_pass">前往下一成像航次(Go To Next Imaging Pass)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_match_restart">重新開始對齊(Start Over Alignment)</button>
+                <button class="btn btn-default" id="drone_imagery_standard_process_raw_images_interactive_drop_pin">放置大頭針標記(Drop Pin Marker)</button>
             </div>
 
             <form class="form-horizontal">
@@ -226,21 +226,21 @@
             </form>
             <!--<hr>-->
 
-            <& /page/detail_page_2_col_section.mas, info_section_collapsible=>1, info_section_collapsed=>1, info_section_title => "<h4 style='display:inline'>(1) Generate Polygon Template Tool</h4>", info_section_subtitle => 'Overlay a uniform grid over the image.', icon_class => "glyphicon glyphicon-th-large", info_section_id => "manage_drone_imagery_generate_plot_polygons_standard_process_raw_images_section", id_extension => '_raw_images_interactive' &>
+            <& /page/detail_page_2_col_section.mas, info_section_collapsible=>1, info_section_collapsed=>1, info_section_title => "<h4 style='display:inline'>(1) 產生多邊形範本工具(Generate Polygon Template Tool)</h4>", info_section_subtitle => '在影像上方重疊均勻網格。', icon_class => "glyphicon glyphicon-th-large", info_section_id => "manage_drone_imagery_generate_plot_polygons_standard_process_raw_images_section", id_extension => '_raw_images_interactive' &>
 
-            <& /page/detail_page_2_col_section.mas, info_section_collapsible=>1, info_section_collapsed=>1, info_section_title => "<h4 style='display:inline'>(2) Or, Use Ground Control Points</h4>", info_section_subtitle => 'Overlay a uniform grid over the image.', icon_class => "glyphicon glyphicon-th-large", info_section_id => "manage_drone_imagery_generate_plot_polygons_standard_process_raw_images_section_ground_control_points" &>
+            <& /page/detail_page_2_col_section.mas, info_section_collapsible=>1, info_section_collapsed=>1, info_section_title => "<h4 style='display:inline'>(2) 或使用地面控制點(Or, Use Ground Control Points)</h4>", info_section_subtitle => '在影像上方重疊均勻網格。', icon_class => "glyphicon glyphicon-th-large", info_section_id => "manage_drone_imagery_generate_plot_polygons_standard_process_raw_images_section_ground_control_points" &>
 
             <div class="well well-sm">
-                <button id="drone_imagery_interactive_plot_polygons_clear" class="btn btn-danger">Clear All Polygons</button>
-                <button id="drone_imagery_interactive_plot_polygons_clear_one" class="btn btn-danger">Remove One Polygon</button>
+                <button id="drone_imagery_interactive_plot_polygons_clear" class="btn btn-danger">清除所有多邊形(Clear All Polygons)</button>
+                <button id="drone_imagery_interactive_plot_polygons_clear_one" class="btn btn-danger">移除單一多邊形(Remove One Polygon)</button>
             </div>
 
             <div id="drone_imagery_standard_process_interactive_generated_polygons_input_div" style="display:none">
 
                 <div class="well well-sm">
-                    <h2>Either, Manually Assign Plot Numbers to Generated Polygons</h2>
+                    <h2>或手動將小區編號指派給產生的多邊形</h2>
 
-                    <&| /page/info_section.mas, title => 'Manually Assign Plot Numbers to Polygon Numbers', collapsible=>1, collapsed => 1, subtitle=> 'Table for manually assigning plot numbers to polygon numbers.' &>
+                    <&| /page/info_section.mas, title => '手動指派小區編號至多邊形編號(Manually Assign Plot Numbers to Polygon Numbers)', collapsible=>1, collapsed => 1, subtitle=> '用於手動將小區編號指派給多邊形編號的表格。' &>
                         <div id="drone_imagery_standard_process_interactive_generated_polygons_table"></div>
                     </&>
                 </div>
@@ -308,13 +308,13 @@
                 <div id="drone_imagery_interactive_trial_layout_div"></div>
             </div>
         </&>
-        <&| /util/workflow.mas:step, title=> "Apply" &>
-            <& /page/page_title.mas, title=>"Apply these same steps to other drone run bands in the current drone run" &>
+        <&| /util/workflow.mas:step, title=> "套用(Apply)" &>
+            <& /page/page_title.mas, title=>"將相同步驟套用至目前無人機航次中的其他波段(Apply These Same Steps To Other Drone Run Bands In The Current Drone Run)" &>
 
             <div class="well well-sm">
                 <ul>
-                    <li>Here you can apply the same actions you did for the previous steps 1 to 6, to additional drone run bands in this drone run.</li>
-                    <li>Thresholding will be done dynamically, by removing the top and bottom 20% of pixel values.</li>
+                    <li>您可以在此將先前步驟 1 至 6 所執行的相同動作，套用至此無人機航次中的其他無人機航次波段。</li>
+                    <li>門檻值設定將動態進行，移除最高和最低 20% 的像素值。</li>
                 </ul>
             </div>
 
@@ -324,15 +324,15 @@
                         <table class="table table-bordered table-hover" id="manage_drone_imagery_standard_process_interactive_drone_run_bands_apply_table">
                             <thead>
                                 <tr>
-                                    <th>Select</th>
-                                    <th>Drone Run Band Name</th>
-                                    <th>Drone Run Band Description</th>
-                                    <th>Drone Run Band Type</th>
-                                    <th>Drone Run Name</th>
-                                    <th>Drone Run Description</th>
-                                    <th>Drone Run Date</th>
-                                    <th>Field Trial Name</th>
-                                    <th>Field Trial Description</th>
+                                    <th>選取(Select)</th>
+                                    <th>無人機航次波段名稱(Drone Run Band Name)</th>
+                                    <th>無人機航次波段描述(Drone Run Band Description)</th>
+                                    <th>無人機航次波段類型(Drone Run Band Type)</th>
+                                    <th>無人機航次名稱(Drone Run Name)</th>
+                                    <th>無人機航次描述(Drone Run Description)</th>
+                                    <th>無人機航次日期(Drone Run Date)</th>
+                                    <th>田間試驗名稱(Field Trial Name)</th>
+                                    <th>田間試驗描述(Field Trial Description)</th>
                                 </tr>
                             </thead>
                         </table>
@@ -340,18 +340,18 @@
                         <br/>
 
                         <center>
-                        <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_drone_run_band_apply_step">Go to Next Step</button>
+                        <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_drone_run_band_apply_step">前往下一步(Go to Next Step)</button>
                         </center>
                     </div>
                 </div>
             </div>
         </&>
-        <&| /util/workflow.mas:step, title=> "Indices" &>
-            <& /page/page_title.mas, title=>"Create and apply these same steps to vegetative indices" &>
+        <&| /util/workflow.mas:step, title=> "植被指數(Indices)" &>
+            <& /page/page_title.mas, title=>"建立並將相同步驟套用至植被指數(Create And Apply These Same Steps To Vegetative Indices)" &>
 
             <form class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-6 control-label">Vegetative Indices To Apply: </label>
+                    <label class="col-sm-6 control-label">欲套用的植被指數：</label>
                     <div class="col-sm-6">
                         <input name="drone_imagery_standard_process_interactive_apply_indices_select" value="TGI" type="checkbox" checked disabled> Triangular Greenness Index (TGI) <br/>
                         <input name="drone_imagery_standard_process_interactive_apply_indices_select" value="VARI" type="checkbox" checked disabled> Visible Atmospheric Resistant Index (VARI) <br/>
@@ -364,15 +364,15 @@
             <br/>
 
             <center>
-            <button type="button" class="btn btn-primary" id="manage_drone_imagery_standard_interactive_process_indices_step">Go to Next Step</button>
+            <button type="button" class="btn btn-primary" id="manage_drone_imagery_standard_interactive_process_indices_step">前往下一步(Go to Next Step)</button>
             </center>
         </&>
-        <&| /util/workflow.mas:step, title=> "Phenotypes" &>
-            <& /page/page_title.mas, title=>"Calculate phenotypes for all plot polygon images" &>
+        <&| /util/workflow.mas:step, title=> "表型(Phenotypes)" &>
+            <& /page/page_title.mas, title=>"計算所有小區多邊形影像的表型(Calculate Phenotypes For All Plot Polygon Images)" &>
 
             <form class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-6 control-label">Zonal Statistics to Calculate and Save in Database: </label>
+                    <label class="col-sm-6 control-label">欲計算並儲存於資料庫的區域統計資料：</label>
                     <div class="col-sm-6">
                         <input name="drone_imagery_standard_process_interactive_phenotypes_select" value="zonal" type="checkbox" checked disabled> Zonal Statistics: nonzero_pixel_count, total_pixel_sum, mean_pixel_value, harmonic_mean_value, median_pixel_value, variance_pixel_value, stdev_pixel_value, pstdev_pixel_value, min_pixel_value, max_pixel_value, minority_pixel_value, minority_pixel_count, majority_pixel_value, majority_pixel_count, pixel_variety_count <br/>
                     </div>
@@ -383,7 +383,7 @@
             <div id="drone_imagery_standard_process_interactive_week_term_div"></div>
 
             <center>
-            <button type="button" class="btn btn-info" id="manage_drone_imagery_standard_process_interactive_phenotypes_step">Finish</button>
+            <button type="button" class="btn btn-info" id="manage_drone_imagery_standard_process_interactive_phenotypes_step">完成(Finish)</button>
             </center>
         </&>
     </&>
@@ -395,17 +395,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryInteractivePlotPolygonTemplateDialog">Plot Template Options</h4>
+        <h4 class="modal-title" id="droneImageryInteractivePlotPolygonTemplateDialog">小區範本選項(Plot Template Options)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <&| /page/info_section.mas, title => 'Copy/Paste Template', collapsible=>1, collapsed => 0, subtitle=> 'Copy/Paste this template onto the image.' &>
-                <button class="btn btn-primary" id="drone_imagery_interactive_plot_polygon_template_options_paste_click">Click To Paste</button>
+            <&| /page/info_section.mas, title => '複製／貼上範本(Copy/Paste Template)', collapsible=>1, collapsed => 0, subtitle=> '將此範本複製／貼上至影像。' &>
+                <button class="btn btn-primary" id="drone_imagery_interactive_plot_polygon_template_options_paste_click">點擊以貼上(Click To Paste)</button>
             </&>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -416,13 +416,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryInteractiveRemovePlotPolygonDialog">Remove Plot Polygon</h4>
+        <h4 class="modal-title" id="droneImageryInteractiveRemovePlotPolygonDialog">移除小區多邊形(Remove Plot Polygon)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <form class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-5 control-label">Polygon Identifier:</label>
+                    <label class="col-sm-5 control-label">多邊形識別碼：</label>
                     <div class="col-sm-7">
                         <input class="form-control" id="drone_imagery_interactive_plot_polygon_remove_polygon_number" name="drone_imagery_interactive_plot_polygon_remove_polygon_number" type="number" placeholder="e.g. 3" />
                     </div>
@@ -431,8 +431,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="drone_imagery_interactive_plot_polygon_remove_polygon_submit">Remove Plot Polygon</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" id="drone_imagery_interactive_plot_polygon_remove_polygon_submit">移除小區多邊形(Remove Plot Polygon)</button>
       </div>
     </div>
   </div>
@@ -443,14 +443,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryInteractiveMatchViewDialog">View Match From Alignment</h4>
+        <h4 class="modal-title" id="droneImageryInteractiveMatchViewDialog">檢視對齊配對(View Match From Alignment)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid" id="drone_imagery_standard_process_raw_images_interactive_match_modal_div">
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -461,18 +461,18 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="droneImageryStandardProcessInteractiveCompleteDialog">Standard Process Complete</h4>
+        <h4 class="modal-title" id="droneImageryStandardProcessInteractiveCompleteDialog">標準流程完成(Standard Process Complete)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <p>
                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                It will take time to finish processing your drone run and calculating phenotypes for all plot polygon images, vegetative indices, and processing combinations. Once it is complete, the "Processing Icon" on the Manage->Drone Imagery page will disappear from the drone run.
+                完成無人機航次處理以及計算所有小區多邊形影像、植被指數和處理組合的表型需要一些時間。完成後，「管理->無人機影像」頁面上的「處理中圖示」將會從該無人機航次中消失。
             </p>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Finish</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">完成(Finish)</button>
       </div>
     </div>
   </div>
@@ -565,7 +565,7 @@ jQuery(document).ready(function(){
                     console.log(response);
                 },
                 error: function(response){
-                    alert('Error saving GPS images positions!');
+                    alert('儲存 GPS 影像位置時發生錯誤！');
                 }
             });
 
@@ -745,10 +745,10 @@ jQuery(document).ready(function(){
 
             initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div', 'drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div_area', 1, 0);
 
-            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
         }
         else {
-            alert('No previous imaging pass to go to!');
+            alert('沒有上一成像航次可前往！');
             return false;
         }
     });
@@ -759,10 +759,10 @@ jQuery(document).ready(function(){
 
             initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div', 'drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div_area', 1, 0);
 
-            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
         }
         else {
-            alert('No next imaging pass to go to!');
+            alert('沒有下一成像航次可前往！');
             return false;
         }
     });
@@ -787,7 +787,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
                 //jQuery('#working_modal').hide();
-                alert('Error rotating GPS images!');
+                alert('旋轉 GPS 影像時發生錯誤！');
             }
         });
 
@@ -798,13 +798,13 @@ jQuery(document).ready(function(){
 
             initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div', 'drone_imagery_standard_process_raw_images_interactive_bulk_rotate_div_area', 1, 0);
 
-            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
             window.scrollTo(0,0);
         }
         else {
 
-            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1><br/><center><h3>Working <img src='/img/wheel.gif' /></h3></center>");
+            jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1><br/><center><h3>處理中 <img src='/img/wheel.gif' /></h3></center>");
 
             (function checkRawImageRotateProcess (manage_drone_imagery_standard_process_raw_images_interactive_is_rotating) {
                 setTimeout(function () {
@@ -821,13 +821,13 @@ jQuery(document).ready(function(){
                                 checkRawImageRotateProcess(manage_drone_imagery_standard_process_raw_images_interactive_is_rotating);
                             }
                             else {
-                                jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+                                jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
                                 console.log("ROTATION AND MATCHING COMPLETE");
 
                                 manage_drone_imagery_standard_process_raw_images_interactive_current_pass = 1;
 
-                                jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+                                jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
                                 initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
@@ -838,7 +838,7 @@ jQuery(document).ready(function(){
                             }
                         },
                         error: function(response){
-                            alert('Error checking GPS image rotation and matching!');
+                            alert('檢查 GPS 影像旋轉與配對時發生錯誤！');
                         }
                     });
                 }, 10000);
@@ -849,7 +849,7 @@ jQuery(document).ready(function(){
     jQuery('#drone_imagery_standard_process_raw_images_interactive_rotate_skip_forward').click(function(){
         manage_drone_imagery_standard_process_raw_images_interactive_current_pass = 1;
 
-        jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+        jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
         initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
@@ -919,7 +919,7 @@ jQuery(document).ready(function(){
                 location.reload();
             },
             error: function(response){
-                alert('Error deleting GPS images template from match step!')
+                alert('從配對步驟刪除 GPS 影像範本時發生錯誤！')
             }
         });
     });
@@ -936,7 +936,7 @@ jQuery(document).ready(function(){
                 location.reload();
             },
             error: function(response){
-                alert('Error deleting GPS images template from rotate step!')
+                alert('從旋轉步驟刪除 GPS 影像範本時發生錯誤！')
             }
         });
     });
@@ -1177,12 +1177,12 @@ jQuery(document).ready(function(){
                     manage_drone_imagery_interactive_match_two_images(image_id1, image_id2);
                 }
                 else {
-                    alert('No more images to match!');
+                    alert('沒有更多影像可配對！');
                     return false;
                 }
             },
             error: function(response){
-                alert('Error matching and aligning two images!')
+                alert('配對並對齊兩張影像時發生錯誤！')
             }
         });
     }
@@ -1193,7 +1193,7 @@ jQuery(document).ready(function(){
 
             initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
-            jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+            jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
             plot_polygons_interactive_display_points = [];
             plot_polygons_interactive_ind_4_points = [];
@@ -1212,7 +1212,7 @@ jQuery(document).ready(function(){
             window.scrollTo(0,0);
         }
         else {
-            alert('No previous imaging pass to go to!');
+            alert('沒有上一成像航次可前往！');
             return false;
         }
     });
@@ -1223,7 +1223,7 @@ jQuery(document).ready(function(){
 
             initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
-            jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+            jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
             plot_polygons_interactive_display_points = [];
             plot_polygons_interactive_ind_4_points = [];
@@ -1242,7 +1242,7 @@ jQuery(document).ready(function(){
             window.scrollTo(0,0);
         }
         else {
-            alert('No next imaging pass to go to!');
+            alert('沒有下一成像航次可前往！');
             return false;
         }
     });
@@ -1269,7 +1269,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
             //    jQuery('#working_modal').modal('hide');
-                alert('Error matching and aligning images sequential!')
+                alert('循序配對並對齊影像時發生錯誤！')
             }
         });
     }
@@ -1279,7 +1279,7 @@ jQuery(document).ready(function(){
     });
 
     jQuery('#drone_imagery_standard_process_raw_images_interactive_drop_pin').click(function(){
-        alert('Click on a place in the current imaging event pass to drop a pin');
+        alert('在目前成像事件航次中的某處點選以放置大頭針');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -1319,7 +1319,7 @@ jQuery(document).ready(function(){
                   length: manage_drone_imagery_standard_process_interactive_image_length
                 }
 
-                d3.select(svg_div).html("<h1>Imaging Pass Number: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"</h1>");
+                d3.select(svg_div).html("<h1>成像航次編號："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"</h1>");
 
                 manage_drone_imagery_standard_process_raw_images_interactive_svg = d3.select(svg_div).append("svg")
                     .attr("width", drone_imagery_interactive_total_width)
@@ -1334,7 +1334,7 @@ jQuery(document).ready(function(){
                 }
             },
             error: function(response){
-                alert('Error init svg!')
+                alert('初始化 SVG 時發生錯誤！')
             }
         });
     }
@@ -1380,7 +1380,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error retrieving images and gps info!')
+                alert('擷取影像與 GPS 資訊時發生錯誤！')
             }
         });
     }
@@ -1406,7 +1406,7 @@ jQuery(document).ready(function(){
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1 || selected.length == 0) {
-            alert('Please select one band!');
+            alert('請選取一個波段！');
             return false;
         }
         manage_drone_imagery_standard_process_interactive_drone_run_band_project_id = selected[0];
@@ -1416,7 +1416,7 @@ jQuery(document).ready(function(){
             success: function(response){
                 console.log(response);
 
-                var html = '<table class="table table-hover table-bordered"><thead><tr><th>Imaging Pass Number</th><th>Number of Captures</th></tr></thead><tbody>';
+                var html = '<table class="table table-hover table-bordered"><thead><tr><th>成像航次編號(Imaging Pass Number)</th><th>擷取次數(Number of Captures)</th></tr></thead><tbody>';
                 for (var i=0; i<response.results.length; i++) {
                     html = html + '<tr><td>'+response.results[i][0]+'</td><td>'+response.results[i][1]+'</td></tr>';
                 }
@@ -1429,7 +1429,7 @@ jQuery(document).ready(function(){
                 window.scrollTo(0,0);
             },
             error: function(response){
-                alert('Error separate micasense stacks!');
+                alert('分離 Micasense 堆疊時發生錯誤！');
             }
         });
     });
@@ -1454,7 +1454,7 @@ jQuery(document).ready(function(){
                         _redraw_ground_control_points_table_interactive();
                     },
                     error: function(response){
-                        alert('Error getting standard process interactive gcps!');
+                        alert('取得標準流程互動式 GCP 時發生錯誤！');
                     }
                 });
 
@@ -1465,7 +1465,7 @@ jQuery(document).ready(function(){
 
                     manage_drone_imagery_standard_process_raw_images_interactive_current_pass = 1;
 
-                    jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+                    jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
                     initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
@@ -1479,7 +1479,7 @@ jQuery(document).ready(function(){
 
                     manage_drone_imagery_standard_process_raw_images_interactive_current_pass = 1;
 
-                    jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+                    jQuery('#drone_imagery_standard_process_interactive_rotate_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
                     Workflow.complete("#manage_drone_imagery_standard_process_interactive_separated_passes_step");
                     Workflow.focus('#manage_drone_imagery_standard_process_raw_images_interactive_workflow', 3);
@@ -1487,7 +1487,7 @@ jQuery(document).ready(function(){
                 window.scrollTo(0,0);
             },
             error: function(response){
-                alert('Error check rotation!');
+                alert('檢查旋轉時發生錯誤！');
             }
         });
     });
@@ -1504,12 +1504,12 @@ jQuery(document).ready(function(){
     });
 
     function _redraw_ground_control_points_table_interactive() {
-        var html = "<table class='table table-bordered table-hover'><thead><tr><th>Saved GCP Name</th><th>X Pos</th><th>Y Pos</th><th>Latitude</th><th>Longitude</th><th>Remove</th></thead><tbody>";
+        var html = "<table class='table table-bordered table-hover'><thead><tr><th>已儲存 GCP 名稱(Saved GCP Name)</th><th>X 座標(X Pos)</th><th>Y 座標(Y Pos)</th><th>緯度(Latitude)</th><th>經度(Longitude)</th><th>移除(Remove)</th></thead><tbody>";
         for (var i=0; i<project_drone_imagery_interactive_ground_control_points_saved_array.length; i++) {
             html = html + "<tr><td>"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['name']+"</td><td>"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['x_pos']+"</td><td>"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['y_pos']+"</td><td>"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['latitude']+"</td><td>"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['longitude']+"</td><td><p style='color:red' name='project_drone_imagery_interactive_ground_control_points_delete_one' data-name='"+project_drone_imagery_interactive_ground_control_points_saved_array[i]['name']+"' data-drone_run_project_id="+manage_drone_imagery_standard_process_raw_images_interactive_drone_run_id+" >X</p></td></tr>";
         }
         html = html + "</tbody></table>";
-        html = html + "<button class='btn btn-default' name='project_drone_imagery_interactive_ground_control_points_draw_points'>Draw Saved GCPs</button>";
+        html = html + "<button class='btn btn-default' name='project_drone_imagery_interactive_ground_control_points_draw_points'>繪製已儲存 GCP(Draw Saved GCPs)</button>";
         jQuery('#'+project_drone_imagery_interactive_ground_control_points_saved_div_table).html(html);
     }
 
@@ -1517,7 +1517,7 @@ jQuery(document).ready(function(){
         var drone_run_project_id = jQuery(this).data('drone_run_project_id');
         var name = jQuery(this).data('name');
 
-        if (confirm("Remove this GCP?")) {
+        if (confirm("要移除此 GCP 嗎？")) {
             jQuery.ajax({
                 type: 'POST',
                 url: '/api/drone_imagery/remove_one_gcp',
@@ -1535,7 +1535,7 @@ jQuery(document).ready(function(){
                     _redraw_ground_control_points_table_interactive();
                 },
                 error: function(response){
-                    alert('Error deleting GCP name!');
+                    alert('刪除 GCP 名稱時發生錯誤！');
                 }
             });
         }
@@ -1560,7 +1560,7 @@ jQuery(document).ready(function(){
                 initializeImagesInteractive(1, '#drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area_'+manage_drone_imagery_standard_process_raw_images_interactive_current_pass);
             },
             error: function(response){
-                alert('Error deleting GPS images template from NS step!')
+                alert('從南北步驟刪除 GPS 影像範本時發生錯誤！')
             }
         });
     });
@@ -1579,7 +1579,7 @@ jQuery(document).ready(function(){
                 initializeImagesInteractive(1, '#drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area_'+manage_drone_imagery_standard_process_raw_images_interactive_current_pass);
             },
             error: function(response){
-                alert('Error deleting GPS images template from EW step!')
+                alert('從東西步驟刪除 GPS 影像範本時發生錯誤！')
             }
         });
     });
@@ -1594,7 +1594,7 @@ jQuery(document).ready(function(){
     });
 
     jQuery('#drone_imagery_plot_polygons_top_left_click_raw_images_interactive').click(function(){
-        alert('Now click the top left corner of your field on the image below.');
+        alert('現在請在下方影像中點選田區的左上角。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -1611,7 +1611,7 @@ jQuery(document).ready(function(){
         });
     });
     jQuery('#drone_imagery_plot_polygons_top_right_click_raw_images_interactive').click(function(){
-        alert('Now click the top right corner of your field on the image below.');
+        alert('現在請在下方影像中點選田區的右上角。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -1627,7 +1627,7 @@ jQuery(document).ready(function(){
         });
     });
     jQuery('#drone_imagery_plot_polygons_bottom_left_click_raw_images_interactive').click(function(){
-        alert('Now click the bottom left corner of your field on the image below.');
+        alert('現在請在下方影像中點選田區的左下角。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -1644,7 +1644,7 @@ jQuery(document).ready(function(){
         });
     });
     jQuery('#drone_imagery_plot_polygons_bottom_right_click_raw_images_interactive').click(function(){
-        alert('Now click the bottom right corner of your field on the image below.');
+        alert('現在請在下方影像中點選田區的右下角。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -1689,7 +1689,7 @@ jQuery(document).ready(function(){
     var drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_section_right_column_bottom_offset_val = 0;
 
     jQuery('#drone_imagery_plot_polygons_rectangles_apply_square_average_raw_images_interactive').click(function() {
-        alert('Click the four corners of 10 single plots at random in the current imaging pass. For each single plot click the top left, then the top right, then the bottom right, then the bottom left.');
+        alert('在目前成像航次中隨機點選 10 個單一小區的四個角落。對每個單一小區，請依序點選左上、右上、右下、左下。');
 
     });
 
@@ -1707,35 +1707,35 @@ jQuery(document).ready(function(){
         var section_right_column_bottom_offset_val = jQuery('#drone_imagery_plot_polygons_right_col_bottom_offset_raw_images_interactive').val();
 
         if (num_rows_val == ''){
-            alert('Please give the number of rows!');
+            alert('請輸入列數！');
             return;
         }
         if (num_cols_val == ''){
-            alert('Please give the number of columns!');
+            alert('請輸入行數！');
             return;
         }
         if (section_top_row_left_offset_val == ''){
-            alert('Please give the top-most rows left margin! This can be 0 if there is no offset.');
+            alert('請輸入最頂列左側邊界！若無偏移可為 0。');
             return;
         }
         if (section_bottom_row_left_offset_val == ''){
-            alert('Please give the bottom-most rows left margin! This can be 0 if there is no offset.');
+            alert('請輸入最底列左側邊界！若無偏移可為 0。');
             return;
         }
         if (section_left_column_top_offset_val == ''){
-            alert('Please give the left-most columns top margin! This can be 0 if there is no offset.');
+            alert('請輸入最左行頂部邊界！若無偏移可為 0。');
             return;
         }
         if (section_left_column_bottom_offset_val == ''){
-            alert('Please give the left-most columns bottom margin! This can be 0 if there is no offset.');
+            alert('請輸入最左行底部邊界！若無偏移可為 0。');
             return;
         }
         if (section_top_row_right_offset_val == ''){
-            alert('Please give the top-most rows right margin! This can be 0 if there is no offset.');
+            alert('請輸入最頂列右側邊界！若無偏移可為 0。');
             return;
         }
         if (section_right_column_bottom_offset_val == ''){
-            alert('Please give the right-most columns bottom margin! This can be 0 if there is no offset.');
+            alert('請輸入最右行底部邊界！若無偏移可為 0。');
             return;
         }
 
@@ -1750,7 +1750,7 @@ jQuery(document).ready(function(){
         drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_counter = drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_counter + 1;
 
         if (drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_counter < 10) {
-            alert('Click the boundaries of another plot. You need to click atleast 10 to get a good average. Completed: '+drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_counter);
+            alert('請點選另一個小區的邊界。您需要點選至少 10 個才能獲得良好的平均值。已完成：'+drone_imagery_plot_polygons_rectangles_apply_square_raw_images_interactive_counter);
             return false;
         }
 
@@ -1759,12 +1759,12 @@ jQuery(document).ready(function(){
 
     function plotPolygonManualAssignPlotNumberTable(div_id, table_id, input_name, generate_assign_button, save_button) {
         var html = '<div class="panel panel-default"><div class="panel-body">';
-        html = html + '<table class="table table-bordered table-hover" id="'+table_id+'"><thead><tr><th>Polygon Number</th><th>Plot Number</th></tr></thead><tbody>';
+        html = html + '<table class="table table-bordered table-hover" id="'+table_id+'"><thead><tr><th>多邊形編號(Polygon Number)</th><th>小區編號(Plot Number)</th></tr></thead><tbody>';
         for(var i=0; i<drone_imagery_interactive_plot_generated_polygons.length; i++) {
             html = html + '<tr><td>'+i+'</td><td><input type="number" class="form-control" data-polygon_number="'+i+'" name="'+input_name+'" /></td></tr>';
         }
         html = html + '</tbody></table><hr>';
-        html = html + '<button class="btn btn-primary" id="'+generate_assign_button+'">Generate Assignments From Manual Input (Does Not Save)</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" name="'+save_button+'">Finish and Save Polygons To Plots. Go to Next Imaging Pass.</button></div></div>';
+        html = html + '<button class="btn btn-primary" id="'+generate_assign_button+'">從手動輸入產生指派(Generate Assignments From Manual Input) (未儲存)</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" name="'+save_button+'">完成並儲存多邊形至小區(Finish and Save Polygons To Plots)。前往下一成像航次。</button></div></div>';
 
         jQuery('#'+div_id).html(html);
         jQuery('#'+table_id).DataTable({'paging':false});
@@ -1816,9 +1816,9 @@ jQuery(document).ready(function(){
     }
 
     function droneImageryDrawPlotPolygonActiveTemplatesTableInteractive(div_id, plot_polygons_template_dimensions){
-        var html = '<table class="table table-bordered table-hover"><thead><tr><th>Template Number</th><th>Rows</th><th>Columns</th><th>Total Polygons</th><th>Options</th></tr></thead><tbody>';
+        var html = '<table class="table table-bordered table-hover"><thead><tr><th>範本編號(Template Number)</th><th>列數(Rows)</th><th>行數(Columns)</th><th>多邊形總數(Total Polygons)</th><th>選項(Options)</th></tr></thead><tbody>';
         for (var i=0; i<plot_polygons_template_dimensions.length; i++) {
-            html = html + '<tr><td>'+i+'</td><td>'+plot_polygons_template_dimensions[i]['num_rows']+'</td><td>'+plot_polygons_template_dimensions[i]['num_cols']+'</td><td>'+plot_polygons_template_dimensions[i]['total_plot_polygons']+'</td><td><button class="btn btn-sm btn-primary" name="drone_imagery_plot_polygon_template_options_interactive" data-plot_polygon_template_id="'+i+'" >Options</button></td></tr>';
+            html = html + '<tr><td>'+i+'</td><td>'+plot_polygons_template_dimensions[i]['num_rows']+'</td><td>'+plot_polygons_template_dimensions[i]['num_cols']+'</td><td>'+plot_polygons_template_dimensions[i]['total_plot_polygons']+'</td><td><button class="btn btn-sm btn-primary" name="drone_imagery_plot_polygon_template_options_interactive" data-plot_polygon_template_id="'+i+'" >選項(Options)</button></td></tr>';
         }
         html = html + '</tbody></table>';
         jQuery('#'+div_id).html(html);
@@ -1826,35 +1826,35 @@ jQuery(document).ready(function(){
 
     function plotPolygonsRectanglesApplyInteractive(num_rows_val, num_cols_val, section_top_row_left_offset_val, section_bottom_row_left_offset_val, section_left_column_top_offset_val, section_left_column_bottom_offset_val, section_top_row_right_offset_val, section_right_column_bottom_offset_val, section_width, section_height, plot_polygons_assignment_info) {
         if (num_rows_val == ''){
-            alert('Please give the number of rows!');
+            alert('請輸入列數！');
             return;
         }
         if (num_cols_val == ''){
-            alert('Please give the number of columns!');
+            alert('請輸入行數！');
             return;
         }
         if (section_top_row_left_offset_val == ''){
-            alert('Please give the top-most rows left margin! This can be 0 if there is no offset.');
+            alert('請輸入最頂列左側邊界！若無偏移可為 0。');
             return;
         }
         if (section_bottom_row_left_offset_val == ''){
-            alert('Please give the bottom-most rows left margin! This can be 0 if there is no offset.');
+            alert('請輸入最底列左側邊界！若無偏移可為 0。');
             return;
         }
         if (section_left_column_top_offset_val == ''){
-            alert('Please give the left-most columns top margin! This can be 0 if there is no offset.');
+            alert('請輸入最左行頂部邊界！若無偏移可為 0。');
             return;
         }
         if (section_left_column_bottom_offset_val == ''){
-            alert('Please give the left-most columns bottom margin! This can be 0 if there is no offset.');
+            alert('請輸入最左行底部邊界！若無偏移可為 0。');
             return;
         }
         if (section_top_row_right_offset_val == ''){
-            alert('Please give the top-most rows right margin! This can be 0 if there is no offset.');
+            alert('請輸入最頂列右側邊界！若無偏移可為 0。');
             return;
         }
         if (section_right_column_bottom_offset_val == ''){
-            alert('Please give the right-most columns bottom margin! This can be 0 if there is no offset.');
+            alert('請輸入最右行底部邊界！若無偏移可為 0。');
             return;
         }
 
@@ -1981,7 +1981,7 @@ jQuery(document).ready(function(){
         }
         console.log(plot_polygons_interactive_generated_polygons_intermediate);
 
-        alert('Click on where the top left corner of the template will be pasted in the current imaging event pass.');
+        alert('請在目前成像事件航次中點選範本左上角要貼上的位置。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -2059,7 +2059,7 @@ jQuery(document).ready(function(){
                 droneImageryDrawLayoutTableInteractive(response, {}, 'drone_imagery_interactive_trial_layout_div', 'drone_imagery_interactive_trial_layout_table');
             },
             error: function(response){
-                alert('Error retrieving trial layout and design!')
+                alert('擷取試驗配置與設計時發生錯誤！')
             }
         });
     }
@@ -2091,11 +2091,11 @@ jQuery(document).ready(function(){
     }
 
     function droneImageryDrawRectangleTableInteractive(plot_polygons_layout_assignment_info, plot_polygons_generate_assignment_button, plot_polygon_assignment_submit_button) {
-        var html = '<hr><div class="well well-sm"><h2>Or Auto Assign Plot Polygons to Plot Numbers</h2>';
+        var html = '<hr><div class="well well-sm"><h2>或自動指派小區多邊形至小區編號</h2>';
         html = html + '<div class="panel panel-default"><div class="panel-body"><div class="form form-horizontal">';
-        html = html + '<div class="row"><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">Location of First Plot (e.g. plot number 1): </label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_first_plot_start" name="drone_imagery_interactive_plot_polygons_first_plot_start"><option value="top_left">Top Left</option><option value="top_right">Top Right</option><option value="bottom_left" disabled>Bottom Left</option><option value="bottom_right" disabled>Bottom Right</option></select></div></div></div><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">Second Plot Follows First Plot Going: </label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_second_plot_follows" name="drone_imagery_interactive_plot_polygons_second_plot_follows"><option value="right">Right</option><option value="up">Up</option><option value="down">Down</option><option value="left">Left</option></select></div></div></div></div>';
-        html = html + '<div class="row"><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">Plot Number Orientation: </label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_plot_orientation" name="drone_imagery_interactive_plot_polygons_plot_orientation"><option value="serpentine">Serpentine</option><option value="zigzag">Zigzag (Not Serpentine)</option></select></div></div></div><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">Plot Number Start (optional): </label><div class="col-sm-6"><input type="number" class="form-control" id="drone_imagery_interactive_plot_polygons_plot_number_start" name="drone_imagery_interactive_plot_polygons_plot_number_start" placeholder="OPTIONAL" /></div></div></div></div>';
-        html = html + '<button class="btn btn-primary" id="'+plot_polygons_generate_assignment_button+'">Generate Assignments (Does Not Save)</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" name="'+plot_polygon_assignment_submit_button+'">Finish and Save Polygons To Plots. Go to Next Imaging Pass.</button></div>';
+        html = html + '<div class="row"><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">第一小區位置（例如小區編號 1）：</label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_first_plot_start" name="drone_imagery_interactive_plot_polygons_first_plot_start"><option value="top_left">左上(Top Left)</option><option value="top_right">右上(Top Right)</option><option value="bottom_left" disabled>左下(Bottom Left)</option><option value="bottom_right" disabled>右下(Bottom Right)</option></select></div></div></div><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">第二小區相對於第一小區的方向：</label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_second_plot_follows" name="drone_imagery_interactive_plot_polygons_second_plot_follows"><option value="right">向右(Right)</option><option value="up">向上(Up)</option><option value="down">向下(Down)</option><option value="left">向左(Left)</option></select></div></div></div></div>';
+        html = html + '<div class="row"><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">小區編號走向：</label><div class="col-sm-6"><select class="form-control" id="drone_imagery_interactive_plot_polygons_plot_orientation" name="drone_imagery_interactive_plot_polygons_plot_orientation"><option value="serpentine">蛇形(Serpentine)</option><option value="zigzag">之字形(Zigzag) (非蛇形)</option></select></div></div></div><div class="col-sm-6"><div class="form-group form-group-sm"><label class="col-sm-6 control-label">起始小區編號（選填）：</label><div class="col-sm-6"><input type="number" class="form-control" id="drone_imagery_interactive_plot_polygons_plot_number_start" name="drone_imagery_interactive_plot_polygons_plot_number_start" placeholder="選填" /></div></div></div></div>';
+        html = html + '<button class="btn btn-primary" id="'+plot_polygons_generate_assignment_button+'">產生指派(Generate Assignments) (未儲存)</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-primary" name="'+plot_polygon_assignment_submit_button+'">完成並儲存多邊形至小區(Finish and Save Polygons To Plots)。前往下一成像航次。</button></div>';
         html = html + '</div></div></div></div>';
 
         jQuery('#'+plot_polygons_layout_assignment_info).html(html);
@@ -2109,7 +2109,7 @@ jQuery(document).ready(function(){
 
     jQuery('#drone_imagery_interactive_plot_polygon_template_options_paste_click').click(function(){
         jQuery('#drone_imagery_interactive_plot_polygon_template_options_dialog').modal('hide');
-        alert('Click on where the top left corner of the template will be pasted.');
+        alert('請點選範本左上角要貼上的位置。');
 
         d3.selectAll("g").on('mousedown.drag', null);
 
@@ -2252,7 +2252,7 @@ jQuery(document).ready(function(){
         if (plot_polygons_first_plot_start == 'top_left') {
             var generated_polygon_key_first_plot_number = 0;
             if (plot_polygons_second_plot_follows == 'left' || plot_polygons_second_plot_follows == 'up') {
-                alert('Second plot cannot follow left or up from first plot if the first plot starts at the top left, because that is physically impossible.');
+                alert('如果第一小區從左上角開始，第二小區不能位於第一小區的左側或上方，因為這在物理上是不可能的。');
                 return;
             }
             if (plot_polygons_second_plot_follows == 'right') {
@@ -2334,14 +2334,14 @@ jQuery(document).ready(function(){
                 }
             }
             if (plot_polygons_second_plot_follows == 'down') {
-                alert('Down not implemented if first plot starts in top left. Please contact us or try rotating your image differently before assigning plot polygons (e.g. rotate image 90 degrees clock-wise, then first plot starts in top right and you can go left for plot assignment).');
+                alert('第一小區從左上角開始時尚未實作向下方向。請聯絡我們或在指派小區多邊形之前嘗試以不同方式旋轉影像（例如順時針旋轉影像 90 度，則第一小區從右上角開始，您可以向左進行小區指派）。');
                 return;
             }
         }
         if (plot_polygons_first_plot_start == 'top_right') {
             var generated_polygon_key_first_plot_number = plot_polygons_template_current_num_cols - 1;
             if (plot_polygons_second_plot_follows == 'right' || plot_polygons_second_plot_follows == 'up') {
-                alert('Second plot cannot follow right or up from first plot if the first plot starts at the top right, because that is physically impossible.');
+                alert('如果第一小區從右上角開始，第二小區不能位於第一小區的右側或上方，因為這在物理上是不可能的。');
                 return;
             }
             if (plot_polygons_second_plot_follows == 'left') {
@@ -2435,7 +2435,7 @@ jQuery(document).ready(function(){
                 }
             }
             if (plot_polygons_second_plot_follows == 'down') {
-                alert('Down not implemented if your first plot starts in top right. Please contact us or try rotating your image differently before assigning plot polygons (e.g. rotate image 90 degrees clockwise, then first plot starts in bottom right corner and plot assignment can follow going left).');
+                alert('第一小區從右上角開始時尚未實作向下方向。請聯絡我們或在指派小區多邊形之前嘗試以不同方式旋轉影像（例如順時針旋轉影像 90 度，則第一小區從右下角開始，小區指派可向左進行）。');
                 return;
             }
         }
@@ -2529,7 +2529,7 @@ jQuery(document).ready(function(){
 
                     initializeInteractiveSvg('#drone_imagery_standard_process_raw_images_image_id_interactive_select_div', 'drone_imagery_standard_process_raw_images_image_id_interactive_select_div_area', 1, 1);
 
-                    jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>Current Imaging Event Pass: "+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
+                    jQuery('#drone_imagery_standard_process_interactive_plot_polygons_flight_pass').html("<h1><b>目前成像事件航次："+manage_drone_imagery_standard_process_raw_images_interactive_current_pass+"/"+manage_drone_imagery_standard_process_raw_images_interactive_maximum_pass+"</b></h1>");
 
                     plot_polygons_interactive_display_points = [];
                     plot_polygons_interactive_ind_4_points = [];
@@ -2573,7 +2573,7 @@ jQuery(document).ready(function(){
             manage_drone_imagery_standard_process_interactive_apply_drone_run_band_project_ids.push(jQuery(this).val());
         });
         if (manage_drone_imagery_standard_process_interactive_apply_drone_run_band_project_ids.length < 1){
-            alert('Please select at least one other drone run band!');
+            alert('請選取至少一個其他無人機航次波段！');
             return false;
         } else {
             Workflow.complete("#manage_drone_imagery_standard_process_interactive_drone_run_band_apply_step");
@@ -2587,7 +2587,7 @@ jQuery(document).ready(function(){
             manage_drone_imagery_standard_process_interactive_apply_drone_run_band_vegetative_indices.push(jQuery(this).val());
         });
         if (manage_drone_imagery_standard_process_interactive_apply_drone_run_band_vegetative_indices.length < 1){
-            alert('Please select at least one vegetative index!');
+            alert('請選取至少一個植被指數！');
             return false;
         } else {
             jQuery.ajax({
@@ -2604,13 +2604,13 @@ jQuery(document).ready(function(){
                         alert(response.error);
                     }
 
-                    var html = "<center><b>Field Trial Planting Date</b>: "+response.planting_date+"<br/><b>Drone Run Date</b>: "+response.drone_run_date+"<br/><b>Number of Weeks</b>: "+response.rounded_time_difference_weeks+"<br/><b>Number of Weeks Ontology Term</b>: "+response.time_ontology_week_term+"<br/><b>Number of Days</b>:"+response.time_difference_days+"<br/><b>Number of Days Ontology Term</b>: "+response.time_ontology_day_term+"<br/><br/></center>";
+                    var html = "<center><b>田間試驗播種日期</b>: "+response.planting_date+"<br/><b>無人機航次日期</b>: "+response.drone_run_date+"<br/><b>週數</b>: "+response.rounded_time_difference_weeks+"<br/><b>週數本體論詞彙</b>: "+response.time_ontology_week_term+"<br/><b>天數</b>:"+response.time_difference_days+"<br/><b>天數本體論詞彙</b>: "+response.time_ontology_day_term+"<br/><br/></center>";
                     jQuery('#drone_imagery_standard_process_interactive_week_term_div').html(html);
 
                     manage_drone_imagery_standard_process_interactive_phenotype_time = response.time_ontology_day_cvterm_id;
                 },
                 error: function(response){
-                    alert('Error getting time terms!');
+                    alert('取得時間詞彙時發生錯誤！');
                     jQuery('#working_modal').modal('hide');
                 }
             });
@@ -2624,7 +2624,7 @@ jQuery(document).ready(function(){
         var selected = [];
 
         if (manage_drone_imagery_standard_process_interactive_phenotype_time == '') {
-            alert('Time of phenotype not set! This should not happen! Please contact us.');
+            alert('未設定表型時間！不應發生此情況！請聯絡我們。');
             return false;
         }
 
@@ -2632,7 +2632,7 @@ jQuery(document).ready(function(){
             selected.push(jQuery(this).val());
         });
         if (selected.length < 1){
-            alert('Please select at least one phenotype!');
+            alert('請選取至少一個表型！');
             return false;
         } else {
             jQuery.ajax({
@@ -2671,7 +2671,7 @@ jQuery(document).ready(function(){
     jQuery('#plot_polygons_use_previously_saved_template_raw_images_interactive').click(function(){
         var plot_polygons_use_previously_saved_template = jQuery('#manage_drone_imagery_standard_process_interactive_previous_templates').val();
         if (plot_polygons_use_previously_saved_template == '') {
-            alert('Please select a previously saved template before trying to apply it. If there is not a template listed, then you can create one using the templating tool above.');
+            alert('嘗試套用之前，請先選取先前儲存的範本。如果未列出範本，您可以使用上方的範本工具建立一個。');
             return;
         }
 
@@ -2689,7 +2689,7 @@ jQuery(document).ready(function(){
                 draw_canvas_image_interactive(0);
             },
             error: function(response){
-                alert('Error retrieving plot polygons template!');
+                alert('擷取小區多邊形範本時發生錯誤！');
             }
         });
         return;
