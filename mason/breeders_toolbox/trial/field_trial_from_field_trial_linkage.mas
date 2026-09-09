@@ -22,8 +22,8 @@ jQuery(document).ready(function () {
             success: function(response){
                 //console.log(response);
                 jQuery("#working_modal").modal("hide");
-                var html1 = '<table class="table table-hover table-bordered"><thead><tr><th>Source Field Trial(s) For This Field Trial</th></tr></thead><tbody>';
-                var html2 = '<table class="table table-hover table-bordered"><thead><tr><th>Field Trial(s) Sourced From This Field Trial</th></tr></thead><tbody>';
+                var html1 = '<table class="table table-hover table-bordered"><thead><tr><th>此田間試驗之來源田間試驗(Source Field Trial(s) For This Field Trial)</th></tr></thead><tbody>';
+                var html2 = '<table class="table table-hover table-bordered"><thead><tr><th>以此田間試驗為來源之田間試驗(Field Trial(s) Sourced From This Field Trial)</th></tr></thead><tbody>';
                 for (var i=0; i<response.source_field_trials.length; i++){
                     html1 = html1 + '<tr><td><a href="/breeders/trial/'+response.source_field_trials[i][0]+'">'+response.source_field_trials[i][1]+'</a></td></tr>';
                 }
@@ -36,7 +36,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving field trial to field trial linkage.");
+                alert("檢索田間試驗間的關聯時發生錯誤。");
             }
         });
     });
