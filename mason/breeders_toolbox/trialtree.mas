@@ -14,7 +14,7 @@ $breeding_programs
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>資訊</th>
+      <th>資訊(Information)</th>
       <th>育種計畫 -- -- 試驗(Breeding Programs -- -- Trials)</th>
     </tr>
   </thead>
