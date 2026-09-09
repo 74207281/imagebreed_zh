@@ -32,10 +32,10 @@ sub n2a {
 		<table class="table">
 		<thead>
 		<tr>
-		<th>檔案名稱</th>
-		<th>檔案類型</th>
-		<th>工作表數量</th>
-		<th>解析器</th>
+		<th>檔案名稱(Filename)</th>
+		<th>檔案類型(File Type)</th>
+		<th>工作表數量(Number of Sheets)</th>
+		<th>解析器(Parser)</th>
 		</tr>
 		</thead>
 		<tbody>
