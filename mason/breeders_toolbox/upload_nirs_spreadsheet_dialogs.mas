@@ -10,52 +10,52 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addSpreadsheetNIRSDialog">Upload NIRS Spreadsheet</h4>
+        <h4 class="modal-title" id="addSpreadsheetNIRSDialog">上傳近紅外光譜試算表(Upload NIRS Spreadsheet)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <&| /page/explanation.mas, title=>'Template Information' &>
+            <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                 <p>
-                <b>File format information</b>
+                <b>檔案格式資訊</b>
                 <br>
-                <a id="phenotype_upload_spreadsheet_format_info">Spreadsheet Format</a>
+                <a id="phenotype_upload_spreadsheet_format_info">試算表格式</a>
                 </p>
             </&>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_spreadsheet_phenotype_file_form" name="upload_spreadsheet_phenotype_file_form">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Spreadsheet Format: </label>
+                    <label class="col-sm-3 control-label">試算表格式：</label>
                     <div class="col-sm-9" >
-                        <b>General upload format.</b>
+                        <b>一般上傳格式。</b>
                         <select class="form-control" id="upload_spreadsheet_phenotype_file_format" name="upload_spreadsheet_phenotype_file_format">
-                            <option value="scio">NIRS all formats</option>
+                            <option value="scio">NIRS 所有格式</option>
                             <!-- <option value="nirs">General NIRS upload</option> -->
 
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Timestamps Included: </label>
+                    <label class="col-sm-3 control-label">包含時間戳記：</label>
                     <div class="col-sm-9" >
                         <input type="checkbox" id="upload_spreadsheet_phenotype_timestamp_checkbox" name="upload_spreadsheet_phenotype_timestamp_checkbox" />
                     </div>
                 </div>
                 <div id="upload_spreadsheet_phenotype_data_level_div">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Data Level: </label>
+                        <label class="col-sm-3 control-label">資料層級：</label>
                         <div class="col-sm-9" >
                             <select class="form-control" id="upload_spreadsheet_phenotype_data_level" name="upload_spreadsheet_phenotype_data_level">
-                                <option value="plots">Plots</option>
-                                <option value="plants">Plants</option>
-                                <option value="subplots">Subplots</option>
-                                <option value="tissue_samples">Tissue Samples</option>
+                                <option value="plots">小區</option>
+                                <option value="plants">植株</option>
+                                <option value="subplots">子小區</option>
+                                <option value="tissue_samples">組織樣本</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">NIRS Spreadsheet: </label>
+                    <label class="col-sm-3 control-label">近紅外光譜試算表：</label>
                     <div class="col-sm-9" >
                         <input type="file" id="upload_spreadsheet_phenotype_file_input" name="upload_spreadsheet_phenotype_file_input" encoding="multipart/form-data" />
                     </div>
@@ -69,9 +69,9 @@
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info" name="upload_spreadsheet_phenotype_submit_verify" id="upload_spreadsheet_phenotype_submit_verify">Verify</button>
-            <button disabled type="button" class="btn btn-primary" name="upload_spreadsheet_phenotype_submit_store" id="upload_spreadsheet_phenotype_submit_store" title="First Verify Your File">Store</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+            <button type="button" class="btn btn-info" name="upload_spreadsheet_phenotype_submit_verify" id="upload_spreadsheet_phenotype_submit_verify">驗證(Verify)</button>
+            <button disabled type="button" class="btn btn-primary" name="upload_spreadsheet_phenotype_submit_store" id="upload_spreadsheet_phenotype_submit_store" title="請先驗證您的檔案">儲存(Store)</button>
         </div>
 
     </div>
@@ -83,24 +83,24 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="phenotypeUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="phenotypeUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h5>With this model is possible to upload NIRS data just need to follow these columns</h5>
+            <h5>使用此模型即可上傳近紅外光譜（NIRS）資料，僅需遵循以下欄位</h5>
 
-            <h3>Upload NIRS .csv:</h3>
+            <h3>上傳近紅外光譜 .csv(Upload NIRS .csv)：</h3>
 
             <ul>
-                <li><strong>id</strong>: Optional identifier for each NIRS read. The id must be an integer.</li>
-                <li><strong>sampling_id</strong>: Optional identifier for each sample. Strings are allowed.</li>
-                <li><strong>sampling_date</strong>: Optional field. The format allowed is: YYYY-MM-DD.</li>
-                <li><strong>observationunit_name</strong>: Required field that matches with existing data in the database. It can be the plot name, subplots, plant name, or tissue sample, depending how your trial is designed.</li>
-                <li><strong>device_id</strong>: Optional field to identify your device. Strings are allowed.</li>
-                <li><strong>device_type</strong>: Required field. It is possible upload data for a single device type. They can be: <strong>SCiO, QST, Foss6500,FOSSDS2500, FOSSXDS, ASDQualityspec,ASDLabSpec,SpecimFX17, BunchiN500, or LinkSquare</strong>.</li>
-                <li><strong>comments</strong>: Optional field for general comments.</li>
-                <li>All other columns are required wavelengths. You can add how many columns you want upload -- there is no limit.</li>
+                <li><strong>id</strong>：每次近紅外光譜讀取的選填識別碼。id 必須為整數。</li>
+                <li><strong>sampling_id</strong>：每個樣本的選填識別碼，允許字串。</li>
+                <li><strong>sampling_date</strong>：選填欄位，允許的格式為：YYYY-MM-DD。</li>
+                <li><strong>observationunit_name</strong>：必填欄位，須與資料庫中的現有資料相符。可為小區名稱、子小區、植株名稱或組織樣本，取決於您的試驗設計方式。</li>
+                <li><strong>device_id</strong>：用於識別設備的選填欄位，允許字串。</li>
+                <li><strong>device_type</strong>：必填欄位。可以上傳單一設備類型的資料。設備類型可為：<strong>SCiO, QST, Foss6500, FOSSDS2500, FOSSXDS, ASDQualityspec, ASDLabSpec, SpecimFX17, BunchiN500 或 LinkSquare</strong>。</li>
+                <li><strong>comments</strong>：一般備註的選填欄位。</li>
+                <li>所有其他欄位均為必填波長數值。您可以新增任意數量的波長欄位進行上傳——沒有數量限制。</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -117,15 +117,15 @@
                         </tbody>
                     </table>
 
-            <h3>Template for Upload NIRS .csv:</h3>
+            <h3>上傳近紅外光譜 .csv 範本(Template for Upload NIRS .csv)：</h3>
             <ul>
-                <li>The observationunit_name and device_type must be valid for BreedBase.</li>
-                <li><a href="https://docs.google.com/spreadsheets/d/1Zxxwhq6Dz1PvvUEMz3Xj3gBYTkchp4tGDfgsIHDNJB8/edit?usp=sharing">Upload NIRS .csv template</a></li>
+                <li>observationunit_name 與 device_type 必須在 BreedBase 中有效。</li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1Zxxwhq6Dz1PvvUEMz3Xj3gBYTkchp4tGDfgsIHDNJB8/edit?usp=sharing">上傳近紅外光譜 .csv 範本</a></li>
             </ul>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
