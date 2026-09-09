@@ -5,11 +5,11 @@ $locations => undef
 
 <& /util/import_javascript.mas, classes => [ ] &>
 
-<& /page/page_title.mas, title=>"Analyze NOAA NCDC Weather Data" &>
+<& /page/page_title.mas, title=>"分析 NOAA NCDC 氣象資料(Analyze NOAA NCDC Weather Data)" &>
 
 <div class="form-horizontal">
     <div class="form-group">
-        <label class="col-sm-4 control-label">Select Location: </label>
+        <label class="col-sm-4 control-label">選取地點: </label>
         <div class="col-sm-8" >
             <div id="noaa_ncdc_analysis_location_select"></div>
         </div>
@@ -18,7 +18,7 @@ $locations => undef
 
 <div id="cwa_weather" style="display:none;">
     <div class="col-sm-8" id="cwa_current_weather",>
-        <label class="col-sm-4 control-label">Current Weather</label>
+        <label class="col-sm-4 control-label">目前天氣(Current Weather)</label>
         <table class="table" id="cwa_current_weather_table">
             <thead>
             </thead>
@@ -28,7 +28,7 @@ $locations => undef
     </div>
 
     <div class="col-sm-8" id="cwa_past_weather">
-        <label class="col-sm-4 control-label">Past 30 days Weather</label>
+        <label class="col-sm-4 control-label">過去 30 天天氣(Past 30 days Weather)</label>
         <table class="table" id="cwa_past_weather_table">
             <thead>
             </thead>
@@ -40,7 +40,7 @@ $locations => undef
 <!-- <div id="noaa_ncdc_analysis_input_div" style="display:none">
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Start Date (YYYY-MM-DD): </label>
+            <label class="col-sm-4 control-label">開始日期 (YYYY-MM-DD): </label>
             <div class="col-sm-8" >
                 <input class="form-control" id="noaa_ncdc_analysis_start_date" name="noaa_ncdc_analysis_start_date" type="text" />
             </div>
@@ -48,7 +48,7 @@ $locations => undef
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">End Date (YYYY-MM-DD): </label>
+            <label class="col-sm-4 control-label">結束日期 (YYYY-MM-DD): </label>
             <div class="col-sm-8" >
                 <input class="form-control" id="noaa_ncdc_analysis_end_date" name="noaa_ncdc_analysis_end_date" type="text" />
             </div>
@@ -56,28 +56,28 @@ $locations => undef
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Result Plots: </label>
+            <label class="col-sm-4 control-label">結果圖表: </label>
             <div class="col-sm-8" >
                 <select class="form-control" id="noaa_ncdc_analysis_type">
-                    <option value="daily_temp_prec">Daily Temperature and Precipitation Chart</option>
+                    <option value="daily_temp_prec">每日溫度與降水量圖表</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Cumulative Values by Year: </label>
+            <label class="col-sm-4 control-label">依年份累計數值: </label>
             <div class="col-sm-8" >
                 <select class="form-control" id="noaa_ncdc_analysis_cumulative_year">
-                    <option value="no">No</option>
-                    <option value="yes">Yes</option>
+                    <option value="no">否</option>
+                    <option value="yes">是</option>
                 </select>
             </div>
         </div>
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Window Start (YYYY-MM-DD) (Optional): </label>
+            <label class="col-sm-4 control-label">區間開始 (YYYY-MM-DD) (選填): </label>
             <div class="col-sm-8" >
                 <input class="form-control" id="noaa_ncdc_analysis_window_start_date" name="noaa_ncdc_analysis_window_start_date" type="text" />
             </div>
@@ -85,7 +85,7 @@ $locations => undef
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Window End (YYYY-MM-DD) (Optional): </label>
+            <label class="col-sm-4 control-label">區間結束 (YYYY-MM-DD) (選填): </label>
             <div class="col-sm-8" >
                 <input class="form-control" id="noaa_ncdc_analysis_window_end_date" name="noaa_ncdc_analysis_window_end_date" type="text" />
             </div>
@@ -93,7 +93,7 @@ $locations => undef
     </div>
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-4 control-label">Growing Degree Days Base Temperature (F): </label>
+            <label class="col-sm-4 control-label">生長積溫基準溫度 (F): </label>
             <div class="col-sm-8" >
                 <input class="form-control" id="noaa_ncdc_analysis_gdd_base_temp" name="noaa_ncdc_analysis_gdd_base_temp" type="number" value="50" placeholder="50"/>
             </div>
@@ -101,8 +101,8 @@ $locations => undef
     </div>
     <br/><br/>
     <center>
-        <button class="btn btn-primary" type="button" id="noaa_ncdc_analysis_submit" name="noaa_ncdc_analysis_submit">Return Weather Plots</button>
-        <button class="btn btn-default" type="button" id="noaa_ncdc_analysis_gdd_cp_submit" name="noaa_ncdc_analysis_gdd_cp_submit">Get Growing Degree Days and Cumulative Precipitation</button>
+        <button class="btn btn-primary" type="button" id="noaa_ncdc_analysis_submit" name="noaa_ncdc_analysis_submit">產生氣象圖表(Return Weather Plots)</button>
+        <button class="btn btn-default" type="button" id="noaa_ncdc_analysis_gdd_cp_submit" name="noaa_ncdc_analysis_gdd_cp_submit">取得生長積溫與累積降水量(Get Growing Degree Days and Cumulative Precipitation)</button>
     </center>
 </div> -->
 
@@ -147,10 +147,10 @@ jQuery(document).ready(function() {
                         success: function(response) {
                             console.log(response);
                             if (response.Current.Name) {
-                                alert('Found a valid CWA Station for this location: '+response.Current.Name);
+                                alert('為此地點找到有效的 CWA 測站: '+response.Current.Name);
                                 
                                 // Build new table for current weatheraders
-                                var currentHead = '<tr><th scope="col">Observe Time</th><th scope="col">Weather</th><th scope="col">Temperature(&deg;C)</th><th scope="col">RH</th><th scope="col">Air Pressure</th><th scope="col">Wind Speed</th><th scope="col">Wind Direction</th><th scope="col">Precipitation</th></tr>';
+                                var currentHead = '<tr><th scope="col">觀測時間(Observe Time)</th><th scope="col">天氣(Weather)</th><th scope="col">溫度(Temperature)(&deg;C)</th><th scope="col">相對濕度(RH)</th><th scope="col">氣壓(Air Pressure)</th><th scope="col">風速(Wind Speed)</th><th scope="col">風向(Wind Direction)</th><th scope="col">降水量(Precipitation)</th></tr>';
                                 
                                 // Loop through the response object and build new rows
                                 var currentData = response.Current;
@@ -172,14 +172,14 @@ jQuery(document).ready(function() {
 
                                 // past data
                                 var pastHead = '<tr>\
-                                    <th scope="col">Date Time</th>\
-                                    <th scope="col">Temperature(&deg;C)</th>\
-                                    <th scope="col">RH</th>\
-                                    <th scope="col">Air Pressure</th>\
-                                    <th scope="col">Wind Speed</th>\
-                                    <th scope="col">Wind Direction</th>\
-                                    <th scope="col">Precipitation</th>\
-                                    <th scope="col">Sunshine Duration</th>\
+                                    <th scope="col">日期時間(Date Time)</th>\
+                                    <th scope="col">溫度(Temperature)(&deg;C)</th>\
+                                    <th scope="col">相對濕度(RH)</th>\
+                                    <th scope="col">氣壓(Air Pressure)</th>\
+                                    <th scope="col">風速(Wind Speed)</th>\
+                                    <th scope="col">風向(Wind Direction)</th>\
+                                    <th scope="col">降水量(Precipitation)</th>\
+                                    <th scope="col">日照時數(Sunshine Duration)</th>\
                                 </tr>';
                                 var pastBody = '';
                                 var pastData = response.Past;
@@ -211,23 +211,23 @@ jQuery(document).ready(function() {
                                 jQuery('#cwa_weather').show();
                             }
                             else {
-                                alert('Could not verify the NOAA StationID you provided. Go to Manage->Locations and make sure your location has a valid NOAA station id!');
+                                alert('無法驗證您提供的 NOAA 測站 ID。請前往「管理(Manage)->地點(Locations)」並確認您的地點具有有效的 NOAA 測站 ID！');
                                 jQuery('#noaa_ncdc_analysis_input_div').hide();
                             }
                         },
                         error: function() {
-                            alert('The NOAA NCDC authorization token may not be valid! We could not verify your NOAA StationID. Please contact us!');
+                            alert('NOAA NCDC 授權權杖可能無效！我們無法驗證您的 NOAA 測站 ID。請與我們聯絡！');
                             jQuery('#noaa_ncdc_analysis_input_div').hide();
                         }
                     });
                 }
                 else {
-                    alert('No NOAA NCDC station id for this location. Go to Manage->Locations and edit your location to add a valid NOAA station id!');
+                    alert('此地點沒有 NOAA NCDC 測站 ID。請前往「管理(Manage)->地點(Locations)」並編輯您的地點以加入有效的 NOAA 測站 ID！');
                     jQuery('#noaa_ncdc_analysis_input_div').hide();
                 }
             },
             error: function(response){
-                alert('Error getting NOAA NCDC ID for location!');
+                alert('取得地點的 NOAA NCDC ID 時發生錯誤！');
                 jQuery('#noaa_ncdc_analysis_input_div').hide();
             }
         });
@@ -275,23 +275,22 @@ jQuery(document).ready(function() {
     //                             jQuery('#noaa_ndcd_analysis_result').html(html);
     //                         }
     //                         else {
-    //                             alert('There was an error getting NOAA CP!');
+    //                             alert('取得 NOAA CP 時發生錯誤！');
     //                         }
     //                     },
     //                     error: function(response){
-    //                         alert('Error getting NOAA NCDC CP!');
+    //                         alert('取得 NOAA NCDC CP 時發生錯誤！');
     //                         jQuery('#working_modal').modal('hide');
     //                     }
     //                 });
-
     //             }
     //             else {
-    //                 alert('There was an error getting NOAA GDD!');
+    //                 alert('取得 NOAA GDD 時發生錯誤！');
     //                 jQuery('#working_modal').modal('hide');
     //             }
     //         },
     //         error: function(response){
-    //             alert('Error getting NOAA NCDC GDD!');
+    //             alert('取得 NOAA NCDC GDD 時發生錯誤！');
     //             jQuery('#working_modal').modal('hide');
     //         }
     //     });
@@ -305,14 +304,13 @@ jQuery(document).ready(function() {
     //     noaa_ncdc_analysis_window_end_date = jQuery('#noaa_ncdc_analysis_window_end_date').val();
     //     noaa_ncdc_analysis_cumulative_year = jQuery('#noaa_ncdc_analysis_cumulative_year').val();
     //     if (noaa_ncdc_analysis_start_date == '') {
-    //         alert('Please give a start date!');
+    //         alert('請提供開始日期！');
     //         return false;
     //     }
     //     if (noaa_ncdc_analysis_end_date == '') {
-    //         alert('Please give a end date!');
+    //         alert('請提供結束日期！');
     //         return false;
     //     }
-
     //     jQuery.ajax({
     //         url : '/ajax/location/noaa_ncdc_analysis?location_id='+noaa_ncdc_analysis_location_id+'&station_id='+noaa_ncdc_analysis_location_station_id+'&start_date='+noaa_ncdc_analysis_start_date+'&end_date='+noaa_ncdc_analysis_end_date+'&analysis_type='+noaa_ncdc_analysis_type+'&w_start='+noaa_ncdc_analysis_window_start_date+'&w_end='+noaa_ncdc_analysis_window_end_date+'&cumul_year='+noaa_ncdc_analysis_cumulative_year,
     //         beforeSend: function(){
@@ -325,19 +323,19 @@ jQuery(document).ready(function() {
     //                 alert(response.error);
     //             }
     //             else if (response.noaa_station_id) {
-    //                 var html = '<hr><center><h2>Results</h2></center><hr>';
-    //                 html = html + '<center><a href="'+response.tempfile_temperature+'"><button class="btn btn-default">Download Temperature CSV</button></a>';
-    //                 html = html + '<a href="'+response.tempfile_precip+'"><button class="btn btn-default">Download Precipitation CSV</button></a></center>';
+    //                 var html = '<hr><center><h2>結果(Results)</h2></center><hr>';
+    //                 html = html + '<center><a href="'+response.tempfile_temperature+'"><button class="btn btn-default">下載溫度 CSV(Download Temperature CSV)</button></a>';
+    //                 html = html + '<a href="'+response.tempfile_precip+'"><button class="btn btn-default">下載降水量 CSV(Download Precipitation CSV)</button></a></center>';
     //                 html = html + '<hr>';
     //                 html = html + '<img src="'+response.plot+'"><hr><img src="'+response.plot2+'">';
     //                 jQuery('#noaa_ndcd_analysis_result').html(html);
     //             }
     //             else {
-    //                 alert('There was an error getting NOAA analysis!');
+    //                 alert('取得 NOAA 分析時發生錯誤！');
     //             }
     //         },
     //         error: function(response){
-    //             alert('Error getting NOAA NCDC analysis!');
+    //             alert('取得 NOAA NCDC 分析時發生錯誤！');
     //             jQuery('#working_modal').modal('hide');
     //         }
     //     });
