@@ -31,43 +31,43 @@ $design_types => ()
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Information</th>
-      <th>Breeding Programs -- Folders -- Trials&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="refresh_jstree_html_trialtree_button" name="refresh_jstree_html">Refresh</button></th>
+      <th>資訊</th>
+      <th>育種計畫 -- 資料夾 -- 試驗(Breeding Programs -- Folders -- Trials)&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-default" id="refresh_jstree_html_trialtree_button" name="refresh_jstree_html">重新整理(Refresh)</button></th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td>
-        <h4>Search</h4>
-        <input type="text" class="form-control input-sm" id="trial_tree_search" placeholder="Search" />
+        <h4>搜尋(Search)</h4>
+        <input type="text" class="form-control input-sm" id="trial_tree_search" placeholder="搜尋" />
         <hr>
-      <h4>Download Trial Phenotypes</h4>
-      <h5><i>Select multiple trials by holding 'Ctrl'.</i></h5>
-      <button class="btn btn-primary" id="trials_download_phenotypes_button" disabled="disabled" title="First Select Trial(s) to Download">Download Phenotypes</button>
+      <h4>下載試驗表型(Download Trial Phenotypes)</h4>
+      <h5><i>按住「Ctrl」可選取多個試驗。</i></h5>
+      <button class="btn btn-primary" id="trials_download_phenotypes_button" disabled="disabled" title="請先選取要下載的試驗">下載表型(Download Phenotypes)</button>
       <hr>
-      <h5><i>Double click<br />trial (&nbsp;<span class="glyphicon glyphicon-leaf text-success"></span>&nbsp;) or folder (&nbsp;<span class="glyphicon glyphicon-folder-open text-danger"></span>&nbsp;)<br/>to view detail page.</i></h5>
-      <h5><i>Breeding programs (&nbsp;<span class="glyphicon glyphicon-briefcase text-info"></span>&nbsp;)</i></h5>
-      <h5><i>Genotyping data projects (&nbsp;<span class="glyphicon glyphicon-align-left text-warning"></span>&nbsp;)</i></h5>
-      <h5><i>Analyses (&nbsp;<span class="glyphicon glyphicon-stats text-success"></span>&nbsp;)</i></h5>
-      <h5><i>Sampling trials (&nbsp;<span class="glyphicon glyphicon-th text-success"></span>&nbsp;)</i></h5>
+      <h5><i>連按兩下<br />試驗 (&nbsp;<span class="glyphicon glyphicon-leaf text-success"></span>&nbsp;) 或資料夾 (&nbsp;<span class="glyphicon glyphicon-folder-open text-danger"></span>&nbsp;)<br/>以檢視詳細頁面。</i></h5>
+      <h5><i>育種計畫 (&nbsp;<span class="glyphicon glyphicon-briefcase text-info"></span>&nbsp;)</i></h5>
+      <h5><i>基因型資料專案 (&nbsp;<span class="glyphicon glyphicon-align-left text-warning"></span>&nbsp;)</i></h5>
+      <h5><i>分析 (&nbsp;<span class="glyphicon glyphicon-stats text-success"></span>&nbsp;)</i></h5>
+      <h5><i>取樣試驗 (&nbsp;<span class="glyphicon glyphicon-th text-success"></span>&nbsp;)</i></h5>
       <hr>
-      <h4>Folders</h4>
-      <button class="btn btn-sm btn-default" id="new_folder_dialog_link">Create new folder</button><br/><br/>
-      <button class="btn btn-sm btn-default" id="open_folder_dialog_link">Move trial(s) to folder</button><br/><br/>
-      <button class="btn btn-sm btn-default" id="move_folder_dialog_link">Move folder</button>
+      <h4>資料夾(Folders)</h4>
+      <button class="btn btn-sm btn-default" id="new_folder_dialog_link">建立新資料夾(Create new folder)</button><br/><br/>
+      <button class="btn btn-sm btn-default" id="open_folder_dialog_link">移動試驗至資料夾(Move trial(s) to folder)</button><br/><br/>
+      <button class="btn btn-sm btn-default" id="move_folder_dialog_link">移動資料夾(Move folder)</button>
 
       <div id="folder_edit_options" style="display:none">
           <hr>
-          <h5><i>Select multiple folders by holding 'Ctrl'.</i></h5>
-          <button class="btn btn-primary" id="edit_folders_button" title="First Select Folder(s) to Edit">Edit Folder(s)</button>
+          <h5><i>按住「Ctrl」可選取多個資料夾。</i></h5>
+          <button class="btn btn-primary" id="edit_folders_button" title="請先選取要編輯的資料夾">編輯資料夾(Edit Folder(s))</button>
           <br/>
       </div>
 
-      <!--<button id="delete" disabled="disabled" >Delete</button -->
+      <!--<button id="delete" disabled="disabled" >刪除(Delete)</button -->
       <br />
     </td>
     <td>
-        <div id="trial_list" >[loading...]</div>
+        <div id="trial_list" >[載入中...]</div>
     </td>
   </tr>
   </tbody>
@@ -122,7 +122,7 @@ $design_types => ()
 
       },
       error: function(response) {
-        alert("An error occurred while loading the trial data.");
+        alert("載入試驗資料時發生錯誤。");
       }
   });
 
@@ -166,7 +166,7 @@ $design_types => ()
 
         },
         error: function(response) {
-          alert("An error occurred while loading the trial data.");
+          alert("載入試驗資料時發生錯誤。");
         }
     });
   });
