@@ -95,16 +95,12 @@
 
 </style>
 
-<& /page/page_title.mas, title=>'SGN Breeders Toolbox' &>
+<& /page/page_title.mas, title=>'SGN 育種家工具箱(SGN Breeders Toolbox)' &>
  
 <div class="page_introduction">
-<p>The purpose of this page is to give breeders direct links to
-breeder-relevant tools and data on SGN. It is a work in progress and
-your feedback or suggestions are welcome to build this into a
-comprehensive, easy to use and breeder-friendly resource.</p>
+<p>此頁面的目的是為育種家提供 SGN 上與育種相關的工具和資料的直接連結。這是一項持續進行的工作，歡迎您提出回饋或建議，以將其建構成全面、易於使用且對育種家友好的資源。</p>
 
-<p>We love feedback!  Please contact <a href="mailto:jv27\@cornell.edu">Joyce van Eck</a>
-with suggestions for improvements!</p>
+<p>我們樂意聽取回饋！如有改進建議，請聯絡 <a href="mailto:jv27\@cornell.edu">Joyce van Eck</a>！</p>
 </div>
 
 <div id="icon_nav">
@@ -112,7 +108,7 @@ with suggestions for improvements!</p>
 
 	
     
-	<li class="SNPTool"><!-- a href="#" --><img src="/img/breedericonmenu/SNPTool.png" alt="SNP Tool" title="SNP Tool (coming soon)" ><!-- /a -->
+	<li class="SNPTool"><!-- a href="#" --><img src="/img/breedericonmenu/SNPTool.png" alt="SNP 工具" title="SNP 工具 (即將推出)" ><!-- /a -->
     	<!--
 		<ul>
             <div class="SNPToolSubMenu">
@@ -124,7 +120,7 @@ with suggestions for improvements!</p>
         -->
 	</li>
     
-     <li class="Markers"><a href="/search/direct_search.pl?search=markers"><img src="/img/breedericonmenu/Markers.png" alt="Markers" title="Maps &amp; Markers"  /></a>
+     <li class="Markers"><a href="/search/direct_search.pl?search=markers"><img src="/img/breedericonmenu/Markers.png" alt="標記" title="地圖與標記"  /></a>
     	<!--
 		<ul>
             <div class="MarkersSubMenu">
@@ -137,7 +133,7 @@ with suggestions for improvements!</p>
 	</li>
 	
 
-	<li class="Phenotypes"><a href="/search/direct_search.pl?search=phenotypes"><img src="/img/soliconmenu/Phenotypes.png" alt="Traits" title="Traits &amp; Phenotypes" /></a>
+	<li class="Phenotypes"><a href="/search/direct_search.pl?search=phenotypes"><img src="/img/soliconmenu/Phenotypes.png" alt="性狀" title="性狀與表型" /></a>
     	<!--
 		<ul>
             <div class="TraitsSubMenu">
@@ -149,7 +145,7 @@ with suggestions for improvements!</p>
         -->
 	</li>
     
-	<li class="QTLTool"><a href="/search/direct_search.pl?search=qtl"><img src="/img/breedericonmenu/QTLTool.png" alt="QTL Tool" title="Access QTL data" /></a>
+	<li class="QTLTool"><a href="/search/direct_search.pl?search=qtl"><img src="/img/breedericonmenu/QTLTool.png" alt="QTL 工具" title="存取 QTL 資料" /></a>
     	<!--
    		<ul>
             <div class="QTLToolSubMenu">
@@ -161,7 +157,7 @@ with suggestions for improvements!</p>
         -->
 	</li>
 
-		<li class="Genes"><a href="/search/direct_search.pl?search=loci"><img src="/img/soliconmenu/Genes.png" alt="Genes" title="Genes" ></a>
+		<li class="Genes"><a href="/search/direct_search.pl?search=loci"><img src="/img/soliconmenu/Genes.png" alt="基因" title="基因" ></a>
     	<!--
 		<ul>
             <div class="SNPToolSubMenu">
@@ -178,49 +174,49 @@ with suggestions for improvements!</p>
 </div>
 
 
-<&| /page/info_section.mas, title=>'Tutorials' &>
+<&| /page/info_section.mas, title=>'教學課程(Tutorials)' &>
 <ul>
-  <li>The SGN Breeders Toolbox <a href="http://www.extension.org/pages/61208">webinar</a> by Joyce Van Eck</li>
-  <li>Plant Breeding and Genomics at the <a href="http://www.extension.org/plant_breeding_genomics">eXtension</a> site</li>
-  <li>Tomato Genome Browser <a href="http://www.extension.org/article/32485">Webinar</a> presented at the 2010 Tomato Disease Workshop by <a href="mailto:merk.9@osu.edu">Heather Merk</a></li>
-  <li>Designing a CAPS Marker From a SNP Using The <a href="http://www.extension.org/article/32361">SGN CAPS Designer</a> by <a href="mailto:merk.9@osu.edu">Heather Merk</a></li>
- <li>A voiceover Powerpoint <a href="http://www.extension.org/pages/60317/sgn-marker-search-tool-tutorial-for-plant-breeders">tutorial for the "Markers" tool </a> by <a href="mailto:merk.9@osu.edu">Heather Merk</a></li>
+  <li>由 Joyce Van Eck 主講的 SGN 育種家工具箱 <a href="http://www.extension.org/pages/61208">線上研討會</a></li>
+  <li><a href="http://www.extension.org/plant_breeding_genomics">eXtension</a> 網站上的植物育種與基因體學</li>
+  <li>由 <a href="mailto:merk.9@osu.edu">Heather Merk</a> 在 2010 年番茄病害研討會上發表的番茄基因體瀏覽器 <a href="http://www.extension.org/article/32485">線上研討會</a></li>
+  <li>由 <a href="mailto:merk.9@osu.edu">Heather Merk</a> 撰寫的利用 <a href="http://www.extension.org/article/32361">SGN CAPS 設計工具</a> 從 SNP 設計 CAPS 標記</li>
+ <li>由 <a href="mailto:merk.9@osu.edu">Heather Merk</a> 製作的「標記」工具旁白 PowerPoint <a href="http://www.extension.org/pages/60317/sgn-marker-search-tool-tutorial-for-plant-breeders">教學課程</a></li>
 </ul>
 </&>
 
-<&| /page/info_section.mas, title=>'SGN tools' &>
+<&| /page/info_section.mas, title=>'SGN 工具(SGN tools)' &>
 <ul>
-  <li>Browse the SGN <a href="/search/direct_search.pl?search=markers/">Markers database</a></li>
-  <li>Browse available controlled vocabularies using the SGN <a href="/tools/onto/">Ontology browser</a></li>
-  <li>Develop CAPS markers using the <a href="/tools/caps_designer/caps_input.pl">CAPS Designer</a></li>
-  <li>Check intron locations in transript data using the <a href="/tools/intron_detection/find_introns.pl">Intron Finder</a></li>
-  <li><a href="/phenome/qtl_form.pl">QTL data submssion</a> and on-the-fly QTL analysis <a href="/search/direct_search.pl?search=qtl/">for Solanaceae traits</a></li>
-  <li>SGN gene and phenotype <a href="/phenome/">submission guide</a> </li>
+  <li>瀏覽 SGN <a href="/search/direct_search.pl?search=markers/">標記資料庫</a></li>
+  <li>使用 SGN <a href="/tools/onto/">本體論瀏覽器</a> 瀏覽可用的受控詞彙</li>
+  <li>使用 <a href="/tools/caps_designer/caps_input.pl">CAPS 設計工具</a> 開發 CAPS 標記</li>
+  <li>使用 <a href="/tools/intron_detection/find_introns.pl">內含子尋找工具</a> 檢查轉錄本資料中的內含子位置</li>
+  <li><a href="/phenome/qtl_form.pl">QTL 資料提交</a> 以及 <a href="/search/direct_search.pl?search=qtl/">茄科性狀</a> 即時 QTL 分析</li>
+  <li>SGN 基因與表型 <a href="/phenome/">提交指南</a> </li>
 </ul>
 </&>
 
-<&| /page/info_section.mas, title=>'Tools in development' &>
-<ul><li>SNP discovery tool. This will be part of the <a href="https://www.msu.edu/~douchesd/solcapwebpage.htm">SolCAP</a> project.</li></ul>
+<&| /page/info_section.mas, title=>'開發中的工具(Tools in development)' &>
+<ul><li>SNP 發掘工具。這將作為 <a href="https://www.msu.edu/~douchesd/solcapwebpage.htm">SolCAP</a> 計畫的一部分。</li></ul>
 </&>
 
-<&| /page/info_section.mas, title=>'Links' &>
+<&| /page/info_section.mas, title=>'相關連結(Links)' &>
 <ul>
-<li><b>Potato</b>
+<li><b>馬鈴薯</b>
  <ul>
-  <li><a href="/organism/Solanum_tuberosum/genome">Potato genome</a></li>
-  <li><a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AglmOi1fE8ZYdEtWaUV3S1FzUjNFVmt4X29fNU9HLXc&hl=en_US">Potato marker list</a> (work in progres by David Douches)</li>
+  <li><a href="/organism/Solanum_tuberosum/genome">馬鈴薯基因體</a></li>
+  <li><a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AglmOi1fE8ZYdEtWaUV3S1FzUjNFVmt4X29fNU9HLXc&hl=en_US">馬鈴薯標記清單</a> (David Douches 進行中的工作)</li>
  </ul>
 </li>
-<li><b>Tomato</b>
+<li><b>番茄</b>
  <ul>
-  <li><a href="/organism/Solanum_lycopersicum/genome">Tomato genome</a></li>
-  <li><a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AglmOi1fE8ZYdE9RU0dlS2h4S29RMk1ZQXk4aUJBOGc&hl=en_US">Tomato resistance genes </a> (by Douglas Maxwell).</li>
+  <li><a href="/organism/Solanum_lycopersicum/genome">番茄基因體</a></li>
+  <li><a href="https://spreadsheets.google.com/spreadsheet/ccc?key=0AglmOi1fE8ZYdE9RU0dlS2h4S29RMk1ZQXk4aUJBOGc&hl=en_US">番茄抗性基因</a> (由 Douglas Maxwell 提供)</li>
  </ul>
 </li>
-<li><a href="http://www.tomatomap.net/">TomatoMap.Net</a> - a site for Tomato Genetics at Ohio State University.</li>
-<li><a href="http://solcap.msu.edu/">SolCAP</a> - the official SolCAP website at Michigan State University.</li>
-<li><a href="http://www.oardc.ohio-state.edu/vanderknaap/tomato_analyzer.htm">Tomato Analyzer</a> - software for scoring fruit shape and other shapes.</li>
-<li><a href="/help/index.pl#submit">Submitting data to SGN</a> - instruction for data submissions to SGN.</li>
+<li><a href="http://www.tomatomap.net/">TomatoMap.Net</a> - 俄亥俄州立大學番茄遺傳學網站。</li>
+<li><a href="http://solcap.msu.edu/">SolCAP</a> - 密西根州立大學 SolCAP 官方網站。</li>
+<li><a href="http://www.oardc.ohio-state.edu/vanderknaap/tomato_analyzer.htm">Tomato Analyzer</a> - 用於評估果實形狀和其他形狀的軟體。</li>
+<li><a href="/help/index.pl#submit">提交資料至 SGN</a> - 向 SGN 提交資料的說明。</li>
 </ul>
 </&>
 
