@@ -18,21 +18,21 @@ $protocol_is_grm
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Genotyping Protocol Name</b></td>
+                <td><b>基因分型協定名稱(Genotyping Protocol Name)</b></td>
                 <td>
                     <% $protocol_name %>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Protocol Description </b></td>
+                <td><b>協定描述(Protocol Description)</b></td>
                 <td>
                     <% $protocol_description %>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Marker Type</b></td>
+                <td><b>標記類型(Marker Type)</b></td>
                 <td>
                     <% $marker_type %>
                 </td>
@@ -40,14 +40,14 @@ $protocol_is_grm
 
 %  if (!$protocol_is_grm) {
             <tr>
-                <td><b>Number of Markers</b></td>
+                <td><b>標記數量(Number of Markers)</b></td>
                 <td>
 %                   print scalar(@$marker_names);
                 </td>
             </tr>
 
             <tr>
-                <td><b>Header Information Description</b></td>
+                <td><b>表頭資訊描述(Header Information Description)</b></td>
                 <td>
 % my @trimmed;
 % my $header_line_count = 0;
@@ -57,7 +57,7 @@ $protocol_is_grm
 %        push @trimmed, $_;
 %    }
 %    else {
-%        push @trimmed, "### ----- SHOWING FIRST 10 LINES ONLY ----- ###";
+%        push @trimmed, "### ----- 僅顯示前 10 行(SHOWING FIRST 10 LINES ONLY) ----- ###";
 %        last;
 %    }
 %    $header_line_count++;
@@ -69,25 +69,25 @@ $protocol_is_grm
             </tr>
 %  }
 
-            <tr><td><b>Reference Genome</b></td>
+            <tr><td><b>參考基因組(Reference Genome)</b></td>
                 <td>
                     <% $reference_genome_name %>
                 </td>
             </tr>
 
-            <tr><td><b>Species Name</b></td>
+            <tr><td><b>物種名稱(Species Name)</b></td>
                 <td>
                     <% $species_name %>
                 </td>
             </tr>
 
-            <tr><td><b>Sample Unit</b></td>
+            <tr><td><b>樣本單位(Sample Unit)</b></td>
                 <td>
                     <% $sample_observation_unit_type_name %>
                 </td>
             </tr>
 
-            <tr><td><b>Create Date</b></td>
+            <tr><td><b>建立日期(Create Date)</b></td>
                 <td>
                     <% $create_date %>
                 </td>
