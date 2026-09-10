@@ -17,28 +17,28 @@ David Waring <djw64@cornell.edu>
 
 </%doc>
 
-<& /page/page_title.mas, title=>"Marker Search" &>
+<& /page/page_title.mas, title=>"分子標記搜尋(Marker Search)" &>
 
 
 
 
 <!-- FILTER BY NAME -->
-<&| /page/info_section.mas, title=>'Filter By Name', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'依名稱篩選(Filter By Name)', collapsible=>1, collapsed=>0 &>
     <div class="well">
 
         <!-- Marker Name -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Marker Name: </label>
+            <label class="col-sm-3 control-label">標記名稱(Marker Name): </label>
             <div class="col-sm-4">
                 <select id="marker-name-match" class="form-control">
-                    <option value="exactly">Exactly</option>
-                    <option value="contains">Contains</option>
-                    <option value="starts_with">Starts With</option>
-                    <option value="ends_with">Ends With</option>
+                    <option value="exactly">精確符合(Exactly)</option>
+                    <option value="contains">包含(Contains)</option>
+                    <option value="starts_with">開頭為(Starts With)</option>
+                    <option value="ends_with">結尾為(Ends With)</option>
                 </select>
             </div>
             <div class="col-sm-5">
-                <input id="marker-name" class="form-control" type="text" placeholder="Any Name" />
+                <input id="marker-name" class="form-control" type="text" placeholder="任何名稱(Any Name)" />
             </div>
         </div>
 
@@ -50,15 +50,15 @@ David Waring <djw64@cornell.edu>
 
 
 <!-- FILTER BY POSITION -->
-<&| /page/info_section.mas, title=>'Filter By Position', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'依位置篩選(Filter By Position)', collapsible=>1, collapsed=>0 &>
     <div class="well">
 
         <!-- Reference Genome / Map -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Reference Genome / Map: </label>
+            <label class="col-sm-3 control-label">參考基因組 / 圖譜(Reference Genome / Map): </label>
             <div class="col-sm-9">
                 <select id="marker-refmap" class="form-control" disabled>
-                    <option>Loading...</option>
+                    <option>載入中...(Loading...)</option>
                 </select>
             </div>
         </div>
@@ -67,10 +67,10 @@ David Waring <djw64@cornell.edu>
 
         <!-- Chromosome -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Chromosome: </label>
+            <label class="col-sm-3 control-label">染色體(Chromosome): </label>
             <div class="col-sm-9">
                 <select id="marker-chromosome" class="form-control" disabled>
-                    <option>Loading...</option>
+                    <option>載入中...(Loading...)</option>
                 </select>
             </div>
         </div>
@@ -79,14 +79,14 @@ David Waring <djw64@cornell.edu>
 
         <!-- Start / End Position -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Start: </label>
+            <label class="col-sm-3 control-label">起始位置(Start): </label>
             <div class="col-sm-4">
                 <div class="input-group">
                     <input id="marker-position-start" class="form-control" type="text" disabled />
                     <span class="input-group-addon marker-position-units"></span>
                 </div>
             </div>
-            <label class="col-sm-1 control-label">End: </label>
+            <label class="col-sm-1 control-label">終點位置(End): </label>
             <div class="col-sm-4">
                 <div class="input-group">
                     <input id="marker-position-end" class="form-control" type="text" disabled />
@@ -103,15 +103,15 @@ David Waring <djw64@cornell.edu>
 
 
 <!-- ADDITIONAL FILTERS -->
-<&| /page/info_section.mas, title=>'Additional Filters', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'其他篩選條件(Additional Filters)', collapsible=>1, collapsed=>0 &>
     <div class="well">
 
         <!-- Species -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Species: </label>
+            <label class="col-sm-3 control-label">物種(Species): </label>
             <div class="col-sm-9">
                 <select id="marker-species" class="form-control" disabled>
-                    <option value=''>Loading...</option>
+                    <option value=''>載入中...(Loading...)</option>
                 </select>
             </div>
         </div>
@@ -120,10 +120,10 @@ David Waring <djw64@cornell.edu>
 
         <!-- Protocol -->
         <div class="form-group">
-            <label class="col-sm-3 control-label">Protocol: </label>
+            <label class="col-sm-3 control-label">實驗流程(Protocol): </label>
             <div class="col-sm-9">
                 <select id="marker-protocol" class="form-control" disabled>
-                    <option value=''>Loading...</option>
+                    <option value=''>載入中...(Loading...)</option>
                 </select>
             </div>
         </div>
@@ -134,7 +134,7 @@ David Waring <djw64@cornell.edu>
 </&>
 
 
-<button class="btn btn-primary btn-block marker-search-button">Search</button>
+<button class="btn btn-primary btn-block marker-search-button">搜尋(Search)</button>
 
 
 
@@ -244,7 +244,7 @@ function getReferences(callback) {
             return callback(data && data.reference_genomes ? data.reference_genomes : []);
         },
         error: function() {
-            alert("ERROR: Could not get reference genomes");
+            alert("錯誤：無法取得參考基因組！(ERROR: Could not get reference genomes)");
         }
     });
 }
@@ -262,7 +262,7 @@ function getMaps(callback) {
             return callback(data && data.maps ? data.maps : []);
         },
         error: function() {
-            alert("ERROR: Could not get maps");
+            alert("錯誤：無法取得圖譜！(ERROR: Could not get maps)");
         }
     });
 }
@@ -278,7 +278,7 @@ function getMaps(callback) {
 function getChromosomes() {
     let genotyped = undefined;
     let mapped = undefined;
-
+    
     getGenotypedChromosomes(function(_genotyped) {
         genotyped = _genotyped;
         _finish();
@@ -313,7 +313,7 @@ function getGenotypedChromosomes(callback) {
             return callback(data && data.chromosomes ? data.chromosomes : []);
         },
         error: function() {
-            alert("ERROR: Could not get genotyped chromosomes");
+            alert("錯誤：無法取得已分型染色體！(ERROR: Could not get genotyped chromosomes)");
         }
     });
 }
@@ -332,7 +332,7 @@ function getMappedChromosomes(callback) {
             return callback(data && data.chromosomes ? data.chromosomes : []);
         },
         error: function() {
-            alert("ERROR: Could not get mapped chromosomes");
+            alert("錯誤：無法取得已定圖染色體！(ERROR: Could not get mapped chromosomes)");
         }
     });
 }
@@ -383,7 +383,7 @@ function getGenotypedProtocols(callback) {
             return callback(data && data.protocols ? data.protocols : []);
         },
         error: function() {
-            alert("ERROR: Could not get genotyped protocols");
+            alert("錯誤：無法取得已分型實驗流程！(ERROR: Could not get genotyped protocols)");
         }
     });
 }
@@ -402,7 +402,7 @@ function getMappedProtocols(callback) {
             return callback(data && data.protocols ? data.protocols : []);
         },
         error: function() {
-            alert("ERROR: Could not get mapped protocols");
+            alert("錯誤：無法取得已定圖實驗流程！(ERROR: Could not get mapped protocols)");
         }
     });
 }
@@ -430,12 +430,12 @@ function updateRefMaps() {
     SPECIES = [];
 
     let ad = protocol_refmap && !Array.isArray(protocol_refmap) || (Array.isArray(protocol_refmap) && protocol_refmap.length === 1) ? 'disabled' : '';
-    let html = "<option value='' " + ad + ">Any Reference Genome / Map</option>";
+    let html = "<option value='' " + ad + ">任何參考基因組 / 圖譜(Any Reference Genome / Map)</option>";
 
     // Add Genotype Reference Genomes
-    html += "<optgroup label='Reference Genomes of Genotyped Markers'>";
+    html += "<optgroup label='已分型標記的參考基因組(Reference Genomes of Genotyped Markers)'>";
     let gd = (protocol_type && protocol_type !== 'genotyped') || protocol_refmap ? 'disabled' : '';
-    html += "<option value='' data-type='genotyped' " + gd + ">Any Reference Genome</option>";
+    html += "<option value='' data-type='genotyped' " + gd + ">任何參考基因組(Any Reference Genome)</option>";
     for ( let i = 0; i < references.length; i++ ) {
         let d = (protocol_refmap && protocol_refmap !== references[i].reference_genome_name)
             || (protocol_type && protocol_type !== 'genotyped')
@@ -454,9 +454,9 @@ function updateRefMaps() {
     html += "</optgroup>";
 
     // Add Maps
-    html += "<optgroup label='Maps of Mapped Markers'>";
+    html += "<optgroup label='已定圖標記的圖譜(Maps of Mapped Markers)'>";
     let md = (protocol_type && protocol_type !== 'mapped') || protocol_refmap ? 'disabled' : '';
-    html += "<option value='' data-type='mapped' " + md + ">Any Map</option>";
+    html += "<option value='' data-type='mapped' " + md + ">任何圖譜(Any Map)</option>";
     for ( let i = 0; i < maps.length; i++ ) {
         let d = (protocol_type === 'mapped' && protocol_refmap && !protocol_refmap.includes(maps[i].map_id+''))
             || (protocol_type && protocol_type !== 'mapped')
@@ -508,7 +508,7 @@ function updateChromosomes() {
                 chroms = CHROMOSOMES.mapped[map];
             }
         }
-        html += "<option value=''>Any Chromosome</option>";
+        html += "<option value=''>任何染色體(Any Chromosome)</option>";
         for ( let i = 0; i < chroms.length; i++ ) {
             let s = chrom && chroms[i] === chrom ? 'selected' : '';
             html += "<option value='" + chroms[i] + "' " + s + ">" + chroms[i] + "</option>";
@@ -537,7 +537,7 @@ function updatePositions() {
     let chrom = jQuery("#marker-chromosome").val();
     let units = jQuery("#marker-refmap option:selected").data("units");
 
-    let pos_disabled = refmap === '' || chrom === null || ['', 'Loading...'].includes(chrom);
+    let pos_disabled = refmap === '' || chrom === null || ['', 'Loading...', '載入中...(Loading...)'].includes(chrom);
     jQuery(".marker-position-units").html(units ? units : '&nbsp;&nbsp;');
     jQuery("#marker-position-start").attr("disabled", pos_disabled);
     jQuery("#marker-position-end").attr("disabled", pos_disabled);
@@ -561,7 +561,7 @@ function updateSpecies() {
             || (protocol_species && !Array.isArray(protocol_species))
             || (protocol_species && Array.isArray(protocol_species) && protocol_species.length === 1)
             ? 'disabled' : '';
-        let html = "<option value='' " + ad + ">Any Species</option>";
+        let html = "<option value='' " + ad + ">任何物種(Any Species)</option>";
         for ( let i = 0; i < SPECIES.length; i++ ) {
             let d = (refmap_species && refmap_species !== SPECIES[i])
                 || (protocol_species && !Array.isArray(protocol_species) && protocol_species !== SPECIES[i])
@@ -596,9 +596,9 @@ function updateProtocols() {
 
     if ( PROTOCOLS ) {
         let html = "";
-        html += "<option value=''>Any Protocol</option>";
+        html += "<option value=''>任何實驗流程(Any Protocol)</option>";
 
-        html += "<optgroup label='Protocols of Genotyped Markers'>";
+        html += "<optgroup label='已分型標記的實驗流程(Protocols of Genotyped Markers)'>";
         for ( let i = 0; i < PROTOCOLS.genotyped.length; i++ ) {
             let pi = PROTOCOLS.genotyped[i].nd_protocol_id;
             let pn = PROTOCOLS.genotyped[i].nd_protocol_name;
@@ -612,7 +612,7 @@ function updateProtocols() {
             html += "</option>";
         }
 
-        html += "<optgroup label='Protocols of Mapped Markers'>";
+        html += "<optgroup label='已定圖標記的實驗流程(Protocols of Mapped Markers)'>";
         for ( let i = 0; i < PROTOCOLS.mapped.length; i++ ) {
             let pn = PROTOCOLS.mapped[i].protocol;
             let ss = PROTOCOLS.mapped[i].species;
@@ -673,7 +673,7 @@ function search() {
 
     // Check for required params
     if ( (start && !end) || (end && !start) ) {
-        alert("Both the start and end position are required when filtering by position");
+        alert("依位置篩選時，起始與終點位置均為必填！(Both the start and end position are required when filtering by position)");
         return;
     }
 
@@ -684,7 +684,7 @@ function search() {
     if ( refmap_type || protocol_type ) params.type = refmap_type || protocol_type;
     if ( refmap ) params.refmap = refmap;
     if ( refmap_species || species ) params.species = refmap_species || species;
-    if ( chrom && chrom !== 'Loading...' ) params.chrom = chrom;
+    if ( chrom && chrom !== 'Loading...' && chrom !== '載入中...(Loading...)' ) params.chrom = chrom;
     if ( start ) params.start = start;
     if ( end ) params.end = end;
     if ( protocol ) params.protocol = protocol;
