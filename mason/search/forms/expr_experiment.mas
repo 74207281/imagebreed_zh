@@ -20,7 +20,7 @@ $q => undef
 </%perl>
 
   <table class="search_form_title"><tr><td>
-    <span class="search_form_title">Expression search by experiment</span>
+    <span class="search_form_title">依試驗搜尋表現量(Expression Search by Experiment)</span>
   </td>
   </tr>
   </table>
