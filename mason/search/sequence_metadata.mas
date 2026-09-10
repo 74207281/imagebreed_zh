@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <& /page/page_title.mas, title=>'Search Sequence Metadata' &>
+    <& /page/page_title.mas, title=>'搜尋序列詮釋資料(Search Sequence Metadata)' &>
 
     <& /tools/sequence_metadata/query_sequence_metadata.mas &>
 
