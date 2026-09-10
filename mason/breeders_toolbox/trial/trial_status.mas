@@ -20,21 +20,21 @@ $user_can_modify => undef
 <& /util/import_css.mas, paths => ['/documents/inc/datatables/jquery.dataTables.css'] &>
 
 %  if ($user_can_modify) {
-<button class="btn btn-sm btn-primary" style="margin:3px" id="update_trial_status_link">Update Trial Status</button>
+<button class="btn btn-sm btn-primary" style="margin:3px" id="update_trial_status_link">更新試驗狀態(Update Trial Status)</button>
 <br/><br/>
 % }
 
 
-<&| /page/info_section.mas, title => "Trial Activities", collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => "試驗活動(Trial Activities)", collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
                 <table id = "trial_activities_table" class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>Status Type</th>
-                            <th>Date</th>
-                            <th>Updated by</th>
+                            <th>狀態類型(Status Type)</th>
+                            <th>日期(Date)</th>
+                            <th>更新者(Updated by)</th>
                         </tr>
                     </thead>
                 </table>
@@ -45,28 +45,28 @@ $user_can_modify => undef
 
 <div class="panel-body">
 
-<&| /page/info_section.mas, id=>"trial_completion_layout_section", title=>"Field Design", collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, id=>"trial_completion_layout_section", title=>"田間設計(Field Design)", collapsible=>1, collapsed=>1 &>
 %  if ($design_name) {
-            <p class="text-success" title="This trial has a design type saved. You can view and download this information in the Design section on this page."><small>Has Field Design&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>
+            <p class="text-success" title="此試驗已儲存設計類型。您可以在本頁面的「設計」區段中檢視並下載此資訊。"><small>有田間設計&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>
 %  } else {
-            <p class="text-danger" title="This trial does not have a design type saved! If this happens please contact us because this should not happen!"><small>No Field Design&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></p>
+            <p class="text-danger" title="此試驗尚未儲存設計類型！如果發生這種情況，請與我們聯繫，因為這不應該發生！"><small>無田間設計&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></p>
 %  }
 
             <div id="trial_completion_layout_section_div">
-                <div class="well well-sm">LOADING...</div>
+                <div class="well well-sm">載入中...</div>
             </div>
 
 %  if ($has_plant_entries) {
-            <p class="text-success" title="This trial has plot and plant entries saved. This means that phenotypes can be recorded on the plot and plant level."><small>Has Plots<br/>And Plants&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>
+            <p class="text-success" title="此試驗已儲存小區與植株項目。這表示可以在小區和植株層級記錄表型。"><small>有小區<br/>與植株&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>
 %  } else {
-            <p class="text-info" title="This trial has plot entries saved, but no plant entries. Plant entries are needed for plant level phenotyping. You can create plant entries in Design->Plant Entries section on this page."><small>Has Plots<br/>No Plants&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></p>
+            <p class="text-info" title="此試驗已儲存小區項目，但沒有植株項目。植株層級表型鑑定需要植株項目。您可以在本頁面的「設計->植株項目」區段中建立植株項目。"><small>有小區<br/>無植株&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></p>
 %  }
 </&>
 
-<&| /page/info_section.mas, id=>"trial_completion_phenotype_section", title=>"Phenotyping", collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, id=>"trial_completion_phenotype_section", title=>"表型鑑定(Phenotyping)", collapsible=>1, collapsed=>1 &>
 
             <div id="trial_completion_phenotype_section_div">
-                <div class="well well-sm">LOADING...</div>
+                <div class="well well-sm">載入中...</div>
             </div>
 <!--
 %  if ($phenotypes_fully_uploaded) {
@@ -100,19 +100,19 @@ jQuery(document).ready(function () {
             success: function(response){
                 var html = '';
                 if (response.has_layout == 1){
-                    html += '<p class="text-success" title="This trial has plots and their layout information saved in the database. All relationships between accessions, plots, seedlots, plants, and subplots are consistent. You can view and download this information in the Design section on this page."><small>Has Field Layout&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
+                    html += '<p class="text-success" title="此試驗已在資料庫中儲存小區及其配置資訊。種原、小區、種子批、植株與次小區之間的所有關聯皆一致。您可以在本頁面的「設計」區段檢視並下載此資訊。"><small>有田間配置&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
                 } else {
-                    html += '<p class="text-danger" title="There is something wrong with the layout! If this occurs please contact us because this should not occur! (click here for more info)"><span id="layout_error_button"><small>Bad Field Layout&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></span></p>';
+                    html += '<p class="text-danger" title="配置有誤！如果發生此情況，請聯繫我們，因為這不應該發生！（點擊此處以獲取更多資訊）"><span id="layout_error_button"><small>田間配置錯誤&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></span></p>';
                 }
                 if (response.has_physical_map == 1){
-                    html += '<p class="text-success" title="This trial has a physical map saved. You can view and edit the physical map in the Physical Trial Layout section on this page."><small>Has Physial Map&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
+                    html += '<p class="text-success" title="此試驗已儲存實體地圖。您可以在本頁面的「實體試驗配置」區段中檢視與編輯實體地圖。"><small>有實體地圖&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
                 } else {
-                    html += '<p class="text-info" title="This trial does not have physical map information. This means the map will not appear in the Physical Trial Layout section. You can add physical map info by clicking [Upload Trial Coordinates] in the Physical Trial Layout section on this page. (click here for more info)"><span id="physical_map_error_button"><small>No Physical Map&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></span></p>';
+                    html += '<p class="text-info" title="此試驗沒有實體地圖資訊。這表示地圖不會顯示在「實體試驗配置」區段中。您可以透過點擊本頁「實體試驗配置」區段中的［上傳試驗座標］來新增實體地圖資訊。（點擊此處以獲取更多資訊）"><span id="physical_map_error_button"><small>無實體地圖&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></span></p>';
                 }
                 if (response.has_seedlots == 1){
-                    html += '<p class="text-success" title="This trial has seedlots linked to plots (and the accessions are in sync). This allows us to track breeding material on the seedlots detail page. You can view this data and navigate to the seedlots on the Design section of this page."><small>Has Seedlots&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
+                    html += '<p class="text-success" title="此試驗已將種子批連結至小區（且種原保持同步）。這使我們能夠在種子批詳細資訊頁面上追蹤育種材料。您可以在本頁面的「設計」區段中檢視此資料並導覽至種子批。"><small>有種子批&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
                 } else {
-                    html += '<p class="text-info" title="This trial does not have seedlots saved. This means we cannot track your breeding material using seedlots. You can upload this information by clicking [Upload Seedlots Planted in Trial] in the Design section on this page. (click here for more info)"><span id="seedlot_error_button"><small>No Seedlot Info&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></span></p>';
+                    html += '<p class="text-info" title="此試驗未儲存種子批。這表示我們無法使用種子批追蹤您的育種材料。您可以透過點擊本頁「設計」區段中的［上傳試驗中種植的種子批］來上傳此資訊。（點擊此處以獲取更多資訊）"><span id="seedlot_error_button"><small>無種子批資訊&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></span></p>';
                 }
                 jQuery(document).on('click', 'span[id="layout_error_button"]', function(){
                     alert(response.layout_errors);
@@ -126,7 +126,7 @@ jQuery(document).ready(function () {
                 jQuery('#trial_completion_layout_section_div').html(html);
             },
             error: function(response){
-                alert('Error retrieving trial completion layout section');
+                alert('擷取試驗完成配置區段時發生錯誤');
             }
         });
     });
@@ -137,14 +137,14 @@ jQuery(document).ready(function () {
             success: function(response){
                 var html = '';
                 if (response.has_phenotypes == 1){
-                    html = '<p class="text-success" title="This trial has phenotypes saved. You can view and download this data in the Traits Assayed section on this page."><small>Has Phenotypes&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
+                    html = '<p class="text-success" title="此試驗已儲存表型。您可以在本頁面的「已測定性狀」區段中檢視並下載此資料。"><small>有表型&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
                 } else {
-                    html = '<p class="text-info" title="This trial does not have any phenotypes stored. You can upload phenotypes in the Files section on this page."><small>No Phenotypes&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></p>';
+                    html = '<p class="text-info" title="此試驗未儲存任何表型。您可以在本頁面的「檔案」區段中上傳表型。"><small>無表型&nbsp;&nbsp;</small><span class="glyphicon glyphicon-info-sign"></span></p>';
                 }
                 jQuery('#trial_completion_phenotype_section_div').html(html);
             },
             error: function(response){
-                alert('Error retrieving trial completion phenotype section');
+                alert('擷取試驗完成表型區段時發生錯誤');
             }
         });
     });
