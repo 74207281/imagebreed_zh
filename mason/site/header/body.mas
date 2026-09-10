@@ -2,7 +2,7 @@
   <a name="top"></a>
 
   <div id="clone_shoppingcart" style="display: none">
-    <span id="clone_cart_count"></span> clone(s) in cart (<a class="toplink" style="text-decoration: underline" href="/search/clone-order.pl">order</a>)
+    <span id="clone_cart_count"></span> 個選殖株於購物車中(clone(s) in cart) (<a class="toplink" style="text-decoration: underline" href="/search/clone-order.pl">訂購(order)</a>)
   </div>
 
   <& /site/header/browser_alert.mas &>
