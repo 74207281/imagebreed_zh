@@ -22,7 +22,7 @@ jQuery(document).ready(function () {
             success: function(response){
                 //console.log(response);
                 jQuery("#working_modal").modal("hide");
-                var trial_treatments_html = "<table class='table table-hover table-condensed table-bordered' id='trial_treatments_table_html'><thead><tr><th>Name</th></tr></thead><tbody>";
+                var trial_treatments_html = "<table class='table table-hover table-condensed table-bordered' id='trial_treatments_table_html'><thead><tr><th>名稱(Name)</th></tr></thead><tbody>";
                 for (i=0; i<response.treatments.length; i++) {
                     trial_treatments_html = trial_treatments_html + "<tr><td><a href='/breeders/trial/" + response.treatments[i][0] +"'>"+ response.treatments[i][1] + "</a></td></tr>";
                 }
@@ -33,7 +33,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving treatments.");
+                alert("擷取處理時發生錯誤。");
             }
         });
 
@@ -49,19 +49,19 @@ jQuery(document).ready(function () {
         var treatment_unit = jQuery('#new_treatment_unit').val();
 
         if (jQuery('#new_treatment_name') == '') {
-            alert('Please give a treatment name.');
+            alert('請提供處理名稱。');
             return false;
         }
         if (jQuery('#new_treatment_description') == '') {
-            alert('Please give a treatment description.');
+            alert('請提供處理描述。');
             return false;
         }
         if (jQuery('#new_treatment_date') == '') {
-            alert('Please select a date.');
+            alert('請選取日期。');
             return false;
         }
         if (jQuery('#new_treatment_year') == '') {
-            alert('Please select a year.');
+            alert('請選取年份。');
             return false;
         }
 
@@ -76,7 +76,7 @@ jQuery(document).ready(function () {
 
                 var html = "";
                 if(treatment_unit == 'plot'){
-                    html += "<table class='table table-hover'><thead><tr><th>plot_name</th><th>accession</th><th>plot_number</th><th>block_number</th><th>rep_number</th><th>is_a_control</th><th>row_number</th><th>col_number</th><th class='table-success'>"+treatment_name+" [Select all <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
+                    html += "<table class='table table-hover'><thead><tr><th>小區名稱(plot_name)</th><th>種原(accession)</th><th>小區編號(plot_number)</th><th>區集編號(block_number)</th><th>重複編號(rep_number)</th><th>對照(is_a_control)</th><th>行號(row_number)</th><th>列號(col_number)</th><th class='table-success'>"+treatment_name+" [全選(Select all) <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
                     for (var key in design_hash){
                         var plot_obj = design_hash[key];
                         html += "<tr><td><a href='/stock/"+plot_obj.plot_id+"/view'>"+plot_obj.plot_name+"</a></td><td><a href='/stock/"+plot_obj.accession_id+"/view'>"+plot_obj.accession_name+"</a></td><td>"+plot_obj.plot_number+"</td><td>"+plot_obj.block_number+"</td><td>"+plot_obj.rep_number+"</td><td>"+plot_obj.is_a_control+"</td><td>"+plot_obj.row_number+"</td><td>"+plot_obj.col_number+"</td><td><input data-plot_name='"+plot_obj.plot_name+"' data-trial_treatment='"+treatment_name+"' data-plant_names='"+JSON.stringify(plot_obj.plant_names)+"' data-subplot_names='"+JSON.stringify(plot_obj.subplot_names)+"'  data-tissue_sample_names='"+JSON.stringify(plot_obj.tissue_sample_names)+"' type='checkbox' name='add_trial_treatment_input'/></td></tr>";
@@ -85,7 +85,7 @@ jQuery(document).ready(function () {
                 }
 
                 if(treatment_unit == 'plant'){
-                    html += "<table class='table table-hover'><thead><tr><th>plant_name</th><th>accession</th><th>plot_number</th><th>block_number</th><th>rep_number</th><th>is_a_control</th><th>row_number</th><th>col_number</th><th class='table-success'>"+treatment_name+" [Select all <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
+                    html += "<table class='table table-hover'><thead><tr><th>植株名稱(plant_name)</th><th>種原(accession)</th><th>小區編號(plot_number)</th><th>區集編號(block_number)</th><th>重複編號(rep_number)</th><th>對照(is_a_control)</th><th>行號(row_number)</th><th>列號(col_number)</th><th class='table-success'>"+treatment_name+" [全選(Select all) <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
                     for (var key in design_hash){
                         var plot_obj = design_hash[key];
                         var plant_names = plot_obj['plant_names'];
@@ -103,7 +103,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving layout.");
+                alert("擷取配置時發生錯誤。");
             }
         });
 
@@ -233,12 +233,12 @@ jQuery(document).ready(function () {
                     alert(response.error);
                 }
                 if (response.success){
-                    alert('Treatment saved!');
+                    alert('處理已儲存！');
                 }
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error saving treatment.");
+                alert("儲存處理時發生錯誤。");
             }
         });
     });
