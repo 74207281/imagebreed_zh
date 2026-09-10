@@ -7,22 +7,22 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadPlotGPSDialog">Upload GPS Coordinates for Plots</h4>
+                <h4 class="modal-title" id="uploadPlotGPSDialog">上傳小區 GPS 座標(Upload GPS Coordinates for Plots)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <&| /page/explanation.mas, title=>'Template information' &>
+                    <&| /page/explanation.mas, title=>'範本資訊(Template information)' &>
                         <p>
-                            <b>File format information</b>
+                            <b>檔案格式資訊</b>
                             <br>
-                            <a id="trial_upload_plot_gps_spreadsheet_info_format">Spreadsheet format</a>
+                            <a id="trial_upload_plot_gps_spreadsheet_info_format">試算表格式(Spreadsheet format)</a>
                         </p>
                     </&>
 
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_plot_gps_dialog_form" name="upload_plot_gps_dialog_form">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Upload File (.xls or .xlsx): </label>
+                            <label class="col-sm-4 control-label">上傳檔案（.xls 或 .xlsx）：</label>
                             <div class="col-sm-8" >
                                 <input type="file" name="trial_upload_plot_gps_file" id="trial_upload_plot_gps_file" encoding="multipart/form-data" />
                             </div>
@@ -31,8 +31,8 @@ $trial_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="upload_plot_gps_cancel_button" id="upload_plot_gps_cancel_button" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="upload_plot_gps_save_button" id="upload_plot_gps_save_button" title="Upload">Upload</button>
+                <button type="button" class="btn btn-default" name="upload_plot_gps_cancel_button" id="upload_plot_gps_cancel_button" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="upload_plot_gps_save_button" id="upload_plot_gps_save_button" title="上傳(Upload)">上傳(Upload)</button>
             </div>
         </div>
     </div>
@@ -43,19 +43,19 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadPlotGPSInfoDialog">Upload Template Information</h4>
+                <h4 class="modal-title" id="uploadPlotGPSInfoDialog">上傳範本資訊(Upload Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for recording the GPS coordinates of plots.</b>
+                    <b>此處用於記錄小區的 GPS 座標。</b>
                     <br/>
-                    <b>GPS coordinates may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>GPS 座標可以透過 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br />
-                    <b>Header:</b>
+                    <b>標頭：</b>
                     <br>
-                    The first row (header) should contain the following:
+                    第一行（標頭）應包含以下內容：
 
-                    <h3>Each plot is represented as a polygon with four corners. You can choose to upload UTM31N and/or WGS84 coordinates.</h3>
+                    <h3>每個小區表示為具有四個角的多邊形。您可以選擇上傳 UTM31N 和/或 WGS84 座標。</h3>
 
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -74,29 +74,29 @@ $trial_id
                         </tbody>
                     </table>
 
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <br/>
-                    plot_name (must exist in the database)
+                    plot_name（小區名稱，必須存在於資料庫中）
                     <br />
-                    WGS84_bottom_left_x (WGS84 longitude coordinate of bottom left corner of plot)
+                    WGS84_bottom_left_x（小區左下角 WGS84 經度座標）
                     <br />
-                    WGS84_bottom_left_y (WGS84 latitude coordinate of bottom left corner of plot)
+                    WGS84_bottom_left_y（小區左下角 WGS84 緯度座標）
                     <br />
-                    WGS84_bottom_right_x (WGS84 longitude coordinate of bottom right corner of plot)
+                    WGS84_bottom_right_x（小區右下角 WGS84 經度座標）
                     <br />
-                    WGS84_bottom_right_y (WGS84 latitude coordinate of bottom right corner of plot)
+                    WGS84_bottom_right_y（小區右下角 WGS84 緯度座標）
                     <br />
-                    WGS84_top_right_x (WGS84 longitude coordinate of top right corner of plot)
+                    WGS84_top_right_x（小區右上角 WGS84 經度座標）
                     <br />
-                    WGS84_top_right_y (WGS84 latitude coordinate of top right corner of plot)
+                    WGS84_top_right_y（小區右上角 WGS84 緯度座標）
                     <br />
-                    WGS84_top_left_x (WGS84 longitude coordinate of top left corner of plot)
+                    WGS84_top_left_x（小區左上角 WGS84 經度座標）
                     <br />
-                    WGS84_top_left_y (WGS84 latitude coordinate of top left corner of plot)
+                    WGS84_top_left_y（小區左上角 WGS84 緯度座標）
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_plot_gps_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_plot_gps_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -123,7 +123,7 @@ jQuery(document).ready(function () {
         var uploadFile = jQuery("#trial_upload_plot_gps_file").val();
         jQuery('#upload_plot_gps_dialog_form').attr("action", "/ajax/breeders/trial/<% $trial_id %>/upload_plot_gps");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選取檔案");
             return;
         }
         jQuery("#upload_plot_gps_dialog_form").submit();
@@ -136,7 +136,7 @@ jQuery(document).ready(function () {
             jQuery('#working_modal').modal("show");
             if (uploadedFile === '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選取檔案");
             }
         },
         complete: function (response) {
@@ -148,7 +148,7 @@ jQuery(document).ready(function () {
                 return;
             }
             if (response.success) {
-                alert("File uploaded successfully");
+                alert("檔案上傳成功");
                 window.location.replace('/breeders/trial/'+<% $trial_id %>);
             }
         }
