@@ -10,14 +10,14 @@
                 <div class="col-sm-11">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Select a list of accessions:</label>
+                            <label class="control-label col-sm-4">選擇種原清單(Select a list of accessions):</label>
                             <div class="col-sm-8" >
                                 <div class="input-group">
                                     <select class="form-control" id="accession_list_select">
-                                        <option value="">Select a list of accessions</option>
+                                        <option value="">選擇種原清單(Select a list of accessions)</option>
                                     </select>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-info" id="search_parents"><i class="glyphicon glyphicon-search"></i> Parents </button>
+                                        <button class="btn btn-info" id="search_parents"><i class="glyphicon glyphicon-search"></i> 親本(Parents) </button>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="panel panel-default">
         <div class="panel-body">
-            <&| /page/info_section.mas, title=>"Search Results", is_subsection => 1, collapsible=>1, collapsed=>0 &>
+            <&| /page/info_section.mas, title=>"搜尋結果(Search Results)", is_subsection => 1, collapsible=>1, collapsed=>0 &>
                 <table class="table table-hover table-bordered" id="parent_search_results">
                 </table>
             </&>
@@ -44,17 +44,17 @@ jQuery(document).ready(function (){
 
     var lo = new CXGN.List();
 
-    jQuery('#accession_list_select').html(lo.listSelect('accession_list_select', ['accessions'], 'Select a list of accessions', undefined, undefined));
+    jQuery('#accession_list_select').html(lo.listSelect('accession_list_select', ['accessions'], '選擇種原清單(Select a list of accessions)', undefined, undefined));
 
     jQuery("#search_parents").click(function(){
         var accession_list_id = jQuery('#accession_list_select').val();
         if (!accession_list_id) {
-            alert("Please select a list of accessions");
+            alert("請選擇種原清單！(Please select a list of accessions)");
             return;
         }
 
         if (! lo.validate(accession_list_id, 'accessions', true)) {
-            alert('The accession list contains elements that are not accessions or are not uniquenames.');
+            alert('此種原清單包含非種原或非唯一名稱的元素。(The accession list contains elements that are not accessions or are not uniquenames.)');
             return;
         }
 
@@ -67,33 +67,33 @@ jQuery(document).ready(function (){
             },
             columns: [
                 {
-                    title: "Female Parent",
+                    title: "母本(Female Parent)",
                     data: null,
                     render: function(data, type, row){
                         if (row.female_id === null) {
-                            return 'unknown'
+                            return '未知(unknown)'
                         } else {
                             return "<a href='/stock/"+row.female_id+"/view'>"+row.female_name+"</a>"
                         }
                     }
                 },
                 {
-                    title: "Male Parent",
+                    title: "父本(Male Parent)",
                     data: null,
                     render: function(data, type, row){
                         if (row.male_id === null) {
-                            return 'unknown'
+                            return '未知(unknown)'
                         } else {
                             return "<a href='/stock/"+row.male_id+"/view'>"+row.male_name+"</a>"
                         }
                     }
                 },
                 {
-                    title: "Number of Accessions",
+                    title: "種原數量(Number of Accessions)",
                     data: "no_of_accessions",
                 },
                 {
-                    title: "Accession Names",
+                    title: "種原名稱(Accession Names)",
                     data: "progenies",
                 },
             ],
