@@ -8,32 +8,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addFieldbookPhenotypeDialog">Upload Fieldbook File</h4>
+        <h4 class="modal-title" id="addFieldbookPhenotypeDialog">上傳 Fieldbook 檔案(Upload Fieldbook File)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_fieldbook_phenotype_file_form" name="upload_fieldbook_phenotype_file_form">
                 <div class="well well-sm">
-                    <h5>Upload Exported Fieldbook Phenotype File in Database Format for Plots or Plants</h5>
+                    <h5>上傳資料庫格式的小區或單株匯出 Fieldbook 表型檔案(Upload Exported Fieldbook Phenotype File in Database Format for Plots or Plants)</h5>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Data Level: </label>
+                    <label class="col-sm-3 control-label">資料層級(Data Level)：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="upload_fieldbook_phenotype_data_level" name="upload_fieldbook_phenotype_data_level">
-                            <option value="plots">Plots</option>
-                            <option value="plants">Plants</option>
-                            <option value="subplots">Subplots</option>
+                            <option value="plots">小區(Plots)</option>
+                            <option value="plants">單株(Plants)</option>
+                            <option value="subplots">次小區(Subplots)</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Fieldbook File: </label>
+                    <label class="col-sm-3 control-label">Fieldbook 檔案：</label>
                     <div class="col-sm-9" >
                         <input type="file" id="upload_fieldbook_phenotype_file_input" name="upload_fieldbook_phenotype_file_input" encoding="multipart/form-data" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Optional: Images ZipFile (.zip): </label>
+                    <label class="col-sm-3 control-label">選填：圖片壓縮檔 (.zip)：</label>
                     <div class="col-sm-9" >
                         <input type="file" id="upload_fieldbook_phenotype_images_zipfile" name="upload_fieldbook_phenotype_images_zipfile" encoding="multipart/form-data" />
                     </div>
@@ -44,9 +44,9 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info" name="upload_fieldbook_phenotype_submit_verify" id="upload_fieldbook_phenotype_submit_verify">Verify</button>
-	<button disabled type="button" class="btn btn-primary" name="upload_fieldbook_phenotype_submit_store" id="upload_fieldbook_phenotype_submit_store" title="First Verify Your File">Store</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-info" name="upload_fieldbook_phenotype_submit_verify" id="upload_fieldbook_phenotype_submit_verify">驗證(Verify)</button>
+	<button disabled type="button" class="btn btn-primary" name="upload_fieldbook_phenotype_submit_store" id="upload_fieldbook_phenotype_submit_store" title="請先驗證您的檔案(First Verify Your File)">儲存(Store)</button>
       </div>
     </div>
   </div>
