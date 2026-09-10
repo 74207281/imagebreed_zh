@@ -5,7 +5,7 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title=>'Search People' &>
+<& /page/page_title.mas, title=>'人員搜尋(Search People)' &>
 
 <div class="row" id="people_search_form" >
   <div class="col-sm-1">
@@ -16,13 +16,13 @@
   <div class="col-sm-6">
     <div class="form-horizontal">
       <div class="form-group">
-        <label class="col-sm-6 control-label">Last Name: </label>
+        <label class="col-sm-6 control-label">姓氏(Last Name): </label>
         <div class="col-sm-6" >
           <input type="text" class="form-control" id="last_name" />
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-6 control-label">First Name: </label>
+        <label class="col-sm-6 control-label">名字(First Name): </label>
         <div class="col-sm-6" >
           <input type="text" class="form-control" id="first_name" />
         </div>
@@ -32,13 +32,13 @@
   <div class="col-sm-6">
     <div class="form-horizontal">
       <div class="form-group">
-        <label class="col-sm-6 control-label">Organization: </label>
+        <label class="col-sm-6 control-label">機構/組織(Organization): </label>
         <div class="col-sm-6" >
           <input type="text" class="form-control" id="organization" />
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-6 control-label">Country: </label>
+        <label class="col-sm-6 control-label">國家(Country): </label>
         <div class="col-sm-6" >
           <input type="text" class="form-control" id="country" />
         </div>
@@ -46,7 +46,7 @@
     </div>
   </div>
   <center>
-    <button class="btn btn-primary" id="submit_people_search" >Search</button>
+    <button class="btn btn-primary" id="submit_people_search" >搜尋(Search)</button>
   </center>
 
     </div>
@@ -72,10 +72,10 @@
 <table id="people_search_results" class="display">
 <thead>
   <tr>
-    <th>Last name</th>
-    <th>First name</th>
-    <th>Organization</th>
-    <th>Country</th>
+    <th>姓氏(Last Name)</th>
+    <th>名字(First Name)</th>
+    <th>機構/組織(Organization)</th>
+    <th>國家(Country)</th>
 </tr>
 </thead>
 
