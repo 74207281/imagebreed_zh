@@ -8,24 +8,24 @@ $additional_order_info => undef
 
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form' ] &>
 
-<& /page/page_title.mas, title => "Catalog" &>
+<& /page/page_title.mas, title => "目錄(Catalog)" &>
 
-    <&| /page/info_section.mas, title => 'Manage Catalog', collapsible=>1, collapsed=>0 &>
+    <&| /page/info_section.mas, title => '管理目錄(Manage Catalog)', collapsible=>1, collapsed=>0 &>
         <div class = "well well-sm">
             <div class = "panel panel-default">
                 <div class = "panel-body">
 %  if ($check_vendor_role == 1) {
-                    <button id="upload_catalog_items_button" class="btn btn-primary">Upload Catalog Items</button>
-                    <button id="add_catalog_item_button" class="btn btn-primary">Add a Catalog Item</button>
+                    <button id="upload_catalog_items_button" class="btn btn-primary">上傳目錄品項(Upload Catalog Items)</button>
+                    <button id="add_catalog_item_button" class="btn btn-primary">新增目錄品項(Add a Catalog Item)</button>
 %  } else {
-                    <p>Only users with a Vendor role can add Catalog items in the database.</p>
+                    <p>只有具備供應商（Vendor）身分的使用者才能在資料庫中新增目錄品項。(Only users with a Vendor role can add Catalog items in the database.)</p>
 %  }
                 </div>
             </div>
         </div>
     </&>
 
-<&| /page/info_section.mas, title => 'Catalog Items', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '目錄品項(Catalog Items)', collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
@@ -38,12 +38,12 @@ $additional_order_info => undef
         <div class="panel panel-default">
             <div class="panel-body">
                 <button id="your_cart_button" type="button" class="btn btn-primary btn-sm">
-                    <span class="glyphicon glyphicon-shopping-cart"></span> Your Cart
+                    <span class="glyphicon glyphicon-shopping-cart"></span> 您的購物車(Your Cart)
                 </button>
             </div>
         </div>
         <td>
-            <a href="/order/stocks/view"><button class="btn btn-primary btn-sm">Go to Manage Order Page</button></a>
+            <a href="/order/stocks/view"><button class="btn btn-primary btn-sm">前往訂單管理頁面(Go to Manage Order Page)</button></a>
         </td>
     </div>
 </&>
@@ -53,7 +53,7 @@ $additional_order_info => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="cartItemDialog">Your Cart</h4>
+                <h4 class="modal-title" id="cartItemDialog">您的購物車(Your Cart)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -62,8 +62,8 @@ $additional_order_info => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_cart_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="submit_order" type="button" class="btn btn-primary" >Submit Order</button>
+                <button id="close_cart_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button id="submit_order" type="button" class="btn btn-primary" >提交訂單(Submit Order)</button>
             </div>
         </div>
     </div>
@@ -74,17 +74,17 @@ $additional_order_info => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align:center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="cartMessageDialog">Your Cart</h4>
+                <h4 class="modal-title" id="cartMessageDialog">您的購物車(Your Cart)</h4>
             </div>
             <div class="modal-body" style="text-align:center">
                 <div class="container-fluid">
                     <p>
-                        You do not have any item in your cart
+                        您的購物車中沒有任何品項(You do not have any item in your cart)
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_cart_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="dismiss_cart_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@ $additional_order_info => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="orderResponseDialog">Your Order</h4>
+                <h4 class="modal-title" id="orderResponseDialog">您的訂單(Your Order)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -103,7 +103,7 @@ $additional_order_info => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_order_response_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="dismiss_order_response_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -114,7 +114,7 @@ $additional_order_info => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addItemDetailDialog">Add Item Details</h4>
+                <h4 class="modal-title" id="addItemDetailDialog">新增品項詳情(Add Item Details)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -123,8 +123,8 @@ $additional_order_info => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_add_item_detail_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="add_item_button" type="button" class="btn btn-primary" >Add Item</button>
+                <button id="close_add_item_detail_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button id="add_item_button" type="button" class="btn btn-primary" >新增品項(Add Item)</button>
             </div>
         </div>
     </div>
@@ -146,14 +146,14 @@ jQuery(document).ready( function() {
         'search':'applied',
         'ajax': '/ajax/catalog/items',
         columns: [
-            { title: "Name", "data": null, "render": function ( data, type, row ) { return "<a href='/catalog/item_details/"+row.item_id+"'>"+row.item_name+"</a>"; } },
-            { title: "Type", "data": "item_type" },
-            { title: "Category", "data": "category" },
-            { title: "Description", "data": "description" },
-            { title: "Material Source", "data": "material_source" },
-            { title: "Breeding Program", "data": "breeding_program" },
-            { title: "Availability", "data": "availability" },
-            { title: "Add to Cart", "data": "null", "render": function ( data, type, row ) { return "<a onclick='addToCart(\""+row.item_name+"\", \""+additional_order_info+"\", \""+ordering_service_name+"\")'><span class='glyphicon glyphicon-shopping-cart'></span></a>"; } },
+            { title: "名稱(Name)", "data": null, "render": function ( data, type, row ) { return "<a href='/catalog/item_details/"+row.item_id+"'>"+row.item_name+"</a>"; } },
+            { title: "類型(Type)", "data": "item_type" },
+            { title: "類別(Category)", "data": "category" },
+            { title: "說明(Description)", "data": "description" },
+            { title: "材料來源(Material Source)", "data": "material_source" },
+            { title: "育種計畫(Breeding Program)", "data": "breeding_program" },
+            { title: "供貨狀態(Availability)", "data": "availability" },
+            { title: "加入購物車(Add to Cart)", "data": "null", "render": function ( data, type, row ) { return "<a onclick='addToCart(\""+row.item_name+"\", \""+additional_order_info+"\", \""+ordering_service_name+"\")'><span class='glyphicon glyphicon-shopping-cart'></span></a>"; } },
         ],
     });
 
@@ -182,20 +182,20 @@ jQuery(document).ready( function() {
         if (ordering_service_name == 'ONA') {
             var item_additional_info = jQuery('#item_additional_info').val();
             if (!item_additional_info) {
-                alert("Please select additional info");
+                alert("請選取額外資訊(Please select additional info)");
                 return;
             }
         }
         var item_comments = jQuery('#item_comments').val();
 
         if (!item_comments && !item_additional_info) {
-            var item_string = item_name + ',' + ' ' + 'Quantity:' + ' ' + item_quantity;
+            var item_string = item_name + ',' + ' ' + '數量(Quantity):' + ' ' + item_quantity;
         } else if ((!item_comments) && (item_additional_info)) {
-            var item_string = item_name + ',' + ' ' + 'Quantity:' + ' ' + item_quantity + ',' + ' ' + 'Additional Info:' + ' ' + item_additional_info;
+            var item_string = item_name + ',' + ' ' + '數量(Quantity):' + ' ' + item_quantity + ',' + ' ' + '額外資訊(Additional Info):' + ' ' + item_additional_info;
         } else if ((item_comments) && (!item_additional_info)) {
-            var item_string = item_name + ',' + ' ' + 'Quantity:' + ' ' + item_quantity + ',' + ' ' + 'Comments:' + ' ' + item_comments;
+            var item_string = item_name + ',' + ' ' + '數量(Quantity):' + ' ' + item_quantity + ',' + ' ' + '備註(Comments):' + ' ' + item_comments;
         } else if (item_comments && item_additional_info) {
-            var item_string = item_name + ',' + ' ' + 'Quantity:' + ' ' + item_quantity + ',' + ' ' + 'Additional Info:' + ' ' + item_additional_info + ',' + ' ' + 'Comments:' + ' ' + item_comments;
+            var item_string = item_name + ',' + ' ' + '數量(Quantity):' + ' ' + item_quantity + ',' + ' ' + '額外資訊(Additional Info):' + ' ' + item_additional_info + ',' + ' ' + '備註(Comments):' + ' ' + item_comments;
         }
 
         var lo = new CXGN.List();
@@ -209,11 +209,11 @@ jQuery(document).ready( function() {
             var itemAdded = lo.addToList(list_id, item_string);
             lo.setListType(list_id, 'catalog_items');
         } else {
-            alert ('Error retrieving your cart')
+            alert ('取得購物車內容時發生錯誤(Error retrieving your cart)');
         }
         if (itemAdded) {
             jQuery('#add_item_detail_dialog').modal('hide');
-            alert("Saved " + item_name + " in your cart");
+            alert("已將 " + item_name + " 加入您的購物車(Saved in your cart)");
             location.reload();
         }
 
@@ -252,7 +252,7 @@ jQuery(document).ready( function() {
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred saving your order');
+                alert('儲存您的訂單時發生錯誤(An error occurred saving your order)');
             }
 
         });
@@ -267,10 +267,10 @@ jQuery(document).ready( function() {
 function addToCart(item_name, additional_order_info, ordering_service_name){
     var additional_info = additional_order_info.split(",");
     var html = '';
-    html = html + '<form class="form-horizontal"><div class="form-group"><label class="col-sm-3 control-label">Item Name: </label><div class="col-sm-9" ><input class="form-control" id="cart_item_name" name="cart_item_name" value="'+item_name+'" disabled></div></div>';
-    html = html + '<div class="form-group"><label class="col-sm-3 control-label">Quantity: </label><div class="col-sm-9" ><input class="form-control" id="item_quantity" name="item_quantity" placeholder=""></div></div>';
+    html = html + '<form class="form-horizontal"><div class="form-group"><label class="col-sm-3 control-label">品項名稱(Item Name)：</label><div class="col-sm-9" ><input class="form-control" id="cart_item_name" name="cart_item_name" value="'+item_name+'" disabled></div></div>';
+    html = html + '<div class="form-group"><label class="col-sm-3 control-label">數量(Quantity)：</label><div class="col-sm-9" ><input class="form-control" id="item_quantity" name="item_quantity" placeholder=""></div></div>';
     if (ordering_service_name == 'ONA') {
-        html = html + '<div class="form-group"><label class="col-sm-3 control-label">Additional Info: </label><div class="col-sm-9" ><select class="form-control" id="item_additional_info" name="item_additional_info"><option disabled value="" selected hidden>Please select a required clone stage</option>';
+        html = html + '<div class="form-group"><label class="col-sm-3 control-label">額外資訊(Additional Info)：</label><div class="col-sm-9" ><select class="form-control" id="item_additional_info" name="item_additional_info"><option disabled value="" selected hidden>請選取所需選殖株階段(Please select a required clone stage)</option>';
         if (additional_info) {
             for (var i=0; i<additional_info.length; i++) {
                 html = html + '<option value='+additional_info[i]+'>'+additional_info[i]+'</option>';
@@ -278,7 +278,7 @@ function addToCart(item_name, additional_order_info, ordering_service_name){
         }
         html = html + '</select></div></div>';
     }
-    html = html + '<div class="form-group"><label class="col-sm-3 control-label">Comments: </label><div class="col-sm-9" ><input class="form-control" id="item_comments" name="item_comments" placeholder="Optional"</div></div></form>';
+    html = html + '<div class="form-group"><label class="col-sm-3 control-label">備註(Comments)：</label><div class="col-sm-9" ><input class="form-control" id="item_comments" name="item_comments" placeholder="選填(Optional)"></div></div></form>';
 
     jQuery('#add_item_detail_div').html(html);
     jQuery('#add_item_detail_dialog').modal('show');
