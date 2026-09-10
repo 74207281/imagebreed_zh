@@ -11,7 +11,7 @@
   $trait_db_name              => 'SP'
 </%args>
 
-<& /page/page_title.mas, title => "Search Accessions and Plots" &>
+<& /page/page_title.mas, title => "搜尋種原與小區(Search Accessions and Plots)" &>
 
 <%once>
   use Number::Format;
@@ -24,7 +24,7 @@
 
 $form_opts = { stock_types => stock_types($schema), organisms=>stock_organisms($schema)}
 if (!$form_opts) ;
-my $new_stock_link = qq| <a href="/stock/0/new">Submit new stock</a> \| <a href=../../phenome/qtl_form.pl>QTL Population</a>|;
+my $new_stock_link = qq| <a href="/stock/0/new">提交新材料(Submit new stock)</a> \| <a href=../../phenome/qtl_form.pl>QTL群體(QTL Population)</a>|;
 
 </%perl>
 
@@ -36,11 +36,11 @@ my $new_stock_link = qq| <a href="/stock/0/new">Submit new stock</a> \| <a href=
 % if( $results ) {
 %   my $pager = $results->pager;
 
-  <&| /page/info_section.mas, title    => 'Search results',
-                              subtitle => 'results '
+  <&| /page/info_section.mas, title    => '搜尋結果(Search Results)',
+                              subtitle => '第 '
                                           .$pager->first
                                           .'-'.$pager->last
-                                          .' of '.Number::Format->new->format_number($pager->total_entries)
+                                          .' 項，共 '.Number::Format->new->format_number($pager->total_entries).' 項'
    &>
 % my @data =();
 %   if( $results->count ) {
@@ -54,16 +54,16 @@ my $new_stock_link = qq| <a href="/stock/0/new">Submit new stock</a> \| <a href=
 %            ] } $results->all;
 
      <% columnar_table_html(
-            headings => ['Stock Name','Stock Type', 'Organism'],
+            headings => ['材料名稱(Stock Name)','材料類型(Stock Type)', '物種(Organism)'],
             data     => [ @data ],
         )
       %>
 %   } else {
-     <h3 style="text-align: center">no matching results found</h3>
+     <h3 style="text-align: center">未找到符合條件的結果(No matching results found)</h3>
 %   }
 
 <div style="text-align:right">
-Copy items on this page to list:
+複製此頁項目至清單(Copy items on this page to list):
 <span id="item_list_menu">
 </span>
 
@@ -85,7 +85,7 @@ Copy items on this page to list:
       addToListMenu('item_list_menu', 'item_list', 'div');
     }
     else {
-      jQuery('#item_list_menu').html('Log in to use lists.');
+      jQuery('#item_list_menu').html('登入後即可使用清單。(Log in to use lists.)');
     }
   });
 
@@ -96,7 +96,7 @@ Copy items on this page to list:
 
   <& /page/pagination_control.mas, pager => $pager, link_maker => $pagination_link_maker &>
 % }
-<&| /page/info_section.mas, title => 'Search' , subtitle => $new_stock_link &>
+<&| /page/info_section.mas, title => '搜尋(Search)' , subtitle => $new_stock_link &>
   <& /stock/stock_search_form.mas,
     form                       => $form,
     opts                       => $form_opts,
