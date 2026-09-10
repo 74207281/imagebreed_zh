@@ -1,22 +1,22 @@
 
             
-<& /page/page_title.mas, title=>"Quick Create Account" &>
+<& /page/page_title.mas, title=>"快速建立帳號(Quick Create Account)" &>
 
 <div id="quick_create_account_input_form_div">
   <form id="quick_create_account_input_form" method="post" action="/user/quick_create_account">
     
     <table cellpadding="2" cellspacing="2" width="100%" align="center">
-      <tr><td colspan="2"><b>Curators may use this form to create accounts for new users.<br />&nbsp;</b></td></tr>
-      <tr><td>First Name</td><td><input type="text" name="first_name" size="20" value=""></td></tr>
-      <tr><td>Last Name</td><td><input type="text" name="last_name" size="20" value=""></td></tr>
-      <tr><td>Username (at least 7 characters)</td><td><input type="text" name="username" size="12" value=""></td></tr>
-      <tr><td>Password (at least 7 characters)</td><td><input type="password" name="password" size="12" value=""></td></tr>
-      <tr><td>Confirm Password</td><td><input type="password" name="confirm_password" size="12" value=""></td></tr>
-      <tr><td>Private Email Address</td><td><input type="text" name="confirm_email" size="40" value=""></td></tr>
-      <tr><td>User Type</td><td><input type="text" name="user_type" size="10" value=""></td></tr>
+      <tr><td colspan="2"><b>管理者可使用此表單為新使用者建立帳號。<br />&nbsp;</b></td></tr>
+      <tr><td>名字(First Name)</td><td><input type="text" name="first_name" size="20" value=""></td></tr>
+      <tr><td>姓氏(Last Name)</td><td><input type="text" name="last_name" size="20" value=""></td></tr>
+      <tr><td>使用者名稱（至少 7 個字元）(Username (at least 7 characters))</td><td><input type="text" name="username" size="12" value=""></td></tr>
+      <tr><td>密碼（至少 7 個字元）(Password (at least 7 characters))</td><td><input type="password" name="password" size="12" value=""></td></tr>
+      <tr><td>確認密碼(Confirm Password)</td><td><input type="password" name="confirm_password" size="12" value=""></td></tr>
+      <tr><td>私人電子郵件地址(Private Email Address)</td><td><input type="text" name="confirm_email" size="40" value=""></td></tr>
+      <tr><td>使用者類型(User Type)</td><td><input type="text" name="user_type" size="10" value=""></td></tr>
       <tr><td>&nbsp;</td></tr>
       <tr><td colspan="2" align="center">
-	  <button class="btn btn-default" id="create_account" name="create_account" type="button">Save</button>
+	  <button class="btn btn-default" id="create_account" name="create_account" type="button">儲存(Save)</button>
       </tr>
     </table>
 </form>
