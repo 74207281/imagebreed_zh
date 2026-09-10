@@ -2,7 +2,7 @@
   use CXGN::Page::FormattingHelpers qw/info_table_html/;
 </%once>
 
-<&| /page/info_section.mas, title => 'Data' &>
+<&| /page/info_section.mas, title => '數據(Data)' &>
 <dl>
 <dt>Solanaceae and other Genomes</dt>
 <dd>SGN is a home for Solanaceae and closely related genomes, such as selected Rubiaceae genomes (e.g., <i>Coffea</i>). The <a href="/organism/Solanum_lycopersicum/genome">tomato</a>, <a href="/organism/Solanum_tuberosum/genome">potato</a>, <a href="/organism/Capsicum_annuum/genome">pepper</a>, and <a href="/organism/Solanum_melongena">eggplant</a> genome are examples of genomes that are currently available. If you would like to include a Solanaceae genome that you sequenced in SGN, please <a href="/contact/form">contact us</a>.</dd>
@@ -42,7 +42,7 @@ Overview</a>. Entire datasets can also be downloaded from our <a href="ftp://ftp
 </&>
 
 
-<&| /page/info_section.mas, title => 'SGN community-driven gene and phenotype database' &>
+<&| /page/info_section.mas, title => 'SGN 社群驅動之基因與表型資料庫(SGN Community-driven Database)' &>
 <ul style="margin: 0; padding-left: 1em">
 
    <li>We have developed simple web interfaces for the SGN user-community to submit, annotate, and curate the Solanaceae locus and phenotype databases. Our goal is to share biological information, and have the experts in their field
