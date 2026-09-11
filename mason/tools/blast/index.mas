@@ -28,11 +28,11 @@
      name=>"matrix",
      params=>"class\=\"form-control input-sm blast_select_box\"",
      id=>"matrix",
-     choices => [  [ 'BLOSUM62', 'BLOSUM62 (default)' ],
-                   [ 'BLOSUM80', 'BLOSUM80 (recent divergence)' ],
-  		 [ 'BLOSUM45', 'BLOSUM45 (ancient divergence)' ],
-  		 'PAM30',
-  		 'PAM70',
+     choices => [  [ 'BLOSUM62', 'BLOSUM62 (預設, default)' ],
+                   [ 'BLOSUM80', 'BLOSUM80 (近緣分化, recent divergence)' ],
+   		 [ 'BLOSUM45', 'BLOSUM45 (遠緣分化, ancient divergence)' ],
+   		 'PAM30',
+   		 'PAM70',
   ]);
 
   #print STDERR "INPUT OPTIONS: ".Data::Dumper::Dumper(\@input_options);
@@ -97,22 +97,22 @@
 <& /util/import_javascript.mas, classes => [ 'tools.blast_canvas_graph', 'CXGN.Blast03152022' , 'jqueryui', 'kinetics.kinetic'] &>
 
 
-<& /page/page_title.mas, title=>"BLAST" &>
+<& /page/page_title.mas, title=>"BLAST 序列比對(BLAST)" &>
 
-<div style="border-style:dotted;border-width:1px;margin-bottom:20px;"><div style="margin-top:10px;margin-right:10px;margin-bottom:10px;margin-left:10px;" ><b>Note</b>: To match shorter sequences:
+<div style="border-style:dotted;border-width:1px;margin-bottom:20px;"><div style="margin-top:10px;margin-right:10px;margin-bottom:10px;margin-left:10px;" ><b>說明(Note)</b>: 若要比對較短的序列(To match shorter sequences)：
 <div>
 <ul>
-<li>Consider setting the word_size to a lower value.</li>
-<li>You may have to set the evalue to a higher value.</li>
+<li>可考慮將字詞大小(word_size)設定為較小的值(Consider setting the word_size to a lower value)。</li>
+<li>您可能需要將期望值(evalue)設定為較大的值(You may have to set the evalue to a higher value)。</li>
 </ul>
 </div>
-The default word_size for blastn is 11 and for protein-based blast programs it is 3. The correct default will be set automatically when changing the program.</div></div>
+blastn 的預設 word_size 為 11，基於蛋白質的 BLAST 程式則為 3。切換程式時將會自動設定正確的預設值(The default word_size for blastn is 11 and for protein-based blast programs it is 3. The correct default will be set automatically when changing the program)。</div></div>
 
-<&| /page/info_section.mas, id=>"input_parameter_section", title=>"Input parameters", collapsible=>1, collapsed=>0, subtitle=>'<a class="btn btn-link pull-right" href="/help/tools/blast" target="_blank">Help <span class="glyphicon glyphicon-question-sign"></span></a>' &>
+<&| /page/info_section.mas, id=>"input_parameter_section", title=>"輸入參數(Input parameters)", collapsible=>1, collapsed=>0, subtitle=>'<a class="btn btn-link pull-right" href="/help/tools/blast" target="_blank">說明(Help) <span class="glyphicon glyphicon-question-sign"></span></a>' &>
   <input type="hidden" name="outformat" value="0" />
 
   <div class="form-group form-inline">
-        <label class="blast_select_label" for="dataset_select">Categories &nbsp; </label>
+        <label class="blast_select_label" for="dataset_select">分類(Categories) &nbsp; </label>
 
     <& /page/html_select.mas, name=>'Datasets', choices=> $dataset_groups, id=>"dataset_select", name=>"dataset_select", params=>"class\=\"form-control input-sm blast_select_box\"", selected=>"$preselected_category" &>
 
@@ -127,36 +127,36 @@ The default word_size for blastn is 11 and for protein-based blast programs it i
 
 <br>
 
-    <label class="blast_select_label" for="database_select">Database &nbsp; </label>
+    <label class="blast_select_label" for="database_select">資料庫(Database) &nbsp; </label>
 
-    <span id='database_select' ></span><a style="font-size: 80%" title="View details of each database" href="/tools/blast/dbinfo">db details</a>
+    <span id='database_select' ></span><a style="font-size: 80%" title="檢視各資料庫詳細資訊(View details of each database)" href="/tools/blast/dbinfo">資料庫詳細資訊(db details)</a>
     <br>
 
-    <label class="blast_select_label" for="program_select">Program &nbsp; </label>
+    <label class="blast_select_label" for="program_select">程式(Program) &nbsp; </label>
     <& /page/html_select.mas, name=>'program_select', id=>'program_select', params=>"class\=\"form-control input-sm blast_select_box\"", choices=>$programs &>
     <br>
 
-    <label class="blast_select_label" for="input_example">Query &nbsp; </label>
-    <% $input_options_select %><a id="input_example" style="font-size: 80%;cursor:pointer;">Show example</a>
+    <label class="blast_select_label" for="input_example">查詢序列(Query) &nbsp; </label>
+    <% $input_options_select %><a id="input_example" style="font-size: 80%;cursor:pointer;">顯示範例(Show example)</a>
   </div>
 
     <textarea name="sequence" id="sequence" class="form-control" rows="8" cols="80"><% $preload %></textarea></td></tr>
     <br>
 
         <div style="text-align: center">
-          <button class="btn btn-primary" id="submit_blast_button" type="submit" name="search" value="Search">BLAST</button>
+          <button class="btn btn-primary" id="submit_blast_button" type="submit" name="search" value="Search">執行 BLAST(BLAST)</button>
         </div>
         <br />
 
-<&| /page/info_section.mas, title=>"Advanced Options", collapsible=>1, collapsed =>1, is_subsection=>"1" &>
+<&| /page/info_section.mas, title=>"進階選項(Advanced Options)", collapsible=>1, collapsed =>1, is_subsection=>"1" &>
 
 	<& /page/info_table.mas, title=>'', data => [
-	  'Expect (e-value) Threshold' => '<input id="evalue" class="blast_select_box form-control" type="text" size="6" value="1e-10" name="expect" />',
-	  'Word Size (default 11, use lower value for shorter sequences)' => '<input id="word_size" class="blast_select_box form-control" type="text" size="6" value="11" name="word_size" />',
-	  'Substitution Matrix' => $substitution_matrix_select,
-		'Output Options' => $parse_options_select,
-	  'Max. hits to show' => '<input id="maxhits" class="blast_select_box form-control" type="text" name="maxhits" size="6" value="20" />',
-	  'Filters' => '<div class="checkbox"><label><input type="checkbox" name="filterq" checked="1" /> Filter Low complexity</label>',
+	  '期望值閥值(Expect (e-value) Threshold)' => '<input id="evalue" class="blast_select_box form-control" type="text" size="6" value="1e-10" name="expect" />',
+	  '字詞大小(Word Size) (預設 11，較短序列請使用較小值)' => '<input id="word_size" class="blast_select_box form-control" type="text" size="6" value="11" name="word_size" />',
+	  '替換矩陣(Substitution Matrix)' => $substitution_matrix_select,
+		'輸出選項(Output Options)' => $parse_options_select,
+	  '最多顯示比對數(Max. hits to show)' => '<input id="maxhits" class="blast_select_box form-control" type="text" name="maxhits" size="6" value="20" />',
+	  '過濾條件(Filters)' => '<div class="checkbox"><label><input type="checkbox" name="filterq" checked="1" /> 過濾低複雜度序列(Filter Low complexity)</label>',
 	  __multicol => 2,
 	  __border => 0,
 	  __tableattrs => 'width="80%"',
@@ -167,23 +167,23 @@ The default word_size for blastn is 11 and for protein-based blast programs it i
 
 </&>
 
-<&| /page/info_section.mas, title=>"Extract sequences from BLAST databases", collapsible=>1, collapsed =>1 &>
+<&| /page/info_section.mas, title=>"從 BLAST 資料庫中提取序列(Extract sequences from BLAST databases)", collapsible=>1, collapsed =>1 &>
 <br>
 <div class="form-inline form-group" style="width:100%">
   <input class="form-control" value="putrescine" id="blast_desc"/>
-  <button id="search_by_desc" class="btn btn-primary">Search</button>
+  <button id="search_by_desc" class="btn btn-primary">搜尋(Search)</button>
   </div>
-  <div class="well well-sm">Select a BLAST database and paste a gene name or description. Eg: Solyc07g063040 or ribulose</div>
+  <div class="well well-sm">選擇一個 BLAST 資料庫並貼上基因名稱或描述。例如：Solyc07g063040 或 ribulose (Select a BLAST database and paste a gene name or description. Eg: Solyc07g063040 or ribulose)</div>
 </&>
 
-<&| /page/info_section.mas, title=>"Results", collapsible=>1, collapsed=>0, subtitle=>'<a id="download_table" class="download_tag" target="_blank" href="javascript:download_table();" title="Download results in tabular format">Table&#8675;</a>&nbsp;&nbsp;<a id="download_basic" class="download_tag" target="_blank" href="javascript:download();" title="Download results in basic format">Basic&#8675;</a>' &>
+<&| /page/info_section.mas, title=>"比對結果(Results)", collapsible=>1, collapsed=>0, subtitle=>'<a id="download_table" class="download_tag" target="_blank" href="javascript:download_table();" title="以表格格式下載結果(Download results in tabular format)">表格下載(Table)&#8675;</a>&nbsp;&nbsp;<a id="download_basic" class="download_tag" target="_blank" href="javascript:download();" title="以基本文字格式下載結果(Download results in basic format)">基本格式下載(Basic)&#8675;</a>' &>
 
   <div id="prereqs"></div>
 
   <center>
     <div id="sgn_blast_graph" style="display:none">
         <div id="myCanvas">
-          Your browser does not support the HTML5 canvas
+          您的瀏覽器不支援 HTML5 canvas(Your browser does not support the HTML5 canvas)
         </div>
     </div>
   </center>
@@ -208,7 +208,7 @@ The default word_size for blastn is 11 and for protein-based blast programs it i
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">BLAST status</h4>
+        <h4 class="modal-title">BLAST 狀態(BLAST status)</h4>
       </div>
       <div class="modal-body">
         <center>
@@ -229,7 +229,7 @@ The default word_size for blastn is 11 and for protein-based blast programs it i
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Search Result</h4>
+      <h4 class="modal-title">搜尋結果(Search Result)</h4>
     </div>
 
     <div class="modal-body">
@@ -237,7 +237,7 @@ The default word_size for blastn is 11 and for protein-based blast programs it i
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
     </div>
   </div>
 
@@ -293,7 +293,7 @@ jQuery(document).ready(function() {
 			if (seq_num.length <= 20 ) {
 			  run_blast(database_types, input_option_types);
 			} else {
-				alert("Please, do not run more than 20 sequences");
+				alert("請勿同時執行超過 20 條序列(Please, do not run more than 20 sequences)");
 			}
 		} else {
 			run_blast(database_types, input_option_types);
@@ -318,7 +318,7 @@ jQuery(document).ready(function() {
 
 			},
 			error: function(response) {
-				alert("An error occurred. The service may not be available right now.");
+				alert("發生錯誤。該服務目前可能無法使用(An error occurred. The service may not be available right now)。");
 				enable_ui();
 				return;
 			}
