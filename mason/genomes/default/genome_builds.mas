@@ -2,7 +2,7 @@
   $organism
   $assembly_list
   $bug_tracker_url  => ''
-  $bug_tracker_desc => 'assembly bug tracker'
+  $bug_tracker_desc => '組裝錯誤追蹤器(assembly bug tracker)'
 </%args>
 
 % if( @$assembly_list ) {
@@ -13,17 +13,15 @@
     </div>
     <&| /page/info_table.mas, border => 1 &>
 
-    Assembly issues
+    組裝問題(Assembly issues)
 
     ----
 
-      <p>If in the course of your work you find errors or other issues with
-        these genome assemblies, please report them using one of the
-        following links:</p>
+      <p>若在您的工作過程中發現這些基因組組裝的錯誤或其他問題，請使用以下連結之一回報：(If in the course of your work you find errors or other issues with these genome assemblies, please report them using one of the following links:)</p>
 
       <ul>
         <li>
-          <a href="mailto:<% $c->get_conf('feedback_email') %>?subject=<% $organism->species    %> genome assembly issue">email us</a>
+          <a href="mailto:<% $c->get_conf('feedback_email') %>?subject=<% $organism->species    %> genome assembly issue">透過電子郵件聯絡我們(email us)</a>
         </li>
 %       if( $bug_tracker_url ) {
         <li>
