@@ -21,21 +21,19 @@ $guide
 </%args>
 
 <%perl>
-my $message = qq | <p>You are trying to upload file(s) with the same name 
-                     <b>($file1 and $file2)</b> for this step and one of the 
-                     steps before it.
+my $message = qq | <p>您嘗試在此步驟和之前的步驟中上傳同名的檔案(You are trying to upload file(s) with the same name) 
+                     <b>($file1 與(and) $file2)</b>。
                    </p>
 
-                   <p>Please go <a href="javascript:history.go(-1)"><b>back</b></a> 
-                     and check the file you are trying to upload or if you keep 
-                     having problem with it contact us.
+                   <p>請<a href="javascript:history.go(-1)"><b>返回(back)</b></a> 
+                     並檢查您嘗試上傳的檔案，或者如果您持續遇到問題請聯繫我們(and check the file you are trying to upload or if you keep having problem with it contact us)。
                    </p>
                 | ;
 
 
 </%perl>
 
-<& /page/page_title.mas, title => 'Data files' &>
+<& /page/page_title.mas, title => '資料檔案(Data files)' &>
 <&| /page/info_section.mas, title => '', subtitle => $guide &>
   <% $message %>  
 </&>
