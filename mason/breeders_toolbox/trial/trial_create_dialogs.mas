@@ -59,7 +59,7 @@ rect.bordered {
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addProjectDialog">Design New Trial</h4>
+                <h4 class="modal-title" id="addProjectDialog">設計新試驗(Design New Trial)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -67,111 +67,111 @@ rect.bordered {
                     <form class="form-horizontal" id="create_new_trial_form" name="create_new_trial_form">
 
                         <&| /util/workflow.mas, id=> "trial_design_workflow" &>
-                            <&| /util/workflow.mas:step, title=> "Intro" &>
-                                <& /page/page_title.mas, title=>"This workflow will guide you through designing a new trial in the database" &>
-                                <p>A field trial represents a field where each plot has a globally unique plot name, a sequential plot number that is unique in the trial (e.g. 101, 102, 103 for three separate plots), and an accession representing the genotype being tested in that plot. In cases where crosses/families are being evaluated (e.g. F1 hybrid, backcrossing), cross unique ids or family names can be used instead of accessions. Each plot can belong to different blocks and reps depending on the experimental design you are using (e.g. complete block vs augmented design). Each plot can have a row number and col number indicating the relative position of the plot in the field.</p>
-                                <p>To design a trial you need to provide a globally unique trial name. The plot names will be generated based on the trial name you provide (e.g. if the trial name is 2018MyTrial, plot_names will be generated like 2018MyTrial_101, 2018MyTrial_102, etc).</p>
-                                <p>You also need to provide a list of accessions, cross unique ids or family names to use. Based on the design you have picked, the accessions, cross unique ids or family names will be randomized over the blocks or replicates in the trial.</p>
-                                <p>You can provide a list of accessions to use as controls or checks in your experiment.</p>
-                                <p>Depending on the design you have picked, you will need to provide different design parameters (e.g. for complete block you will need to provide number of blocks, while for alpha lattice you will need to provide block size and number of replicates.).</p>
-                                <p>A trial can represent a yield trial, a phenotyping trial, a crossing block, a greenhouse, a nursery, etc.</p>
-                                <p>A plot can have many plants, which the database can track as separate entities, allowing you to record plant level observations and information.</p>
+                            <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                                <& /page/page_title.mas, title=>"此工作流程將引導您在資料庫中設計新試驗(This workflow will guide you through designing a new trial in the database)" &>
+                                <p>田間試驗代表一個田區，其中每個小區都有全域唯一的小區名稱、在該試驗中唯一的連續小區編號（例如三個不同小區為 101、102、103），以及代表在該小區中進行測試之基因型的種原。在評估雜交/家族（如 F1 雜交種、回交）的情況下，可以使用雜交唯一 ID 或家族名稱代替種原。根據您使用的實驗設計（例如完全區集與增強設計），每個小區可以屬於不同的區集和重複。每個小區可以具有行號和列號，指示小區在田間的相對位置。</p>
+                                <p>要設計試驗，您需要提供全域唯一的試驗名稱。小區名稱將根據您提供的試驗名稱產生（例如，如果試驗名稱是 2018MyTrial，則小區名稱將產生為 2018MyTrial_101、2018MyTrial_102 等）。</p>
+                                <p>您還需要提供要使用的種原、雜交唯一 ID 或家族名稱列表。根據您選擇的設計，種原、雜交唯一 ID 或家族名稱將隨機分配到試驗中的區集或重複中。</p>
+                                <p>您可以提供要作為實驗中對照(checks)使用的種原列表。</p>
+                                <p>根據您選擇的設計，您需要提供不同的設計參數（例如，對於完全區集，您需要提供區集數量，而對於 alpha lattice，您需要提供區集大小和重複次數）。</p>
+                                <p>試驗可以代表產量試驗、表型分析試驗、雜交區、溫室、苗圃等。</p>
+                                <p>一個小區可以有多個植株，資料庫可以將它們作為獨立實體進行追蹤，使您能夠記錄植株層級的觀察值和資訊。</p>
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:step, title=> "Trial Information" &>
-                                <& /page/page_title.mas, title=>"Enter basic information about the trial" &>
+                            <&| /util/workflow.mas:step, title=> "試驗資訊(Trial Information)" &>
+                                <& /page/page_title.mas, title=>"輸入試驗基本資訊(Enter basic information about the trial)" &>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Company: </label>
+                                    <label class="col-sm-3 control-label">公司：</label>
                                     <div class="col-sm-9">
                                         <div id="select_private_company_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫：</label>
                                     <div class="col-sm-9">
                                         <div id="select_breeding_program_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Locations: (One or More)</label>
+                                    <label class="col-sm-3 control-label">地點：（一個或多個）</label>
                                     <div class="col-sm-9">
                                         <div id="select_locations_div"></div>
                                         <br/>
                                         <div class="well well-sm">
-                                            <div id="locations_count" class="text-success">No Locations Selected</div>
+                                            <div id="locations_count" class="text-success">未選取地點</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Trial Name: </label>
+                                    <label class="col-sm-3 control-label">試驗名稱：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="new_trial_name" name="new_trial_name" type="text" />
-                                        <p><i>Location abbreviation will automatically be added as a prefix if multiple locations are selected.</i></p>
+                                        <p><i>如果選取了多個地點，地點縮寫將自動新增為前綴。</i></p>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Trial Type: </label>
+                                    <label class="col-sm-3 control-label">試驗類型：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="add_project_type" name="add_project_type" type="text">
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Year: </label>
+                                    <label class="col-sm-3 control-label">年份：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="add_project_year" name="add_project_year" type="text"></select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Plot Width (m) <small>(Optional)</small>: </label>
+                                    <label class="col-sm-3 control-label">小區寬度 (m) <small>（可選）</small>：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="add_project_plot_width" name="add_project_plot_width" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Plot Length (m) <small>(Optional)</small>: </label>
+                                    <label class="col-sm-3 control-label">小區長度 (m) <small>（可選）</small>：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="add_project_plot_length" name="add_project_plot_length" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Field Size (ha) <small>(Optional)</small>: </label>
+                                    <label class="col-sm-3 control-label">田區大小 (ha) <small>（可選）</small>：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="new_trial_field_size" name="new_trial_field_size" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Plants per Plot <small>(Optional)</small>: </label>
+                                    <label class="col-sm-3 control-label">每小區植株數 <small>（可選）</small>：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="add_plant_entries" name="add_plant_entries" type="number" value=0 placeholder=0 />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Description: </label>
+                                    <label class="col-sm-3 control-label">描述：</label>
                                     <div class="col-sm-9">
                                         <textarea class="form-control" id="add_project_description" name="add_project_description" maxlength="250"></textarea>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Stock Type Being Evaluated in Trial: </label>
+                                    <label class="col-sm-3 control-label">試驗中評估的材料類型：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="select_stock_type">
-                                            <option value="">Select a stock type</option>
-                                            <option value="accession">accession</option>
-                                            <option value="cross">cross</option>
-                                            <option value="family_name">family_name</option>
+                                            <option value="">選擇材料類型</option>
+                                            <option value="accession">種原(accession)</option>
+                                            <option value="cross">雜交(cross)</option>
+                                            <option value="family_name">家族名稱(family_name)</option>
                                         </select>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Design Type: </label>
+                                    <label class="col-sm-3 control-label">設計類型：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="select_design_method" name="select_design_method">
 % foreach my $type(@$design_types){
@@ -195,131 +195,142 @@ rect.bordered {
 %    } else {
 %        $method = $type;
 %    }
-    <option value="<%$method%>"><%$type%></option>
+%    my %type_names = (
+%        'Completely Randomized' => '完全隨機設計(Completely Randomized)',
+%        'Complete Block' => '完全區集設計(Complete Block)',
+%        'Resolvable Row-Column' => '可解析行列設計(Resolvable Row-Column)',
+%        'Alpha Lattice' => 'Alpha 格子設計(Alpha Lattice)',
+%        'Modified Augmented Design' => '改良增強設計(Modified Augmented Design)',
+%        'Nursery/Greenhouse' => '苗圃/溫室(Nursery/Greenhouse)',
+%        'Split Plot' => '分割小區設計(Split Plot)',
+%        'Partially Replicated' => '部分重複設計(Partially Replicated)'
+%    );
+%    my $display_type = $type_names{$type} || $type;
+    <option value="<%$method%>"><%$display_type%></option>
 %}
                                         </select>
                                         <div id="create_trial_design_description_div">
                                         </div>
                                         <div id="prephelp" style="display: none">
-                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#partial_rep_help_dialog">Usage Help <span class="glyphicon glyphicon-question-sign"></span></button>
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#partial_rep_help_dialog">使用說明(Usage Help) <span class="glyphicon glyphicon-question-sign"></span></button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="randomization_div" style="display:none;">
-                                    <label class="col-sm-4 control-label">Use same randomization for all locations: </label>
+                                    <label class="col-sm-4 control-label">所有地點使用相同隨機化：</label>
                                     <div class="col-sm-8" >
                                         <input type="checkbox" id="use_same_layout" value="same_design" />
                                     </div>
                                 </div>
                                 <hr>
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" name="create_trial_validate_form_button" id="create_trial_validate_form_button">First validate the form</button>
-                                <button type="button" class="btn btn-lg btn-primary" disabled onclick="Workflow.complete(this); return false;" name="create_trial_submit">Continue to Next Step</button>
+                                <button type="button" class="btn btn-lg btn-primary" name="create_trial_validate_form_button" id="create_trial_validate_form_button">首先驗證表單(First validate the form)</button>
+                                <button type="button" class="btn btn-lg btn-primary" disabled onclick="Workflow.complete(this); return false;" name="create_trial_submit">繼續下一步(Continue to Next Step)</button>
                                 <center>
 
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Design Information" &>
-                                <& /page/page_title.mas, title=>"Design your trial layout" &>
+                            <&| /util/workflow.mas:step, title=> "設計資訊(Design Information)" &>
+                                <& /page/page_title.mas, title=>"設計您的試驗配置(Design your trial layout)" &>
                                 <div class="well well-sm">
                                     <div class="form-group form-group-sm" id="show_list_of_accession_section" >
-                                        <center><h4>Which accessions will be in the field?</h4></center>
+                                        <center><h4>哪些種原將種植在田間？</h4></center>
                                         <hr>
-                                        <label class="col-sm-7 control-label">List of accessions to include (required):</label>
+                                        <label class="col-sm-7 control-label">要包含的種原列表（必填）：</label>
                                         <div class="col-sm-5" id="select_list" name="select_list">
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_cross_section" >
-                                        <center><h4>Which crosses will be in the field?</h4></center>
+                                        <center><h4>哪些雜交將種植在田間？</h4></center>
                                         <hr>
-                                        <label class="col-sm-7 control-label">List of crosses to include (required):</label>
+                                        <label class="col-sm-7 control-label">要包含的雜交列表（必填）：</label>
                                         <div class="col-sm-5" id="select_cross_list" name="select_cross_list">
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_family_name_section" >
-                                        <center><h4>Which family names will be in the field?</h4></center>
+                                        <center><h4>哪些家族名稱將種植在田間？</h4></center>
                                         <hr>
-                                        <label class="col-sm-7 control-label">List of family names to include (required):</label>
+                                        <label class="col-sm-7 control-label">要包含的家族名稱列表（必填）：</label>
                                         <div class="col-sm-5" id="select_family_name_list" name="select_family_name_list">
                                         </div>
                                     </div>
                                     <div class="form-group" id="westcott_check_1_section" style="display: none">
-                                      <label class="col-sm-3 control-label">Name of Check 1: </label>
+                                      <label class="col-sm-3 control-label">對照 1 名稱：</label>
                                       <div class="col-sm-9" >
-                                        <input class="form-control" id="westcott_check_1" name="westcott_check_1" placeholder="Required"></input>
+                                        <input class="form-control" id="westcott_check_1" name="westcott_check_1" placeholder="必填"></input>
                                       </div>
                                     </div>
                                     <div class="form-group" id="westcott_check_2_section" style="display: none">
-                                      <label class="col-sm-3 control-label">Name of Check 2: </label>
+                                      <label class="col-sm-3 control-label">對照 2 名稱：</label>
                                       <div class="col-sm-9" >
-                                        <input class="form-control" id="westcott_check_2" name="westcott_check_2" placeholder="Required"> </input>
+                                        <input class="form-control" id="westcott_check_2" name="westcott_check_2" placeholder="必填"> </input>
                                       </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include (required): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_cross_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include (required): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_cross_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_family_name_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include (required): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_family_name_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="crbd_show_list_of_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include. Checks list should be separate from accessions list. (optional): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表。對照列表應與種原列表分開（選填）：</label>
                                         <div class="col-sm-5" id="crbd_list_of_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="crbd_show_list_of_cross_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include. Checks list should be accessions list. (optional): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表。對照列表應為種原列表（選填）：</label>
                                         <div class="col-sm-5" id="crbd_list_of_cross_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="crbd_show_list_of_family_name_checks_section" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of checks to include. Checks list should be accessions list. (optional): </label>
+                                        <label class="col-sm-7 control-label">要包含的對照列表。對照列表應為種原列表（選填）：</label>
                                         <div class="col-sm-5" id="crbd_list_of_family_name_checks_section" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_unrep_accession" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of unreplicated accession (required):</label>
+                                        <label class="col-sm-7 control-label">無重複種原列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_unrep_accession"  >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_unrep_cross" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of unreplicated cross (required):</label>
+                                        <label class="col-sm-7 control-label">無重複雜交列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_unrep_cross"  >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_unrep_family_name" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of unreplicated family_name (required):</label>
+                                        <label class="col-sm-7 control-label">無重複家族名稱列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_unrep_family_name"  >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_rep_accession" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of replicated accession (required): </label>
+                                        <label class="col-sm-7 control-label">重複種原列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_rep_accession" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_rep_cross" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of replicated cross (required): </label>
+                                        <label class="col-sm-7 control-label">重複雜交列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_rep_cross" >
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="show_list_of_rep_family_name" style="display: none" >
-                                        <label class="col-sm-7 control-label">List of replicated family_name (required): </label>
+                                        <label class="col-sm-7 control-label">重複家族名稱列表（必填）：</label>
                                         <div class="col-sm-5" id="list_of_rep_family_name" >
                                         </div>
                                     </div>
 
-                                    <center>Need to create a list?&nbsp;&nbsp;&nbsp;&nbsp;<button name="lists_link" class="btn btn-default btn-sm" style="margin:6px 0px 0px 0px" type="button" >Manage Lists</button></center>
+                                    <center>需要建立列表？&nbsp;&nbsp;&nbsp;&nbsp;<button name="lists_link" class="btn btn-default btn-sm" style="margin:6px 0px 0px 0px" type="button" >管理列表(Manage Lists)</button></center>
                                 </div>
 
                                 <div class="form-group form-group-sm" id="show_no_of_row_in_design" style="display: none" >
-                                    <label class="col-sm-7 control-label">Number of rows in design: </label>
+                                    <label class="col-sm-7 control-label">設計中的行數：</label>
                                     <div class="col-sm-5"  >
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
@@ -328,7 +339,7 @@ rect.bordered {
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="show_no_of_col_in_design" style="display: none" >
-                                    <label class="col-sm-7 control-label">Number of columns in design : </label>
+                                    <label class="col-sm-7 control-label">設計中的列數：</label>
                                     <div class="col-sm-5"  >
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
@@ -337,7 +348,7 @@ rect.bordered {
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="show_no_of_rep_times" style="display: none" >
-                                    <label class="col-sm-7 control-label">Number of times replicated accessions are replicated: </label>
+                                    <label class="col-sm-7 control-label">重複種原的重複次數：</label>
                                     <div class="col-sm-5"  >
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
@@ -346,7 +357,7 @@ rect.bordered {
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="show_no_of_block_sequence" style="display: none" >
-                                    <label class="col-sm-7 control-label">Block sequence: </label>
+                                    <label class="col-sm-7 control-label">區集序列：</label>
                                     <div class="col-sm-5" >
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
@@ -355,7 +366,7 @@ rect.bordered {
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="show_no_of_sub_block_sequence" style="display: none" >
-                                    <label class="col-sm-7 control-label">Sub-block sequence: </label>
+                                    <label class="col-sm-7 control-label">次區集序列：</label>
                                     <div class="col-sm-5" >
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="glyphicon glyphicon-qrcode"></i></span>
@@ -365,54 +376,54 @@ rect.bordered {
                                 </div>
 
                                 <div class="form-group form-group-sm" id="greenhouse_default_num_plants_per_accession" style="display: none">
-                                    <label class="col-sm-7 control-label">Default Number of Plants: </label>
+                                    <label class="col-sm-7 control-label">預設植株數量：</label>
                                     <div class="col-sm-5" >
                                         <input class="form-control" type="text" id="greenhouse_default_num_plants_per_accession_val" placeholder="1" value="1" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="greenhouse_num_plants_per_accession_section" style="display: none" >
                                     <hr>
-                                    <center><h4>Number of Plants:</h4></center>
+                                    <center><h4>植株數量：</h4></center>
                                     <div id="greenhouse_num_plants_per_accession" >
                                     </div>
                                 </div>
 
                                 <div class="form-group form-group-sm" id="westcott_num_col_section" style="display: none" >
                                     <hr>
-                                    <center><h4>Number of Columns (required):</h4></center>
+                                    <center><h4>列數（必填）：</h4></center>
                                     <div id="westcott_num_col" >
-                                        <input class="form-control" id="westcott_col" name="westcott_col" placeholder="Required"/>
+                                        <input class="form-control" id="westcott_col" name="westcott_col" placeholder="必填"/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="westcott_num_col_between_check_section" style="display: none" >
                                     <hr>
-                                    <center><h4>Number of columns between two check columns (Optional):</h4></center>
+                                    <center><h4>兩個對照列之間的列數（選填）：</h4></center>
                                     <div id="westcott_num_col_between_check" >
-                                        <input class="form-control" id="westcott_col_between_check" name="westcott_col_between_check" placeholder="default is 10" />
+                                        <input class="form-control" id="westcott_col_between_check" name="westcott_col_between_check" placeholder="預設為 10" />
                                     </div>
                                 </div>
 
                                 <div id="design_info" name="design_info">
                                     <div class="form-group form-group-sm" id="rep_count_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Number of replicates (required): </label>
+                                        <label class="col-sm-7 control-label">重複次數（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input class="form-control" id="rep_count" name="rep_count" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="block_number_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Number of blocks (required): </label>
+                                        <label class="col-sm-7 control-label">區集數量（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input class="form-control" id="block_number" name="block_number" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="row_number_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Number of field rows (Required): </label>
+                                        <label class="col-sm-7 control-label">田間行數（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input class="form-control" id="row_number" name="row_number" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="row_number_per_block_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Number of Rows Per Block (Optional): </label>
+                                        <label class="col-sm-7 control-label">每個區集的行數（選填）：</label>
                                         <div class="col-sm-5" >
                                             <input class="form-control" id="row_number_per_block" name="row_number_per_block" />
                                         </div>
@@ -420,42 +431,42 @@ rect.bordered {
 
                                     <div id="create_trial_with_treatment_section" style="display: none">
                                         <div class="form-group form-group-sm" >
-                                            <label class="col-sm-7 control-label">Subplot 1 Treatment Name: </label>
+                                            <label class="col-sm-7 control-label">次小區 1 處理名稱：</label>
                                             <div class="col-sm-5" >
-                                                <input class="form-control" id="create_trial_with_treatment_name_input1" name="create_trial_with_treatment_name_input1" type="text" value="Control" placeholder="Required Treatment 1"/>
+                                                <input class="form-control" id="create_trial_with_treatment_name_input1" name="create_trial_with_treatment_name_input1" type="text" value="Control" placeholder="必填處理 1"/>
                                             </div>
                                         </div>
                                         <div class="form-group form-group-sm" >
-                                            <label class="col-sm-7 control-label">Subplot 2 Treatment Name: </label>
+                                            <label class="col-sm-7 control-label">次小區 2 處理名稱：</label>
                                             <div class="col-sm-5" >
-                                                <input class="form-control" id="create_trial_with_treatment_name_input2" name="create_trial_with_treatment_name_input2" type="text" placeholder="Required Treatment 2"/>
+                                                <input class="form-control" id="create_trial_with_treatment_name_input2" name="create_trial_with_treatment_name_input2" type="text" placeholder="必填處理 2"/>
                                             </div>
                                         </div>
                                         <div class="form-group form-group-sm" >
-                                            <label class="col-sm-7 control-label">Subplot 3 Treatment Name: </label>
+                                            <label class="col-sm-7 control-label">次小區 3 處理名稱：</label>
                                             <div class="col-sm-5" >
-                                                <input class="form-control" id="create_trial_with_treatment_name_input3" name="create_trial_with_treatment_name_input3" type="text" placeholder="Optional Treatment 3"/>
+                                                <input class="form-control" id="create_trial_with_treatment_name_input3" name="create_trial_with_treatment_name_input3" type="text" placeholder="選填處理 3"/>
                                             </div>
                                         </div>
                                         <div class="form-group form-group-sm" >
-                                            <label class="col-sm-7 control-label">Subplot 4 Treatment Name: </label>
+                                            <label class="col-sm-7 control-label">次小區 4 處理名稱：</label>
                                             <div class="col-sm-5" >
-                                                <input class="form-control" id="create_trial_with_treatment_name_input4" name="create_trial_with_treatment_name_input4" type="text" placeholder="Optional Treatment 4"/>
+                                                <input class="form-control" id="create_trial_with_treatment_name_input4" name="create_trial_with_treatment_name_input4" type="text" placeholder="選填處理 4"/>
                                             </div>
                                         </div>
                                         <div id="create_trial_with_treatment_additional_treatment">
                                             <input type="hidden" id="create_trial_with_treatment_additional_count" value=0>
                                             <div class="form-group form-group-sm" >
-                                                <label class="col-sm-7 control-label">Add Another Treatment: </label>
+                                                <label class="col-sm-7 control-label">新增另一個處理：</label>
                                                 <div class="col-sm-5" >
-                                                    <button class="btn btn-info btn-sm" id="create_trial_with_treatment_additional_treatment_buton">+ Treatment</button>
+                                                    <button class="btn btn-info btn-sm" id="create_trial_with_treatment_additional_treatment_buton">+ 處理(+ Treatment)</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="form-group form-group-sm" id="num_plants_per_plot_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Number of Plants Per Treatment (required): </label>
+                                        <label class="col-sm-7 control-label">每個處理的植株數量（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input class="form-control" id="num_plants_per_treatment" name="num_plants_per_treatment" />
                                         </div>
@@ -464,7 +475,7 @@ rect.bordered {
                                     <div id="other_parameter_section" style="display:none">
                                         <hr>
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Show optional parameters: </label>
+                                            <label class="col-sm-4 control-label">顯示選填參數：</label>
                                             <div class="col-sm-8" >
                                                 <input type="checkbox" id="show_other_parameter_options" />
                                             </div>
@@ -472,13 +483,13 @@ rect.bordered {
 
                                         <div id="other_parameter_options" style="display:none">
                                             <div class="form-group form-group-sm">
-                                                <label class="col-sm-7 control-label">Column number per block: </label>
+                                                <label class="col-sm-7 control-label">每個區集的列數：</label>
                                                 <div class="col-sm-5" >
                                                     <input type="text" class="form-control" id="col_number_per_block" name="col_number_per_block" />
                                                 </div>
                                             </div>
                                             <div class="form-group form-group-sm">
-                                                <label class="col-sm-7 control-label">Number of field columns: </label>
+                                                <label class="col-sm-7 control-label">田間列數：</label>
                                                 <div class="col-sm-5" >
                                                     <input type="text" class="form-control" id="col_number" name="col_number" />
                                                 </div>
@@ -487,13 +498,13 @@ rect.bordered {
                                     </div>
 
                                     <div class="form-group form-group-sm" id="block_size_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Block size (required): </label>
+                                        <label class="col-sm-7 control-label">區集大小（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input type="text" class="form-control" id="block_size" name="block_size" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" id="max_block_size_section" style="display: none">
-                                        <label class="col-sm-7 control-label">Maximum block size (required): </label>
+                                        <label class="col-sm-7 control-label">最大區集大小（必填）：</label>
                                         <div class="col-sm-5" >
                                             <input type="text" class="form-control" id="max_block_size" name="block_size" />
                                         </div>
@@ -501,20 +512,20 @@ rect.bordered {
 
                                     <div id="trial_design_seedlots_section" style="display:none">
                                         <div class="well well-sm">
-                                            <center><h4>Which seedlots will you grow in the field? <br/><small>This is optional and can be decided later. If you do not know exactly which seedlot packets you will be planting at this time, you can add this information on the Trial Detail Page after the trial has been saved in the database.</small></h4></center>
+                                            <center><h4>哪些種子批次將在田間種植？<br/><small>此為選填項目，可稍後再決定。若您目前不知道將要種植哪些具體的種子批次包，您可以在試驗儲存至資料庫後，於試驗詳細資訊頁面新增此資訊。</small></h4></center>
                                             <hr>
                                             <div class="form-group form-group-sm" id="show_list_of_seedlots_section" >
-                                                <label class="col-sm-7 control-label">List of seedlots for selected accessions (optional):</label>
+                                                <label class="col-sm-7 control-label">所選種原的種子批次列表（選填）：</label>
                                                 <div class="col-sm-5" id="select_seedlot_list" name="select_seedlot_list">
                                                 </div>
                                             </div>
                                             <div class="form-group form-group-sm" id="show_num_seed_per_plot_section" >
-                                                <label class="col-sm-7 control-label">Number of seeds per plot (required if seedlot list given):</label>
+                                                <label class="col-sm-7 control-label">每個小區的種子數量（若提供種子批次列表則為必填）：</label>
                                                 <div class="col-sm-5">
                                                     <input type="number" class="form-control" id="num_seed_per_plot" name="num_seed_per_plot" />
                                                 </div>
                                             </div>
-                                            <center>Need a list of seedlots for the selected accessions?&nbsp;&nbsp;&nbsp;&nbsp;<button name="convert_accessions_to_seedlots" class="btn btn-default btn-sm" style="margin:6px 0px 0px 0px" type="button" >Search Seedlots for Accessions</button></center>
+                                            <center>需要所選種原的種子批次列表？&nbsp;&nbsp;&nbsp;&nbsp;<button name="convert_accessions_to_seedlots" class="btn btn-default btn-sm" style="margin:6px 0px 0px 0px" type="button" >搜尋種原的種子批次(Search Seedlots for Accessions)</button></center>
                                         </div>
                                     </div>
 
@@ -522,26 +533,26 @@ rect.bordered {
 
                                 <br/>
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >Continue to Next Step</button>
+                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >繼續下一步(Continue to Next Step)</button>
                                 <center>
 
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Trial Linkage" &>
-                                <& /page/page_title.mas, title=>"Is your trial linked with other field trials, genotyping plates, or crossing experiments in the database? If you are unsure, you can skip this. This information can be added from the trial detail page after the trial is saved." &>
+                            <&| /util/workflow.mas:step, title=> "試驗關聯(Trial Linkage)" &>
+                                <& /page/page_title.mas, title=>"您的試驗是否與資料庫中的其他田間試驗、基因分型盤或雜交實驗相關聯？若不確定可略過，儲存後可於詳細頁面新增(Is your trial linked with other field trials, genotyping plates, or crossing experiments in the database? If you are unsure, you can skip this. This information can be added from the trial detail page after the trial is saved.)" &>
 
                                 <br/>
                                 <div class="well">
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Is this trial following-up a previous field trial?: </label>
+                                        <label class="col-sm-5 control-label">此試驗是否為先前田間試驗的後續試驗？：</label>
                                         <div class="col-sm-7">
                                             <select class="form-control" id="add_project_trial_sourced" name="add_project_trial_sourced">
-                                                <option value="no">No</option>
-                                                <option value="yes">Yes</option>
+                                                <option value="no">否(No)</option>
+                                                <option value="yes">是(Yes)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group" style="display:none" id="add_trial_source_trial_section">
-                                        <label class="col-sm-5 control-label">Select the trial(s) which preceded this trial: </label>
+                                        <label class="col-sm-5 control-label">選擇在此試驗之前的試驗：</label>
                                         <div class="col-sm-7">
                                             <div id="add_project_trial_source" name="add_project_trial_source">
                                             </div>
@@ -549,29 +560,29 @@ rect.bordered {
                                     </div>
                                 </div>
 
-                                <p>If you go on to collect tissue samples for creating a 96 well plate for genotyping, when adding the genotyping plate (96 well plate layout) to the database you can use plot names or plant names or tissue sample names from this field trial. By doing so, we can create linkage between this field trial and the genotyping plate.</p>
+                                <p>若您繼續收集組織樣本以建立用於基因分型的 96 孔盤，在將基因分型盤（96 孔盤配置）新增至資料庫時，可以使用此田間試驗的小區名稱、植株名稱或組織樣本名稱。如此一來，我們即可建立此田間試驗與基因分型盤之間的關聯。</p>
 
                                 <div class="well">
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Will this trial be genotyped?: </label>
+                                        <label class="col-sm-5 control-label">此試驗是否會進行基因分型？：</label>
                                         <div class="col-sm-7">
                                             <select class="form-control" id="add_project_trial_will_be_genotyped" name="add_project_trial_will_be_genotyped">
-                                                <option value="no">No</option>
-                                                <option value="yes">Yes</option>
+                                                <option value="no">否(No)</option>
+                                                <option value="yes">是(Yes)</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
 
-                                <p>If you go on to perform crosses on this field trial, each cross can be linked to specific female and male plots. When you upload these crosses we can then automatically link this field trial to the crossing experiment in the database.</p>
+                                <p>若您在此田間試驗進行雜交，每個雜交都可以關聯到特定的母本和父本小區。上傳這些雜交時，系統會自動將此田間試驗連結至資料庫中的雜交實驗。</p>
 
                                 <div class="well">
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Will crosses be done on this trial?: </label>
+                                        <label class="col-sm-5 control-label">是否會在此試驗進行雜交？：</label>
                                         <div class="col-sm-7">
                                             <select class="form-control" id="add_project_trial_will_be_crossed" name="add_project_trial_will_be_crossed">
-                                                <option value="no">No</option>
-                                                <option value="yes">Yes</option>
+                                                <option value="no">否(No)</option>
+                                                <option value="yes">是(Yes)</option>
                                             </select>
                                         </div>
                                     </div>
@@ -579,26 +590,26 @@ rect.bordered {
 
                                 <br/>
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >Continue to Next Step</button>
+                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >繼續下一步(Continue to Next Step)</button>
                                 <center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Field Map Information" &>
-                                <& /page/page_title.mas, title=>"Specify the number of rows and columns for the entire field" &>
-                                <p>By default field map display is set to serpentine and uses the block or rep number as row number.</p>
-                                <p>If you do not want to create field map along with this trial, set 'Plot layout format' to 'select plot layout format'.</p>
-                                <p>If you do not know exactly in which rows and columns you will end up planting the plots, do not provide this and go to the next step.</p>
-                                <p>If you will plant your plots in an irregular (non-rectangular) layout, do not provide this and go to the next step.</p>
-                                <p>You can upload the exact row and column information for your plots (in any layout shape) on the Trial Detail Page after you have created the trial in the database and actually planted the experiment.</p>
+                            <&| /util/workflow.mas:step, title=> "田間地圖資訊(Field Map Information)" &>
+                                <& /page/page_title.mas, title=>"指定整個田區的行數與列數(Specify the number of rows and columns for the entire field)" &>
+                                <p>預設情況下，田間地圖顯示設定為蛇形（S型），並使用區集或重複編號作為行號。</p>
+                                <p>若您不想隨此試驗建立田間地圖，請將「小區配置格式」設為「選擇小區配置格式」。</p>
+                                <p>若您不確定小區最終種植的確切行與列，請勿填寫此處並直接進入下一步。</p>
+                                <p>若您將以不規則（非矩形）配置種植小區，請勿填寫此處並直接進入下一步。</p>
+                                <p>在資料庫中建立試驗並實際種植後，您可以在試驗詳細資訊頁面上傳小區的確切行與列資訊（適用於任何配置形狀）。</p>
 
                                 <hr>
                                 <div class="form-group"  id="FieldMap_westcott" style="display: none">
-                                    <label class="col-sm-4 control-label">Field map display: </label>
+                                    <label class="col-sm-4 control-label">田間地圖顯示：</label>
                                     <div class="col-sm-8" > <label class="col-sm-8 control-label">
-                                        <input type="checkbox" id="westcott_field_map" checked="checked" disabled/>  (comes with design)</label>
+                                        <input type="checkbox" id="westcott_field_map" checked="checked" disabled/>  （隨設計提供）</label>
                                     </div>
                                 </div>
                                 <div class="form-group"  id="FieldMap">
-                                    <label class="col-sm-4 control-label">Field map display: </label>
+                                    <label class="col-sm-4 control-label">田間地圖顯示：</label>
                                     <div class="col-sm-8" >
                                         <input type="checkbox" id="show_field_map_options" checked="checked"/>
                                     </div>
@@ -612,18 +623,18 @@ rect.bordered {
                                         </div>
                                     </div> -->
                                     <div class="form-group form-group-sm" id="field_map_row_aug">
-                                        <label class="col-sm-7 control-label">Number of rows (required): </label>
+                                        <label class="col-sm-7 control-label">行數（必填）：</label>
                                         <div class="col-sm-5" >
-                                          <input type="text" class="form-control" id="fieldMap_row_number" name="fieldMap_row_number" placeholder="Will use number of blocks by default"/>
+                                          <input type="text" class="form-control" id="fieldMap_row_number" name="fieldMap_row_number" placeholder="預設將使用區集數量"/>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" >
-                                        <label class="col-sm-7 control-label">Plot layout format: </label>
+                                        <label class="col-sm-7 control-label">小區配置格式：</label>
                                         <div class="col-sm-5" >
                                           <select class="form-control" id="plot_layout_format" name="plot_layout_format">
-                                            <option value="">select plot layout format</option>
-                                            <option value=zigzag>Zigzag(unserpentine)</option>
-                                            <option value=serpentine selected="selected">Serpentine</option>
+                                            <option value="">選擇小區配置格式(Select plot layout format)</option>
+                                            <option value=zigzag>之字形(Zigzag / Unserpentine)</option>
+                                            <option value=serpentine selected="selected">蛇形(Serpentine)</option>
                                           </select>
                                         </div>
                                     </div>
@@ -631,16 +642,16 @@ rect.bordered {
 
                                 <br/>
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >Continue to Next Step</button>
+                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >繼續下一步(Continue to Next Step)</button>
                                 <center>
 
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Custom Plot Naming" &>
-                                <& /page/page_title.mas, title=>"If you want to change the way in which plot names will be generated by the database" &>
-                                <p>It is recommended to allow the database to create the plot prefixes, so leave the prefix blank unless necessary.</p>
+                            <&| /util/workflow.mas:step, title=> "自訂小區命名(Custom Plot Naming)" &>
+                                <& /page/page_title.mas, title=>"變更資料庫產生小區名稱的方式(If you want to change the way in which plot names will be generated by the database)" &>
+                                <p>建議允許資料庫建立小區前綴，因此除非必要，否則請保留前綴為空白。</p>
 
                                 <div class="form-group" >
-                                    <label class="col-sm-4 control-label">Custom plot naming/numbering: </label>
+                                    <label class="col-sm-4 control-label">自訂小區命名/編號：</label>
                                     <div class="col-sm-8" >
                                         <input type="checkbox" id="show_plot_naming_options" checked/>
                                     </div>
@@ -648,13 +659,13 @@ rect.bordered {
 
                                 <div id="plot_naming_options">
                                     <div class="form-group form-group-sm" >
-                                        <label class="col-sm-7 control-label">Plot prefix: </label>
+                                        <label class="col-sm-7 control-label">小區前綴：</label>
                                         <div class="col-sm-5" >
-                                            <input type="text" class="form-control" id="plot_prefix" name="plot_prefix" placeholder="Optional" />
+                                            <input type="text" class="form-control" id="plot_prefix" name="plot_prefix" placeholder="選填" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" >
-                                        <label class="col-sm-7 control-label">Plot start number: </label>
+                                        <label class="col-sm-7 control-label">小區起始編號：</label>
                                         <div class="col-sm-5" >
                                             <select class="form-control" id="start_number" name="start_number">
                                                 <option value=1 >1</option>
@@ -665,7 +676,7 @@ rect.bordered {
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm" >
-                                        <label class="col-sm-7 control-label">Plot number increment: </label>
+                                        <label class="col-sm-7 control-label">小區編號增量：</label>
                                         <div class="col-sm-5" >
                                             <input type="text" class="form-control" id="increment" name="increment" placeholder="1"/>
                                         </div>
@@ -674,65 +685,65 @@ rect.bordered {
 
                                 <br/>
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false); return false;" name="new_trial_submit" id="new_trial_submit">Continue to Next Step</button>
+                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false); return false;" name="new_trial_submit" id="new_trial_submit">繼續下一步(Continue to Next Step)</button>
                                 <center>
 
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Review Designed Trial" &>
-                                <& /page/page_title.mas, title=>"Review the generated trial layout. Make sure to click Submit at the bottom of this page if you approve of the trial!" &>
+                            <&| /util/workflow.mas:step, title=> "檢視設計的試驗(Review Designed Trial)" &>
+                                <& /page/page_title.mas, title=>"檢視產生的試驗配置。若確認無誤，請務必點擊此頁面底部的送出！(Review the generated trial layout. Make sure to click Submit at the bottom of this page if you approve of the trial!)" &>
 
                                 <div id="trial_design_warning_message">
                                 </div>
 
                                 <div class="well">
-                                    <center><p>Check to confirm that your design looks good. If there are any problems you can redo the randomization step.</p></center>
+                                    <center><p>檢查並確認您的設計配置良好。如有任何問題，您可以重新進行隨機化步驟。</p></center>
                                     <div class="d3_legend" id="d3_legend"> <p></br>  &nbsp;&nbsp; <ul class="legend">
-                                        <li><span class="d3_block_even_number"></span> Even Block Numbers (e.g. 2,4,...)</li>
-                                        <li><span class="d3_block_odd_number"></span> Odd Block Numbers (e.g. 1,3,...)</li>
-                                        <li><span class="d3_checks"></span> Checks</li>
-                                        <li><span class="d3_rep_odd_number"></span> Odd Rep Numbers (e.g. 1,3,...)</li>
-                                        <li><span class="d3_rep_even_number"></span> Even Rep Numbers (e.g. 2,4,...)</li>
+                                        <li><span class="d3_block_even_number"></span> 偶數區集編號（例如 2, 4, ...）</li>
+                                        <li><span class="d3_block_odd_number"></span> 奇數區集編號（例如 1, 3, ...）</li>
+                                        <li><span class="d3_checks"></span> 對照</li>
+                                        <li><span class="d3_rep_odd_number"></span> 奇數重複編號（例如 1, 3, ...）</li>
+                                        <li><span class="d3_rep_even_number"></span> 偶數重複編號（例如 2, 4, ...）</li>
                                     </div>
                                     <div id="container_field_map_view" ></div>
-                                    <div id="no_map_view_MSG" >No field map to display...</div>
+                                    <div id="no_map_view_MSG" >無可顯示的田間地圖...</div>
                                 </div>
 
                                 <div id="trial_design_view_layout_return">
                                 </div>
                                 <br/>
                                 <center>
-                                    <button class="btn btn-info btn-lg" id="redo_trial_layout_button" >Redo Randomization</button>
+                                    <button class="btn btn-info btn-lg" id="redo_trial_layout_button" >重新隨機化(Redo Randomization)</button>
                                 </center>
 
                                 <hr>
-                                <p><span class="ui-icon ui-icon-check"></span>Trial Is Valid<br>The following trial will be added</p>
+                                <p><span class="ui-icon ui-icon-check"></span>試驗有效<br>將新增以下試驗</p>
                                 <hr>
                                 <div id="trial_design_information">
                                 </div>
 
                                 <br/>
                                 <center>
-                                <button type="button" class="btn btn-info" name="new_trial_add_treatments" >Add Field Management Factor(s) to Design</button>
-                                <button type="button" class="btn btn-lg btn-primary" name="new_trial_confirm_submit" id="new_trial_confirm_submit">Confirm (Saves Trial In Database)</button>
+                                <button type="button" class="btn btn-info" name="new_trial_add_treatments" >新增田間管理因子至設計(Add Field Management Factor(s) to Design)</button>
+                                <button type="button" class="btn btn-lg btn-primary" name="new_trial_confirm_submit" id="new_trial_confirm_submit">確認儲存試驗至資料庫(Confirm - Saves Trial In Database)</button>
                                 </center>
 
                             </&>
-                            <&| /util/workflow.mas:complete, title=> "Complete" &>
-                                <& /page/page_title.mas, title=>"Complete! Your trial was saved in the database." &>
+                            <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                                <& /page/page_title.mas, title=>"完成！您的試驗已儲存至資料庫。(Complete! Your trial was saved in the database.)" &>
 
                                 <p>
                                     <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                    The trial was saved successfully
+                                    試驗已成功儲存
                                 </p>
 
                                 <ul>
-                                    <li>You may want to proceed to the trial detail page for the trial you just created.</li>
-                                    <li>You can print barcodes for the plots or plants or tissue samples in this trial.</li>
-                                    <li>You an add phenotypes for the plots or plants in this trial now.</li>
+                                    <li>您可以前往剛建立的試驗詳細資訊頁面。</li>
+                                    <li>您可以為此試驗中的小區、植株或組織樣本列印條碼。</li>
+                                    <li>您現在可以為此試驗中的小區或植株新增表型。</li>
                                 </ul>
                                 <br/>
                                 <center>
-                                <button class="btn btn-primary" name="create_trial_success_complete_button">The trial was saved to the database with no errors! Congrats Click Here</button><br/><br/>
+                                <button class="btn btn-primary" name="create_trial_success_complete_button">試驗已成功儲存至資料庫！點擊此處前往(The trial was saved to the database with no errors! Congrats Click Here)</button><br/><br/>
                                 </center>
                             </&>
 
@@ -742,7 +753,7 @@ rect.bordered {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -755,78 +766,77 @@ rect.bordered {
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="partialRepHelpDialog">Partially Replicated Design Usage Help</h4>
+                <h4 class="modal-title" id="partialRepHelpDialog">部分重複設計使用說明(Partially Replicated Design Usage Help)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <h4>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                          <b>Background:</b>
+                          <b>背景：</b>
                         </h4>
-                          <center><p>Partially replicated designs have some treatments that are unreplicated and rely on replicated treatments to make the trial analysable. The design were described in Cullis et al. (2006). It is recommended that at least 20% of the experimental units are occupied by replicated treatments. The aim of these experiments is usually to select promising treatments from a set of replicated and unreplicated test treatments, with check and quality standard treatments providing the necessary replication overall to give a valid experiment. DiGGer (Coombes, 2002) was used to implement this design. DiGGer is a flexible tool for creating experimental designs that are efficient for specified blocking and correlation patterns. DiGGer package (http://www.austatgen.org/files/software/downloads) is an add-on for the statistical computing language and environment R (R
-Development Core Team, 2009).</p></center>
+                          <center><p>部分重複設計（Partially Replicated Design）具有部分未重複的處理，並依賴重複的處理使試驗具備可分析性。該設計由 Cullis 等人（2006）提出。建議至少 20% 的試驗單元由重複處理所佔據。這些試驗的目的通常是從一組重複和未重複的測試處理中選拔出有前景的處理，其中對照與品質標準處理提供整體的必要重複以構成有效試驗。系統使用 DiGGer（Coombes, 2002）來實現此設計。DiGGer 是一個靈活的工具，用於建立在指定區集和相關模式下高效率的試驗設計。DiGGer 套件（http://www.austatgen.org/files/software/downloads）是統計計算語言和環境 R（R Development Core Team, 2009）的附加套件。</p></center>
                         <h4>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        <b>Design Parameters:</b>
+                        <b>設計參數：</b>
                         </h4>
-                            <center><p> The parameters will consider a sample partially replicated design trial with 200 unreplicated accessions, 119 accessions replicated 4 times, 26 rows in design, 26 columns in design, bock sequence of 13 by 2 (13, 2) i.e 2 blocks with each having 13 rows; sub-block sequence of block of 13 by 1 (13, 1) i.e 1 sub-block with each having 13 rows in each block. </p></center>
+                            <center><p> 此參數將以一個範例部分重複設計試驗為例：200 個無重複種原、119 個重複 4 次的種原、設計中有 26 行、26 列，區集序列為 13 乘 2（13, 2），即 2 個區集且每個區集有 13 行；次區集序列為 13 乘 1（13, 1），即每個區集中有 1 個次區集且每個次區集有 13 行。 </p></center>
 
                         <dl>
-                            <dt>List of Unreplicated Accession</dt>
+                            <dt>無重複種原列表</dt>
                             <ul>
                                 <li>
-                                    <dd> You're expected to provide the list of unreplicated accessions in this selectbox. E.g. is a list of 200 accessions.</dd>
+                                    <dd> 您應在此下拉選單中提供無重複種原列表。例如：200 個種原的列表。</dd>
                                 </li>
                             </ul>
-                            <dt>List of Replicated Accession</dt>
+                            <dt>重複種原列表</dt>
                             <ul>
                                 <li>
-                                    <dd>List of replicated accessions should be provided in this selectbox. E.g. is a list of 119 accessions.</dd>
+                                    <dd>應在此下拉選單中提供重複種原列表。例如：119 個種原的列表。</dd>
                                 </li>
                             </ul>
-                            <dt>Number of rows in design</dt>
+                            <dt>設計中的行數</dt>
                             <ul>
                                 <li>
-                                    <dd> Provide the number of rows you want to have in the design. E.g. 26 number of rows. </dd>
+                                    <dd> 提供您希望在設計中具有的行數。例如：26 行。</dd>
                                 </li>
                             </ul>
-                            <dt>Number of Columns in Design</dt>
+                            <dt>設計中的列數</dt>
                             <ul>
                                 <li>
-                                    <dd> Provide the number of columns you want to have in the design. E.g. 26 number of columns. </dd>
+                                    <dd> 提供您希望在設計中具有的列數。例如：26 列。</dd>
                                 </li>
                             </ul>
-                            <dt>Number of Times Replicated Accessions are Replicated</dt>
+                            <dt>重複種原的重複次數</dt>
                             <ul>
                                 <li>
-                                    <dd>Provide the number of times you want the replicated accessions to be replicated. E.g. 4</dd>
+                                    <dd>提供您希望重複種原被重複的次數。例如：4。</dd>
                                 </li>
                             </ul>
-                            <dt>Block Sequence</dt>
+                            <dt>區集序列</dt>
                             <ul>
                                 <li>
-                                    <dd>The block sequence should reflect the blocking structure of your design. E.g. (13, 2), meaning the design has 2 blocks and each block has 13 rows.</dd>
+                                    <dd>區集序列應反映您設計的區集結構。例如：(13, 2)，表示設計有 2 個區集，每個區集有 13 行。</dd>
                                 </li>
                             </ul>
-                            <dt>Sub-block Sequence</dt>
+                            <dt>次區集序列</dt>
                             <ul>
                                 <li>
-                                    <dd>The sub-block sequence should reflect the sub-blocking structure of your design. E.g. (13, 1), meaning the design has 1 sub-block (column) and each sub-block has 13 rows.</dd>
+                                    <dd>次區集序列應反映您設計的次區集結構。例如：(13, 1)，表示設計有 1 個次區集（列），每個次區集有 13 行。</dd>
                                 </li>
                             </ul>
                         </dl>
                         <h4>
                             <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                            <b>NOTE:</b>
+                            <b>注意事項：</b>
                         </h4>
                         <dl><dt>
                         <ul>
                             <li>
-                                <dd>The product of the number of rows and columns in the design should equal the total number of plots.</dd>
+                                <dd>設計中的行數與列數的乘積應等於小區總數。</dd>
                             </li>
                             <li>
-                                <dd>The sum of the unreplicated accessions and the replicated accessions (given the number of times it was replicated) should equal the total number of plots. </dd>
+                                <dd>無重複種原與重複種原（計入其重複次數）的總和應等於小區總數。</dd>
                             </li>
                         </ul>
                         </dt></dl>
@@ -835,7 +845,7 @@ Development Core Team, 2009).</p></center>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="partial_rep_usage_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="partial_rep_usage_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -849,7 +859,7 @@ jQuery(document).ready(function(){
     get_select_box('locations', 'select_locations_div', { 'name' : 'add_project_location', 'id' : 'add_project_location', 'multiple':1, 'names_as_values':1 });
 
     jQuery(document).on('change', '#select_private_company_id', function(){
-        jQuery('#locations_count').html('No Locations Selected');
+        jQuery('#locations_count').html('未選擇地點');
         get_select_box('breeding_programs', 'select_breeding_program_div', { 'name' : 'select_breeding_program', 'id' : 'select_breeding_program', 'private_company_id':jQuery(this).val(), 'names_as_values':1 });
         get_select_box('locations', 'select_locations_div', { 'name' : 'add_project_location', 'id' : 'add_project_location', 'multiple':1, 'private_company_id':jQuery(this).val(), 'names_as_values':1 });
     });
@@ -857,13 +867,13 @@ jQuery(document).ready(function(){
     jQuery(document).on('change', '#add_project_location', function() {
         var number_selected = jQuery(this).val().length;
         if (number_selected > 1) {
-            jQuery('#locations_count').html('Locations Selected: '+number_selected);
+            jQuery('#locations_count').html('已選擇地點：'+number_selected);
             jQuery('#randomization_div').show();
         } else if (number_selected > 0) {
-            jQuery('#locations_count').html('Locations Selected: '+number_selected);
+            jQuery('#locations_count').html('已選擇地點：'+number_selected);
             jQuery('#randomization_div').hide();
         } else {
-            jQuery('#locations_count').html('No Locations Selected');
+            jQuery('#locations_count').html('未選擇地點');
             jQuery('#randomization_div').hide();
         }
     });

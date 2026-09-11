@@ -5,7 +5,7 @@ $stock_id
 
 <& /util/import_javascript.mas, classes => [  ] &>
 
-<button class="btn btn-primary" id="stock_detail_page_obsolete_stock">Obsolete This Stock</button>
+<button class="btn btn-primary" id="stock_detail_page_obsolete_stock">廢棄此材料(Obsolete This Stock)</button>
 
 <script>
 
@@ -19,12 +19,12 @@ $stock_id
                 success: function(response){
                     console.log(response);
                     jQuery('#working_modal').modal('hide');
-                    alert('Successfully obsoleted!');
+                    alert('已成功設為廢棄！(Successfully obsoleted!)');
                     location.reload();
                 },
                 error: function(response){
                     jQuery('#working_modal').modal('hide');
-                    alert("Error obsoleting stock.");
+                    alert("廢棄材料時發生錯誤。(Error obsoleting stock.)");
                 }
             });
         });

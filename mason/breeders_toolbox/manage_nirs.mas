@@ -10,15 +10,15 @@ $sampling_facilities => ()
 
 <& /util/import_javascript.mas, classes => [ 'CXGN.BreedersToolbox.Trial03152022','CXGN.BreedersToolbox.FieldBook03152022','CXGN.BreedersToolbox.UploadPhenotype03152022', 'CXGN.BreederSearch03152022', 'CXGN.Trial03152022', 'jquery.iframe-post-form' ] &>
 
-<& /page/page_title.mas, title=>"Manage NIRS Data" &>
+<& /page/page_title.mas, title=>"管理近紅外光譜資料(Manage NIRS Data)" &>
 
 <div>
 
 <%perl>
-my $buttons_html = "<button class='btn btn-primary' style='margin:3px' name='upload_high_dim_phenotypes_spreadsheet_link'>Upload NIRS</button><button class='btn btn-success' style='margin:3px' id='nirs_analysis_training_dialog_show'>Train NIRS Models</button><button class='btn btn-success' style='margin:3px' id='nirs_analysis_prediction_dialog_show'>Predict Phenotypes</button><button class='btn btn-default' style='margin:3px' id='nirs_analysis_plot_spectra_show'>Plot Spectra</button><button class='btn btn-default' style='margin:3px' name='high_dimensional_phenotype_download_button'>Download NIRS</button><button class='btn btn-default' style='margin:3px' name='high_dimensional_phenotype_relationship_matrix_download_button'>Download Relationship Matrix</button>";
+my $buttons_html = "<button class='btn btn-primary' style='margin:3px' name='upload_high_dim_phenotypes_spreadsheet_link'>上傳近紅外光譜(Upload NIRS)</button><button class='btn btn-success' style='margin:3px' id='nirs_analysis_training_dialog_show'>訓練近紅外光譜模型(Train NIRS Models)</button><button class='btn btn-success' style='margin:3px' id='nirs_analysis_prediction_dialog_show'>預測表型(Predict Phenotypes)</button><button class='btn btn-default' style='margin:3px' id='nirs_analysis_plot_spectra_show'>繪製光譜圖(Plot Spectra)</button><button class='btn btn-default' style='margin:3px' name='high_dimensional_phenotype_download_button'>下載近紅外光譜(Download NIRS)</button><button class='btn btn-default' style='margin:3px' name='high_dimensional_phenotype_relationship_matrix_download_button'>下載親緣關係矩陣(Download Relationship Matrix)</button>";
 </%perl>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>NIRS</h4>", info_section_subtitle => 'Upload and perform analyses using NIRS data. Please <a href="https://www.biorxiv.org/content/10.1101/2020.09.18.278549v1" target=_blank>cite this work</a> if you find it useful.', buttons_html => $buttons_html, icon_class => undef, col1_width_class => "col-sm-0", col2_width_class => "col-sm-12", info_section_id => "manage_nirs_main", nirs_files => $nirs_files, deleted_nirs_files => $deleted_nirs_files, all_nirs_files => $all_nirs_files, all_deleted_nirs_files => $all_deleted_nirs_files, locations => $locations, sampling_facilities => $sampling_facilities &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>近紅外光譜(NIRS)</h4>", info_section_subtitle => '上傳並使用近紅外光譜（NIRS）資料執行分析。若這項工作對您有幫助，請<a href="https://www.biorxiv.org/content/10.1101/2020.09.18.278549v1" target=_blank>引用此研究</a>。', buttons_html => $buttons_html, icon_class => undef, col1_width_class => "col-sm-0", col2_width_class => "col-sm-12", info_section_id => "manage_nirs_main", nirs_files => $nirs_files, deleted_nirs_files => $deleted_nirs_files, all_nirs_files => $all_nirs_files, all_deleted_nirs_files => $all_deleted_nirs_files, locations => $locations, sampling_facilities => $sampling_facilities &>
 
 </div>
 

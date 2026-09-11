@@ -14,15 +14,12 @@ sgn_data.mas - SGN page for organism data overview in a tree format
 
 <& /util/import_javascript.mas, classes => ["CXGN.Page.FormattingHelpers"] &>
 
-<& /page/page_title.mas, title=> "SGN data overview" &>
+<& /page/page_title.mas, title=> "SGN 數據概覽(SGN data overview)" &>
 
 <script language="javascript" type="text/javascript" src="/js/popup.js"></script>
 
 <div class="page_introduction">
-  This page presents a summary of all currently available data on SGN
-  sorted by species.  Click a species name for details about available
-  its available maps, loci, libraries, ESTs, metabolic annotation and
-  phenotyped accessions.
+  此頁面展示 SGN 上目前所有可用數據的摘要（依物種排序）。點擊物種名稱可查看其可用地圖、基因座、基因庫、EST、代謝註解及表型鑑定材料的詳細資訊。(This page presents a summary of all currently available data on SGN sorted by species. Click a species name for details about available maps, loci, libraries, ESTs, metabolic annotation and phenotyped accessions.)
 </div>
 
 % for my $category (reverse sort keys %$organism_trees) {
@@ -30,8 +27,8 @@ sgn_data.mas - SGN page for organism data overview in a tree format
 
    <&| /page/info_section.mas,
      title         => $category,
-     subtitle      => 'click on an organism name to see more details ',
-     empty_message => 'Tree not available',
+     subtitle      => '點擊物種名稱以查看更多詳細資訊(click on an organism name to see more details)',
+     empty_message => '樹狀圖不可用(Tree not available)',
      collapsible   => 1,
      collapsed     => 0,
      &>

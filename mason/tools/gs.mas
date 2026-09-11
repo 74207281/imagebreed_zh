@@ -3,12 +3,12 @@
 
 </%args>
 <br />
-<& /page/page_title.mas, title=>"Genomic Selection" &>
+<& /page/page_title.mas, title=>"基因組選拔(Genomic Selection)" &>
 
-Note: This tool is not yet available.
+注意：此工具目前尚無法使用。(Note: This tool is not yet available.)
 <ul>
-<li><h4>Generate Model</h4></li>
-<li><h4>Predict Breeding Values</h4></li>
+<li><h4>建立模型(Generate Model)</h4></li>
+<li><h4>預測育種值(Predict Breeding Values)</h4></li>
 
 </ul>
 

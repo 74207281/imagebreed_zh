@@ -9,10 +9,10 @@ $company_sp_person_access_cvterm_name
 <table class="table table-bordered table-hover" id="private_company_members_table">
     <thead>
         <tr>
-            <th>Username</th>
-            <th>Access</th>
+            <th>使用者名稱(Username)</th>
+            <th>權限(Access)</th>
 %  if ($company_sp_person_access_cvterm_name eq 'curator_access') {
-            <th>Options</th>
+            <th>選項(Options)</th>
 %  }
         </tr>
     </thead>
@@ -23,9 +23,9 @@ $company_sp_person_access_cvterm_name
             <td><% $_->[5] %></td>
 %  if ($company_sp_person_access_cvterm_name eq 'curator_access') {
             <td>
-                <span class="glyphicon glyphicon-remove-circle text-danger" name="private_company_member_remove_sp_person_id" data-sp_person_id=<% $_->[0] %> title="Remove"></span>
+                <span class="glyphicon glyphicon-remove-circle text-danger" name="private_company_member_remove_sp_person_id" data-sp_person_id=<% $_->[0] %> title="移除(Remove)"></span>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <span class="glyphicon glyphicon-list-alt text-success" name="private_company_member_edit_access_sp_person_id" data-sp_person_id=<% $_->[0] %> title="Change Access"></span>
+                <span class="glyphicon glyphicon-list-alt text-success" name="private_company_member_edit_access_sp_person_id" data-sp_person_id=<% $_->[0] %> title="變更權限(Change Access)"></span>
             </td>
 %  }
         </tr>
@@ -38,18 +38,18 @@ $company_sp_person_access_cvterm_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editCompanyMembersDialog">Edit Member Access to Company</h4>
+        <h4 class="modal-title" id="editCompanyMembersDialog">編輯成員的公司存取權限(Edit Member Access to Company)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Access Type: </label>
+                    <label class="col-sm-4 control-label">權限類型：</label>
                     <div class="col-sm-8" >
                         <select class="form-control" id="edit_company_member_access_type" name="edit_company_member_access_type">
-                            <option value="user_access">User Access (Can view and download data)</option>
-                            <option value="submitter_access">Submitter Access (Can view, download, upload, and edit data)</option>
-                            <option value="curator_access">Curator Access (Can view, download, upload, edit, and delete data)</option>
+                            <option value="user_access">一般使用者權限 (可檢視與下載資料)</option>
+                            <option value="submitter_access">提交者權限 (可檢視、下載、上傳與編輯資料)</option>
+                            <option value="curator_access">策展人權限 (可檢視、下載、上傳、編輯與刪除資料)</option>
                         </select>
                     </div>
                 </div>
@@ -57,8 +57,8 @@ $company_sp_person_access_cvterm_name
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="edit_company_member_submit" id="edit_company_member_submit">Continue</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="edit_company_member_submit" id="edit_company_member_submit">繼續(Continue)</button>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ jQuery(document).ready(function() {
     jQuery('span[name="private_company_member_remove_sp_person_id"]').click(function(){
         var sp_person_id = jQuery(this).data('sp_person_id');
 
-        if(confirm('Are you sure you want to remove this member from the company?')) {
+        if(confirm('您確定要從公司中移除此成員嗎？')) {
             jQuery.ajax({
                 url: '/ajax/private_company/remove_company_member',
                 type: 'POST',
@@ -90,13 +90,13 @@ jQuery(document).ready(function() {
                         alert(response.error);
                     }
                     else {
-                        alert("Successfully removed company member");
+                        alert("已成功移除公司成員");
                         location.reload();
                     }
                 },
                 error: function(response) {
                     jQuery("#working_modal").modal("hide");
-                    alert("An error occurred removing company member");
+                    alert("移除公司成員時發生錯誤");
                 },
             });
         }
@@ -110,7 +110,7 @@ jQuery(document).ready(function() {
 
     jQuery('#edit_company_member_submit').click(function() {
 
-        if(confirm('Are you sure you want to change this members access to company data?')) {
+        if(confirm('您確定要變更此成員對公司資料的存取權限嗎？')) {
             jQuery.ajax({
                 url: '/ajax/private_company/edit_company_member',
                 type: 'POST',
@@ -128,13 +128,13 @@ jQuery(document).ready(function() {
                         alert(response.error);
                     }
                     else {
-                        alert("Successfully changed company member access");
+                        alert("已成功變更公司成員權限");
                         location.reload();
                     }
                 },
                 error: function(response) {
                     jQuery("#working_modal").modal("hide");
-                    alert("An error occurred removing company member");
+                    alert("變更公司成員權限時發生錯誤");
                 },
             });
         }

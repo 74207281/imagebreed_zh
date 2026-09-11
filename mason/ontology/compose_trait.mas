@@ -15,12 +15,12 @@ $composable_evt_root_cvterm => undef
 
 <& /util/import_javascript.mas, classes => ['CXGN.BreederSearch03152022', 'CXGN.ComposeTrait03152022'] &>
 
-<& /page/page_title.mas, title=>"Compose a new trait" &>
+<& /page/page_title.mas, title=>"組合新性狀(Compose a new trait)" &>
 </br>
 
 <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse0">
-        <div class="panel-title"><a href="#form" class="accordion-toggle">Trait Combinations</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
+        <div class="panel-title"><a href="#form" class="accordion-toggle">性狀組合(Trait Combinations)</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
     </div>
     <div id="collapse0" class="panel-collapse collapse in">
         <div class="panel-body form-horizontal container-fluid" style="overflow:hidden">
@@ -34,47 +34,47 @@ $composable_evt_root_cvterm => undef
 
 <div class="panel panel-default">
   <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse1">
-    <div class="panel-title"><a href="#form" class="accordion-toggle">Base Trait</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
+    <div class="panel-title"><a href="#form" class="accordion-toggle">基礎性狀(Base Trait)</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
   </div>
   <div id="collapse1" class="panel-collapse collapse in">
     <div class="panel-body form-horizontal container-fluid" style="overflow:hidden">
         <div class="col-sm-12 col-md-12 col-lg-12">
         <div id="object_div" class="col-md-6" style="display: none;">
-            <label for="object_select_div" class="control-label">Object</label>
-            <p class="help-block"><small>Pick the object on which the new trait is measured</small></p>
+            <label for="object_select_div" class="control-label">測量對象(Object)</label>
+            <p class="help-block"><small>選擇測量新性狀的對象(Pick the object on which the new trait is measured)</small></p>
             <div id="object_select_div"></div><br>
-            <button class="btn btn-default btn-sm" id="object_select_all" name="object_select_all"/>Select All</button>
-            <button class="btn btn-default btn-sm" id="object_select_clear" name="object_select_clear"/>Clear</button>
+            <button class="btn btn-default btn-sm" id="object_select_all" name="object_select_all"/>全選(Select All)</button>
+            <button class="btn btn-default btn-sm" id="object_select_clear" name="object_select_clear"/>清除(Clear)</button>
         </div>
         <div id="attribute_div" class="col-md-6" style="display: none;">
-            <label for="attribute_select_div" class="control-label">Attribute</label>
-            <p class="help-block"><small>Pick the attribute the new trait measures</small></p>
+            <label for="attribute_select_div" class="control-label">性狀屬性(Attribute)</label>
+            <p class="help-block"><small>選擇新性狀所測量的屬性(Pick the attribute the new trait measures)</small></p>
             <div id="attribute_select_div"></div><br>
-            <button class="btn btn-default btn-sm" id="attribute_select_all" name="attribute_select_all"/>Select All</button>
-            <button class="btn btn-default btn-sm" id="attribute_select_clear" name="attribute_select_clear"/>Clear</button>
+            <button class="btn btn-default btn-sm" id="attribute_select_all" name="attribute_select_all"/>全選(Select All)</button>
+            <button class="btn btn-default btn-sm" id="attribute_select_clear" name="attribute_select_clear"/>清除(Clear)</button>
         </div>
 
         <div id="method_div" class="col-md-6" style="display: none;">
-            <label for="method_select_div" class="control-label">Method</label>
-            <p class="help-block"><small>Pick the method by which the new trait is measured</small></p>
+            <label for="method_select_div" class="control-label">方法(Method)</label>
+            <p class="help-block"><small>選擇測量新性狀的方法(Pick the method by which the new trait is measured)</small></p>
             <div id="method_select_div"></div><br>
-            <button class="btn btn-default btn-sm" id="method_select_all" name="method_select_all"/>Select All</button>
-            <button class="btn btn-default btn-sm" id="method_select_clear" name="method_select_clear"/>Clear</button>
+            <button class="btn btn-default btn-sm" id="method_select_all" name="method_select_all"/>全選(Select All)</button>
+            <button class="btn btn-default btn-sm" id="method_select_clear" name="method_select_clear"/>清除(Clear)</button>
         </div>
         <div id="unit_div" class="col-md-6" style="display: none;">
-            <label for="unit_select_div" class="control-label">Unit</label>
-            <p class="help-block"><small>Pick the units in which the new trait is measured</small></p>
+            <label for="unit_select_div" class="control-label">單位(Unit)</label>
+            <p class="help-block"><small>選擇測量新性狀的單位(Pick the units in which the new trait is measured)</small></p>
             <div id="unit_select_div"></div><br>
-            <button class="btn btn-default btn-sm" id="unit_select_all" name="unit_select_all"/>Select All</button>
-            <button class="btn btn-default btn-sm" id="unit_select_clear" name="unit_select_clear"/>Clear</button>
+            <button class="btn btn-default btn-sm" id="unit_select_all" name="unit_select_all"/>全選(Select All)</button>
+            <button class="btn btn-default btn-sm" id="unit_select_clear" name="unit_select_clear"/>清除(Clear)</button>
         </div>
 
         <div id="trait_div" class="col-md-6" style="display: none;">
-            <label for="trait_select_div" class="control-label">Trait</label>
-            <p class="help-block"><small>Pick an existing trait</small></p>
+            <label for="trait_select_div" class="control-label">性狀(Trait)</label>
+            <p class="help-block"><small>選擇現有性狀(Pick an existing trait)</small></p>
             <div id="trait_select_div"></div><br>
-            <button class="btn btn-default btn-sm" id="trait_select_all" name="trait_select_all"/>Select All</button>
-            <button class="btn btn-default btn-sm" id="trait_select_clear" name="trait_select_clear"/>Clear</button>
+            <button class="btn btn-default btn-sm" id="trait_select_all" name="trait_select_all"/>全選(Select All)</button>
+            <button class="btn btn-default btn-sm" id="trait_select_clear" name="trait_select_clear"/>清除(Clear)</button>
         </div>
         </div>
 </div>
@@ -83,38 +83,38 @@ $composable_evt_root_cvterm => undef
 
 <div class="panel panel-default">
   <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse2">
-    <div class="panel-title"><a href="#form" class="accordion-toggle">Time Terms</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
+    <div class="panel-title"><a href="#form" class="accordion-toggle">時間術語(Time Terms)</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
   </div>
   <div id="collapse2" class="panel-collapse collapse in">
     <div class="panel-body form-horizontal container-fluid" style="overflow:hidden">
     <div class="col-sm-12 col-md-12 col-lg-12">
     <div id="tod_div" class="col-md-6" style="display: none;">
-      <label for="tod_select_div" class="control-label">Time of Day</label>
-      <p class="help-block"><small><i>Optional</i> Pick the time of day at which the new trait is measured</small></p>
+      <label for="tod_select_div" class="control-label">當天時間(Time of Day)</label>
+      <p class="help-block"><small><i>選填(Optional)</i> 選擇測量新性狀的當天時間(Pick the time of day at which the new trait is measured)</small></p>
       <div id="tod_select_div"></div><br>
-      <button class="btn btn-default btn-sm" id="tod_select_all" name="tod_select_all"/>Select All</button>
-      <button class="btn btn-default btn-sm" id="tod_select_clear" name="tod_select_clear"/>Clear</button>
+      <button class="btn btn-default btn-sm" id="tod_select_all" name="tod_select_all"/>全選(Select All)</button>
+      <button class="btn btn-default btn-sm" id="tod_select_clear" name="tod_select_clear"/>清除(Clear)</button>
     </div>
     <div id="toy_div" class="col-md-6" style="display: none;">
-      <label for="toy_select_div" class="control-label">Time of Year</label>
-      <p class="help-block"><small><i>Optional</i> Pick the week or month in which the new trait is measured</small></p>
+      <label for="toy_select_div" class="control-label">年度時間(Time of Year)</label>
+      <p class="help-block"><small><i>選填(Optional)</i> 選擇測量新性狀的週或月份(Pick the week or month in which the new trait is measured)</small></p>
       <div id="toy_select_div"></div><br>
-      <button class="btn btn-default btn-sm" id="toy_select_all" name="toy_select_all"/>Select All</button>
-      <button class="btn btn-default btn-sm" id="toy_select_clear" name="toy_select_clear"/>Clear</button>
+      <button class="btn btn-default btn-sm" id="toy_select_all" name="toy_select_all"/>全選(Select All)</button>
+      <button class="btn btn-default btn-sm" id="toy_select_clear" name="toy_select_clear"/>清除(Clear)</button>
     </div>
     <div id="gen_div" class="col-md-6" style="display: none;">
-      <label for="gen_select_div" class="control-label">Generation</label>
-      <p class="help-block"><small><i>Optional</i> Pick the generation on which the new trait is measured</small></p>
+      <label for="gen_select_div" class="control-label">世代(Generation)</label>
+      <p class="help-block"><small><i>選填(Optional)</i> 選擇測量新性狀的世代(Pick the generation on which the new trait is measured)</small></p>
       <div id="gen_select_div"></div><br>
-      <button class="btn btn-default btn-sm" id="gen_select_all" name="gen_select_all"/>Select All</button>
-      <button class="btn btn-default btn-sm" id="gen_select_clear" name="gen_select_clear"/>Clear</button>
+      <button class="btn btn-default btn-sm" id="gen_select_all" name="gen_select_all"/>全選(Select All)</button>
+      <button class="btn btn-default btn-sm" id="gen_select_clear" name="gen_select_clear"/>清除(Clear)</button>
     </div>
     <div id="evt_div" class="col-md-6" style="display: none;">
-      <label for="evt_select_div" class="control-label">Event</label>
-      <p class="help-block"><small><i>Optional</i> Pick the breeding event to which you selected time term relates.</small></p>
+      <label for="evt_select_div" class="control-label">事件(Event)</label>
+      <p class="help-block"><small><i>選填(Optional)</i> 選擇與所選時間術語相關之育種事件。(Pick the breeding event to which you selected time term relates.)</small></p>
       <div id="evt_select_div"></div><br>
-      <button class="btn btn-default btn-sm" id="evt_select_all" name="evt_select_all"/>Select All</button>
-      <button class="btn btn-default btn-sm" id="evt_select_clear" name="evt_select_clear"/>Clear</button>
+      <button class="btn btn-default btn-sm" id="evt_select_all" name="evt_select_all"/>全選(Select All)</button>
+      <button class="btn btn-default btn-sm" id="evt_select_clear" name="evt_select_clear"/>清除(Clear)</button>
     </div>
     </div>
   </div>
@@ -124,23 +124,23 @@ $composable_evt_root_cvterm => undef
 
   <div class="panel panel-default">
     <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#collapse3">
-      <div class="panel-title"><a href="#form" class="accordion-toggle">Combinations</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
+      <div class="panel-title"><a href="#form" class="accordion-toggle">組合(Combinations)</a><span class="pull-right clickable" onmouseover="" style="cursor: pointer;"><i class="glyphicon glyphicon-chevron-up"></i></span></div>
     </div>
     <div id="collapse3" class="panel-collapse collapse in">
       <div class="panel-body form-horizontal container-fluid" style="overflow:hidden">
 <div class="col-sm-12 col-md-12 col-lg-12">
 <div class="col-md-6">
-  <center><label class="control-label">Existing Traits</label></center>
-  <center><p class="help-block"><small>Existing traits that match the current selections</small></p></center>
+  <center><label class="control-label">現有性狀(Existing Traits)</label></center>
+  <center><p class="help-block"><small>符合目前所選項目的現有性狀(Existing traits that match the current selections)</small></p></center>
   <select multiple class="form-control" id="existing_traits"></select>
   </br>
   <div id="existing_traits_to_list"></div>
 </div>
 <div class="col-md-6">
-  <center><label class="control-label">New Traits</label></center>
-  <center><p class="help-block"><small>New traits that can be made from the current selections</small></p></center>
+  <center><label class="control-label">新性狀(New Traits)</label></center>
+  <center><p class="help-block"><small>可由目前所選項目組合之新性狀(New traits that can be made from the current selections)</small></p></center>
   <select multiple class="form-control" id="new_traits"></select></br>
-  <center><button id="compose_trait" title="Select at least one new trait to create before submitting" class="btn btn-primary">Submit</button></center>
+  <center><button id="compose_trait" title="送出前請至少選擇一個要建立的新性狀(Select at least one new trait to create before submitting)" class="btn btn-primary">送出(Submit)</button></center>
 </div>
 </div>
 
@@ -155,12 +155,12 @@ $composable_evt_root_cvterm => undef
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="traitsSavedDialog">Results</h4>
+                <h4 class="modal-title" id="traitsSavedDialog">結果(Results)</h4>
             </div>
             <div id="traits_saved_body" class="container-fluid">
             </div>
             <div class="modal-footer">
-                <button id="traits_saved_close_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="traits_saved_close_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -290,13 +290,13 @@ jQuery('#compose_trait').on('click', function () {
             var names = [];
             enable_ui();
             if (response.success) {
-                results_html += '<div class="modal-body col-sm-12" id="traits_saved"><label id="success_label" class="control-label">Traits saved</label><ul class="list-group" id="traits_saved_message"><li class="list-group-item list-group-item-success">'+response.success+'</li></ul></div><label id="list_label" class="control-label">Copy new traits to a list</label><div class="modal-body col-sm-12" id="results_to_list_menu"></div><div id="new_trait_names" style="display: none;"></div>';
+                results_html += '<div class="modal-body col-sm-12" id="traits_saved"><label id="success_label" class="control-label">已儲存性狀(Traits saved)</label><ul class="list-group" id="traits_saved_message"><li class="list-group-item list-group-item-success">'+response.success+'</li></ul></div><label id="list_label" class="control-label">複製新性狀至清單(Copy new traits to a list)</label><div class="modal-body col-sm-12" id="results_to_list_menu"></div><div id="new_trait_names" style="display: none;"></div>';
                 for(var i=0; i<response.names.length; i++){
                     names.push(response.names[i]+"\n");
                 }
             }
             if (response.error){
-                results_html += '<div class="modal-body col-sm-12" id="traits_error"><label id="error_label" class="control-label">Traits Not Saved</label><ul class="list-group" id="traits_error_message"><li class="list-group-item list-group-item-danger">'+response.error+'</li></ul></div>';
+                results_html += '<div class="modal-body col-sm-12" id="traits_error"><label id="error_label" class="control-label">性狀未儲存(Traits Not Saved)</label><ul class="list-group" id="traits_error_message"><li class="list-group-item list-group-item-danger">'+response.error+'</li></ul></div>';
             }
 
             document.getElementById('traits_saved_body').innerHTML = results_html;
@@ -311,7 +311,7 @@ jQuery('#compose_trait').on('click', function () {
         },
         error: function(request, status, err) {
             enable_ui();
-            var results_html = '<div class="modal-body col-sm-12" id="traits_error"><label id="error_label" class="control-label">Traits Not Saved</label><ul class="list-group" id="traits_error_message"><li class="list-group-item list-group-item-danger">There was an error storing the composed terms. None were saved.</li></ul></div>';
+            var results_html = '<div class="modal-body col-sm-12" id="traits_error"><label id="error_label" class="control-label">性狀未儲存(Traits Not Saved)</label><ul class="list-group" id="traits_error_message"><li class="list-group-item list-group-item-danger">儲存組合詞彙時發生錯誤。未儲存任何性狀。(There was an error storing the composed terms. None were saved.)</li></ul></div>';
             document.getElementById('traits_saved_body').innerHTML = results_html;
       }
     });

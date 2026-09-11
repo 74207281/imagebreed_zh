@@ -10,7 +10,7 @@ $trial_id
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
-        <&| /page/info_section.mas, title => 'Add stocks to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Adding stocks in this trial to a new or exisiting list</i>'&>
+        <&| /page/info_section.mas, title => '新增材料至清單(Add stocks to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將此試驗中的材料新增至新清單或現有清單</i>'&>
         <br>
         <div id="stocks_to_new_list" style="display:none"></div>
         <div id="stocks_add_to_list"></div>
@@ -28,16 +28,16 @@ jQuery(document).ready(function(){
             'destroy': true,
             'ajax':'/ajax/breeders/trial/'+ <% $trial_id %> + '/stocks',
             columns: [
-                { title: "Stock Name", "data": null, "render": function ( data, type, row ) {
+                { title: "材料名稱(Stock Name)", "data": null, "render": function ( data, type, row ) {
                     if (row.stock_type == 'cross') { return "<a href='/cross/"+row.stock_id+"'>"+row.accession_name+"</a>";
                     } else { return "<a href='/stock/"+row.stock_id+"/view'>"+row.accession_name+"</a>";}
                 }},
-                { title: "Stock Type", "data": "stock_type" },
+                { title: "材料類型(Stock Type)", "data": "stock_type" },
             ],
             "fnInitComplete": function(oSettings, json) {
                 //console.log(json);
                 if (!isLoggedIn()) {
-                    jQuery('#stocks_add_to_list').html("<div class='well well-sm'><h3>Please login to use lists!</h3></div>");
+                    jQuery('#stocks_add_to_list').html("<div class='well well-sm'><h3>請登入以使用清單！(Please login to use lists!)</h3></div>");
                 } else {
                     var html = "";
                     for(var i=0; i<json.data.length; i++){

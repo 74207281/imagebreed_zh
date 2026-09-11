@@ -6,59 +6,59 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="nirsAnalysisPlotSpectraDialog">Plot Spectra</h4>
+        <h4 class="modal-title" id="nirsAnalysisPlotSpectraDialog">繪製光譜(Plot Spectra)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "nirs_analysis_plot_spectra_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Intro" &>
-                    <& /page/page_title.mas, title=>"This workflow will guide you through querying and plotting spectral data in the database." &>
+                <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                    <& /page/page_title.mas, title=>"本工作流程將引導您在資料庫中查詢並繪製光譜資料。(This workflow will guide you through querying and plotting spectral data in the database.)" &>
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Protocol" &>
-                    <& /page/page_title.mas, title=>"Select the protocol you are interested in plotting spectra:" &>
+                <&| /util/workflow.mas:step, title=> "流程規範(Protocol)" &>
+                    <& /page/page_title.mas, title=>"選擇您欲繪製光譜的流程規範：(Select the protocol you are interested in plotting spectra:)" &>
 
                     <div id="nirs_analysis_plot_spectra_protocol_select">
                     </div>
 
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_protocol_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_protocol_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Dataset" &>
-                    <& /page/page_title.mas, title=>"Select the dataset you are interested in plotting spectra for (the accessions or plots or tissues samples in the dataset need to have spectra uploaded):" &>
+                <&| /util/workflow.mas:step, title=> "資料集(Dataset)" &>
+                    <& /page/page_title.mas, title=>"選擇您欲繪製光譜的資料集（該資料集中的品系、小區或組織樣本需已上傳光譜）：(Select the dataset you are interested in plotting spectra for:)" &>
 
                     <div id="nirs_analysis_plot_spectra_dataset_select_div">
                     </div>
 
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_dataset_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_dataset_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Search" &>
-                    <& /page/page_title.mas, title=>"Search Parameters:" &>
+                <&| /util/workflow.mas:step, title=> "搜尋(Search)" &>
+                    <& /page/page_title.mas, title=>"搜尋參數(Search Parameters)：" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Query related stocks (e.g. if you have accessions in the dataset, the query will search for spectra on associated plots, plants, etc. and vice versa): </label>
+                            <label class="col-sm-5 control-label">查詢關聯種原/材料（例如若資料集中有品系，查詢將搜尋關聯小區、植株等的光譜，反之亦然）(Query related stocks)：</label>
                             <div class="col-sm-7" >
                                 <select class="form-control" id="nirs_analysis_plot_spectra_associated_stock_select_id" name="nirs_analysis_plot_spectra_associated_stock_select_id">
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
+                                    <option value="yes">是(Yes)</option>
+                                    <option value="no">否(No)</option>
                                 </select>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_search_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_plot_spectra_search_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Results" &>
-                    <& /page/page_title.mas, title=>"Spectral Plots" &>
+                <&| /util/workflow.mas:step, title=> "結果(Results)" &>
+                    <& /page/page_title.mas, title=>"光譜圖(Spectral Plots)" &>
 
                     <div id="nir_analysis_plot_spectra_result"></div>
 
@@ -69,7 +69,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@ jQuery(document).ready(function(){
         });
 
         if(selected.length > 1 || selected.length == 0) {
-            alert('Please select one dataset!');
+            alert('請選擇一個流程規範！(Please select one protocol!)');
             return false;
         }
         else {
@@ -113,7 +113,7 @@ jQuery(document).ready(function(){
         });
 
         if(selected.length > 1 || selected.length == 0) {
-            alert('Please select one dataset!');
+            alert('請選擇一個資料集！(Please select one dataset!)');
             return false;
         }
         else {
@@ -147,14 +147,14 @@ jQuery(document).ready(function(){
                     return false;
                 }
 
-                jQuery('#nir_analysis_plot_spectra_result').html('<div class="well well-sm"><h3>Plot of Spectra: </h3><img width="80%" height="80%" src="'+response.figure+'"></div>');
+                jQuery('#nir_analysis_plot_spectra_result').html('<div class="well well-sm"><h3>光譜圖(Plot of Spectra)：</h3><img width="80%" height="80%" src="'+response.figure+'"></div>');
 
                 Workflow.complete("#nirs_analysis_plot_spectra_search_step");
                 Workflow.focus('#nirs_analysis_plot_spectra_workflow', 4);
                 window.scrollTo(0,0);
             },
             error: function(response){
-                alert('Error plotting spectra from NIRS!');
+                alert('從 NIRS 繪製光譜時發生錯誤！(Error plotting spectra from NIRS!)');
                 jQuery('#working_modal').modal('hide');
             }
         });

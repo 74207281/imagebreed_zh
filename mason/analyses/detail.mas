@@ -36,34 +36,34 @@ $has_col_and_row_numbers
 
 <& /util/import_javascript.mas, entries => ['analyses'], classes => [ 'CXGN.Trial03152022' ],  &>
 
-<& /page/page_title.mas, title => "Analysis <span id=\"analyis_name_title\">$analysis_name</span>" &>
+<& /page/page_title.mas, title => "分析(Analysis) <span id=\"analyis_name_title\">$analysis_name</span>" &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Analysis Details</h4>", info_section_subtitle => 'View basic information about the analysis.', buttons_html => '', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "analysis_details", trial_name => $analysis_name, trial_description => $analysis_description, breeding_program_name => $breeding_program_name, breeding_program_id => $breeding_program_id, year => $year, identifier_prefix => $identifier_prefix, trial_stock_type => $trial_stock_type, analysis_metadata => $analysis_metadata &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>分析詳細資訊(Analysis Details)</h4>", info_section_subtitle => '檢視該分析的基本資訊(View basic information about the analysis)。', buttons_html => '', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "analysis_details", trial_name => $analysis_name, trial_description => $analysis_description, breeding_program_name => $breeding_program_name, breeding_program_id => $breeding_program_id, year => $year, identifier_prefix => $identifier_prefix, trial_stock_type => $trial_stock_type, analysis_metadata => $analysis_metadata &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Model Details</h4>", info_section_subtitle => 'View basic information about the model.', buttons_html => '', icon_class => "glyphicon glyphicon-option-horizontal", info_section_id => "model_details", trial_name => $analysis_name, analysis_metadata => $analysis_metadata &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>模型詳細資訊(Model Details)</h4>", info_section_subtitle => '檢視該模型的基本資訊(View basic information about the model)。', buttons_html => '', icon_class => "glyphicon glyphicon-option-horizontal", info_section_id => "model_details", trial_name => $analysis_name, analysis_metadata => $analysis_metadata &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Analysis Results</h4>", info_section_subtitle => 'View and download phenotype data.', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_download_phenotypes_button'>Download Analysis Data</button>", icon_class => "glyphicon glyphicon-equalizer", info_section_id => "trial_detail_traits_assayed", trial_name => $analysis_name, trial_stock_type => $trial_phenotype_stock_type &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>分析結果(Analysis Results)</h4>", info_section_subtitle => '檢視並下載表型資料(View and download phenotype data)。', buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='trial_download_phenotypes_button'>下載分析資料(Download Analysis Data)</button>", icon_class => "glyphicon glyphicon-equalizer", info_section_id => "trial_detail_traits_assayed", trial_name => $analysis_name, trial_stock_type => $trial_phenotype_stock_type &>
 
-% my $subtitle = 'View and edit the spatial layout of the experiment. Also view a heatmap for phenotyped traits.';
+% my $subtitle = '檢視並編輯試驗的空間配置，並可檢視已測量性狀的熱圖(View and edit the spatial layout of the experiment. Also view a heatmap for phenotyped traits)。';
 % my $layout_buttons = '';
 % if ($has_col_and_row_numbers){
-%     $layout_buttons = '<h3><span class="glyphicon glyphicon-ok-sign text-success"></span>&nbsp;&nbsp;&nbsp;This experiment has spatial layout info uploaded!</h3><button class="btn btn-primary" style="margin:3px" id="trial_fieldmap_download_layout_button">Download Spatial Layout</button> <button class="btn btn-danger" id="delete_field_map_hm_link" style="margin:3px">Delete Spatial Layout</button>';
+%     $layout_buttons = '<h3><span class="glyphicon glyphicon-ok-sign text-success"></span>&nbsp;&nbsp;&nbsp;此試驗已上傳空間配置資訊！(This experiment has spatial layout info uploaded!)</h3><button class="btn btn-primary" style="margin:3px" id="trial_fieldmap_download_layout_button">下載空間配置(Download Spatial Layout)</button> <button class="btn btn-danger" id="delete_field_map_hm_link" style="margin:3px">刪除空間配置(Delete Spatial Layout)</button>';
 % } else {
-%    $layout_buttons = '<h3><span class="glyphicon glyphicon-remove-sign text-danger"></span>&nbsp;&nbsp;&nbsp;This experiment does not have spatial layout info!</h3><button class="btn btn-primary" style="margin:3px" id="heatmap_upload_trial_coords_link">Upload Spatial Layout</button>';
+%    $layout_buttons = '<h3><span class="glyphicon glyphicon-remove-sign text-danger"></span>&nbsp;&nbsp;&nbsp;此試驗無空間配置資訊！(This experiment does not have spatial layout info!)</h3><button class="btn btn-primary" style="margin:3px" id="heatmap_upload_trial_coords_link">上傳空間配置(Upload Spatial Layout)</button>';
 % }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Field Layout Tools and Phenotype Heatmap</h4>", info_section_subtitle => $subtitle, buttons_html => $layout_buttons, icon_class => "glyphicon glyphicon-th", info_section_id => "pheno_heatmap" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>田間配置工具與表型熱圖(Field Layout Tools and Phenotype Heatmap)</h4>", info_section_subtitle => $subtitle, buttons_html => $layout_buttons, icon_class => "glyphicon glyphicon-th", info_section_id => "pheno_heatmap" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Analysis Tools</h4>", info_section_subtitle => 'Run analyses', icon_class => "glyphicon glyphicon-signal", info_section_id => "analysis_page_analysis_tools" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>分析工具(Analysis Tools)</h4>", info_section_subtitle => '執行分析(Run analyses)', icon_class => "glyphicon glyphicon-signal", info_section_id => "analysis_page_analysis_tools" &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Upload Data Files</h4>", info_section_subtitle => 'Also upload any additional files for this analysis.', icon_class => "glyphicon glyphicon-cloud-upload", info_section_id => "trial_upload_files", trial_stock_type => $trial_stock_type, for_analysis_page => 1, data_level => 'analysis_instance' &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>上傳資料檔案(Upload Data Files)</h4>", info_section_subtitle => '亦可上傳此分析的其他附加檔案(Also upload any additional files for this analysis)。', icon_class => "glyphicon glyphicon-cloud-upload", info_section_id => "trial_upload_files", trial_stock_type => $trial_stock_type, for_analysis_page => 1, data_level => 'analysis_instance' &>
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Delete Experiment Data</h4>", info_section_subtitle => 'Delete phenotypes, layout, and/or the entire experiment from the database.', icon_class => "glyphicon glyphicon-trash", info_section_id => "trial_deletion_section" &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>刪除試驗資料(Delete Experiment Data)</h4>", info_section_subtitle => '從資料庫中刪除表型、配置及/或整個試驗(Delete phenotypes, layout, and/or the entire experiment from the database)。', icon_class => "glyphicon glyphicon-trash", info_section_id => "trial_deletion_section" &>
 
-% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">Add/edit data agreement</button>';
-% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">Add/edit data agreement</button>'; }
+% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">新增/編輯資料協議(Add/edit data agreement)</button>';
+% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">新增/編輯資料協議(Add/edit data agreement)</button>'; }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>Data Agreement License</h4>", info_section_subtitle => 'View and edit the public data agreement on this experiment.', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
+<& /page/detail_page_2_col_section.mas, trial_id => $analysis_id, info_section_title => "<h4 style='display:inline'>資料協議許可(Data Agreement License)</h4>", info_section_subtitle => '檢視並編輯此試驗的公開資料協議(View and edit the public data agreement on this experiment)。', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
 
 <& /breeders_toolbox/trial/download_phenotypes_dialog.mas, trial_ids => $analysis_id, dialog_name => $analysis_name, dialog_type => 'Analysis' &>
 

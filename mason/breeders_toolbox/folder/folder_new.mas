@@ -24,19 +24,19 @@ $company_project_is_private => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="newFolderDialog">Create a new folder for <% $dialog_type %></h4>
+                <h4 class="modal-title" id="newFolderDialog">建立 <% $dialog_type %> 新資料夾(Create a New Folder for <% $dialog_type %>)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" id="new_folder_dialog_form" name="new_folder_dialog_form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Folder Name: </label>
+                            <label class="col-sm-3 control-label">資料夾名稱：</label>
                             <div class="col-sm-9" >
                                 <input name="new_folder_name" id="new_folder_name" class="form-control" type="text" autofocus/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Company: </label>
+                            <label class="col-sm-3 control-label">公司：</label>
                             <div class="col-sm-9" >
 %  if ($company_id) {
                                 <input type="text" class="form-control" value="<% $company_name %>" disabled/>
@@ -48,27 +48,27 @@ $company_project_is_private => undef
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Breeding Program: </label>
+                            <label class="col-sm-3 control-label">育種計畫：</label>
                             <div class="col-sm-9" >
                                 <div id="new_folder_breeding_program_select_div">
 % if ($breeding_program_id) {
                                     <input type="text" class="form-control" value="<% $breeding_program_name %>" disabled/>
                                     <input type="hidden" id="new_folder_breeding_program_id" name="new_folder_breeding_program_id" value="<% $breeding_program_id %>" />
 % } else {
-  [Loading...]
+  [載入中...]
 % }
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Parent Folder: </label>
+                            <label class="col-sm-3 control-label">上層資料夾：</label>
                             <div class="col-sm-9" >
                                 <div id="new_folder_parent_folder_select_div">
 % if ($parent_folder_id) {
                                     <input type="text" class="form-control" value="<% $parent_folder_name %>" disabled/>
                                     <input type="hidden" id="new_folder_parent_folder_id" name="new_folder_parent_folder_id" value="<% $parent_folder_id %>" />
 % } else {
-  [Loading...]
+  [載入中...]
 % }
                                 </div>
                             </div>
@@ -77,8 +77,8 @@ $company_project_is_private => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="new_folder_submit" id="new_folder_submit" title="Save new folder">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="new_folder_submit" id="new_folder_submit" title="儲存新資料夾(Save new folder)">儲存(Save)</button>
             </div>
         </div>
     </div>
@@ -89,18 +89,18 @@ $company_project_is_private => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="newFolderSuccessDialog">New Folder Successful</h4>
+                <h4 class="modal-title" id="newFolderSuccessDialog">建立新資料夾成功(New Folder Successful)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The folder was created successfully
+                        資料夾已成功建立
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_new_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_new_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -189,7 +189,7 @@ function new_trial_folder() {
         },
         error: function(response) {
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred');
+            alert('發生錯誤');
             jQuery('#new_folder_dialog').modal("hide");
         }
     });

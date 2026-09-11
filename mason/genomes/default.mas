@@ -1,10 +1,10 @@
 <%args>
   $organism
 </%args>
-<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> Genome Data' &>
+<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> 基因組數據(Genome Data)' &>
 
 <&| /page/info_section.mas,
-      title       => 'Sequence datasets',
+      title       => '序列數據集(Sequence datasets)',
       collapsible => 1,
  &>
   <& /genomes/default/genome_builds.mas, %ARGS &>
@@ -12,7 +12,7 @@
 
 
 <&| /page/info_section.mas,
-      title       => 'Browsable annotations',
+      title       => '可瀏覽之註釋(Browsable annotations)',
       collapsible => 1,
       hide_if_empty => 1,
  &>
@@ -22,7 +22,7 @@
 </&>
 
 <&| /page/info_section.mas,
-      title       => 'Annotation datasets',
+      title       => '註釋數據集(Annotation datasets)',
       collapsible => 1,
       hide_if_empty => 1,
  &>

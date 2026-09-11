@@ -9,38 +9,38 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadImagesDialog">Upload Images</h4>
+        <h4 class="modal-title" id="uploadImagesDialog">上傳影像(Upload Images)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <&| /page/explanation.mas, title=>'Template Information' &>
+            <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                 <p>
-                <b>File format information</b>
+                <b>檔案格式資訊</b>
                 <br>
-                <a id="upload_images_format_info">Image File Format</a>
+                <a id="upload_images_format_info">影像檔案格式</a>
                 </p>
             </&>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_images_file_form" name="upload_images_file_form">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">File Format: </label>
+                    <label class="col-sm-3 control-label">檔案格式：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="upload_images_file_format" name="upload_images_file_format">
-                            <option value="images">Images</option>
-                            <option value="images_with_associated_phenotypes">Images with Associated Phenotypes</option>
+                            <option value="images">影像</option>
+                            <option value="images_with_associated_phenotypes">包含關聯表型的影像</option>
                         </select>
                     </div>
                 </div>
                 <div id="upload_images_with_associated_phenotypes_div" style="display:none">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Phenotype Spreadsheet: </label>
+                        <label class="col-sm-3 control-label">表型試算表：</label>
                         <div class="col-sm-9" >
                             <input type="file" id="upload_associated_phenotypes_file_input" name="upload_images_file_input" encoding="multipart/form-data" accept=".xls, .xlsx"/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Images (.zip): </label>
+                        <label class="col-sm-3 control-label">影像（.zip）：</label>
                         <div class="col-sm-9" >
                             <input type="file" id="upload_images_zip_file_input" name="upload_images_zip_file_input" encoding="multipart/form-data" accept=".zip"/>
                         </div>
@@ -48,7 +48,7 @@
                 </div>
                 <div id="upload_images_div">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Image Files: </label>
+                        <label class="col-sm-3 control-label">影像檔案：</label>
                         <div class="col-sm-9" >
                             <input type="file" id="upload_images_file_input" name="upload_images_file_input" multiple="multiple" accept="image/*">
                         </div>
@@ -64,9 +64,9 @@
         </div>
 
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-info" name="upload_images_submit_verify" id="upload_images_submit_verify">Verify</button>
-            <button disabled type="button" class="btn btn-primary" name="upload_images_submit_store" id="upload_images_submit_store" title="First Verify Your File">Store</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+            <button type="button" class="btn btn-info" name="upload_images_submit_verify" id="upload_images_submit_verify">驗證(Verify)</button>
+            <button disabled type="button" class="btn btn-primary" name="upload_images_submit_store" id="upload_images_submit_store" title="請先驗證您的檔案">儲存(Store)</button>
         </div>
 
     </div>
@@ -78,21 +78,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadImagesInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="uploadImagesInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h4>Images Alone:</h4>
+            <h4>單純影像(Images Alone)：</h4>
             <ul>
-                <li>Select multiple images directly for upload.</li>
-                <li>Image file names should consist of the observationUnitName, traitname, number, and timestamp, all joined by underscores (the default naming system used by Fieldbook App).</li>
+                <li>直接選取多張影像進行上傳。</li>
+                <li>影像檔案名稱應由 observationUnitName、traitname、編號及時間戳記組成，並全部以底線連接（Fieldbook App 使用的預設命名系統）。</li>
             </ul>
             <br/>
-            <h4>Images with Associated Phenotypes:</h4>
+            <h4>包含關聯表型的影像(Images with Associated Phenotypes)：</h4>
             <ul>
-                <li>The "Associated Images" format is useful for uploading a zipfile of images in association with phenotype values.</li>
-                <li>The phenotype values should be included in a .xls or .xlsx spreadsheet with the following columns:</li>
+                <li>「關聯影像」格式適用於上傳與表型值關聯的影像 zip 壓縮檔。</li>
+                <li>表型值應包含在 .xls 或 .xlsx 試算表中，並具有以下欄位：</li>
                 <br/><table class="table table-hover table-bordered table-condensed table-responsive" >
                     <thead></thead>
                     <tbody>
@@ -106,13 +106,13 @@
                         </tr>
                     </tbody>
                 </table>
-                <li>The values in the <b>image_name</b> column should should match the image filenames in the zipfile.</li>
+                <li><b>image_name</b> 欄位中的數值應與 zip 壓縮檔內的影像檔名相符。</li>
             </ul>
 
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>

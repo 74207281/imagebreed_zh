@@ -2,19 +2,19 @@
 <br />
 <br />
 <center>
-<h1>CassavaBase Cross Tool</h1>
+<h1>CassavaBase 雜交工具(CassavaBase Cross Tool)</h1>
 <br />
 <br />
 
-<div class="boxbgcolor5"><font size="4">For each cross, scan the CROSS barcode, then the FEMALE barcode below, followed by the barcode of the female parent. Then, scan the MALE barcode, followed by the barcode of the male parent. (Note: the male and female information can be scanned in any order).</font></div>
+<div class="boxbgcolor5"><font size="4">進行每項雜交時，請先掃描 CROSS 條碼，接著掃描下方的 FEMALE 條碼，隨後掃描母本的條碼。然後掃描 MALE 條碼，隨後掃描父本的條碼。（注意：父本與母本資訊可依任意順序掃描）。</font></div>
 
 <br /><br />
 <table border="0" cellpadding="10">
 
 <& /barcode/tool/generate.mas, code=>"CROSS", &>
-<tr><td><& /barcode/tool/generate.mas, code=>"FEMALE", &></td><td valign="middle"><br /><br /><div class="boxbgcolor5">scan barcode of female parent</div></td><td valign="middle"><br /><br /></td></tr>
+<tr><td><& /barcode/tool/generate.mas, code=>"FEMALE", &></td><td valign="middle"><br /><br /><div class="boxbgcolor5">掃描母本條碼(Scan barcode of female parent)</div></td><td valign="middle"><br /><br /></td></tr>
 
-<tr><td><& /barcode/tool/generate.mas, code=>"MALE", &></td><td><br /><br /><div class="boxbgcolor5">scan barcode of male parent</div></td><td><br /><br /></td></tr>
-<tr><td><& /barcode/tool/generate.mas, code=>"FLOWERS", &></td><td><br /><br /><div class="boxbgcolor5">Enter number of flowers</div></td><td><br /><br /></td></tr>
+<tr><td><& /barcode/tool/generate.mas, code=>"MALE", &></td><td><br /><br /><div class="boxbgcolor5">掃描父本條碼(Scan barcode of male parent)</div></td><td><br /><br /></td></tr>
+<tr><td><& /barcode/tool/generate.mas, code=>"FLOWERS", &></td><td><br /><br /><div class="boxbgcolor5">輸入花朵數量(Enter number of flowers)</div></td><td><br /><br /></td></tr>
 </table>
 <br />

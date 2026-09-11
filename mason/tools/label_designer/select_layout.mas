@@ -1,14 +1,14 @@
 <div class="text-center">
-    <p>Now, define your layout. You may retrieve these settings from a saved design, or you can start a new design by selecting a page and label format.<p>
+    <p>現在，請定義您的排版版面。您可以從已儲存的設計中讀取這些設定，或者透過選擇頁面與標籤格式來開始新的設計(Now, define your layout. You may retrieve these settings from a saved design, or you can start a new design by selecting a page and label format.)。<p>
 </div>
 </br></br>
 <div class="col-md-12" style="margin-bottom:20px;">
     <div class="col-md-2 col-md-offset-3 text-center">
-        <label> New or Saved:</label>
+        <label> 新增或已儲存(New or Saved):</label>
     </div>
     <div class="col-md-4">
-        <label class="radio-inline"><input type="radio" name="optradio" value="new" checked>New</label>
-        <label class="radio-inline"><input type="radio" name="optradio" value="saved">Saved</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="new" checked>新增(New)</label>
+        <label class="radio-inline"><input type="radio" name="optradio" value="saved">已儲存(Saved)</label>
     </div>
 </div>
 
@@ -18,56 +18,56 @@
 
 <div id="format_options" class="col-md-12" style="margin-bottom:20px;" >
    <div class="col-md-2">
-       <label>Page Format:</label>
+       <label>頁面格式(Page Format):</label>
    </div>
    <div class="col-md-4">
        <select class="form-control" id="page_format" ></select>
    </div>
    <div class="col-md-2">
-       <label>Label Format:</label>
+       <label>標籤格式(Label Format):</label>
    </div>
    <div class="col-md-4">
        <select class="form-control" id="label_format"></select>
    </div>
-</div>
+ </div>
 <div class="col-md-12" id="d3-custom-dimensions-div" style="display:none;">
    <div class="col-md-6" id="d3-page-custom-dimensions-div" style="visibility:hidden">
        <div class="col-md-12">
            <div class="col-md-6">
                <center>
-                   <label>Page Width:</label><br>
-                   <input class="form-control" placeholder="In pixels" type="number" id="page_width" style="max-width: 100%;">
+                   <label>頁面寬度(Page Width):</label><br>
+                   <input class="form-control" placeholder="像素(In pixels)" type="number" id="page_width" style="max-width: 100%;">
                </center>
            </div>
            <div class="col-md-6">
                <center>
-                   <label>Page Height:</label><br>
-                   <input class="form-control" placeholder="In pixels" type="number" id="page_height" style="max-width: 100%;">
+                   <label>頁面高度(Page Height):</label><br>
+                   <input class="form-control" placeholder="像素(In pixels)" type="number" id="page_height" style="max-width: 100%;">
                </center>
            </div>
        </div>
-       <center><i style="margin-top:10px;">(72 pixels/inch - approx. 28.35 pixels/cm)</i></center>
+       <center><i style="margin-top:10px;">(72 像素/英吋 - 約 28.35 像素/公分 / 72 pixels/inch - approx. 28.35 pixels/cm)</i></center>
    </div>
    <div class="col-md-6" id="d3-label-custom-dimensions-div" style="visibility:hidden">
        <div class="col-md-12">
            <div class="col-md-5">
                <center>
-                   <label>Label Width:</label><br>
-                   <input class="form-control" placeholder="In pixels" type="number" id="label_width" style="max-width: 100%;">
+                   <label>標籤寬度(Label Width):</label><br>
+                   <input class="form-control" placeholder="像素(In pixels)" type="number" id="label_width" style="max-width: 100%;">
                </center>
            </div>
            <div class="col-md-5">
                <center>
-                   <label>Label Height:</label><br>
-                   <input class="form-control" placeholder="In pixels" type="number" id="label_height" style="max-width: 100%;">
+                   <label>標籤高度(Label Height):</label><br>
+                   <input class="form-control" placeholder="像素(In pixels)" type="number" id="label_height" style="max-width: 100%;">
                </center>
            </div>
            <div class="col-md-2">
                <br>
-               <button id="d3-apply-custom-label-size" type="button" class="btn btn-primary">Apply</button>
+               <button id="d3-apply-custom-label-size" type="button" class="btn btn-primary">套用(Apply)</button>
            </div>
        </div>
-       <center><i style="margin-top:10px;">(72 pixels/inch - approx. 28.35 pixels/cm)</i></center>
+       <center><i style="margin-top:10px;">(72 像素/英吋 - 約 28.35 像素/公分 / 72 pixels/inch - approx. 28.35 pixels/cm)</i></center>
    </div>
 </div>
 

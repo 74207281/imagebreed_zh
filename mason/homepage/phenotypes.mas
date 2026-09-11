@@ -10,19 +10,19 @@ my $population_names_ref = [];
 eval { 
   $population_names_ref = CXGN::Phenome::Population::get_all_populations( CXGN::DB::Connection->new );
   #add an empty entry to the front of the list
-  unshift @$population_names_ref, ['', '--select a population name--'];
+  unshift @$population_names_ref, ['', '--請選擇族群名稱(select a population name)--'];
 };
 
 my $population = "";
-if ($@) { $population = "(The database is currently not available. Please try again later)"; }
+if ($@) { $population = "(資料庫目前無法連線，請稍後再試 / The database is currently not available. Please try again later)"; }
 else { 
   $population = simple_selectbox_html( choices  => $population_names_ref,
 					name     => 'wee9_population_id',
-					) . qq { <input type="submit" value="Submit"/> };
+					) . qq { <input type="submit" value="送出(Submit)"/> };
 }
 </%perl>
 
 <div class="boxbgcolor1" style="margin:0px;">
-  <div class="boxheading">Phenotypes</div>
-  <div class="boxcontent">Browse Solanaceae phenotypes<br /><form style="margin-bottom:0px" name="population" action="/search/phenotype_search.pl"><% $population %></form></div>
+  <div class="boxheading">表型(Phenotypes)</div>
+  <div class="boxcontent">瀏覽茄科表型(Browse Solanaceae phenotypes)<br /><form style="margin-bottom:0px" name="population" action="/search/phenotype_search.pl"><% $population %></form></div>
 </div>

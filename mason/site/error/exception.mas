@@ -9,7 +9,7 @@
 % for my $e (@$exception) {
 
 <h1 style="text-align: center">
-   <% $e->title || ( $e->is_server_error ? 'Server Error' : $e->is_client_error ? 'Error' : 'Message' ) %>
+   <% $e->title || ( $e->is_server_error ? '伺服器錯誤(Server Error)' : $e->is_client_error ? '錯誤(Error)' : '訊息(Message)' ) %>
 </h1>
 
 <div style="margin: auto; width: 60%">
@@ -17,23 +17,23 @@
 % if( $e->public_message ) {
     <% $e->public_message . ( $e->public_message =~ /\.\s*$/ ? '' : '.' ) %>
 % } else {
-    Our apologies, there was an error processing your request.  
+    很抱歉，處理您的請求時發生錯誤。
 % }
     </p>
 
     <p>
 % if( $e->notify ) {
-    An error report has been sent to the <% $project_name %> development team.
+    錯誤報告已發送給 <% $project_name %> 開發團隊。
 % }
 
 % if( $e->is_client_error || $e->is_server_error and $contact_email ) {
 
-    Feel free to contact us at <a href="mailto:<% $contact_email %>">
-    <% $contact_email %></a>, if the problem persists, and
+    如果問題持續存在，歡迎隨時透過 <a href="mailto:<% $contact_email %>">
+    <% $contact_email %></a> 與我們聯繫，
 %   if( $e->is_server_error ) {
-      we will keep you informed of our progress in resolving it.
+      我們將隨時向您通知解決進度。
 %   } else {
-      we will work with you to resolve it.
+      我們將與您一起解決此問題。
 %   }
    </p>
 
@@ -53,8 +53,8 @@
      </style>
 
     <div style="margin: 1em 0; border: 2px solid orange; padding: 0 1em 1em 1em">
-      <h3>Developer message:</h3>
-        <pre><% defined $e->developer_message ? $e->developer_message : 'none provided' | h %></pre>
+      <h3>開發者訊息(Developer message)：</h3>
+        <pre><% defined $e->developer_message ? $e->developer_message : '未提供' | h %></pre>
     </div>
 %   }
 % }

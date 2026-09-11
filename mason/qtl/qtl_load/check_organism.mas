@@ -22,25 +22,20 @@ $guide
 
 <%perl>
 
-my $message = qq |<p> It appears that SGN currently does not support 
-                  this species (<b><i>$species</i>$cultivar</b>).<br/> 
-                  As a first step, please make sure you have spelled 
-                  the species correctly.</p>
+my $message = qq |<p> SGN 目前似乎不支援此物種(It appears that SGN currently does not support this species) (<b><i>$species</i>$cultivar</b>)。<br/> 
+                  首先，請確保您輸入的物種名稱拼寫正確(As a first step, please make sure you have spelled the species correctly)。</p>
                         
-                  <p> Read also the guidline for the nomenclature format 
-                  you have to use to submit the parental lines.</p>
+                  <p> 也請閱讀提交親本品系時必須使用的命名格式指南(Read also the guidline for the nomenclature format you have to use to submit the parental lines)。</p>
 
-                  <p> Please go <a href="javascript:history.go(-1)">back</a> 
-                  and check.</p>
+                  <p> 請<a href="javascript:history.go(-1)">返回(back)</a>並檢查。</p>
                         
-                  <p> if you keep having the same problem with it
-                  <a href=mailto:sgn-feedback\@sgn.cornell.edu> contact us.</a></p> 
+                  <p> 如果您持續遇到相同的問題，請<a href=mailto:sgn-feedback\@sgn.cornell.edu>聯繫我們(contact us)</a>。</p> 
                  |;
 
 
 </%perl>
 
-<& /page/page_title.mas, title => 'Check parental accession(s)' &>
+<& /page/page_title.mas, title => '檢查親本種原(Check parental accession(s))' &>
 <&| /page/info_section.mas, title => '', subtitle => $guide &>
   <% $message %>  
 </&>

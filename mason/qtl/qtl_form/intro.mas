@@ -19,16 +19,16 @@ $guide
 
 <%perl>
 
-my $links = $guide . '|' .  qq | <a href="http://www.biomedcentral.com/1471-2105/11/525/abstract">Citation</a> |;
+my $links = $guide . '|' .  qq | <a href="http://www.biomedcentral.com/1471-2105/11/525/abstract">引用文獻(Citation)</a> |;
 
 </%perl>
 
 <& /page/page_title.mas, 
-   title => "Step 0: Introduction" 
+   title => "步驟 0：簡介(Step 0: Introduction)" 
 &>
 
 <&| /page/info_section.mas, 
-    title    => "Introduction", 
+    title    => "簡介(Introduction)", 
     subtitle => $links 
 &>
  <form action="/phenome/qtl_load.pl" method="POST" enctype="MULTIPART/FORM-DATA">  
@@ -36,16 +36,15 @@ my $links = $guide . '|' .  qq | <a href="http://www.biomedcentral.com/1471-2105
 	<tr>
           <td>	   
             <& general_intro.mas, guide =>$guide &>
-              <p>If you have any problems uploading your data or remarks, 
-                please send your feedback to: 
+              <p>如果您在上傳資料時遇到任何問題或有任何意見，請將反饋發送至(If you have any problems uploading your data or remarks, please send your feedback to)： 
                 <a href=mailto:sgn-feedback\@sgn.cornell.edu> 
-                sgn-feedback@sgn.cornell.edu</a>. 
+                sgn-feedback@sgn.cornell.edu</a>。 
               </p>      
           </td>
         </tr>
         <tr> 
           <td> <input type="hidden"  name = "type" value="begin"> </td>
-          <td> <input type="submit" value="Begin Uploading"> </td>
+          <td> <input type="submit" value="開始上傳(Begin Uploading)"> </td>
         </tr>
       </table>
  </form>

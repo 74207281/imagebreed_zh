@@ -5,7 +5,7 @@ use strict;
 <%perl>
 my $url = $c->get_conf('static_datasets_url')."/images/iotw/desc.txt";
 my $path = $c->get_conf('static_datasets_path')."/images/iotw/desc.txt";
-my $IOTW = "(no image currently available)";
+my $IOTW = "(目前無可用圖像 / no image currently available)";
 eval {
  $IOTW = slurp($path);
 };
@@ -14,12 +14,12 @@ eval {
 
 <!--
 <div class="boxbgcolor1" style="margin:0px;">
-<div class="boxheading">Image of the week</div><br />
+<div class="boxheading">精選圖像(Featured Image)</div><br />
 <div class="center">
   <span class="tinytype"><% $IOTW %></span>
 </div>
 </div>
 -->
 
-<h4>Featured Image</h4>
+<h4>精選圖像(Featured Image)</h4>
 <% $IOTW %>

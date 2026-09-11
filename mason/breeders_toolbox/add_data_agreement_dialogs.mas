@@ -7,7 +7,7 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addDataAgreementDialog">Modify Data Agreement</h4>
+                <h4 class="modal-title" id="addDataAgreementDialog">修改資料協議(Modify Data Agreement)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -18,8 +18,8 @@ $trial_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="data_agreement_cancel_button">Close</button>
-                <button type="button" class="btn btn-primary" name="data_agreement_ok_button" id="data_agreement_ok_button">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="data_agreement_cancel_button">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="data_agreement_ok_button" id="data_agreement_ok_button">送出(Submit)</button>
             </div>
         </div>
     </div>
@@ -48,12 +48,12 @@ jQuery(document).ready(function () {
           else 
           if (response.message) { alert(response.message); }
           else { 
-            alert("Successfully added a data agreement to this trial.");
+            alert("已成功為此試驗新增資料協議。");
           }
           get_data_agreement(<% $trial_id %>, 'data_agreement_div');
         },
         error: function(response) { 
-          alert("An error occurred storing the data agreement.");
+          alert("儲存資料協議時發生錯誤。");
         }
       });
     }
@@ -68,12 +68,12 @@ jQuery(document).ready(function () {
              jQuery('#'+div).html(response.text);
            }
            else { 
-             jQuery('#'+div).html('By default, trial data is provided under the Toronto agreement, as explained in the <a href="/usage_policy">data usage policy</a>.');
+             jQuery('#'+div).html('預設情況下，試驗資料依據多倫多協定（Toronto agreement）提供，詳情請見<a href="/usage_policy">資料使用政策</a>。');
            }
            if (response.message) { alert(response.message); }
         },
         error: function(response) { 
-           alert('An error occurred fetching the data agreement data.');
+           alert('擷取資料協議時發生錯誤。');
         }
       });
     }

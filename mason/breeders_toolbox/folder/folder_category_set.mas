@@ -11,14 +11,14 @@ $folder_for_genotyping_trials => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="editFolderCategoryDialog">Add additional folder type for <% $folder_name %></h4>
+                <h4 class="modal-title" id="editFolderCategoryDialog">為 <% $folder_name %> 新增額外資料夾類型(Add Additional Folder Type for <% $folder_name %>)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <form class="form-horizontal" role="form" method="post" id="edit_folder_category_dialog_form" name="edit_folder_category_dialog_form">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Folder for Trials:</label>
+                            <label class="col-sm-5 control-label">用於試驗的資料夾：</label>
                             <div class="col-sm-7" >
 % if($folder_for_trials) {
                                 <span class="glyphicon glyphicon-ok"></span>
@@ -28,7 +28,7 @@ $folder_for_genotyping_trials => undef
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Folder for Crosses:</label>
+                            <label class="col-sm-5 control-label">用於雜交的資料夾：</label>
                             <div class="col-sm-7" >
 % if($folder_for_crosses){
                                 <span class="glyphicon glyphicon-ok"></span>
@@ -38,7 +38,7 @@ $folder_for_genotyping_trials => undef
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Folder for Genotyping Plates:</label>
+                            <label class="col-sm-5 control-label">用於基因型分析孔盤的資料夾：</label>
                             <div class="col-sm-7" >
 % if ($folder_for_genotyping_trials) {
                                 <span class="glyphicon glyphicon-ok"></span>
@@ -52,8 +52,8 @@ $folder_for_genotyping_trials => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="edit_folder_categories_cancel_button" id="edit_folder_categories_cancel_button" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="edit_folder_categories_save_button" id="edit_folder_categories_save_button" title="Save">Save</button>
+                <button type="button" class="btn btn-default" name="edit_folder_categories_cancel_button" id="edit_folder_categories_cancel_button" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="edit_folder_categories_save_button" id="edit_folder_categories_save_button" title="儲存(Save)">儲存(Save)</button>
             </div>
         </div>
     </div>
@@ -106,12 +106,12 @@ function save_folder_categories() {
             if (response.error){
                 alert(response.error);
             }
-            else if(confirm('Categories set for folder!')){
+            else if(confirm('資料夾類型已設定！')){
                 location.reload();
             }
         },
         error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤');
         }
     });
 }

@@ -1,34 +1,34 @@
 
-<& /page/page_title.mas, title=>'Search Progenies of Female Parents' &>
+<& /page/page_title.mas, title=>'搜尋母本後代(Search Progenies of Female Parents)' &>
 <br>
-<&| /page/info_section.mas, title => 'Search', collapsible=>1, collapsed=>0&>
+<&| /page/info_section.mas, title => '搜尋(Search)', collapsible=>1, collapsed=>0&>
     <div class="row" id="progeny_search_form" >
         <div class="col-sm-12 well">
             <div class="row">
                 <div class="col-sm-10">
                     <div class="form-horizontal">
                         <div class="form-group form-group-sm">
-                            <label class="control-label col-sm-3">Female Parent:</label>
+                            <label class="control-label col-sm-3">母本(Female Parent):</label>
                             <div class="col-sm-9">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="pedigree_female_parent" placeholder="Enter female parent">
+                                    <input type="text" class="form-control" id="pedigree_female_parent" placeholder="輸入母本名稱(Enter female parent)">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-info" id="search_pedigree_male_parents"><i class="glyphicon glyphicon-search"></i> Male Parent / Population</button>
-                                        <button class="btn btn-primary" id="search_all_progenies_using_female"><i class="glyphicon glyphicon-search"></i> All Progenies of this Female Parent </button>
+                                        <button class="btn btn-info" id="search_pedigree_male_parents"><i class="glyphicon glyphicon-search"></i> 父本/群體(Male Parent / Population)</button>
+                                        <button class="btn btn-primary" id="search_all_progenies_using_female"><i class="glyphicon glyphicon-search"></i> 此母本的所有後代(All Progenies of this Female Parent) </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="control-label col-sm-3">Male Parent / Population:</label>
+                            <label class="control-label col-sm-3">父本/群體(Male Parent / Population):</label>
                             <div class="col-sm-9" >
                                 <div class="input-group">
                                     <select class="form-control" id="pedigree_male_parent">
-                                        <option value="">Choose female parent first</option>
+                                        <option value="">請先選擇母本(Choose female parent first)</option>
                                     </select>
                                     </select>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-info" id="search_pedigree_female_male"><i class="glyphicon glyphicon-search"></i> Progenies of these Parents </button>
+                                        <button class="btn btn-info" id="search_pedigree_female_male"><i class="glyphicon glyphicon-search"></i> 這些親本的後代(Progenies of these Parents) </button>
                                     </div>
                                 </div>
                             </div>
@@ -40,17 +40,17 @@
     </div>
 </&>
 
-<&| /page/info_section.mas, title => 'Search Results', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '搜尋結果(Search Results)', collapsible=>1, collapsed=>0 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
                 <table id="pedigree_female_male_search_results" width="100%" class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>Female Parent</th>
-                            <th>Male Parent / Population</th>
-                            <th>Progeny</th>
-                            <th>Cross Type</th>
+                            <th>母本(Female Parent)</th>
+                            <th>父本/群體(Male Parent / Population)</th>
+                            <th>後代(Progeny)</th>
+                            <th>雜交類型(Cross Type)</th>
                         </tr>
                     </thead>
                 </table>
@@ -58,7 +58,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                <&| /page/info_section.mas, title => 'Copy Progenies to a List', collapsible=>1, collapsed=>1, subtitle=>'<i>Copy the progeny names showing in table to a new or exisiting list</i>'&>
+                <&| /page/info_section.mas, title => '複製後代至清單(Copy Progenies to a List)', collapsible=>1, collapsed=>1, subtitle=>'<i>將表格中顯示的後代名稱複製到新清單或現有清單中</i>'&>
                     <br>
                     <div style="text-align:right" id="progenies_to_list_menu"></div>
                     <div id="progeny_names" style="display: none;"></div>
@@ -92,14 +92,14 @@ jQuery(document).ready(function (){
                 html = html + "</select>";
                 console.log(html);
                 if(i ==''){
-                    alert("No male parent");
+                    alert("無符合的父本！(No male parent)");
                     return;
                 }
 
                 jQuery('#pedigree_male_parent').html(html);
             },
             error:function(response){
-                alert("An error occurred");
+                alert("發生錯誤！(An error occurred)");
             }
         });
     });

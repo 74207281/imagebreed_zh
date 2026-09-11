@@ -5,8 +5,8 @@ $model_id
 <table class="table table-hover table-bordered" id="analyses_by_model_table">
     <thead>
         <tr>
-            <th>Analysis Name</th>
-            <th>Analysis Description</th>
+            <th>分析名稱(Analysis Name)</th>
+            <th>分析描述(Analysis Description)</th>
         </tr>
     </thead>
     <tbody>

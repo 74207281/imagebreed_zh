@@ -63,10 +63,10 @@ sub blast_db_prog_selects {
     
     my @ungrouped_dbs = grep _cached_file_modtime($_),CXGN::BlastDB->search( blast_db_group_id => undef, web_interface_visible => 't', {order_by => 'title'} );
     if(@ungrouped_dbs) {
-	push @db_choices, '__Other',  map [$_,opt($_)], @ungrouped_dbs;
+	push @db_choices, '__其他(Other)',  map [$_,opt($_)], @ungrouped_dbs;
     }
 
-    @db_choices or return '<span class="ghosted">The BLAST service is temporarily unavailable, we apologize for the inconvenience</span>';
+    @db_choices or return '<span class="ghosted">BLAST 服務暫時無法使用，造成不便敬請見諒(The BLAST service is temporarily unavailable, we apologize for the inconvenience)</span>';
 
     # DB select box will either the db_id supplied, or what the user last selected, or the tomato combined blast db
     my $selected_db_id = $db_id || $prefs->get_pref('last_blast_db_id')
@@ -77,11 +77,11 @@ sub blast_db_prog_selects {
 
   #warn "got pref last_blast_db_file_base '$selected_db_file_base'\n";
 
-  my %prog_descs = ( blastn  => 'BLASTN (nucleotide to nucleotide)',
-		     blastx  => 'BLASTX (nucleotide to protein; query translated to protein)',
-		     blastp  => 'BLASTP (protein to protein)',
-		     tblastx => 'TBLASTX (protein to protein; both database and query are translated)',
-		     tblastn => 'TBLASTN (protein to nucleotide; database translated to protein)',
+  my %prog_descs = ( blastn  => 'BLASTN (核苷酸比對核苷酸, nucleotide to nucleotide)',
+		     blastx  => 'BLASTX (核苷酸比對蛋白質；查詢序列轉譯為蛋白質, nucleotide to protein; query translated to protein)',
+		     blastp  => 'BLASTP (蛋白質比對蛋白質, protein to protein)',
+		     tblastx => 'TBLASTX (蛋白質比對蛋白質；資料庫與查詢序列皆轉譯, protein to protein; both database and query are translated)',
+		     tblastn => 'TBLASTN (蛋白質比對核苷酸；資料庫轉譯為蛋白質, protein to nucleotide; database translated to protein)',
 		   );
 
   my @program_choices = map {

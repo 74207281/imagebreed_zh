@@ -22,27 +22,27 @@ sub clone_summary_html {
     @_ and croak 'summary_html takes no parameters';
     my $length =
       $this->estimated_length && commify_number($this->estimated_length)
-      || 'not yet estimated';
+      || '尚未估算(not yet estimated)';
 
     my $badclonehtml = $this->bad_clone 
-		       ? '<span style="color:red">contaminated</span>'
-		       : 'none';
+		       ? '<span style="color:red">受污染(contaminated)</span>'
+		       : '無(none)';
 
 
 
     my $az_name = $this->arizona_clone_name;
     my $type = $this->clone_type_object->name;
 
-    return info_table_html( __title            => 'Clone',
-			    'Clone name'       => join('<br />',
+    return info_table_html( __title            => '選殖株(Clone)',
+			    '選殖株名稱(Clone name)'       => join('<br />',
                                                        $this->intl_clone_name,
 						       $this->arizona_clone_name,
 						       ($this->chromosome_num ? ($this->clone_name_with_chromosome) :  ()),
 						       ($this->cornell_clone_name =~ /^P/ ? ($this->cornell_clone_name) : ()),
 						      ),
-			    'Clone type'       => $type,
-			    'Contamination'    => $badclonehtml,
-			    'Estimated length' => $length,
+			    '選殖株類型(Clone type)'       => $type,
+			    '污染情況(Contamination)'    => $badclonehtml,
+			    '估計長度(Estimated length)' => $length,
 			  );
 }
 </%init>

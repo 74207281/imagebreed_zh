@@ -10,21 +10,21 @@ $trial_id => undef
 &>
 
 
-<& '/page/page_title.mas', title => "Fieldmap app" &>
+<& '/page/page_title.mas', title => "田間地圖應用程式(Fieldmap app)" &>
 
 <div class="row">
   <center class = "col-md-offset-2 col-md-8">
       <div id="trialList" class="col-sm-12 col-md-12 col-lg-12">
-          <label for="select_trial_for_selection_index">Trial: </label>
+          <label for="select_trial_for_selection_index">試驗(Trial): </label>
           <select class="form-control" autofocus="autofocus" id="select_trial_for_selection_index"></select>
       </div><br>
   </center>
 </div>
 <br>
 <form id="formOptions" class="form-inline" style="padding:10px;">
-    <a class="btn btn-primary btn-sm" onclick="load()">Load Plots</a>
-    <a class="btn btn-success btn-sm" onclick="update()">Save Geo Coordinates</a>
-    <a class="btn btn-danger btn-sm" onclick="clear_geo_coordinates()">Delete Geo Coordinates</a>
+    <a class="btn btn-primary btn-sm" onclick="load()">載入小區(Load Plots)</a>
+    <a class="btn btn-success btn-sm" onclick="update()">儲存地理座標(Save Geo Coordinates)</a>
+    <a class="btn btn-danger btn-sm" onclick="clear_geo_coordinates()">刪除地理座標(Delete Geo Coordinates)</a>
 </form>
 
 
@@ -37,7 +37,7 @@ $trial_id => undef
     document.getElementById("trialList").style.display="none";
 
     jQuery(document).ready(function() {
-        jQuery('#ranking_formula').html("<center><i>Select a trial.</i></center>");
+        jQuery('#ranking_formula').html("<center><i>請選擇試驗。(Select a trial.)</i></center>");
         get_select_box('trials', 'select_trial_for_selection_index', { 'name' : 'html_select_trial_for_selection_index', 'id' : 'html_select_trial_for_selection_index' , 'empty' : 1 });
         jQuery('#select_trial_for_selection_index').change(load);
         load();
@@ -50,7 +50,7 @@ $trial_id => undef
     if (require_login === '1'){
         auth_token = "<%  CXGN::Login->new($c->dbc->dbh)->get_login_cookie() %>";
         if (!auth_token){
-            alert("Login required to display field map");
+            alert("需登入以顯示田間地圖(Login required to display field map)");
         }
     }
 
@@ -76,13 +76,13 @@ $trial_id => undef
                   }
                 });
             document.getElementById("formOptions").style.display="block";
-        } else alert("Invalid trial!");
+        } else alert("無效的試驗！(Invalid trial!)");
     }
 
     function setLocation(studyDbId) {
         jQuery('#working_modal').modal('hide');
         jQuery("#select_trial_for_selection_index option[value="+studyDbId+"]").attr('selected', 'selected');
-        fieldMap.setLocation(studyDbId).then(()=>alert("Please select an area over the field and click 'Load plots'."), ()=>alert("No geo reference for location in this trial!"));
+        fieldMap.setLocation(studyDbId).then(()=>alert("請在田間上方選取一個區域並點擊「載入小區」。(Please select an area over the field and click 'Load plots'.)"), ()=>alert("此試驗的地點無地理參考資訊！(No geo reference for location in this trial!)"));
     }
 
     function update() {
@@ -99,7 +99,7 @@ $trial_id => undef
     }
 
     function clear_geo_coordinates() {
-        if (window.confirm('Are you sure you want to delete the GPS Geo Coordinates?')) {
+        if (window.confirm('您確定要刪除 GPS 地理座標嗎？(Are you sure you want to delete the GPS Geo Coordinates?)')) {
             jQuery.ajax({
                 type: 'POST',
                 url : '/ajax/breeders/trial/<% $trial_id %>/delete_plot_gps',
@@ -113,12 +113,12 @@ $trial_id => undef
                         alert(response.error);
                     }
                     if (response.success) {
-                        alert('Plot GPS Geo Coordinates Deleted!');
+                        alert('小區 GPS 地理座標已刪除！(Plot GPS Geo Coordinates Deleted!)');
                         location.reload();
                     }
                 },
                 error: function(response){
-                    alert('Error saving analysis multiple!');
+                    alert('儲存分析多重結果時發生錯誤！(Error saving analysis multiple!)');
                 }
             });
         }

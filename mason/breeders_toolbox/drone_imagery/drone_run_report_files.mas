@@ -14,11 +14,11 @@ jQuery(document).ready(function() {
         jQuery('#imaging_event_report_files_datatables').DataTable({
             'ajax': { 'url': '/ajax/breeders/trial/<% $trial_id %>/aerial_imaging_event_report_files' },
             columns: [
-                { title: "Filename", "data": null, "render": function ( data, type, row ) { return row[4]; } },
-                { title: "Date Uploaded", "data": null, "render": function ( data, type, row ) { return row[1]; } },
-                { title: "Uploaded By", "data": null, "render": function ( data, type, row ) { return '<a href="/solpeople/profile/'+row[2]+'">'+row[3]+'</a>'; } },
-                { title: "File Type", "data": null, "render": function ( data, type, row ) { return row[6]; } },
-                { title: "Options", "data": null, "render": function ( data, type, row ) { return '<a href="/breeders/phenotyping/download/'+row[0]+'">Download</a>'; } },
+                { title: "檔案名稱(Filename)", "data": null, "render": function ( data, type, row ) { return row[4]; } },
+                { title: "上傳日期(Date Uploaded)", "data": null, "render": function ( data, type, row ) { return row[1]; } },
+                { title: "上傳者(Uploaded By)", "data": null, "render": function ( data, type, row ) { return '<a href="/solpeople/profile/'+row[2]+'">'+row[3]+'</a>'; } },
+                { title: "檔案類型(File Type)", "data": null, "render": function ( data, type, row ) { return row[6]; } },
+                { title: "選項(Options)", "data": null, "render": function ( data, type, row ) { return '<a href="/breeders/phenotyping/download/'+row[0]+'">下載(Download)</a>'; } },
             ]
         });
 

@@ -30,69 +30,52 @@ span.filesize:after {
 
 </style>
 
-<& /page/page_title.mas, title => 'Computational prediction of secreted proteins' &>
+<& /page/page_title.mas, title => '分泌蛋白之計算預測(Computational prediction of secreted proteins)' &>
 
 <& /secretom/secretary/nav.mas, curr_page => 'background' &>
 
 <div class="page_introduction">
   <p>
-
-  A number of <a class="tools_popup" href="#">computational tools</a> have been
-  developed to predict the presence of SPs. These programs have been
-  greatly refined in recent years and their accuracy has improved with
-  the adoption of machine learning algorithms. However, while this is a
-  valuable approach, as with all prediction-based tools, there is a
-  consistent error rate and both false positive and negative predictions
-  should be expected. One of our major goals is to identify the
-  incorrect predictions and generate a database of computationally and
-  functionally confirmed secreted plant proteins. It has been reported
-  that one of the most effective predictors of SPs is <a
-  href="http://www.cbs.dtu.dk/services/SignalP">SignalP 3.0</a>. 
-  We have used both SignalP and our recently developed predictor, 
-  <a href="/secretom/secretary">SecreTary</a>, 
-  to screen the predicted proteomes of several plant species
-  to date. See below for these prediction results.
+  已經開發了許多<a class="tools_popup" href="#">計算工具(computational tools)</a>來預測訊息胜肽(SPs)的存在。這些程式近年來得到了極大改進，隨著機器學習演算法的採用，其準確性也得到了提升。然而，儘管這是一種有價值的方法，但與所有基於預測的工具一樣，存在著一定的錯誤率，應預期會出現偽陽性與偽陰性的預測結果。我們的主要目標之一是識別不正確的預測，並建立一個經過計算與功能確認的分泌性植物蛋白質資料庫。據報導，最有效的 SP 預測工具之一是 <a href="http://www.cbs.dtu.dk/services/SignalP">SignalP 3.0</a>。迄今為止，我們已同時使用 SignalP 和我們最近開發的預測工具 <a href="/secretom/secretary">SecreTary</a> 來篩選數種植物物種的預測蛋白質體。請參閱下方的預測結果。(A number of <a class="tools_popup" href="#">computational tools</a> have been developed to predict the presence of SPs. These programs have been greatly refined in recent years and their accuracy has improved with the adoption of machine learning algorithms. However, while this is a valuable approach, as with all prediction-based tools, there is a consistent error rate and both false positive and negative predictions should be expected. One of our major goals is to identify the incorrect predictions and generate a database of computationally and functionally confirmed secreted plant proteins. It has been reported that one of the most effective predictors of SPs is <a href="http://www.cbs.dtu.dk/services/SignalP">SignalP 3.0</a>. We have used both SignalP and our recently developed predictor, <a href="/secretom/secretary">SecreTary</a>, to screen the predicted proteomes of several plant species to date. See below for these prediction results.)
   </p>
 
 </div>
 
-<&| /page/info_section.mas, title => 'New predictor: Secretary' &>
+<&| /page/info_section.mas, title => '新型預測工具：SecreTary(New predictor: Secretary)' &>
 
   <p>
-  We have developed a new predictor, <a href="/secretom/secretary">SecreTary</a>,
-  for more accurate computational prediction of plant proteins that
-  traffic through the classical secretory pathway.  <a href="/secretom/secretary">Try SecreTary</a>,
+  我們開發了一種新型預測工具 <a href="/secretom/secretary">SecreTary</a>，用於更準確地計算預測透過經典分泌途徑運輸的植物蛋白。<a href="/secretom/secretary">試用 SecreTary(Try SecreTary)</a>。(We have developed a new predictor, <a href="/secretom/secretary">SecreTary</a>, for more accurate computational prediction of plant proteins that traffic through the classical secretory pathway. <a href="/secretom/secretary">Try SecreTary</a>.)
   </p>
 
 </&>
 
-<&| /page/info_section.mas, title => 'SecreTary, SignalP, TargetP results' &>
+<&| /page/info_section.mas, title => 'SecreTary、SignalP、TargetP 結果(SecreTary, SignalP, TargetP results)' &>
 
   <table class="species_predictions">
   <tr>
     <td>
-          <h3>Arabidopsis thaliana</h3>
+          <h3>阿拉伯芥(Arabidopsis thaliana)</h3>
           <img src="/img/secretom/arabidopsisthaliana.png" />
           <& .result_file, file => 'data/secretom/SecreTarySPTP_predictions/Tair10.STsptp.fa', dir => $static_dir &>
     </td>
      <td>
-          <h3>Rice (Oryza sativa)</h3>
+          <h3>水稻(Rice (Oryza sativa))</h3>
           <img src="/img/secretom/oryzasativa.png" />
           <& .result_file, file => 'data/secretom/SecreTarySPTP_predictions/TIGR6.1.STsptp.fa', dir => $static_dir &>
     </td>
     <td>
-          <h3>Brachypodium distachyon</h3>
+          <h3>二穗短柄草(Brachypodium distachyon)</h3>
           <img src="/img/secretom/brachypodiumdistachyon.png" />
           <& .result_file, file => 'data/secretom/SecreTarySPTP_predictions/Brachy1.2.STsptp.fa', dir => $static_dir &>
     </td>
     <td>
-          <h3>Tomato </h3>
+          <h3>番茄(Tomato)</h3>
           <img src="/img/secretom/solanumlycopersicum.png" />
           <& .result_file, file => 'data/secretom/SecreTarySPTP_predictions/ITAG2.STsptp.fa', dir => $static_dir &>
     </td>
   
  <td>
-          <h3>Populus trichocarpa</h3>
+          <h3>毛果楊(Populus trichocarpa)</h3>
           <img src="/img/secretom/Populus_trichocarpa_126x150.png" />
           <& .result_file, file => 'data/secretom/SecreTarySPTP_predictions/Poptri2.STsptp.fa', dir => $static_dir &>
     </td>
@@ -101,23 +84,18 @@ span.filesize:after {
 </tr>
   </table>
 
-  <&| /page/info_section.mas, title => 'Search SecreTary, SignalP, TargetP results for secreted proteins', is_subsection => 1 &>
+  <&| /page/info_section.mas, title => '搜尋分泌蛋白之 SecreTary、SignalP、TargetP 結果(Search SecreTary, SignalP, TargetP results for secreted proteins)', is_subsection => 1 &>
 
 
     <form method="GET" style="text-align: center; margin: 2em auto" action="<% $signalp_search_action %>">
-      <label for="query_input">Search</label>
+      <label for="query_input">搜尋(Search)</label>
       <input type="text" size="30" name="q" id="query_input" value="" />
       <input type="hidden" name="file" value="" />
-      <input type="submit" value="Search" size="20" />
+      <input type="submit" value="搜尋(Search)" size="20" />
     </form>
 
     <p>
-    Use text terms (e.g. "polygalacturonase", "glycosyl hydrolase
-    family", "gh9"), or locus names (e.g. "At1G65610.1"). This will
-    provide you with a list of predicted proteins, grouped by species,
-    with the annotation protein length, molecular weight, confidence
-    scores for the presence of a secretory signal peptide and predicted
-    localization.
+    使用文字詞彙（例如「polygalacturonase」、「glycosyl hydrolase family」、「gh9」）或基因座名稱（例如「At1G65610.1」）。這將為您提供按物種分組的預測蛋白列表，並帶有註釋蛋白質長度、分子量、分泌訊息胜肽存在的信賴分數以及預測的定位。(Use text terms (e.g. "polygalacturonase", "glycosyl hydrolase family", "gh9"), or locus names (e.g. "At1G65610.1"). This will provide you with a list of predicted proteins, grouped by species, with the annotation protein length, molecular weight, confidence scores for the presence of a secretory signal peptide and predicted localization.)
     </p>
     
   </&>
@@ -128,7 +106,7 @@ span.filesize:after {
   jQuery(".tools_popup").colorbox({width:"60%", inline:true, href:"#tools_popup"});
 </script>
 <div id="tools_popup">
-<&| /page/info_section.mas, title => 'Other computational tools for prediction of ER-targeting signal peptides' &>
+<&| /page/info_section.mas, title => '其他用於預測 ER 靶向訊息胜肽的計算工具(Other computational tools for prediction of ER-targeting signal peptides)' &>
   <ul>
   <li><a href="http://www.cbs.dtu.dk/services/SignalP">SignalP</a></li>
   <li><a href="http://www.predisi.de">PrediSi</a></li>
@@ -154,11 +132,11 @@ $dir
     <span class="filename"><% $abs->basename %></span>
 
     <div>
-      <a href="/download/<% file($file)->as_foreign('Unix') %>">[Download]</a>
+      <a href="/download/<% file($file)->as_foreign('Unix') %>">[下載(Download)]</a>
       <span class="filesize"><%  Number::Bytes::Human::format_bytes( $size ) %></span>
     </div>
 % } else {
-    <span class="ghosted">temporarily unavailable</span>
+    <span class="ghosted">暫時無法使用(temporarily unavailable)</span>
 % }
 </%def>
 

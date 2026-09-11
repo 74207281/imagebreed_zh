@@ -7,25 +7,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="nirsAnalysisTrainingDialog">Train Spectral Model</h4>
+        <h4 class="modal-title" id="nirsAnalysisTrainingDialog">訓練光譜模型(Train Spectral Model)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "nirs_analysis_training_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Intro" &>
-                    <& /page/page_title.mas, title=>"This workflow will guide you through the training of a model using spectra and phenotypes in the database." &>
+                <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                    <& /page/page_title.mas, title=>"此工作流程將引導您使用資料庫中的光譜與表型訓練模型(This workflow will guide you through the training of a model using spectra and phenotypes in the database.)" &>
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Train Dataset" &>
-                    <& /page/page_title.mas, title=>"Select the dataset you are interested in training (the accessions or plots or tissues samples in the dataset need to have spectra uploaded)" &>
+                <&| /util/workflow.mas:step, title=> "訓練資料集(Train Dataset)" &>
+                    <& /page/page_title.mas, title=>"選擇您想要用於訓練的資料集（資料集中的種原、小區或組織樣本需已上傳光譜）(Select the dataset you are interested in training (the accessions or plots or tissues samples in the dataset need to have spectra uploaded))" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-1 control-label">Dataset: </label>
+                            <label class="col-sm-1 control-label">資料集(Dataset): </label>
                             <div class="col-sm-11" >
                                 <div id="nirs_analysis_training_dataset_train_select_div"></div>
                             </div>
@@ -33,33 +33,33 @@
                     </form>
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_training_dataset_train_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_training_dataset_train_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Test Dataset" &>
-                    <& /page/page_title.mas, title=>"Select the dataset you are interested in testing (optional)" &>
+                <&| /util/workflow.mas:step, title=> "測試資料集(Test Dataset)" &>
+                    <& /page/page_title.mas, title=>"選擇您想要用於測試的資料集（選填）(Select the dataset you are interested in testing (optional))" &>
                     <br/><br/>
 
                     <div class="form-horizontal" >
                         <div class="form-group">
-                            <label class="col-sm-7 control-label">Select Custom Dataset for Testing? If No, the training and test set will be partitioned from the training dataset you already selected: </label>
+                            <label class="col-sm-7 control-label">是否選擇自訂測試資料集？若否，訓練集與測試集將由您已選擇的訓練資料集分割：(Select Custom Dataset for Testing? If No, the training and test set will be partitioned from the training dataset you already selected:) </label>
                             <div class="col-sm-5" >
                                 <select class="form-control" id="nirs_analysis_training_dataset_test_select_option">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
+                                    <option value="No">否(No)</option>
+                                    <option value="Yes">是(Yes)</option>
                                 </select>
                             </div>
                         </div>
                     </div>
 
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_training_dataset_test_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_training_dataset_test_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                     <br/><br/>
 
                     <div class="form-horizontal" id="nirs_analysis_training_dataset_test_div" style="display:none">
                         <div class="form-group">
-                            <label class="col-sm-1 control-label">Dataset (Optional) (the accessions or plots or tissues samples in the dataset need to have spectra uploaded): </label>
+                            <label class="col-sm-1 control-label">資料集（選填，資料集中的種原、小區或組織樣本需已上傳光譜）(Dataset (Optional) (the accessions or plots or tissues samples in the dataset need to have spectra uploaded)): </label>
                             <div class="col-sm-11" >
                                 <div id="nirs_analysis_training_dataset_test_select_div"></div>
                             </div>
@@ -67,12 +67,12 @@
                     </div>
 
                 </&>
-                <&| /util/workflow.mas:step, title=> "Trait" &>
-                    <& /page/page_title.mas, title=>"Select the trait you are interested in. If there are no available options, the training and test datasets you selected do not share any traits in common!" &>
+                <&| /util/workflow.mas:step, title=> "性狀(Trait)" &>
+                    <& /page/page_title.mas, title=>"選擇您感興趣的性狀。若無可選項，代表您所選的訓練與測試資料集沒有共同的性狀！(Select the trait you are interested in. If there are no available options, the training and test datasets you selected do not share any traits in common!)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-1 control-label">Trait: </label>
+                            <label class="col-sm-1 control-label">性狀(Trait): </label>
                             <div class="col-sm-11" >
                                 <div id="nirs_analysis_training_trait_select_div"></div>
                             </div>
@@ -80,11 +80,11 @@
                     </form>
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="nirs_analysis_training_trait_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="nirs_analysis_training_trait_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Model Settings" &>
-                    <& /page/page_title.mas, title=>"Select parameters for spectral modeling" &>
+                <&| /util/workflow.mas:step, title=> "模型設定(Model Settings)" &>
+                    <& /page/page_title.mas, title=>"選擇光譜模型參數(Select parameters for spectral modeling)" &>
 
                     <!--center>
                     <button class="btn btn-info" id="nirs_analysis_training_dataset_info">More Info</button>
@@ -93,10 +93,10 @@
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Spectrometer format: </label>
+                            <label class="col-sm-5 control-label">光譜儀格式(Spectrometer format): </label>
                             <div class="col-sm-7" >
                                 <select class="form-control" id="nirs_analysis_training_format_select">
-                                    <option value="">Select spectrometer format</option>
+                                    <option value="">選擇光譜儀格式(Select spectrometer format)</option>
                                     <option selected value="SCIO">SCIO</option>
                                     <option value="QST">QST</option>
                                     <option value="Foss6500">Foss6500</option>
@@ -111,12 +111,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Cross-validation methods: </label>
+                            <label class="col-sm-5 control-label">交叉驗證方法(Cross-validation methods): </label>
                             <div class="col-sm-7" >
                                 <select class="form-control" id="nirs_analysis_training_cv_select">
-                                    <option value="">Select cross-validation</option>
-                                    <option selected value="random">Random</option>
-                                    <option value="stratified">Stratified</option>
+                                    <option value="">選擇交叉驗證(Select cross-validation)</option>
+                                    <option selected value="random">隨機(Random)</option>
+                                    <option value="stratified">分層(Stratified)</option>
                                     <!--option value="CV1">CV1</option>
                                     <option value="CV2">CV2</option>
                                     <option value="CV0">CV0</option>
@@ -125,36 +125,36 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Algorithm: </label>
+                            <label class="col-sm-5 control-label">演算法(Algorithm): </label>
                             <div class="col-sm-7" >
                                 <select class="form-control" id="nirs_analysis_training_nirs_model_algorithm">
                                     <option value="pls">PLSR</option>
-                                    <option value="rf">Random Forest</option>
+                                    <option value="rf">隨機森林(Random Forest)</option>
                                     <!--option value="svmLinear">SVM with Linear Kernel</option>
                                     <option value="svmRadial">SVM with Radial Kernel</option-->
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Number of sampling iterations: </label>
+                            <label class="col-sm-5 control-label">抽樣迭代次數(Number of sampling iterations): </label>
                             <div class="col-sm-7" >
                                 <input class="form-control" type="number" id="nirs_analysis_training_niter_select" name="niter_select" min="1" max="100" step="1" value="10">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Tuning length: </label>
+                            <label class="col-sm-5 control-label">調優長度(Tuning length): </label>
                             <div class="col-sm-7" >
                                 <input class="form-control" type="number" id="nirs_analysis_training_tuneLength_select" name="tuneLength_select" min="1" max="30" step="1" value="10">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Include preprocessing? (Requires many samples): </label>
+                            <label class="col-sm-5 control-label">包含預處理？（需要較多樣本）(Include preprocessing? (Requires many samples)): </label>
                             <div class="col-sm-7" >
                                 <input type="checkbox" id="nirs_analysis_training_preprocessing_select" name="preprocessing_select" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Show random forest variable importance? (Note this may take a long time to run): </label>
+                            <label class="col-sm-5 control-label">顯示隨機森林變數重要性？（請注意這可能需要較長時間執行）(Show random forest variable importance? (Note this may take a long time to run)): </label>
                             <div class="col-sm-7" >
                                 <input type="checkbox" id="nirs_analysis_training_rf_var_imp_select" name="rf_var_imp_select" >
                             </div>
@@ -163,19 +163,19 @@
 
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="nir_analysis_training_model_step">Train the Model</button>
+                    <button class="btn btn-primary" id="nir_analysis_training_model_step">訓練模型(Train the Model)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Summary" &>
-                    <& /page/page_title.mas, title=>"Summary of the parameters selected for model creation" &>
+                <&| /util/workflow.mas:step, title=> "摘要(Summary)" &>
+                    <& /page/page_title.mas, title=>"建立模型所選參數的摘要(Summary of the parameters selected for model creation)" &>
 
                     <div id="nir_analysis_training_model_performance_results"></div>
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Do you want to save the model for future predictions?: </label>
+                            <label class="col-sm-3 control-label">您是否想要儲存模型以供未來預測使用？(Do you want to save the model for future predictions?): </label>
                             <div class="col-sm-9" >
-                                <button class="btn btn-primary" id="nir_analysis_training_model_save_step">Save the Model</button>
+                                <button class="btn btn-primary" id="nir_analysis_training_model_save_step">儲存模型(Save the Model)</button>
                             </div>
                         </div>
                     </div>
@@ -187,7 +187,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -198,22 +198,22 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="nirsAnalysisTrainingInfoDialog">Train Spectral Model</h4>
+        <h4 class="modal-title" id="nirsAnalysisTrainingInfoDialog">訓練光譜模型(Train Spectral Model)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h1>More </h1>
+            <h1>更多資訊(More Info)</h1>
             <ul>
-              <li>"CV1": untested lines in tested environments</li>
-              <li>"CV2": tested lines in tested environments</li>
-              <li>"CV0": tested lines in untested environments</li>
-              <li>"CV00": untested lines in untested environments</li>
+              <li>"CV1": 測試環境中未測試的品系(untested lines in tested environments)</li>
+              <li>"CV2": 測試環境中已測試的品系(tested lines in tested environments)</li>
+              <li>"CV0": 未測試環境中已測試的品系(tested lines in untested environments)</li>
+              <li>"CV00": 未測試環境中未測試的品系(untested lines in untested environments)</li>
             </ul>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -241,7 +241,7 @@ jQuery(document).ready(function(){
         });
 
         if(selected_train.length > 1 || selected_train.length == 0) {
-            alert('Please select one dataset!');
+            alert('請選擇一個資料集！(Please select one dataset!)');
             return false;
         }
         else {
@@ -270,7 +270,7 @@ jQuery(document).ready(function(){
         });
 
         if(selected_test.length > 1) {
-            alert('Please select one dataset!');
+            alert('請選擇一個資料集！(Please select one dataset!)');
             return false;
         }
         else {
@@ -317,7 +317,7 @@ jQuery(document).ready(function(){
         }
 
         if (nirs_analysis_training_nirs_model_algorithm == 'rf' && nirs_analysis_training_tuneLength_select > 5) {
-            alert('Please select a tune length less than 5 if you use Random Forest!');
+            alert('若使用隨機森林，請選擇小於 5 的調優長度！(Please select a tune length less than 5 if you use Random Forest!)');
             return false;
         }
 
@@ -354,7 +354,7 @@ jQuery(document).ready(function(){
                 Workflow.focus('#nirs_analysis_training_workflow', 5);
             },
             error: function(response){
-                alert('Error training NIRS!');
+                alert('訓練 NIRS 發生錯誤！(Error training NIRS!)');
                 jQuery('#working_modal').modal('hide');
             }
         });

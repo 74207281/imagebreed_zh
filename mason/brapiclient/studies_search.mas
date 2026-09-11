@@ -3,22 +3,22 @@
 
 <& /util/import_javascript.mas, classes => [ 'brapi.Table' ] &>
 
-<h4>Studies Search</h4>
+<h4>研究搜尋(Studies Search)</h4>
 
 <div id="brapi_studies_search_home_div">
 
-<input name="brapi_studies_programDbId" id="brapi_studies_programDbId" class="form-control" type="text" placeholder="ProgramDbId" />
-<input name="brapi_studies_programName" id="brapi_studies_programName" class="form-control" type="text" placeholder="ProgramName" />
-<input name="brapi_studies_locationDbId" id="brapi_studies_locationDbId" class="form-control" type="text" placeholder="LocationDbId" />
-<input name="brapi_studies_locationName" id="brapi_studies_locationName" class="form-control" type="text" placeholder="LocationName" />
-<input name="brapi_studies_studyTypeName" id="brapi_studies_studyTypeName" class="form-control" type="text" placeholder="StudyTypeName" />
-<input name="brapi_studies_studyDbId" id="brapi_studies_studyDbId" class="form-control" type="text" placeholder="StudyDbId" />
-<input name="brapi_studies_studyName" id="brapi_studies_studyName" class="form-control" type="text" placeholder="StudyName" />
-<input name="brapi_studies_germplasmDbId" id="brapi_studies_germplasmDbId" class="form-control" type="text" placeholder="GermplasmDbId" />
-<input name="brapi_studies_germplasmName" id="brapi_studies_germplasmName" class="form-control" type="text" placeholder="GermplasmName" />
-<input name="brapi_studies_variableDbId" id="brapi_studies_variableDbId" class="form-control" type="text" placeholder="ObservationVariableDbId" />
-<input name="brapi_studies_variableName" id="brapi_studies_variableName" class="form-control" type="text" placeholder="ObservationVariableName" />
-<button class="btn btn-primary" name="brapi_studies_search_submit" id="brapi_studies_search_submit">Search</button>
+<input name="brapi_studies_programDbId" id="brapi_studies_programDbId" class="form-control" type="text" placeholder="計畫資料庫 ID(ProgramDbId)" />
+<input name="brapi_studies_programName" id="brapi_studies_programName" class="form-control" type="text" placeholder="計畫名稱(ProgramName)" />
+<input name="brapi_studies_locationDbId" id="brapi_studies_locationDbId" class="form-control" type="text" placeholder="地點資料庫 ID(LocationDbId)" />
+<input name="brapi_studies_locationName" id="brapi_studies_locationName" class="form-control" type="text" placeholder="地點名稱(LocationName)" />
+<input name="brapi_studies_studyTypeName" id="brapi_studies_studyTypeName" class="form-control" type="text" placeholder="研究類型名稱(StudyTypeName)" />
+<input name="brapi_studies_studyDbId" id="brapi_studies_studyDbId" class="form-control" type="text" placeholder="研究資料庫 ID(StudyDbId)" />
+<input name="brapi_studies_studyName" id="brapi_studies_studyName" class="form-control" type="text" placeholder="研究名稱(StudyName)" />
+<input name="brapi_studies_germplasmDbId" id="brapi_studies_germplasmDbId" class="form-control" type="text" placeholder="種原資料庫 ID(GermplasmDbId)" />
+<input name="brapi_studies_germplasmName" id="brapi_studies_germplasmName" class="form-control" type="text" placeholder="種原名稱(GermplasmName)" />
+<input name="brapi_studies_variableDbId" id="brapi_studies_variableDbId" class="form-control" type="text" placeholder="觀測變數資料庫 ID(ObservationVariableDbId)" />
+<input name="brapi_studies_variableName" id="brapi_studies_variableName" class="form-control" type="text" placeholder="觀測變數名稱(ObservationVariableName)" />
+<button class="btn btn-primary" name="brapi_studies_search_submit" id="brapi_studies_search_submit">搜尋(Search)</button>
 
 <br/><br/>
 
@@ -54,7 +54,7 @@ jQuery(document).ready(function() {
 
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
     });

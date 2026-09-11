@@ -25,7 +25,7 @@
                 $seq->desc( location_string( $loc ) );
                 if( $loc->strand && $loc->strand == -1 ) {
                     $seq = $seq->revcom;
-                    $seq->desc( $seq->desc.' (sequence from reverse strand)' );
+                    $seq->desc( $seq->desc.' (反向鏈序列)(sequence from reverse strand)' );
                 }
 
                 $seq->id( $feature->name );
@@ -40,19 +40,19 @@
                  &>
 
 %            } else { # otherwise, if the sequence is big
-                <p class="warning">Sequence region (<% location_string_html($loc) %>) too large to display.</p>
+                <p class="warning">序列區域(Sequence region) (<% location_string_html($loc) %>) 太大無法顯示(too large to display)。</p>
 %            }
 %            my ( $start, $end ) = $loc->strand == -1 ? ( $loc->fmax, $loc->fmin+1 ) : ( $loc->fmin+1, $loc->fmax );
              <% info_table_html(
                  __tableattrs => 'width="100%"',
                  __multicol   => 2,
-                 'Download sequence region' => $m->scomp(
+                 '下載序列區域(Download sequence region)' => $m->scomp(
                      '/feature/sequence_download.mas',
                      feature      => $feature,
                      length       => $loc->fmax - $loc->fmin,
                      download_url => '/api/v1/sequence/download/single/'.$src->feature_id.".fasta?$start..$end",
                      ),
-                 'Get flanking sequences on '.($src->name || 'feature_'.$src->feature_id) =>
+                 '獲取兩側序列於(Get flanking sequences on) '.($src->name || 'feature_'.$src->feature_id) =>
                     $m->scomp('.flanking_download', loc => $loc ),
                 )
               %>
@@ -105,8 +105,8 @@
 
        # decorate the upstream/downstream loc strings with text
        # descriptions for the dropdown
-       my @upstream_desc   = map "$_ bp upstream",   @increments;
-       my @downstream_desc = map "$_ bp downstream", @increments;
+       my @upstream_desc   = map "$_ bp 上游(upstream)",   @increments;
+       my @downstream_desc = map "$_ bp 下游(downstream)", @increments;
        $upstream   = [ pairwise { [$a, $b] } @$upstream,   @upstream_desc   ];
        $downstream = [ pairwise { [$a, $b] } @$downstream, @downstream_desc ];
 
@@ -127,7 +127,7 @@
            <option value="<% $locstring %>"><% $description %></option>
 %       }
       </select>
-      <input value="Download" type="submit" />
+      <input value="下載(Download)" type="submit" />
     </form>
 
 </%def>

@@ -3,7 +3,7 @@
 </%args>
 
 <& /page/columnar_table.mas,
-  headings => [ "Type", "Name" ],
+  headings => [ "類型(Type)", "名稱(Name)" ],
   data     => SGN::View::Stock::stock_table( $objects ),
 &>
 

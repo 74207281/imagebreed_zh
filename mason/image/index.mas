@@ -28,14 +28,14 @@ $large_img => undef
 $original_img => undef
 </%args>
 
-<& /page/page_title.mas, title=>"SGN Image $image_name" &>
+<& /page/page_title.mas, title=>"SGN 圖片(Image) $image_name" &>
 
-<&| /page/info_section.mas, title=>"Image data" &>
+<&| /page/info_section.mas, title=>"圖片資料(Image data)" &>
 
     <& /page/form.mas, object_type=>'image', object_id=>"$image_id", form_name=> 'image_form', server_side_script => '/image/ajax/image_ajax_form.pl', form_div_name=>'image_info_div', js_object_name=> 'image_form', page_url => '/image/index.pl', alternate_new_button => '' &>
 
 </&>
 
-<&| /page/info_section.mas, title=>"Image" &>
+<&| /page/info_section.mas, title=>"圖片(Image)" &>
     <& /image/display_image.mas, image_id=>$image_id, size=>$size, image_tags => $image_tags, associated_object_links=>$associated_object_links, thumbnail_img=>$thumbnail_img, medium_img=>$medium_img, small_img=>$small_img, medium_img=>$medium_img, large_img=>$large_img, original_img=>$original_img &>
 </&>

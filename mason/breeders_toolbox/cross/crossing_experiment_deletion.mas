@@ -4,7 +4,7 @@ $trial_id
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<&| /page/info_section.mas, id=>'delete_cross_section', title => 'Delete crosses', subtitle => '<font color="red">Deletion cannot be undone</font>', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, id=>'delete_cross_section', title => '刪除雜交(Delete Crosses)', subtitle => '<font color="red">刪除後無法復原</font>', collapsible=>1, collapsed=>1 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
@@ -12,15 +12,15 @@ $trial_id
                 </table>
             </div>
         </div>
-        <button class="btn btn-default" id="delete_all_crosses" role="button">Delete all crosses in this experiment</button><br/><br/>
+        <button class="btn btn-default" id="delete_all_crosses" role="button">刪除此實驗中的所有雜交(Delete All Crosses in This Experiment)</button><br/><br/>
     </div>
 </&>
 
-<&| /page/info_section.mas, id=>'delete_crossing_experiment_section', title => 'Delete crossing experiment', subtitle => '<font color="red">Deletion cannot be undone. Please delete crosses in this experiment first</font>', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, id=>'delete_crossing_experiment_section', title => '刪除雜交實驗(Delete Crossing Experiment)', subtitle => '<font color="red">刪除後無法復原。請先刪除此實驗中的雜交</font>', collapsible=>1, collapsed=>1 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
-                <button class="btn btn-default" id="delete_crossing_experiment" role="button">Delete crossing experiment</button><br/><br/>
+                <button class="btn btn-default" id="delete_crossing_experiment" role="button">刪除雜交實驗(Delete Crossing Experiment)</button><br/><br/>
             </div>
         </div>
     </div>
@@ -38,8 +38,8 @@ jQuery(document).ready(function(){
             'ajax':'/ajax/breeders/trial/'+ <% $trial_id %> + '/crosses_in_crossingtrial',
 
             columns: [
-                { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
-                { title: "Delete", "data": "null", "render": function ( data, type, row ) { return "<a onclick='deleteCross("+row.cross_id+")'>Delete</a>"; } },
+                { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+                { title: "刪除(Delete)", "data": "null", "render": function ( data, type, row ) { return "<a onclick='deleteCross("+row.cross_id+")'>刪除</a>"; } },
             ]
         });
     });
@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
     jQuery('#delete_all_crosses').click(function() {
 
         var trial_id = "<% $trial_id %>";
-        var confirmation = confirm("Are you sure you want to delete all crosses in this crossing experiment? The deletion cannot be undone.");
+        var confirmation = confirm("您確定要刪除此雜交實驗中的所有雜交嗎？刪除後將無法復原。");
         if (confirmation) {
             jQuery.ajax({
                 url: '/ajax/breeders/trial/'+ <% $trial_id %> + '/delete_all_crosses_in_crossingtrial',
@@ -58,7 +58,7 @@ jQuery(document).ready(function(){
                 success: function(response) {
                     jQuery('#working_modal').modal('hide');
                     if (response.success == 1) {
-                        alert('Deletion was successful');
+                        alert('刪除成功');
                         location.reload();
                     }
                     if (response.error) {
@@ -67,7 +67,7 @@ jQuery(document).ready(function(){
                 },
                 error: function(response) {
                     jQuery('#working_modal').modal('hide');
-                    alert('An error occurred during deletion');
+                    alert('刪除過程中發生錯誤');
                 }
             });
         }
@@ -76,7 +76,7 @@ jQuery(document).ready(function(){
     jQuery('#delete_crossing_experiment').click(function() {
 
         var trial_id = "<% $trial_id %>";
-        var confirmation = confirm("Are you sure you want to delete this crossing experiment? The deletion cannot be undone.");
+        var confirmation = confirm("您確定要刪除此雜交實驗嗎？刪除後將無法復原。");
         if (confirmation) {
             jQuery.ajax({
                 url: '/ajax/breeders/trial/'+trial_id+'/delete/crossing_experiment',
@@ -86,7 +86,7 @@ jQuery(document).ready(function(){
                 success: function(response) {
                     jQuery('#working_modal').modal('hide');
                     if (response.success == 1) {
-                        alert('Deletion was successful');
+                        alert('刪除成功');
                         location.reload();
                     }
                     if (response.error) {
@@ -95,7 +95,7 @@ jQuery(document).ready(function(){
                 },
                 error: function(response) {
                     jQuery('#working_modal').modal('hide');
-                    alert('An error occurred during deletion');
+                    alert('刪除過程中發生錯誤');
                 }
             });
         }
@@ -105,7 +105,7 @@ jQuery(document).ready(function(){
 
 function deleteCross(cross_id){
 
-    var confirmation = confirm('Are you sure you want to delete this cross? The deletion cannot be undone.');
+    var confirmation = confirm('您確定要刪除此雜交嗎？刪除後將無法復原。');
 
     if (confirmation) {
         jQuery.ajax({
@@ -119,7 +119,7 @@ function deleteCross(cross_id){
             success: function(response) {
                 jQuery('#working_modal').modal('hide');
                 if (response.success == 1) {
-                    alert('Deletion was successful');
+                    alert('刪除成功');
                     location.reload();
                 }
                 if (response.error) {
@@ -128,7 +128,7 @@ function deleteCross(cross_id){
             },
             error: function(response) {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred during deletion');
+                alert('刪除過程中發生錯誤');
             }
         });
     }

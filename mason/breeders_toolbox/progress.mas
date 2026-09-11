@@ -7,31 +7,31 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<& /page/page_title.mas, title => "Breeding Progress" &>
+<& /page/page_title.mas, title => "育種進展(Breeding Progress)" &>
 
 <& /util/import_javascript.mas, classes => [ ] &>
 
   <table class="table">
     <tr>
-      <th width="100">Select Trait</th>
+      <th width="100">選取性狀(Select Trait)</th>
 
     </tr>
 
     <tr>
       <td>
-	<div id="trait_selector_div">[loading...]</div>
+	<div id="trait_selector_div">[載入中...]</div>
       </td>
 
 
     </tr>
   </table>
 
-  <button class="btn" id="display_stats_button">Show Stats</button>
+  <button class="btn" id="display_stats_button">顯示統計資料(Show Stats)</button>
 
   <table id="progress_stats_datatable">
   </table>
   <br />
-  <button class="btn" id="display_graph_button">Show Graph</button>
+  <button class="btn" id="display_graph_button">顯示圖表(Show Graph)</button>
   <div id="trait_averages_bargraph"></div>
   <script>
 jQuery(window).ready(function () {
@@ -46,10 +46,10 @@ jQuery('#display_stats_button').click(function () {
         ajax: '/ajax/progress?trait_id=' + trait_id,
         destroy: true,
         columns: [
-            { "title": "year" },
-            { "title": "average" },
-            { "title": "std dev" },
-            { "title": "observations [count]" }
+            { "title": "年份(Year)" },
+            { "title": "平均值(Average)" },
+            { "title": "標準差(Std Dev)" },
+            { "title": "觀測數 [計數](Observations [Count])" }
         ]
     });
 });
@@ -111,7 +111,7 @@ jQuery('#display_graph_button').click(function () {
                                 "field": "mean + stddev",
                                 "type": "quantitative",
                                 "scale": { "zero": false },
-                                "title": "Average"
+                                "title": "平均值"
                             },
                             "y2": { "field": "mean - stddev" },
                             "color": {"value": "navy"}
@@ -124,7 +124,7 @@ jQuery('#display_graph_button').click(function () {
         },
 
         error: function (e) {
-            alert('cannot show graph');
+            alert('無法顯示圖表');
 
         }
     });

@@ -12,16 +12,16 @@ $table_only => undef
 
 % if (!$table_only){
 
-<h1>GENOTYPING PLATE</h1>
-<h1>Breeding program: <% $breeding_program_name %></h1>
-<h2>Trial name: <a href='/breeders/trial/<% $trial_id %>'><% $trial_name %></a></h2>
+<h1>基因分型微孔盤(Genotyping Plate)</h1>
+<h1>育種計畫：<% $breeding_program_name %></h1>
+<h2>試驗名稱：<a href='/breeders/trial/<% $trial_id %>'><% $trial_name %></a></h2>
 <br/>
 
 % }
 
 <div id="trial_plate_view_html">
 <div class="well">
-[LOADING...]
+[載入中...]
 </div>
 </div>
 
@@ -77,20 +77,20 @@ jQuery(document).ready(function () {
                             } else {
                                 bgcolor="#FFFFFF";
                             }
-                            cell = "<br/>Sample: <a href='/stock/" + response.design[well].plot_id +"/view'>" + response.design[well].plot_name + "</a> <br/>Accession: <a href='/stock/" + response.design[well].accession_id +"/view'>" + response.design[well].accession_name + "</a>";
+                            cell = "<br/>樣本：<a href='/stock/" + response.design[well].plot_id +"/view'>" + response.design[well].plot_name + "</a> <br/>種原：<a href='/stock/" + response.design[well].accession_id +"/view'>" + response.design[well].accession_name + "</a>";
                             if(response.design[well].source_plot_id){
-                                cell = cell + "<br/>Source Plot: <a href='/stock/" + response.design[well].source_plot_id +"/view'>" + response.design[well].source_plot_name + "</a>";
+                                cell = cell + "<br/>來源小區：<a href='/stock/" + response.design[well].source_plot_id +"/view'>" + response.design[well].source_plot_name + "</a>";
                             }
                             if(response.design[well].source_plant_id){
-                                cell = cell + "<br/>Source Plant: <a href='/stock/" + response.design[well].source_plant_id +"/view'>" + response.design[well].source_plant_name + "</a>";
+                                cell = cell + "<br/>來源植株：<a href='/stock/" + response.design[well].source_plant_id +"/view'>" + response.design[well].source_plant_name + "</a>";
                             }
                             if(response.design[well].source_tissue_id){
-                                cell = cell + "<br/>Source Tissue: <a href='/stock/" + response.design[well].source_tissue_id +"/view'>" + response.design[well].source_tissue_name + "</a>";
+                                cell = cell + "<br/>來源組織：<a href='/stock/" + response.design[well].source_tissue_id +"/view'>" + response.design[well].source_tissue_name + "</a>";
                             }
                             if(response.design[well].facility_identifier != 'NA'){
-                                cell = cell + "<br/>Facility Identifier:" + response.design[well].facility_identifier;
+                                cell = cell + "<br/>機構識別碼：" + response.design[well].facility_identifier;
                             }
-                            cell = cell + "<br/><a onclick='replace_plate_accessions(\""+ response.design[well].plot_name +"\",\""+ response.design[well].plot_id +"\",\""+ response.design[well].accession_name +"\");'>Details</a>";
+                            cell = cell + "<br/><a onclick='replace_plate_accessions(\""+ response.design[well].plot_name +"\",\""+ response.design[well].plot_id +"\",\""+ response.design[well].accession_name +"\");'>詳細資料(Details)</a>";
                             cell = cell + "<br/><br/>";
                         }
                     }
@@ -105,7 +105,7 @@ jQuery(document).ready(function () {
         },
         error: function(response){
             jQuery("#working_modal").modal("hide");
-            alert("Error retrieving plate layout.");
+            alert("擷取微孔盤配置時發生錯誤。");
         }
     });
 

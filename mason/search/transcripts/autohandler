@@ -1,7 +1,7 @@
 <& /page/mode_buttons.mas, buttons => [
-         [ '/search/transcripts/unigene',     'Unigenes'  ],
+         [ '/search/transcripts/unigene',     '單一基因(Unigenes)'  ],
          [ '/search/transcripts/est',         'ESTs'      ],
-         [ '/search/transcripts/est_library', 'Libraries' ],
+         [ '/search/transcripts/est_library', '文庫(Libraries)' ],
        ],
 &>
 

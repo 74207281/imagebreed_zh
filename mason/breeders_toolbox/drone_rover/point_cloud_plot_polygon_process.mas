@@ -18,12 +18,12 @@ $database_field_name
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form', 'CXGN.BreederSearch03152022', 'd3.d3v4Min.js', 'opencv.opencv', 'CXGN.Trial03152022', 'moment_min', 'daterangepicker', 'CXGN.ManageDroneImagery09072022', 'CXGN.ManageDroneRover11142022' ] &>
 
 
-<& /page/page_title.mas, title=>"Manage Drone Rovers: Run A Standard Process For Plot Polygons" &>
+<& /page/page_title.mas, title=>"管理無人漫遊車：執行小區多邊形標準流程(Manage Drone Rovers: Run A Standard Process For Plot Polygons)" &>
 
 <div class="well well-sm">
     <center>
-        <h4>Please use the Brave or Chrome web-browsers to view these image tools. In the future, other browsers may be supported.</h4>
-        <h4><a href="https://www.youtube.com/channel/UC1FYqz6kz9pE72sSHhG7ocQ">Watch tutorial videos from processing rover events</a>.</h4>
+        <h4>請使用 Brave 或 Chrome 網頁瀏覽器檢視這些影像工具。未來可能會支援其他瀏覽器。</h4>
+        <h4><a href="https://www.youtube.com/channel/UC1FYqz6kz9pE72sSHhG7ocQ">觀看漫遊車事件處理教學影片</a>。</h4>
     </center>
 </div>
 
@@ -53,15 +53,15 @@ $database_field_name
 <input type="hidden" id="pheno_heatmap_onswitch" />
 
 <&| /util/workflow.mas, id=> "manage_drone_rover_plot_polygon_process_workflow" &>
-    <&| /util/workflow.mas:step, title=> "Plot Polygons" &>
-        <& /page/page_title.mas, title=>"Define plot polygons relative to the field layout" &>
+    <&| /util/workflow.mas:step, title=> "小區多邊形(Plot Polygons)" &>
+        <& /page/page_title.mas, title=>"相對於田間配置定義小區多邊形(Define Plot Polygons Relative to Field Layout)" &>
 
         <div id="drone_rover_plot_polygons_process_run_info_section"></div>
 
         <div class="well well-sm">
             <div id="drone_rover_plot_polygons_process_top_section"></div>
 
-            <b>Specify Number of Plots, then Drag Lines to Define Plot Polygons, and finally Assign Plot Numbers to Polygons</b>
+            <b>指定小區數量，然後拖曳線條以定義小區多邊形，最後為多邊形分配小區編號</b>
         </div>
 
         <div id="drone_rover_plot_polygons_process_load_div">
@@ -74,12 +74,12 @@ $database_field_name
 
         <hr>
         <div class="well well-sm">
-            <div id="drone_rover_plot_polygon_process_generated_polygons_table">First Complete the Templating Above</div>
+            <div id="drone_rover_plot_polygon_process_generated_polygons_table">請先完成上方的範本設定</div>
         </div>
 
         <hr>
         <center>
-        <h2>Field Layout References Below</h2>
+        <h2>下方田間配置參考(Field Layout References Below)</h2>
         </center>
         <hr>
 
@@ -124,24 +124,24 @@ $database_field_name
         <div class="well well-sm">
             <div class="form-horizontal">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Check Correlation to Trait(s): </label>
+                    <label class="col-sm-2 control-label">檢查與性狀的相關性：</label>
                     <div class="col-sm-10">
                         <div id="drone_rover_plot_polygons_process_correlate_phenotype_trait_div">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Collection Moved Across What in Field Trial?: </label>
+                    <label class="col-sm-2 control-label">採集在田間試驗中跨越的維度：</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="drone_rover_plot_polygons_process_correlate_phenotype_columns_question">
-                            <option value="col_number">Col Number</option>
-                            <option value="row_number">Row Number</option>
+                            <option value="col_number">行號 (Col Number)</option>
+                            <option value="row_number">列號 (Row Number)</option>
                         </select>
                     </div>
                 </div>
             </div>
             <center>
-                <button class="btn btn-default" id="drone_rover_plot_polygons_process_correlate_phenotype_trait_submit">Check Trait(s) Correlation</button>
+                <button class="btn btn-default" id="drone_rover_plot_polygons_process_correlate_phenotype_trait_submit">檢查性狀相關性(Check Trait(s) Correlation)</button>
             </center>
 
             <br/>
@@ -150,29 +150,29 @@ $database_field_name
         </div>
 
     </&>
-    <&| /util/workflow.mas:step, title=> "Phenotypes" &>
-        <& /page/page_title.mas, title=>"Calculate phenotypes for all 3D plot polygons" &>
+    <&| /util/workflow.mas:step, title=> "表型(Phenotypes)" &>
+        <& /page/page_title.mas, title=>"計算所有 3D 小區多邊形的表型(Calculate Phenotypes for All 3D Plot Polygons)" &>
 
         <form class="form-horizontal">
             <div class="well well-sm">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Statistics to Calculate and Save in Database: </label>
+                    <label class="col-sm-4 control-label">要計算並儲存至資料庫的統計指標：</label>
                     <div class="col-sm-8">
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_height" type="checkbox" checked disabled> Average Point Height-wise <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_length" type="checkbox" checked disabled> Average Point Length-wise <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_span" type="checkbox" checked disabled> Average Point Span-wise <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_3d_volume" type="checkbox" checked disabled> Average Point 3D Volume <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="height_density" type="checkbox" checked disabled> Height-wise Density <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="length_density" type="checkbox" checked disabled> Length-wise Density <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="span_density" type="checkbox" checked disabled> Span-wise Density <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="3d_density" type="checkbox" checked disabled> Average 3D Density <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="number_points" type="checkbox" checked disabled> Number of Points <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_height" type="checkbox" checked disabled> Maximum Height Value <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_length" type="checkbox" checked disabled> Maximum Length Value <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_span" type="checkbox" checked disabled> Maximum Span Value <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_height" type="checkbox" checked disabled> Minimum Height Value <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_length" type="checkbox" checked disabled> Minimum Length Value <br/>
-                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_span" type="checkbox" checked disabled> Minimum Span Value <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_height" type="checkbox" checked disabled> 依高度平均點位置 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_length" type="checkbox" checked disabled> 依長度平均點位置 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_span" type="checkbox" checked disabled> 依跨度平均點位置 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="average_point_3d_volume" type="checkbox" checked disabled> 平均點 3D 體積 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="height_density" type="checkbox" checked disabled> 高度密度 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="length_density" type="checkbox" checked disabled> 長度密度 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="span_density" type="checkbox" checked disabled> 跨度密度 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="3d_density" type="checkbox" checked disabled> 平均 3D 密度 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="number_points" type="checkbox" checked disabled> 點數量 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_height" type="checkbox" checked disabled> 最大高度值 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_length" type="checkbox" checked disabled> 最大長度值 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="max_span" type="checkbox" checked disabled> 最大跨度值 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_height" type="checkbox" checked disabled> 最小高度值 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_length" type="checkbox" checked disabled> 最小長度值 <br/>
+                        <input name="drone_rover_plot_polygons_process_phenotypes_select" value="min_span" type="checkbox" checked disabled> 最小跨度值 <br/>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,7 @@ $database_field_name
         <div id="drone_rover_plot_polygon_process_week_term_div"></div>
 
         <center>
-        <button type="button" class="btn btn-info" id="manage_drone_rover_plot_polygon_process_phenotypes_step">Finish</button>
+        <button type="button" class="btn btn-info" id="manage_drone_rover_plot_polygon_process_phenotypes_step">完成(Finish)</button>
         </center>
     </&>
 </&>

@@ -13,17 +13,17 @@ $editable_stock_props => {}
       </div>
 
       <div>
-	<h3>What is Breedbase?</h3>
-	Breedbase is a comprehensive breeding management and analysis software. It can be used to design field layouts, collect phenotypic information using tablets, support the collection of genotyping samples in a field, store large amounts of high density genotypic information, and provide Genomic Selection related analyses and predictions. Breedbase supports the BrAPI standard.
-	<h3>How can I use Breedbase?</h3>
-	Breedbase is a web application that only requires a browser. To get your Breedbase instance, contact the <a href="/contact/form">Breedbase development team</a>.
-	<h3>What crops are using Breedbase?</h3>
-	There are a number of instances running for diverse crops, including Cassava (<a href="https://cassavabase.org/">https://cassavabase.org</a>), sweet potato (<a href="https://sweetpotatobase.org/">https://sweetpotatobase.org</a>), banana (<a href="https://musabase.org/">https://musabase.org</a>), rice (<a href="https://ricebase.org/">https://ricebase.org</a>), tomato and other Solanaceae (<a href="https://solgenomics.net">https://solgenomics.net/</a>) and many others.
+	<h3>什麼是 Breedbase？(What is Breedbase?)</h3>
+	Breedbase 是一套全方位的育種管理與分析軟體。它可用於設計田間試驗配置、使用平板電腦收集表型資訊、支援田間基因型分型樣品採集、儲存大量高密度基因型資料，並提供基因組選拔(Genomic Selection)相關分析與預測。Breedbase 支援 BrAPI 標準。
+	<h3>如何使用 Breedbase？(How can I use Breedbase?)</h3>
+	Breedbase 是一個只需瀏覽器即可使用的 Web 應用程式。如需取得專屬的 Breedbase 實例，請聯繫 <a href="/contact/form">Breedbase 開發團隊</a>。
+	<h3>有哪些作物正在使用 Breedbase？(What crops are using Breedbase?)</h3>
+	目前有多個實例運行於多種作物，包括木薯（<a href="https://cassavabase.org/">https://cassavabase.org</a>）、甘藷（<a href="https://sweetpotatobase.org/">https://sweetpotatobase.org</a>）、香蕉（<a href="https://musabase.org/">https://musabase.org</a>）、水稻（<a href="https://ricebase.org/">https://ricebase.org</a>）、番茄及其他茄科作物（<a href="https://solgenomics.net">https://solgenomics.net/</a>）等眾多作物。
       </div>
 
-      <h3>How can I learn more about Breedbase?</h3>
+      <h3>如何深入了解 Breedbase？(How can I learn more about Breedbase?)</h3>
 
-      You can watch the Breedbase workshops on <a href="https://www.youtube.com/channel/UC3jrvvzGKKEHzOriDBgnj0A">Youtube</a>, covering topics such as ontologies, trial design, data collection using fieldbook, data analysis, and genomic selection. 
+      您可以在 <a href="https://www.youtube.com/channel/UC3jrvvzGKKEHzOriDBgnj0A">YouTube</a> 上觀看 Breedbase 工作坊影片，內容涵蓋本體論(Ontology)、試驗設計、使用 fieldbook 收集數據、數據分析以及基因組選拔(Genomic Selection)等主題。 
       
       
 <div class="container-fluid">

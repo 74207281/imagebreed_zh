@@ -13,7 +13,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createCrossWishlistDialog">Create Cross Wishlist</h4>
+                <h4 class="modal-title" id="createCrossWishlistDialog">建立雜交清單(Create Cross Wishlist)</h4>
             </div>
 
             <div class="modal-body">
@@ -21,18 +21,18 @@
                     <div class="well">
                         <form class="form-horizontal" id="cross_wishlist_create_select_form_id" name="cross_wishlist_create_select_form_id">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label">Select An ODK Form on ONA: </label>
+                                <label class="col-sm-4 control-label">在 ONA 上選擇 ODK 表單：</label>
                                 <div class="col-sm-8" >
-                                    <div id="cross_wishlist_create_select_form_id_div">LOADING...</div>
+                                    <div id="cross_wishlist_create_select_form_id_div">載入中...</div>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                     <ul class="nav nav-pills nav-justified" id="cross_wishlist_tab_select">
-                        <li id="cross_wishlist_list_tab"><a data-toggle="tab" href="#with_lists">Using Accession Lists</a></li>
-                        <li class="active" id="cross_wishlist_no_list_tab"><a data-toggle="tab" href="#not_with_lists">Using Crossing Blocks</a></li>
-                        <li id="cross_wishlist_upload_tab"><a data-toggle="tab" href="#upload_wishlist">Uploading Cross Combinations</a></li>
+                        <li id="cross_wishlist_list_tab"><a data-toggle="tab" href="#with_lists">使用種原清單(Using Accession Lists)</a></li>
+                        <li class="active" id="cross_wishlist_no_list_tab"><a data-toggle="tab" href="#not_with_lists">使用雜交區(Using Crossing Blocks)</a></li>
+                        <li id="cross_wishlist_upload_tab"><a data-toggle="tab" href="#upload_wishlist">上傳雜交組合(Uploading Cross Combinations)</a></li>
                     </ul>
 
                     <div class="tab-content">
@@ -41,21 +41,21 @@
                             <hr>
                             <form class="form-horizontal" >
                                 <div class="form-group" style="display:none" <!-- location name is coming from the trial they select --> >
-                                    <label class="col-sm-3 control-label">Location Name (Optional): </label>
+                                    <label class="col-sm-3 control-label">地點名稱（選填）：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_location_select_list_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Female's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">母本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_female_trial_select_list_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Male's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">父本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_male_trial_select_list_div">
                                         </div>
@@ -63,21 +63,21 @@
                                 </div>
                                 <div class="well well-sm">
                                     <div class="form-group">
-                                        <label class="col-sm-6 control-label">Cross plan will be added to the cross wishlist named: </label>
+                                        <label class="col-sm-6 control-label">雜交計畫將新增至名為以下名稱的雜交清單中：</label>
                                         <div class="col-sm-6" >
                                             <div id="cross_wishlist_trial_select_list_cross_wishlist_name_div">
-                                                <input class="form-control" type="text" disabled value="Please Select a Trial First" />
+                                                <input class="form-control" type="text" disabled value="請先選擇試驗" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Female Accession List: </label>
+                                    <label class="col-sm-3 control-label">母本種原清單：</label>
                                     <div class="col-sm-9" id="female_accession_list_div" name="female_accession_list_div">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Male Accession List: </label>
+                                    <label class="col-sm-3 control-label">父本種原清單：</label>
                                     <div class="col-sm-9" id="male_accession_list_div" name="male_accession_list_div">
                                     </div>
                                 </div>
@@ -91,14 +91,14 @@
 
                             <form class="form-horizontal" >
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Female's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">母本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_female_trial_select_no_list_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Male's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">父本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_male_trial_select_no_list_div">
                                         </div>
@@ -106,19 +106,19 @@
                                 </div>
                                 <div class="well well-sm">
                                     <div class="form-group">
-                                        <label class="col-sm-6 control-label">Cross plan will be added to the cross wishlist named: </label>
+                                        <label class="col-sm-6 control-label">雜交計畫將新增至名為以下名稱的雜交清單中：</label>
                                         <div class="col-sm-6" >
                                             <div id="cross_wishlist_trial_select_no_list_cross_wishlist_name_div">
-                                                <input class="form-control" type="text" disabled value="Please Select a Trial First" />
+                                                <input class="form-control" type="text" disabled value="請先選擇試驗" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Female Accession Name(s):</label>
+                                    <label class="col-sm-3 control-label">母本種原名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_female_accession_select_div">
-                                            <p>First Select A Trial</p>
+                                            <p>請先選擇試驗</p>
                                         </div>
                                     </div>
                                 </div>
@@ -132,14 +132,14 @@
                             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_wishlist_form" name="upload_wishlist_form">
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Female's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">母本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_female_trial_select_upload_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Male's Trial Name: </label>
+                                    <label class="col-sm-3 control-label">父本試驗名稱：</label>
                                     <div class="col-sm-9" >
                                         <div id="cross_wishlist_male_trial_select_upload_div">
                                         </div>
@@ -147,10 +147,10 @@
                                 </div>
                                 <div class="well well-sm">
                                     <div class="form-group">
-                                        <label class="col-sm-6 control-label">Cross plan will be added to the cross wishlist named: </label>
+                                        <label class="col-sm-6 control-label">雜交計畫將新增至名為以下名稱的雜交清單中：</label>
                                         <div class="col-sm-6" >
                                             <div id="cross_wishlist_trial_select_upload_cross_wishlist_name_div">
-                                                <input class="form-control" type="text" disabled value="Please Select a Trial First" />
+                                                <input class="form-control" type="text" disabled value="請先選擇試驗" />
                                             </div>
                                         </div>
                                     </div>
@@ -158,11 +158,11 @@
                                 <div class="well well-sm">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <&| /page/explanation.mas, title=>'Template information' &>
+                                            <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                 <p>
-                                                    <b>File format information</b>
+                                                    <b>檔案格式資訊</b>
                                                     <br>
-                                                    <a id="wishlist_format">Spreadsheet format</a>
+                                                    <a id="wishlist_format">試算表格式</a>
                                                 </p>
                                             </&>
                                         </div>
@@ -171,7 +171,7 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-body">
                                                     <div class="form-group">
-                                                        <label class="col-sm-6 control-label">Select an XLS File: </label>
+                                                        <label class="col-sm-6 control-label">選擇 XLS 檔案：</label>
                                                         <div class="col-sm-6">
                                                             <input type="file" name="wishlist_file" id="wishlist_file" encoding="multipart/form-data" />
                                                         </div>
@@ -189,16 +189,16 @@
 
             <div id="wishlist_lists_footer">
                 <div class="modal-footer">
-                    <button class="btn btn-info" id="show_cross_wishlists_select_submits" name="show_cross_wishlists_select_submits">Available Cross Wishlist(s) for ODK Use</button>
-                    <button class="btn btn-primary" id="cross_wishlist_submit" name="cross_wishlist_submits">Next</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-info" id="show_cross_wishlists_select_submits" name="show_cross_wishlists_select_submits">可用於 ODK 的雜交清單(Available Cross Wishlist(s) for ODK Use)</button>
+                    <button class="btn btn-primary" id="cross_wishlist_submit" name="cross_wishlist_submits">下一步(Next)</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
                 </div>
             </div>
             <div id="wishlist_upload_footer" style="display:none">
                 <div class="modal-footer">
-                    <button class="btn btn-info" id="upload_show_cross_wishlists_select_submits" name="upload_show_cross_wishlists_select_submits">Available Cross Wishlist(s) for ODK Use</button>
-                    <button class="btn btn-primary" id="wishlist_upload_submit" name="wishlist_upload_submit">Upload File</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button class="btn btn-info" id="upload_show_cross_wishlists_select_submits" name="upload_show_cross_wishlists_select_submits">可用於 ODK 的雜交清單(Available Cross Wishlist(s) for ODK Use)</button>
+                    <button class="btn btn-primary" id="wishlist_upload_submit" name="wishlist_upload_submit">上傳檔案(Upload File)</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
                 </div>
             </div>
         </div>
@@ -210,8 +210,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createCrossWishlistSelectDialog">Select Plots for Cross Wishlist</h4>
-                <h4>Female Plots are in <span class="bg-primary">Blue</span><!-- and Male Plots are in <span class="bg-success">Green</span>.--></h4>
+                <h4 class="modal-title" id="createCrossWishlistSelectDialog">為雜交清單選取小區(Select Plots for Cross Wishlist)</h4>
+                <h4>母本小區顯示為<span class="bg-primary">藍色</span><!-- and Male Plots are in <span class="bg-success">Green</span>.--></h4>
             </div>
 
             <div class="modal-body">
@@ -221,8 +221,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" id="cross_wishlist_select_submits" name="cross_wishlist_select_submits">Create Wishlist</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" id="cross_wishlist_select_submits" name="cross_wishlist_select_submits">建立雜交清單(Create Wishlist)</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -233,7 +233,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createCrossWishlistResponseDialog">Cross Wishlist</h4>
+                <h4 class="modal-title" id="createCrossWishlistResponseDialog">雜交清單(Cross Wishlist)</h4>
             </div>
 
             <div class="modal-body">
@@ -243,7 +243,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -254,7 +254,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="showCrossWishlistsResponseDialog">Cross Wishlists Previously Created</h4>
+                <h4 class="modal-title" id="showCrossWishlistsResponseDialog">先前建立的雜交清單(Cross Wishlists Previously Created)</h4>
             </div>
 
             <div class="modal-body">
@@ -264,7 +264,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -275,7 +275,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadWishlistErrorDialog">Upload Wishlist File Error</h4>
+                <h4 class="modal-title" id="uploadWishlistErrorDialog">上傳雜交清單檔案錯誤(Upload Wishlist File Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -285,7 +285,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -296,19 +296,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadWishlistInfoDialog">Template Information</h4>
+                <h4 class="modal-title" id="uploadWishlistInfoDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <b>
-                        Cross wishlist may be uploaded in an Excel file (.xls or .xlsx)
+                        雜交清單可透過 Excel 檔案（.xls 或 .xlsx）上傳
                     </b>
                     <br>
                     <b>
-                        Header:
+                        標題列：
                     </b>
                     <br>
-                        The first row (header) must contain the following:
+                        第一列（標題）必須包含以下欄位：
                     <br>
 
                     <table class="table table-bordered table-hover">
@@ -321,17 +321,17 @@
                         </tbody>
                     </table>
                     <b>
-                        Required columns:
+                        必填欄位：
                     </b>
                     <ul>
-                        <li><b>female_accession</b> (accession names must exist as <b>uniquenames</b> in the database and are in the selected female trial. Wishlist will include all of the female plots in the trial.)</li>
-                        <li><b>male_accession</b> (accession names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>priority</b> (1 is the most important) </li>
+                        <li><b>female_accession</b>（種原名稱必須作為<b>唯一名稱</b>存在於資料庫中，且屬於所選的母本試驗。雜交清單將包含該試驗中的所有母本小區。）</li>
+                        <li><b>male_accession</b>（種原名稱必須作為<b>唯一名稱</b>存在於資料庫中）</li>
+                        <li><b>priority</b>（優先順序，1 為最重要）</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -344,7 +344,7 @@ var lo = new CXGN.List();
 
 function draw_cross_grid(female_accessions, male_accessions){
     console.log("draw cross grid");
-    var cross_grid_html = '<h3>Set Cross Priorities: 1 is highest and 60 is lowest</h3><h4>Female Accessions Are in First Column and Male Accessions Are in Header</h4><table class="table table-bordered"><thead><tr><th>Female Accessions</th>';
+    var cross_grid_html = '<h3>設定雜交優先順序：1 為最高，60 為最低</h3><h4>母本種原位於第一欄，父本種原位於標題列</h4><table class="table table-bordered"><thead><tr><th>母本種原(Female Accessions)</th>';
     for(var i=0; i<male_accessions.length; i++){
         cross_grid_html = cross_grid_html + '<th>' + male_accessions[i] + '</th>';
     }
@@ -376,19 +376,19 @@ jQuery(document).ready(function($) {
                 jQuery('#working_modal').modal('hide');
                 var html = '';
                 if(response.success){
-                    html += "<table class='table table-bordered table-hover'><thead><tr><th>File</th><th>Updated By</th><th>Date</th></tr></thead><tbody>";
+                    html += "<table class='table table-bordered table-hover'><thead><tr><th>檔案(File)</th><th>更新者(Updated By)</th><th>日期(Date)</th></tr></thead><tbody>";
                     for(var i=0; i<response.files.length; i++){
                         html += "<tr><td><a href='/breeders/phenotyping/download/"+response.files[i][0]+"' >"+response.files[i][1]+"</a></td><td><a href='/solpeople/personal-info.pl?sp_person_id="+response.files[i][6]+"' >"+response.files[i][7]+" "+response.files[i][8]+"</a></td><td>"+response.files[i][5]+"</td></tr>";
                     }
                     html += "</tbody></table>";
                 } else {
-                    html = 'Something went wrong here.'
+                    html = '發生錯誤。'
                 }
                 jQuery('#show_cross_wishlists_response_div').html(html);
             },
             error: function(response) {
                 jQuery('#working_modal').modal('hide');
-                alert("An error occurred getting cross wishlists");
+                alert("取得雜交清單時發生錯誤");
             }
         });
 
@@ -396,8 +396,8 @@ jQuery(document).ready(function($) {
 
     jQuery("#create_cross_wishlist").click(function() {
         jQuery("#create_cross_wishlist_dialog").modal("show");
-        jQuery("#female_accession_list_div").html(lo.listSelect('female_accession_list_div', ["accessions"], "Please select list with < 60 accessions", undefined, undefined ));
-        jQuery("#male_accession_list_div").html(lo.listSelect('male_accession_list_div', ["accessions"], "Please select list with < 60 accessions", undefined, undefined ));
+        jQuery("#female_accession_list_div").html(lo.listSelect('female_accession_list_div', ["accessions"], "請選擇種原數量少於 60 個的清單", undefined, undefined ));
+        jQuery("#male_accession_list_div").html(lo.listSelect('male_accession_list_div', ["accessions"], "請選擇種原數量少於 60 個的清單", undefined, undefined ));
         var female_accessions;
         var male_accessions
         if (jQuery('#female_accession_list_div_list_select').val() != '' && jQuery('#male_accession_list_div_list_select').val() != '' ) {
@@ -430,7 +430,7 @@ jQuery(document).ready(function($) {
                             }
                             if (response_forms.success){
 
-                                var form_dropdown_select_html = '<select class="form-control" id="cross_wishlist_availabe_odk_crossing_forms"><option value="">Not Using ONA</option>';
+                                var form_dropdown_select_html = '<select class="form-control" id="cross_wishlist_availabe_odk_crossing_forms"><option value="">不使用 ONA</option>';
                                 var allowed_forms = response_forms.odk_ona_forms;
                                 allowed_forms.push('<% $c->config->{odk_crossing_data_test_form_name} %>');
                                 for(var i=0; i<response.forms.length; i++){
@@ -444,7 +444,7 @@ jQuery(document).ready(function($) {
                             }
                         },
                         error: function(response_forms){
-                            alert("Error retrieving saved ODK ONA forms");
+                            alert("擷取已儲存的 ODK ONA 表單時發生錯誤");
                         }
                     });
 
@@ -452,7 +452,7 @@ jQuery(document).ready(function($) {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving available ODK crossing forms");
+                alert("擷取可用的 ODK 雜交表單時發生錯誤");
             }
         });
 
@@ -539,7 +539,7 @@ jQuery(document).ready(function($) {
                 jQuery('#cross_wishlist_trial_select_no_list_cross_wishlist_name_div').html('<input type="text" class="form-control" disabled value="'+cross_wishlist_name+'" />');
             },
             error: function(response) {
-                alert("An error occurred getting trial location");
+                alert("取得試驗地點時發生錯誤");
             }
         });
 
@@ -572,7 +572,7 @@ jQuery(document).ready(function($) {
                 jQuery('#cross_wishlist_trial_select_list_cross_wishlist_name_div').html('<input type="text" class="form-control" disabled value="'+cross_wishlist_name+'" />');
             },
             error: function(response) {
-                alert("An error occurred getting trial location");
+                alert("取得試驗地點時發生錯誤");
             }
         });
     };
@@ -603,7 +603,7 @@ jQuery(document).ready(function($) {
                 jQuery('#cross_wishlist_trial_select_upload_cross_wishlist_name_div').html('<input type="text" class="form-control" disabled value="'+cross_wishlist_name+'" />');
             },
             error: function(response) {
-                alert("An error occurred getting trial location");
+                alert("取得試驗地點時發生錯誤");
             }
         });
     };
@@ -624,14 +624,14 @@ jQuery(document).ready(function($) {
             male_trial_ids_string = male_trial_ids;
         }
         if (male_trial_ids.length == 0){
-            alert('Please select a male trial first!');
+            alert('請先選擇父本試驗！');
             return;
         }
 
         var female_accession_ids = jQuery('#cross_wishlist_female_accession_ids').val();
-        var html = '<table class="table table-bordered" id="cross_wishlist_male_select_table"><thead><tr><th>Female Parent</th><th>Select Male Parent</th><th>Priority ( 1 : highest, 60 : lowest )</th></tr></thead><tbody>';
+        var html = '<table class="table table-bordered" id="cross_wishlist_male_select_table"><thead><tr><th>母本(Female Parent)</th><th>選擇父本(Select Male Parent)</th><th>優先順序 ( 1 : 最高, 60 : 最低 )(Priority ( 1 : highest, 60 : lowest ))</th></tr></thead><tbody>';
         for(var i=0; i<female_accession_ids.length; i++){
-            html = html + '<tr><td>' + female_accession_ids[i] + '</td><td><div name="cross_wishlist_male_selects" id="cross_wishlist_male_select_' +i+ '"></div></td><td><span id="cross_wishlist_male_accession_id_'+ i +'_priority" data-related="'+encodeURI(female_accession_ids[i])+'" >Select Male(s)</span></td></tr>';
+            html = html + '<tr><td>' + female_accession_ids[i] + '</td><td><div name="cross_wishlist_male_selects" id="cross_wishlist_male_select_' +i+ '"></div></td><td><span id="cross_wishlist_male_accession_id_'+ i +'_priority" data-related="'+encodeURI(female_accession_ids[i])+'" >選擇父本(Select Male(s))</span></td></tr>';
         };
         html = html + '</tbody></table>';
         jQuery('#cross_wishlist_male_parent_div').html(html);
@@ -659,7 +659,7 @@ jQuery(document).ready(function($) {
         var female_accession_ids = jQuery('#cross_wishlist_female_accession_ids').val();
         var male_ids = jQuery(div_id).val();
         var female_id = jQuery(div_id).data('related');
-        var html = '<table class="table table-bordered" div="' + div_id +'_table"><thead><tr><th>Male Parent</th><th>Priority</th></tr></thead><tbody>';
+        var html = '<table class="table table-bordered" div="' + div_id +'_table"><thead><tr><th>父本(Male Parent)</th><th>優先順序(Priority)</th></tr></thead><tbody>';
         for (var i=0; i<male_ids.length; i++){
             html = html + '<tr><td>' + male_ids[i] + '</td><td><input class="form-control" male_id="' + male_ids[i] + '" female_id="' + female_id + '" name ="cross_wishlist_final_priority" id="cross_wishlist_male_priority_'+ i +'" value="1" placeholder="1"/></td></tr>';
         };
@@ -715,17 +715,17 @@ jQuery(document).ready(function($) {
         //console.log(trial_id);
         //console.log(female_male_tracker);
         if(!female_trial_id){
-            alert('You must select a female trial!');
+            alert('您必須選擇母本試驗！');
             return;
         }
         if(!male_trial_id){
-            alert('You must select a male trial! It can be the same trial as the female trial.');
+            alert('您必須選擇父本試驗！可以與母本試驗相同。');
             return;
         }
         for (f in female_male_tracker){
             var male_array = female_male_tracker[f];
             if (male_array.length > male_accession_limit){
-                alert('A maximum of 60 male accessions can be selected for each cross!');
+                alert('每個雜交組合最多只能選擇 60 個父本種原！');
                 return;
             }
         }
@@ -753,7 +753,7 @@ jQuery(document).ready(function($) {
             },
             error: function(response) {
                 jQuery('#working_modal').modal('hide');
-                alert("An error occurred submitting plots for cross wishlist");
+                alert("提交雜交清單小區時發生錯誤");
             }
         });
     });
@@ -790,7 +790,7 @@ jQuery(document).ready(function($) {
         for (f in female_male_tracker){
             var male_array = female_male_tracker[f];
             if (male_array.length > male_plot_limit){
-                alert('A maximum of 60 male plots can be selected for each cross!');
+                alert('每個雜交組合最多只能選擇 60 個父本小區！');
                 return;
             }
         }
@@ -808,7 +808,7 @@ jQuery(document).ready(function($) {
             },
             dataType:'json',
             beforeSend: function() {
-                jQuery('#working_msg').html('Creating cross wishlist files and sending information to ONA... This can take time...');
+                jQuery('#working_msg').html('正在建立雜交清單檔案並將資訊發送至 ONA... 這可能需要一些時間...');
                 jQuery('#working_modal').modal('show');
             },
             success: function(response) {
@@ -829,7 +829,7 @@ jQuery(document).ready(function($) {
             error: function(response) {
                 jQuery('#working_msg').html('');
                 jQuery('#working_modal').modal('hide');
-                alert("An error occurred creating cross wishlist");
+                alert("建立雜交清單時發生錯誤");
             }
         });
     });
@@ -850,19 +850,19 @@ jQuery(document).ready(function($) {
     function upload_wishlist_file() {
         var female_trial_id = $('#cross_wishlist_upload_female_trial_id').val();
         if (!female_trial_id) {
-            alert('A female trial is required');
+            alert('需要母本試驗');
             return;
         }
 
         var male_trial_id = $('#cross_wishlist_upload_male_trial_id').val();
         if (!male_trial_id) {
-            alert('A male trial is required');
+            alert('需要父本試驗');
             return;
         }
 
         var uploadFile = $("#wishlist_file").val();
         if (uploadFile === ''){
-            alert("Please select a file");
+            alert("請選擇檔案");
             return;
         }
 
@@ -877,9 +877,9 @@ jQuery(document).ready(function($) {
         post: function() {
             var uploadFile = $('#wishlist_file').val();
             if (uploadFile === '') {
-                alert("No file selected");
+                alert("未選擇檔案");
             }
-            jQuery('#working_msg').html('Creating cross wishlist files and sending information to ONA... This can take time...');
+            jQuery('#working_msg').html('正在建立雜交清單檔案並將資訊發送至 ONA... 這可能需要一些時間...');
             jQuery('#working_modal').modal('show');
         },
         complete: function(response) {
@@ -933,7 +933,7 @@ jQuery(document).ready(function($) {
                     error: function(response) {
                         jQuery('#working_msg').html('');
                         jQuery('#working_modal').modal('hide');
-                        alert("An error occurred creating cross wishlist");
+                        alert("建立雜交清單時發生錯誤");
                     }
                 });
             }

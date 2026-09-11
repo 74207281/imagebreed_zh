@@ -12,66 +12,66 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadCrossesDialog">Upload Crosses</h4>
+                <h4 class="modal-title" id="uploadCrossesDialog">上傳雜交(Upload Crosses)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "crosses_upload_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"What are crosses?" &>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"什麼是雜交？(What are crosses?)" &>
                             <ul>
-                                <li>Crosses represent any pollination that occurs.</li>
-                                <li>Crosses can be of different types (biparental, self, open, backcross, sib, polycross, bulk, bulk_self, bulk_open, or doubled_haploid)</li>
-                                <li>Depending on the cross type, an individual cross can be defined as between two accessions (e.g. accession A is the female and accession B is the male in a biparental cross)</li>
-                                <li>For an open pollinated cross, the cross can be defined as between female accession A and male population P1 (populations in the database are only defined as groups of accessions), or between female accession A and unknown male parents</li>
-                                <li>For backcross cross type, cross unique id can be used as one of the parents.</li>
-                                <li>An individual cross can be linked to the specific female plot or plant, as well as the specific male plot or plant.</li>
-                                <li>A cross can have a number of properties associated to it, such as number of flowers, pollination date, etc.</li>
-                                <li>A cross can produce seed, which goes into a seedlot.</li>
-                                <li>A cross can ultimately produce progeny, which then become named accessions in the database.</li>
+                                <li>雜交代表任何發生的授粉事件。</li>
+                                <li>雜交可以有不同的類型（雙親、自交、開放授粉、回交、同胞交、多系交配、混合、混合自交、混合與開放授粉或單倍體加倍）</li>
+                                <li>根據雜交類型，單一雜交可定義在兩個種原之間（例如雙親雜交中種原 A 為母本，種原 B 為父本）</li>
+                                <li>對於開放授粉雜交，雜交可定義在母本種原 A 與父本族群 P1 之間（資料庫中的族群僅定義為種原群組），或母本種原 A 與未知父本之間</li>
+                                <li>對於回交類型，雜交唯一識別碼（cross unique id）可用作其中一個親本。</li>
+                                <li>單一雜交可以連結至特定的母本小區或植株，以及特定的父本小區或植株。</li>
+                                <li>雜交可以有多個相關屬性，例如花朵數量、授粉日期等。</li>
+                                <li>雜交可以產生種子，這些種子會進入種子批次。</li>
+                                <li>雜交最終可產生後代，隨後在資料庫中命名為種原。</li>
                             </ul>
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "Crossing experiment" &>
-                            <& /page/page_title.mas, title=>"Select a crossing experiment for your crosses" &>
-                            <center><label style="color:DarkOliveGreen" class="col-sm-12 control-label">If you are uploading an Intercross file and using auto-generated cross unique IDs, please use manage Intercross section</label></center>
+                        <&| /util/workflow.mas:step, title=> "雜交實驗(Crossing experiment)" &>
+                            <& /page/page_title.mas, title=>"為您的雜交選擇雜交實驗(Select a crossing experiment for your crosses)" &>
+                            <center><label style="color:DarkOliveGreen" class="col-sm-12 control-label">如果您要上傳 Intercross 檔案並使用自動產生的雜交唯一 ID，請使用管理 Intercross 區塊</label></center>
                             <br>
                             <br>
                             <div id="manage_page_section_1" style="display:none">
-                                <p>Crossing experiments are for grouping crosses together. The grouping is most often done for crosses derived from the same field trial, the same year, or for crosses that have the same breeding objective.</p>
+                                <p>雜交實驗用於將雜交分組在一起。分組通常針對來自同一個田間試驗、同一年份或具有相同育種目標的雜交進行。</p>
                                 <center>
-                                    <button class="btn btn-info" name="create_crossingtrial_link">If you need to create a new crossing experiment, click here</button><br/><br/>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">If you already have a crossing experiment, go to Next Step</button>
+                                    <button class="btn btn-info" name="create_crossingtrial_link">若您需要建立新的雜交實驗，請點選此處(If you need to create a new crossing experiment, click here)</button><br/><br/>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">如果您已有雜交實驗，前往下一步(If you already have a crossing experiment, go to Next Step)</button>
                                 </center>
                             </div>
 
                             <div id="crossing_experiment_page_section_1" style="display:none">
                                 <center>
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">You are uploading crosses for crossing experiment: </label>
+                                        <label class="col-sm-5 control-label">您正在為以下雜交實驗上傳雜交：</label>
                                         <div class="col-sm-6" >
                                             <input class="form-control" name="experiment_name_1" id="experiment_name_1" disabled value="<% $trial_name %>">
                                         </div>
                                     </div>
                                     <br/><br/><br/><br/>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                                 </center>
                             </dvi>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Upload your crosses" &>
-                            <& /page/page_title.mas, title=>"Enter basic information about the crosses and upload your file" &>
+                        <&| /util/workflow.mas:step, title=> "上傳您的雜交(Upload your crosses)" &>
+                            <& /page/page_title.mas, title=>"輸入雜交基本資訊並上傳您的檔案(Enter basic information about the crosses and upload your file)" &>
 
                             <br/>
                             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_crosses_form" name="upload_crosses_form">
                                 <div id="manage_page_section_2" style="display:none">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Breeding Program: </label>
+                                        <label class="col-sm-3 control-label">育種計畫：</label>
                                         <div class="col-sm-9" >
                                             <div id="upload_crosses_breeding_program_select_div">
                                             </div>
@@ -79,7 +79,7 @@ $trial_name => undef
                                     </div>
                                     <div id="manage_page_crossing_experiment" style="display:none">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">Crossing Experiment: </label>
+                                            <label class="col-sm-3 control-label">雜交實驗：</label>
                                             <div class="col-sm-9">
                                                 <div id="upload_crosses_crossing_experiment_select_div" name="upload_crosses_crossing_experiment_select_div" >
                                                 </div>
@@ -89,7 +89,7 @@ $trial_name => undef
                                 </div>
                                 <div id="crossing_experiment_page_section_2" style="display:none">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Crossing Experiment: </label>
+                                        <label class="col-sm-3 control-label">雜交實驗：</label>
                                         <div class="col-sm-9" >
                                             <input class="form-control" name="experiment_name" id="experiment_name" disabled value="<% $trial_name %>">
                                             <input name="experiment_id" id="experiment_id" type="hidden" value="<% $trial_id %>">
@@ -97,26 +97,26 @@ $trial_name => undef
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">File Format: </label>
+                                    <label class="col-sm-3 control-label">檔案格式：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="cross_file_format_option">
-                                            <option value="">Select a file format that you want to upload</option>
-                                            <option value="xls_cross_accession">Excel (.xls or .xlsx) file with only accession/population names for parents</option>
-                                            <option value="xls_cross_plot">Excel (.xls or .xlsx) file with accession and plot names for parents</option>
-                                            <option value="xls_cross_plant">Excel (.xls or .xlsx) file with accession and plant names for parents</option>
+                                            <option value="">選擇您要上傳的檔案格式</option>
+                                            <option value="xls_cross_accession">僅包含親本種原/族群名稱的 Excel (.xls 或 .xlsx) 檔案</option>
+                                            <option value="xls_cross_plot">包含親本種原和小區名稱的 Excel (.xls 或 .xlsx) 檔案</option>
+                                            <option value="xls_cross_plant">包含親本種原和植株名稱的 Excel (.xls 或 .xlsx) 檔案</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div id="xls_cross_accession_section" style="display:none">
-                                    <h3>You want to upload crosses in an Excel file with accession or population names for parents</h3>
+                                    <h3>您想要上傳包含親本種原或族群名稱的 Excel 雜交檔案</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="cross_accession_info_format">Spreadsheet format</a>
+                                                        <a id="cross_accession_info_format">試算表格式</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -125,7 +125,7 @@ $trial_name => undef
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select an XLS File: </label>
+                                                            <label class="col-sm-6 control-label">選擇 XLS 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="xls_crosses_simple_file" id="xls_crosses_simple_file" encoding="multipart/form-data" />
                                                             </div>
@@ -137,15 +137,15 @@ $trial_name => undef
                                     </div>
                                 </div>
                                 <div id="xls_cross_plot_section" style="display:none">
-                                    <h3>You want to upload crosses in an Excel file with accession and plot names for parents</h3>
+                                    <h3>您想要上傳包含親本種原和小區名稱的 Excel 雜交檔案</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="cross_plot_info_format">Spreadsheet format</a>
+                                                        <a id="cross_plot_info_format">試算表格式</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -154,7 +154,7 @@ $trial_name => undef
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select an XLS File: </label>
+                                                            <label class="col-sm-6 control-label">選擇 XLS 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="xls_crosses_plots_file" id="xls_crosses_plots_file" encoding="multipart/form-data" />
                                                             </div>
@@ -166,15 +166,15 @@ $trial_name => undef
                                     </div>
                                 </div>
                                 <div id="xls_cross_plant_section" style="display:none">
-                                    <h3>You want to upload crosses in an Excel file with accession and plant names for parents</h3>
+                                    <h3>您想要上傳包含親本種原和植株名稱的 Excel 雜交檔案</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="cross_plant_info_format">Spreadsheet format</a>
+                                                        <a id="cross_plant_info_format">試算表格式</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -183,7 +183,7 @@ $trial_name => undef
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select an XLS File: </label>
+                                                            <label class="col-sm-6 control-label">選擇 XLS 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="xls_crosses_plants_file" id="xls_crosses_plants_file" encoding="multipart/form-data" />
                                                             </div>
@@ -216,26 +216,26 @@ $trial_name => undef
                             </form>
                             <div id="submit_button_section" style="display:none">
                                 <center>
-                                    <button type="button" onclick="Workflow.complete(this, false);" class="btn btn-primary" name="upload_crosses_submit" id="upload_crosses_submit">Upload File</button>
+                                    <button type="button" onclick="Workflow.complete(this, false);" class="btn btn-primary" name="upload_crosses_submit" id="upload_crosses_submit">上傳檔案(Upload File)</button>
                                 </center>
                             </div>
 
                         </&>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your crosses are now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的雜交現已儲存在資料庫中(Finished! Your crosses are now in the database)" &>
                             <p>
                                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                The crosses file was uploaded successfully
+                                雜交檔案已成功上傳
                             </p>
 
                             <ul>
-                                <li>You may want to proceed to the cross detail page(s) for the cross(es) you just created.</li>
-                                <li>You can print barcodes for the crosses.</li>
-                                <li>You can add crossing information as it becomes available (e.g. number of seeds, progeny, etc).</li>
+                                <li>您可以前往剛建立的雜交詳細資訊頁面。</li>
+                                <li>您可以為雜交列印條碼。</li>
+                                <li>您可以在雜交資訊可用時隨時新增（例如種子數量、後代等）。</li>
                             </ul>
                             <br/>
                             <center>
-                            <button class="btn btn-primary" name="upload_crosses_success_complete_button">The crosses were saved to the database with no errors! Congrats Click Here</button><br/><br/>
+                            <button class="btn btn-primary" name="upload_crosses_success_complete_button">雜交已成功儲存至資料庫且無任何錯誤！祝賀 請點選此處(The crosses were saved to the database with no errors! Congrats Click Here)</button><br/><br/>
                             </center>
                         </&>
 
@@ -244,7 +244,7 @@ $trial_name => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -255,7 +255,7 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadCrossesErrorDialog">Upload Crosses File Error</h4>
+                <h4 class="modal-title" id="uploadCrossesErrorDialog">上傳雜交檔案錯誤(Upload Crosses File Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -265,7 +265,7 @@ $trial_name => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -276,16 +276,16 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="crossAccessionInfoDialog">Template Information</h4>
+                <h4 class="modal-title" id="crossAccessionInfoDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <b>Crosses may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>雜交可以 Excel 檔案（.xls 或 .xlsx）格式上傳</b>
                     <br>
-                    <b>Header:</b>
+                    <b>標題欄（Header）：</b>
                     <br>
-                    To set up crosses in the database, please provide required information. The first row (header) must contain the following:
+                    若要在資料庫中建立雜交，請提供所需資訊。第一列（標題欄）必須包含以下內容：
                     <br>
 
                     <table class="table table-bordered table-hover">
@@ -303,32 +303,32 @@ $trial_name => undef
                         ul.a {text-indent};
                         ul.b {text-indent};
                     </style>
-                    <b>Required columns:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                        <li><b>cross_unique_id</b> (must NOT exist in the database)</li>
-                        <li><b>cross_combination</b> (required in the header, but value for cross combination (e.g. female accession/male accession) may be left blank)</li>
-                        <li><b>cross_type</b> (must be one of the following: biparental, self, open, sib, polycross, bulk, bulk_self, bulk_open, or doubled_haploid)
+                        <li><b>cross_unique_id</b>（在資料庫中不得存在）</li>
+                        <li><b>cross_combination</b>（標題欄中必填，但雜交組合值（例如母本種原/父本種原）可留空）</li>
+                        <li><b>cross_type</b>（必須為以下之一：biparental、self、open、sib、polycross、bulk、bulk_self、bulk_open 或 doubled_haploid）
                             <ul class="a">
-                                <li><b>cross type descriptions:</b></li>
+                                <li><b>雜交類型說明：</b></li>
                                 <ul class="b">
-                                    <li><b>biparental:</b> An individual plant pollinated by another individual plant.</li>
-                                    <li><b>self:</b> A self pollinated individual plant.</li>
-                                    <li><b>open:</b> An individual plant pollinated by a group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>backcross:</b> An individual plant pollinated by one of its parents.</li>
-                                    <li><b>sib:</b> Mating between individuals that have at least one parent in common. Generally between two individuals within the same plot.</li>
-                                    <li><b>polycross:</b> Mating between individual female parent from a population and the corresponding male population.</li>
-                                    <li><b>bulk:</b> A group of plants (usually a related family) pollinated by an individual plant.</li>
-                                    <li><b>bulk_self:</b> A group of plants (usually a related family) that are self pollinated (each individual selfed, not combined pollen).</li>
-                                    <li><b>bulk_open:</b> A group of plants (usually a related family) that are pollinated by another group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>doubled_haploid:</b> Plants derived from doubling the chromosome number of haploid tissue.</li>
+                                    <li><b>biparental：</b>單一植株由另一單一植株授粉。</li>
+                                    <li><b>self：</b>自花授粉的單一植株。</li>
+                                    <li><b>open：</b>單一植株由一群植株授粉或開放授粉（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>backcross：</b>單一植株與其親本之一授粉。</li>
+                                    <li><b>sib：</b>具有至少一個共同親本的個體之間的交配。通常在同一個小區內的兩個個體之間。</li>
+                                    <li><b>polycross：</b>來自某族群的單一母本與相應父本族群之間的交配。</li>
+                                    <li><b>bulk：</b>由單一植株授粉的一組植株（通常為相關家族）。</li>
+                                    <li><b>bulk_self：</b>自花授粉的一組植株（通常為相關家族）（每個個體自交，非混合花粉）。</li>
+                                    <li><b>bulk_open：</b>由另一組植株授粉或開放授粉的一組植株（通常為相關家族）（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>doubled_haploid：</b>透過單倍體組織染色體加倍衍生的植株。</li>
                                 </ul>
                             </ul>
                         </li>
-                        <li><b>female_parent</b> (accession names or population names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>male_parent</b> (required in the header, but value may be left blank for most cross types. Must be specified for biparental, sib, polycross and bulk cross types. When specified, accession names or population names must exist as <b>uniquenames</b> in the database)</li>
+                        <li><b>female_parent</b>（種原名稱或族群名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
+                        <li><b>male_parent</b>（標題欄中必填，但對於大多數雜交類型，值可留空。對於 biparental、sib、polycross 和 bulk 雜交類型必須指定。指定時，種原名稱或族群名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
                     </ul>
 
-                    <b>Optional columns (additional parent info):</b> You can add additional parent info after male_parent column by using one or more of these column headers.
+                    <b>選填欄位（其他親本資訊）：</b>您可以透過使用以下一個或多個欄位標題，在 male_parent 欄位之後新增其他親本資訊。
                     <ul>
 
 % foreach $additional_info(@cross_additional_info){
@@ -337,15 +337,15 @@ $trial_name => undef
 %}
                     </ul>
 
-                    <b>Additional cross information:</b>
+                    <b>其他雜交資訊：</b>
                     <ul>
-                        <li>After cross unique ids are stored in the database, you can add field crossing data (e.g. pollination date, total number of flowers pollinated, total number of fruits set) or progenies to each cross unique id.</li>
-                        <li>Field crossing data and progenies can be uploaded via links in crossing experiment detail page or can be added directly in each cross detail page.</li>
+                        <li>雜交唯一識別碼儲存於資料庫後，您可以為每個雜交唯一識別碼新增田間雜交資料（例如授粉日期、授粉花朵總數、結果總數）或後代。</li>
+                        <li>田間雜交資料與後代可透過雜交實驗詳細資訊頁面中的連結上傳，或直接在每個雜交詳細資訊頁面中新增。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -355,16 +355,16 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="crossPlotInfoDialog">Template Information</h4>
+                <h4 class="modal-title" id="crossPlotInfoDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <b>Crosses may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>雜交可以 Excel 檔案（.xls 或 .xlsx）格式上傳</b>
                     <br>
-                    <b>Header:</b>
+                    <b>標題欄（Header）：</b>
                     <br>
-                    To set up crosses in the database, please provide required information. The first row (header) must contain the following:
+                    若要在資料庫中建立雜交，請提供所需資訊。第一列（標題欄）必須包含以下內容：
                     <br>
 
                     <table class="table table-bordered table-hover">
@@ -384,48 +384,48 @@ $trial_name => undef
                         ul.a {text-indent};
                         ul.b {text-indent};
                     </style>
-                    <b>Required columns:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                        <li><b>cross_unique_id</b> (must NOT exist in the database)</li>
-                        <li><b>cross_combination</b> (required in the header, but value for cross combination (e.g. female accession/male accession) may be left blank)</li>
-                        <li><b>cross_type</b> (must be one of the following: biparental, self, open, sib, polycross, bulk, bulk_self, bulk_open, or doubled_haploid)
+                        <li><b>cross_unique_id</b>（在資料庫中不得存在）</li>
+                        <li><b>cross_combination</b>（標題欄中必填，但雜交組合值（例如母本種原/父本種原）可留空）</li>
+                        <li><b>cross_type</b>（必須為以下之一：biparental、self、open、sib、polycross、bulk、bulk_self、bulk_open 或 doubled_haploid）
                             <ul class="a">
-                                <li><b>cross type descriptions:</b></li>
+                                <li><b>雜交類型說明：</b></li>
                                 <ul class="b">
-                                    <li><b>biparental:</b> An individual plant pollinated by another individual plant.</li>
-                                    <li><b>self:</b> A self pollinated individual plant.</li>
-                                    <li><b>open:</b> An individual plant pollinated by a group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>backcross:</b> An individual plant pollinated by one of its parents.</li>
-                                    <li><b>sib:</b> Mating between individuals that have at least one parent in common. Generally between two individuals within the same plot.</li>
-                                    <li><b>polycross:</b> Mating between individual female parent from a population and the corresponding male population.</li>
-                                    <li><b>bulk:</b> A group of plants (usually a related family) pollinated by an individual plant.</li>
-                                    <li><b>bulk_self:</b> A group of plants (usually a related family) that are self pollinated (each individual selfed, not combined pollen).</li>
-                                    <li><b>bulk_open:</b> A group of plants (usually a related family) that are pollinated by another group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>doubled_haploid:</b> Plants derived from doubling the chromosome number of haploid tissue.</li>
+                                    <li><b>biparental：</b>單一植株由另一單一植株授粉。</li>
+                                    <li><b>self：</b>自花授粉的單一植株。</li>
+                                    <li><b>open：</b>單一植株由一群植株授粉或開放授粉（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>backcross：</b>單一植株與其親本之一授粉。</li>
+                                    <li><b>sib：</b>具有至少一個共同親本的個體之間的交配。通常在同一個小區內的兩個個體之間。</li>
+                                    <li><b>polycross：</b>來自某族群的單一母本與相應父本族群之間的交配。</li>
+                                    <li><b>bulk：</b>由單一植株授粉的一組植株（通常為相關家族）。</li>
+                                    <li><b>bulk_self：</b>自花授粉的一組植株（通常為相關家族）（每個個體自交，非混合花粉）。</li>
+                                    <li><b>bulk_open：</b>由另一組植株授粉或開放授粉的一組植株（通常為相關家族）（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>doubled_haploid：</b>透過單倍體組織染色體加倍衍生的植株。</li>
                                 </ul>
                             </ul>
                         </li>
-                        <li><b>female_parent</b> (accession names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>male_parent</b> (required in the header, but value may be left blank for most cross types. Must be specified for biparental, sib, polycross and bulk cross types. When specified, accession or population names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>female_plot</b> (Plot names must exist in the database)</li>
-                        <li><b>male_plot</b> (Plot names must exist in the database)</li>
+                        <li><b>female_parent</b>（種原名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
+                        <li><b>male_parent</b>（標題欄中必填，但對於大多數雜交類型，值可留空。對於 biparental、sib、polycross 和 bulk 雜交類型必須指定。指定時，種原名稱或族群名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
+                        <li><b>female_plot</b>（小區名稱必須存在於資料庫中）</li>
+                        <li><b>male_plot</b>（小區名稱必須存在於資料庫中）</li>
                     </ul>
-                    <b>Optional columns (additional parent info):</b> You can add additional parent info after male_plot column by using one or more of these column headers.
+                    <b>選填欄位（其他親本資訊）：</b>您可以透過使用以下一個或多個欄位標題，在 male_plot 欄位之後新增其他親本資訊。
                     <ul>
 % foreach $additional_info(@cross_additional_info){
                     <li><%$additional_info%></li>
 
 %}
                     </ul>
-                    <b>Additional cross information:</b>
+                    <b>其他雜交資訊：</b>
                     <ul>
-                        <li>After cross unique ids are stored in the database, you can add field crossing data (e.g. pollination date, total number of flowers pollinated, total number of fruits set) or progenies to each cross unique id.</li>
-                        <li>Field crossing data and progenies can be uploaded via links in crossing experiment detail page or can be added directly in each cross detail page.</li>
+                        <li>雜交唯一識別碼儲存於資料庫後，您可以為每個雜交唯一識別碼新增田間雜交資料（例如授粉日期、授粉花朵總數、結果總數）或後代。</li>
+                        <li>田間雜交資料與後代可透過雜交實驗詳細資訊頁面中的連結上傳，或直接在每個雜交詳細資訊頁面中新增。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -435,16 +435,16 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="crossPlantInfoDialog">Template Information</h4>
+                <h4 class="modal-title" id="crossPlantInfoDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <b>Crosses may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>雜交可以 Excel 檔案（.xls 或 .xlsx）格式上傳</b>
                     <br>
-                    <b>Header:</b>
+                    <b>標題欄（Header）：</b>
                     <br>
-                    To set up crosses in the database, please provide required information. The first row (header) must contain the following:
+                    若要在資料庫中建立雜交，請提供所需資訊。第一列（標題欄）必須包含以下內容：
                     <br>
 
                     <table class="table table-bordered table-hover">
@@ -464,48 +464,48 @@ $trial_name => undef
                         ul.a {text-indent};
                         ul.b {text-indent};
                     </style>
-                    <b>Required columns:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                        <li><b>cross_unique_id</b> (must NOT exist in the database)</li>
-                        <li><b>cross_combination</b> (required in the header, but value for cross combination (e.g. female accession/male accession) may be left blank)</li>
-                        <li><b>cross_type</b> (must be one of the following: biparental, self, open, sib, polycross, bulk, bulk_self, bulk_open, or doubled_haploid)
+                        <li><b>cross_unique_id</b>（在資料庫中不得存在）</li>
+                        <li><b>cross_combination</b>（標題欄中必填，但雜交組合值（例如母本種原/父本種原）可留空）</li>
+                        <li><b>cross_type</b>（必須為以下之一：biparental、self、open、sib、polycross、bulk、bulk_self、bulk_open 或 doubled_haploid）
                             <ul class="a">
-                                <li><b>cross type descriptions:</b></li>
+                                <li><b>雜交類型說明：</b></li>
                                 <ul class="b">
-                                    <li><b>biparental:</b> An individual plant pollinated by another individual plant.</li>
-                                    <li><b>self:</b> A self pollinated individual plant.</li>
-                                    <li><b>open:</b> An individual plant pollinated by a group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>backcross:</b> An individual plant pollinated by one of its parents.</li>
-                                    <li><b>sib:</b> Mating between individuals that have at least one parent in common. Generally between two individuals within the same plot.</li>
-                                    <li><b>polycross:</b> Mating between individual female parent from a population and the corresponding male population.</li>
-                                    <li><b>bulk:</b> A group of plants (usually a related family) pollinated by an individual plant.</li>
-                                    <li><b>bulk_self:</b> A group of plants (usually a related family) that are self pollinated (each individual selfed, not combined pollen).</li>
-                                    <li><b>bulk_open:</b> A group of plants (usually a related family) that are pollinated by another group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                                    <li><b>doubled_haploid:</b> Plants derived from doubling the chromosome number of haploid tissue.</li>
+                                    <li><b>biparental：</b>單一植株由另一單一植株授粉。</li>
+                                    <li><b>self：</b>自花授粉的單一植株。</li>
+                                    <li><b>open：</b>單一植株由一群植株授粉或開放授粉（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>backcross：</b>單一植株與其親本之一授粉。</li>
+                                    <li><b>sib：</b>具有至少一個共同親本的個體之間的交配。通常在同一個小區內的兩個個體之間。</li>
+                                    <li><b>polycross：</b>來自某族群的單一母本與相應父本族群之間的交配。</li>
+                                    <li><b>bulk：</b>由單一植株授粉的一組植株（通常為相關家族）。</li>
+                                    <li><b>bulk_self：</b>自花授粉的一組植株（通常為相關家族）（每個個體自交，非混合花粉）。</li>
+                                    <li><b>bulk_open：</b>由另一組植株授粉或開放授粉的一組植株（通常為相關家族）（花粉可能來自成員已知或未知的群體）。</li>
+                                    <li><b>doubled_haploid：</b>透過單倍體組織染色體加倍衍生的植株。</li>
                                 </ul>
                             </ul>
                         </li>
-                        <li><b>female_parent</b> (accession names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>male_parent</b> (required in the header, but value may be left blank for most cross types. Must be specified for biparental, sib, polycross and bulk cross types. When specified, accession or population names must exist as <b>uniquenames</b> in the database)</li>
-                        <li><b>female_plant</b> (Plant names must exist in the database)</li>
-                        <li><b>male_plant</b> (Plant names must exist in the database)</li>
+                        <li><b>female_parent</b>（種原名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
+                        <li><b>male_parent</b>（標題欄中必填，但對於大多數雜交類型，值可留空。對於 biparental、sib、polycross 和 bulk 雜交類型必須指定。指定時，種原名稱或族群名稱必須作為 <b>uniquenames</b> 存在於資料庫中）</li>
+                        <li><b>female_plant</b>（植株名稱必須存在於資料庫中）</li>
+                        <li><b>male_plant</b>（植株名稱必須存在於資料庫中）</li>
                     </ul>
-                    <b>Optional columns (additional parent info):</b> You can add additional parent info after male_plant column by using one or more of these column headers.
+                    <b>選填欄位（其他親本資訊）：</b>您可以透過使用以下一個或多個欄位標題，在 male_plant 欄位之後新增其他親本資訊。
                     <ul>
 % foreach $additional_info(@cross_additional_info){
                     <li><%$additional_info%></li>
 
 %}
                     </ul>
-                    <b>Additional cross information:</b>
+                    <b>其他雜交資訊：</b>
                     <ul>
-                        <li>After cross unique ids are stored in the database, you can add field crossing data (e.g. pollination date, total number of flowers pollinated, total number of fruits set) or progenies to each cross unique id.</li>
-                        <li>Field crossing data and progenies can be uploaded via links in crossing experiment detail page or can be added directly in each cross detail page.</li>
+                        <li>雜交唯一識別碼儲存於資料庫後，您可以為每個雜交唯一識別碼新增田間雜交資料（例如授粉日期、授粉花朵總數、結果總數）或後代。</li>
+                        <li>田間雜交資料與後代可透過雜交實驗詳細資訊頁面中的連結上傳，或直接在每個雜交詳細資訊頁面中新增。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

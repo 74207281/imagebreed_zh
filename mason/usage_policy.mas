@@ -1,68 +1,68 @@
-<div id="pagetitle"><h3>Data Usage Policy</h3></div>
+<div id="pagetitle"><h3>資料使用政策(Data Usage Policy)</h3></div>
 
 
-The data on this database is shared according to the Toronto agreement (see below). 
+本資料庫中的資料乃根據多倫多協議（Toronto agreement，見下文）進行共享。
 
-Datasets that are currently released but have not yet been published include:<br /><br />
+目前已發布但尚未正式發表的資料集包括：<br /><br />
 <style type="text/css">
 table.myTable { border-collapse:collapse; }
 table.myTable td, table.myTable th { border:1px solid black;padding:5px; }
 </style>
 
 <table class="myTable">
-<tr><td>Institution</td><td>Researchers</td><td>Data</td></tr>
-<tr><td>IITA</td><td>Peter Kulakow, Ismail Rabbi</td><td>IITA cassava phenotypic data</td></tr>
-<tr><td>NRCRI</td><td>Chiedozie Egesi</td><td>NRCRI cassava phenotypic and genotypic data.</td></tr>
-<tr><td>NaCRRI</td><td>Robert Kawuki</td><td>NaCRRI cassava phenotypic and genotypic data.</td></tr>
+<tr><td>機構(Institution)</td><td>研究人員(Researchers)</td><td>資料(Data)</td></tr>
+<tr><td>IITA</td><td>Peter Kulakow, Ismail Rabbi</td><td>IITA 木薯表型資料(IITA cassava phenotypic data)</td></tr>
+<tr><td>NRCRI</td><td>Chiedozie Egesi</td><td>NRCRI 木薯表型與基因型資料(NRCRI cassava phenotypic and genotypic data)。</td></tr>
+<tr><td>NaCRRI</td><td>Robert Kawuki</td><td>NaCRRI 木薯表型與基因型資料(NaCRRI cassava phenotypic and genotypic data)。</td></tr>
 </table>
 
 
-<h3>Toronto Agreement</h3>
+<h3>多倫多協議(Toronto Agreement)</h3>
 
-<h4>Rapid prepublication data release should be encouraged for projects with the following attributes:</h4>
+<h4>具有以下特徵的計畫應鼓勵在發表前快速發布資料：</h4>
 
 <ul>
-<li>Large scale (requiring significant resources over time)</li>
-<li>Broad utility</li>
-<li>Creating reference data sets</li>
+<li>大規模（隨時間推移需要大量資源）</li>
+<li>廣泛的實用性</li>
+<li>建立參考資料集</li>
 
-<li>Associated with community buy-in</li>
+<li>獲得社群認同與參與</li>
 </ul>
 
-<h4>Funding agencies should facilitate the specification of data-release policies for relevant projects by:</h4>
+<h4>資助機構應透過以下方式促進相關計畫資料發布政策的制定：</h4>
 
 <ul>
-<li>Explicitly informing applicants of data-release requirements, especially mandatory prepublication data release</li>
-<li>Ensuring that evaluation of data release plans is part of the peer-review process</li>
-<li>Proactively establishing analysis plans and timelines for projects releasing data prepublication</li>
-<li>Fostering investigator-initiated prepublication data release</li>
-<li>Helping to develop appropriate consent, security, access and governance mechanisms that protect research participants while encouraging prepublication data release</li>
+<li>明確告知申請人資料發布要求，特別是強制性的發表前資料發布</li>
+<li>確保資料發布計畫的評估是同行評審流程的一部分</li>
+<li>針對發表前發布資料的計畫，主動建立分析計畫與時程表</li>
+<li>鼓勵由研究人員主導的發表前資料發布</li>
+<li>協助制定適當的同意書、安全、存取與治理機制，在保護研究參與者的同時鼓勵發表前資料發布</li>
 
-<li>Providing long-term support of databases</li>
+<li>為資料庫提供長期支援</li>
 </ul>
 
-<h4>Data producers should state their intentions and enable analyses of their data by:</h4>
+<h4>資料產出者應聲明其意圖並使他人能夠對其資料進行分析：</h4>
 
 <ul>
-<li>Informing data users about the data being generated, data standards and quality, planned analyses, timelines, and relevant contact information, ideally through publication of a citable marker paper near the start of the project or by provision of a citable URL at the project or funding-agency website</li>
-<li>Providing relevant metadata (e.g., questionnaires, phenotypes, environmental conditions, and laboratory methods) that will assist other researchers in reproducing and/or independently analysing the data, while protecting interests of individuals enrolled in studies focusing on humans</li>
-<li>Ensuring that research participants are informed that their data will be shared with other scientists in the research community</li>
-<li>Publishing their initial global analyses, as stated in the marker paper or citable URL, in a timely fashion</li>
-<li>Creating databases designed to archive all data (including underlying raw data) in an easily retrievable form and facilitate usage of both pre-processed and processed data</li>
+<li>向資料使用者告知正在產生的資料、資料標準與品質、計畫的分析、時程表及相關聯絡資訊，理想情況下是透過在計畫開始時發表具可引用性的標誌性論文，或在計畫或資助機構網站上提供可引用的網址</li>
+<li>提供相關詮釋資料（例如問卷、表型、環境條件與實驗室方法），以協助其他研究人員重現和/或獨立分析資料，同時保護人類研究參與者的權益</li>
+<li>確保研究參與者知曉其資料將與研究社群中的其他科學家共享</li>
+<li>及時發表其初步的整體分析（如標誌性論文或引用網址中所述）</li>
+<li>建立旨在以易於檢索的形式歸檔所有資料（包括底層原始資料）的資料庫，並促進預處理與處理後資料的使用</li>
 
 </ul>
 
-<h4>Data analysts/users should freely analyse released prepublication data and act responsibly in publishing analyses of those data by:</h4>
+<h4>資料分析者/使用者應自由分析已發布的發表前資料，並在發表這些資料的分析時負責任地行事：</h4>
 
 <ul>
-<li>Respecting the scientific etiquette that allows data producers to publish the first global analyses of their data set</li>
-<li>Reading the citeable document associated with the project</li>
-<li>Accurately and completely citing the source of prepublication data, including the version of the data set (if appropriate)</li>
-<li>Being aware that released prepublication data may be associated with quality issues that will be later rectified by the data producers</li>
-<li>Contacting the data producers to discuss publication plans in the case of overlap between planned analyses</li>
-<li>Ensuring that use of data does not harm research participants and is in conformity with ethical approvals</li>
+<li>尊重科學禮儀，允許資料產出者發表其資料集的第一篇整體分析報告</li>
+<li>閱讀與該計畫相關的可引用文件</li>
+<li>準確且完整地引用發表前資料的來源，包括資料集的版本（如適用）</li>
+<li>意識到發布的發表前資料可能存在後續由資料產出者修正的品質問題</li>
+<li>如果計畫進行的分析有所重疊，請聯繫資料產出者討論發表計畫</li>
+<li>確保資料的使用不對研究參與者造成傷害，並符合倫理審查核准</li>
 
-<li>Scientific journal editors should engage the research community about issues related to prepublication data release and provide guidance to authors and reviewers on the third-party use of prepublication data in manuscripts</li>
+<li>科學期刊編輯應就發表前資料發布相關議題與研究社群互動，並就手稿中第三方使用發表前資料向作者和審稿人提供指引</li>
 </ul>
 
 

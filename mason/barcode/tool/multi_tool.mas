@@ -20,25 +20,25 @@ my $size = "small";
 
 
 <center>
-<h1>CASSAVABASE MULTI-BARCODE SHEET</h1>
+<h1>CASSAVABASE 多條碼工作單(CASSAVABASE MULTI-BARCODE SHEET)</h1>
 
 <br />
 <br />
 <div class="boxbgcolor5">
-Scan the following barcodes once
+請掃描下列條碼一次(Scan the following barcodes once)
 </div>
 
 <table>
-<tr><td><font size="4">Operator</font></td>
+<tr><td><font size="4">操作人員(Operator)</font></td>
 
 <td><img src="/barcode/image/?code=O:<% $encoded_operator %>&size=<% $size %>" /></td></tr>
 
-<tr><td><font size="4">Today's Date</font></td>
+<tr><td><font size="4">今日日期(Today's Date)</font></td>
 <td><img src="/barcode/image/?code=D:<% $encoded_date %>&size=<% $size %>" /></td></tr>
-<tr><td><font size="4">Project</font></td>
+<tr><td><font size="4">專案/試驗(Project)</font></td>
 
 <td><img src="/barcode/image/?code=P:<% $project %>&size=<% $size %>" /></td></tr>
-<tr><td><font size="4">Location</font></td>
+<tr><td><font size="4">地點(Location)</font></td>
 <td><img src="/barcode/image/?code=L:<% $location %>&size=<% $size %>" /></td></tr>
 </table>
 
@@ -47,7 +47,7 @@ Scan the following barcodes once
 
 
 <div class="boxbgcolor5">
-Scan the barcode for the plant to be phenotyped, then scan the phenotype barcode, then enter the number on the keypad
+掃描待調查表型的植株條碼，接著掃描表型條碼，然後在數字鍵盤上輸入數字(Scan the barcode for the plant to be phenotyped, then scan the phenotype barcode, then enter the number on the keypad)
 </div>
 
 

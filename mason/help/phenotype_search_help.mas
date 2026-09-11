@@ -1,43 +1,41 @@
-<& /page/page_title.mas, title=>"Phenotype Search Help" &>
+<& /page/page_title.mas, title=>"表型搜尋說明(Phenotype Search Help)" &>
 
 <p>
-The <a href="/search/direct_search.pl?search=phenotypes">phenotype search</a> is a
-tool for searching SGN's database for accessions from phenotyped populations. 
+<a href="/search/direct_search.pl?search=phenotypes">表型搜尋(phenotype search)</a>是用於在 SGN 資料庫中搜尋來自已進行表型鑑定之族群品系的工具。(The phenotype search is a tool for searching SGN's database for accessions from phenotyped populations.) 
 </p>
 
-<img src="/documents/help/screenshots/pheno_search_help.png" alt="screenshot of phenotype search form" style="margin: auto; border: 1px solid black;" />
+<img src="/documents/help/screenshots/pheno_search_help.png" alt="表型搜尋表單截圖(screenshot of phenotype search form)" style="margin: auto; border: 1px solid black;" />
 
-<h4>1. Keyword</h4>
+<h4>1. 關鍵字(Keyword)</h4>
 <p>
-Here a word or a string can be typed. Searches the database for individuals with the word/string in their 'phenotype description' field.
+此處可輸入單字或字串。系統將在資料庫中搜尋在其「表型描述」欄位中包含該單字/字串的個體。(Here a word or a string can be typed. Searches the database for individuals with the word/string in their 'phenotype description' field.)
 </p><p>
 
 </p>
 
-<h4>2. Population</h4>
+<h4>2. 族群(Population)</h4>
 <p>
-Each individual accession in the database is associated to a population.
-The phenotype search can be limited to only accessions from a specific population. 
+資料庫中的每個品系個體皆與一個族群相關聯。表型搜尋可限制僅搜尋特定族群的品系。(Each individual accession in the database is associated to a population. The phenotype search can be limited to only accessions from a specific population.) 
 
-Currently the following phenotyped populations are included in the searchable database:
+目前可搜尋資料庫包含以下已進行表型鑑定的族群：(Currently the following phenotyped populations are included in the searchable database:)
 <ul>
-<li>M82 EMS mutant population</li>
-<li>Fast-neutron M82 mutant population</li>
-<li>TGRC monogenic mutant population</li>
-<li>Eggplant EMS mutant population</li>
-<li>TGRC monogenic mutant population</li
-<li>F2 2000 mapping population</li>
-<li>M82 x L.pennellii IL population</li>
+<li>M82 EMS 突變體族群(M82 EMS mutant population)</li>
+<li>快中子 M82 突變體族群(Fast-neutron M82 mutant population)</li>
+<li>TGRC 單基因突變體族群(TGRC monogenic mutant population)</li>
+<li>茄子 EMS 突變體族群(Eggplant EMS mutant population)</li>
+<li>TGRC 單基因突變體族群(TGRC monogenic mutant population)</li>
+<li>F2 2000 製圖族群(F2 2000 mapping population)</li>
+<li>M82 x L.pennellii 漸滲系族群(M82 x L.pennellii IL population)</li>
 </ul>
 
 </p>
 
 
-<h4>3. Accession</h4>
+<h4>3. 品系(Accession)</h4>
 <p>
-If you know the accession name of your individual, type it in. By default, the database will be searched for all individuals with an accession name that starts with what you type in.For example, if you type in "e000", your results might include e0001m1, e0001m2, e0002m1, etc.
+若您知道個體的品系名稱，請在此輸入。預設情況下，資料庫將搜尋品系名稱以您輸入內容開頭的所有個體。例如，若您輸入 "e000"，結果可能包含 e0001m1、e0001m2、e0002m1 等。(If you know the accession name of your individual, type it in. By default, the database will be searched for all individuals with an accession name that starts with what you type in. For example, if you type in "e000", your results might include e0001m1, e0001m2, e0002m1, etc.)
 
-The search is case-insensitive.
+搜尋不區分大小寫。(The search is case-insensitive.)
 </p>
 
 

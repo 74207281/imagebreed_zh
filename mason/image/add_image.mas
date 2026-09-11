@@ -10,25 +10,24 @@ $type_id
 $refering_page => undef
 </%args>
 
-  <& /page/page_title.mas, title=>"Upload Image" &>
+  <& /page/page_title.mas, title=>"上傳圖片(Upload Image)" &>
 
-  <p class="boxbgcolor2">Note: By pressing the "Upload" button, you are considered to be the copyright owner of the image being uploaded and that you grant a non-exclusive license to display and use the image on webpages and materials related to this website.<br /></p>
+  <p class="boxbgcolor2">注意：按下「上傳」按鈕即表示您被視為所上傳圖片的著作權所有人，並且您授予在與本網站相關的網頁和資料上顯示及使用該圖片的非專屬授權。<br /></p>
 
-        <p> Supported file formats include .jpg. .jpeg, .gif, .png, .pdf, .ps,
-	.eps <br></p>
+        <p>支援的檔案格式包括：.jpg, .jpeg, .gif, .png, .pdf, .ps, .eps<br></p>
 	<form name="upload_image_form" action="/image/confirm" method="post" enctype="multipart/form-data" >
-	    Upload an image, and associated with object <b><% $type %></b> id <% $type_id %><br /><br />
+	    上傳圖片並與物件 <b><% $type %></b> 編號 <% $type_id %> 建立關聯<br /><br />
 	    <input type="file" name="file" value="Choose image file" />
 	    <input type="hidden" name="action" value="confirm" /><br /><br />
 	    <input type="hidden" name="type" value="<% $type %>" />
 	    <input type="hidden" name="type_id" value="<% $type_id %>" />
 	    <input type="hidden" name="refering_page" value="<% $refering_page %>" />
-	    <input id="upload_image_submit" class="btn btn-primary" type="submit" value="Upload" />
+	    <input id="upload_image_submit" class="btn btn-primary" type="submit" value="上傳(Upload)" />
 	 </form>
 	 <br/>
 
 
-%   if ($refering_page) { print "<a class=\"footer\" href=\"$refering_page\"><button class=\"btn btn-default\">Go Back</button></a>"; }
+%   if ($refering_page) { print "<a class=\"footer\" href=\"$refering_page\"><button class=\"btn btn-default\">返回(Go Back)</button></a>"; }
 
 
 

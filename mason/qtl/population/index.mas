@@ -21,7 +21,7 @@ $genetic_map
 <%perl>
 
 my $title = $pop->get_name();
-my $submit_new = qq | <a href="/qtl/form">Submit QTL population</a> |;
+my $submit_new = qq | <a href="/qtl/form">提交 QTL 群體(Submit QTL population)</a> |;
 
 </%perl>
 
@@ -32,7 +32,7 @@ my $submit_new = qq | <a href="/qtl/form">Submit QTL population</a> |;
 <&| /page/info_section.mas, 
   collapsible => 1, 
   collapsed   => 0, 
-  title       => "Population summary",
+  title       => "群體摘要(Population summary)",
   subtitle    => $submit_new
   &>
  
@@ -48,7 +48,7 @@ my $submit_new = qq | <a href="/qtl/form">Submit QTL population</a> |;
   <&| /page/info_section.mas, 
     collapsible => 1, 
     collapsed   => 0, 
-    title       => "Set statistical parameters"
+    title       => "設定統計參數(Set statistical parameters)"
   &>   
   <& stat_tools.mas, 
     pop_id     => $pop->get_population_id(), 
@@ -81,11 +81,11 @@ my $submit_new = qq | <a href="/qtl/form">Submit QTL population</a> |;
 <&| /page/info_section.mas, 
     collapsible => 1, 
     collapsed   => 1, 
-    title       => "Trait acronyms"
+    title       => "性狀縮寫(Trait acronyms)"
   &>   
  
   <& /page/columnar_table.mas,
-     headings     => ["Trait name", "Acronym"],
+     headings     => ["性狀名稱(Trait name)", "縮寫(Acronym)"],
      data         => $trait_acronym_pairs,
      __alt_freq   => 2,
      __alt_width  => 1,

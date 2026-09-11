@@ -72,7 +72,7 @@ foreach my $o_id (@owner_ids){
   my $last_name = $person->get_last_name;
   $owners_html .= qq|<a href="/solpeople/personal-info.pl?sp_person_id=$o_id">$first_name $last_name</a> |;
 }
-my $editor_link_table = "<table class='table table-bordered'><thead><tr><th>Editor</th><th>Timestamp</th><th>Modification Note</th></tr></thead><tbody>";
+my $editor_link_table = "<table class='table table-bordered'><thead><tr><th>編輯者(Editor)</th><th>時間戳記(Timestamp)</th><th>修改備註(Modification Note)</th></tr></thead><tbody>";
 foreach my $o_id (@$owners) {
   my $person = CXGN::People::Person->new($dbh, $o_id->[0]);
   my $first_name = $person->get_first_name;
@@ -119,43 +119,43 @@ my $jbrowse_url = $jbrowse_path . "%2Faccessions%2F" . $stock_id . "&tracks=DNA%
 &>
 
 <br/>
-<& /page/page_title.mas, title=> join( ': ', grep $_, ucfirst($type_name), $uniquename ) || 'Create a new stock' &>
+<& /page/page_title.mas, title=> join( ': ', grep $_, ucfirst($type_name), $uniquename ) || '建立新材料(Create a new stock)' &>
 
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, buttons_html => '', stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Stock Details</h4>", info_section_subtitle => 'View and edit stock details.', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "stock_details_section", stock_uniquename => $uniquename, stock_description => $description, type_name => $type_name, organism_id => $stock->organism_id, organism_species => $stock->species, company_id => $stock->private_company_id, company_name => $stock->private_company_name, company_stock_is_private => $stock_is_private, identifier => $identifier_prefix, stock_barcode_text => "$identifier_prefix stock $stock_id ($uniquename)" &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, buttons_html => '', stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>材料詳細資訊(Stock Details)</h4>", info_section_subtitle => '檢視與編輯材料詳細資訊。', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "stock_details_section", stock_uniquename => $uniquename, stock_description => $description, type_name => $type_name, organism_id => $stock->organism_id, organism_species => $stock->species, company_id => $stock->private_company_id, company_name => $stock->private_company_name, company_stock_is_private => $stock_is_private, identifier => $identifier_prefix, stock_barcode_text => "$identifier_prefix stock $stock_id ($uniquename)" &>
 
 % my $subtitle = '';
 % if ($type_name eq 'accession') {
-%   $subtitle = $edit_privs ? "<button class=\"btn btn-sm btn-primary\" style=\"margin:3px\" id=\"stock_add_synonym\" >Add Synonym</button>" : "<button disabled class=\"btn btn-sm btn-primary\" style=\"margin:3px\" title=\"Login to add info\">Add Synonym</button>";
+%   $subtitle = $edit_privs ? "<button class=\"btn btn-sm btn-primary\" style=\"margin:3px\" id=\"stock_add_synonym\" >新增同義名(Add Synonym)</button>" : "<button disabled class=\"btn btn-sm btn-primary\" style=\"margin:3px\" title=\"請登入以新增資訊\">新增同義名(Add Synonym)</button>";
 % }
-% my $props_subtitle = $edit_privs ? "<button class=\"btn btn-sm btn-primary\" style=\"margin:3px\" id=\"stock_add_props\" >Add Additional Info</button>" : "<button disabled class=\"btn btn-sm btn-primary\" style=\"margin:3px\" title=\"Login to add info\">Add Additional Info</button>";
+% my $props_subtitle = $edit_privs ? "<button class=\"btn btn-sm btn-primary\" style=\"margin:3px\" id=\"stock_add_props\" >新增額外資訊(Add Additional Info)</button>" : "<button disabled class=\"btn btn-sm btn-primary\" style=\"margin:3px\" title=\"請登入以新增資訊\">新增額外資訊(Add Additional Info)</button>";
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, type_name => $type_name, buttons_html => $subtitle.$props_subtitle, info_section_title => "<h4 style='display:inline'>Additional Info</h4>", info_section_subtitle => 'View and edit additional properties such as synonyms, editors, and all types of properties.', icon_class => "glyphicon glyphicon-info-sign", info_section_id => "stock_additional_info_section", stockprops => $stockprops, edit_privs => $edit_privs, editable_stock_props => \@editable_stock_props, editor_link => $editor_link_table, is_owner => $is_owner &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, type_name => $type_name, buttons_html => $subtitle.$props_subtitle, info_section_title => "<h4 style='display:inline'>額外資訊(Additional Info)</h4>", info_section_subtitle => '檢視與編輯額外屬性，例如同義名、編輯者及各類屬性。', icon_class => "glyphicon glyphicon-info-sign", info_section_id => "stock_additional_info_section", stockprops => $stockprops, edit_privs => $edit_privs, editable_stock_props => \@editable_stock_props, editor_link => $editor_link_table, is_owner => $is_owner &>
 
 % if ($type_name eq 'accession' || $type_name eq 'plant' || $type_name eq 'plot' || $type_name eq 'subplot' || $type_name eq 'tissue_sample'){
-    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Experiment Usage</h4>", info_section_subtitle => 'View experiments that this stock has been used in.', icon_class => "glyphicon glyphicon-leaf", info_section_id => "stock_trials_section" &>
+    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>實驗使用情形(Experiment Usage)</h4>", info_section_subtitle => '檢視使用此材料的實驗。', icon_class => "glyphicon glyphicon-leaf", info_section_id => "stock_trials_section" &>
 % }
 
 % if ($type_name eq 'accession' || $type_name eq 'plant' || $type_name eq 'plot' || $type_name eq 'subplot' || $type_name eq 'tissue_sample'){
 
-%    my $trait_assayed_buttons = $type_name eq 'plot' ? "<button class='btn btn-sm btn-primary' style='margin:3px' id='stock_download_phenotypes_button'>Download Phenotypes</button> $p_download_link <a class='btn btn-sm btn-default' style='margin:3px' target='_blank' href = '/breeders/plot_phenotyping?stock_id=$stock_id'>Direct plot phenotyping</a>" : "<button class='btn btn-sm btn-primary' style='margin:3px' id='stock_download_phenotypes_button'>Download Phenotypes</button> $p_download_link";
+%    my $trait_assayed_buttons = $type_name eq 'plot' ? "<button class='btn btn-sm btn-primary' style='margin:3px' id='stock_download_phenotypes_button'>下載表型(Download Phenotypes)</button> $p_download_link <a class='btn btn-sm btn-default' style='margin:3px' target='_blank' href = '/breeders/plot_phenotyping?stock_id=$stock_id'>直接小區表型調查(Direct Plot Phenotyping)</a>" : "<button class='btn btn-sm btn-primary' style='margin:3px' id='stock_download_phenotypes_button'>下載表型(Download Phenotypes)</button> $p_download_link";
 
-    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Traits Assayed</h4>", info_section_subtitle => 'View and download phenotypic data for this stock.', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "stock_traits_section", buttons_html => $trait_assayed_buttons &>
+    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>已測定性狀(Traits Assayed)</h4>", info_section_subtitle => '檢視與下載此材料的表型資料。', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "stock_traits_section", buttons_html => $trait_assayed_buttons &>
 % }
 
 % if ($type_name eq 'accession' || $type_name eq 'plant' || $type_name eq 'plot' || $type_name eq 'tissue_sample'){
 
 %   my $sequencing_status_button = '';
 %   if ($c->user) {
-%       $sequencing_status_button = '<button id="show_sequencing_info_dialog_button" class="btn btn-primary btn-sm" data-toggle="modal" style="margin:3px" data-target="#edit_sequencing_info_dialog">Add sequencing info</button>';
+%       $sequencing_status_button = '<button id="show_sequencing_info_dialog_button" class="btn btn-primary btn-sm" data-toggle="modal" style="margin:3px" data-target="#edit_sequencing_info_dialog">新增定序資訊(Add Sequencing Info)</button>';
 %   }
 %   else {
-%       $sequencing_status_button = '<button disabled id="show_sequencing_info_dialog_button" class="btn btn-primary btn-sm" data-toggle="modal" style="margin:3px" data-target="#edit_sequencing_info_dialog">Add sequencing info</button>';
+%       $sequencing_status_button = '<button disabled id="show_sequencing_info_dialog_button" class="btn btn-primary btn-sm" data-toggle="modal" style="margin:3px" data-target="#edit_sequencing_info_dialog">新增定序資訊(Add Sequencing Info)</button>';
 %   }
 
-    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Sequencing Status</h4>", info_section_subtitle => 'View and edit sequencing status info for this stock.', icon_class => "glyphicon glyphicon-inbox", info_section_id => "stock_sequencing_status_section", buttons_html => "$sequencing_status_button", map_html => $map_html &>
+    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>定序狀態(Sequencing Status)</h4>", info_section_subtitle => '檢視與編輯此材料的定序狀態資訊。', icon_class => "glyphicon glyphicon-inbox", info_section_id => "stock_sequencing_status_section", buttons_html => "$sequencing_status_button", map_html => $map_html &>
 
-    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Genotype Marker Data</h4>", info_section_subtitle => 'View and download phenotypic data for this stock.', icon_class => "glyphicon glyphicon-map-marker", info_section_id => "stock_genotypes_section", buttons_html => '<a class="btn btn-default btn-sm" style="margin:3px" href = "/stock/'.$stock_id.'/genotypes">Download All Genotypes</a>', map_html => $map_html &>
+    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>基因型標記資料(Genotype Marker Data)</h4>", info_section_subtitle => '檢視與下載此材料的基因型資料。', icon_class => "glyphicon glyphicon-map-marker", info_section_id => "stock_genotypes_section", buttons_html => '<a class="btn btn-default btn-sm" style="margin:3px" href = "/stock/'.$stock_id.'/genotypes">下載所有基因型(Download All Genotypes)</a>', map_html => $map_html &>
 % }
 
 % if ($type_name eq 'accession'){
@@ -165,39 +165,39 @@ my $jbrowse_url = $jbrowse_path . "%2Faccessions%2F" . $stock_id . "&tracks=DNA%
         if ($has_pedigree==1) {
             $collapsible = 1;
         }
-        my $add_parent_link = '<button class="btn btn-primary btn-sm" style="margin:3px" id="add_parent_link" disabled>Add parent</button>';
-        if ($person_id && ($submitter || $curator || $sequencer)) { $add_parent_link = qq | <button class="btn btn-primary btn-sm" style="margin:3px" id="add_parent_link" >Add parent</button> |; }
+        my $add_parent_link = '<button class="btn btn-primary btn-sm" style="margin:3px" id="add_parent_link" disabled>新增親本(Add Parent)</button>';
+        if ($person_id && ($submitter || $curator || $sequencer)) { $add_parent_link = qq | <button class="btn btn-primary btn-sm" style="margin:3px" id="add_parent_link" >新增親本(Add Parent)</button> |; }
 
-        my $remove_parent_link = '<button class="btn btn-default btn-sm" style="margin:3px" id="remove_parent_link" disabled>Remove parent</button>';
-        if ($person_id && ($submitter || $curator || $sequencer)) { $remove_parent_link = qq | <button class="btn btn-default btn-sm" style="margin:3px" id="remove_parent_link">Remove parent</button> |; }
+        my $remove_parent_link = '<button class="btn btn-default btn-sm" style="margin:3px" id="remove_parent_link" disabled>移除親本(Remove Parent)</button>';
+        if ($person_id && ($submitter || $curator || $sequencer)) { $remove_parent_link = qq | <button class="btn btn-default btn-sm" style="margin:3px" id="remove_parent_link">移除親本(Remove Parent)</button> |; }
 </%perl>
 
-    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Pedigree</h4>", info_section_subtitle => 'View and edit pedigree information.', icon_class => "glyphicon glyphicon-random", info_section_id => "stock_pedigree_section", buttons_html => $add_parent_link.$remove_parent_link, has_pedigree => $has_pedigree, info_section_collapsed => 0 &>
+    <& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>系譜(Pedigree)</h4>", info_section_subtitle => '檢視與編輯系譜資訊。', icon_class => "glyphicon glyphicon-random", info_section_id => "stock_pedigree_section", buttons_html => $add_parent_link.$remove_parent_link, has_pedigree => $has_pedigree, info_section_collapsed => 0 &>
 % }
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Related Stocks</h4>", info_section_subtitle => 'View any plots, plants, tissue_sample, and/or accessions that are linked to this stock.', icon_class => "glyphicon glyphicon-retweet", info_section_id => "stock_related_stock_section", stock_uniquename => $uniquename, type_name => $type_name &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>相關材料(Related Stocks)</h4>", info_section_subtitle => '檢視與此材料關聯的任何小區、植株、組織樣本及／或種原。', icon_class => "glyphicon glyphicon-retweet", info_section_id => "stock_related_stock_section", stock_uniquename => $uniquename, type_name => $type_name &>
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Images</h4>", info_section_subtitle => 'View and add images of this stock and of related stocks.', icon_class => "glyphicon glyphicon-camera", info_section_id => "stock_images_section", image_ids => $image_ids, related_image_ids => $related_image_ids, dbh => $dbh, buttons_html => qq|<a class="btn btn-sm btn-default" style="margin:3px" href="/image/add?type_id=$stock_id&action=new&type=stock&refering_page=$this_page">Add new image</a><a class="btn btn-sm btn-default" style="margin:3px" id="stock_images_section_compare_images_button">Compare Images</a>| &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>影像(Images)</h4>", info_section_subtitle => '檢視與新增此材料及相關材料的影像。', icon_class => "glyphicon glyphicon-camera", info_section_id => "stock_images_section", image_ids => $image_ids, related_image_ids => $related_image_ids, dbh => $dbh, buttons_html => qq|<a class="btn btn-sm btn-default" style="margin:3px" href="/image/add?type_id=$stock_id&action=new&type=stock&refering_page=$this_page">新增影像(Add New Image)</a><a class="btn btn-sm btn-default" style="margin:3px" id="stock_images_section_compare_images_button">比較影像(Compare Images)</a>| &>
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>JBrowse Genome Alignments</h4>", info_section_subtitle => 'View JBrowse tracks for this stock.', icon_class => "glyphicon glyphicon-align-left", info_section_id => "stock_jbrowse_section" &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>JBrowse 基因體比對(JBrowse Genome Alignments)</h4>", info_section_subtitle => '檢視此材料的 JBrowse 軌跡。', icon_class => "glyphicon glyphicon-align-left", info_section_id => "stock_jbrowse_section" &>
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Comments</h4>", info_section_subtitle => 'View and add comments to this stock.', icon_class => "glyphicon glyphicon-pencil", info_section_id => "stock_comments_section", referer => $this_page &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>留言評論(Comments)</h4>", info_section_subtitle => '檢視與新增對此材料的留言評論。', icon_class => "glyphicon glyphicon-pencil", info_section_id => "stock_comments_section", referer => $this_page &>
 
-<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>Obsolete This Stock</h4>", info_section_subtitle => 'Make a stock obsolete so that it does not show in searches.', icon_class => "glyphicon glyphicon-trash", info_section_id => "stock_delete_section" &>
+<& /page/detail_page_2_col_section.mas, stock_id => $stock_id, info_section_title => "<h4 style='display:inline'>廢棄此材料(Obsolete This Stock)</h4>", info_section_subtitle => '將材料設為廢棄，使其不會顯示在搜尋結果中。', icon_class => "glyphicon glyphicon-trash", info_section_id => "stock_delete_section" &>
 
 
 <& /stock/download_stock_phenotypes_dialog.mas, stock_id => $stock_id, stock_name => $uniquename, stock_type => $type_name &>
 
 <div id="remove_parent_dialog">
-    Remove a parent (this will only remove the link to the parent, not the parent accession itself).
+    移除親本（這只會移除與親本的連結，不會移除親本材料本身）。(Remove a parent (this will only remove the link to the parent, not the parent accession itself).)
     <br /><br />
-    <div id="remove_parent_list">[loading parent list...]</div>
+    <div id="remove_parent_list">[載入親本清單中...([loading parent list...])]</div>
 </div>
 
 <div id="stock_trials_info_popup">
     <table id="stock_trials_info_table" >
         <thead>
-            <tr><th>Trait</th><th>Average</th><th>Std dev</th><th>Count</th></tr>
+            <tr><th>性狀(Trait)</th><th>平均值(Average)</th><th>標準差(Std dev)</th><th>計數(Count)</th></tr>
         </thead>
     </table>
 </div>
@@ -232,14 +232,14 @@ my $jbrowse_url = $jbrowse_path . "%2Faccessions%2F" . $stock_id . "&tracks=DNA%
             url: "<% $test_url %>",
             success: function(response) {
                 if ( response.indexOf("Accession_<%$stock_id%>") > -1 ) {  // if dataset is found, create and display link
-                    jQuery('#jbrowse_check').replaceWith('<a id="jbrowse_link" href="<% $jbrowse_url %>">View the tracks for this accession in JBrowse</a>');
+                    jQuery('#jbrowse_check').replaceWith('<a id="jbrowse_link" href="<% $jbrowse_url %>">在 JBrowse 中檢視此種原的軌跡(View the tracks for this accession in JBrowse)</a>');
                 }
                 else { // if not found, display message that dataset doesn't exist
-                    jQuery('#jbrowse_check').html(" <i>This accession does not have any data in Jbrowse.</i>");
+                    jQuery('#jbrowse_check').html(" <i>此種原在 JBrowse 中沒有任何資料。</i>");
                 }
             },
             error: function() {
-                jQuery('#jbrowse_check').html(" <i>Jbrowse has not been set up for this database.</i>");
+                jQuery('#jbrowse_check').html(" <i>此資料庫尚未設定 JBrowse。</i>");
             }
         });
 

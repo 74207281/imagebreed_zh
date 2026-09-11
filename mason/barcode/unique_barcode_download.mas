@@ -3,6 +3,6 @@
 $file
 </%args>
 
-Download unique barcodes as a PDF file:
+下載唯一條碼為 PDF 檔案(Download unique barcodes as a PDF file)：
 
-<a href="<% $file %>">Download</a>
+<a href="<% $file %>">下載(Download)</a>

@@ -26,21 +26,21 @@ $trial_stock_type => undef
 
 
 <div class="well well-sm table-responsive">
-    <center><h4>Raw Data Statistics</h4></center>
+    <center><h4>原始資料統計(Raw Data Statistics)</h4></center>
     <br/>
 
     <form class="form-horizontal" role="form" >
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Display: </label>
+            <label class="col-sm-3 control-label">顯示：</label>
             <div class="col-sm-9" >
                 <select class="form-control" id="display_trial_phenosummary">
 %  if ($trial_stock_type eq 'analysis_instance') {
-                    <option value="analysis_instance">Values for Analysis</option>
+                    <option value="analysis_instance">用於分析的數值</option>
 %  } else {
-                    <option value="plots">Trait Values for Plots in this Trial</option>
-                    <option value="plants">Trait Values for Plants in this Trial</option>
-                    <option value="subplots">Trait Values for Subplots in this Trial</option>
-                    <option value="tissue_samples">Trait Values for Tissue Samples in this Trial</option>
+                    <option value="plots">此試驗中小區的性狀值</option>
+                    <option value="plants">此試驗中植株的性狀值</option>
+                    <option value="subplots">此試驗中次小區的性狀值</option>
+                    <option value="tissue_samples">此試驗中組織樣本的性狀值</option>
                     <option id = "plots_stock_option" value="plots_accession"></option>
                     <option id = "plants_stock_option" value="plants_accession"></option>
                     <option id = "tissue_samples_stock_option" value="tissue_samples_accession"></option>
@@ -55,15 +55,15 @@ $trial_stock_type => undef
         <table id="phenotype_summary_data" class="display">
         <thead>
         <tr>
-        <th>Trait</th>
-        <th>Mean</th>
-        <th>Min</th>
-        <th>Max</th>
-        <th>Std Dev</th>
-        <th>CV</th>
-        <th>Count</th>
-        <th>Percent Missing</th>
-        <th>Histogram</th>
+        <th>性狀(Trait)</th>
+        <th>平均值(Mean)</th>
+        <th>最小值(Min)</th>
+        <th>最大值(Max)</th>
+        <th>標準差(Std Dev)</th>
+        <th>變異係數(CV)</th>
+        <th>計數(Count)</th>
+        <th>缺失百分比(Percent Missing)</th>
+        <th>直方圖(Histogram)</th>
         </tr>
         </thead>
         <tbody>
@@ -71,16 +71,16 @@ $trial_stock_type => undef
         </table>
     </div>
     <div>
-        <button type="button" class="selectAll-dt">Select All</button>
-        <button type="button" class="deselectAll-dt">Deselect All</button>
+        <button type="button" class="selectAll-dt">全選(Select All)</button>
+        <button type="button" class="deselectAll-dt">取消全選(Deselect All)</button>
     </div>
     <br>
     <div class="panel panel-default">
         <div class="panel-body">
 
-            <&| /page/info_section.mas, title => 'Copy Selected Results to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Copy the names currently selected in the first column of the summary table to a new or exisiting list</i>'&>
+            <&| /page/info_section.mas, title => '複製選取結果至列表(Copy Selected Results to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將摘要表格第一欄目前選取的名稱複製到新列表或現有列表</i>'&>
             <br>
-            <p><em><span id="selected_row_count">0</span> row(s) selected.</em></p>
+            <p><em>已選取 <span id="selected_row_count">0</span> 行。</em></p>
             <div style="text-align:right" id="names_to_list_menu"></div>
             <div id="selected_names" style="display: none;"></div>
             </&>
@@ -90,29 +90,29 @@ $trial_stock_type => undef
 </div>
 
 <div class="well well-sm" id="raw_data_histogram_well">
-    <center><h4>Raw Data Histogram</h4></center><hr>
+    <center><h4>原始資料直方圖(Raw Data Histogram)</h4></center><hr>
     <div id="trial_summary_hist_div">
         <div class="row">
             <div class="col-sm-8">
                 <form class="form-horizontal">
                     <div class="form-group form-group-sm">
-                        <label for="trial_summary_hist_dropdown" class="col-sm-2 control-label">Select:</label>
+                        <label for="trial_summary_hist_dropdown" class="col-sm-2 control-label">選擇：</label>
                         <div class="col-sm-10">
                             <div id="traits_assayed_dropdown">
                             </div>
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
-                        <label class="col-sm-2 control-label">Display: </label>
+                        <label class="col-sm-2 control-label">顯示：</label>
                         <div class="col-sm-10" >
                             <select class="form-control" id="display_trial_phenosummary_hist">
 %  if ($trial_stock_type eq 'analysis_instance') {
-                                <option value="analysis_instance">Values for Analysis</option>
+                                <option value="analysis_instance">用於分析的數值</option>
 %  } else {
-                                <option value="plot">Values for Plots in this Trial</option>
-                                <option value="plant">Values for Plants in this Trial</option>
-                                <option value="subplot">Values for Subplots in this Trial</option>
-                                <option value="tissue_sample">Values for Tissue Samples in this Trial</option>
+                                <option value="plot">此試驗中小區的數值</option>
+                                <option value="plant">此試驗中植株的數值</option>
+                                <option value="subplot">此試驗中次小區的數值</option>
+                                <option value="tissue_sample">此試驗中組織樣本的數值</option>
 %  }
                             </select>
                         </div>
@@ -150,15 +150,15 @@ jQuery(document).ready(function () {
             var html = '';
             var display = jQuery('#display_trial_phenosummary').val();
             if (display == 'plots' || display == 'plants' || display == 'subplots' || display == 'tissue_samples') {
-                html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>Trait</th><th>Mean</th><th>Min</th><th>Max</th><th>Std Dev</th><th>CV</th><th>Count</th><th>Percent Missing</th><th>Histogram</th></tr></thead><tbody></tbody></table>';
+                html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>性狀(Trait)</th><th>平均值(Mean)</th><th>最小值(Min)</th><th>最大值(Max)</th><th>標準差(Std Dev)</th><th>變異係數(CV)</th><th>計數(Count)</th><th>缺失百分比(Percent Missing)</th><th>直方圖(Histogram)</th></tr></thead><tbody></tbody></table>';
             }
             if (display == 'plots_accession' || display == 'plants_accession' || display == 'tissue_samples_accession') {
                 if (type == 'family_name') {
-                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>Family Name</th><th>Trait</th><th>Mean</th><th>Min</th><th>Max</th><th>Std Dev</th><th>CV</th><th>Count</th><th>Percent Missing</th><th>Histogram</th></tr></thead><tbody></tbody></table>';
+                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>家族名稱(Family Name)</th><th>性狀(Trait)</th><th>平均值(Mean)</th><th>最小值(Min)</th><th>最大值(Max)</th><th>標準差(Std Dev)</th><th>變異係數(CV)</th><th>計數(Count)</th><th>缺失百分比(Percent Missing)</th><th>直方圖(Histogram)</th></tr></thead><tbody></tbody></table>';
                 } else if (type == 'cross') {
-                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>Cross Unique ID</th><th>Trait</th><th>Mean</th><th>Min</th><th>Max</th><th>Std Dev</th><th>CV</th><th>Count</th><th>Percent Missing</th><th>Histogram</th></tr></thead><tbody></tbody></table>';
+                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>雜交唯一ID(Cross Unique ID)</th><th>性狀(Trait)</th><th>平均值(Mean)</th><th>最小值(Min)</th><th>最大值(Max)</th><th>標準差(Std Dev)</th><th>變異係數(CV)</th><th>計數(Count)</th><th>缺失百分比(Percent Missing)</th><th>直方圖(Histogram)</th></tr></thead><tbody></tbody></table>';
                 } else {
-                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>Accession</th><th>Trait</th><th>Mean</th><th>Min</th><th>Max</th><th>Std Dev</th><th>CV</th><th>Count</th><th>Percent Missing</th><th>Histogram</th></tr></thead><tbody></tbody></table>';
+                    html = html +'<table id="phenotype_summary_data" class="display"><thead><tr><th>種原(Accession)</th><th>性狀(Trait)</th><th>平均值(Mean)</th><th>最小值(Min)</th><th>最大值(Max)</th><th>標準差(Std Dev)</th><th>變異係數(CV)</th><th>計數(Count)</th><th>缺失百分比(Percent Missing)</th><th>直方圖(Histogram)</th></tr></thead><tbody></tbody></table>';
                 }
             }
             jQuery('#pheno_summary_table_div').empty().html(html);
@@ -190,17 +190,17 @@ jQuery(document).ready(function () {
     var tissue_samples_stock_text = '';
 
     if (type == 'family_name') {
-        plots_stock_text = 'Trait Values for Plots in this Trial grouped by Family Name';
-        plants_stock_text = 'Trait Values for Plants in this Trial grouped by Family Name';
-        tissue_samples_stock_text = 'Trait Values for Tissue Samples in this Trial grouped by Family Name';
+        plots_stock_text = '此試驗中小區的性狀值（按家族名稱分組）';
+        plants_stock_text = '此試驗中植株的性狀值（按家族名稱分組）';
+        tissue_samples_stock_text = '此試驗中組織樣本的性狀值（按家族名稱分組）';
     } else if (type == 'cross') {
-        plots_stock_text = 'Trait Values for Plots in this Trial grouped by Cross Unique ID';
-        plants_stock_text = 'Trait Values for Plants in this Trial grouped by Cross Unique ID';
-        tissue_samples_stock_text = 'Trait Values for Tissue Samples in this Trial grouped by Cross Unique ID';
+        plots_stock_text = '此試驗中小區的性狀值（按雜交唯一ID分組）';
+        plants_stock_text = '此試驗中植株的性狀值（按雜交唯一ID分組）';
+        tissue_samples_stock_text = '此試驗中組織樣本的性狀值（按雜交唯一ID分組）';
     } else {
-        plots_stock_text = 'Trait Values for Plots in this Trial grouped by Accession';
-        plants_stock_text = 'Trait Values for Plants in this Trial grouped by Accession';
-        tissue_samples_stock_text = 'Trait Values for Tissue Samples in this Trial grouped by Accession';
+        plots_stock_text = '此試驗中小區的性狀值（按種原分組）';
+        plants_stock_text = '此試驗中植株的性狀值（按種原分組）';
+        tissue_samples_stock_text = '此試驗中組織樣本的性狀值（按種原分組）';
     }
     jQuery('#plots_stock_option').text(plots_stock_text);
     jQuery('#plants_stock_option').text(plants_stock_text);
@@ -278,7 +278,7 @@ function trait_summary_hist_display_change(value) {
                   trait_summary_hist_change(this.value);
                 });
 
-                jQuery('#traits_assayed_histogram_cvterm_link').html("<a href='/cvterm/"+response.traits_assayed[0][0][0]+"/view'>Definition</a>");
+                jQuery('#traits_assayed_histogram_cvterm_link').html("<a href='/cvterm/"+response.traits_assayed[0][0][0]+"/view'>定義(Definition)</a>");
 
                 jQuery.ajax( {
                     url : '/ajax/breeders/trial/'+ <% $trial_id %> +'/trait_phenotypes/?trait='+jQuery("#trial_summary_hist_dropdown").val()+'&display='+value,
@@ -289,7 +289,7 @@ function trait_summary_hist_display_change(value) {
                             alert(response.error);
                         }
                         else if (response.status!="success"){
-                            alert("Problem loading plant/plot data: "+response.status);
+                            alert("載入植株/小區資料時發生問題："+response.status);
                         }
                         else {
                             draw_histogram(response.data, d3.select("#trial_summary_hist").node());
@@ -297,17 +297,17 @@ function trait_summary_hist_display_change(value) {
                     },
                     error: function(response) {
                         jQuery("#working_modal").modal("hide");
-                        alert('An error occured retrieving trait histogram data.');
+                        alert('擷取性狀直方圖資料時發生錯誤。');
                     }
                 });
             } else {
                 jQuery("#working_modal").modal("hide");
-                jQuery("#trial_summary_hist").html("<center><h4>There is no data to plot.</h4></center>");
+                jQuery("#trial_summary_hist").html("<center><h4>沒有可用於繪圖的資料。</h4></center>");
             }
 
         },
         error: function(response){
-            alert('Error retrieving traits assayed in this trial');
+            alert('擷取此試驗中分析的性狀時發生錯誤');
         }
 
     });
@@ -315,7 +315,7 @@ function trait_summary_hist_display_change(value) {
 
 function trait_summary_hist_change(value) {
     jQuery("#trial_summary_hist_dropdown").val(value);
-    jQuery('#traits_assayed_histogram_cvterm_link').html("<a href='/cvterm/"+value+"/view'>Definition</a>");
+    jQuery('#traits_assayed_histogram_cvterm_link').html("<a href='/cvterm/"+value+"/view'>定義(Definition)</a>");
     // console.log("value",value);
     jQuery.ajax( {
         url : '/ajax/breeders/trial/'+ <% $trial_id %> +'/trait_phenotypes/?trait='+value+'&display='+jQuery('#display_trial_phenosummary_hist').val(),
@@ -329,7 +329,7 @@ function trait_summary_hist_change(value) {
                 alert(response.error);
             }
             else if (response.status!="success"){
-                alert("Problem loading plant/plot data: "+response.status);
+                alert("載入植株/小區資料時發生問題："+response.status);
             }
             else {
                 draw_histogram(response.data, d3.select("#trial_summary_hist").node());
@@ -337,7 +337,7 @@ function trait_summary_hist_change(value) {
         },
         error: function(response) {
             jQuery("#working_modal").modal("hide");
-            alert('An error occured retrieving trait histogram data.');
+            alert('擷取性狀直方圖資料時發生錯誤。');
         }
     });
 }

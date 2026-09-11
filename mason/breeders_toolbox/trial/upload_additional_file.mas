@@ -5,7 +5,7 @@ $trial_id => undef
 <& /util/import_javascript.mas, classes => [ ] &>
 
 <div id="trial_additional_uploaded_files_div">
-[LOADING...]
+[載入中...]
 </div>
 
 <div class="modal fade" id="trial_upload_additional_file_dialog" name="trial_upload_additional_file_dialog" tabindex="-1" role="dialog" aria-labelledby="trialUploadAdditionalFileDialog">
@@ -13,22 +13,22 @@ $trial_id => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialUploadAdditionalFileDialog">Upload Additional File to Trial</h4>
+                <h4 class="modal-title" id="trialUploadAdditionalFileDialog">上傳附加檔案至試驗(Upload Additional File to Trial)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <&| /page/explanation.mas, title=>'Template information' &>
+                    <&| /page/explanation.mas, title=>'範本資訊(Template information)' &>
                         <p>
-                            <b>File upload information</b>
+                            <b>檔案上傳資訊</b>
                             <br>
-                            <a id="trial_upload_additional_file_format">Upload Information</a>
+                            <a id="trial_upload_additional_file_format">上傳資訊(Upload Information)</a>
                         </p>
                     </&>
 
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="trial_upload_additional_file_form" name="trial_upload_additional_file_form">
 
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Upload File: </label>
+                            <label class="col-sm-4 control-label">上傳檔案：</label>
                             <div class="col-sm-8" >
                                 <input type="file" name="trial_upload_additional_file" id="trial_upload_additional_file" encoding="multipart/form-data" />
                             </div>
@@ -38,8 +38,8 @@ $trial_id => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="trial_upload_additional_file_cancel_button" id="trial_upload_additional_file_cancel_button"     data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="trial_upload_additional_file_submit_button" id="trial_upload_additional_file_submit_button" title="Submit">Submit</button>
+                <button type="button" class="btn btn-default" name="trial_upload_additional_file_cancel_button" id="trial_upload_additional_file_cancel_button"     data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="trial_upload_additional_file_submit_button" id="trial_upload_additional_file_submit_button" title="送出(Submit)">送出(Submit)</button>
             </div>
         </div>
     </div>
@@ -50,23 +50,23 @@ $trial_id => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialUploadAdditionalFileInfoDialog">Upload Information</h4>
+                <h4 class="modal-title" id="trialUploadAdditionalFileInfoDialog">上傳資訊(Upload Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading any additional files you may have for a trial.</b>
+                    <b>此處用於上傳您可能擁有的試驗相關附加檔案。</b>
                     <br/><br/>
-                    <p>Possible additional files inlude, but are not limited to:</p>
+                    <p>可能的附加檔案包括但不限於：</p>
                     <ul>
-                        <li>Trial Related Images, such as a physical field image or an aerial picture of the field.</li>
-                        <li>Trial Related Documentation, such as protocols or permits for the trial.</li>
-                        <li>Trial Related Reports, such as supplementary information or publications.</li>
-                        <li>Trial Related Recordings, whether audio or video.</li>
+                        <li>試驗相關影像，例如實體田間影像或田區空拍照片。</li>
+                        <li>試驗相關文件，例如試驗的實驗協定或許可證明。</li>
+                        <li>試驗相關報告，例如補充資料或出版品。</li>
+                        <li>試驗相關記錄，無論是音訊或視訊。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_trial_upload_additional_file_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_trial_upload_additional_file_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ jQuery(document).ready(function(){
         var uploadFile = jQuery("#trial_upload_additional_file").val();
         jQuery('#trial_upload_additional_file_form').attr("action", "/ajax/breeders/trial/<% $trial_id %>/upload_additional_file");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選取檔案");
             return;
         }
         jQuery("#trial_upload_additional_file_form").submit();
@@ -106,7 +106,7 @@ jQuery(document).ready(function(){
             jQuery('#working_modal').modal("show");
             if (uploadedAdditionalFile === '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選取檔案");
             }
         },
         complete: function (response) {
@@ -122,7 +122,7 @@ jQuery(document).ready(function(){
                 return;
             }
             if (response.success) {
-                alert("File uploaded successfully");
+                alert("檔案上傳成功");
                 display_trial_additional_upload_files();
             }
         }
@@ -132,20 +132,20 @@ jQuery(document).ready(function(){
         jQuery.ajax ({
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/get_uploaded_additional_file',
             beforeSend : function(){
-                jQuery('#trial_additional_uploaded_files_div').html("[LOADING...]");
+                jQuery('#trial_additional_uploaded_files_div').html("[載入中...]");
             },
             success: function(response){
                 //console.log(response);
-                var html = "<table class='table table-hover table-condensed table-bordered' id='trial_additional_uploaded_files_table'><thead><tr><th>Filename</th><th>Date Uploaded</th><th>Uploaded By</th><th>Options</th></tr></thead><tbody>";
+                var html = "<table class='table table-hover table-condensed table-bordered' id='trial_additional_uploaded_files_table'><thead><tr><th>檔案名稱(Filename)</th><th>上傳日期(Date Uploaded)</th><th>上傳者(Uploaded By)</th><th>選項(Options)</th></tr></thead><tbody>";
                 for (i=0; i<response.files.length; i++) {
-                    html = html + '<tr><td>'+response.files[i][4]+'</td><td>'+response.files[i][1]+'</td><td><a href="/solpeople/profile/'+response.files[i][2]+'">'+response.files[i][3]+'</a></td><td><a href="/breeders/phenotyping/download/'+response.files[i][0]+'">Download</a> | <a href="javascript:obsolete_additional_file('+<% $trial_id %>+', '+response.files[i][0]+')">Remove</a></td></tr>';
+                    html = html + '<tr><td>'+response.files[i][4]+'</td><td>'+response.files[i][1]+'</td><td><a href="/solpeople/profile/'+response.files[i][2]+'">'+response.files[i][3]+'</a></td><td><a href="/breeders/phenotyping/download/'+response.files[i][0]+'">下載</a> | <a href="javascript:obsolete_additional_file('+<% $trial_id %>+', '+response.files[i][0]+')">移除</a></td></tr>';
                 }
                 html = html + "</tbody></table>";
                 jQuery('#trial_additional_uploaded_files_div').html(html);
                 jQuery('#trial_additional_uploaded_files_table').DataTable();
             },
             error: function(response){
-                alert("Error retrieving additional uploaded files.");
+                alert("擷取附加已上傳檔案時發生錯誤。");
             }
        });
 
@@ -154,7 +154,7 @@ jQuery(document).ready(function(){
 });
 
 function obsolete_additional_file(trial_id, file_id) {
-    var yes = confirm('Are you sure you want to obsolete this file? This operation cannot be undone.');
+    var yes = confirm('您確定要作廢此檔案嗎？此操作無法復原。');
     if (yes) {
         jQuery.ajax({
             url: '/ajax/breeders/trial/'+trial_id+'/obsolete_uploaded_additional_file/'+file_id,
@@ -162,10 +162,10 @@ function obsolete_additional_file(trial_id, file_id) {
                 if (r.error) { alert(r.error); }
                 else {
                     jQuery('#trial_additional_uploaded_files_table').DataTable().clear().draw();
-                    alert("The file has been obsoleted.");
+                    alert("該檔案已作廢。");
                 }
             },
-            error: function(r) {  alert("An error occurred!") }
+            error: function(r) {  alert("發生錯誤！") }
         });
     }
 }

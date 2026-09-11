@@ -6,9 +6,9 @@ $profile_name
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title => "Profile: '$profile_name'" &>
+<& /page/page_title.mas, title => "產品概況(Profile)：'$profile_name'" &>
 
-<&| /page/info_section.mas, title => 'Details', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '詳細資訊(Details)', collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
@@ -16,12 +16,12 @@ $profile_name
                     <table id = "profile_detail_table" class="table table-hover table-striped">
                         <thead>
                             <tr>
-                                <th>Trait Name</th>
-                                <th>Target Value</th>
-                                <th>Benchmark Variety</th>
-                                <th>Performance</th>
-                                <th>Weight</th>
-                                <th>Trait Type</th>
+                                <th>性狀名稱(Trait Name)</th>
+                                <th>目標值(Target Value)</th>
+                                <th>對照品種(Benchmark Variety)</th>
+                                <th>表現(Performance)</th>
+                                <th>權重(Weight)</th>
+                                <th>性狀類型(Trait Type)</th>
                             </tr>
                         </thead>
                     </table>

@@ -6,15 +6,15 @@ $trial_id
     <table id="genotyping_data_project_protocols" width="100%" class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Protocol</th>
-                <th>Marker Type</th>
-                <th>Header Description</th>
-                <th>Number of Markers</th>
-                <th>Protocol Description</th>
-                <th>Reference Genome</th>
-                <th>Species Name</th>
-                <th>Sample Type</th>
-                <th>Create Date</th>
+                <th>協定(Protocol)</th>
+                <th>標記類型(Marker Type)</th>
+                <th>表頭描述(Header Description)</th>
+                <th>標記數量(Number of Markers)</th>
+                <th>協定描述(Protocol Description)</th>
+                <th>參考基因組(Reference Genome)</th>
+                <th>物種名稱(Species Name)</th>
+                <th>樣本類型(Sample Type)</th>
+                <th>建立日期(Create Date)</th>
             </tr>
         </thead>
     </table>
