@@ -11,102 +11,102 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addHighDimDataDialog">Upload High-Dimensional Phenotype Data</h4>
+        <h4 class="modal-title" id="addHighDimDataDialog">上傳高維度表型資料(Upload High-Dimensional Phenotype Data)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "high_dim_data_upload_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Intro" &>
-                    <& /page/page_title.mas, title=>"This workflow will guide you through uploading high-dimensional data into the database." &>
+                <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                    <& /page/page_title.mas, title=>"此工作流程將引導您將高維度資料上傳至資料庫(This workflow will guide you through uploading high-dimensional data into the database.)" &>
 
                     <center>
                         <div class="well">
-                            <h4>High-dimensional phenotype data includes:</h4>
-                            <p>NIRS</p>
-                            <p>Transcriptomics</p>
-                            <p>Metabolomics</p>
+                            <h4>高維度表型資料包括(High-dimensional phenotype data includes)：</h4>
+                            <p>近紅外光譜(NIRS)</p>
+                            <p>轉錄組學(Transcriptomics)</p>
+                            <p>代謝組學(Metabolomics)</p>
                         </div>
                     </center>
 
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Samples" &>
-                    <& /page/page_title.mas, title=>"Make sure your samples are already in the database." &>
+                <&| /util/workflow.mas:step, title=> "樣本(Samples)" &>
+                    <& /page/page_title.mas, title=>"請確認您的樣本已存在於資料庫中(Make sure your samples are already in the database.)" &>
 
                     <center>
                         <div class="well">
-                            <h4>The samples for which you are uploading high-dimensional phenotypes must exist in the database already. They can be field trial entities such as plot names, plant names, and tissue sample names. They can be genotyping plate well tissue sample names. They can also be sample names from a sampling trial in the database.</h4>
-                            <p>Go to <a href="/breeders/samples">Manage Tissue Samples</a> for more guidance.</p>
-                            <p>You can upload or create a new sampling trial <button class="btn btn-sm btn-primary" style="margin:3px" name="create_sampling_trial_button">Create new sampling trial</button></p>
+                            <h4>您要上傳高維度表型的樣本必須已存在於資料庫中。它們可以是田間試驗實體，例如小區名稱、植株名稱和組織樣本名稱；也可以是基因分型微孔板的組織樣本名稱；或者資料庫中抽樣試驗的樣本名稱。(The samples for which you are uploading high-dimensional phenotypes must exist in the database already. They can be field trial entities such as plot names, plant names, and tissue sample names. They can be genotyping plate well tissue sample names. They can also be sample names from a sampling trial in the database.)</h4>
+                            <p>前往<a href="/breeders/samples">管理組織樣本(Manage Tissue Samples)</a>以獲取更多指引。</p>
+                            <p>您可以上傳或建立新的抽樣試驗：<button class="btn btn-sm btn-primary" style="margin:3px" name="create_sampling_trial_button">建立新抽樣試驗(Create new sampling trial)</button></p>
                         </div>
                     </center>
 
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Data Type" &>
-                    <& /page/page_title.mas, title=>"Select the type of high-dimensional data being uploaded" &>
+                <&| /util/workflow.mas:step, title=> "資料類型(Data Type)" &>
+                    <& /page/page_title.mas, title=>"選擇要上傳的高維度資料類型(Select the type of high-dimensional data being uploaded)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Data Type: </label>
+                            <label class="col-sm-3 control-label">資料類型(Data Type): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="high_dim_data_upload_type_select">
 %  if ($high_dimensional_phenotype_type eq 'NIRS') {
-                                    <option value="">Select One</option>
-                                    <option value="NIRS">NIRS</option>
-                                    <option disabled value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="Metabolomics">Metabolomics</option>
+                                    <option value="">請選擇(Select One)</option>
+                                    <option value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option disabled value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="Metabolomics">代謝組學(Metabolomics)</option>
 %  } elsif ($high_dimensional_phenotype_type eq 'Transcriptomics') {
-                                    <option value="">Select One</option>
-                                    <option value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="NIRS">NIRS</option>
-                                    <option disabled value="Metabolomics">Metabolomics</option>
+                                    <option value="">請選擇(Select One)</option>
+                                    <option value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option disabled value="Metabolomics">代謝組學(Metabolomics)</option>
 %  } elsif ($high_dimensional_phenotype_type eq 'Metabolomics') {
-                                    <option value="">Select One</option>
-                                    <option value="Metabolomics">Metabolomics</option>
-                                    <option disabled value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="NIRS">NIRS</option>
+                                    <option value="">請選擇(Select One)</option>
+                                    <option value="Metabolomics">代謝組學(Metabolomics)</option>
+                                    <option disabled value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="NIRS">近紅外光譜(NIRS)</option>
 %  } else {
-                                    <option value="">Select One</option>
-                                    <option value="NIRS">NIRS</option>
-                                    <option value="Transcriptomics">Transcriptomics</option>
-                                    <option value="Metabolomics">Metabolomics</option>
+                                    <option value="">請選擇(Select One)</option>
+                                    <option value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option value="Metabolomics">代謝組學(Metabolomics)</option>
 %  }
                                 </select>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_upload_data_type_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="high_dim_data_upload_data_type_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Protocol Info" &>
-                    <& /page/page_title.mas, title=>"Select a protocol for how your data was generated or create a new protocol" &>
+                <&| /util/workflow.mas:step, title=> "實驗方案資訊(Protocol Info)" &>
+                    <& /page/page_title.mas, title=>"選擇資料生成的實驗方案或建立新實驗方案(Select a protocol for how your data was generated or create a new protocol)" &>
 
                     <div id="high_dim_data_upload_protocol_select">
                     </div>
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_upload_new_protocol">Protocol Not Shown. Create a New Protocol</button>
+                    <button class="btn btn-primary" id="high_dim_data_upload_new_protocol">未顯示方案。建立新實驗方案(Protocol Not Shown. Create a New Protocol)</button>
                     </center>
                     <br/><br/>
 
                     <div id="high_dim_data_upload_protocol_div" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Protocol Name: </label>
+                                <label class="col-sm-3 control-label">方案名稱(Protocol Name): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_protocol_name" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Protocol Description: </label>
+                                <label class="col-sm-3 control-label">方案描述(Protocol Description): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_protocol_desc"  type="text">
                                 </div>
@@ -117,7 +117,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     <div id="high_dim_data_upload_nirs_protocol_div" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">NIRS Device: </label>
+                                <label class="col-sm-3 control-label">NIRS 儀器(NIRS Device): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="high_dim_data_upload_nirs_device_type_select">
                                         <option value="SCIO">SCIO</option>
@@ -139,7 +139,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     <div id="high_dim_data_upload_transcriptomics_protocol_div" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Transcriptomics Unit: </label>
+                                <label class="col-sm-3 control-label">轉錄組單位(Transcriptomics Unit): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="high_dim_data_upload_transcriptomics_unit_select">
                                     <option value="RPKM">RPKM</option>
@@ -152,14 +152,14 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Genome Version: </label>
+                                <label class="col-sm-3 control-label">基因組版本(Genome Version): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_transcriptomics_genome_version_select" type="text" placeholder="e.g. v6.1, v7.0, v8.0">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Genome Annotation Version: </label>
+                                <label class="col-sm-3 control-label">基因組註釋版本(Genome Annotation Version): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_transcriptomics_genome_annotation_version_select" type="text" placeholder="e.g. v6.0, v6.1, v7.0">
                                 </div>
@@ -171,7 +171,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     <div id="high_dim_data_upload_metabolomics_protocol_div" style="display:none">
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Equipment Type: </label>
+                                <label class="col-sm-3 control-label">設備類型(Equipment Type): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="high_dim_data_upload_metabolomics_equipment_type">
                                         <option value="NMR">NMR</option>
@@ -180,47 +180,47 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Targeted: </label>
+                                <label class="col-sm-3 control-label">目標分析(Targeted): </label>
                                 <div class="col-sm-9" >
                                 <select class="form-control" id="high_dim_data_upload_metabolomics_targeted">
-                                    <option value="True">True</option>
-                                    <option value="False">False</option>
+                                    <option value="True">是(True)</option>
+                                    <option value="False">否(False)</option>
                                 </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Phenotype Protocol: </label>
+                                <label class="col-sm-3 control-label">表型方案(Phenotype Protocol): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_phenotype_type" type="text" placeholder="e.g. relative abundance, BLUP, drBLUP, concentration">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Phenotype Units: </label>
+                                <label class="col-sm-3 control-label">表型單位(Phenotype Units): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_phenotype_units" type="text" placeholder="e.g. ug/g">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Sample Collection protocol: </label>
+                                <label class="col-sm-3 control-label">樣本採集方案(Sample Collection protocol): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_sample_collection_protocol" type="text" placeholder="e.g. mature dehulled oat seeds">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Sample Extraction Protocol: </label>
+                                <label class="col-sm-3 control-label">樣本萃取方案(Sample Extraction Protocol): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_sample_extraction_protocol" type="text" placeholder="e.g. describe extraction protocol used">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">RawData Transformation Protocol: </label>
+                                <label class="col-sm-3 control-label">原始數據轉換方案(RawData Transformation Protocol): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_rawdata_transformation_protocol" type="text" placeholder="e.g. describe the raw data transformation protocol used">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Metabolite Identification Protocol: </label>
+                                <label class="col-sm-3 control-label">代謝物鑑定方案(Metabolite Identification Protocol): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_metabolite_identification_protocol" type="text" placeholder="e.g. describe the metabolomics identification protocol used">
                                 </div>
@@ -230,7 +230,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <div id="high_dim_data_upload_metabolomics_protocol_ms_div" style="display:none">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography Type: </label>
+                                    <label class="col-sm-3 control-label">層析類型(Chromatography Type): </label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="high_dim_data_upload_metabolomics_chromatography_type">
                                             <option value="LCMS">LCMS</option>
@@ -239,71 +239,71 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography Instrument: </label>
+                                    <label class="col-sm-3 control-label">層析儀器(Chromatography Instrument): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_chromatography_system_brand" type="text" placeholder="e.g. ThermoFisher MS100 System">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography AutoSampler Model: </label>
+                                    <label class="col-sm-3 control-label">層析自動進樣器型號(Chromatography AutoSampler Model): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_chromatography_AutoSampler_Model" type="text" placeholder="e.g. write the name of AutoSampler Model used">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography Column Model: </label>
+                                    <label class="col-sm-3 control-label">層析管柱型號(Chromatography Column Model): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_chromatography_column_brand" type="text" placeholder="e.g. ThermoFisher MS100 Column">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography Column Type: </label>
+                                    <label class="col-sm-3 control-label">層析管柱類型(Chromatography Column Type): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_chromatography_column_type" type="text" placeholder="e.g. high polarity">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Chromatography Protocol: </label>
+                                    <label class="col-sm-3 control-label">層析方案(Chromatography Protocol): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_chromatography_protocol" type="text" placeholder="e.g. describe chromatography protocol used">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Mass Spectrometry Protocol: </label>
+                                    <label class="col-sm-3 control-label">質譜方案(Mass Spectrometry Protocol): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_mass_spectrometry_protocol" type="text" placeholder="e.g. describe mass spectrometry protocol used">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">MS Instrument: </label>
+                                    <label class="col-sm-3 control-label">質譜儀器(MS Instrument): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_ms_brand" type="text" placeholder="e.g. ThermoFisher MS100">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">MS Mass Analyzer: </label>
+                                    <label class="col-sm-3 control-label">質譜質量分析器(MS Mass Analyzer): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_ms_mass_analyzer" type="text" placeholder="e.g. single quadropole">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">MS Ion Source: </label>
+                                    <label class="col-sm-3 control-label">質譜離子源(MS Ion Source): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_ms_ion_source" type="text" placeholder="e.g. EI, ESI, APCI, MALDI">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">MS Scan Polarity: </label>
+                                    <label class="col-sm-3 control-label">質譜掃描極性(MS Scan Polarity): </label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="high_dim_data_upload_metabolomics_ms_scan_polarity">
-                                            <option value="negative">Negative</option>
-                                            <option value="positive">Positive</option>
-                                            <option value="both">Both</option>
+                                            <option value="negative">負(Negative)</option>
+                                            <option value="positive">正(Positive)</option>
+                                            <option value="both">兩者皆有(Both)</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">MS Scan MZ Range: </label>
+                                    <label class="col-sm-3 control-label">質譜掃描 MZ 範圍(MS Scan MZ Range): </label>
                                     <div class="col-sm-9" >
                                         <input class="form-control" id="high_dim_data_upload_metabolomics_ms_scan_MZ_Range" type="text" placeholder="e.g. 60-800">
                                     </div>
@@ -313,19 +313,19 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                         <div class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Equipment Description: </label>
+                                <label class="col-sm-3 control-label">設備描述(Equipment Description): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_equipment_description" type="text" placeholder="e.g. ThermoFisher MS100 Electron Ionization TOF Negative Ion Mode">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Data Process Description: </label>
+                                <label class="col-sm-3 control-label">數據處理描述(Data Process Description): </label>
                                 <div class="col-sm-9" >
                                     <textarea rows="10" class="form-control" id="high_dim_data_upload_metabolomics_data_process_description" placeholder="e.g. This describes mode, instrument settings, calibration procedure. Also, describes how the files from the LCMS machine were transformed into peak area. Finally, describes how metabolite annotations were assinged to peaks"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Publication: </label>
+                                <label class="col-sm-3 control-label">文獻發表(Publication): </label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="high_dim_data_upload_metabolomics_publication" type="text" placeholder="e.g. https://doi.org/10.3389/fgene.2021.643733">
                                 </div>
@@ -334,29 +334,29 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     </div>
 
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_upload_data_protocol_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="high_dim_data_upload_data_protocol_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Template Info" &>
-                    <& /page/page_title.mas, title=>"High-dimensional data must be uploaded using the template information provided" &>
+                <&| /util/workflow.mas:step, title=> "範本資訊(Template Info)" &>
+                    <& /page/page_title.mas, title=>"高維度資料必須使用所提供的範本格式進行上傳(High-dimensional data must be uploaded using the template information provided)" &>
 
                     <center>
-                    <&| /page/explanation.mas, title=>'Data Matrix Spreadsheet Template Information' &>
+                    <&| /page/explanation.mas, title=>'資料矩陣試算表範本資訊(Data Matrix Spreadsheet Template Information)' &>
                         <p>
-                        <b>File format information</b>
+                        <b>檔案格式資訊(File format information)</b>
                         <br>
-                        <a id="high_dim_data_spreadsheet_format_info">High Dimensional Phenotype Data Spreadsheet Format</a>
+                        <a id="high_dim_data_spreadsheet_format_info">高維度表型資料試算表格式(High Dimensional Phenotype Data Spreadsheet Format)</a>
                         </p>
                     </&>
                     </center>
 
                     <div id="high_dim_data_upload_transcriptomics_protocol_template_div">
                         <center>
-                        <&| /page/explanation.mas, title=>'Transcript Details Spreadsheet Template Information' &>
+                        <&| /page/explanation.mas, title=>'轉錄本詳細資訊試算表範本資訊(Transcript Details Spreadsheet Template Information)' &>
                             <p>
-                            <b>File format information</b>
+                            <b>檔案格式資訊(File format information)</b>
                             <br>
-                            <a id="high_dim_data_spreadsheet_transcripts_format_info">Transcript Details Spreadsheet Format</a>
+                            <a id="high_dim_data_spreadsheet_transcripts_format_info">轉錄本詳細資訊試算表格式(Transcript Details Spreadsheet Format)</a>
                             </p>
                         </&>
                         </center>
@@ -364,35 +364,35 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                     <div id="high_dim_data_upload_metabolomics_protocol_template_div">
                         <center>
-                        <&| /page/explanation.mas, title=>'Metabolite Details Spreadsheet Template Information' &>
+                        <&| /page/explanation.mas, title=>'代謝物詳細資訊試算表範本資訊(Metabolite Details Spreadsheet Template Information)' &>
                             <p>
-                            <b>File format information</b>
+                            <b>檔案格式資訊(File format information)</b>
                             <br>
-                            <a id="high_dim_data_spreadsheet_metabolites_format_info">Metabolite Details Spreadsheet Format</a>
+                            <a id="high_dim_data_spreadsheet_metabolites_format_info">代謝物詳細資訊試算表格式(Metabolite Details Spreadsheet Format)</a>
                             </p>
                         </&>
                         </center>
                     </div>
 
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Upload" &>
-                    <& /page/page_title.mas, title=>"Select your high-dimensional data file to upload" &>
+                <&| /util/workflow.mas:step, title=> "上傳(Upload)" &>
+                    <& /page/page_title.mas, title=>"選擇要上傳的高維度資料檔案(Select your high-dimensional data file to upload)" &>
 
                     <div id="high_dim_data_upload_nirs_div" style="display:none">
                         <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_nirs_spreadsheet_file_form" name="upload_nirs_spreadsheet_file_form">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Data Level: </label>
+                                <label class="col-sm-3 control-label">資料層級(Data Level): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="upload_nirs_spreadsheet_data_level" name="upload_nirs_spreadsheet_data_level">
-                                        <option value="tissue_samples">Samples</option>
+                                        <option value="tissue_samples">樣本(Samples)</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">NIRS Spreadsheet: </label>
+                                <label class="col-sm-3 control-label">NIRS 試算表(NIRS Spreadsheet): </label>
                                 <div class="col-sm-9" >
                                     <input type="file" id="upload_nirs_spreadsheet_file_input" name="upload_nirs_spreadsheet_file_input" encoding="multipart/form-data" />
                                 </div>
@@ -406,8 +406,8 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                         <hr>
                         <center>
-                            <button type="button" class="btn btn-info" name="upload_nirs_spreadsheet_submit_verify" id="upload_nirs_spreadsheet_submit_verify">Verify</button>
-                            <button disabled type="button" class="btn btn-primary" name="upload_nirs_spreadsheet_submit_store" id="upload_nirs_spreadsheet_submit_store" title="First Verify Your File">Store</button>
+                            <button type="button" class="btn btn-info" name="upload_nirs_spreadsheet_submit_verify" id="upload_nirs_spreadsheet_submit_verify">驗證(Verify)</button>
+                            <button disabled type="button" class="btn btn-primary" name="upload_nirs_spreadsheet_submit_store" id="upload_nirs_spreadsheet_submit_store" title="請先驗證您的檔案(First Verify Your File)">儲存(Store)</button>
                         </center>
 
                         <div id="upload_nirs_spreadsheet_verify_status"></div>
@@ -417,21 +417,21 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     <div id="high_dim_data_upload_transcriptomics_div" style="display:none">
                         <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_transcriptomics_spreadsheet_file_form" name="upload_transcriptomics_spreadsheet_file_form">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Data Level: </label>
+                                <label class="col-sm-3 control-label">資料層級(Data Level): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="upload_transcriptomics_spreadsheet_data_level" name="upload_transcriptomics_spreadsheet_data_level">
-                                        <option value="tissue_samples">Tissue Samples</option>
+                                        <option value="tissue_samples">組織樣本(Tissue Samples)</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Transcriptomics Data Matrix Spreadsheet: </label>
+                                <label class="col-sm-3 control-label">轉錄組學資料矩陣試算表(Transcriptomics Data Matrix Spreadsheet): </label>
                                 <div class="col-sm-9" >
                                     <input type="file" id="upload_transcriptomics_spreadsheet_file_input" name="upload_transcriptomics_spreadsheet_file_input" encoding="multipart/form-data" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Transcripts Details Spreadsheet: </label>
+                                <label class="col-sm-3 control-label">轉錄本詳細資訊試算表(Transcripts Details Spreadsheet): </label>
                                 <div class="col-sm-9" >
                                     <input type="file" id="upload_transcriptomics_transcript_metadata_spreadsheet_file_input" name="upload_transcriptomics_transcript_metadata_spreadsheet_file_input" encoding="multipart/form-data" />
                                 </div>
@@ -447,8 +447,8 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                         <hr>
                         <center>
-                            <button type="button" class="btn btn-info" name="upload_transcriptomics_spreadsheet_submit_verify" id="upload_transcriptomics_spreadsheet_submit_verify">Verify</button>
-                            <button disabled type="button" class="btn btn-primary" name="upload_transcriptomics_spreadsheet_submit_store" id="upload_transcriptomics_spreadsheet_submit_store" title="First Verify Your File">Store</button>
+                            <button type="button" class="btn btn-info" name="upload_transcriptomics_spreadsheet_submit_verify" id="upload_transcriptomics_spreadsheet_submit_verify">驗證(Verify)</button>
+                            <button disabled type="button" class="btn btn-primary" name="upload_transcriptomics_spreadsheet_submit_store" id="upload_transcriptomics_spreadsheet_submit_store" title="請先驗證您的檔案(First Verify Your File)">儲存(Store)</button>
                         </center>
 
                         <div id="upload_transcriptomics_spreadsheet_verify_status"></div>
@@ -457,21 +457,21 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                     <div id="high_dim_data_upload_metabolomics_div" style="display:none">
                         <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_metabolomics_spreadsheet_file_form" name="upload_metabolomics_spreadsheet_file_form">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Data Level: </label>
+                                <label class="col-sm-3 control-label">資料層級(Data Level): </label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="upload_metabolomics_spreadsheet_data_level" name="upload_metabolomics_spreadsheet_data_level">
-                                        <option value="tissue_samples">Tissue Samples</option>
+                                        <option value="tissue_samples">組織樣本(Tissue Samples)</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Metabolomics Data Matrix Spreadsheet: </label>
+                                <label class="col-sm-3 control-label">代謝組學資料矩陣試算表(Metabolomics Data Matrix Spreadsheet): </label>
                                 <div class="col-sm-9" >
                                     <input type="file" id="upload_metabolomics_spreadsheet_file_input" name="upload_metabolomics_spreadsheet_file_input" encoding="multipart/form-data" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Metabolites Details Spreadsheet: </label>
+                                <label class="col-sm-3 control-label">代謝物詳細資訊試算表(Metabolites Details Spreadsheet): </label>
                                 <div class="col-sm-9" >
                                     <input type="file" id="upload_metabolomics_metabolite_details_spreadsheet_file_input" name="upload_metabolomics_metabolite_details_spreadsheet_file_input" encoding="multipart/form-data" />
                                 </div>
@@ -512,8 +512,8 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                         <hr>
                         <center>
-                            <button type="button" class="btn btn-info" name="upload_metabolomics_spreadsheet_submit_verify" id="upload_metabolomics_spreadsheet_submit_verify">Verify</button>
-                            <button disabled type="button" class="btn btn-primary" name="upload_metabolomics_spreadsheet_submit_store" id="upload_metabolomics_spreadsheet_submit_store" title="First Verify Your File">Store</button>
+                            <button type="button" class="btn btn-info" name="upload_metabolomics_spreadsheet_submit_verify" id="upload_metabolomics_spreadsheet_submit_verify">驗證(Verify)</button>
+                            <button disabled type="button" class="btn btn-primary" name="upload_metabolomics_spreadsheet_submit_store" id="upload_metabolomics_spreadsheet_submit_store" title="請先驗證您的檔案(First Verify Your File)">儲存(Store)</button>
                         </center>
 
                         <div id="upload_metabolomics_spreadsheet_verify_status"></div>
@@ -524,7 +524,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" name="met_close_refresh" id="met_close_refresh" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" name="met_close_refresh" id="met_close_refresh" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -535,18 +535,18 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="nirsUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="nirsUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h3>Upload NIRS in a tabular spreadsheet (.csv) format with the following columns:</h3>
+            <h3>請以包含以下欄位的表格試算表（.csv）格式上傳 NIRS(Upload NIRS in a tabular spreadsheet (.csv) format with the following columns)：</h3>
 
             <ul>
-                <li><strong>sample_name</strong>: This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.</li>
-                <li><strong>device_id</strong>: Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.</li>
-                <li><strong>comments</strong>: Optional comments for any information to include. Can include specific sample preparation for measurement.</li>
-                <li>All other columns are <strong>wavelengths</strong> (e.g. 100, 400, 2000, etc). You can add as many columns as you want upload, there isn't a limit.</li>
+                <li><strong>sample_name</strong>: 資料庫中已存在的樣本名稱。樣本可來自抽樣試驗、田間試驗或基因分型板。(This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.)</li>
+                <li><strong>device_id</strong>: 用於區分儀器的選填識別碼（例如序號），可為數字或英文字母。(Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.)</li>
+                <li><strong>comments</strong>: 選填備註資訊，可包含測量時特定的樣本製備方式。(Optional comments for any information to include. Can include specific sample preparation for measurement.)</li>
+                <li>所有其他欄位為<strong>波長(wavelengths)</strong>（例如 100, 400, 2000 等）。您可以新增任意數量的欄位，沒有限制。(All other columns are wavelengths (e.g. 100, 400, 2000, etc). You can add as many columns as you want upload, there isn't a limit.)</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                 <thead></thead>
@@ -555,7 +555,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <td>sample_name</td>
                         <td>device_id</td>
                         <td>comments</td>
-                        <td>wavelength columns (e.g. 400, 1200, etc)</td>
+                        <td>波長欄位(wavelength columns, e.g. 400, 1200, etc)</td>
                     </tr>
                 </tbody>
             </table>
@@ -563,7 +563,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -575,18 +575,18 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="transcriptomicsUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="transcriptomicsUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h3>Upload Transcriptomics in a tabular spreadsheet (.csv) format with the following columns:</h3>
+            <h3>請以包含以下欄位的表格試算表（.csv）格式上傳轉錄組學資料(Upload Transcriptomics in a tabular spreadsheet (.csv) format with the following columns)：</h3>
 
             <ul>
-                <li><strong>sample_name</strong>: This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.</li>
-                <li><strong>device_id</strong>: Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.</li>
-                <li><strong>comments</strong>: Optional comments for any information to include. Can include specific sample preparation for measurement.</li>
-                <li>All other columns are <strong>transcript names</strong>. You can add as many columns as you want to upload, there isn't a limit.</li>
+                <li><strong>sample_name</strong>: 資料庫中已存在的樣本名稱。樣本可來自抽樣試驗、田間試驗或基因分型板。(This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.)</li>
+                <li><strong>device_id</strong>: 用於區分儀器的選填識別碼（例如序號），可為數字或英文字母。(Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.)</li>
+                <li><strong>comments</strong>: 選填備註資訊，可包含測量時特定的樣本製備方式。(Optional comments for any information to include. Can include specific sample preparation for measurement.)</li>
+                <li>所有其他欄位為<strong>轉錄本名稱(transcript names)</strong>。您可以新增任意數量的欄位，沒有限制。(All other columns are transcript names. You can add as many columns as you want to upload, there isn't a limit.)</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                 <thead></thead>
@@ -595,7 +595,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <td>sample_name</td>
                         <td>device_id</td>
                         <td>comments</td>
-                        <td>transcipt name columns</td>
+                        <td>轉錄本名稱欄位(transcript name columns)</td>
                     </tr>
                 </tbody>
             </table>
@@ -603,7 +603,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -614,18 +614,18 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="metabolomicsUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="metabolomicsUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h3>Upload Metabolomics in a tabular spreadsheet (.csv) format with the following columns:</h3>
+            <h3>請以包含以下欄位的表格試算表（.csv）格式上傳代謝組學資料(Upload Metabolomics in a tabular spreadsheet (.csv) format with the following columns)：</h3>
 
             <ul>
-                <li><strong>sample_name</strong>: This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.</li>
-                <li><strong>device_id</strong>: Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.</li>
-                <li><strong>comments</strong>: Optional comments for any information to include. Can include specific sample preparation for measurement.</li>
-                <li>All other columns are <strong>metabolite names</strong>. You can add as many columns as you want to upload, there isn't a limit.</li>
+                <li><strong>sample_name</strong>: 資料庫中已存在的樣本名稱。樣本可來自抽樣試驗、田間試驗或基因分型板。(This should be a sample name that exists in the database. The sample can come from a sampling trial or a field trial or a genotyping plate.)</li>
+                <li><strong>device_id</strong>: 用於區分儀器的選填識別碼（例如序號），可為數字或英文字母。(Optional identifier to differentiate device (e.g. serial number). Can be numeric or letter.)</li>
+                <li><strong>comments</strong>: 選填備註資訊，可包含測量時特定的樣本製備方式。(Optional comments for any information to include. Can include specific sample preparation for measurement.)</li>
+                <li>所有其他欄位為<strong>代謝物名稱(metabolite names)</strong>。您可以新增任意數量的欄位，沒有限制。(All other columns are metabolite names. You can add as many columns as you want to upload, there isn't a limit.)</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                 <thead></thead>
@@ -634,7 +634,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <td>sample_name</td>
                         <td>device_id</td>
                         <td>comments</td>
-                        <td>metabolite name columns</td>
+                        <td>代謝物名稱欄位(metabolite name columns)</td>
                     </tr>
                 </tbody>
             </table>
@@ -642,7 +642,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -653,20 +653,20 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="transcriptomicsDetailsUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="transcriptomicsDetailsUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h3>Upload details about the transcripts in a tabular spreadsheet (.csv) format with the following columns:</h3>
+            <h3>請以包含以下欄位的表格試算表（.csv）格式上傳轉錄本詳細資訊(Upload details about the transcripts in a tabular spreadsheet (.csv) format with the following columns)：</h3>
 
             <ul>
-                <li>transcript_name (required): This should be the same name as present in a column in your transcriptomics data matrix file.</li>
-                <li>chromosome (required): The chromosome where the transcript exists.</li>
-                <li>start_position (required): The start position in base pairs of where the transcript begins.</li>
-                <li>end_position (required): The end position in base pairs of where the transcript ends.</li>
-                <li>gene_description (optional): Descriptors for gene annotations.</li>
-                <li>notes (optional): Any additional descrptions.</li>
+                <li>transcript_name (required): 轉錄本名稱（必填，需與轉錄組資料矩陣檔案中的欄位名稱一致）(transcript_name (required): This should be the same name as present in a column in your transcriptomics data matrix file.)</li>
+                <li>chromosome (required): 染色體（必填，轉錄本所在的染色體）(chromosome (required): The chromosome where the transcript exists.)</li>
+                <li>start_position (required): 起始位置（必填，轉錄本起始的鹼基對位置）(start_position (required): The start position in base pairs of where the transcript begins.)</li>
+                <li>end_position (required): 結束位置（必填，轉錄本結束的鹼基對位置）(end_position (required): The end position in base pairs of where the transcript ends.)</li>
+                <li>gene_description (optional): 基因描述（選填，基因註釋的描述說明）(gene_description (optional): Descriptors for gene annotations.)</li>
+                <li>notes (optional): 備註（選填，任何附加描述）(notes (optional): Any additional descrptions.)</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                 <thead></thead>
@@ -684,7 +684,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -695,35 +695,35 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="metabolomicsDetailsUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="metabolomicsDetailsUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h3>Upload details about the metabolites in a tabular spreadsheet (.csv) format with the following columns:</h3>
+            <h3>請以包含以下欄位的表格試算表（.csv）格式上傳代謝物詳細資訊(Upload details about the metabolites in a tabular spreadsheet (.csv) format with the following columns)：</h3>
 
             <ul>
-                <li><strong>metabolite_name (required)</strong>: This should be the same name as present in a column in your metabolomics data matrix file.</li>
-                <li><strong>chebi_id (optional)</strong>: Standard formula (e.g., CHEBI:16971) identifier for the metabolite.</li>
-                <li><strong>inchi_id (optional)</strong>: The International Chemical Identifier (e.g, InChI=1S/C6H6O3/c7-4-1-2-5(8)6(9)3-4/h1-3,7-9H) for the metabolite.</li>
-                <li><strong>inchi_key (optional)</strong>: The International Chemical Identifier (shortened version of inchi_id) for the metabolite.</li>
-                <li><strong>pubchem_id (optional)</strong>: Standard formula (e.g., https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:75854) identifier for the metabolite.</li>
-                <li><strong>smiles_id (optional)</strong>: Standard identifier (eg., Oc1ccc(O)c(O)c1) for the metabolite.</li>
-                <li><strong>chemical_formula (required)</strong>: Chemical formula of the metabolite (e.g., C6H6O3).</li>
-                <li><strong>putative_metabolite_identification (optional)</strong>: e.g., Phenylalanine, sucrose, avenanthramide.</li>
-                <li><strong>putative_metabolite_identification_synonyms (required)</strong>: Metabolite synonyms, alternate names of any of the above.</li>
-                <li><strong>mass_to_charge (required)</strong>: M/Z ratio, standard from output, should be a number.</li>
-                <li><strong>retention_time (required)</strong>: Retention time, also standard from machine output; users should confirm that unit is 'seconds'.</li>
-                <li><strong>charge (optional)</strong>: Could be negative or positive.</li>
-                <li><strong>fragmentation (optional)</strong>: e.g. (239:3349 240:1454 342:3557 343:1562).</li>
-                <li><strong>modifications (optional)</strong>: This is if the metabolite was modified to make it easier to measure on the instrument, and what it was modified too (e.g. trimethylsilation).</li>
-                <li><strong>metabolite_species (optional)</strong>: e.g., Acid, alcohol.</li>
-                <li><strong>met_database (required)</strong>: Metabolomics database (e.g., gmd.mpimp-golm.mpg.de).</li>
-                <li><strong>met_database_version (required)</strong>: Metabolomics database version (e.g., var5 alk 161212).</li>
-                <li><strong>met_reliability (required)</strong>: A number 1 through 5, related to  dx.doi.org/10.1021/es5002105.</li>
-                <li><strong>met_search_engine (required)</strong>: e.g., TagFinder4.1 manual supervised annotation.</li>
-                <li><strong>met_search_engine_score (required)</strong>: Score given by search engine.</li>
-                <li><strong>compound_name (optional)</strong>: Name for the compound.</li>
+                <li><strong>metabolite_name (required)</strong>: 代謝物名稱（必填，需與代謝組資料矩陣檔案中的欄位名稱一致）(This should be the same name as present in a column in your metabolomics data matrix file.)</li>
+                <li><strong>chebi_id (optional)</strong>: 代謝物的 ChEBI 標準識別碼（選填，例如 CHEBI:16971）(Standard formula (e.g., CHEBI:16971) identifier for the metabolite.)</li>
+                <li><strong>inchi_id (optional)</strong>: 代謝物的國際化學標識符 InChI（選填，例如 InChI=1S/C6H6O3/c7-4-1-2-5(8)6(9)3-4/h1-3,7-9H）(The International Chemical Identifier for the metabolite.)</li>
+                <li><strong>inchi_key (optional)</strong>: 代謝物的 InChI 簡短版本識別碼（選填）(The International Chemical Identifier (shortened version of inchi_id) for the metabolite.)</li>
+                <li><strong>pubchem_id (optional)</strong>: 代謝物的 PubChem 標準識別碼（選填）(Standard formula identifier for the metabolite.)</li>
+                <li><strong>smiles_id (optional)</strong>: 代謝物的 SMILES 標準識別碼（選填，例如 Oc1ccc(O)c(O)c1）(Standard identifier for the metabolite.)</li>
+                <li><strong>chemical_formula (required)</strong>: 代謝物的化學式（必填，例如 C6H6O3）(Chemical formula of the metabolite.)</li>
+                <li><strong>putative_metabolite_identification (optional)</strong>: 假定代謝物鑑定（選填，例如 Phenylalanine, sucrose, avenanthramide）(e.g., Phenylalanine, sucrose, avenanthramide.)</li>
+                <li><strong>putative_metabolite_identification_synonyms (required)</strong>: 代謝物同義詞或替代名稱（必填）(Metabolite synonyms, alternate names of any of the above.)</li>
+                <li><strong>mass_to_charge (required)</strong>: 質荷比 M/Z（必填，機器輸出的標準數值，需為數字）(M/Z ratio, standard from output, should be a number.)</li>
+                <li><strong>retention_time (required)</strong>: 滯留時間（必填，機器輸出標準值，單位確認為秒數）(Retention time, also standard from machine output; users should confirm that unit is 'seconds'.)</li>
+                <li><strong>charge (optional)</strong>: 電荷（選填，可為正電荷或負電荷）(Could be negative or positive.)</li>
+                <li><strong>fragmentation (optional)</strong>: 碎片化資訊（選填，例如 239:3349 240:1454 342:3557 343:1562）(e.g. (239:3349 240:1454 342:3557 343:1562).)</li>
+                <li><strong>modifications (optional)</strong>: 修飾（選填，若代謝物經過修飾以便於儀器測量，請註明修飾方式，例如三甲基矽烷化）(This is if the metabolite was modified to make it easier to measure on the instrument, and what it was modified too.)</li>
+                <li><strong>metabolite_species (optional)</strong>: 代謝物種類（選填，例如酸類、醇類）(e.g., Acid, alcohol.)</li>
+                <li><strong>met_database (required)</strong>: 代謝物資料庫（必填，例如 gmd.mpimp-golm.mpg.de）(Metabolomics database.)</li>
+                <li><strong>met_database_version (required)</strong>: 代謝物資料庫版本（必填，例如 var5 alk 161212）(Metabolomics database version.)</li>
+                <li><strong>met_reliability (required)</strong>: 可靠度評分（必填，1 至 5 的數字，參考 dx.doi.org/10.1021/es5002105）(A number 1 through 5, related to dx.doi.org/10.1021/es5002105.)</li>
+                <li><strong>met_search_engine (required)</strong>: 搜尋引擎（必填，例如 TagFinder4.1 manual supervised annotation）(e.g., TagFinder4.1 manual supervised annotation.)</li>
+                <li><strong>met_search_engine_score (required)</strong>: 搜尋引擎評分（必填）(Score given by search engine.)</li>
+                <li><strong>compound_name (optional)</strong>: 化合物名稱（選填）(Name for the compound.)</li>
             </ul>
             <table class="table table-hover table-bordered table-condensed" >
                 <thead></thead>
@@ -739,7 +739,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <td><strong>putative_metabolite_identification</strong></td>
                         <td><strong>putative_metabolite_identification_synonyms</strong></td>
                         <td><strong>mass_to_charge</strong></td>
-                        <td><strong>retention_time<s/trong></td>
+                        <td><strong>retention_time</strong></td>
                         <td><strong>charge</strong></td>
                         <td><strong>fragmentation</strong></td>
                         <td><strong>modifications</strong></td>
@@ -748,7 +748,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
                         <td><strong>met_database_version</strong></td>
                         <td><strong>met_reliability</strong></td>
                         <td><strong>met_search_engine</strong></td>
-                        <td><strong>met_search_engine_score<s/trong></td>
+                        <td><strong>met_search_engine_score</strong></td>
                         <td><strong>compound_name</strong></td>
                     </tr>
                 </tbody>
@@ -756,7 +756,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -774,7 +774,7 @@ jQuery(document).ready(function() {
         high_dim_data_upload_type = jQuery('#high_dim_data_upload_type_select').val();
 
         if (high_dim_data_upload_type == '') {
-            alert('Please select a data type first!');
+            alert('請先選擇資料類型！(Please select a data type first!)');
             return false;
         }
 
@@ -873,7 +873,7 @@ jQuery(document).ready(function() {
             selected.push(jQuery(this).val());
         });
         if(selected.length > 1) {
-            alert('Please select only one protocol!');
+            alert('請僅選擇一個實驗方案！(Please select only one protocol!)');
             return false;
         }
 
@@ -881,15 +881,15 @@ jQuery(document).ready(function() {
         var high_dim_protocol_desc = jQuery('#high_dim_data_upload_protocol_desc').val();
 
         if (selected.length>0 && high_dim_protocol_name != '') {
-            alert('Please select a protocol or give a name for a new one! Not both!');
+            alert('請選擇實驗方案或輸入新方案名稱！請勿兩者皆填！(Please select a protocol or give a name for a new one! Not both!)');
             return false;
         }
         if (selected.length==0 && high_dim_protocol_name == '') {
-            alert('Please select a protocol or create a new one!');
+            alert('請選擇實驗方案或建立新實驗方案！(Please select a protocol or create a new one!)');
             return false;
         }
         if (selected.length==0 && high_dim_protocol_desc == '') {
-            alert('Please select a protocol or create a new one with a description!');
+            alert('請選擇實驗方案或建立包含描述的新實驗方案！(Please select a protocol or create a new one with a description!)');
             return false;
         }
 
@@ -950,11 +950,11 @@ jQuery(document).ready(function() {
     jQuery('#upload_nirs_spreadsheet_submit_verify').click(function(){
         var file_input = jQuery("#upload_nirs_spreadsheet_file_input").val();
         if (file_input === '') {
-            alert("Please select a file");
+            alert("請選擇檔案！(Please select a file)");
             return false;
         }
         else {
-            jQuery('#working_msg').html("Verifying NIRS File and Data");
+            jQuery('#working_msg').html("正在驗證 NIRS 檔案與資料(Verifying NIRS File and Data)...");
             jQuery('#working_modal').modal("show");
             jQuery('#upload_nirs_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/nirs_upload_verify');
             jQuery('#upload_nirs_spreadsheet_file_form').submit();
@@ -974,7 +974,7 @@ jQuery(document).ready(function() {
             var submit_store_button = "#upload_nirs_spreadsheet_submit_store";
             var upload_phenotype_status = "#upload_nirs_spreadsheet_verify_status";
 
-            jQuery('#upload_nirs_spreadsheet_verify_figure').html('<div class="well well-sm"><h3>Plot of Spectra: </h3><img width="80%" height="80%" src="'+response.figure+'"></div>');
+            jQuery('#upload_nirs_spreadsheet_verify_figure').html('<div class="well well-sm"><h3>光譜圖(Plot of Spectra): </h3><img width="80%" height="80%" src="'+response.figure+'"></div>');
 
             jQuery(submit_verify_button).attr('disabled', true);
             var message_text = "<hr><ul class='list-group'>";
@@ -1005,7 +1005,7 @@ jQuery(document).ready(function() {
                 if (warningarrayLength > 0) {
                     message_text += "<li class='list-group-item list-group-item-warning'>";
                     message_text += "<span class='badge'><span class='glyphicon glyphicon-asterisk'></span></span>";
-                    message_text += "Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead: <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
+                    message_text += "警告以黃色顯示。請修改檔案後重試，或繼續儲存資料。<hr>若您繼續，預設所有新數值將作為重複測量值上傳。<hr>若要改為覆寫先前儲存的數值：(Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead:) <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
                     message_text += "</li>";
                     for (var i = 0; i < warningarrayLength; i++) {
                         message_text += "<li class='list-group-item list-group-item-warning'>";
@@ -1021,11 +1021,11 @@ jQuery(document).ready(function() {
             jQuery("#upload_nirs_spreadsheet_submit_store").click( function() {
                 var file_input = jQuery("#upload_nirs_spreadsheet_file_input").val();
                 if (file_input === '') {
-                    alert("Please select a file");
+                    alert("請選擇檔案！(Please select a file)");
                     return false;
                 }
                 else {
-                    jQuery('#working_msg').html("Storing NIRS File and Data");
+                    jQuery('#working_msg').html("正在儲存 NIRS 檔案與資料(Storing NIRS File and Data)...");
                     jQuery('#working_modal').modal("show");
                     jQuery('#upload_nirs_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/nirs_upload_store');
                     jQuery('#upload_nirs_spreadsheet_file_form').submit();
@@ -1061,10 +1061,10 @@ jQuery(document).ready(function() {
                             message_text += "</li>";
                         }
                         if (errorarrayLength == 0) {
-                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                         }
                     } else {
-                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                     }
                     message_text += "</ul>";
                     jQuery(upload_phenotype_status).html(message_text);
@@ -1083,11 +1083,11 @@ jQuery(document).ready(function() {
     jQuery('#upload_transcriptomics_spreadsheet_submit_verify').click(function(){
         var file_input = jQuery("#upload_transcriptomics_spreadsheet_file_input").val();
         if (file_input === '') {
-            alert("Please select a file");
+            alert("請選擇檔案！(Please select a file)");
             return false;
         }
         else {
-            jQuery('#working_msg').html("Verifying Transcriptomics File and Data");
+            jQuery('#working_msg').html("正在驗證轉錄組學檔案與資料(Verifying Transcriptomics File and Data)...");
             jQuery('#working_modal').modal("show");
             jQuery('#upload_transcriptomics_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/transcriptomics_upload_verify');
             jQuery('#upload_transcriptomics_spreadsheet_file_form').submit();
@@ -1136,7 +1136,7 @@ jQuery(document).ready(function() {
                 if (warningarrayLength > 0) {
                     message_text += "<li class='list-group-item list-group-item-warning'>";
                     message_text += "<span class='badge'><span class='glyphicon glyphicon-asterisk'></span></span>";
-                    message_text += "Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead: <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
+                    message_text += "警告以黃色顯示。請修改檔案後重試，或繼續儲存資料。<hr>若您繼續，預設所有新數值將作為重複測量值上傳。<hr>若要改為覆寫先前儲存的數值：(Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead:) <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
                     message_text += "</li>";
                     for (var i = 0; i < warningarrayLength; i++) {
                         message_text += "<li class='list-group-item list-group-item-warning'>";
@@ -1152,11 +1152,11 @@ jQuery(document).ready(function() {
             jQuery("#upload_transcriptomics_spreadsheet_submit_store").click( function() {
                 var file_input = jQuery("#upload_transcriptomics_spreadsheet_file_input").val();
                 if (file_input === '') {
-                    alert("Please select a file");
+                    alert("請選擇檔案！(Please select a file)");
                     return false;
                 }
                 else {
-                    jQuery('#working_msg').html("Storing Transcriptomics File and Data");
+                    jQuery('#working_msg').html("正在儲存轉錄組學檔案與資料(Storing Transcriptomics File and Data)...");
                     jQuery('#working_modal').modal("show");
                     jQuery('#upload_transcriptomics_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/transcriptomics_upload_store');
                     jQuery('#upload_transcriptomics_spreadsheet_file_form').submit();
@@ -1192,10 +1192,10 @@ jQuery(document).ready(function() {
                             message_text += "</li>";
                         }
                         if (errorarrayLength == 0) {
-                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                         }
                     } else {
-                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                     }
                     message_text += "</ul>";
                     jQuery(upload_phenotype_status).html(message_text);
@@ -1214,11 +1214,11 @@ jQuery(document).ready(function() {
     jQuery('#upload_metabolomics_spreadsheet_submit_verify').click(function(){
         var file_input = jQuery("#upload_metabolomics_spreadsheet_file_input").val();
         if (file_input === '') {
-            alert("Please select a file");
+            alert("請選擇檔案！(Please select a file)");
             return false;
         }
         else {
-            jQuery('#working_msg').html("Verifying Metabolomics File and Data");
+            jQuery('#working_msg').html("正在驗證代謝組學檔案與資料(Verifying Metabolomics File and Data)...");
             jQuery('#working_modal').modal("show");
             jQuery('#upload_metabolomics_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/metabolomics_upload_verify');
             jQuery('#upload_metabolomics_spreadsheet_file_form').submit();
@@ -1267,7 +1267,7 @@ jQuery(document).ready(function() {
                 if (warningarrayLength > 0) {
                     message_text += "<li class='list-group-item list-group-item-warning'>";
                     message_text += "<span class='badge'><span class='glyphicon glyphicon-asterisk'></span></span>";
-                    message_text += "Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead: <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
+                    message_text += "警告以黃色顯示。請修改檔案後重試，或繼續儲存資料。<hr>若您繼續，預設所有新數值將作為重複測量值上傳。<hr>若要改為覆寫先前儲存的數值：(Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead:) <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
                     message_text += "</li>";
                     for (var i = 0; i < warningarrayLength; i++) {
                         message_text += "<li class='list-group-item list-group-item-warning'>";
@@ -1283,11 +1283,11 @@ jQuery(document).ready(function() {
             jQuery("#upload_metabolomics_spreadsheet_submit_store").click( function() {
                 var file_input = jQuery("#upload_metabolomics_spreadsheet_file_input").val();
                 if (file_input === '') {
-                    alert("Please select a file");
+                    alert("請選擇檔案！(Please select a file)");
                     return false;
                 }
                 else {
-                    jQuery('#working_msg').html("Storing Metabolomics File and Data");
+                    jQuery('#working_msg').html("正在儲存代謝組學檔案與資料(Storing Metabolomics File and Data)...");
                     jQuery('#working_modal').modal("show");
                     jQuery('#upload_metabolomics_spreadsheet_file_form').attr("action", '/ajax/highdimensionalphenotypes/metabolomics_upload_store');
                     jQuery('#upload_metabolomics_spreadsheet_file_form').submit();
@@ -1323,10 +1323,10 @@ jQuery(document).ready(function() {
                             message_text += "</li>";
                         }
                         if (errorarrayLength == 0) {
-                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                         }
                     } else {
-                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+                        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
                     }
                     message_text += "</ul>";
                     jQuery(upload_phenotype_status).html(message_text);
