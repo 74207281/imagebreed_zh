@@ -2,16 +2,16 @@
 
 
 <br/><br/>
-<h1>User Information</h1>
+<h1>使用者資訊(User Information)</h1>
 <hr>
 
 <table class="table table-hover">
   <thead>
-    <th>Person ID</th>
-    <th>Username</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Roles</th>
+    <th>人員 ID(Person ID)</th>
+    <th>使用者名稱(Username)</th>
+    <th>名(First Name)</th>
+    <th>姓(Last Name)</th>
+    <th>角色(Roles)</th>
   </thead>
   <tbody id="person_data">
   </tbody>
