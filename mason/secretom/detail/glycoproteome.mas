@@ -1,4 +1,4 @@
-<& /page/page_title.mas, title => 'The Tomato Fruit Glycoproteome' &>
+<& /page/page_title.mas, title => '番茄果實醣基化蛋白質組(The Tomato Fruit Glycoproteome)' &>
 
 <div class="indented_content">
     <div style="width: 400px; float: right; margin: 0 0 10px 20px" class="captioned_image">
@@ -6,61 +6,35 @@
       <img src="/documents/img/secretom/SDS_PAGE_x400.png" />
 
       <p>
-      SDS PAGE gel image showing tomato fruit proteins isolated by
-      lectin affinity, stained with Coomassie Blue (black) or
-      glycoprotein stain (pink).
+      顯示透過凝集素親和分離的番茄果實蛋白質之 SDS-PAGE 膠體影像，分別以考馬斯藍（黑色）或醣蛋白染色劑（粉紅色）染色(SDS PAGE gel image showing tomato fruit proteins isolated by lectin affinity, stained with Coomassie Blue (black) or glycoprotein stain (pink))。
       </p>
 
     </div>
 
 
   <p>
-  As with all eukaryotes, N-glycosylation in plant cells is a common
-  post-translational modification for proteins traveling through the
-  secretory pathway, many of which are destined for the cell wall. The
-  large-scale isolation and analysis of glycoproteins by lectin
-  affinity chromatography, coupled with mass spectrometry (MS), has
-  become a powerful tool to evaluate the glycoproteome of mammalian
-  cells; however, is has rarely been used with plants glycoproteins.
+  與所有真核生物一樣，植物細胞中的 N-醣基化是通過分泌途徑傳輸的蛋白質常見的轉譯後修飾，其中許多蛋白質的目的地是細胞壁(As with all eukaryotes, N-glycosylation in plant cells is a common post-translational modification for proteins traveling through the secretory pathway, many of which are destined for the cell wall)。透過凝集素親和層析並結合質譜（MS）大規模分離與分析醣蛋白，已成為評估哺乳動物細胞醣蛋白質組的強大工具；然而，它很少用於植物醣蛋白(The large-scale isolation and analysis of glycoproteins by lectin affinity chromatography, coupled with mass spectrometry (MS), has become a powerful tool to evaluate the glycoproteome of mammalian cells; however, is has rarely been used with plants glycoproteins)。
   </p>
 
 
   <p>
-  We are using affinity selection of glycoproteins using the lectin
-  Concanavalin A, coupled with two-dimensional liquid chromatography
-  (2-D LC) and matrix-assisted laser desorption/ionization mass
-  spectrometry (2DLC-MALDI MS/MS) and electrospray ionization MS
-  (ESI-MS) analysis, to identify extracellular and secretory pathway
-  proteins, focusing on those expressed in ripe tomato fruit.
+  我們正在利用伴刀豆球蛋白 A（Concanavalin A）凝集素對醣蛋白進行親和選擇，並結合二維液相層析（2-D LC）、基質輔助雷射脫附游離質譜（2DLC-MALDI MS/MS）和電噴霧游離質譜（ESI-MS）分析，以鑑定細胞外和分泌途徑的蛋白質，重點關注在成熟番茄果實中表現的蛋白質(We are using affinity selection of glycoproteins using the lectin Concanavalin A, coupled with two-dimensional liquid chromatography (2-D LC) and matrix-assisted laser desorption/ionization mass spectrometry (2DLC-MALDI MS/MS) and electrospray ionization MS (ESI-MS) analysis, to identify extracellular and secretory pathway proteins, focusing on those expressed in ripe tomato fruit)。
   </p>
 
   <p>
-  Tomato has long served as model system for fleshy fruit development
-  and ripening is an excellent system to study cell wall proteins as it
-  is associated with dramatic changes in wall biology, including
-  dramatic enzyme-mediated cell wall polysaccharide degradation,
-  apoplastic sugar metabolism and extracellular defenses against
-  microbial pathogens. In spite of this, there are few published
-  proteomic analyses of ripening tomato fruit and most of those are
-  based on extraction of total proteins followed by 2-DE separation,
-  since the wall proteome was not the major target. Consequently, the
-  protein extraction step was not optimized for secreted proteins.
+  番茄長期以來一直是肉質果實發育的模式系統，成熟是研究細胞壁蛋白質的極佳系統，因為它伴隨著細胞壁生物學的顯著變化，包括酵素介導的細胞壁多醣顯著降解、質外體糖代謝以及針對微生物病原體的細胞外防禦(Tomato has long served as model system for fleshy fruit development and ripening is an excellent system to study cell wall proteins as it is associated with dramatic changes in wall biology, including dramatic enzyme-mediated cell wall polysaccharide degradation, apoplastic sugar metabolism and extracellular defenses against microbial pathogens)。儘管如此，已發表的成熟番茄果實蛋白質組分析很少，且其中大多數是基於總蛋白質萃取隨後進行 2-DE 分離，因為細胞壁蛋白質組並非主要目標(In spite of this, there are few published proteomic analyses of ripening tomato fruit and most of those are based on extraction of total proteins followed by 2-DE separation, since the wall proteome was not the major target)。因此，蛋白質萃取步驟並未針對分泌蛋白進行最佳化(Consequently, the protein extraction step was not optimized for secreted proteins)。
   </p>
 
 </div>
 
 <&| /secretom/section_templates/objectives.mas &>
-     Develop lectin affinity chromatography protocols to optimize
-     extraction of plant glycoproteins.
+     開發凝集素親和層析協議以最佳化植物醣蛋白的萃取(Develop lectin affinity chromatography protocols to optimize extraction of plant glycoproteins)。
 
-     Evaluate various MS strategies for effective identification of
-     glycoproteins, including MALDI and ESI associated strategies.
+     評估用於有效鑑定醣蛋白的各種質譜策略，包括與 MALDI 和 ESI 相關的策略(Evaluate various MS strategies for effective identification of glycoproteins, including MALDI and ESI associated strategies)。
 
-     Generate a catalog of annotated tomato glycoproteins, focusing on
-     fruit development, including identification of glycosylation sites.
+     建立已註解的番茄醣蛋白目錄，著重於果實發育，包括醣基化位點的鑑定(Generate a catalog of annotated tomato glycoproteins, focusing on fruit development, including identification of glycosylation sites)。
 
-     Confirm localization using transient expression as fluorescent
-     fusion proteins in onion epidermal cells.
+     透過在洋蔥表皮細胞中瞬時表現為螢光融合蛋白來確認定位(Confirm localization using transient expression as fluorescent fusion proteins in onion epidermal cells)。
 
 </&>
 
@@ -69,9 +43,7 @@
   <div style="width: 420px; float: left; margin: 0 20px 10px 0" class="captioned_image">
 
     <p>
-    Computational prediction of the subcellular location of the
-    N-glycoproteins isolated from green mature tomato fruit with
-    Concanavalin A.
+    使用伴刀豆球蛋白 A 從綠熟番茄果實中分離之 N-醣蛋白亞細胞定位的計算預測(Computational prediction of the subcellular location of the N-glycoproteins isolated from green mature tomato fruit with Concanavalin A)。
     </p>
 
     <hr style="margin: 0 10px" />
@@ -82,29 +54,25 @@
   </div>
 
   <p>
-  This enrichment strategy has been highly effective, with a high
-  proportion the identified proteins showing predicted localization
-  either in the secretory pathway. We are currently investigating the
-  targeting of proteins from the secretory pathway to other
-  intracellular organelles.
+  這種富集策略非常有效，所鑑定的蛋白質中有很高比例顯示出在分泌途徑中的預測定位(This enrichment strategy has been highly effective, with a high proportion the identified proteins showing predicted localization either in the secretory pathway)。我們目前正在研究蛋白質從分泌途徑靶向其他細胞內胞器的機制(We are currently investigating the targeting of proteins from the secretory pathway to other intracellular organelles)。
   </p>
 
 </div>
 
 <&| /secretom/section_templates/data_items.mas, default_ref_base => '/download/data/secretom/Tomato_fruit_glycoproteome' &>
-- text: "Tomato (cv. Ailsa Craig) ripe fruit: annotated glycoproteins, MALDI"
+- text: "番茄（品系 Ailsa Craig）成熟果實：已註解醣蛋白，MALDI(Tomato (cv. Ailsa Craig) ripe fruit: annotated glycoproteins, MALDI)"
   ref: Tomato_fruit_glycoproteins_MALDI.docx
-- text: "Tomato (cv. Ailsa Craig) ripe fruit: glycoproteins MALDI, peptides"
+- text: "番茄（品系 Ailsa Craig）成熟果實：醣蛋白 MALDI，胜肽(Tomato (cv. Ailsa Craig) ripe fruit: glycoproteins MALDI, peptides)"
   ref: Tomato_fruit_glycoproteins_MALDI_peptides.xlsx
-- text: "Tomato (cv. Ailsa Craig) mature green fruit: glycoproteins, ESI"
+- text: "番茄（品系 Ailsa Craig）綠熟果實：醣蛋白，ESI(Tomato (cv. Ailsa Craig) mature green fruit: glycoproteins, ESI)"
   ref: Tomato_fruit_glycoproteins_ESI.xlsx
-- text: "Glycoprotein fractions from mature green tomato fruit identified using Concanavalin A"
+- text: "使用伴刀豆球蛋白 A 鑑定的綠熟番茄果實醣蛋白分級(Glycoprotein fractions from mature green tomato fruit identified using Concanavalin A)"
   ref: Con_A.xls
-- text: "Glycoprotein fractions from mature green tomato fruit identified using Snowdrop lectin"
+- text: "使用雪花蓮凝集素鑑定的綠熟番茄果實醣蛋白分級(Glycoprotein fractions from mature green tomato fruit identified using Snowdrop lectin)"
   ref: GNA.xls
-- text: "Glycoprotein fractions from mature green tomato fruit identified using Lentil lectin"
+- text: "使用兵豆凝集素鑑定的綠熟番茄果實醣蛋白分級(Glycoprotein fractions from mature green tomato fruit identified using Lentil lectin)"
   ref: LCH.xls
-- text: "More files in FTP"
+- text: "FTP 上的更多檔案(More files in FTP)"
   ref: ftp://ftp.solgenomics.net/secretom/Tomato_fruit_glycoproteome
 </&>
 
