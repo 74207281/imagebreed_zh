@@ -1,11 +1,15 @@
 <%args>
   $organism
 </%args>
-<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> Genome Data' &>
+<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> 基因組數據(Genome Data)' &>
 
 <div class="page_introduction">
 
-   The potato genome has been sequenced by the <a
+   馬鈴薯基因組由來自 14 個國家的國際科學家小組組成的<a
+   href="http://potatogenome.net">馬鈴薯基因組定序聯盟(Potato Genome Sequence
+   Consortium)</a> (PGSC) 完成定序。該序列於 2011 年 7 月發表在 <a
+   href="http://www.ncbi.nlm.nih.gov/pubmed/21743474">Nature</a> 上。許多馬鈴薯品係是四倍體；然而，定序的種質是純合二倍體品系（雙單倍體）<i>Solanum
+   tuberosum phureja</i>。以下是 <a href="http://potatogenome.net">http://potatogenome.net</a> 上提供的檔案鏡像。(The potato genome has been sequenced by the <a
    href="http://potatogenome.net">Potato Genome Sequence
    Consortium</a> (PGSC), an international group of scientists from 14
    countries. The sequence was published in <a
@@ -13,12 +17,12 @@
    July 2011. Many potato lines are tetraploid; however, the sequenced
    accession was a homozygous diploid line (double haploid) <i>Solanum
    tuberosum phureja</i>. Below is a mirror of the files provided on
-   <a href="http://potatogenome.net">http://potatogenome.net</a>.
+   <a href="http://potatogenome.net">http://potatogenome.net</a>.)
 
 </div>
 
 <&| /page/info_section.mas,
-      title       => 'Sequence datasets',
+      title       => '序列數據集(Sequence datasets)',
       collapsible => 1,
  &>
   <& /genomes/default/genome_builds.mas, %ARGS &>
@@ -26,7 +30,7 @@
 
 
 <&| /page/info_section.mas,
-      title       => 'Browsable annotations',
+      title       => '可瀏覽的註釋(Browsable annotations)',
       collapsible => 1,
       hide_if_empty => 1,
  &>
@@ -36,7 +40,7 @@
 </&>
 
 <&| /page/info_section.mas,
-      title       => 'Annotation datasets',
+      title       => '註釋數據集(Annotation datasets)',
       collapsible => 1,
       hide_if_empty => 1,
  &>
