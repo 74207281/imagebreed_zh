@@ -1,9 +1,9 @@
 <%args>
 $STresults
 </%args>
-<& /page/page_title.mas, title => 'SecreTary: Computational prediction of secreted proteins' &>
+<& /page/page_title.mas, title => 'SecreTary: 分泌蛋白之計算預測(Computational prediction of secreted proteins)' &>
 
-<&| /page/info_section.mas, title => 'SecreTary Signal Peptide (SP) Predictions' &>
+<&| /page/info_section.mas, title => 'SecreTary 訊息胜肽 (SP) 預測(SecreTary Signal Peptide (SP) Predictions)' &>
 
 <% # put in the highlighting, etc. %> 
 <%perl>
@@ -53,9 +53,9 @@ Identifier       SP    Score   Length     Sequence 10        20        30       
                                                    |         |         |         |         |         |
 
 <% $result_string %>
-<% $count_pass %> secreted sequences predicted out of <% scalar @$STresults %>.
+<% scalar @$STresults %> 個序列中預測出 <% $count_pass %> 個分泌序列(<% $count_pass %> secreted sequences predicted out of <% scalar @$STresults %>)。
 </pre>
 
-<a href="/secretom/secretary">Return to SecreTary input page</a>
+<a href="/secretom/secretary">返回 SecreTary 輸入頁面(Return to SecreTary input page)</a>
 
 </&>
