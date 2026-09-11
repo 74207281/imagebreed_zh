@@ -12,8 +12,8 @@
 <& /feature/page_title.mas, feature => $feature &>
 
 <&| /page/info_section.mas,
-    title       => type_name($feature,'caps').' details',
-    subtitle    => $feature->is_obsolete ? 'WARNING: This feature is obsolete, new data is available.' : '',
+    title       => type_name($feature,'caps').' 詳細資訊(details)',
+    subtitle    => $feature->is_obsolete ? '警告：此特徵已廢棄，有新資料可用。(WARNING: This feature is obsolete, new data is available.)' : '',
     collapsible => 1,
 &>
    <& /feature/feature_data.mas,
@@ -28,8 +28,8 @@
 %    for my $seqs ( mrna_cds_protein_sequence( $feature ) ) {
 %       if( $seqs->[2] ) {
         <&| /page/info_section.mas,
-                title         => 'Polypeptide sequence',
-                subtitle      => 'translated polypeptide sequence',
+                title         => '多肽序列(Polypeptide sequence)',
+                subtitle      => '轉譯後的多肽序列(translated polypeptide sequence)',
                 collapsible   => 1,
                 collapsed     => 0,
         &>
@@ -51,8 +51,8 @@
 %    }
 
 <&| /page/info_section.mas,
-     title         => 'Genomic sequence(s)',
-     subtitle      => "unprocessed genomic sequence underlying each location of this polypeptide",
+     title         => '基因組序列(Genomic sequence(s))',
+     subtitle      => "此多肽每個位置下方的未處理基因組序列(unprocessed genomic sequence underlying each location of this polypeptide)",
      collapsible   => 1,
      collapsed     => 1,
      hide_if_empty => 1,
@@ -64,7 +64,7 @@
 </&>
 
 <&| /page/info_section.mas,
-   title => 'Related features',
+   title => '相關特徵(Related features)',
    collapsible => 1,
    hide_if_empty => 1,
 &>
@@ -77,8 +77,8 @@
 </&>
 
 <&| /page/info_section.mas,
-     title => 'Related views',
-     empty_message => 'None found',
+     title => '相關檢視(Related views)',
+     empty_message => '未找到(None found)',
      collapsible => 1,
      is_empty => ! scalar @$xrefs,
  &>
