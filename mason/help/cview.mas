@@ -1,4 +1,4 @@
-<& /page/page_title.mas, title=>"SGN Comparative Viewer Help" &>
+<& "/page/page_title.mas", title => "SGN 比較檢視器說明(SGN Comparative Viewer Help)" &>
 
   <center>
     
@@ -12,22 +12,20 @@
           cellspacing="0" border="0">
             <tr>
               <td>
-                The <a href="/cview/view_chromosome.pl">comparative
-                viewer</a> is a tool for displaying, browsing, and
-                comparing map information on SGN.
+                <a href="/cview/view_chromosome.pl">比較檢視器(comparative viewer)</a>是用於在 SGN 上顯示、瀏覽與比較圖譜資訊的工具。(The <a href="/cview/view_chromosome.pl">comparative viewer</a> is a tool for displaying, browsing, and comparing map information on SGN.)
 
-    <h3>Map overview page</h3>
+    <h3>圖譜總覽頁面(Map overview page)</h3>
 
-    <p>When choosing a map from the map menu, the map overview page will be displayed. It shows some overview information about the map and allows the map to be queried with marker names. The basic elements on this page are:
+    <p>從圖譜選單中選擇圖譜時，將顯示圖譜總覽頁面。它顯示有關圖譜的某些總覽資訊，並允許使用標記名稱查詢圖譜。此頁面上的基本元素包括：(When choosing a map from the map menu, the map overview page will be displayed. It shows some overview information about the map and allows the map to be queried with marker names. The basic elements on this page are:)</p>
  <ol>
-<li>A small overview graph with all the chromosomes in the map that illustrates the marker density of each linkage group. The glyphs are clickable and will open the clicked chromosome in chromosome detail view.</li>
-<li>A text box that can be used to locate markers on the map - you can highlight multiple markers by entering marker names separated by spaces.</li>
-<li>Size increase/decrease, to change the display size of the map.
-<li>The abstract gives more details about the origins, submitters, and methodologies of the map.</li>
-<li>A list of chromosomes in the map along with the number of markers located on the map. </li>
-<li>Statistics about the marker collections, such as COSII markers.</li>
-<li>Statistics about the different assay protocols that were used to construct the map, such as RFLP markers or CAPS markers.</li>
-<li>User comments. Any logged in user can leave a comment about the map displayed. The comment feature is not available on all maps.</li>
+<li>包含圖譜中所有染色體的小型總覽圖，說明每個連鎖群的標記密度。圖形可點擊，並將在染色體詳細資訊檢視中開啟所點擊的染色體。(A small overview graph with all the chromosomes in the map that illustrates the marker density of each linkage group. The glyphs are clickable and will open the clicked chromosome in chromosome detail view.)</li>
+<li>可用於在圖譜上定位標記的文字方塊 - 您可以輸入以空格分隔的標記名稱來反白標示多個標記。(A text box that can be used to locate markers on the map - you can highlight multiple markers by entering marker names separated by spaces.)</li>
+<li>放大/縮小尺寸，用於變更圖譜的顯示大小。(Size increase/decrease, to change the display size of the map.)</li>
+<li>摘要提供有關圖譜來源、提交者和構建方法的更多詳細資訊。(The abstract gives more details about the origins, submitters, and methodologies of the map.)</li>
+<li>圖譜中的染色體列表以及位於圖譜上的標記數量。(A list of chromosomes in the map along with the number of markers located on the map.)</li>
+<li>關於標記集合的統計數據，例如 COSII 標記。(Statistics about the marker collections, such as COSII markers.)</li>
+<li>關於用於構建圖譜的不同檢測方案的統計數據，例如 RFLP 標記或 CAPS 標記。(Statistics about the different assay protocols that were used to construct the map, such as RFLP markers or CAPS markers.)</li>
+<li>使用者評論。任何登入的使用者都可以對顯示的圖譜發表評論。評論功能並非適用於所有圖譜。(User comments. Any logged in user can leave a comment about the map displayed. The comment feature is not available on all maps.)</li>
 </ol>
 
 <div class="boxbgcolor5">
@@ -37,104 +35,39 @@
 </center>
 </div>
 
-<h3>The chromosome view</h3>
+<h3>染色體檢視(The chromosome view)</h3>
 
-<p>Clicking on one of the chromosome glyphs on the overview page will bring up the chromosome view. In this view, a chromosome is displayed in its entirety, but most of the marker names will be hidden because on most maps there are too many markers to be displayed. To see all the markers, the map can be zoomed into by clicking on a point of interest. This will bring up a zoomed-in view alongside the chromosome. The chromosome can also be compared to another chromosome of another map by choosing a comparison chromosome from the list.</p>
+<p>點擊總覽頁面上的其中一個染色體圖形將開啟染色體檢視。在此檢視中，染色體完整顯示，但大多數標記名稱將被隱藏，因為在大多數圖譜上有太多標記無法同時顯示。若要查看所有標記，可透過點擊感興趣的點來放大圖譜。這將在染色體旁邊顯示放大檢視。還可以透過從列表中選擇比對染色體，將該染色體與另一圖譜的另一染色體進行比對。(Clicking on one of the chromosome glyphs on the overview page will bring up the chromosome view. In this view, a chromosome is displayed in its entirety, but most of the marker names will be hidden because on most maps there are too many markers to be displayed. To see all the markers, the map can be zoomed into by clicking on a point of interest. This will bring up a zoomed-in view alongside the chromosome. The chromosome can also be compared to another chromosome of another map by choosing a comparison chromosome from the list.)</p>
 
 <div class="boxbgcolor5"><center><img src="/documents/img/cview_screenshot.jpg" alt="comparative viewer" /></center></div>
 
-    <p>A typical image from a chromosome view is shown in the figure above (the exact rendering of the buttons will depend on the platform and browser used).
-    The different screen elements are:</p>
+    <p>上圖顯示了染色體檢視的典型圖像（按鈕的確切呈現取決於所使用的平台與瀏覽器）。不同的螢幕元素包括：(A typical image from a chromosome view is shown in the figure above (the exact rendering of the buttons will depend on the platform and browser used). The different screen elements are:)</p>
 
                 <ol>
-                  <li><p>The reference chromosome, always shown in
-                  red. The chromosome number is given on the top
-                  and approximately a dozen selected markers are
-                  drawn according to their map position. The other
-                  markers on the chromosome are only identified by
-                  tickmarks. They can be viewed by clicking anywhere in the
-                  chromosome reference chromosome, which brings up the zoomed-in map
-                  (2), in which all markers are displayed in the
-                  given interval. For certain maps, the reference chromosome can have
-                  additional information displayed, such as IL line
-                  information, a ruler, and physical map.</p></li>
+                  <li><p>參考染色體，始終以紅色顯示。頂部給出染色體編號，並根據其圖譜位置繪製了大約十幾個選定的標記。染色體上的其他標記僅由刻度線標識。透過點擊參考染色體中的任何位置可以查看它們，這會顯示放大圖譜 (2)，其中顯示給定區間內的所有標記。對於某些圖譜，參考染色體可以顯示其他資訊，例如滲入系 (IL line) 資訊、標尺和物理圖譜。(The reference chromosome, always shown in red. The chromosome number is given on the top and approximately a dozen selected markers are drawn according to their map position. The other markers on the chromosome are only identified by tickmarks. They can be viewed by clicking anywhere in the chromosome reference chromosome, which brings up the zoomed-in map (2), in which all markers are displayed in the given interval. For certain maps, the reference chromosome can have additional information displayed, such as IL line information, a ruler, and physical map.)</p></li>
 
-                  <li><p>The zoomed in map displays a section of the
-                  reference chromosome, showing all markers at the
-                  current score cutoff. The marker names can be
-                  clicked to reach the marker detail page. A gray
-                  dot next to the marker names means that an overgo
-                  probe has been developed for this marker. A red
-                  dot means that BACs have been anchored to the
-                  overgo developed from this marker. Clicking on
-                  the red dot shows all the anchored BACs and which
-                  FPC contigs they fall into.</p></li>
+                  <li><p>放大圖譜顯示參考染色體的一部分，顯示目前評分閾值下的所有標記。點擊標記名稱可進入標記詳細資訊頁面。標記名稱旁邊的灰色圓點表示已針對該標記開發了 overgo 探針。紅色圓點表示 BAC 已錨定至由該標記開發的 overgo。點擊紅點會顯示所有錨定的 BAC 以及它們所屬的 FPC contig。(The zoomed in map displays a section of the reference chromosome, showing all markers at the current score cutoff. The marker names can be clicked to reach the marker detail page. A gray dot next to the marker names means that an overgo probe has been developed for this marker. A red dot means that BACs have been anchored to the overgo developed from this marker. Clicking on the red dot shows all the anchored BACs and which FPC contigs they fall into.)</p></li>
 
-                  <li><p>The comparison chromosome. It can be selected
-                  using the pulldown menu in the toolbar (7), and
-                  then clicking 'compare'. Only markers that are on
-                  the reference map are displayed with their names, the other
-                  markers are shown by a tick mark only. The marker
-                  names can be clicked to view the corresponding
-                  marker detail page. If all markers are of
-                  interest in the comparison chromosome, the button
-                  'switch chromosomes' can be clicked. The
-                  comparison chromosome takes the place of the
-                  reference chromosome and vice versa.</p></li>
+                  <li><p>比對染色體。可以使用工具列 (7) 中的下拉選單進行選擇，然後點擊「比較(compare)」。只有參考圖譜上的標記才會顯示其名稱，其他標記僅以刻度線顯示。點擊標記名稱可以查看相應的標記詳細資訊頁面。如果對比對染色體中的所有標記感興趣，可以點擊「切換染色體(switch chromosomes)」按鈕。比對染色體將取代參考染色體的位置，反之亦然。(The comparison chromosome. It can be selected using the pulldown menu in the toolbar (7), and then clicking 'compare'. Only markers that are on the reference map are displayed with their names, the other markers are shown by a tick mark only. The marker names can be clicked to view the corresponding marker detail page. If all markers are of interest in the comparison chromosome, the button 'switch chromosomes' can be clicked. The comparison chromosome takes the place of the reference chromosome and vice versa.)</p></li>
 
-                  <li><p>If the physical button is clicked in the
-                  toolbar (7), the physical map is displayed, which
-                  shows how many BACs have been anchored to the
-                  genetic map using the overgo process. The
-                  physical map can presently only be viewed for the
-                  Tomato EXPEN2000 and Tomato EXPEN 1992
-                  maps.</p></li>
+                  <li><p>如果點擊工具列 (7) 中的物理按鈕，將顯示物理圖譜，顯示使用 overgo 流程將多少個 BAC 錨定到遺傳圖譜中。物理圖譜目前僅可查看 Tomato EXPEN2000 和 Tomato EXPEN 1992 圖譜。(If the physical button is clicked in the toolbar (7), the physical map is displayed, which shows how many BACs have been anchored to the genetic map using the overgo process. The physical map can presently only be viewed for the Tomato EXPEN2000 and Tomato EXPEN 1992 maps.)</p></li>
 
-                  <li><p>If the IL button in the toolbar (7) is
-                  pressed, the chromosome sections of the
-                  corresponding IL lines are displayed. The IL
-                  lines can currently only be viewed for the Tomato
-                  EXPEN 1992 map.</p></li>
+                  <li><p>如果按下工具列 (7) 中的 IL 按鈕，將顯示相應滲入系 (IL lines) 的染色體區段。滲入系目前僅可查看 Tomato EXPEN 1992 圖譜。(If the IL button in the toolbar (7) is pressed, the chromosome sections of the corresponding IL lines are displayed. The IL lines can currently only be viewed for the Tomato EXPEN 1992 map.)</p></li>
 
-                  <li><p>Rulers can be activated by pressing the ruler
-                  button in the toolbar (7).</p></li>
+                  <li><p>可透過按下工具列 (7) 中的標尺按鈕來啟動標尺。(Rulers can be activated by pressing the ruler button in the toolbar (7).)</p></li>
 
-                  <li><p>The Toolbar. It is divided into five
-                  sections.</p>
+                  <li><p>工具列。分為五個部分：(The Toolbar. It is divided into five sections.)</p>
 
                     <ul>
-                      <li><p>The marker coloring options. This line
-                      contains a button for changing the coloring
-                      either according to score of the marker or by
-                      marker type. The different LOD scores can be
-                      clicked and markers of lower LOD scores will
-                      be hidden.</p></li>
+                      <li><p>標記著色選項。此行包含根據標記評分或標記類型變更著色的按鈕。可以點擊不同的 LOD 評分，較低 LOD 評分的標記將被隱藏。(The marker coloring options. This line contains a button for changing the coloring either according to score of the marker or by marker type. The different LOD scores can be clicked and markers of lower LOD scores will be hidden.)</p></li>
 
-                      <li><p>Scrolling and Zooming. This line contains
-                      buttons for scrolling up and down, zooming in
-                      and out, and toggling between hide and show
-                      zoomed. It also contains a link that will
-                      perform a database search for all markers on
-                      the zoomed-in chromsome section.</p></li>
+                      <li><p>捲動與縮放。此行包含向上和向下捲動、放大和縮小以及在隱藏與顯示放大之間切換的按鈕。它還包含一個連結，用於在資料庫中搜尋放大染色體區段上的所有標記。(Scrolling and Zooming. This line contains buttons for scrolling up and down, zooming in and out, and toggling between hide and show zoomed. It also contains a link that will perform a database search for all markers on the zoomed-in chromsome section.)</p></li>
 
-                      <li><p>Compare map to: A pulldown menu allows
-                      the selection of a map that shares markers
-                      with the current reference map. The pulldown
-                      menu is sorted such that the topmost entry
-                      has to most shared markers. Clicking the
-                      'compare' button will display the selected
-                      comparison map.</p></li>
+                      <li><p>比較圖譜至(Compare map to)：下拉選單允許選擇與目前參考圖譜共享標記的圖譜。下拉選單經過排序，最頂部的條目擁有最多共享標記。點擊「比較(compare)」按鈕將顯示選定的比對圖譜。(Compare map to: A pulldown menu allows the selection of a map that shares markers with the current reference map. The pulldown menu is sorted such that the topmost entry has to most shared markers. Clicking the 'compare' button will display the selected comparison map.)</p></li>
 
-                      <li><p>Jump to different map or chromosome. Also
-                      contains a input box to hilite markers on the
-                      chromosome. This only hilites markers on the
-                      currently shown chromosome.</p></li>
+                      <li><p>跳轉到不同圖譜或染色體。還包含一個輸入方塊以反白標示染色體上的標記。這只會反白標示目前顯示染色體上的標記。(Jump to different map or chromosome. Also contains a input box to hilite markers on the chromosome. This only hilites markers on the currently shown chromosome.)</p></li>
 
-                      <li><p>show/hide functions: Allows the toggling
-                      of the rulers, ILs, and physical map, and to
-                      select the image size. The smaller image size
-                      is ideal for smaller screen, such as
-                      laptop screens.</p></li>
+                      <li><p>顯示/隱藏功能(show/hide functions)：允許切換標尺、IL 和物理圖譜，並選擇影像尺寸。較小的影像尺寸非常適合筆記型電腦螢幕等較小的螢幕。(show/hide functions: Allows the toggling of the rulers, ILs, and physical map, and to select the image size. The smaller image size is ideal for smaller screen, such as laptop screens.)</p></li>
                     </ul>
                   </li>
                 </ol>
@@ -148,9 +81,9 @@
 </center>
 
 
-    <h3>The map comparison view</h3>
+    <h3>圖譜比較檢視(The map comparison view)</h3>
 
-<p>Clicking on the "view entire map" link in the chromosome view displays the map comparison view. In total, three maps can be compared at the same time. Below is a screenshot of a comparison of tomato and potato.</p>
+<p>點擊染色體檢視中的「檢視整個圖譜(view entire map)」連結可顯示圖譜比較檢視。總共可以同時比較三個圖譜。下方是番茄和馬鈴薯比較的螢幕截圖。(Clicking on the "view entire map" link in the chromosome view displays the map comparison view. In total, three maps can be compared at the same time. Below is a screenshot of a comparison of tomato and potato.)</p>
 
 <div class="boxbgcolor5">
 <center>
