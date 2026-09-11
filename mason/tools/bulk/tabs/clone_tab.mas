@@ -13,16 +13,16 @@ $debug => ''
 	<% $ug_build_select %>
 	<br />
 	
-	Enter a list of identifiers or upload a file containing identifers, one per line:<br />
+	輸入識別碼列表，或上傳包含識別碼的檔案（每行一個）(Enter a list of identifiers or upload a file containing identifiers, one per line)：<br />
 	<table summary="" width="100%"><tr><td>
 	      <textarea id="ids" name="ids" rows="5" cols="20"></textarea>
 	    </td>
 	    <td>
-	      <i>Example:</i> #example box
+	      <i>範例(Example)：</i>
 	      <div style="border: 1px solid gray; width: 10em; height: 5em">
 <pre><div id="clone_example_ids">cLEB-1-A2
 cLEB-1-A3
-cLEB-1-A4</div></pre><a href="javascript:copy_example_data()">[copy]</a>
+cLEB-1-A4</div></pre><a href="javascript:copy_example_data()">[複製範例(copy)]</a>
 </div> 
 
 <script>
@@ -35,37 +35,37 @@ document.getElementById("ids").innerHTML=document.getElementById("clone_example_
 	
 	<br />
 	<br />
-	And/or upload list file: <br /><input type="file" name="file" />
+	及/或上傳識別碼列表檔案(And/or upload list file)：<br /><input type="file" name="file" />
 	<br />
 	<br />
 	
     </td><td valign="top" bgcolor="#EEEEEE" width="320">
-	<b>Please select the information you would like for each identifier:</b><br />
-	<input type="checkbox" name="clone_name" checked="checked" /> clone name<br />
-	<input type="checkbox" name="SGN_C" checked="checked" /> clone id (SGN-C)<br />
-	<input type="checkbox" name="SGN_T" checked="checked" /> sequence read id (SGN-T)<br />
-	<input type="checkbox" name="SGN_E" checked="checked" /> est id (SGN-E)<br />
-	<input type="checkbox" name="build_nr" checked="checked" /> unigene build nr<br />
-	<input type="checkbox" name="SGN_U" checked="checked" /> unigene id (SGN-U)<br />
-	<input type="checkbox" name="chipname" checked="checked" /> chipname<br />
-	<input type="checkbox" name="SGN_S" checked="checked" /> microarray spot id (SGN-S)<br />
-	<input type="checkbox" name="TUS" checked="checked" /> TUS number (used to order clones)<br />
-	<input type="checkbox" name="manual_annotation" /> manual annotation<br />
-	<input type="checkbox" name="automatic_annotation" /> automatic (BLAST) annotation<br />
-	<input type="checkbox" name="sequence" onclick="check_fasta_option()" /> sequence<br />
-	&nbsp;&nbsp;&nbsp;<input type="radio" name="seq_type" value="est_seq" checked="checked" /> EST sequence<br />
-	&nbsp;&nbsp;&nbsp;<input type="radio" name="seq_type" value="unigene_seq" /> Unigene sequence<br />
+	<b>請選取每個識別碼欲獲取的資訊(Please select the information you would like for each identifier)：</b><br />
+	<input type="checkbox" name="clone_name" checked="checked" /> 選殖株名稱(clone name)<br />
+	<input type="checkbox" name="SGN_C" checked="checked" /> 選殖株 ID (clone id, SGN-C)<br />
+	<input type="checkbox" name="SGN_T" checked="checked" /> 序列讀取 ID (sequence read id, SGN-T)<br />
+	<input type="checkbox" name="SGN_E" checked="checked" /> EST ID (SGN-E)<br />
+	<input type="checkbox" name="build_nr" checked="checked" /> 單一基因群建置版本號(unigene build nr)<br />
+	<input type="checkbox" name="SGN_U" checked="checked" /> 單一基因群 ID (unigene id, SGN-U)<br />
+	<input type="checkbox" name="chipname" checked="checked" /> 晶片名稱(chipname)<br />
+	<input type="checkbox" name="SGN_S" checked="checked" /> 微陣列點位 ID (microarray spot id, SGN-S)<br />
+	<input type="checkbox" name="TUS" checked="checked" /> TUS 編號（用於訂購選殖株, TUS number）<br />
+	<input type="checkbox" name="manual_annotation" /> 人工註解(manual annotation)<br />
+	<input type="checkbox" name="automatic_annotation" /> 自動 (BLAST) 註解(automatic annotation)<br />
+	<input type="checkbox" name="sequence" onclick="check_fasta_option()" /> 序列(sequence)<br />
+	&nbsp;&nbsp;&nbsp;<input type="radio" name="seq_type" value="est_seq" checked="checked" /> EST 序列(EST sequence)<br />
+	&nbsp;&nbsp;&nbsp;<input type="radio" name="seq_type" value="unigene_seq" /> 單一基因群序列(Unigene sequence)<br />
 
 </td></tr></table>
 
 %    if ( $debug eq "1" ) {
 %        print
-%qq|<input type="checkbox" checked="checked" name="debug" /> print debug statements<br /><br />\n|;
+%qq|<input type="checkbox" checked="checked" name="debug" /> 列印除錯訊息(print debug statements)<br /><br />\n|;
 %    }
 
  	<input type="hidden" name="idType" value="clone" />
-	<input type="reset" />&nbsp;&nbsp;
-        <input type="submit" value="Submit" /><br />
+	<input type="reset" value="重設(Reset)" />&nbsp;&nbsp;
+        <input type="submit" value="送出(Submit)" /><br />
    </form>
 
 
