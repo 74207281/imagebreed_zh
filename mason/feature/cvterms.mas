@@ -13,5 +13,5 @@
 
 <& /ontology/embedded_browser.mas,
 	cvterm => $cvterm,
-	title => 'Cvterm Ontology',
+	title => '受控詞彙本體論(Cvterm Ontology)',
 &>
