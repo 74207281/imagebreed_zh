@@ -2,7 +2,7 @@
   $form
 </%args>
 
-<& /page/page_title.mas, title => "Primer 3" &>
+<& /page/page_title.mas, title => "引子設計 3(Primer 3)" &>
 
 <HR></HR>
 
@@ -10,7 +10,7 @@
 
 <HR></HR>
 
-<h1> Copyright Notice and Disclaimer </h1>
+<h1>版權聲明與免責聲明(Copyright Notice and Disclaimer)</h1>
 <p>
  Copyright (c) 1996,1997,1998,1999,2000,2001,2004,2006,2007
 Whitehead Institute for Biomedical Research, Steve Rozen, and Helen Skaletsky
