@@ -4,18 +4,18 @@
     <tr><td>
       <img src="/documents/img/sliced_tomato_60x57.png" width="60" border="0" />
     </td><td>
-      <div style="text-align: center; font-size: 160%; font-weight: bold">Prerelease of Tomato Genome Shotgun Sequence</div>
+      <div style="text-align: center; font-size: 160%; font-weight: bold">番茄基因組鳥槍法定序預先發布(Prerelease of Tomato Genome Shotgun Sequence)</div>
 
       <div class="boxcontent">
-         The <span style="font-weight: bold">International Tomato Genome Sequencing Project</span> is happy to make available a prerelease version of the <span style="font-weight: bold">Tomato Genome Shotgun Sequence</span> to the community. <a href="/tomato/">More...</a>
+         <span style="font-weight: bold">國際番茄基因組定序計畫(International Tomato Genome Sequencing Project)</span>很高興向社群提供<span style="font-weight: bold">番茄基因組鳥槍法定序(Tomato Genome Shotgun Sequence)</span>的預先發布版本。<a href="/tomato/">更多資訊...(More...)</a>
 
-        <div style="text-align: center; margin: 1.5em 0 0 1em"><a href="/tomato/#disclaimer">Data Agreement and Disclaimer</a> | <a href="/tools/blast/index.pl?db_id=93">BLAST</a> | <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly">FTP</a></div>
+        <div style="text-align: center; margin: 1.5em 0 0 1em"><a href="/tomato/#disclaimer">數據協議與免責聲明(Data Agreement and Disclaimer)</a> | <a href="/tools/blast/index.pl?db_id=93">BLAST</a> | <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly">FTP</a></div>
     
        </div>
     </td><td>
        <img src="/documents/img/sliced_tomato_60x57.png" width="60" border="0" />
     </tr>
   </table>
-<div style="font-weight: bold; margin: 0 -5px -5px -5px; text-align: right">December 1, 2009</div>
+<div style="font-weight: bold; margin: 0 -5px -5px -5px; text-align: right">2009 年 12 月 1 日(December 1, 2009)</div>
 </div>
 
