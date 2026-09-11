@@ -1,4 +1,4 @@
-<& /page/page_title.mas, title => 'The Secretome of Phytophthora / Tomato Interactions' &>
+<& /page/page_title.mas, title => '疫病菌與番茄交互作用之分泌蛋白質組(The Secretome of Phytophthora / Tomato Interactions)' &>
 
 <div class="indented_content">
 
@@ -7,98 +7,63 @@
     <img src="/documents/img/secretom/infestans_leaves_stages_full.jpg" />
 
     <p>
-      Infection of tomato leaves (upper panels) by P. infestans, showing
-      the early asymptomatic biotrophic phase (left) and the later
-      necrotrophic phase. The <span class="species_binomial">P. infestans
-      </span> developmental stages (trypan blue staining) are shown in
-      the lower panel.
+      致病疫黴（P. infestans）感染番茄葉片（上方圖），顯示早期無症狀的活體營養階段（左）和後期的死體營養階段(Infection of tomato leaves (upper panels) by P. infestans, showing the early asymptomatic biotrophic phase (left) and the later necrotrophic phase)。下方圖顯示 <span class="species_binomial">P. infestans
+      </span> 的發育階段（台盼藍染色）(developmental stages (trypan blue staining) are shown in the lower panel)。
     </p>
 
   </div>
 
   <p>
-    Plant pathogens can be classified into three groups, based on their
-    mechanism of infection: biotrophs, necrotrophs or
-    hemibiotrophs. Biotrophic pathogens penetrate the plant wall,
-    parasitize host cells while evading or suppressing defense responses
-    and require viable host tissue for pathogen nutrition and
-    reproduction. In contrast, necrotrophs, overwhelm plants by
-    secreting mixtures of degradative enzymes that allow the pathogens
-    to subsist on necrotized host tissue. Hemibiotrophic pathogens, such
-    as the bacterium <span class="species_binomial">Pseudomonas
-    syringae</span>, the fungus <span class="species_binomial">
-    Colletotrichum lindemuthianum</span> and the oomycete <span
-    class="species_binomial">Phytophthora infestans</span>, employ
-    elements of both these strategies in a biphasic "stealth"
-    infection mechanism.
+    植物病原體可根據其感染機制分為三類：活體營養型、死體營養型或半活體營養型(Plant pathogens can be classified into three groups, based on their mechanism of infection: biotrophs, necrotrophs or hemibiotrophs)。活體營養型病原體穿透植物細胞壁，寄生宿主細胞同時逃避或抑制防禦反應，並需要活的宿主組織以獲取病原體營養和繁殖(Biotrophic pathogens penetrate the plant wall, parasitize host cells while evading or suppressing defense responses and require viable host tissue for pathogen nutrition and reproduction)。相反地，死體營養型透過分泌降解酵素混合物來摧毀植物，使病原體能夠在壞死的宿主組織上生存(In contrast, necrotrophs, overwhelm plants by secreting mixtures of degradative enzymes that allow the pathogens to subsist on necrotized host tissue)。半活體營養型病原體，例如細菌 <span class="species_binomial">Pseudomonas
+    syringae</span>、真菌 <span class="species_binomial">
+    Colletotrichum lindemuthianum</span> 和卵菌 <span
+    class="species_binomial">Phytophthora infestans</span>，在雙相「隱形」感染機制中同時採用了這兩種策略的要素(employ elements of both these strategies in a biphasic "stealth" infection mechanism)。
   </p>
 
   <p>
-    This involves an initial biotrophic phase, when the pathogen
-    proliferates asymptomatically in the host and efficient mechanisms
-    must be employed to evade and suppress host defenses. Subsequently,
-    in the second stage, hemibiotrophs orchestrate a physiological
-    switch from asymptomatic infection to large-scale necrosis and
-    tissue dissolution, presumably resulting from the coordinated
-    secretion of factors such as lytic enzymes and necrosis elicitors.
+    這涉及最初的活體營養階段，此時病原體在宿主中無症狀增殖，必須採用有效的機制來逃避和抑制宿主防禦(This involves an initial biotrophic phase, when the pathogen proliferates asymptomatically in the host and efficient mechanisms must be employed to evade and suppress host defenses)。隨後在第二階段，半活體營養型協調從無症狀感染到大規模壞死和組織溶解的生理轉變，這大概是協調分泌裂解酵素和壞死激發子等因子的結果(Subsequently, in the second stage, hemibiotrophs orchestrate a physiological switch from asymptomatic infection to large-scale necrosis and tissue dissolution, presumably resulting from the coordinated secretion of factors such as lytic enzymes and necrosis elicitors)。
   </p>
 
   <p>
 
-    We are using a range of strategies to characterize the secretomes
-    of the host and pathogen during the various stages of
-    hemibiotrophy, including <a href="/secretom/detail/functional_screens">
-    Yeast Secretion Trap Screen</a>, <a href="/secretom/detail/proteomics">
-    comparative proteomic analysis</a> of extracted protein populations,
-    and deepsequencing of the transcriptomes of the infected tissues using
-    RNAseq.
+    我們正在使用一系列策略來分析半活體營養各階段宿主和病原體的分泌蛋白質組，包括 <a href="/secretom/detail/functional_screens">
+    酵母分泌捕捉篩選(Yeast Secretion Trap Screen)</a>、萃取蛋白質群體的 <a href="/secretom/detail/proteomics">
+    比較蛋白質組分析(comparative proteomic analysis)</a>，以及使用 RNA-seq 對感染組織的轉錄組進行深度定序(and deepsequencing of the transcriptomes of the infected tissues using RNAseq)。
 
   </p>
 </div>
 
 <&| /secretom/section_templates/objectives.mas &>
 
-  Characterize multiple transcript populations from
-  <span class="species_binomial">P. infestans</span>-infected tomato
-  leaves over a time course spanning
-  biotrophic growth to advances necrotrophy.
+  在從活體營養生長到晚期死體營養的時間進程中，對來自受 <span class="species_binomial">P. infestans</span> 感染的番茄葉片的多個轉錄本群體進行特徵分析(Characterize multiple transcript populations from P. infestans-infected tomato leaves over a time course spanning biotrophic growth to advances necrotrophy)。
 
-  Integrate the transcriptome data with the proteome analysis to
-  develop a developmental profile of the secretomes of the host and
-  pathogen during infection
+  將轉錄組數據與蛋白質組分析相結合，建立感染期間宿主和病原體分泌蛋白質組的發育圖譜(Integrate the transcriptome data with the proteome analysis to develop a developmental profile of the secretomes of the host and pathogen during infection)。
 
-  Address the hypothesis that hemibiotrophic eukaryotes are able to
-  maintain a biotrophic interaction with their hosts and to trigger
-  the subsequent transition to necrotrophy by the coordinated and
-  temporally-regulated expression of distinct subsets of secreted
-  protein effectors
+  探討以下假說：半活體營養型真核生物能夠透過協調且受時間調控的分泌蛋白效應子特定子集的表現，維持與其宿主的活體營養交互作用並觸發隨後向死體營養的轉變(Address the hypothesis that hemibiotrophic eukaryotes are able to maintain a biotrophic interaction with their hosts and to trigger the subsequent transition to necrotrophy by the coordinated and temporally-regulated expression of distinct subsets of secreted protein effectors)。
 
 </&>
 
-<&| /page/info_section.mas, title => 'Data Sets' &>
+<&| /page/info_section.mas, title => '資料集(Data Sets)' &>
 
-<p>These samples correspond to a time course experiment of a compatible
-interaction between Phytophthora infestans (clonal lineage US11) and
-its host tomato (M82). Tissue was collected at three different stages
-of the interaction and a mock inoculated plant served as control.
+<p>這些樣品對應於致病疫黴（Phytophthora infestans，無性系譜系 US11）與其宿主番茄（M82）之間相容交互作用的時間進程實驗。在交互作用的三個不同階段收集組織，並以擬接種植物作為對照(These samples correspond to a time course experiment of a compatible interaction between Phytophthora infestans (clonal lineage US11) and its host tomato (M82). Tissue was collected at three different stages of the interaction and a mock inoculated plant served as control)。
 </p>
 
   <&| /secretom/section_templates/data_items.mas,
       default_ref_base => '/download/data/secretom/Secretome_Phytophthora_tomato_interactions',
       is_subsection => 1,
-      title => 'Files',
+      title => '檔案(Files)',
    &>
-  - text: Time 0, F95S1KP01.sff
+  - text: 時間 0(Time 0), F95S1KP01.sff
     ref: F95S1KP01.sff
-  - text: Time 1, GAVIB5H01.sff
+  - text: 時間 1(Time 1), GAVIB5H01.sff
     ref: GAVIB5H01.sff
-  - text: Time 2, GAVIB5H02.sff
+  - text: 時間 2(Time 2), GAVIB5H02.sff
     ref: GAVIB5H02.sff
-  - text: Time 3, F95S1KP02.sff
+  - text: 時間 3(Time 3), F95S1KP02.sff
     ref: F95S1KP02.sff
-  - text: Assembled sequences for Phytophtora infestans
+  - text: 致病疫黴組裝序列(Assembled sequences for Phytophthora infestans)
     ref: P.infestans_unigenes.fasta
-  - text: Assembled sequences for tomato
+  - text: 番茄組裝序列(Assembled sequences for tomato)
     ref: Tomato_unigenes.fasta
   </&>
 </&>
