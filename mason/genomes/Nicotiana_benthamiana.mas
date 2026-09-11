@@ -1,105 +1,91 @@
 <br />
-<& /page/page_title.mas, title=>"<i>Nicotiana benthamiana</i> draft genome sequence v1.0.1" &>
+<& /page/page_title.mas, title=>"<i>Nicotiana benthamiana</i> 基因組草圖序列 v1.0.1(<i>Nicotiana benthamiana</i> draft genome sequence v1.0.1)" &>
 
 <p>
-  A new draft sequence of the <i>Nicotiana benthamiana</i> genome has been released by researchers from the <a href="http://btiscience.org/" target="_blank">Boyce Thompson Institute for Plant Research (BTI)</a>.
-  It is accessible through the SGN BLAST tool and JBrowse, and can be downloaded from the SGN ftp site.
-  More information about this project can be found at the <a href="https://btiscience.org/our-research/research-facilities/research-resources/nicotiana-benthamiana/" target="_blank">BTI <i>Nicotiana benthamiana</i> Project site</a>
+  <a href="http://btiscience.org/" target="_blank">博伊斯湯普森植物研究所 (BTI)</a> 的研究人員發布了本氏菸草 (<i>Nicotiana benthamiana</i>) 基因組的新草圖序列。可透過 SGN BLAST 工具和 JBrowse 訪問，並可從 SGN FTP 網站下載。有關此計畫的更多資訊，請訪問 <a href="https://btiscience.org/our-research/research-facilities/research-resources/nicotiana-benthamiana/" target="_blank">BTI <i>Nicotiana benthamiana</i> 計畫網站(BTI Nicotiana benthamiana Project site)</a>。(A new draft sequence of the <i>Nicotiana benthamiana</i> genome has been released by researchers from the <a href="http://btiscience.org/" target="_blank">Boyce Thompson Institute for Plant Research (BTI)</a>. It is accessible through the SGN BLAST tool and JBrowse, and can be downloaded from the SGN ftp site. More information about this project can be found at the <a href="https://btiscience.org/our-research/research-facilities/research-resources/nicotiana-benthamiana/" target="_blank">BTI <i>Nicotiana benthamiana</i> Project site</a>)
 </p>
 
 <p>
-  <i>N. benthamiana</i> has a very complex genome consisting of n=19 chromosomes that is estimated at over 3.5GB in size.
-  Taxonomically, it is an old allotetraploid of the section Suaveolentes that was formed from diploid parents from the section Sylvestres and
-  the section Noctiflorae. It is native to Australia [2, 3].
+  <i>N. benthamiana</i> 擁有非常複雜的基因組，由 n=19 條染色體組成，估計大小超過 3.5GB。在分類學上，它是 Suaveolentes 組的古老異源四倍體，由來自 Sylvestres 組和 Noctiflorae 組的二倍體親本形成。原產於澳洲 [2, 3]。(<i>N. benthamiana</i> has a very complex genome consisting of n=19 chromosomes that is estimated at over 3.5GB in size. Taxonomically, it is an old allotetraploid of the section Suaveolentes that was formed from diploid parents from the section Sylvestres and the section Noctiflorae. It is native to Australia [2, 3].)
 </p>
 
 <p>
-  <i>N. benthamiana</i> is a widely used model for plant-microbe biology and other research applications.
-  It is particularly useful because it is related to tomato and potato and is amenable to virus-induced gene silencing (VIGS)
-  which facilitates the efficient functional study of plant genes.
+  <i>N. benthamiana</i> 是植物-微生物生物學和其他研究應用中廣泛使用的模型。它特別有用，因為它與番茄和馬鈴薯相關，並且適用於病毒誘導的基因沉默 (VIGS)，這有助於植物基因的高效功能研究。(<i>N. benthamiana</i> is a widely used model for plant-microbe biology and other research applications. It is particularly useful because it is related to tomato and potato and is amenable to virus-induced gene silencing (VIGS) which facilitates the efficient functional study of plant genes.)
 </p>
 
 <p>
-  The draft sequence of <i>N. benthamiana</i> will allow better design of constructs for virus-induced gene-silencing (VIGS)
-  in order to reduce the possibility of 'off-target' gene silencing [1]. The sequence will be also useful to identify tomato and potato orthologs
-  for comparative genomics with other Solanaceae species and, to retrieve promoter sequences.
+  <i>N. benthamiana</i> 的草圖序列將有助於更好地設計用於病毒誘導基因沉默 (VIGS) 的構建體，以減少「脫靶」基因沉默的可能性 [1]。該序列還將有助於鑑定番茄和馬鈴薯的直系同源基因，以用於與其他茄科物種的比較基因組學，並檢索啟動子序列。(The draft sequence of <i>N. benthamiana</i> will allow better design of constructs for virus-induced gene-silencing (VIGS) in order to reduce the possibility of 'off-target' gene silencing [1]. The sequence will be also useful to identify tomato and potato orthologs for comparative genomics with other Solanaceae species and, to retrieve promoter sequences.)
 </p>
 
 
 <center>
     <a id="blue_button" href="/tools/blast/?db_id=266" target="_blank">BLAST</a>&nbsp;&nbsp;
-    <a id="blue_button" href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana" target="_blank">FTP Site</a>&nbsp;&nbsp;
+    <a id="blue_button" href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana" target="_blank">FTP 網站(FTP Site)</a>&nbsp;&nbsp;
     <a id="blue_button" href="http://solgenomics.net/jbrowse_solgenomics/?data=data%2Fjson%2FNiben1.0.1&loc=Niben101Scf00005" target="_blank" style="background-image:none;">JBrowse</a>&nbsp;&nbsp;
-    <a id="blue_button" href="http://vigs.solgenomics.net" target="_blank" style="background-image:none;">VIGS Tool</a>
+    <a id="blue_button" href="http://vigs.solgenomics.net" target="_blank" style="background-image:none;">VIGS 工具(VIGS Tool)</a>
 </center>
 
-<h4>Data Agreement</h4>
+<h4>數據協議(Data Agreement)</h4>
 
 <p>
-  Accessing to the <i>Nicotiana benthamiana</i> genome data,
-  you agree not to publish any article containing any analysis of the whole gene space or whole genome scale
-  prior to the publication by the Benthamiana Sequencing and Annotation Consortium (BSAC).
-  These analysis include the identification of complete (whole genome) sets of genomic features such as
-  genes, gene families, regulatory elements, repeat structures, GC content, or any other genome feature, and
-  whole-genome- or chromosome- scale comparisons with other species.
-  Scientific users are free to publish analysis based in a single gene (or group of genes).
+  存取 <i>Nicotiana benthamiana</i> 基因組數據，即表示您同意在 Benthamiana 定序和註釋聯盟 (BSAC) 發表論文之前，不發表任何包含全基因空間或全基因組規模分析的文章。這些分析包括鑑定全套（全基因組）基因組特徵，例如基因、基因家族、調控元件、重複結構、GC 含量或任何其他基因組特徵，以及與其他物種的全基因組或染色體規模比對。科學使用者可自由發表基於單一基因（或基因群）的分析。(Accessing to the <i>Nicotiana benthamiana</i> genome data, you agree not to publish any article containing any analysis of the whole gene space or whole genome scale prior to the publication by the Benthamiana Sequencing and Annotation Consortium (BSAC). These analysis include the identification of complete (whole genome) sets of genomic features such as genes, gene families, regulatory elements, repeat structures, GC content, or any other genome feature, and whole-genome- or chromosome- scale comparisons with other species. Scientific users are free to publish analysis based in a single gene (or group of genes).)
 </p>
 
 <p>
-If you have any questions, please contact Professor <a href="mailto:gbm7@cornell.edu">Gregory Martin</a> or Professor <a href="mailto:aurebg@vt.edu">Aureliano Bombarely</a>.
+若有任何疑問，請聯絡 <a href="mailto:gbm7@cornell.edu">Gregory Martin</a> 教授或 <a href="mailto:aurebg@vt.edu">Aureliano Bombarely</a> 教授。(If you have any questions, please contact Professor <a href="mailto:gbm7@cornell.edu">Gregory Martin</a> or Professor <a href="mailto:aurebg@vt.edu">Aureliano Bombarely</a>.)
 </p>
 
-<h4>Assembly Statistics</h4>
+<h4>組裝統計(Assembly Statistics)</h4>
 
-<i>N. benthamiana</i> Genome v1.0.1. Statistics from file <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana/assemblies/" target="_blank">Niben.genome.v1.0.1.scaffolds.nrcontigs.fasta</a>
+<i>N. benthamiana</i> 基因組 v1.0.1。來自檔案 <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana/assemblies/" target="_blank">Niben.genome.v1.0.1.scaffolds.nrcontigs.fasta</a> 的統計數據(<i>N. benthamiana</i> Genome v1.0.1. Statistics from file <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana/assemblies/" target="_blank">Niben.genome.v1.0.1.scaffolds.nrcontigs.fasta</a>)
 <br />
 <br />
 
 <table id="assembly_stats_table">
   <tr>
-    <th>Sequences</th><td>56,094</td>
+    <th>序列數(Sequences)</th><td>56,094</td>
   </tr>
   <tr>
-    <th>Total Length (bp)</th><td>2,969,810,994</td>
+    <th>總長度 (bp)(Total Length (bp))</th><td>2,969,810,994</td>
   </tr>
   <tr>
-    <th>Average length (bp)</th><td>52,943</td>
+    <th>平均長度 (bp)(Average length (bp))</th><td>52,943</td>
   </tr>
   <tr>
-    <th>Longest sequence (bp)</th><td>2,838,176</td><td>ID = Niben101Scf02793</td>
+    <th>最長序列 (bp)(Longest sequence (bp))</th><td>2,838,176</td><td>ID = Niben101Scf02793</td>
   </tr>
   <tr>
-    <th>Shortest sequence (bp)</th><td>500</td><td>ID = Niben101Ctg00001</td>
+    <th>最短序列 (bp)(Shortest sequence (bp))</th><td>500</td><td>ID = Niben101Ctg00001</td>
   </tr>
   <tr>
-    <th>N95 length (bp)</th><td>77,805</td>
+    <th>N95 長度 (bp)(N95 length (bp))</th><td>77,805</td>
   </tr>
   <tr>
-    <th>N90 length (bp)</th><td>140,694</td>
+    <th>N90 長度 (bp)(N90 length (bp))</th><td>140,694</td>
   </tr>
   <tr>
-    <th>N75 length (bp)</th><td>282,465</td>
+    <th>N75 長度 (bp)(N75 length (bp))</th><td>282,465</td>
   </tr>
   <tr>
-    <th>N50 length (bp)</th><td>520,105</td>
+    <th>N50 長度 (bp)(N50 length (bp))</th><td>520,105</td>
   </tr>
   <tr>
-    <th>N25 length (bp)</th><td>859,098</td>
+    <th>N25 長度 (bp)(N25 length (bp))</th><td>859,098</td>
   </tr>
   <tr>
-    <th>N95 index</th><td>7,206</td>
+    <th>N95 索引(N95 index)</th><td>7,206</td>
   </tr>
   <tr>
-    <th>N90 index</th><td>5,835</td>
+    <th>N90 索引(N90 index)</th><td>5,835</td>
   </tr>
   <tr>
-    <th>N75 index</th><td>3,671</td>
+    <th>N75 索引(N75 index)</th><td>3,671</td>
   </tr>
   <tr>
-    <th>N50 index</th><td>1,738</td>
+    <th>N50 索引(N50 index)</th><td>1,738</td>
   </tr>
   <tr>
-    <th>N25 index</th><td>612</td>
+    <th>N25 索引(N25 index)</th><td>612</td>
   </tr>
 </table>
 
@@ -146,39 +132,33 @@ N25 index:    12906 sequences<br />
 ==========================================================<br />
 <br /> -->
 
-<h4>Sequencing approach</h4>
+<h4>定序策略(Sequencing approach)</h4>
 
 <p>
-  Seedlings were grown in the greenhouse and nuclear DNA was extracted from etiolated leaves.
-  From the DNA, three distinct libraries were synthesized for use in a Illumina HiSeq-2000 sequencer:
-  1) a paired end library with an insert size of approximately 500 bp insert size;
-  2) a mate-pair type library with an insert size of 2kb; and
-  3) a mate pair with an insert size of 5kb.
-  Sequencing was performed using a full run with 4 lanes of the paired end library and 1 lane each of the mate pair libraries.
+  幼苗在溫室中生長，並從黃化葉片中提取核 DNA。從該 DNA 中合成了三個不同的文庫，用於 Illumina HiSeq-2000 定序儀：1) 插入大小約為 500 bp 的雙端文庫；2) 插入大小為 2kb 的配對端(mate-pair)類型文庫；3) 插入大小為 5kb 的配對端文庫。定序使用完整運行進行，包含 4 個泳道的雙端文庫和各 1 個泳道的配對端文庫。(Seedlings were grown in the greenhouse and nuclear DNA was extracted from etiolated leaves. From the DNA, three distinct libraries were synthesized for use in a Illumina HiSeq-2000 sequencer: 1) a paired end library with an insert size of approximately 500 bp insert size; 2) a mate-pair type library with an insert size of 2kb; and 3) a mate pair with an insert size of 5kb. Sequencing was performed using a full run with 4 lanes of the paired end library and 1 lane each of the mate pair libraries.)
 </p>
 
-<h4>Accession sequenced</h4>
+<h4>定序種質(Accession sequenced)</h4>
 
 <p>
-  The accession sequenced is referred to as "Nb-1".
-  Seeds can be obtained by contacting Professor <a href="mailto:gbm7@cornell.edu">Gregory Martin</a>.
+  定序的種質稱為「Nb-1」。可透過聯絡 <a href="mailto:gbm7@cornell.edu">Gregory Martin</a> 教授取得種子。(The accession sequenced is referred to as "Nb-1". Seeds can be obtained by contacting Professor <a href="mailto:gbm7@cornell.edu">Gregory Martin</a>.)
 </p>
 
-<h4>Links</h4>
+<h4>連結(Links)</h4>
 
 <ul>
   <li>
-    More information about this project at the <a href="https://btiscience.org/our-research/research-facilities/research-resources/nicotiana-benthamiana/" target="_blank">BTI <i>Nicotiana benthamiana</i> Project site</a>
+    有關該計畫的更多資訊，請訪問 <a href="https://btiscience.org/our-research/research-facilities/research-resources/nicotiana-benthamiana/" target="_blank">BTI <i>Nicotiana benthamiana</i> 計畫網站(BTI <i>Nicotiana benthamiana</i> Project site)</a>
   </li>
   <li>
-    <a href="http://sydney.edu.au/science/molecular_bioscience/sites/benthamiana/" target="_blank">Austrialia/New Zealand <i>Nicotiana benthamiana</i> sequencing project</a>
+    <a href="http://sydney.edu.au/science/molecular_bioscience/sites/benthamiana/" target="_blank">澳洲／紐西蘭 <i>Nicotiana benthamiana</i> 定序計畫(Australia/New Zealand <i>Nicotiana benthamiana</i> sequencing project)</a>
   </li>
   <li>
-    <a href="http://www.jove.com/video/1292/virus-induced-gene-silencing-vigs-in-nicotiana-benthamiana-and-tomato" target="_blank">On-line tutorial for VIGS procedure</a>
+    <a href="http://www.jove.com/video/1292/virus-induced-gene-silencing-vigs-in-nicotiana-benthamiana-and-tomato" target="_blank">VIGS 操作線上教學(On-line tutorial for VIGS procedure)</a>
   </li>
 </ul>
 
-<h4>References</h4>
+<h4>參考文獻(References)</h4>
 
 <ol>
   <li>
@@ -198,11 +178,11 @@ N25 index:    12906 sequences<br />
   </li>
 </ol>
 
-<h4>Acknowledgments</h4>
+<h4>致謝(Acknowledgments)</h4>
 
 <p>
-Sequencing of the <i>N. benthamiana</i> genome was supported by funds from the Boyce Thompson Institute for Plant Research and
- National Science Foundation grants IOS-1025642 (A. Collmer and G. Martin), and IOS-0343327 (P. Moffett).
+<i>N. benthamiana</i> 基因組定序由博伊斯湯普森植物研究所的資金以及國家科學基金會撥款 IOS-1025642（A. Collmer 和 G. Martin）與 IOS-0343327（P. Moffett）資助。(Sequencing of the <i>N. benthamiana</i> genome was supported by funds from the Boyce Thompson Institute for Plant Research and
+ National Science Foundation grants IOS-1025642 (A. Collmer and G. Martin), and IOS-0343327 (P. Moffett).)
 </p>
 
 <br />
