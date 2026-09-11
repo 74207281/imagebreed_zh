@@ -1,6 +1,6 @@
 
 
-<& /page/page_title.mas, title=>"Quick Search Help" &>
+<& /page/page_title.mas, title=>"快速搜尋說明(Quick Search Help)" &>
 
   <center>
     
@@ -13,72 +13,38 @@
           cellspacing="0" border="0">
             <tr>
               <td>
-                <p>The quick search
-                functionality is part of the <a href=
-                "toolbar.pl">toolbar</a> on top of almost every
-                SGN web page. To use it, simply enter a search term
-                in the text input box and click on the quick search
-                button. The search can take a while depending on
-                the actual word you search. Specifically, words
-                that appear in many of the blast annotations, such
-                'Arabidopsis', will increase search time.</p>
+                <p>快速搜尋功能是位於幾乎每個 SGN 網頁上方<a href="toolbar.pl">工具列(toolbar)</a>的一部分。若要使用，只需在文字輸入框中輸入搜尋詞彙，然後點擊快速搜尋按鈕即可。搜尋所需時間視您搜尋的具體字詞而定。特別是出現在許多 blast 註解中的詞彙（例如 'Arabidopsis'）會增加搜尋時間。(The quick search functionality is part of the <a href="toolbar.pl">toolbar</a> on top of almost every SGN web page. To use it, simply enter a search term in the text input box and click on the quick search button. The search can take a while depending on the actual word you search. Specifically, words that appear in many of the blast annotations, such 'Arabidopsis', will increase search time.)</p>
 
-                <p>Quick search performs a series of searches in
-                the database and displays a summary page of the
-                matches. For each of the searches, a line is
-                displayed with information how many entities were
-                matched in the database.</p>
+                <p>快速搜尋會在資料庫中執行一系列搜尋，並顯示相符項目的摘要頁面。針對每項搜尋，都會顯示一行資訊，說明資料庫中有多少個實體相符。(Quick search performs a series of searches in the database and displays a summary page of the matches. For each of the searches, a line is displayed with information how many entities were matched in the database.)</p>
 
-                <p>If entities were found in the database, a link
-                is provided to complete the actual search. Click on
-                that link to see the search results.</p>
+                <p>若在資料庫中找到實體，將提供連結以完成實際搜尋。點擊該連結即可查看搜尋結果。(If entities were found in the database, a link is provided to complete the actual search. Click on that link to see the search results.)</p>
 
-                <p>The individual quick searches do the
-                following:</p>
+                <p>各個快速搜尋項目的功能如下：(The individual quick searches do the following:)</p>
 
                 <dl>
-                  <dt><strong>Identifier searches</strong></dt>
+                  <dt><strong>識別碼搜尋(Identifier searches)</strong></dt>
 
-                  <dd>Identifier searches perform exact match
-                  searches on clone, est, unigene and marker
-                  identifiers in the database</dd>
+                  <dd>識別碼搜尋會在資料庫中對選殖株、EST、unigene 與標記識別碼執行完全相符搜尋。(Identifier searches perform exact match searches on clone, est, unigene and marker identifiers in the database)</dd>
 
-                  <dt><br /><strong>Annotation searches</strong></dt>
+                  <dt><br /><strong>註解搜尋(Annotation searches)</strong></dt>
 
-                  <dd>The annotation searches search the manual and
-                  automatic annotation that are available for
-                  unigenes. They report the number of annotations
-                  and the number of corresponding unigenes that
-                  were found. If there are more than 5000
-                  annotation matches, the number of unigenes is not
-                  reported to save on querying time.</dd>
+                  <dd>註解搜尋會搜尋 unigene 的手動與自動註解。它們會回報找到的註解數量以及對應的 unigene 數量。若註解相符超過 5000 筆，為節省查詢時間將不回報 unigene 數量。(The annotation searches search the manual and automatic annotation that are available for unigenes. They report the number of annotations and the number of corresponding unigenes that were found. If there are more than 5000 annotation matches, the number of unigenes is not reported to save on querying time.)</dd>
 
-                  <dt><br /><strong>People search</strong></dt>
+                  <dt><br /><strong>人員搜尋(People search)</strong></dt>
 
-                  <dd>Searches the last name as a sub-string match
-                  in the SGN People Directory.</dd>
+                  <dd>在 SGN 人員名錄中將姓氏作為子字串相符進行搜尋。(Searches the last name as a sub-string match in the SGN People Directory.)</dd>
 
-                  <dt><br /><strong>Library search</strong></dt>
+                  <dt><br /><strong>文庫搜尋(Library search)</strong></dt>
 
-                  <dd>Searches the libraries on name, tissue,
-                  development stage, authors, and other fields as a
-                  substring search.</dd>
+                  <dd>在文庫的名稱、組織、發育階段、作者與其他欄位中進行子字串搜尋。(Searches the libraries on name, tissue, development stage, authors, and other fields as a substring search.)</dd>
 
-                  <dt><br /><strong>SGN Pages search</strong></dt>
+                  <dt><br /><strong>SGN 頁面搜尋(SGN Pages search)</strong></dt>
 
-                  <dd>Performs a Google search on the
-                  sgn.cornell.edu domain. Please note that when we
-                  re-arrange pages on the SGN site, it may take
-                  Google a number of days to re-index the site, so
-                  sometimes the pages you find with this search
-                  will not be valid. However, we will try to keep
-                  site rearrangements to a minimum.</dd>
+                  <dd>在 sgn.cornell.edu 網域上執行 Google 搜尋。請注意，當我們重新調整 SGN 網站上的頁面時，Google 可能需要數天時間重新建立網站索引，因此有時透過此搜尋找到的頁面可能無效。然而，我們將盡量減少網站結構的調整。(Performs a Google search on the sgn.cornell.edu domain. Please note that when we re-arrange pages on the SGN site, it may take Google a number of days to re-index the site, so sometimes the pages you find with this search will not be valid. However, we will try to keep site rearrangements to a minimum.)</dd>
 
-                  <dt><br /><strong>Pages on the entire web</strong></dt>
+                  <dt><br /><strong>全網頁面搜尋(Pages on the entire web)</strong></dt>
 
-                  <dd>Performs a Google search without the
-                  sgn.cornell.edu domain constraint. Searches the
-                  entire web.</dd>
+                  <dd>在無 sgn.cornell.edu 網域限制下執行 Google 搜尋。搜尋整個網路。(Performs a Google search without the sgn.cornell.edu domain constraint. Searches the entire web.)</dd>
                 </dl>
               </td>
             </tr>
