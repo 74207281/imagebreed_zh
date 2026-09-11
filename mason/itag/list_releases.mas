@@ -2,7 +2,7 @@
 $itag_releases
 </%args>
 
-<& /page/page_title.mas, title => 'ITAG Releases Available for Bulk Download' &>
+<& /page/page_title.mas, title => '可批量下載之 ITAG 發布版本(ITAG Releases Available for Bulk Download)' &>
 
 % if ( @$itag_releases ) {
 
@@ -16,6 +16,6 @@ $itag_releases
 
 % } else {
 
-<span class="ghosted">temporarily unavailable</span>
+<span class="ghosted">暫時無法使用(temporarily unavailable)</span>
 
 % }
