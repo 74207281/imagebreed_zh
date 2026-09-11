@@ -28,12 +28,12 @@ $output_list
 <% $ug_select %>
 <br /><br />
 	<br />
-Enter a list of identifiers or upload a file containing one identifier:<br />
+輸入識別碼列表，或上傳包含識別碼的檔案（每行一個）(Enter a list of identifiers or upload a file containing identifiers)：<br />
 <table summary="" width="100%"><tr><td>
 <textarea name="ids" rows="5" cols="20"></textarea>
 </td>
 <td>
-<i>Example:</i>
+<i>範例(Example)：</i>
 <pre style="border: 1px solid gray; width: 10em; height: 5em">
 1-1-1.2.3.4
 1-1-1.2.4.5
@@ -42,7 +42,7 @@ Enter a list of identifiers or upload a file containing one identifier:<br />
 </td></tr></table>
 <br />
 <br />
-And/or upload list file: <br /><input type="file" name="file" />
+及/或上傳識別碼列表檔案(And/or upload list file)：<br /><input type="file" name="file" />
 <br />
 <br />
 
@@ -53,11 +53,11 @@ And/or upload list file: <br /><input type="file" name="file" />
 </td></tr></table>
 
 %    if ( $debug eq "1" ) {
-%        print qq|<input type="checkbox" checked="checked" name="debug" /> print debug statements<br /><br />\n|;
+%        print qq|<input type="checkbox" checked="checked" name="debug" /> 列印除錯訊息(print debug statements)<br /><br />\n|;
 %    }
 
 <input type="hidden" name="idType" value="microarray" />
-	<input type="reset" />&nbsp;&nbsp;
-<input type="submit" value="Submit" /><br />
+	<input type="reset" value="重設(Reset)" />&nbsp;&nbsp;
+<input type="submit" value="送出(Submit)" /><br />
 </form>
 
