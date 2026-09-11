@@ -33,22 +33,22 @@ $images => []
 my $this_page = "/organism/$organism_id/view/";
 my $image_subtitle =
 !$privileged_user ?
-"<span class= \"ghosted\">[Add new image]</span> "
-: " <a href=\"/image/add?type_id=$organism_id&type=organism&action=new&refering_page=$this_page\">[ Add new image]</a>" ;
+"<span class= \"ghosted\">[新增圖片(Add new image)]</span> "
+: " <a href=\"/image/add?type_id=$organism_id&type=organism&action=new&refering_page=$this_page\">[ 新增圖片(Add new image)]</a>" ;
 </%perl>
 
 <& /util/import_javascript.mas, classes => ["jquery", "thickbox", "CXGN.Page.FormattingHelpers"] &>
 
 
-<& /page/page_title.mas, title=>"Details for $taxon <i>$organism_name</i>" &>
+<& /page/page_title.mas, title=>"$taxon <i>$organism_name</i> 詳情(Details for $taxon $organism_name)" &>
 
-<&| /page/info_section.mas, title=>'Basic information' &>
+<&| /page/info_section.mas, title=>'基本資訊(Basic information)' &>
 <& /organism/basic_info.mas, name=>$organism_name, common_name=>$common_name, description=>$description, comment=>$comment, synonyms=> \@synonyms &>
 </&>
 
 <& /organism/taxonomy.mas, taxonomy=>$taxonomy &>
 
-<&| /page/info_section.mas, title=>"Images" , subtitle=>$image_subtitle &>
+<&| /page/info_section.mas, title=>"圖片(Images)" , subtitle=>$image_subtitle &>
 <& /image/print_images.mas, images => $images &>
 </&>
 
@@ -57,44 +57,44 @@ my $image_subtitle =
 
 % if ($taxon ne 'species' && $taxon ne 'subspecies') { return; }
 
-<&| /page/info_section.mas, title=>'Metabolic details' &>
+<&| /page/info_section.mas, title=>'代謝途徑詳情(Metabolic details)' &>
 <% $solcyc_link %>
 </&>
 
-<&| /page/info_section.mas, title=>'Genome data', collapsible=>1 &>
+<&| /page/info_section.mas, title=>'基因組資料(Genome data)', collapsible=>1 &>
 <& /organism/genomic_details.mas, ploidy => $ploidy, genome_size=>$genome_size, chromosome_number => $chromosome_number, loci=>$loci, maps=>$maps &>
 
 
 </&>
 
-<&| /page/info_section.mas, title=>'Transcript Information', collapsible => 1 &>
+<&| /page/info_section.mas, title=>'轉錄本資訊(Transcript Information)', collapsible => 1 &>
 
 % my @links = map { qq|<a href="/content/library_info.pl?library=$_">$_</a>| } @libraries;
 
 <& /page/info_table.mas,
    data => [
-  'Libraries ('.scalar(@links).')' => (join ", ", (@links)),
-  Attribution => $est_attribution ], border => 0
+  '文庫('.scalar(@links).')(Libraries)' => (join ", ", (@links)),
+  '歸屬(Attribution)' => $est_attribution ], border => 0
  &>
 </&>
 
 
-<&| /page/info_section.mas, title=>'Phenomic Details', collapsible=>1 &>
+<&| /page/info_section.mas, title=>'表型組詳情(Phenomic Details)', collapsible=>1 &>
 
-Number of phenotyped lines : <% $phenotypes %>
+表型鑑定品系數量(Number of phenotyped lines) : <% $phenotypes %>
 <br />
-Number of traits scored  : <% $trait_count %>
+性狀評分數量(Number of traits scored)  : <% $trait_count %>
 <br />
-Number of ontology annotations : <% $onto_count %>
+本體註解數量(Number of ontology annotations) : <% $onto_count %>
 <br /><br />
 
 
-<&| /page/info_section.mas, title=>'QTL data', is_subsection=>1 &>
+<&| /page/info_section.mas, title=>'QTL 資料(QTL data)', is_subsection=>1 &>
 
 % if ($qtl_data) {
   <& /page/columnar_table.mas,
     data => $qtl_data,
-    headings => [ 'Name', 'Traits' ],
+    headings => [ '名稱(Name)', '性狀(Traits)' ],
     __alt_freq   => 2,
     __alt_width  => 1,
     __alt_offset => 3,
