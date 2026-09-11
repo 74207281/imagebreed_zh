@@ -2,28 +2,28 @@
 <%args>
   $organism
 </%args>
-<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> Genome Data' &>
+<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> 基因組數據(Genome Data)' &>
 
 <p>
-  Tobacco stands out as a complex allotetraploid with a large 4.5 Gb genome with significant proportion (>70%) of repeats.
+  菸草是一種複雜的異源四倍體，具有龐大的 4.5 Gb 基因組，其中含有顯著比例（>70%）的重複序列。作為一個物種，<i>N. tabacum</i> (2n=4x=48) 約在 200,000 年前透過 <i>Nicotiana sylvestris</i>（2n=24，母本供體）和 <i>Nicotiana tomentosiformis</i>（2n=24，父本供體）祖先的種間雜交演化而來。普通菸草 (<i>Nicotiana tabacum</i>) 是全球種植最廣泛的非糧食作物之一，在約 120 個國家種植。它屬於菸草屬 (Nicotiana)，該屬以 Jean Nicot de Villemain 的名字命名，他在 1560 年成為第一個將這些植物從美洲引進歐洲的人。Nicotiana 一詞最初由 Adam Lonitzer 於 1630 年用於描述菸草植物，並於 1788 年由 Carl von Linné (林奈) 用於命名整個屬。Goodspeed 和 Knapp 對超過 75 種天然菸草物種進行了分類，包括 49 種原產於美洲和 25 種原產於澳洲。當今種植的大多數商業菸草屬於 <i>Nicotiana tabacum</i> L. 物種，在國家植物種質系統 (National Plant Germplasm System) 中列出了 1,600 多個 <i>N. tabacum</i> 栽培品種。三種最常用的菸草類型是烤菸 (Flue-Cured 或 Virginia)、白肋菸 (Burley) 和東方菸 (Oriental)，它們傳統上在不同的農業實踐下種植和收穫。(Tobacco stands out as a complex allotetraploid with a large 4.5 Gb genome with significant proportion (>70%) of repeats.
   As a species, <i>N. tabacum</i> (2n=4x=48) evolved through the interspecific hybridization of the ancestors of <i>Nicotiana sylvestris</i> (2n=24, maternal donor) and <i>Nicotiana tomentosiformis</i> (2n=24, paternal donor) about 200,000 years ago.
   Common tobacco (<i>Nicotiana tabacum</i>) is one of the most widely cultivated non-food crops worldwide and is grown in ~120 countries.
   It belongs to the Nicotiana genus, which is named after Jean Nicot de Villemain who, in 1560, became the first person to import these plants from the Americas to Europe.
   The term Nicotiana was originally used by Adam Lonitzer to describe tobacco plants in 1630 and in 1788 by Carl von Linné (Linnaeus) to designate the entire genus.
   Over 75 naturally occurring Nicotiana species, including 49 native to America and 25 native to Australia, have been classified by Goodspeed and Knapp.
   Most commercial tobaccos cultivated today belong to the species <i>Nicotiana tabacum</i> L., for which >1,600 <i>N. tabacum</i> cultivated varieties (cultivars) are listed in the National Plant Germplasm System.
-  The three most commonly used tobacco types are Flue-Cured (or Virginia), Burley and Oriental, which are traditionally grown and harvested under different agricultural practices.
+  The three most commonly used tobacco types are Flue-Cured (or Virginia), Burley and Oriental, which are traditionally grown and harvested under different agricultural practices.)
 </p>
-<p>The text above was extracted from Sierro, N. et al. 2014</p>
+<p>上述文字摘自 Sierro, N. 等人 2014 年的研究。(The text above was extracted from Sierro, N. et al. 2014)</p>
 
 <center>
 <img src="/documents/img/homepage_carousel/tobacco_field.jpg" style="width:800px"><br>
-<i>Nicotiana tabacum</i> plants in the field.
+田間的 <i>Nicotiana tabacum</i> 植株。(<i>Nicotiana tabacum</i> plants in the field.)
 </center>
 
 <br>
 <p>
-Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and Edwards, K. et al. 2017) and the genomes from <i>N. sylvestris</i> and <i>N. tomentosiformis</i> have been sequenced:
+<i>Nicotiana tabacum</i> 基因組的兩個版本（Sierro, N. 等人 2014 與 Edwards, K. 等人 2017）以及來自 <i>N. sylvestris</i> 與 <i>N. tomentosiformis</i> 的基因組已被定序：(Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and Edwards, K. et al. 2017) and the genomes from <i>N. sylvestris</i> and <i>N. tomentosiformis</i> have been sequenced:)
 </p>
 
 <ul>
@@ -40,13 +40,13 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
 
 <br>
 <br>
-<&| /page/info_section.mas, title => 'Nicotiana tabacum and related genomes datasets' &>
+<&| /page/info_section.mas, title => 'Nicotiana tabacum 與相關基因組數據集(Nicotiana tabacum and related genomes datasets)' &>
   
   <div class="container-fluid">
     <div class="row">
     
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 dataset-title">
-        <b>Genome sequence and Annotation</b><br>
+        <b>基因組序列與註釋(Genome sequence and Annotation)</b><br>
         <ul>
           <li>
             <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_tabacum/edwards_et_al_2017">Edwards 2017</a>
@@ -58,7 +58,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
       </div>
       
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 dataset-title">
-        <b>Genome browser (JBrowse)</b><br>
+        <b>基因組瀏覽器 (JBrowse)(Genome browser (JBrowse))</b><br>
         <ul>
           <li>
             <a href="https://solgenomics.net/jbrowse_solgenomics/?data=data/json/NitabEd17chr">Nitab v1.0 Chr Edwards 2017</a>
@@ -75,16 +75,16 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. tabacum</i> v1.0 Edwards 2017 BLAST</b><br>
         <ul>
           <li>
-          <a href="/tools/blast/?db_id=289" target="blank">Genome (Chr)</a>
+          <a href="/tools/blast/?db_id=289" target="blank">基因組 (染色體)(Genome (Chr))</a>
           </li>
           <li>
-          <a href="/tools/blast/?db_id=290" target="blank">Genome (Scf)</a>
+          <a href="/tools/blast/?db_id=290" target="blank">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
           <a href="/tools/blast/?db_id=288" target="blank">cDNA</a>
           </li>
           <li>
-          <a href="/tools/blast/?db_id=291" target="blank">Proteins</a>
+          <a href="/tools/blast/?db_id=291" target="blank">蛋白質(Proteins)</a>
           </li>
         </ul>
       </div>
@@ -93,7 +93,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. tabacum</i> TN90 Sierro 2014 BLAST</b><br>
         <ul>
           <li>
-          <a href="/tools/blast/?db_id=227">Genome (Scf)</a>
+          <a href="/tools/blast/?db_id=227">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
           <a href="/tools/blast/?db_id=228">CDS</a>
@@ -102,7 +102,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
           <a href="/tools/blast/?db_id=229">cDNA</a>
           </li>
           <li>
-          <a href="/tools/blast/?db_id=230">Proteins</a>
+          <a href="/tools/blast/?db_id=230">蛋白質(Proteins)</a>
           </li>
         </ul>
       </div>
@@ -111,7 +111,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. tabacum</i> BX Sierro 2014 BLAST</b><br>
         <ul>
           <li>
-            <a href="/tools/blast/?db_id=231">Genome (Scf)</a>
+            <a href="/tools/blast/?db_id=231">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
             <a href="/tools/blast/?db_id=232">CDS</a>
@@ -120,7 +120,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
             <a href="/tools/blast/?db_id=233">cDNA</a>
           </li>
           <li>
-            <a href="/tools/blast/?db_id=234">Proteins</a>
+            <a href="/tools/blast/?db_id=234">蛋白質(Proteins)</a>
           </li>
         </ul>
       </div>
@@ -129,7 +129,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. tabacum</i> K326 Sierro 2014 BLAST</b><br>
         <ul>
           <li>
-            <a href="/tools/blast/?db_id=235">Genome (Scf)</a>
+            <a href="/tools/blast/?db_id=235">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
             <a href="/tools/blast/?db_id=236">CDS</a>
@@ -138,7 +138,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
             <a href="/tools/blast/?db_id=237">cDNA</a>
           </li>
           <li>
-            <a href="/tools/blast/?db_id=238">Proteins</a>
+            <a href="/tools/blast/?db_id=238">蛋白質(Proteins)</a>
           </li>
         </ul>
       </div>
@@ -147,7 +147,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. sylvestris</i> BLAST</b><br>
         <ul>
           <li>
-            <a href="/tools/blast/?db_id=239">Genome (Scf)</a>
+            <a href="/tools/blast/?db_id=239">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
             <a href="/tools/blast/?db_id=240">CDS</a>
@@ -156,7 +156,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
             <a href="/tools/blast/?db_id=241">cDNA</a>
           </li>
           <li>
-            <a href="/tools/blast/?db_id=242">Proteins</a>
+            <a href="/tools/blast/?db_id=242">蛋白質(Proteins)</a>
           </li>
         </ul>
       </div>
@@ -165,7 +165,7 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
         <b><i>N. tomentosiformis</i> BLAST</b><br>
         <ul>
           <li>
-            <a href="/tools/blast/?db_id=243">Genome (Scf)</a>
+            <a href="/tools/blast/?db_id=243">基因組 (Scf)(Genome (Scf))</a>
           </li>
           <li>
             <a href="/tools/blast/?db_id=244">CDS</a>
@@ -177,10 +177,10 @@ Two versions of the <i>Nicotiana tabacum</i> genome (Sierro, N. et al. 2014 and 
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 dataset-title">
-        <b>SGN VIGS Tool</b><br>
+        <b>SGN VIGS 工具(SGN VIGS Tool)</b><br>
         <ul>
           <li>
-            <a href="http://vigs.solgenomics.net/">VIGS Tool</a>
+            <a href="http://vigs.solgenomics.net/">VIGS 工具(VIGS Tool)</a>
           </li>
         </ul>
       </div>
