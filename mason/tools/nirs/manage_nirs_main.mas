@@ -16,30 +16,30 @@ $sampling_facilities => ()
 <& /breeders_toolbox/sampling_trials/create_sampling_trials_dialogs.mas, sampling_facilities=>$sampling_facilities &>
 
 <div class="well">
-<&| /page/info_section.mas, title=>'Uploaded NIRS Data', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'View and manage uploaded NIRS data files' &>
+<&| /page/info_section.mas, title=>'已上傳之 NIRS 資料(Uploaded NIRS Data)', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'檢視並管理已上傳之 NIRS 資料檔案(View and manage uploaded NIRS data files)' &>
 
-    <&| /page/info_section.mas, title=>'Your Uploaded NIRS Data', is_subsection=>1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title=>'您上傳的 NIRS 資料(Your Uploaded NIRS Data)', is_subsection=>1, collapsible=>1, collapsed=>1 &>
         <div class="panel panel-default">
             <div class="panel-body">
                 <& /breeders_toolbox/file_list.mas, files=>$nirs_files, allow_delete=>0 &>
             </div>
         </div>
     </&>
-    <&| /page/info_section.mas, title=>'Your Obsoleted NIRS Data', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'These are deleted NIRS files' &>
+    <&| /page/info_section.mas, title=>'您已作廢的 NIRS 資料(Your Obsoleted NIRS Data)', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'這些是已刪除的 NIRS 檔案(These are deleted NIRS files)' &>
         <div class="panel panel-default">
             <div class="panel-body">
                 <& /breeders_toolbox/file_list.mas, files=>$deleted_nirs_files, allow_delete=>0 &>
             </div>
         </div>
     </&>
-    <&| /page/info_section.mas, title=>'All Uploaded NIRS Data', is_subsection=>1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title=>'所有已上傳之 NIRS 資料(All Uploaded NIRS Data)', is_subsection=>1, collapsible=>1, collapsed=>1 &>
         <div class="panel panel-default">
             <div class="panel-body">
                 <& /breeders_toolbox/file_list.mas, files=>$all_nirs_files, allow_delete=>0 &>
             </div>
         </div>
     </&>
-    <&| /page/info_section.mas, title=>'All Obsoleted NIRS Data', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'These are deleted NIRS files' &>
+    <&| /page/info_section.mas, title=>'所有已作廢之 NIRS 資料(All Obsoleted NIRS Data)', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'這些是已刪除的 NIRS 檔案(These are deleted NIRS files)' &>
         <div class="panel panel-default">
             <div class="panel-body">
                 <& /breeders_toolbox/file_list.mas, files=>$all_deleted_nirs_files, allow_delete=>0 &>
@@ -50,29 +50,29 @@ $sampling_facilities => ()
 </div>
 
 <div class="well">
-<&| /page/info_section.mas, title=>'NIRS Analyses', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'View and manage your NIRS analyses' &>
+<&| /page/info_section.mas, title=>'NIRS 分析(NIRS Analyses)', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'檢視並管理您的 NIRS 分析(View and manage your NIRS analyses)' &>
     <div class="panel panel-default">
         <div class="panel-body">
             <table class="table table-bordered table-hover" id="analyses_by_user_table">
               <thead>
               <tr>
                 <th>
-                  Analysis Name
+                  分析名稱(Analysis Name)
                 </th>
                 <th>
-                  Description
+                  描述(Description)
                 </th>
                 <th>
-                  Model Type
+                  模型類型(Model Type)
                 </th>
                 <th>
-                  Protocol
+                  流程規範(Protocol)
                 </th>
                 <th>
-                  Application
+                  應用(Application)
                 </th>
                 <th>
-                  Language
+                  語言(Language)
                 </th>
               </tr>
               </thead>
@@ -86,29 +86,29 @@ $sampling_facilities => ()
 
 
 <div class="well">
-<&| /page/info_section.mas, title=>'Trained NIRS Models', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'View and manage your NIRS models' &>
+<&| /page/info_section.mas, title=>'已訓練之 NIRS 模型(Trained NIRS Models)', is_subsection=>1, collapsible=>1, collapsed=>1, subtitle=>'檢視並管理您的 NIRS 模型(View and manage your NIRS models)' &>
     <div class="panel panel-default">
         <div class="panel-body">
             <table class="table table-bordered table-hover" id="models_by_user_table">
               <thead>
               <tr>
                 <th>
-                  Model Name
+                  模型名稱(Model Name)
                 </th>
                 <th>
-                  Description
+                  描述(Description)
                 </th>
                 <th>
-                  Model Type
+                  模型類型(Model Type)
                 </th>
                 <th>
-                  Protocol
+                  流程規範(Protocol)
                 </th>
                 <th>
-                  Application
+                  應用(Application)
                 </th>
                 <th>
-                  Language
+                  語言(Language)
                 </th>
               </tr>
               </thead>
