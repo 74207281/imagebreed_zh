@@ -16,23 +16,27 @@ $user_name
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="updateTrialStatusDialog">Update <% $trial_name %> Status</h4>
+                <h4 class="modal-title" id="updateTrialStatusDialog">更新 <% $trial_name %> 狀態(Update <% $trial_name %> Status)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label">Trial Status: </label>
+                            <label class="col-sm-4 control-label">試驗狀態：</label>
                             <div class="col-sm-6" >
                                 <select class="form-control" id="trial_status_select">
 % foreach my $activity(@all_activities){
+%   if ($activity eq 'Please select a status') {
+                                    <option value="<%$activity%>">請選取狀態(Please select a status)</option>
+%   } else {
                                     <option value="<%$activity%>"><%$activity%></option>
+%   }
 %}
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label" for="trial_activity_date">Trial Activity Date: </label>
+                            <label class="col-sm-4 control-label" for="trial_activity_date">試驗活動日期：</label>
                             <div class="col-sm-6">
                                 <input class="form-control" id="trial_activity_date" title="activity_date" type="text" value=""/>
                             </div>
@@ -41,8 +45,8 @@ $user_name
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_trial_set_phenotypes_fully_loaded_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="update_trial_status_submit" id="update_trial_status_submit" >Update</button>
+                <button id="close_trial_set_phenotypes_fully_loaded_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="update_trial_status_submit" id="update_trial_status_submit" >更新(Update)</button>
             </div>
         </div>
     </div>
@@ -53,18 +57,18 @@ $user_name
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="updateTrialStatusMessage">Success</h4>
+                <h4 class="modal-title" id="updateTrialStatusMessage">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        Trial status was updated successfully.
+                        試驗狀態已成功更新。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_update_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_update_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新載入(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -94,13 +98,13 @@ jQuery(document).ready(function(){
     jQuery("#update_trial_status_submit").click(function() {
         var trial_status = jQuery("#trial_status_select").val();
         if (trial_status == 'Please select a status') {
-            alert("Please select a status");
+            alert("請選取狀態");
             return;
         }
 
         var activity_date = jQuery("#trial_activity_date").val();
         if (activity_date == '') {
-            alert("Please select a date");
+            alert("請選取日期");
             return;
         }
 
@@ -129,7 +133,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred updating trial status');
+                alert('更新試驗狀態時發生錯誤');
             }
         });
     });

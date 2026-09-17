@@ -8,48 +8,48 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="tissueSampleHelpDialog">Tissue Sampling</h4>
+                <h4 class="modal-title" id="tissueSampleHelpDialog">組織取樣(Tissue Sampling)</h4>
             </div>
             <div class="modal-body">
 
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "tissue_sample_help_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"This workflow will guide you through tissue sampling an experiment" &>
-                            <p>Tissue samples collected from the field are linked to a single plant, which is in turn linked to a single plot.</p>
-                            <p>Many tissue samples can be created for each plant.</p>
-                            <p>Each tissue sample has a globally unique name.</p>
+                        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                            <& /page/page_title.mas, title=>"此工作流程將引導您進行實驗的組織取樣(This workflow will guide you through tissue sampling an experiment)" &>
+                            <p>從田間收集的組織樣本會連結至單一植株，而該植株又會連結至單一小區。(Tissue samples collected from the field are linked to a single plant, which is in turn linked to a single plot.)</p>
+                            <p>每株植物可以建立多個組織樣本。(Many tissue samples can be created for each plant.)</p>
+                            <p>每個組織樣本都有一個全域唯一的名稱。(Each tissue sample has a globally unique name.)</p>
                             <br/>
-                            <p>A unique tissue sample is present in each well of a genotyping plate (96 or 384 well plates).</p>
-                            <p>The tissue sample in a 96 well plate can originate from another tissue sample name, plant name, plot name, or accession name.</p>
+                            <p>基因分型板（96 或 384 孔板）的每個孔中都有一個唯一的組織樣本。(A unique tissue sample is present in each well of a genotyping plate (96 or 384 well plates).)</p>
+                            <p>96 孔板中的組織樣本可以來源於另一個組織樣本名稱、植株名稱、小區名稱或材料名稱。(The tissue sample in a 96 well plate can originate from another tissue sample name, plant name, plot name, or accession name.)</p>
 
                             <br/><br/>
                             <center>
-                            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "Sampling Level" &>
-                            <& /page/page_title.mas, title=>"At which level do you plan to keep track of your sampling?" &>
+                        <&| /util/workflow.mas:step, title=> "取樣層級(Sampling Level)" &>
+                            <& /page/page_title.mas, title=>"您打算在何種層級追蹤您的取樣？(At which level do you plan to keep track of your sampling?)" &>
 
-                            <input type="radio" name="tissue_sample_help_select_level" value="accession">&nbsp;&nbsp;&nbsp;Accession Level: The sample is not from a field trial entity and only the accession name is known.<br/>
-                            <input type="radio" name="tissue_sample_help_select_level" value="plot">&nbsp;&nbsp;&nbsp;Plot Level: Each plot in the field has a unique identifier, ideally with a barcode label.<br/>
-                            <input type="radio" name="tissue_sample_help_select_level" value="plant">&nbsp;&nbsp;&nbsp;Plant Level: Each plant in the field has a unique identifier, ideally with a barcode label.<br/>
-                            <input type="radio" name="tissue_sample_help_select_level" value="tissue_sample">&nbsp;&nbsp;&nbsp;Tissue Sample Level: Each tissue sample collected from the field has a unique identifier, ideally with a barcode label.
+                            <input type="radio" name="tissue_sample_help_select_level" value="accession">&nbsp;&nbsp;&nbsp;品系/材料層級(Accession Level)：樣本並非來自田間試驗實體，僅已知材料名稱。(The sample is not from a field trial entity and only the accession name is known.)<br/>
+                            <input type="radio" name="tissue_sample_help_select_level" value="plot">&nbsp;&nbsp;&nbsp;小區層級(Plot Level)：田間的每個小區都有一個唯一識別碼，最好帶有條碼標籤。(Each plot in the field has a unique identifier, ideally with a barcode label.)<br/>
+                            <input type="radio" name="tissue_sample_help_select_level" value="plant">&nbsp;&nbsp;&nbsp;植株層級(Plant Level)：田間的每株植物都有一個唯一識別碼，最好帶有條碼標籤。(Each plant in the field has a unique identifier, ideally with a barcode label.)<br/>
+                            <input type="radio" name="tissue_sample_help_select_level" value="tissue_sample">&nbsp;&nbsp;&nbsp;組織樣本層級(Tissue Sample Level)：從田間收集的每個組織樣本都有一個唯一識別碼，最好帶有條碼標籤。(Each tissue sample collected from the field has a unique identifier, ideally with a barcode label.)
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" id="tissue_sample_help_select_level_submit">Go to Next Step</button>
+                                <button class="btn btn-primary" id="tissue_sample_help_select_level_submit">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Select a field trial" &>
-                            <& /page/page_title.mas, title=>"Select a field trial" &>
+                        <&| /util/workflow.mas:step, title=> "選擇田間試驗(Select a field trial)" &>
+                            <& /page/page_title.mas, title=>"選擇田間試驗(Select a field trial)" &>
 
                             <div id="tissue_sample_help_trial_select_not_relevant" style="display:none">
-                                <h4>Field trial is not relevant for the type of tissue sampling you selected. Go to next step.</h4>
+                                <h4>田間試驗與您選擇的組織取樣類型無關。請前往下一步。(Field trial is not relevant for the type of tissue sampling you selected. Go to next step.)</h4>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
                             <div id="tissue_sample_help_trial_select_relevant" style="display:none">
@@ -59,19 +59,19 @@
                                             <table id="tissue_sample_help_field_search_results" class="table table-hover table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th>Select</th>
-                                                        <th>Trial name</th>
-                                                        <th>Description</th>
-                                                        <th>Company</th>
-                                                        <th>Breeding program</th>
-                                                        <th>Folder</th>
-                                                        <th>Year</th>
-                                                        <th>Location</th>
-                                                        <th>Trial type</th>
-                                                        <th>Design</th>
-                                                        <th>Planting Date</th>
-                                                        <th>Harvest Date</th>
-                                                        <th>Download</th>
+                                                        <th>選擇(Select)</th>
+                                                        <th>試驗名稱(Trial name)</th>
+                                                        <th>描述(Description)</th>
+                                                        <th>公司(Company)</th>
+                                                        <th>育種計畫(Breeding program)</th>
+                                                        <th>資料夾(Folder)</th>
+                                                        <th>年份(Year)</th>
+                                                        <th>地點(Location)</th>
+                                                        <th>試驗類型(Trial type)</th>
+                                                        <th>試驗設計(Design)</th>
+                                                        <th>播種日期(Planting Date)</th>
+                                                        <th>收穫日期(Harvest Date)</th>
+                                                        <th>下載(Download)</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -81,67 +81,67 @@
 
                                 <br/><br/>
                                 <center>
-                                    <button class="btn btn-primary" id="tissue_sample_help_select_trial_submit">Go to Next Step</button>
+                                    <button class="btn btn-primary" id="tissue_sample_help_select_trial_submit">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Plant Entries" &>
-                            <& /page/page_title.mas, title=>"Plant entries in your field trial" &>
+                        <&| /util/workflow.mas:step, title=> "植株條目(Plant Entries)" &>
+                            <& /page/page_title.mas, title=>"您田間試驗中的植株條目(Plant entries in your field trial)" &>
 
                             <div id="tissue_sample_help_plant_entries_not_relevant" style="display:none">
-                                <h4>Plant entries not relevant for the type of tissue sampling you selected. Go to next step.</h4>
+                                <h4>植株條目與您選擇的組織取樣類型無關。請前往下一步。(Plant entries not relevant for the type of tissue sampling you selected. Go to next step.)</h4>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
                             <div id="tissue_sample_help_plant_entries_exist_section" style="display:none">
-                                <h4>Plant entries exist for this trial. Go to next step.</h4>
+                                <h4>此試驗已存在植株條目。請前往下一步。(Plant entries exist for this trial. Go to next step.)</h4>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
                             <div id="tissue_sample_help_plant_entries_dont_exist_section" style="display:none">
-                                <h4>Please create plant entries for this trial.</h4>
+                                <h4>請為此試驗建立植株條目。(Please create plant entries for this trial.)</h4>
                                 <form class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Number of plants per plot: </label>
+                                        <label class="col-sm-3 control-label">每個小區的植株數(Number of plants per plot): </label>
                                         <div class="col-sm-9" >
                                             <input name="tissue_sample_help_plants_per_plot_num" id="tissue_sample_help_plants_per_plot_num" class="form-control" type="number" autofocus/>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Inherits Management Factor(s) From Plots: </label>
+                                        <label class="col-sm-3 control-label">從小區繼承管理因子(Inherits Management Factor(s) From Plots): </label>
                                         <div class="col-sm-9" >
                                             <input name="tissue_sample_help_plants_per_plot_inherit_treatments" id="tissue_sample_help_plants_per_plot_inherit_treatments" type="checkbox" checked disabled/>
                                         </div>
                                     </div>
                                 </form><br/>
                                 <center>
-                                    <button type="button" class="btn btn-primary" id="tissue_sample_help_plants_per_plot_submit">Submit</button>
+                                    <button type="button" class="btn btn-primary" id="tissue_sample_help_plants_per_plot_submit">送出(Submit)</button>
                                 </center>
                             </div>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Create Tissue Sample Entries" &>
-                            <& /page/page_title.mas, title=>"Create tissue sample entries for this trial" &>
+                        <&| /util/workflow.mas:step, title=> "建立組織樣本條目(Create Tissue Sample Entries)" &>
+                            <& /page/page_title.mas, title=>"為此試驗建立組織樣本條目(Create tissue sample entries for this trial)" &>
 
                             <div id="tissue_sample_help_tissue_samples_not_relevant" style="display:none">
-                                <h4>Field trial tissue sample entries not relevant for the type of tissue sampling you selected. Go to next step.</h4>
+                                <h4>田間試驗組織樣本條目與您選擇的組織取樣類型無關。請前往下一步。(Field trial tissue sample entries not relevant for the type of tissue sampling you selected. Go to next step.)</h4>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
                             <div id="tissue_sample_help_tissue_samples_exist_section" style="display:none">
-                                <h4>Tissue sample entries exist for this trial. Go to next step.</h4>
+                                <h4>此試驗已存在組織樣本條目。請前往下一步。(Tissue sample entries exist for this trial. Go to next step.)</h4>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </div>
                             <div id="tissue_sample_help_tissue_samples_relevant" style="display:none">
                                 <form class="form-horizontal" >
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label"><span title="You can use the same tissue name, e.g. root and root, more than once below. The tissue name will still be unique because of a tissue index e.g. 1 and 2 added to the end." </span><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;Number of tissue samples per plant: </span></label>
+                                        <label class="col-sm-3 control-label"><span title="您可以在下方多次使用相同的組織名稱（例如 root 和 root）。由於結尾會加上組織索引（如 1 和 2），組織名稱仍將保持唯一。(You can use the same tissue name, e.g. root and root, more than once below. The tissue name will still be unique because of a tissue index e.g. 1 and 2 added to the end.)"></span><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;每株植物的組織樣本數(Number of tissue samples per plant): </label>
                                         <div class="col-sm-9" >
                                             <input name="tissue_sample_help_tissue_samples_per_plant_num" id="tissue_sample_help_tissue_samples_per_plant_num" class="form-control" type="number" autofocus/>
                                         </div>
@@ -151,7 +151,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Inherits Management Factor(s) From Plots: </label>
+                                        <label class="col-sm-3 control-label">從小區繼承管理因子(Inherits Management Factor(s) From Plots): </label>
                                         <div class="col-sm-9" >
                                             <input name="tissue_sample_help_per_plant_inherit_treatments" id="tissue_sample_help_per_plant_inherit_treatments" type="checkbox" checked disabled/>
                                         </div>
@@ -159,27 +159,27 @@
                                 </form><br/>
 
                                 <center>
-                                <button type="button" class="btn btn-primary" name="tissue_sample_help_per_plant_submit" id="tissue_sample_help_per_plant_submit">Submit</button>
+                                <button type="button" class="btn btn-primary" name="tissue_sample_help_per_plant_submit" id="tissue_sample_help_per_plant_submit">送出(Submit)</button>
                                 </center>
                             </div>
                         </&>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Complete! You have all the entities you need to conduct your sampling." &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您已具備進行取樣所需的所有實體。(Complete! You have all the entities you need to conduct your sampling.)" &>
                             <ul>
-                                <li>All of the entities that you want to sample are saved in the database and available to use!</li>
-                                <li>You can print barcodes for the entities you intend to sample on. These barcodes can be attached to your collection vials/containers to assist during sampling.</li>
+                                <li>您想要取樣的所有實體均已儲存在資料庫中並可使用！(All of the entities that you want to sample are saved in the database and available to use!)</li>
+                                <li>您可以為預計取樣的實體列印條碼。這些條碼可以貼在您的收集管/容器上，以便在取樣過程中提供協助。(You can print barcodes for the entities you intend to sample on. These barcodes can be attached to your collection vials/containers to assist during sampling.)</li>
                             </ul>
                             <center>
-                                <button class="btn btn-primary" onclick="final_download_layout_button_click()">Download Field Trial Layout!</button>
+                                <button class="btn btn-primary" onclick="final_download_layout_button_click()">下載田間試驗配置！(Download Field Trial Layout!)</button>
                             </center>
                             <br/>
 
                             <ul>
-                                <li>After you have finished sampling, you can use these entities as source material for a genotyping plate (96 or 384 well plate). Click the button below to create a genotyping plate now, if you will create a 96 or 384 well plate.</li>
-                                <li>The Android Coordinate application can help you create 96 or 384 well plates. Alternatively you can create your plate layout in Excel and upload it.</li>
+                                <li>完成取樣後，您可以將這些實體用作基因分型板（96 或 384 孔板）的來源材料。如果您要建立 96 或 384 孔板，請點擊下方按鈕以立即建立。(After you have finished sampling, you can use these entities as source material for a genotyping plate (96 or 384 well plate). Click the button below to create a genotyping plate now, if you will create a 96 or 384 well plate.)</li>
+                                <li>Android Coordinate 應用程式可以協助您建立 96 或 384 孔板。或者，您也可以在 Excel 中建立孔板配置並進行上傳。(The Android Coordinate application can help you create 96 or 384 well plates. Alternatively you can create your plate layout in Excel and upload it.)</li>
                             </ul>
                             <center>
-                                <button class="btn btn-primary" name="create_genotyping_trial_link">Create Genotyping Plate Now!</button>
+                                <button class="btn btn-primary" name="create_genotyping_trial_link">立即建立基因分型孔板！(Create Genotyping Plate Now!)</button>
                             </center>
                         </&>
                     </&>
@@ -187,7 +187,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -217,7 +217,7 @@ jQuery(document).ready(function(){
     jQuery('#tissue_sample_help_select_level_submit').click(function(){
         selected_level = jQuery('input[name="tissue_sample_help_select_level"]:checked').val();
         if (selected_level == '' || !selected_level){
-            alert('Please select one');
+            alert('請選擇一項！(Please select one)');
         } else {
             Workflow.complete('#tissue_sample_help_select_level_submit');
             if (selected_level == 'accession'){
@@ -253,7 +253,7 @@ jQuery(document).ready(function(){
         });
         selected_level = jQuery('input[name="tissue_sample_help_select_level"]:checked').val();
         if (selected.length !== 1){
-            alert('Only select one trial!');
+            alert('請僅選擇一個試驗！(Only select one trial!)');
         } else {
             Workflow.complete('#tissue_sample_help_select_trial_submit');
             if (selected_level == 'plot'){
@@ -310,7 +310,7 @@ jQuery(document).ready(function(){
                                     },
                                     error: function () {
                                         jQuery("#working_modal").modal("hide");
-                                        alert('An error occurred checking trial for tissue samples.');
+                                        alert('檢查試驗的組織樣本時發生錯誤。(An error occurred checking trial for tissue samples.)');
                                     }
                                 });
                             }
@@ -323,7 +323,7 @@ jQuery(document).ready(function(){
                     },
                     error: function () {
                         jQuery("#working_modal").modal("hide");
-                        alert('An error occurred checking trial for plants.');
+                        alert('檢查試驗的植株時發生錯誤。(An error occurred checking trial for plants.)');
                     }
                 });
             }
@@ -353,7 +353,7 @@ jQuery(document).ready(function(){
                     alert(response.error);
                 }
                 else {
-                    alert("Successfully created plant entries.");
+                    alert("成功建立植株條目！(Successfully created plant entries.)");
                     Workflow.complete('#tissue_sample_help_plants_per_plot_submit');
                     if (selected_level == 'plant'){
                         jQuery('#tissue_sample_help_tissue_samples_not_relevant').show();
@@ -385,7 +385,7 @@ jQuery(document).ready(function(){
                             },
                             error: function () {
                                 jQuery("#working_modal").modal("hide");
-                                alert('An error occurred checking trial for tissue samples.');
+                                alert('檢查試驗的組織樣本時發生錯誤。(An error occurred checking trial for tissue samples.)');
                             }
                         });
                     }
@@ -393,7 +393,7 @@ jQuery(document).ready(function(){
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert("An error occurred saving plant entries");
+                alert("儲存植株條目時發生錯誤。(An error occurred saving plant entries)");
             },
         });
     });
@@ -402,7 +402,7 @@ jQuery(document).ready(function(){
         var num_tissues = jQuery(this).val();
         var html = '';
         for (var i=1; i<=num_tissues; i++){
-            html = html + '<div class="form-group"><label class="col-sm-3 control-label"><span title="The sample names will be a combination of the plant name, the tissue name you give here, and the tissue number."><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;Tissue Name '+i+': </span></label><div class="col-sm-9" ><input name="tissue_sample_help_tissue_name" id="tissue_samples_help_tissue_name_'+i+'" class="form-control" type="text" placeholder="examples: leaf or root or stem or seed or fruit" /></div></div>';
+            html = html + '<div class="form-group"><label class="col-sm-3 control-label"><span title="樣本名稱將由植株名稱、此處輸入的組織名稱和組織編號組合而成。(The sample names will be a combination of the plant name, the tissue name you give here, and the tissue number.)"><span class="glyphicon glyphicon-info-sign"></span>&nbsp;&nbsp;組織名稱(Tissue Name) '+i+': </span></label><div class="col-sm-9" ><input name="tissue_sample_help_tissue_name" id="tissue_samples_help_tissue_name_'+i+'" class="form-control" type="text" placeholder="例如：leaf 或 root 或 stem 或 seed 或 fruit (examples: leaf or root or stem or seed or fruit)" /></div></div>';
         }
         jQuery('#tissue_sample_help_tissue_samples_names_div').html(html);
     });
@@ -435,14 +435,14 @@ jQuery(document).ready(function(){
                     alert(response.error);
                 }
                 else {
-                    alert("Successfully created tissue sample entries.");
+                    alert("成功建立組織樣本條目！(Successfully created tissue sample entries.)");
                     Workflow.complete('#tissue_sample_help_per_plant_submit');
                     Workflow.focus("#tissue_sample_help_workflow", -1); //go to success
                 }
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert("An error occurred creating tissue sample entries");
+                alert("建立組織樣本條目時發生錯誤。(An error occurred creating tissue sample entries)");
             },
         });
     });
@@ -451,7 +451,7 @@ jQuery(document).ready(function(){
 
 function final_download_layout_button_click(){
     if (selected_level == 'accession'){
-        alert('You selected to sample on the accession level, meaning that you wil not sample from a field trial. In this case there is no field layout to download!');
+        alert('您選擇在材料層級取樣，這意味著您不會從田間試驗取樣。在此情況下沒有田間配置可供下載！(You selected to sample on the accession level, meaning that you wil not sample from a field trial. In this case there is no field layout to download!)');
     }
     if (selected_level == 'plot'){
         var selected_columns = {'plot_name':1,'plot_id':1,'block_number':1,'plot_number':1,'rep_number':1,'row_number':1,'col_number':1,'accession_name':1,'is_a_control':1};

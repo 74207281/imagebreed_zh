@@ -1,9 +1,9 @@
 
-<& /page/page_title.mas, title=>"Data Download Options" &>
+<& /page/page_title.mas, title=>"資料下載選項(Data Download Options)" &>
 
 <div>
-<p>SGN provides various data files for download via anonymous FTP and
-anonymous rsync.
+<p>SGN 透過匿名 FTP 與匿名 rsync 提供多種資料檔案供下載。(SGN provides various data files for download via anonymous FTP and
+anonymous rsync.)
 <!-- FIXME: a list of kinds of things to available to download should
      go here.
 <ul>
@@ -13,21 +13,24 @@ anonymous rsync.
 </p>
 
 <p>
-For manually downloading a few files once in a while, anonymous FTP is
+對於偶爾手動下載少數檔案，匿名 FTP 特別方便。從網頁瀏覽器可透過 <a
+href="ftp://ftp.sgn.cornell.edu/">ftp://ftp.sgn.cornell.edu/</a> 造訪 SGN 的 FTP 網站。若使用其他 FTP 客戶端，當提示輸入使用者名稱時請輸入
+<em>anonymous</em>，當提示輸入密碼時請輸入您的電子郵件地址。(For manually downloading a few files once in a while, anonymous FTP is
 particularly convenient.  From a web browser, SGN's ftp site can be
 reached at <a
 href="ftp://ftp.sgn.cornell.edu/">ftp://ftp.sgn.cornell.edu/</a>.
 From other FTP clients, when prompted for a username enter
 <em>anonymous</em> and when prompted for password enter your email
-address.
+address.)
 </p>
 
-<p> For keeping a set of files up to date with the files we make
+<p> 若要讓一組檔案與我們提供的檔案保持最新狀態，<a href="http://samba.anu.edu.au/rsync/">rsync</a> 是一個很有用的工具。欲從我們的匿名 rsync 伺服器擷取檔案，請使用網址
+<em>rsync://rsync.sgn.cornell.edu/public/</em>。例如，在 Unix/Linux 終端機中使用以下指令來取得我們所有的圖譜與標記資料：(For keeping a set of files up to date with the files we make
 available, <a href="http://samba.anu.edu.au/rsync/">rsync</a> is a
 useful tool.  To retrieve files from our anonymous rsync server, use
 the URL
 <em>rsync://rsync.sgn.cornell.edu/public/</em>.  For
 example, to retrieve all our map and marker data on a Unix/Linux
-shell use the command:</p>
+shell use the command:)</p>
 <pre>\$ rsync -az rsync://rsync.sgn.cornell.edu/public/maps_and_markers/ .</pre>
 </div>

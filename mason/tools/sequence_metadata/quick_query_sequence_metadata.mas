@@ -27,7 +27,7 @@ my %params = (
 
 <%init>
     if (!defined $params ) {
-        print "<p class='args-error'><strong>ERROR: </strong>missing component arguments!</p>";
+        print "<p class='args-error'><strong>錯誤(ERROR): </strong>缺少元件參數！(missing component arguments!)</p>";
     }
 </%init>
 
@@ -38,11 +38,11 @@ my %params = (
     <div class="quick-query-table-container">
         <table class="table quick-query-table">
             <thead><tr>
-                <th>Reference Genome</th>
-                <th>Species</th>
-                <th>Feature</th>
-                <th>Start</th>
-                <th>End</th>
+                <th>參考基因組(Reference Genome)</th>
+                <th>物種(Species)</th>
+                <th>特徵(Feature)</th>
+                <th>起始(Start)</th>
+                <th>結束(End)</th>
                 <th></th>
             </tr></thead>
             <tr>
@@ -51,7 +51,7 @@ my %params = (
                 <td><% $params->{$id}->{'feature'} %></td>
                 <td><% $params->{$id}->{'start'} %></td>
                 <td><% $params->{$id}->{'end'} %></td>
-                <td><a href="/search/sequence_metadata?reference_genome=<% $params->{$id}->{'reference_genome'} %>&feature=<% $params->{$id}->{'feature'} %>&start=<% $params->{$id}->{'start'} %>&end=<% $params->{$id}->{'end'} %>">Modify&nbsp;Query</a></td>
+                <td><a href="/search/sequence_metadata?reference_genome=<% $params->{$id}->{'reference_genome'} %>&feature=<% $params->{$id}->{'feature'} %>&start=<% $params->{$id}->{'start'} %>&end=<% $params->{$id}->{'end'} %>">修改查詢(Modify&nbsp;Query)</a></td>
             </tr>
         </table>
     </div>
@@ -191,13 +191,13 @@ function renderLinksColumn(data, type, row) {
                 autoWidth: false,
                 data: [],
                 columns: [
-                    { title: "Protocol", data: "nd_protocol_name" },
-                    { title: "Feature", data: "feature_name" },
-                    { title: "Start", data: "start" },
-                    { title: "End", data: "end" },
-                    { title: "Score", data: "score" },
-                    { title: "Attributes", data: "attributes", render: renderAttributesColumn },
-                    { title: "Links", data: "links", render: renderLinksColumn }
+                    { title: "實驗方案(Protocol)", data: "nd_protocol_name" },
+                    { title: "特徵(Feature)", data: "feature_name" },
+                    { title: "起始(Start)", data: "start" },
+                    { title: "結束(End)", data: "end" },
+                    { title: "評分(Score)", data: "score" },
+                    { title: "屬性(Attributes)", data: "attributes", render: renderAttributesColumn },
+                    { title: "連結(Links)", data: "links", render: renderLinksColumn }
                 ],
                 order: [[ 2, "asc" ]]
             });

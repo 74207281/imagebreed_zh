@@ -1,10 +1,10 @@
 
-<& /page/page_title.mas, title => "SolGWAS Help" &>
+<& /page/page_title.mas, title => "SolGWAS 說明(SolGWAS Help)" &>
 
-<h4>Input options</h4>
+<h4>輸入選項(Input options)</h4>
 
-<p>SolGWAS is meant to be used in conjunction with datasets. The user should first select the dataset they wish to analyze. The list of phenotypes available will then be filled. The user can then select a phenotype of interest, as well as selecting whether to include principal components or kinship covariates in the model.</p>
+<p>SolGWAS 需配合資料集使用。使用者應先選擇想要分析的資料集，隨後將填入可用表型清單。接著使用者可以選擇感興趣的表型，並選擇是否在模型中包含主成分或親緣關係協變量。(SolGWAS is meant to be used in conjunction with datasets. The user should first select the dataset they wish to analyze. The list of phenotypes available will then be filled. The user can then select a phenotype of interest, as well as selecting whether to include principal components or kinship covariates in the model.)</p>
 
-<h4>Results</h4>
+<h4>結果(Results)</h4>
 
-<p>Once the "Run SolGWAS" button is pressed, several plots will be displayed. These include a Manhattan plot and a QQ plot.</p>
+<p>點擊「執行 SolGWAS(Run SolGWAS)」按鈕後，系統將顯示數張圖表，包括曼哈頓圖與 QQ 圖。(Once the "Run SolGWAS" button is pressed, several plots will be displayed. These include a Manhattan plot and a QQ plot.)</p>

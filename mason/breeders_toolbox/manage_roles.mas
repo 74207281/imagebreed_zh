@@ -6,20 +6,20 @@ $is_curator => undef
 
 <& /util/import_javascript.mas, classes => [ ] &>
 
-<& /page/page_title.mas, title=>"Manage User Roles" &>
+<& /page/page_title.mas, title=>"管理使用者角色(Manage User Roles)" &>
 
 % if ($is_curator) {
 <hr>
-	<h3>Curators can <button class="btn btn-default" id="add_person_role_button">Give User a Role</button> </h3>
+	<h3>管理員(Curator)可以 <button class="btn btn-default" id="add_person_role_button">賦予使用者角色(Give User a Role)</button> </h3>
 <hr>
 % }
 
 <table id="manage_user_roles_table" class="table table-bordered">
 <thead>
 % if ($is_curator){
-<tr><th>Role</th><th>Username</th><th>Options</th></tr>
+<tr><th>角色(Role)</th><th>使用者名稱(Username)</th><th>選項(Options)</th></tr>
 % } else {
-<tr><th>Breeding Program</th><th>Username</th></tr>
+<tr><th>育種計畫(Breeding Program)</th><th>使用者名稱(Username)</th></tr>
 % }
 </thead>
 <tbody>
@@ -46,7 +46,7 @@ jQuery(document).ready(function() {
         var role = jQuery(this).data('role');
         var sp_person_id = jQuery(this).data('sp_person_id');
 
-        if(confirm('Are you sure you want to remove this user role?')) {
+        if(confirm('您確定要移除此使用者角色嗎？(Are you sure you want to remove this user role?)')) {
             jQuery.ajax({
                 url: '/ajax/people/remove_person_role',
                 type: 'POST',
@@ -63,13 +63,13 @@ jQuery(document).ready(function() {
                         alert(response.error);
                     }
                     else {
-                        alert("Successfully removed user role!");
+                        alert("成功移除使用者角色！");
                         location.reload();
                     }
                 },
                 error: function(response) {
                     jQuery("#working_modal").modal("hide");
-                    alert("An error occurred removing user role");
+                    alert("移除使用者角色時發生錯誤");
                 },
             });
         }

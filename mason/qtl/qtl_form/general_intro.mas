@@ -19,24 +19,18 @@ $guide
 
 % if (!$guide) {$guide = 'guidelines';}
 
-<p>The uploading of QTL data needs to be done in one session. 
-  Therefore, prepare your data files in the required format before 
-  starting the process. Please read the submission <% lc($guide) %> first. If you 
-  would like to have the formatting of your dataset checked 
-  beforehand, send your data to: <a href=mailto:iyt2\@cornell.edu>iyt2@cornell.edu</a>.
+<p>QTL 資料的上傳需要在同一次連線作業中完成。因此，請在開始此流程之前準備好符合所需格式的資料檔案。請先閱讀提交 <% lc($guide) %>。如果您希望事先檢查資料集的格式，請將資料發送至(The uploading of QTL data needs to be done in one session. Therefore, prepare your data files in the required format before starting the process. Please read the submission <% lc($guide) %> first. If you would like to have the formatting of your dataset checked beforehand, send your data to)：<a href=mailto:iyt2\@cornell.edu>iyt2@cornell.edu</a>。
 </p> 
         
-<p>Required data:</p>
+<p>所需資料(Required data)：</p>
        
 <ul>
-  <li>Some basic information about the population,</li>
-  <li>Traits data file (tab delimited),</li>
-  <li>Phenotype data file (tab delimited),</li> 
-  <li>Genotype data file (tab delimited) and</li> 
-  <li>Statistical parameters.</li>
-  <li><i>Markers with their sequences need to be already in SGN. 
-      Read <a href="/cview/help/map_submission">here</a> on how 
-      to submit markers to SGN.
+  <li>群體的基本資訊(Some basic information about the population)，</li>
+  <li>性狀資料檔案 (製表符分隔)(Traits data file (tab delimited))，</li>
+  <li>表型資料檔案 (製表符分隔)(Phenotype data file (tab delimited))，</li> 
+  <li>基因型資料檔案 (製表符分隔)(Genotype data file (tab delimited)) 以及(and)</li> 
+  <li>統計參數(Statistical parameters)。</li>
+  <li><i>標記及其序列需要已存在於 SGN 中。請閱讀<a href="/cview/help/map_submission">此處</a>以了解如何向 SGN 提交標記(Markers with their sequences need to be already in SGN. Read <a href="/cview/help/map_submission">here</a> on how to submit markers to SGN)。
   </i>
 </ul>
 

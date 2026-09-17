@@ -1,18 +1,18 @@
-<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown">Search</a>
+<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown">搜尋(Search)</a>
   <ul class="dropdown-menu">
-    <li><a href="/breeders/search">Wizard</a></li>
-    <li><a href="/search/bulk">Bulk Search</a></li>
-    <li><a href="/search/stocks">Accessions and Plots</a></li>
-    <li><a href="/search/organisms">Organisms</a></li>
-    <li><a href="/search/cross">Progenies, Parents, Crosses</a></li>
-    <li><a href="/search/trials">Field Trials</a></li>
-    <li><a href="/search/genotyping_trials">Genotyping Plates</a></li>
-    <li><a href="/search/genotyping_data_projects">Genotyping Data Projects</a></li>
-    <li><a href="/search/genotyping_protocols">Genotyping Protocols</a></li>
-    <li><a href="/search/traits">Traits</a></li>
+    <li><a href="/breeders/search">嚮導(Wizard)</a></li>
+    <li><a href="/search/bulk">批次搜尋(Bulk Search)</a></li>
+    <li><a href="/search/stocks">種原與小區(Accessions and Plots)</a></li>
+    <li><a href="/search/organisms">物種(Organisms)</a></li>
+    <li><a href="/search/cross">後代、親本、雜交(Progenies, Parents, Crosses)</a></li>
+    <li><a href="/search/trials">田間試驗(Field Trials)</a></li>
+    <li><a href="/search/genotyping_trials">基因型分型盤(Genotyping Plates)</a></li>
+    <li><a href="/search/genotyping_data_projects">基因型數據專案(Genotyping Data Projects)</a></li>
+    <li><a href="/search/genotyping_protocols">基因型分型流程(Genotyping Protocols)</a></li>
+    <li><a href="/search/traits">性狀(Traits)</a></li>
     <!--<li><a href="/search/markers">Markers</a></li>-->
-    <li><a href="/search/images">Images</a></li>
-    <li><a href="/search/people">People</a></li>
-    <li><a href="/help/faq.pl">FAQ</a></li>
+    <li><a href="/search/images">影像(Images)</a></li>
+    <li><a href="/search/people">人員(People)</a></li>
+    <li><a href="/help/faq.pl">常見問題(FAQ)</a></li>
   </ul>
 </li>

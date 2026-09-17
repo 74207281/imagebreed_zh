@@ -4,21 +4,21 @@
 
     <div class="xref xref_rich xref_rich_gbrowse2">
 
-        <a href="<% $xref->url %>" title="click to view in genome browser">
+        <a href="<% $xref->url %>" title="點擊以在基因組瀏覽器中檢視(click to view in genome browser)">
            <img src="<% $xref->preview_image_url %>" />
         </a>
 
         <hr />
 
         <% info_table_html(
-            'Annotation Set'  => $xref->data_source->description,
-            'Sequence Region' => '<a href="'.$xref->url.'">'.$ref_region.'</a>',
+            '註釋集(Annotation Set)'  => $xref->data_source->description,
+            '序列區域(Sequence Region)' => '<a href="'.$xref->url.'">'.$ref_region.'</a>',
             __border   => 0,
             __multicol => 2,
          )%>
 
         <% info_table_html(
-            'Feature(s) matched' => join( ', ',
+            '匹配特徵(Feature(s) matched)' => join( ', ',
                 map $_->display_name || $_->primary_id,
                 @{ $xref->seqfeatures } ),
             __border   => 0,
@@ -34,7 +34,7 @@
                  '..',
                  max( map $_->end,   @{$xref->seqfeatures} )
                 )
-         : '<span class="ghosted">not recorded</span>';
+         : '<span class="ghosted">未記錄(not recorded)</span>';
 </%init>
 <%once>
     use CXGN::Page::FormattingHelpers 'info_table_html';

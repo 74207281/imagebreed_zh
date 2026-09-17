@@ -12,88 +12,88 @@ $program_name
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadProfileDialog">Upload Product Profile</h4>
+                <h4 class="modal-title" id="uploadProfileDialog">上傳產品概況(Upload Product Profile)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <&| /util/workflow.mas, id=> "upload_profile_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"Product Profile" &>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"產品概況(Product Profile)" &>
                             <ul>
-                                <li>Product profiles can be stored in the database for downstream variety selection process for each breeding program.</li>
-                                <li>To facilitate data curation, targeted trait names and trait IDs can be retrieved directly from the database.</li>
-                                <li>Please use the product profile template generated from our database to fill out product profile details.</l>
-                                <li>You can find the link for creating the template in the product profile section, simply provide a file name and a list of traits.</l>
-                                <li>Instructions for filling out the form are on the next page</l>
+                                <li>產品概況可儲存在資料庫中，供每個育種計畫的下游品種選育過程使用。</li>
+                                <li>為了便於資料管理，可以直接從資料庫中檢索目標性狀名稱和性狀 ID。</li>
+                                <li>請使用從我們資料庫產生的產品概況範本填寫產品概況詳細資訊。</li>
+                                <li>您可以在產品概況區段中找到建立範本的連結，只需提供檔案名稱和性狀清單即可。</li>
+                                <li>填寫表格的說明在下一頁</li>
                             </ul>
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "File format" &>
-                            <& /page/page_title.mas, title=>"Make sure your file matches the correct file format" &>
+                        <&| /util/workflow.mas:step, title=> "檔案格式(File Format)" &>
+                            <& /page/page_title.mas, title=>"確保您的檔案符合正確的檔案格式(Make Sure Your File Matches the Correct File Format)" &>
                             <center>
-                                <&| /page/explanation.mas, title=>'Product Profile Spreadsheet' &>
+                                <&| /page/explanation.mas, title=>'產品概況試算表(Product Profile Spreadsheet)' &>
                                     <p>
                                         <br>
-                                        <a id="product_profile_instructions">Instructions for Product Profile Spreadsheet</a>
+                                        <a id="product_profile_instructions">產品概況試算表說明(Instructions for Product Profile Spreadsheet)</a>
                                         <br>
                                         <br>
                                     </p>
                                 </&>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Once you think your file matches, go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">當您確認檔案符合格式後，前往下一步(Once You Think Your File Matches, Go to Next Step)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Upload Product Profile" &>
-                            <& /page/page_title.mas, title=>"Provide basic information about the product profile and upload your file" &>
+                        <&| /util/workflow.mas:step, title=> "上傳產品概況(Upload Product Profile)" &>
+                            <& /page/page_title.mas, title=>"提供關於產品概況的基本資訊並上傳您的檔案(Provide basic information about the product profile and upload your file)" &>
                             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_profile_form" name="upload_profile_form">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" name="profile_program_name" id="profile_program_name" disabled value="<% $program_name %>">
                                         <input name="profile_program_id" id="profile_program_id" type="hidden" value="<% $program_id %>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Product Profile Name: </label>
+                                    <label class="col-sm-3 control-label">產品概況名稱：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="new_profile_name" name="new_profile_name" type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Scope: </label>
+                                    <label class="col-sm-3 control-label">範圍：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="new_profile_scope" name="new_profile_scope" type="text"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Upload File (.xls or .xlsx): </label>
+                                    <label class="col-sm-3 control-label">上傳檔案 (.xls 或 .xlsx)：</label>
                                     <div class="col-sm-9" >
                                         <input type="file" name="profile_uploaded_file" id="profile_uploaded_file" encoding="multipart/form-data" />
                                     </div>
                                 </div>
                             </form>
                             <center>
-                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false);" id ="upload_profile_submit" name="upload_profile_submit" >Upload Profile</button><br/><br/>
+                                <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false);" id ="upload_profile_submit" name="upload_profile_submit" >上傳產品概況(Upload Profile)</button><br/><br/>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your profile is now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的概況現已儲存在資料庫中(Finished! Your profile is now in the database)" &>
                             <p>
                                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                The profile file was uploaded successfully
+                                概況檔案已成功上傳
                             </p>
                             <br/>
                             <center>
-                                <button class="btn btn-primary" name="upload_profile_success_complete_button">The profile was saved to the database with no errors! Congrats Click Here</button><br/><br/>
+                                <button class="btn btn-primary" name="upload_profile_success_complete_button">概況已成功儲存至資料庫，沒有任何錯誤！恭喜，點選此處(The profile was saved to the database with no errors! Congrats Click Here)</button><br/><br/>
                             </center>
                         </&>
                     </&>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_profile_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_profile_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@ $program_name
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadProfileErrorDialog">Upload Profile File Error</h4>
+                <h4 class="modal-title" id="uploadProfileErrorDialog">上傳概況檔案錯誤(Upload Profile File Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -114,7 +114,7 @@ $program_name
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -125,54 +125,54 @@ $program_name
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="profileInstructionDialog">Instructions for Product Profile Spreadsheet</h4>
+                <h4 class="modal-title" id="profileInstructionDialog">產品概況試算表說明(Instructions for Product Profile Spreadsheet)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <b>
-                        Product Profile Template
+                        產品概況範本
                     </b>
                     <ul>
-                        <li>Product profile template is an Excel file (.xls format)</li>
-                        <li>After filling out the product profile details, please also save the spreadsheet in the .xls format</li>
-                        <li>Please do not modify or delete any column header in the template.
+                        <li>產品概況範本為 Excel 檔案（.xls 格式）</li>
+                        <li>填寫完產品概況詳細資訊後，也請將試算表儲存為 .xls 格式</li>
+                        <li>請勿修改或刪除範本中的任何欄位表頭。</li>
                     </ul>
                     <br>
                     <b>
-                        Header:
+                        表頭：
                     </b>
                     <br>
                     <table class="table table-bordered table-hover">
                         <tbody>
                             <tr>
-                                <td>Trait Name</td>
-                                <td>Target Value</td>
-                                <td>Benchmark Variety</td>
-                                <td>Performance (equal, smaller, larger)</td>
-                                <td>Weight</td>
-                                <td>Trait Type</td>
+                                <td>性狀名稱</td>
+                                <td>目標值</td>
+                                <td>對照品種</td>
+                                <td>表現 (equal, smaller, larger)</td>
+                                <td>權重</td>
+                                <td>性狀類型</td>
                             </tr>
                         </tbody>
                     </table>
                     <b>
-                        Required columns:
+                        必填欄位：
                     </b>
                     <ul>
-                        <li><b>Trait Name:</b> The template already contains trait names based on your trait list</li>
-                        <li><b>Target Value or Benchmark Variety:</b> Please indicates <b>either</b> a target value <b>or</b> a benchmark variety for each targeted trait. Benchmark variety must exist in the database.</li>
-                        <li><b>Performance:</b> Please specifies the performance of each targeted trait (equal, smaller or larger) compared to the target value or benchmark variety </li>
+                        <li><b>性狀名稱 (Trait Name)：</b>範本已根據您的性狀清單包含性狀名稱</li>
+                        <li><b>目標值或對照品種 (Target Value or Benchmark Variety)：</b>請為每個目標性狀指定<b>目標值</b>或<b>對照品種</b>。對照品種必須已存在於資料庫中。</li>
+                        <li><b>表現 (Performance)：</b>請指定每個目標性狀相對於目標值或對照品種的表現（equal、smaller 或 larger）</li>
                     </ul>
                     <b>
-                        Optional columns:
+                        選填欄位：
                     </b>
                     <ul>
-                        <li><b>Weight:</b> Default is 1</li>
-                        <li><b>Trait Type:</b> e.g. basic trait, value-added trait</li>
+                        <li><b>權重 (Weight)：</b>預設值為 1</li>
+                        <li><b>性狀類型 (Trait Type)：</b>例如基本性狀、增值性狀</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -199,15 +199,15 @@ jQuery(document).ready(function(){
         jQuery('#upload_profile_form').attr("action", '/ajax/breeders/program/'+program_id+'/upload_profile');
 
         if (program_id === '') {
-            alert("Please choose a breeding program");
+            alert("請選擇育種計畫");
             return;
         }
         if (new_profile_name === '') {
-            alert("Please enter a profile name");
+            alert("請輸入概況名稱");
             return;
         }
         if (new_profile_scope == '') {
-            alert("Please enter a scope");
+            alert("請輸入範圍");
             return;
         }
         jQuery('#upload_profile_form').submit();
@@ -221,7 +221,7 @@ jQuery(document).ready(function(){
             jQuery('#working_modal').modal("show");
             if (profile_uploaded_file == '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選擇檔案");
             }
         },
         complete: function(response) {

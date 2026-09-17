@@ -1,45 +1,28 @@
-<& /page/page_title.mas, title => 'Instructions for using the <span class="secretary">SecreTary</span> signal peptide predictor' &>
+<& /page/page_title.mas, title => '<span class="secretary">SecreTary</span> 訊息胜肽預測工具使用說明(Instructions for using the SecreTary signal peptide predictor)' &>
 
 <& /secretom/secretary/nav.mas, curr_page => 'instructions' &>
 
 <div class="indented_content">
 
   <p>
-   <span class="secretary">SecreTary</span> is for prediction of signal peptides from the amino acid
-   sequence of a protein. Signal peptides generally possess a common
-   structural design, which is characterized by a short, positively
-   charged n-region followed by a hydrophobic region (h-region) and a
-   somewhat polar and uncharged cleavage site (c-region). It should be
-   more emphasized that the h-region is known to be important for the
-   translocation of the signal peptides to the ER. To improve the
-   performance of the signal peptide prediction, we have developed new
-   parameters such as the overall hydrophobicity and amino acid
-   composition in the h-region as input. <span class="secretary">SecreTary</span> is mainly trained
-   and tested on the plant secretome that has been identified through
-   functional screens including a yeast secretion trap.
+   <span class="secretary">SecreTary</span> 用於根據蛋白質的胺基酸序列預測訊息胜肽(is for prediction of signal peptides from the amino acid sequence of a protein)。訊息胜肽通常具有共同的結構設計，其特徵是一個短的帶正電 n 區，後面接著一個疏水區（h 區）和一個稍帶極性且不帶電的切割位點（c 區）(which is characterized by a short, positively charged n-region followed by a hydrophobic region (h-region) and a somewhat polar and uncharged cleavage site (c-region))。更應強調的是，已知 h 區對訊息胜肽易位至內質網（ER）至關重要(It should be more emphasized that the h-region is known to be important for the translocation of the signal peptides to the ER)。為了提高訊息胜肽預測的效能，我們開發了新的參數（例如 h 區的整體疏水性和胺基酸組成）作為輸入(To improve the performance of the signal peptide prediction, we have developed new parameters such as the overall hydrophobicity and amino acid composition in the h-region as input)。<span class="secretary">SecreTary</span> 主要在透過包括酵母分泌捕捉在內的功能性篩選所鑑定的植物分泌蛋白質組上進行訓練和測試(is mainly trained and tested on the plant secretome that has been identified through functional screens including a yeast secretion trap)。
   </p>
 
   <p>
-   Questions or suggestions about <span class="secretary">SecreTary</span> should be addressed to
+   關於 <span class="secretary">SecreTary</span> 的疑問或建議，請聯繫(Questions or suggestions about SecreTary should be addressed to)
    Jocelyn K.C. Rose (<a href="mailto:jr286@cornell.edu">
-   jr286@cornell.edu</a>).
+   jr286@cornell.edu</a>)。
   </p>
 
 </div>
 
-<&| /page/info_section.mas, title => '1. Input Sequences' &>
+<&| /page/info_section.mas, title => '1. 輸入序列(1. Input Sequences)' &>
 
   <p>
-  The amino acid sequences can be input by pasting one or more
-  protein sequences, in <b>FASTA format</b> into the <span class="secretary">SecreTary</span> input
-  page. <span class="secretary">SecreTary</span> analyses proteins at a rate of approximate
-  80/second. At present there is a limit of 10000 sequences. All the
-  input sequences must be in one-letter amino acid code, not case-sensitive.
-  All letters of the alphabet are accepted, but <b>B J O U </b> and <b>Z</b>
-  are replaced by <b>X</b> before analysis.
+  胺基酸序列可以透過將一或多個 <b>FASTA 格式</b> 的蛋白質序列貼入 <span class="secretary">SecreTary</span> 輸入頁面來輸入(The amino acid sequences can be input by pasting one or more protein sequences, in FASTA format into the SecreTary input page)。<span class="secretary">SecreTary</span> 分析蛋白質的速度約為每秒 80 個(analyses proteins at a rate of approximate 80/second)。目前上限為 10000 個序列(At present there is a limit of 10000 sequences)。所有輸入序列必須為單字母胺基酸代碼，不分大小寫(All the input sequences must be in one-letter amino acid code, not case-sensitive)。接受所有英文字母，但在分析前 <b>B J O U </b> 和 <b>Z</b> 會被替換為 <b>X</b>(All letters of the alphabet are accepted, but B J O U and Z are replaced by X before analysis)。
   </p>
 
-  <h3>An example:</h3>
+  <h3>範例(An example)：</h3>
   <& /sequence/with_markup.mas,
          seq => Bio::PrimarySeq->new(
                      -id => 'P05117_Tomato',
@@ -51,12 +34,9 @@
 
 </&>
 
-<&| /page/info_section.mas, title => '2. Submission' &>
+<&| /page/info_section.mas, title => '2. 提交(2. Submission)' &>
 
-  Paste the sequence(s) into the window, or click browse to select a 
-  fasta file on your disk for analysis. Then, click on the "Submit" 
-  button. Expect to wait about 10-15 seconds to see the results of
-  analyzing 1000 sequences.
+  將序列貼入視窗中，或點選瀏覽以選取您硬碟上的 FASTA 檔案進行分析。接著，點擊「提交(Submit)」按鈕。分析 1000 個序列大約需要等待 10-15 秒即可檢視結果(Paste the sequence(s) into the window, or click browse to select a fasta file on your disk for analysis. Then, click on the "Submit" button. Expect to wait about 10-15 seconds to see the results of analyzing 1000 sequences)。
 
 </&>
 
@@ -65,24 +45,13 @@
 .blue { background: #aaf }
 
 </style>
-<&| /page/info_section.mas, title => '3. Output' &>
+<&| /page/info_section.mas, title => '3. 輸出結果(3. Output)' &>
 
   <p>
-  For each sequence <span class="secretary">SecreTary</span> gives a score; sequences with scores
-  greater than or equal to 0.75 are predicted to have a signal peptide. 
-  For each predicted signal peptide the 
-  predicted length is shown, and the location of the hydrophobic
-  region (in 
-  <FONT style=BACKGROUND-COLOR: #AAAAFF">blue</FONT>
-  ) within the predicted signal peptide (in 
-  <FONT style=BACKGROUND-COLOR: #FFDD66">yellow</FONT>
-  ). On the input page you can choose
-  to sort the output by score, with the higher scores (strongest
-  candidates) at the top, and you can suppress output for sequences
-  with no predicted signal peptide.
+  對於每個序列，<span class="secretary">SecreTary</span> 會給出一個分數；分數大於或等於 0.75 的序列被預測具有訊息胜肽(For each sequence SecreTary gives a score; sequences with scores greater than or equal to 0.75 are predicted to have a signal peptide)。對於每個預測的訊息胜肽，會顯示預測長度，以及疏水區（以 <FONT style="BACKGROUND-COLOR: #AAAAFF">藍色(blue)</FONT> 標示）在預測訊息胜肽（以 <FONT style="BACKGROUND-COLOR: #FFDD66">黃色(yellow)</FONT> 標示）中的位置(For each predicted signal peptide the predicted length is shown, and the location of the hydrophobic region in blue within the predicted signal peptide in yellow)。在輸入頁面上，您可以選擇依分數對輸出進行排序，將較高分數（最有希望的候選者）置於頂部，並且可以隱藏未預測到訊息胜肽的序列輸出(On the input page you can choose to sort the output by score, with the higher scores (strongest candidates) at the top, and you can suppress output for sequences with no predicted signal peptide)。
   </p>
 
-  <h3>An example:</h3>
+  <h3>範例(An example)：</h3>
   <pre>
 
 <pre class="secretary_results">
@@ -100,12 +69,12 @@ AT1G51380.1      NO     0         -       MEGTLDEENLVFETTKGIKPIKSFDDMGMNDKVLRGVY
 AT1G77370.1      YES    0.7625   26       <FONT style="BACKGROUND-COLOR: #FFDD66">MVDQSPRR</FONT><FONT style="BACKGROUND-COLOR: #AAAAFF">VVVAALLLFVVL</FONT><FONT style="BACKGROUND-COLOR: #FFDD66">CDLSNS</FONT>AGAANSVSAFVQNAILSNKIVIFSKSYCPYCLRSKR...
 AT1G44090.1      NO     0         -       MCIYASRQTVCPYLTPFKVKRPKSREMNSSDVNFSLLQSQPNVPAEFFWPEKDVAPSEGDLD...
 
-2 secreted sequences predicted out of 10.
+10 個序列中預測出 2 個分泌序列(2 secreted sequences predicted out of 10)。
    </pre>
 </&>
 
-<&| /page/info_section.mas, title => '4. Getting help' &>
-  Please contact: <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a>.
+<&| /page/info_section.mas, title => '4. 取得協助(4. Getting help)' &>
+  請聯繫(Please contact)：<a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a>。
 </&>
 
-<a href="/secretom/secretary">Return to <span class="secretary">SecreTary</span> input</a>
+<a href="/secretom/secretary">返回 <span class="secretary">SecreTary</span> 輸入頁面(Return to SecreTary input)</a>

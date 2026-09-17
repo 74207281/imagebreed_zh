@@ -8,11 +8,11 @@ $user_id
 </%args>
 
 <br />
-<& /page/page_title.mas, title => "Manage Crosses" &>
+<& /page/page_title.mas, title => "管理雜交(Manage Crosses)" &>
 
 <div class="container-fluid">
 
-<&| /page/info_section.mas, title=>"Crosses" , collapsible=>1, collapsed=>0, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" name="create_crossingtrial_link">Add Crossing Experiment</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="create_cross_link">Add Cross</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="upload_crosses_link">Upload Crosses</button> <button class="btn btn-sm btn-primary" style="margin:3px" id="create_cross_wishlist">Add Cross Wishlist</button>' &>
+<&| /page/info_section.mas, title=>"雜交(Crosses)" , collapsible=>1, collapsed=>0, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" name="create_crossingtrial_link">新增雜交試驗(Add Crossing Experiment)</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="create_cross_link">新增雜交(Add Cross)</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="upload_crosses_link">上傳雜交(Upload Crosses)</button> <button class="btn btn-sm btn-primary" style="margin:3px" id="create_cross_wishlist">新增雜交願望清單(Add Cross Wishlist)</button>' &>
 
 <& /breeders_toolbox/crossing_experiment_tree.mas, user_id=>$user_id, locations=>$locations, programs=>$programs, roles=>$roles  &>
 

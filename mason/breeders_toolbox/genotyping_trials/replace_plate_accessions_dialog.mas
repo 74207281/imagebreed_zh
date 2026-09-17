@@ -9,7 +9,7 @@ $trial_name
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="ReplacePlateAccessionsDialog">Replace Well Accession</h4>
+                <h4 class="modal-title" id="ReplacePlateAccessionsDialog">替換孔位品系(Replace Well Accession)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -19,26 +19,26 @@ $trial_name
                       </div>
 
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Sample: </label>
+                        <label class="col-sm-3 control-label">樣本：</label>
                         <div class="col-sm-9" id="plot_name">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Sample ID: </label>
+                        <label class="col-sm-3 control-label">樣本 ID：</label>
                         <div class="col-sm-9" id="plot_id">
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Accession: </label>
+                        <label class="col-sm-3 control-label">品系：</label>
                         <div class="col-sm-9" id="cell_accession">
                         </div>
                       </div>
 
                       
                       <div class="form-group">
-                        <label class="col-sm-3 control-label">Enter New Accession: </label>
+                        <label class="col-sm-3 control-label">輸入新品系：</label>
                         <div class="col-sm-9" >
                           <input class="form-control" id="new_cell_accession" name="new_cell_accession"></input>
                         </div>
@@ -49,8 +49,8 @@ $trial_name
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="hm_close_replace_plot_accession_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="save_replace_well_accession" id="save_replace_well_accession">Replace Well Accession</button>
+                <button id="hm_close_replace_plot_accession_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="save_replace_well_accession" id="save_replace_well_accession">替換孔位品系(Replace Well Accession)</button>
             </div>
         </div>
     </div>
@@ -61,17 +61,17 @@ $trial_name
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="HmDialog"><b>Replace Well Accession</b></h4>
+                <h4 class="modal-title" id="HmDialog"><b>替換孔位品系(Replace Well Accession)</b></h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
-                    <p3> Well accession was replaced successfully...</p3>
+                    <p3>孔位品系已成功替換...</p3>
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
             </div>
         </div>

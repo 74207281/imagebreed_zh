@@ -6,7 +6,7 @@ $trial
 </%args>
 
 
-<&| /page/info_section.mas, id => "hidap_trial", title=>"HIDAP Trial Analysis", collapsible=>1, collapsed => 0 &>
+<&| /page/info_section.mas, id => "hidap_trial", title=>"HIDAP 試驗分析(HIDAP Trial Analysis)", collapsible=>1, collapsed => 0 &>
 
 <div class="row">
   <div class="col-sm-6">
@@ -14,7 +14,7 @@ $trial
       <div class="well">
         <div class="row">
           <div class="col-sm-9">
-            Exploratory Analysis
+            探索性分析(Exploratory Analysis)
           </div>
           <div class="col-sm-3">
             <span class="glyphicon glyphicon-stats"></span>
@@ -28,7 +28,7 @@ $trial
       <div class="well">
         <div class="row">
           <div class="col-sm-9">
-            Trial Report
+            試驗報告(Trial Report)
           </div>
           <div class="col-sm-3">
             <span class="glyphicon glyphicon-book"></span>

@@ -12,17 +12,17 @@ $query
 </%args>
 
 <& /page/page_title.mas,
-    title => 'QTL search results',
+    title => 'QTL 搜尋結果(QTL search results)',
 &>
   
 % if ($data) 
 % { 
 
 <&| /page/info_section.mas,
-      title => 'Search Results',
+      title => '搜尋結果(Search Results)',
 &>
   <& /page/columnar_table.mas,
-     headings    => [ 'Trait name', 'Definition', 'QTL' ],
+     headings    => [ '性狀名稱(Trait name)', '定義(Definition)', 'QTL' ],
     data         => $data,
     __alt_freq   => 2,
     __alt_width  => 1,
@@ -37,21 +37,21 @@ $query
 %else
 %{
 <&| /page/info_section.mas,
-      title => 'Search Results',
+      title => '搜尋結果(Search Results)',
 &>
 %if ( $query )
 %{
-<br>No results found for <i><strong>'<% $query %>'.</strong></i><br />
+<br>未找到 <i><strong>'<% $query %>'</strong></i> 的結果(No results found for '<% $query %>')。<br />
 %}
 %else
 %{
-<br>No results. Search again with with a trait name.<br />
+<br>無結果。請使用性狀名稱重新搜尋(No results. Search again with a trait name)。<br />
 %}
 </&>
 %}
 
 <&| /page/info_section.mas,
-    title       => 'Search',
+    title       => '搜尋(Search)',
     collapsible => '1',
     collapsed   => 1
  &>

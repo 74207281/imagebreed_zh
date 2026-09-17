@@ -1,21 +1,21 @@
 
-<& /page/page_title.mas, title=>"Bulk Converter" &>
+<& /page/page_title.mas, title=>"批次識別碼轉換器(Bulk Converter)" &>
 
-Paste the identifiers you would like to convert
+貼上您想要轉換的識別碼(Paste the identifiers you would like to convert)：
 
 <textarea id="converter_input" >
 
 </textarea>
 <br />
 <br />
-Input is:<br />
+輸入格式為(Input is)：<br />
 
-Output<br />
+輸出格式(Output)：<br />
 <select id="converter_output_select" name="converter_output_select" >
-<option value="unigenes"> Unigenes</option>
-<option value="gene_models"> Gene models (ITAG 2.3)</option>
-<option value="tom_microarray"> TOM Microarray Identifiers</option>
-<option value="affymetrix"> Affymetrix Chip Identifiers</option>
+<option value="unigenes">單一基因群(Unigenes)</option>
+<option value="gene_models">基因模型 (ITAG 2.3) (Gene models (ITAG 2.3))</option>
+<option value="tom_microarray">TOM 微陣列識別碼(TOM Microarray Identifiers)</option>
+<option value="affymetrix">Affymetrix 晶片識別碼(Affymetrix Chip Identifiers)</option>
 </select>
 
 

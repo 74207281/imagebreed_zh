@@ -11,83 +11,83 @@ $stock_name => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="downloadStockPhenotypesDialog">Download Phenotypes for <% $stock_name %></h4>
+                <h4 class="modal-title" id="downloadStockPhenotypesDialog">下載 <% $stock_name %> 的表型(Download Phenotypes for <% $stock_name %>)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <form class="form-horizontal" role="form" method="post" >
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Format: </label>
+                            <label class="col-sm-3 control-label">格式(Format)：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="download_stock_phenotypes_format">
-                                    <option value="csv">CSV Wide Format</option>
-                                    <option value="csv_long">CSV Long Format</option>
-                                    <option value="xlsx">Excel (xlsx) Wide Format</option>
-                                    <option value="xlsx_long">Excel (xlsx) Long Format</option>
+                                    <option value="csv">CSV 寬格式(CSV Wide Format)</option>
+                                    <option value="csv_long">CSV 長格式(CSV Long Format)</option>
+                                    <option value="xlsx">Excel (xlsx) 寬格式(Excel (xlsx) Wide Format)</option>
+                                    <option value="xlsx_long">Excel (xlsx) 長格式(Excel (xlsx) Long Format)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Data Level: </label>
+                            <label class="col-sm-3 control-label">資料層級(Data Level)：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="download_stock_phenotypes_level_option">
-                                    <option value="all">All Levels</option>
-                                    <option value="plot">Plots</option>
-                                    <option value="plant">Plants</option>
+                                    <option value="all">所有層級(All Levels)</option>
+                                    <option value="plot">小區(Plots)</option>
+                                    <option value="plant">植株(Plants)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Repeated Measurements: </label>
+                            <label class="col-sm-3 control-label">重複測量值(Repeated Measurements)：</label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="download_stock_phenotypes_repeated_measurements">
-                                    <option selected value="all">All Values</option>
-                                    <option value="average">Average Repeated Values</option>
-                                    <option value="first">First Value</option>
+                                    <option selected value="all">所有數值(All Values)</option>
+                                    <option value="average">平均重複數值(Average Repeated Values)</option>
+                                    <option value="first">第一筆數值(First Value)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Traits:<br/><small>(Select none for all traits)</small></label>
+                            <label class="col-sm-3 control-label">性狀(Traits)：<br/><small>（不選取則代表所有性狀）((Select none for all traits))</small></label>
                             <div class="col-sm-9" >
                                 <div id="download_stock_phenotypes_traits">
                                 </div>
                             </div>
                         </div>
 
-<&| /page/info_section.mas, title=>"Additional Search Options",  collapsible => 1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>"額外搜尋選項(Additional Search Options)",  collapsible => 1, collapsed=>1 &>
 
                         <div class="row">
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class="col-sm-6 control-label">Include Timestamps: </label>
+                                    <label class="col-sm-6 control-label">包含時間戳記(Include Timestamps)：</label>
                                     <div class="col-sm-6" >
                                         <select class="form-control" id="download_stock_phenotypes_timestamp_option">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
+                                            <option value="0">否(No)</option>
+                                            <option value="1">是(Yes)</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class="col-sm-6 control-label">Suppress User Defined Outliers: </label>
+                                    <label class="col-sm-6 control-label">排除使用者定義的離群值(Suppress User Defined Outliers)：</label>
                                     <div class="col-sm-6" >
                                         <select class="form-control" id="download_stock_phenotypes_exclude_outliers">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
+                                            <option value="0">否(No)</option>
+                                            <option value="1">是(Yes)</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label class="col-sm-6 control-label">Include Header: </label>
+                                    <label class="col-sm-6 control-label">包含標頭(Include Header)：</label>
                                     <div class="col-sm-6" >
                                         <select class="form-control" id="download_stock_phenotypes_include_header">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
+                                            <option value="0">否(No)</option>
+                                            <option value="1">是(Yes)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -99,8 +99,8 @@ $stock_name => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="download_stock_phenotypes_cancel_button" id="download_stock_phenotypes_cancel_button" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="download_stock_phenotypes_submit_button" id="download_stock_phenotypes_submit_button" title="Submit">Submit</button>
+                <button type="button" class="btn btn-default" name="download_stock_phenotypes_cancel_button" id="download_stock_phenotypes_cancel_button" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="download_stock_phenotypes_submit_button" id="download_stock_phenotypes_submit_button" title="送出(Submit)">送出(Submit)</button>
             </div>
         </div>
     </div>

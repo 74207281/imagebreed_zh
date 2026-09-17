@@ -14,24 +14,24 @@ $breeding_programs
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Information</th>
-      <th>Breeding Programs -- -- Trials</th>
+      <th>資訊(Information)</th>
+      <th>育種計畫 -- -- 試驗(Breeding Programs -- -- Trials)</th>
     </tr>
   </thead>
   <tbody>
   <tr>
     <td>
-      <h4>Download Trial</h4>
-      <button class="btn btn-primary" id="download_button" disabled="disabled" title="First Select a Trial to Download">Excel</button>
-      <button class="btn btn-primary" id="download_button_csv" disabled="disabled" title="First Select a Trial to Download">CSV</button><br />
+      <h4>下載試驗(Download Trial)</h4>
+      <button class="btn btn-primary" id="download_button" disabled="disabled" title="請先選取要下載的試驗">Excel</button>
+      <button class="btn btn-primary" id="download_button_csv" disabled="disabled" title="請先選取要下載的試驗">CSV</button><br />
       <hr>
-      <h5><i>Double click<br />trial to view</i></h5>
+      <h5><i>連按兩下<br />試驗以檢視</i></h5>
       <!-- hr>
-      <button id="delete" disabled="disabled" >Delete</button -->
+      <button id="delete" disabled="disabled" >刪除(Delete)</button -->
       <br />
     </td>
     <td>
-      <div id="trial_list" >[loading...]</div>
+      <div id="trial_list" >[載入中...]</div>
     </td>
   </tr>
   </tbody>
@@ -53,7 +53,7 @@ $breeding_programs
 
       },
       error: function(response) {
-        alert("An error occurred");
+        alert("發生錯誤");
       }
   });
 
@@ -99,7 +99,7 @@ $breeding_programs
         if (selected.length !== 0) {
 	  window.open('/breeders/trials/phenotype/download/'+selected.join(","));
         }
-        else { alert("No leaf nodes selected for download."); }
+        else { alert("未選取可下載的末端節點。"); }
 
     });
 
@@ -108,7 +108,7 @@ $breeding_programs
         if (selected.length !== 0) {
 	  window.open('/breeders/trials/phenotype/download/'+selected.join(",")+'?format=csv');
         }
-        else { alert("No leaf nodes selected for download."); }
+        else { alert("未選取可下載的末端節點。"); }
 
     });
 

@@ -18,23 +18,23 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossWishlistDownloadDialog">Create Intercross Wishlist</h4>
+                <h4 class="modal-title" id="intercrossWishlistDownloadDialog">建立互交清單(Create Intercross Wishlist)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-11">
-                            <&| /page/explanation.mas, title=>'File Information' &>
+                            <&| /page/explanation.mas, title=>'檔案資訊(File Information)' &>
                                 <p>
-                                    <b>File Information</b>
+                                    <b>檔案資訊</b>
                                     <br>
-                                    <a id="intercross_wishlist_file_info">Intercross Wishlist</a>
+                                    <a id="intercross_wishlist_file_info">互交清單</a>
                                     <br>
                                 </p>
                             </&>
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3">Female parents:</label>
+                                    <label class="control-label col-sm-3">母本：</label>
                                     <div class="col-sm-7" >
                                         <div class="input-group">
                                             <select class="form-control" id="wishlist_female_list_select"></select>
@@ -42,7 +42,7 @@ $trial_id
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3">Male parents:</label>
+                                    <label class="control-label col-sm-3">父本：</label>
                                     <div class="col-sm-7" >
                                         <div class="input-group">
                                             <select class="form-control" id="wishlist_male_list_select"></select>
@@ -56,8 +56,8 @@ $trial_id
                     </div>
                     <div id="wishlist_footer" style="display:none" >
                         <div class="modal-footer">
-                            <button class="btn btn-primary" id="wishlist_submit" name="wishlist_submit">Create Wishlist</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary" id="wishlist_submit" name="wishlist_submit">建立雜交清單(Create Wishlist)</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
                         </div>
                     </div>
                 </div>
@@ -71,21 +71,21 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossWishlistDownloadMessage">Intercross Wishlist File Created</h4>
+                <h4 class="modal-title" id="intercrossWishlistDownloadMessage">互交清單檔案已建立(Intercross Wishlist File Created)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The Intercross wishlist file was created successfully.
+                        互交清單檔案已成功建立。
                     </p>
                     <p>
-                        <a id="intercross_wishlist_download_link">Download Intercross Wishlist</a>
+                        <a id="intercross_wishlist_download_link">下載互交清單檔案</a>
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="intercross_wishlist_download_close_button" id="intercross_wishlist_download_close_button" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" name="intercross_wishlist_download_close_button" id="intercross_wishlist_download_close_button" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -96,23 +96,23 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossWishlistFileInfoDialog">Intercross Wishlist</h4>
+                <h4 class="modal-title" id="intercrossWishlistFileInfoDialog">互交清單(Intercross Wishlist)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <b>
-                        Names in the list must be uniquenames.
+                        清單中的名稱必須為唯一名稱（uniquename）。
                     </b>
                     <br>
-                        Intercross Wishlist file is a CSV file (.csv).
+                        互交清單檔案為 CSV 檔案（.csv）。
                     <br>
-                         The file can be used directly with Intercross app.
+                         此檔案可直接在 Intercross 應用程式中使用。
                     <br><br>
                     <b>
-                        Header:
+                        標題列：
                     </b>
                     <br>
-                    The first row (header) contains the following:
+                    第一列（標題）包含以下欄位：
                     <br>
                     <table class="table table-bordered table-hover">
                         <tbody>
@@ -128,21 +128,21 @@ $trial_id
                         </tbody>
                     </table>
                     <b>
-                        Column Information:
+                        欄位資訊：
                     </b>
                     <ul>
-                        <li><b>femaleDbId:</b> stock_id of female parent in the database.</li>
-                        <li><b>maleDbId:</b> stock_id of male parent in the database</li>
-                        <li><b>femaleName:</b> female uniquename in the database.</li>
-                        <li><b>maleName:</b> male uniquename in the database.</li>
-                        <li><b>wishType:</b> type of field crossing data (must be one of these types: flower, fruit, seed).</li>
-                        <li><b>wishMin:</b> expected minimum number of the specified type.</li>
-                        <li><b>wishMax:</b> expected maximum number of the specified type.</li>
+                        <li><b>femaleDbId:</b> 資料庫中母本的 stock_id。</li>
+                        <li><b>maleDbId:</b> 資料庫中父本的 stock_id。</li>
+                        <li><b>femaleName:</b> 資料庫中母本的唯一名稱（uniquename）。</li>
+                        <li><b>maleName:</b> 資料庫中父本的唯一名稱（uniquename）。</li>
+                        <li><b>wishType:</b> 田間雜交資料類型（必須為以下類型之一：flower、fruit、seed）。</li>
+                        <li><b>wishMin:</b> 指定類型的預期最小值。</li>
+                        <li><b>wishMax:</b> 指定類型的預期最大值。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -156,8 +156,8 @@ jQuery(document).ready(function(){
     var crossing_experiment_id = "<% $trial_id %>";
     var lo = new CXGN.List();
 
-    jQuery('#wishlist_female_list_select').html(lo.listSelect('wishlist_female_list_select', ['accessions'], 'Select a list of female parents', undefined, undefined));
-    jQuery('#wishlist_male_list_select').html(lo.listSelect('wishlist_male_list_select', ['accessions'], 'Select a list of male parents', undefined, undefined));
+    jQuery('#wishlist_female_list_select').html(lo.listSelect('wishlist_female_list_select', ['accessions'], '請選擇母本清單', undefined, undefined));
+    jQuery('#wishlist_male_list_select').html(lo.listSelect('wishlist_male_list_select', ['accessions'], '請選擇父本清單', undefined, undefined));
 
     jQuery('#download_intercross_wishlist').click(function(){
         jQuery('#intercross_wishlist_download_dialog').modal("show");
@@ -175,7 +175,7 @@ jQuery(document).ready(function(){
             var female_accession_validation = 1;
             female_accession_validation = lo.validate(female_list_id, 'accessions', true);
             if (female_accession_validation != 1) {
-                alert("The female list did not pass validation. Names in the list must be uniquenames in the database");
+                alert("母本清單未通過驗證。清單中的名稱必須為資料庫中的唯一名稱（uniquename）");
                 return;
             } else if (female_list_id && male_list_id) {
                 wishlist_form();
@@ -189,10 +189,10 @@ jQuery(document).ready(function(){
             var male_accession_validation = 1;
             male_accession_validation = lo.validate(male_list_id, 'accessions', true);
             if (male_accession_validation != 1) {
-                alert("The male list did not pass validation. Names in the list must be uniquenames in the database");
+                alert("父本清單未通過驗證。清單中的名稱必須為資料庫中的唯一名稱（uniquename）");
                 return;
             } else if (!female_list_id) {
-                alert("Please select female list");
+                alert("請選擇母本清單");
                 return;
             } else if (female_list_id && male_list_id) {
                 wishlist_form();
@@ -207,9 +207,9 @@ jQuery(document).ready(function(){
         var male_list_id = jQuery('#wishlist_male_list_select').val();
         var male_list = lo.getList(male_list_id);
 
-        var html = '<table class="table table-bordered" id="wishlist_male_select_table"><thead><tr><th>Female Parent</th><th>Select Male Parent</th><th>Info (type,min,max). Supported types:flower,fruit,seed.</th></tr></thead><tbody>';
+        var html = '<table class="table table-bordered" id="wishlist_male_select_table"><thead><tr><th>母本(Female Parent)</th><th>選擇父本(Select Male Parent)</th><th>資訊 (類型,最小值,最大值)。支援類型：flower,fruit,seed(Info (type,min,max). Supported types:flower,fruit,seed.)</th></tr></thead><tbody>';
         for(var i=0; i<female_list.length; i++){
-            html = html + '<tr><td>' + female_list[i] + '</td><td><div name="wishlist_male_selects" id="wishlist_male_select_' +i+ '"></div></td><td><span id="wishlist_male_accession_id_'+ i +'_info" data-related="'+encodeURI(female_list[i])+'" >Select Male(s)</span></td></tr>';
+            html = html + '<tr><td>' + female_list[i] + '</td><td><div name="wishlist_male_selects" id="wishlist_male_select_' +i+ '"></div></td><td><span id="wishlist_male_accession_id_'+ i +'_info" data-related="'+encodeURI(female_list[i])+'" >選擇父本(Select Male(s))</span></td></tr>';
         };
         html = html + '</tbody></table>';
 
@@ -238,7 +238,7 @@ jQuery(document).ready(function(){
     function wishlist_change_males(div_id, select_id){
         var male_names = jQuery(div_id).val();
         var female_name = jQuery(div_id).data('related');
-        var html = '<table class="table table-bordered" div="' + div_id +'_table"><thead><tr><th>Male Parent</th><th>Type, Min, Max (e.g. flower, 5, 30)</th></tr></thead><tbody>';
+        var html = '<table class="table table-bordered" div="' + div_id +'_table"><thead><tr><th>父本(Male Parent)</th><th>類型、最小值、最大值（例如 flower, 5, 30）(Type, Min, Max (e.g. flower, 5, 30))</th></tr></thead><tbody>';
         for (var i=0; i<male_names.length; i++){
             html = html + '<tr><td>' + male_names[i] + '</td><td><input class="form-control" male_name="' + male_names[i] + '" female_name="' + female_name + '" name ="wishlist_activity_info" id="wishlist_activity_info_'+ i +'" value="" placeholder=""/></td></tr>';
         };
@@ -279,7 +279,7 @@ jQuery(document).ready(function(){
             },
             error: function() {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred creating the wishlist file.');
+                alert('建立雜交清單檔案時發生錯誤。');
                 jQuery('#intercross_wishlist_download_dialog').modal("hide");
             },
         });

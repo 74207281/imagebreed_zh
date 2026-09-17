@@ -23,47 +23,47 @@ $breeding_program_name => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="moveFolderDialog">Move a <% $dialog_type %> folder</h4>
+        <h4 class="modal-title" id="moveFolderDialog">移動 <% $dialog_type %> 資料夾(Move a <% $dialog_type %> Folder)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 	       <form class="form-horizontal" role="form" method="post" id="move_folder_dialog_form" name="move_folder_dialog_form">
           <div class="form-group">
-             <label class="col-sm-3 control-label">Breeding Program: </label>
+             <label class="col-sm-3 control-label">育種計畫：</label>
              <div class="col-sm-9" >
                <div id="move_folder_breeding_program_select_div">
 % if ($breeding_program_id) {
                <input type="text" class="form-control" value="<% $breeding_program_name %>" disabled/>
                <input type="hidden" id="move_folder_breeding_program_id" name="move_folder_breeding_program_id" value="<% $breeding_program_id %>" />
 % } else {
- [Loading...]
+ [載入中...]
 % }
                </div>
              </div>
           </div>
           <div class="form-group">
-      	      <label class="col-sm-3 control-label">Parent Folder: </label>
+      	      <label class="col-sm-3 control-label">上層資料夾：</label>
       	      <div class="col-sm-9" >
                 <div id="move_folder_parent_folder_select_div">
 % if ($parent_folder_id) {
                   <input type="text" class="form-control" value="<% $parent_folder_name %>" disabled/>
                   <input type="hidden" id="move_folder_parent_folder_id" name="move_folder_parent_folder_id" value="<% $parent_folder_id %>" />
 % } else {
-  [Loading...]
+  [載入中...]
 % }
                 </div>
               </div>
 	        </div>
 	        <div class="form-group">
-      	      <label class="col-sm-3 control-label">Folder Name: </label>
+      	      <label class="col-sm-3 control-label">資料夾名稱：</label>
       	      <div class="col-sm-9" >
                 <div id="move_folder_select_div">
 % if ($folder_id) {
               <input type="text" class="form-control" value="<% $folder_name %>" disabled/>
               <input type="hidden" id="move_folder_id" name="move_folder_id" value="<% $folder_id %>" />
 % } else {
-[Loading...]
+[載入中...]
 % }
                 </div>
               </div>
@@ -72,8 +72,8 @@ $breeding_program_name => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      <button type="button" class="btn btn-primary" name="move_folder_submit" id="move_folder_submit" title="Move folder">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	      <button type="button" class="btn btn-primary" name="move_folder_submit" id="move_folder_submit" title="移動資料夾(Move folder)">儲存(Save)</button>
       </div>
     </div>
   </div>
@@ -84,18 +84,18 @@ $breeding_program_name => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="moveFolderSuccessDialog">Folder Move Successful</h4>
+                <h4 class="modal-title" id="moveFolderSuccessDialog">資料夾移動成功(Folder Move Successful)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The folder was moved successfully
+                        資料夾已成功移動
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_move_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_move_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -173,7 +173,7 @@ function move_folder() {
   //console.log(parent_folder_id);
   //console.log(folder_id);
   if (parent_folder_id == folder_id) {
-    alert("Cannot make a folder its own parent.");
+    alert("無法將資料夾設為自己的上層資料夾。");
     return;
   }
   jQuery.ajax( {
@@ -190,7 +190,7 @@ function move_folder() {
       }
     },
     error: function(response) {
-      alert('An error occurred trying to move folder.');
+      alert('嘗試移動資料夾時發生錯誤。');
       jQuery('#move_folder_dialog').modal("hide");
     }
   });

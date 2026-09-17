@@ -9,7 +9,7 @@ Takes no arguments.
 % if( -r $file ) {
   <% $m->file( $file ) %>
 % } else {
- <div class="ghosted">Tomato genome information temporarily unavailable</div>
+ <div class="ghosted">番茄基因組資訊暫時無法取得(Tomato genome information temporarily unavailable)</div>
 % }
 
 

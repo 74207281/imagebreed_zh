@@ -33,7 +33,7 @@ results and returns the appropriate URL for going to that page of results
 
 <div class="container-fluid">
 
-<& /page/page_title.mas, title => 'Organism/Taxon Search' &>
+<& /page/page_title.mas, title => '物種/分類群搜尋(Organism/Taxon Search)' &>
 
 <style>
 #organism_search_form .checkboxgroup span span {
@@ -63,18 +63,18 @@ div.paginate_nav {
 <& /util/import_javascript.mas, classes => [ 'jquery' ] &>
   
 
-  <&| /page/info_section.mas, title    => 'Search Results',
-                              subtitle => 'Results '
+  <&| /page/info_section.mas, title    => '搜尋結果(Search Results)',
+                              subtitle => '第 '
                                           .$pager->first
                                           .'-'.$pager->last
-                                          .' of '.Number::Format->new->format_number($pager->total_entries)
+                                          .' 項，共 '.Number::Format->new->format_number($pager->total_entries).' 項'
    &>
 
   <div class="well">
 
 %   if( $results->count ) {
      <% columnar_table_html(
-            headings => ['Taxon name','Common name'],
+            headings => ['分類群名稱(Taxon Name)','俗名/通用名(Common Name)'],
             data     => [
                 map [ '<a href="/organism/' . $_->organism_id . '/view/">'
                     . $_->species . "</a>",
@@ -83,7 +83,7 @@ div.paginate_nav {
         )
       %>
 %   } else {
-     <h3 style="text-align: center">No Matching Results Found</h3>
+     <h3 style="text-align: center">未找到符合條件的結果(No Matching Results Found)</h3>
 %   }
   </&>
 
@@ -92,7 +92,7 @@ div.paginate_nav {
   </div>
 % }
 
-<&| /page/info_section.mas, title    => 'Search', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title    => '搜尋(Search)', collapsible=>1, collapsed=>0 &>
 
 <div class="well">
   <% $form->render %>
@@ -104,7 +104,7 @@ div.paginate_nav {
 <center>
 <div style="width:400px">
   <div class="panel panel-info">
-    <div class="panel-heading">Popular Species</div>
+    <div class="panel-heading">常見/熱門物種(Popular Species)</div>
     <div class="panel-body" style="overflow:hidden">
       <& /homepage/popular_species.mas, show_link => 0 &>
     </div>

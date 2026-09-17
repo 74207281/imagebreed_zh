@@ -10,7 +10,7 @@ $genotyping_plate_format => '96'
 
 <div id="trial_plate_layout_html1">
 <div class="well">
-[LOADING...]
+[載入中...]
 </div>
 </div>
 
@@ -26,7 +26,7 @@ jQuery(document).ready(function () {
         success: function(response){
             // console.log(response);
             jQuery("#working_modal").modal("hide");
-            var trial_plate_layout_html = "<table class='table table-hover table-condensed table-bordered' id='trial_plate_layout_table1'><thead><tr><th>Well</th><th>Accession Name</th><th>Sample Name</th><th>Volume (ul)</th><th>Concentration(ng)</th></tr></thead><tbody>";
+            var trial_plate_layout_html = "<table class='table table-hover table-condensed table-bordered' id='trial_plate_layout_table1'><thead><tr><th>孔位(Well)</th><th>品系名稱(Accession Name)</th><th>樣本名稱(Sample Name)</th><th>體積(Volume (ul))</th><th>濃度(Concentration (ng))</th></tr></thead><tbody>";
 
             var col_max = 1;
             if (<% $genotyping_plate_format %> == '96'){
@@ -67,7 +67,7 @@ jQuery(document).ready(function () {
         },
         error: function(response){
             jQuery("#working_modal").modal("hide");
-            alert("Error retrieving plate layout.");
+            alert("擷取微孔盤配置時發生錯誤。");
         }
     });
 

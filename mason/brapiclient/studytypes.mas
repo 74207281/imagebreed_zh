@@ -1,10 +1,10 @@
 <%args>
 </%args>
 
-<h4>StudyTypes</h4>
+<h4>研究類型(StudyTypes)</h4>
 
 <div id="brapi_studytypes_div">
-<button class="btn btn-primary" id="brapi_home_show_studytypes">Show StudyTypes</button>
+<button class="btn btn-primary" id="brapi_home_show_studytypes">顯示研究類型(Show StudyTypes)</button>
 
 </div>
 
@@ -21,7 +21,7 @@ jQuery("#brapi_home_show_studytypes").click(function() {
         brapi_create_paginated_table(response.result.data, response.metadata.pagination, 'brapi_studytypes_div', jQuery('#brapi_home_url_select').val()+'/brapi/v1/studyTypes', undefined);
       },
       error: function(response) {
-        alert('An error occurred getting seasons');
+        alert('獲取研究類型時發生錯誤(An error occurred getting study types)');
       }
     });
 });

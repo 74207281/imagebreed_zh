@@ -8,50 +8,50 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="analysisCalculateStatisticsDialog">Calculate statistics</h4>
+        <h4 class="modal-title" id="analysisCalculateStatisticsDialog">計算統計數據(Calculate statistics)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "analysis_calculate_statistics_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Field Trial" &>
-                    <& /page/page_title.mas, title=>"Select the field trial(s) you are interested in." &>
+                <&| /util/workflow.mas:step, title=> "田間試驗(Field Trial)" &>
+                    <& /page/page_title.mas, title=>"選擇您感興趣的田間試驗(Select the field trial(s) you are interested in)。" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Field Trial(s): </label>
+                            <label class="col-sm-3 control-label">田間試驗(Field Trial(s)): </label>
                             <div class="col-sm-9" >
                                 <div id="analysis_calculate_statistics_trial_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_field_trial_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_field_trial_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Trait Selection" &>
-                    <& /page/page_title.mas, title=>"Select the observation variable you are interested in" &>
+                <&| /util/workflow.mas:step, title=> "性狀選擇(Trait Selection)" &>
+                    <& /page/page_title.mas, title=>"選擇您感興趣的觀測變數(Select the observation variable you are interested in)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Observation Variables Phenotyped in the Selected Field Trial(s): </label>
+                            <label class="col-sm-3 control-label">所選田間試驗中已測量之觀測變數(Observation Variables Phenotyped in the Selected Field Trial(s)): </label>
                             <div class="col-sm-9" >
                                 <div id="analysis_calculate_statistics_trait_select_div"></div>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_trait_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_trait_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Statistics" &>
-                    <& /page/page_title.mas, title=>"Select statistics to calculate" &>
+                <&| /util/workflow.mas:step, title=> "統計分析(Statistics)" &>
+                    <& /page/page_title.mas, title=>"選擇要計算的統計數據(Select statistics to calculate)" &>
 
                     <div id="analysis_calculate_statistics_model_select_div"></div>
 
                     <br/><br/>
                     <center>
-                    <button class="btn btn-default" id="analysis_calculate_statistics_create_new_model_button">My Model is Not Shown, So Create New Model</button>
+                    <button class="btn btn-default" id="analysis_calculate_statistics_create_new_model_button">未顯示我的模型，建立新模型(My Model is Not Shown, So Create New Model)</button>
                     </center>
 
                     <div id="analysis_calculate_statistics_create_new_model_div" style="display:none">
@@ -59,22 +59,22 @@
 
                         <div class="well well-sm">
                             <select class="form-control" id="analysis_calculate_statistics_select_input">
-                                <option value="">Select A Model</option>
-                                <option value="lmer_germplasmname_replicate">LMER BLUPs y~replicate+location_year+1|Germplasm. Univariate genetic effects across location_years</option>
-                                <option value="sommer_grm_genetic_blups">Sommer GBLUPs Y~replicate+location_year+GRM. Multivariate genetic effects using GRM across location_years</option>
-                                <option value="sommer_grm_spatial_genetic_blups">Sommer Spatial GBLUPs Y~replicate+location_year+GRM+spatial. Multivariate genetic + 2Dspl spatial effects across location_years</option>
+                                <option value="">選擇模型(Select A Model)</option>
+                                <option value="lmer_germplasmname_replicate">LMER BLUPs y~replicate+location_year+1|Germplasm。跨地點年份之單變量遺傳效應(Univariate genetic effects across location_years)</option>
+                                <option value="sommer_grm_genetic_blups">Sommer GBLUPs Y~replicate+location_year+GRM。跨地點年份使用 GRM 之多變量遺傳效應(Multivariate genetic effects using GRM across location_years)</option>
+                                <option value="sommer_grm_spatial_genetic_blups">Sommer Spatial GBLUPs Y~replicate+location_year+GRM+spatial。跨地點年份之多變量遺傳 + 2Dspl 空間效應(Multivariate genetic + 2Dspl spatial effects across location_years)</option>
                             </select>
 
                             <div id="analysis_calculate_statistics_relationship_matrix_type_div" style="display:none">
                                 <hr>
                                 <div class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Relationship Matrix Type: </label>
+                                        <label class="col-sm-3 control-label">親緣關係矩陣類型(Relationship Matrix Type): </label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="analysis_calculate_statistics_relationship_matrix_type_select_div">
-                                                <option value="">Identity</option>
-                                                <option value="htp_phenotypes">High-throughput Phenotyping Data</option>
-                                                <option value="genotypes">Genotyping Data</option>
+                                                <option value="">單位矩陣(Identity)</option>
+                                                <option value="htp_phenotypes">高通量表型資料(High-throughput Phenotyping Data)</option>
+                                                <option value="genotypes">基因型分型資料(Genotyping Data)</option>
                                             </select>
                                         </div>
                                     </div>
@@ -85,17 +85,17 @@
                                 <hr>
                                 <div class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Genotyping Protocol To Calculate Genomic Relationship Matrix (optional. If none selected, an identity matrix is used): </label>
+                                        <label class="col-sm-3 control-label">計算基因組親緣關係矩陣之基因型分型實驗方案（選填。若未選擇將使用單位矩陣）(Genotyping Protocol To Calculate Genomic Relationship Matrix (optional. If none selected, an identity matrix is used)): </label>
                                         <div class="col-sm-9" >
                                             <div id="analysis_calculate_statistics_genotyping_protocol_select_div"></div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Compute Genotypes From Parents: </label>
+                                        <label class="col-sm-3 control-label">從親本計算基因型(Compute Genotypes From Parents): </label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="analysis_calculate_statistics_genotyping_protocol_compute_from_parents_select">
-                                                <option value="no">No</option>
-                                                <option value="yes">Yes</option>
+                                                <option value="no">否(No)</option>
+                                                <option value="yes">是(Yes)</option>
                                             </select>
                                         </div>
                                     </div>
@@ -105,28 +105,28 @@
                             <div id="analysis_calculate_statistics_htp_phenotypes_rel_matrix_div" class="well well-sm" style="display:none">
                                 <div class="form-horizontal">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">How to calculate the relationship matrix with high-throughput phenotypes: </label>
+                                        <label class="col-sm-3 control-label">如何使用高通量表型計算親緣關係矩陣(How to calculate the relationship matrix with high-throughput phenotypes): </label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="analysis_calculate_statistics_htp_phenotypes_rel_matrix_select">
-                                                <option value="correlations">Correlations</option>
-                                                <option value="blues">BLUEs</option>
+                                                <option value="correlations">相關性(Correlations)</option>
+                                                <option value="blues">最佳線性無偏估計值 (BLUEs)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Time Points to Use: </label>
+                                        <label class="col-sm-3 control-label">使用之時間點(Time Points to Use): </label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="analysis_calculate_statistics_htp_phenotypes_rel_matrix_times_select">
-                                                <option value="all">All Available</option>
-                                                <option value="latest_trait">Up to latest days after planting selecting in traits</option>
-                                                <option value="vegetative" disabled>Vegetative Growth Stage</option>
-                                                <option value="reproductive" disabled>Reproductive Growth Stage</option>
-                                                <option value="mature" disabled>Mature Growth Stage</option>
+                                                <option value="all">所有可用時間點(All Available)</option>
+                                                <option value="latest_trait">截至性狀中所選之最新播種後天數(Up to latest days after planting selecting in traits)</option>
+                                                <option value="vegetative" disabled>營養生長階段(Vegetative Growth Stage)</option>
+                                                <option value="reproductive" disabled>生殖生長階段(Reproductive Growth Stage)</option>
+                                                <option value="mature" disabled>成熟階段(Mature Growth Stage)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group" id="analysis_calculate_statistics_htp_phenotypes_rel_matrix_inversion_select_div" style="display:none">
-                                        <label class="col-sm-3 control-label">HTP BLUEs Inversion Tolerance: </label>
+                                        <label class="col-sm-3 control-label">HTP BLUEs 反轉容差(HTP BLUEs Inversion Tolerance): </label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="analysis_calculate_statistics_htp_phenotypes_rel_matrix_inversion_select">
                                                 <option value="0.00001">0.00001</option>
@@ -144,7 +144,7 @@
                             <hr>
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Inversion Tolerance: </label>
+                                    <label class="col-sm-3 control-label">反轉容差(Inversion Tolerance): </label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="analysis_calculate_statistics_tolparinv_select">
                                             <option value="0.000001">0.000001</option>
@@ -167,29 +167,29 @@
                             <hr>
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Fixed Effects: </label>
+                                    <label class="col-sm-3 control-label">固定效應(Fixed Effects): </label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="analysis_calculate_statistics_fixed_effect_select_div">
-                                            <option value="replicate">Replicate</option>
-                                            <option value="fixed_effect_trait">Select a continuous trait (e.g. soil elevation curvature)</option>
+                                            <option value="replicate">重複(Replicate)</option>
+                                            <option value="fixed_effect_trait">選擇連續型性狀（如土壤高程曲率）(Select a continuous trait (e.g. soil elevation curvature))</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group" id="analysis_calculate_statistics_fixed_effect_select_trait_div" style="display:none">
-                                    <label class="col-sm-3 control-label">Fixed Effect Trait: </label>
+                                    <label class="col-sm-3 control-label">固定效應性狀(Fixed Effect Trait): </label>
                                     <div class="col-sm-9" >
                                         <div id="analysis_calculate_statistics_fixed_effect_trait_select_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group" id="analysis_calculate_statistics_fixed_effect_select_quantile_div" style="display:none">
-                                    <label class="col-sm-3 control-label">Fixed Effect Continuous Trait Quantile Binning: </label>
+                                    <label class="col-sm-3 control-label">固定效應連續性狀分位數分組(Fixed Effect Continuous Trait Quantile Binning): </label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="analysis_calculate_statistics_fixed_effect_select_quantile">
-                                            <option value="10">10% Quantiles</option>
-                                            <option value="5">20% Quantiles</option>
-                                            <option value="4">25% Quantiles</option>
-                                            <option value="3">33% Quantiles</option>
-                                            <option value="20">5% Quantiles</option>
+                                            <option value="10">10% 分位數(10% Quantiles)</option>
+                                            <option value="5">20% 分位數(20% Quantiles)</option>
+                                            <option value="4">25% 分位數(25% Quantiles)</option>
+                                            <option value="3">33% 分位數(33% Quantiles)</option>
+                                            <option value="20">5% 分位數(5% Quantiles)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -201,18 +201,18 @@
 
                     <br/><br/>
                     <center>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_select_step">Submit</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_select_step">送出(Submit)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Results" &>
-                    <& /page/page_title.mas, title=>"Statistics results" &>
+                <&| /util/workflow.mas:step, title=> "結果(Results)" &>
+                    <& /page/page_title.mas, title=>"統計結果(Statistics results)" &>
 
                     <hr>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_genetic_pe_residual" style="display:none">Go To Save Analysis Results For Genetic and Environment BLUPS and Residuals</button>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_genetic" style="display:none">Go To Save Analysis Results For Genetic BLUPS</button>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_spatial" style="display:none">Go To Save Analysis Results For Spatial BLUPS</button>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_residuals" style="display:none">Go To Save Analysis Results For Residuals</button>
-                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_fitted" style="display:none">Go To Save Analysis Results For Fitted Values</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_genetic_pe_residual" style="display:none">前往儲存遺傳與環境 BLUPs 及殘差之分析結果(Go To Save Analysis Results For Genetic and Environment BLUPS and Residuals)</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_genetic" style="display:none">前往儲存遺傳 BLUPs 之分析結果(Go To Save Analysis Results For Genetic BLUPS)</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_blups_spatial" style="display:none">前往儲存空間 BLUPs 之分析結果(Go To Save Analysis Results For Spatial BLUPS)</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_residuals" style="display:none">前往儲存殘差之分析結果(Go To Save Analysis Results For Residuals)</button>
+                    <button class="btn btn-primary" id="analysis_calculate_statistics_analysis_save_fitted" style="display:none">前往儲存擬合值之分析結果(Go To Save Analysis Results For Fitted Values)</button>
                     <hr>
 
                     <div id ="analysis_calculate_statistics_result_div">
@@ -224,7 +224,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -262,7 +262,7 @@ jQuery(document).ready(function() {
 
         analysis_calculate_statistics_field_trial_id_string = analysis_calculate_statistics_field_trial_id_array.join(",");
         if (analysis_calculate_statistics_field_trial_id_string == '') {
-            alert('Please select a field trial first!');
+            alert('請先選擇田間試驗！(Please select a field trial first!)');
         } else {
             get_select_box('traits', 'analysis_calculate_statistics_trait_select_div', { 'name' : 'analysis_calculate_statistics_trait_id_select', 'id' : 'analysis_calculate_statistics_trait_id_select', 'empty':1, 'multiple':0, 'trial_ids':analysis_calculate_statistics_field_trial_id_string, 'stock_type':'plot' });
 
@@ -287,7 +287,7 @@ jQuery(document).ready(function() {
 
         analysis_calculate_statistics_trait_id = jQuery('#analysis_calculate_statistics_trait_id_select').val();
         if (analysis_calculate_statistics_trait_id == null || analysis_calculate_statistics_trait_id == undefined) {
-            alert('Please select one observation variable!');
+            alert('請選擇一個觀測變數！(Please select one observation variable!)');
             return false;
         }
 
@@ -421,7 +421,7 @@ jQuery(document).ready(function() {
 
                     var html = '';
                     if (response.sum_square_residual) {
-                        html = html + '<h4>Sum square residual: '+response.sum_square_residual+'</h4><hr>';
+                        html = html + '<h4>殘差平方和(Sum square residual): '+response.sum_square_residual+'</h4><hr>';
                     }
                     if (response.genetic_effects_line_plot) {
                         html = html + '<img src="'+response.genetic_effects_line_plot+'"><hr>';
@@ -435,7 +435,7 @@ jQuery(document).ready(function() {
                         analysis_calculate_statistics_phenotype_training_file = response.stats_tempfile;
                         analysis_calculate_statistics_grm_training_file = response.grm_file;
 
-                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>Accessions</th>';
+                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>品系/材料(Accessions)</th>';
                         for (var i=0; i<analysis_calculate_statistics_trait_names.length; i++) {
                             html = html + '<th>'+analysis_calculate_statistics_trait_names[i]+'</th>';
                         }
@@ -460,7 +460,7 @@ jQuery(document).ready(function() {
                         analysis_calculate_statistics_plot_names = response.unique_plots;
                         analysis_calculate_statistics_trait_names = response.unique_traits;
 
-                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>Plots</th>';
+                        html = html + '<table class="table table-bordered table-hover"><thead><tr><th>小區(Plots)</th>';
                         for (var i=0; i<response.unique_traits.length; i++) {
                             html = html + '<th>'+response.unique_traits[i]+'</th>';
                         }
@@ -477,17 +477,17 @@ jQuery(document).ready(function() {
                     }
 
                     if (response.results.length > 0) {
-                        html = '<table class="table table-bordered table-hover"><thead><tr><th>Observation Variable</th><th>Statistics</th><th>Plot</th></tr></thead><tbody>';
+                        html = '<table class="table table-bordered table-hover"><thead><tr><th>觀測變數(Observation Variable)</th><th>統計量(Statistics)</th><th>圖表(Plot)</th></tr></thead><tbody>';
                         for (var i=0; i<response.results.length; i++) {
                             html = html + '<tr><td>'+response.results[i][0]+'</td><td>'+response.results[i][1]+'</td><td><img src="'+response.results[i][2]+'"></td></tr>';
                         }
                         html = html + '</tbody></table>';
                     }
 
-                    html = html + '<hr><a href="'+response.stats_out_tempfile_string+'.log" target=_blank>Stats file or log</a>';
+                    html = html + '<hr><a href="'+response.stats_out_tempfile_string+'.log" target=_blank>統計檔案或日誌(Stats file or log)</a>';
 
                     if (jQuery('#analysis_calculate_statistics_relationship_matrix_type_select_div').val() == 'htp_phenotypes') {
-                        html = html + '<hr><a href="'+response.stats_out_htp_rel_tempfile_out_string+'" target=_blank>HTP Relationship Matrix</a>';
+                        html = html + '<hr><a href="'+response.stats_out_htp_rel_tempfile_out_string+'" target=_blank>高通量表型親緣關係矩陣(HTP Relationship Matrix)</a>';
                     }
 
                     jQuery('#analysis_calculate_statistics_result_div').html(html);
@@ -498,7 +498,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error calculating statistics!')
+                alert('計算統計量時發生錯誤！(Error calculating statistics!)');
             }
         });
     });
@@ -514,15 +514,15 @@ jQuery(document).ready(function() {
         var generic_save_analysis_template_breeding_program_id = jQuery('#generic_save_analysis_template_breeding_program_id').val();
 
         if (generic_save_analysis_template_analysis_name == '') {
-            alert('Please give an analysis template name');
+            alert('請提供分析範本名稱(Please give an analysis template name)');
             return false;
         }
         if (generic_save_analysis_template_analysis_description == '') {
-            alert('Please give an analysis template description');
+            alert('請提供分析範本描述(Please give an analysis template description)');
             return false;
         }
         if (generic_save_analysis_template_analysis_year == '') {
-            alert('Please give an analysis template year');
+            alert('請提供分析範本年份(Please give an analysis template year)');
             return false;
         }
 
@@ -635,10 +635,10 @@ jQuery(document).ready(function() {
                 if (response.success) {
                     var html = '<center>';
                     if (response.model_id) {
-                        html = html + '<p>Go to saved <a href="/analyses_model/'+response.model_id+'" target=_blank >model</a></p>';
+                        html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses_model/'+response.model_id+'" target=_blank >模型(model)</a></p>';
                     }
                     if (response.analysis_id) {
-                        html = html + '<p>Go to saved <a href="/analyses/'+response.analysis_id+'" target=_blank >GBLUP analysis</a></p>';
+                        html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses/'+response.analysis_id+'" target=_blank >GBLUP 分析(GBLUP analysis)</a></p>';
                     }
                     html = html + '</center>';
                     jQuery('#generic_save_analysis_template_response_div').html(html);
@@ -700,7 +700,7 @@ jQuery(document).ready(function() {
                                 html = html + '<center>';
                                 if (response.analysis_id) {
                                     if (analysis_calculate_statistics_select == 'sommer_grm_spatial_genetic_blups') {
-                                        html = html + '<p>Go to saved <a href="/analyses/'+response.analysis_id+'" target=_blank >spatial BLUP analysis</a></p>';
+                                        html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses/'+response.analysis_id+'" target=_blank >空間 BLUP 分析(spatial BLUP analysis)</a></p>';
                                     }
                                 }
                                 html = html + '</center>';
@@ -711,7 +711,7 @@ jQuery(document).ready(function() {
 
                                 if (analysis_calculate_statistics_select == 'sommer_grm_spatial_genetic_blups') {
                                     jQuery('#working_modal').modal('hide');
-                                    alert('Analysis and/or model saved!');
+                                    alert('分析及/或模型已儲存！(Analysis and/or model saved!)');
                                     return false;
                                 }
 
@@ -756,30 +756,30 @@ jQuery(document).ready(function() {
                                             alert(response.error);
                                         }
                                         if (response.success) {
-                                            alert('Analysis and/or model saved!');
+                                            alert('分析及/或模型已儲存！(Analysis and/or model saved!)');
                                             html = html + '<center>';
                                             if (response.analysis_id) {
-                                                html = html + '<p>Go to saved <a href="/analyses/'+response.analysis_id+'" target=_blank >residuals analysis</a></p>';
+                                                html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses/'+response.analysis_id+'" target=_blank >殘差分析(residuals analysis)</a></p>';
                                             }
                                             html = html + '</center>';
                                             jQuery('#generic_save_analysis_template_response_div').html(html);
                                         }
                                     },
                                     error: function(response){
-                                        alert('Error saving analysis multiple!');
+                                        alert('儲存分析多重結果時發生錯誤！(Error saving analysis multiple!)');
                                     }
                                 });
                             }
                         },
                         error: function(response){
-                            alert('Error saving analysis multiple!');
+                            alert('儲存分析多重結果時發生錯誤！(Error saving analysis multiple!)');
                         }
                     });
                 }
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('Error saving analysis multiple!');
+                alert('儲存分析多重結果時發生錯誤！(Error saving analysis multiple!)');
             }
         });
     });
@@ -875,7 +875,7 @@ jQuery(document).ready(function() {
 
     jQuery('#analysis_calculate_statistics_analysis_save_blups_spatial').click(function(){
         if (analysis_calculate_statistics_field_trial_id_array.length>1) {
-            alert('Saving spatial BLUPs currently only implemented for a single trial, so only select one field trial in your analysis');
+            alert('儲存空間 BLUPs 目前僅支援單一試驗，請在分析中只選取一個田間試驗(Saving spatial BLUPs currently only implemented for a single trial, so only select one field trial in your analysis)');
             return false;
         }
 

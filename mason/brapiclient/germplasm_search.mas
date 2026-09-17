@@ -3,11 +3,11 @@
 
 <& /util/import_javascript.mas, classes => [ 'brapi.Table' ] &>
 
-<& /page/page_title.mas, title=>"Germplasm Search and Exchange" &>
+<& /page/page_title.mas, title=>"種原搜尋與交換(Germplasm Search and Exchange)" &>
 
-<h4>Database Select</h4>
+<h4>選擇資料庫(Database Select)</h4>
 <select name="brapi_home_url_select" id="brapi_home_url_select" class="form-control" />
-    <option value="">local</option>
+    <option value="">本地(local)</option>
     <option value="https://cassbase.org">cassbase.org</option>
     <option value="https://cassavabase.org">cassavabase.org</option>
     <option value="https://musabase.org">musabase.org</option>
@@ -18,22 +18,22 @@
     <option value="https://www.crop-diversity.org/mgis">crop-diversity.org</option>
 </select>
 
-<h4>Germplasm Search</h4>
+<h4>種原搜尋(Germplasm Search)</h4>
 
 <div id="brapi_germplasm_search_home_div" class="well">
 
-<input name="brapi_germplasm_search_germplasmName" id="brapi_germplasm_search_germplasmname" class="form-control" type="text" placeholder="GermplasmName(s) e.g. TMEB419,TMEB529" />
-<input name="brapi_germplasm_search_accessionNumber" id="brapi_germplasm_search_accessionNumber" class="form-control" type="text" placeholder="AccessionNumber" />
-<input name="brapi_germplasm_search_germplasmGenus" id="brapi_germplasm_search_germplasmGenus" class="form-control" type="text" placeholder="GermplasmGenus" />
-<input name="brapi_germplasm_search_germplasmSpecies" id="brapi_germplasm_search_germplasmSpecies" class="form-control" type="text" placeholder="GermplasmSpecies" />
-<input name="brapi_germplasm_search_germplasmDbId" id="brapi_germplasm_search_germplasmDbId" class="form-control" type="text" placeholder="GermplasmDbId" />
-<input name="brapi_germplasm_search_germplasmPUI" id="brapi_germplasm_search_germplasmPUI" class="form-control" type="text" placeholder="GermplasmPUI" />
+<input name="brapi_germplasm_search_germplasmName" id="brapi_germplasm_search_germplasmname" class="form-control" type="text" placeholder="種原名稱（如 TMEB419,TMEB529）(GermplasmName(s) e.g. TMEB419,TMEB529)" />
+<input name="brapi_germplasm_search_accessionNumber" id="brapi_germplasm_search_accessionNumber" class="form-control" type="text" placeholder="品系編號(AccessionNumber)" />
+<input name="brapi_germplasm_search_germplasmGenus" id="brapi_germplasm_search_germplasmGenus" class="form-control" type="text" placeholder="種原屬名(GermplasmGenus)" />
+<input name="brapi_germplasm_search_germplasmSpecies" id="brapi_germplasm_search_germplasmSpecies" class="form-control" type="text" placeholder="種原種名(GermplasmSpecies)" />
+<input name="brapi_germplasm_search_germplasmDbId" id="brapi_germplasm_search_germplasmDbId" class="form-control" type="text" placeholder="種原資料庫 ID(GermplasmDbId)" />
+<input name="brapi_germplasm_search_germplasmPUI" id="brapi_germplasm_search_germplasmPUI" class="form-control" type="text" placeholder="種原 PUI(GermplasmPUI)" />
 <select name="brapi_germplasm_search_matchMethod" id="brapi_germplasm_search_matchMethod" class="form-control" />
-    <option value="exact">Exact</option>
-    <option value="wildcard">Wildcard. Wildcard allows % or * for multiple characters and ? for single characters.</option>
+    <option value="exact">精確比對(Exact)</option>
+    <option value="wildcard">萬用字元（允許 % 或 * 表示多個字元，? 表示單個字元）(Wildcard. Wildcard allows % or * for multiple characters and ? for single characters.)</option>
 </select>
 <br/>
-<button class="btn btn-primary" name="brapi_germplasm_search_submit" id="brapi_germplasm_search_submit">Search</button>
+<button class="btn btn-primary" name="brapi_germplasm_search_submit" id="brapi_germplasm_search_submit">搜尋(Search)</button>
 
 <br/><br/>
 
@@ -47,7 +47,7 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="brapiGermplasmSearchSavedDialog">BrAPI Germplasm Exchange</h4>
+                <h4 class="modal-title" id="brapiGermplasmSearchSavedDialog">BrAPI 種原交換(BrAPI Germplasm Exchange)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -55,7 +55,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_brapi_germplasm_saved_message_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_brapi_germplasm_saved_message_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -140,7 +140,7 @@ jQuery(document).ready(function() {
           },
           error: function(response) {
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
     });
@@ -176,14 +176,14 @@ jQuery(document).ready(function() {
                 }
                 console.log(response);
 
-                var html = '<h3>How Selected Organisms Compare to This Database:</h3>';
-                html = html + '<table class="table table-bordered"><thead><tr><th>Species</th><th>Status</th><th>Possible Matches</th></tr></thead><tbody>';
+                var html = '<h3>所選生物與本資料庫之比對結果(How Selected Organisms Compare to This Database):</h3>';
+                html = html + '<table class="table table-bordered"><thead><tr><th>物種(Species)</th><th>狀態(Status)</th><th>可能相符項目(Possible Matches)</th></tr></thead><tbody>';
                 for (var i=0; i<response.found_organisms.length; i++){
-                    html = html + '<tr><td>' + response.found_organisms[i].unique_name + '</td><td class="bg-success">Exact Species Found in This Database</td><td>Exact Match</td></tr>';
+                    html = html + '<tr><td>' + response.found_organisms[i].unique_name + '</td><td class="bg-success">本資料庫中找到完全符合的物種(Exact Species Found in This Database)</td><td>完全相符(Exact Match)</td></tr>';
                     allowed_organism_results.push(response.found_organisms[i].unique_name);
                 }
                 for (var i=0; i<response.fuzzy_organisms.length; i++){
-                    html = html + '<tr><td>' + response.fuzzy_organisms[i].name + '</td><td class="bg-danger">Possible Species Matches Found in This Database, but Not Exact Match. Please Contact Us to Add Your Organism, or change Your Species to Match Our Species Name!</td>';
+                    html = html + '<tr><td>' + response.fuzzy_organisms[i].name + '</td><td class="bg-danger">本資料庫中找到可能相符的物種，但非完全相符。請聯絡我們以新增您的生物，或修改您的物種以符合我們的物種名稱！(Possible Species Matches Found in This Database, but Not Exact Match. Please Contact Us to Add Your Organism, or change Your Species to Match Our Species Name!)</td>';
                     html = html + '<td><select class="form-control">'
                     for (var j=0; j<response.fuzzy_organisms[i].matches.length; j++){
                         html = html + '<option value="'+response.fuzzy_organisms[i].matches[j].name+'">'+response.fuzzy_organisms[i].matches[j].name+'</option>'
@@ -191,17 +191,17 @@ jQuery(document).ready(function() {
                     html = html + '</select></td></tr>';
                 }
                 for (var i=0; i<response.absent_organisms.length; i++){
-                    html = html + '<tr><td>' + response.absent_organisms[i] + '</td><td class="bg-danger">Please Contact Us to Add Your Organism, or change Your Species to Match Our Species Name!</td><td>No Match</td></tr>';
+                    html = html + '<tr><td>' + response.absent_organisms[i] + '</td><td class="bg-danger">請聯絡我們以新增您的生物，或修改您的物種以符合我們的物種名稱！(Please Contact Us to Add Your Organism, or change Your Species to Match Our Species Name!)</td><td>無相符項目(No Match)</td></tr>';
                 }
                 html = html + '</tbody></table>';
 
-                html = html + '<h3>How Selected GermplasmNames Compare to This Database:</h3>';
-                html = html + '<table class="table table-bordered"><thead><tr><th>Select</th><th>GermplasmName</th><th>Status</th><th>Possible Matches</th></tr></thead><tbody>';
+                html = html + '<h3>所選種原名稱與本資料庫之比對結果(How Selected GermplasmNames Compare to This Database):</h3>';
+                html = html + '<table class="table table-bordered"><thead><tr><th>選取(Select)</th><th>種原名稱(GermplasmName)</th><th>狀態(Status)</th><th>可能相符項目(Possible Matches)</th></tr></thead><tbody>';
                 for (var i=0; i<response.found.length; i++){
-                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" disabled/></td><td>' + response.found[i].unique_name + '</td><td class="bg-success">Exact GermplasmName Found in This Database</td><td>Exact Match</td></tr>';
+                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" disabled/></td><td>' + response.found[i].unique_name + '</td><td class="bg-success">本資料庫中找到完全符合的種原名稱(Exact GermplasmName Found in This Database)</td><td>完全相符(Exact Match)</td></tr>';
                 }
                 for (var i=0; i<response.fuzzy.length; i++){
-                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" value="' + response.fuzzy[i].name + '"/></td><td>' + response.fuzzy[i].name + '</td><td class="bg-info">Possible GermplasmName Matches Found in This Database</td>';
+                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" value="' + response.fuzzy[i].name + '"/></td><td>' + response.fuzzy[i].name + '</td><td class="bg-info">本資料庫中找到可能相符的種原名稱(Possible GermplasmName Matches Found in This Database)</td>';
                     html = html + '<td><select class="form-control">'
                     for (var j=0; j<response.fuzzy[i].matches.length; j++){
                         html = html + '<option value="'+response.fuzzy[i].matches[j].name+'">'+response.fuzzy[i].matches[j].name+'</option>'
@@ -209,15 +209,15 @@ jQuery(document).ready(function() {
                     html = html + '</select></td></tr>';
                 }
                 for (var i=0; i<response.absent.length; i++){
-                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" value="' + response.absent[i] + '"/></td><td>' + response.absent[i] + '</td><td class="bg-warning">GermplasmName Not Found in This Database</td><td>No Match</td></tr>';
+                    html = html + '<tr><td><input type="checkbox" name="brapi_germplasm_search_collection_select" value="' + response.absent[i] + '"/></td><td>' + response.absent[i] + '</td><td class="bg-warning">本資料庫中未找到種原名稱(GermplasmName Not Found in This Database)</td><td>無相符項目(No Match)</td></tr>';
                 }
-                html = html + '</tbody></table><button class="btn btn-primary" name="brapi_germplasm_search_submit_final" id="brapi_germplasm_search_submit_final">Save in Database</button>';
+                html = html + '</tbody></table><button class="btn btn-primary" name="brapi_germplasm_search_submit_final" id="brapi_germplasm_search_submit_final">儲存至資料庫(Save in Database)</button>';
                 jQuery('#working_modal').modal('hide');
                 jQuery('#brapi_germplasm_search_result_div_collection').html(html);
             },
             'error': function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred in fuzzy search!');
+                alert('模糊搜尋時發生錯誤(An error occurred in fuzzy search)!');
             }
         })
     });
@@ -241,7 +241,7 @@ jQuery(document).ready(function() {
                 'success': function(response){
                     //console.log(response);
                     if (jQuery.inArray(response.result.data[0].species, allowed_organism_results) == -1){
-                        alert('Will Skip '+response.result.data[0].germplasmName+' because the species '+response.result.data[0].species+' is not in this database!');
+                        alert('將略過(Will Skip) '+response.result.data[0].germplasmName+'，因為物種 '+response.result.data[0].species+' 不在此資料庫中(because the species '+response.result.data[0].species+' is not in this database)!');
                     } else {
                         to_save.push(response.result.data[0]);
                     }
@@ -251,7 +251,7 @@ jQuery(document).ready(function() {
                     request++;
                 },
                 'error': function(response){
-                    alert('An error occurred getting details to save!');
+                    alert('獲取儲存詳細資訊時發生錯誤(An error occurred getting details to save)!');
                 }
             });
         }
@@ -277,7 +277,7 @@ function perform_save(to_save){
                 return false;
             }
             if(response.success){
-                var html = 'The following stocks were added!<br/>';
+                var html = '已新增以下種原(The following stocks were added)!<br/>';
                 for (var i=0; i<response.added.length; i++){
                     html = html + '<a href="/stock/'+response.added[i][0]+'/view">'+response.added[i][1]+'</a><br/>';
                 }
@@ -287,7 +287,7 @@ function perform_save(to_save){
             jQuery('#working_modal').modal('hide');
         },
         'error': function(response){
-            alert('An error occurred in fuzzy search!');
+            alert('模糊搜尋時發生錯誤(An error occurred in fuzzy search)!');
             jQuery('#working_modal').modal('hide');
         }
     })

@@ -3,35 +3,35 @@
 
 <& /page/page_title.mas, title=>"BrAPI" &>
 
-<h1>Modules</h1>
+<h1>模組(Modules)</h1>
 <div class="well">
 <ul>
-    <li><a href="/brapihome/germplasm">Germplasm Search and Exchange</a></li>
+    <li><a href="/brapihome/germplasm">種原搜尋與交換(Germplasm Search and Exchange)</a></li>
 </ul>
 </div>
 <div class="well">
 <ul>
-    <li><a href="/brapihome/phenotyping_handhelds">Phenotyping Handhelds</a></li>
+    <li><a href="/brapihome/phenotyping_handhelds">手持表型測量設備(Phenotyping Handhelds)</a></li>
 </ul>
 </div>
 <div class="well">
 <ul>
-    <li><a href="/brapihome/phenotype">Phenotype Retrieval</a></li>
+    <li><a href="/brapihome/phenotype">檢索表型(Phenotype Retrieval)</a></li>
 </ul>
 </div>
 <div class="well">
 <ul>
-    <li><a href="/brapihome/genotype">Genotype Retrieval</a></li>
+    <li><a href="/brapihome/genotype">檢索基因型(Genotype Retrieval)</a></li>
 </ul>
 </div>
 
-<&| /page/info_section.mas, title=>'Calls Testing', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>'呼叫測試(Calls Testing)', collapsible=>1, collapsed=>1 &>
 
 <div id="brapi_home_url_select_div">
 
-    <h4>URL Select</h4>
+    <h4>選擇 URL(URL Select)</h4>
     <select name="brapi_home_url_select" id="brapi_home_url_select" class="form-control" />
-        <option value="">local</option>
+        <option value="">本地(local)</option>
         <option value="https://cassbase.org">cassbase.org</option>
         <option value="https://cassavabase.org">cassavabase.org</option>
         <option value="https://musabase.org">musabase.org</option>

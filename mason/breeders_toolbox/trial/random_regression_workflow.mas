@@ -15,13 +15,13 @@ $is_analysis => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialAnalysisRRWorkflowDialog">Find Random Regression Temporal Correction for Measurements in <% $trial_name %></h4>
+                <h4 class="modal-title" id="trialAnalysisRRWorkflowDialog">尋找 <% $trial_name %> 中測量值的隨機迴歸時間校正(Find Random Regression Temporal Correction for Measurements in <% $trial_name %>)</h4>
             </div>
             <div class="modal-body">
 
                 <&| /util/workflow.mas, id=> "trial_analysis_rr_workflow_dialog_workflow" &>
-                    <&| /util/workflow.mas:step, title=> "Input" &>
-                        <& /page/page_title.mas, title=>"Select the input measurements to run random regression on" &>
+                    <&| /util/workflow.mas:step, title=> "輸入(Input)" &>
+                        <& /page/page_title.mas, title=>"選擇用於執行隨機迴歸的輸入測量值(Select the input measurements to run random regression on)" &>
 
                         <div class="container-fluid">
                             <div class="form-horizontal">
@@ -33,19 +33,19 @@ $is_analysis => undef
 %  }
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Random Regression Method: </label>
+                                    <label class="col-sm-3 control-label">隨機迴歸方法：</label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="trial_analysis_rr_workflow_model_type">
-                                            <option value="">Select a model</option>
-                                            <option value="airemlf90_legendre_rr">AIREMLF90 Legendre Polynomial: (y1, .., yn) ~ f(rep) + r(G, leg(z)) + r(E, leg(z)) + e_het</option>
-                                            <option value="sommer_legendre_rr">Sommer Legendre Polynomial: (y1, .., yn) ~ f(rep) + r(G, leg(z)) + r(E, leg(z)) + e</option>
+                                            <option value="">選擇模型</option>
+                                            <option value="airemlf90_legendre_rr">AIREMLF90 勒壤得多項式(Legendre Polynomial)：(y1, .., yn) ~ f(rep) + r(G, leg(z)) + r(E, leg(z)) + e_het</option>
+                                            <option value="sommer_legendre_rr">Sommer 勒壤得多項式(Legendre Polynomial)：(y1, .., yn) ~ f(rep) + r(G, leg(z)) + r(E, leg(z)) + e</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div id="trial_analysis_rr_workflow_model_type_desc"></div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Trait(s): </label>
+                                    <label class="col-sm-3 control-label">性狀：</label>
                                     <div class="col-sm-9" >
                                         <div id="trial_analysis_rr_workflow_traits_div"></div>
                                     </div>
@@ -53,11 +53,11 @@ $is_analysis => undef
 
                                 <div class="well well-sm">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Genetic Relationships: </label>
+                                        <label class="col-sm-3 control-label">親緣關係：</label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="trial_analysis_rr_workflow_genetic_relationship_type">
-                                                <option value="identity">Identity Matrix (Equal relationships of all accessions)</option>
-                                                <option value="grm">Genomic Relationship Matrix (Relationships of accessions from genome-wide marker data)</option>
+                                                <option value="identity">單位矩陣(Identity Matrix)（所有種原關係相等）</option>
+                                                <option value="grm">基因體親緣關係矩陣(Genomic Relationship Matrix)（來自全基因體標記資料的種原親緣關係）</option>
                                             </select>
                                         </div>
                                     </div>
@@ -67,14 +67,14 @@ $is_analysis => undef
                                             <div class="panel-body">
                                                 <div class="well well-sm">
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Genomic Relationship Matrix (GRM) Protocols: </label>
+                                                        <label class="col-sm-3 control-label">基因體親緣關係矩陣 (GRM) 協定：</label>
                                                         <div class="col-sm-9" >
                                                             <div id="trial_analysis_rr_workflow_grm_div"></div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <p>Only GRM protocols linked to this field trial are shown. Please link and/or create a new GRM protocol for this field trial in the Genomic Relationship Matrices section of the trial detail page. GRM protocols can be created directly for the accessions in the field trial or from the parental genotypes, if pedigree information between parental accessions and progeny are available.</p>
+                                                <p>僅顯示連結到此田間試驗的 GRM 協定。請在試驗詳細資訊頁面的「基因體親緣關係矩陣」區段中為此田間試驗連結和/或建立新的 GRM 協定。如果親本種原與後代之間的譜系資訊可用，可以直接為田間試驗中的種原或從親本基因型建立 GRM 協定。</p>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@ $is_analysis => undef
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Tolerance: </label>
+                                    <label class="col-sm-3 control-label">容許度(Tolerance)：</label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="trial_analysis_rr_workflow_tolerance">
                                             <option value="0.001">0.001</option>
@@ -103,7 +103,7 @@ $is_analysis => undef
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Legendre Polynomial Order: </label>
+                                    <label class="col-sm-3 control-label">勒壤得多項式階數：</label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="trial_analysis_rr_workflow_legendre_order">
                                             <option value="3">3</option>
@@ -115,19 +115,19 @@ $is_analysis => undef
 
                             <hr>
                             <center>
-                                <button type="button" class="btn btn-primary" name="trial_analysis_rr_workflow_submit" id="trial_analysis_rr_workflow_submit" title="Submit">Submit</button>
+                                <button type="button" class="btn btn-primary" name="trial_analysis_rr_workflow_submit" id="trial_analysis_rr_workflow_submit" title="送出(Submit)">送出(Submit)</button>
                             </center>
                         </div>
                     </&>
-                    <&| /util/workflow.mas:step, title=> "Output" &>
-                        <& /page/page_title.mas, title=>"Results" &>
+                    <&| /util/workflow.mas:step, title=> "輸出(Output)" &>
+                        <& /page/page_title.mas, title=>"結果(Results)" &>
 
                         <div id="trial_analysis_rr_workflow_results_div"></div>
                     </&>
                 </&>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -153,10 +153,10 @@ jQuery(document).ready(function(){
             jQuery('#trial_analysis_rr_workflow_model_type_desc').html('');
         }
         if (trial_analysis_rr_workflow_model_type_val == 'airemlf90_legendre_rr') {
-            jQuery('#trial_analysis_rr_workflow_model_type_desc').html('<div class="well well-sm"><p>The selected traits are run all in one model, multivariately. A fixed effect for replicate. Random effects for the additive genetic effect (G) following a Legendre polynomial. Random effects for the permanent environment effect (E) following a Legendre polynomial. Heterogenous residual error. This model is run in AIREMLF90.</p></div>');
+            jQuery('#trial_analysis_rr_workflow_model_type_desc').html('<div class="well well-sm"><p>所選性狀將以多變量方式在同一個模型中全部執行。重複(replicate)為固定效應。加性遺傳效應 (G) 依勒壤得多項式設定為隨機效應。永久環境效應 (E) 依勒壤得多項式設定為隨機效應。異質殘差誤差。此模型於 AIREMLF90 中執行。</p></div>');
         }
         if (trial_analysis_rr_workflow_model_type_val == 'sommer_legendre_rr') {
-            jQuery('#trial_analysis_rr_workflow_model_type_desc').html('<div class="well well-sm"><p>The selected traits are run all in one model, multivariately. A fixed effect for replicate. Random effects for the additive genetic effect (G) following a Legendre polynomial. Random effects for the permanent environment effect (E) following a Legendre polynomial. This model is run in R Sommer.</p></div>');
+            jQuery('#trial_analysis_rr_workflow_model_type_desc').html('<div class="well well-sm"><p>所選性狀將以多變量方式在同一個模型中全部執行。重複(replicate)為固定效應。加性遺傳效應 (G) 依勒壤得多項式設定為隨機效應。永久環境效應 (E) 依勒壤得多項式設定為隨機效應。此模型於 R Sommer 中執行。</p></div>');
         }
     });
 
@@ -189,15 +189,15 @@ jQuery(document).ready(function(){
         var trial_analysis_rr_workflow_grm_id = jQuery('#trial_analysis_rr_workflow_grm_id').val();
 
         if (!selected_trait_ids || selected_trait_ids.length < 1) {
-            alert('Please select at least one trait!');
+            alert('請至少選擇一個性狀！');
             return false;
         }
         else if (trial_analysis_rr_workflow_model_type_val == '') {
-            alert('Please select an analysis!');
+            alert('請選擇一個分析！');
             return false;
         }
         else if (trial_analysis_rr_workflow_grm_type_val == 'grm' && trial_analysis_rr_workflow_grm_id == '') {
-            alert('Please select a GRM protocol if Genomic Relationships are to be used! You can always use an identity matrix instead!');
+            alert('如果要使用基因體親緣關係，請選擇 GRM 協定！您也可以隨時改用單位矩陣！');
             return false;
         }
         else {
@@ -228,7 +228,7 @@ jQuery(document).ready(function(){
                         trial_analysis_rr_workflow_response_spatial_data = response.result_blup_spatial_data_original;
                         trial_analysis_rr_workflow_response_heatmap_graphs = [response.heatmaps_plot];
 
-                        var html = '<div class="well well-sm"><button class="btn btn-primary" id="trial_analysis_rr_workflow_results_save_button" >Save Permanent Environment (PE) Effect Results to <% $trial_name %></button></div><div class="well well-sm"><h4>Figures drawn below:</h4><button class="btn btn-default" id="trial_analysis_rr_workflow_results_save_graphs_button" >Export Graph to File</button><br/><br/>';
+                        var html = '<div class="well well-sm"><button class="btn btn-primary" id="trial_analysis_rr_workflow_results_save_button" >儲存永久環境 (PE) 效應結果至 <% $trial_name %>(Save Permanent Environment (PE) Effect Results to <% $trial_name %>)</button></div><div class="well well-sm"><h4>繪製的圖形如下：</h4><button class="btn btn-default" id="trial_analysis_rr_workflow_results_save_graphs_button" >匯出圖形至檔案(Export Graph to File)</button><br/><br/>';
                         html = html + '<img src="'+response.heatmaps_plot+'" />';
                         html = html + '<img src="'+response.gen_effects_line_plot+'" /></div>';
                         jQuery('#trial_analysis_rr_workflow_results_div').html(html);
@@ -239,7 +239,7 @@ jQuery(document).ready(function(){
                 },
                 error: function(response){
                     jQuery("#working_modal").modal("hide");
-                    alert('Error doing random regression! Try a larger tolerance!');
+                    alert('進行隨機迴歸時發生錯誤！請嘗試較大的容許度！');
                 }
             });
         }
@@ -271,13 +271,13 @@ jQuery(document).ready(function(){
                     alert(response.error);
                 }
                 else {
-                    alert('Saved permanent environment (PE) effects! You can view them in the Phenotypes Section within the trial detail page!');
+                    alert('已儲存永久環境 (PE) 效應！您可以在試驗詳細資訊頁面的「表型」區段中檢視！');
                     location.reload();
                 }
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error saving random regression correction results!');
+                alert('儲存隨機迴歸校正結果時發生錯誤！');
             }
         });
     });

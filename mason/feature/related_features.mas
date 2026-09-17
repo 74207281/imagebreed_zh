@@ -8,6 +8,6 @@
     %ARGS,
     principle         => $feature,
     relationship_name => 'feature_relationship',
-    object_type_text  => 'Features',
+    object_type_text  => '特徵(Features)',
     list_component    => '/feature/feature_list.mas',
 &>

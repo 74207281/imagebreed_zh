@@ -10,32 +10,32 @@ $facilities
         <div class="modal-content ui-front">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <center><h4 class="modal-title" id="createGenotypingProjectdialog">Add New Genotyping Project</h4></center>
+                <center><h4 class="modal-title" id="createGenotypingProjectdialog">新增基因分型專案(Add New Genotyping Project)</h4></center>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <&| /util/workflow.mas, id=> "add_genotyping_project_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"Genotyping Project" &>
-                            <p>Genotyping Project can be used to group a series of genotyping plates and genotyping data. Genotyping Project should match Vendor Project if you have one.</p>
+                        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                            <& /page/page_title.mas, title=>"基因分型專案(Genotyping Project)" &>
+                            <p>基因分型專案可用於將一系列基因分型盤與基因分型資料分組。若您有配合的廠商專案，基因分型專案名稱應與其一致。</p>
                             <hr>
                             <center>
-                                <button id="next_step_add_new_genotyping_project" class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button id="next_step_add_new_genotyping_project" class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
                         <form class="form-horizontal" role="form" name="create_genotyping_project_form" id="create_genotyping_project_form">
-                            <&| /util/workflow.mas:step, title=> "Add a genotyping project" &>
-                            <& /page/page_title.mas, title=>"Enter basic information about the genotyping project" &>
+                            <&| /util/workflow.mas:step, title=> "新增基因分型專案(Add a Genotyping Project)" &>
+                            <& /page/page_title.mas, title=>"輸入基因分型專案基本資訊(Enter Basic Information about the Genotyping Project)" &>
                                 <br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Project Name: </label>
+                                    <label class="col-sm-5 control-label">基因分型專案名稱：</label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" id="new_genotyping_project_name" name="new_genotyping_project_name" type="text" placeholder="Should match Vendor Project if you have one"/>
+                                        <input class="form-control" id="new_genotyping_project_name" name="new_genotyping_project_name" type="text" placeholder="若有配合的廠商專案應與其一致"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Facility: </label>
+                                    <label class="col-sm-5 control-label">基因分型實驗室/設施：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="genotyping_project_facility_select" name="genotyping_project_facility_select">
 %  foreach my $facility (@$facilities) {
@@ -45,35 +45,35 @@ $facilities
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Data Type: </label>
+                                    <label class="col-sm-5 control-label">資料類型：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="data_type">
-                                            <option value="">Select a data type</option>
+                                            <option value="">選擇資料類型</option>
                                             <option value="snp">SNP</option>
                                             <option value="ssr">SSR</option>
                                         </select>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Breeding Program: </label>
+                                    <label class="col-sm-5 control-label">育種計畫：</label>
                                     <div class="col-sm-7">
                                         <span id="genotyping_project_breeding_program_select_div"></span>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Year: </label>
+                                    <label class="col-sm-5 control-label">年份：</label>
                                     <div class="col-sm-7">
                                         <span id="genotyping_project_year_select_div"></span>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Location of Data Generation (optional): </label>
+                                    <label class="col-sm-5 control-label">資料產生位置 (可選)：</label>
                                     <div class="col-sm-7">
                                         <span id="genotyping_project_location_select_div"></span>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Description: </label>
+                                    <label class="col-sm-5 control-label">描述：</label>
                                     <div class="col-sm-7">
                                         <textarea class="form-control" id="genotyping_project_description" name="genotyping_project_description" maxlength="250"></textarea>
                                     </div>
@@ -82,14 +82,14 @@ $facilities
                                 <br/>
                                 <br/>
                                 <center>
-                                    <button type="button" class="btn btn-primary" onclick="Workflow.complete(this, false);" name="add_new_genotyping_project_submit" id="add_new_genotyping_project_submit">Submit</button>
+                                    <button type="button" class="btn btn-primary" onclick="Workflow.complete(this, false);" name="add_new_genotyping_project_submit" id="add_new_genotyping_project_submit">送出(Submit)</button>
                                 </center>
                             </&>
                         </form>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your genotyping project is now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的基因分型專案已儲存至資料庫(Finished! Your Genotyping Project is Now in the Database)" &>
                             <ul>
-                                <li>You may want to proceed to add genotyping plates and/or genotyping data in the genotyping project you just created.</li>
+                                <li>您可以繼續在剛建立的基因分型專案中新增基因分型盤及/或基因分型資料。</li>
                             </ul>
                             <br/>
                         </&>
@@ -97,7 +97,7 @@ $facilities
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="add_new_genotyping_project_close_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="add_new_genotyping_project_close_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@ jQuery(document).ready(function(){
 
         var project_name = jQuery("#new_genotyping_project_name").val();
         if (!project_name) {
-            alert("Genotyping project name is required");
+            alert("請輸入基因分型專案名稱");
             return;
         }
 
@@ -124,25 +124,25 @@ jQuery(document).ready(function(){
 
         var data_type = jQuery("#data_type").val();
         if (!data_type) {
-            alert("Data type is required");
+            alert("請選擇資料類型");
             return;
         }
 
         var project_breeding_program = jQuery("#genotyping_project_breeding_program_select").val();
         if (!project_breeding_program) {
-            alert ("Breeding program is required");
+            alert ("請選擇育種計畫");
             return;
         }
 
         var project_year = jQuery("#genotyping_project_year_select").val();
         if (!project_year) {
-            alert ("Year is required");
+            alert ("請選擇年份");
             return;
         }
 
         var project_description = jQuery("#genotyping_project_description").val();
         if (!project_description) {
-            alert ("Description is required");
+            alert ("請輸入描述");
             return;
         }
 
@@ -183,7 +183,7 @@ jQuery(document).ready(function(){
             },
             error: function() {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred saving genotyping project.');
+                alert('儲存基因分型專案時發生錯誤。');
                 jQuery('#create_genotyping_project_dialog').modal("hide");
             },
         });

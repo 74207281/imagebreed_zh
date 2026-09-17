@@ -5,14 +5,14 @@
 <% $bulk_js_menu %>
 <form name="bulk_feature" action="/bulk/feature/submit/" method="post" enctype="multipart/form-data">
 <table summary="" cellpadding="10" width="100%"><tr><td valign="top" bgcolor="#EEEEEE" width="320">
-Enter a list of feature identifier or upload a file containing one identifer separated by whitespace (returns, spaces or tabs):<br />
+輸入特徵識別碼列表，或上傳以空格/換行/製表符分隔的識別碼檔案(Enter a list of feature identifiers or upload a file containing identifiers separated by whitespace)：<br />
 <table summary="" width="100%" cellpadding="0"><tr><td>
 <textarea name="ids" rows="10" cols="30">
 <% $prefill_ids |h%>
 </textarea>
 </td>
 <td>
-<i>Example:</i>
+<i>範例(Example)：</i>
 <pre style="border: 1px solid gray; padding: 5px">
 SGN-E398616
 C06HBa0229B01.1
@@ -23,19 +23,19 @@ Solyc01g005080.2.1
 <br />
 <br />
 
-And/or upload list file: <br /><input type="file" name="feature_file" />
+及/或上傳識別碼列表檔案(And/or upload list file)：<br /><input type="file" name="feature_file" />
 <br />
 <br />
 
 </td>
 <td valign="top" bgcolor="#EEEEEE" width="320">
 
-<b>Download feature information</b>:<br />
+<b>下載特徵資訊(Download feature information)</b>：<br />
 <div style="padding-left: 1em">
-    <input type="checkbox" name="feature_sequence" onchange="this.checked='checked'" checked="checked" /> feature sequence <br />
+    <input type="checkbox" name="feature_sequence" onchange="this.checked='checked'" checked="checked" /> 特徵序列(feature sequence)<br />
 </div>
 </td>
 </tr></table>
 
-<input type="submit" value="Submit" /><br />
+<input type="submit" value="送出(Submit)" /><br />
 </form>

@@ -1,21 +1,21 @@
-<& /page/page_title.mas, title => 'Display a sequence from a BLAST database' &>
+<& /page/page_title.mas, title => '顯示 BLAST 資料庫中的序列(Display a sequence from a BLAST database)' &>
 
 <form>
 <table cellpadding="5" cellspacing="5" alt=""><tr>
-<td><b>Dataset</b></td><td> <select name="blast_db_id">
-<option value="93">Tomato WGS Sequence</option>
-<option value="56">Tomato BAC contigs</option>
+<td><b>資料集(Dataset)</b></td><td> <select name="blast_db_id">
+<option value="93">番茄全基因組定序序列(Tomato WGS Sequence)</option>
+<option value="56">番茄 BAC 連續體(Tomato BAC contigs)</option>
 </select></td></tr>
 
-<td><b>Id</b></td><td> <input type="text" name="id" size="10"/><br /></td></tr>
+<td><b>識別碼(Id)</b></td><td> <input type="text" name="id" size="10"/><br /></td></tr>
 
-<tr><td colspan="3"><b>Highlight coordinates (enter as: 1-100,200-300)</b></td></tr>
-<tr><td><b>Coordinates: </b></td><td> <input type="text" name="hilite_coords" size="10" /><br /></td></tr>
+<tr><td colspan="3"><b>醒目標示座標（輸入格式如：1-100,200-300）(Highlight coordinates)</b></td></tr>
+<tr><td><b>座標(Coordinates)：</b></td><td> <input type="text" name="hilite_coords" size="10" /><br /></td></tr>
 
-<tr><td><b>Format</b></td><td><select name="format"><option value="html">html</option><option value="text">text</option></select></td></tr>
+<tr><td><b>格式(Format)</b></td><td><select name="format"><option value="html">HTML</option><option value="text">純文字(text)</option></select></td></tr>
 
 </table>
 
-<input type="submit" />
+<input type="submit" value="送出(Submit)" />
 </form>
 

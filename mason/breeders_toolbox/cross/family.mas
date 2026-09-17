@@ -10,9 +10,9 @@ $family_type_string
 
 <& /util/import_javascript.mas, classes => [] &>
 
-<& /page/page_title.mas, title => "Details for family '$family_name'" &>
+<& /page/page_title.mas, title => "家族 '$family_name' 的詳細資訊(Details for family '$family_name')" &>
 
-<&| /page/info_section.mas, title => "Family information" &>
+<&| /page/info_section.mas, title => "家族資訊(Family Information)" &>
 <div class="panel panel-default">
     <div class="panel-body">
         <div class="row">
@@ -43,7 +43,7 @@ $family_type_string
 
 <& /util/import_javascript.mas, classes => ['jquery','jquery.dataTables'] &>
 
-<&| /page/info_section.mas, title => "Parents: ($family_type_string)", collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => "親本：($family_type_string)(Parents: ($family_type_string))", collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
@@ -51,19 +51,19 @@ $family_type_string
                     <thead>
                         <tr>
 % if ($family_type eq 'same_parents') {
-                            <th>Female Parent</th>
-                            <th>Female Stock Type</th>
-                            <th>Female Ploidy</th>
-                            <th>Male Parent</th>
-                            <th>Male Stock Type</th>
-                            <th>Male Ploidy</th>
+                            <th>母本(Female Parent)</th>
+                            <th>母本種原類型(Female Stock Type)</th>
+                            <th>母本倍數性(Female Ploidy)</th>
+                            <th>父本(Male Parent)</th>
+                            <th>父本種原類型(Male Stock Type)</th>
+                            <th>父本倍數性(Male Ploidy)</th>
 % } elsif ($family_type eq 'reciprocal_parents') {
-                            <th>Parent 1</th>
-                            <th>Parent 1 Stock Type</th>
-                            <th>Parent 1 Ploidy</th>
-                            <th>Parent 2</th>
-                            <th>Parent 2 Stock Type</th>
-                            <th>Parent 2 Ploidy</th>
+                            <th>親本 1(Parent 1)</th>
+                            <th>親本 1 種原類型(Parent 1 Stock Type)</th>
+                            <th>親本 1 倍數性(Parent 1 Ploidy)</th>
+                            <th>親本 2(Parent 2)</th>
+                            <th>親本 2 種原類型(Parent 2 Stock Type)</th>
+                            <th>親本 2 倍數性(Parent 2 Ploidy)</th>
 %}
                         </tr>
                     </thead>
@@ -73,7 +73,7 @@ $family_type_string
     </div>
 </&>
 
-<&| /page/info_section.mas, title => 'Crosses in this family', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '此家族中的雜交(Crosses in this family)', collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
@@ -83,7 +83,7 @@ $family_type_string
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <&| /page/info_section.mas, title => 'Add Crosses to a List', collapsible=>1, collapsed=>1, subtitle=>'<i>Adding crosses in this family to a new or exisiting list</i>'&>
+                        <&| /page/info_section.mas, title => '將雜交新增至清單(Add Crosses to a List)', collapsible=>1, collapsed=>1, subtitle=>'<i>將此家族中的雜交新增至新清單或現有清單</i>'&>
                             <br>
                             <div id="members_to_new_list" style="display:none"></div>
                             <div id="members_add_to_list"></div>
@@ -95,7 +95,7 @@ $family_type_string
     </div>
 </&>
 
-<&| /page/info_section.mas, title => 'Progenies', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '後代(Progenies)', collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <div class = "panel panel-default">
             <div class = "panel-body">
@@ -105,7 +105,7 @@ $family_type_string
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <&| /page/info_section.mas, title => 'Add progenies to a List', collapsible=>1, collapsed=>1, subtitle=>'<i>Adding progenies of this family to a new or exisiting list</i>'&>
+                        <&| /page/info_section.mas, title => '將後代新增至清單(Add progenies to a List)', collapsible=>1, collapsed=>1, subtitle=>'<i>將此家族的後代新增至新清單或現有清單</i>'&>
                             <br>
                             <div id="progenies_to_new_list" style="display:none"></div>
                             <div id="progenies_add_to_list"></div>
@@ -134,15 +134,15 @@ jQuery(document).ready(function(){
         'ajax': '/ajax/family/members/'+family_id,
         'destroy': true,
         columns: [
-            { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
-            { title: "Cross Type", "data": "cross_type" },
-            { title: "Number of Progenies", "data": "progeny_number" },
-            { title: "Crossing Experiment", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/trial/"+row.crossing_experiment_id+"'>"+row.crossing_experiment_name+"</a>"; } },
+            { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+            { title: "雜交類型(Cross Type)", "data": "cross_type" },
+            { title: "後代數量(Number of Progenies)", "data": "progeny_number" },
+            { title: "雜交實驗(Crossing Experiment)", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/trial/"+row.crossing_experiment_id+"'>"+row.crossing_experiment_name+"</a>"; } },
         ],
         "fnInitComplete": function(oSettings, json) {
             //console.log(json);
             if (!isLoggedIn()) {
-                jQuery('#members_add_to_list').html("<div class='well well-sm'><h3>Please login to use lists!</h3></div>");
+                jQuery('#members_add_to_list').html("<div class='well well-sm'><h3>請先登入以使用清單功能！</h3></div>");
             } else {
                 var html = "";
                 for(var i=0; i<json.data.length; i++){
@@ -161,13 +161,13 @@ jQuery(document).ready(function(){
         'ajax': '/ajax/family/all_progenies/'+family_id,
         'destroy': true,
         columns: [
-            { title: "Progeny Name", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.progeny_id+"/view'>"+row.progeny_name+"</a>"; } },
-            { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+            { title: "後代名稱(Progeny Name)", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.progeny_id+"/view'>"+row.progeny_name+"</a>"; } },
+            { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
         ],
         "fnInitComplete": function(oSettings, json) {
             //console.log(json);
             if (!isLoggedIn()) {
-                jQuery('#progenies_add_to_list').html("<div class='well well-sm'><h3>Please login to use lists!</h3></div>");
+                jQuery('#progenies_add_to_list').html("<div class='well well-sm'><h3>請先登入以使用清單功能！</h3></div>");
             } else {
                 var html = "";
                 for(var i=0; i<json.data.length; i++){

@@ -3,11 +3,11 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="row">
-                    <center><label>Custom_Field:</label></center>
+                    <center><label>自訂欄位(Custom Field):</label></center>
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <center>
-                            <input type="text" class="form-control" id="d3-custom-input" placeholder="Type here" autofocus>
+                            <input type="text" class="form-control" id="d3-custom-input" placeholder="在此輸入(Type here)" autofocus>
                         </center>
                     </div>
                     <div class="col-md-3"></div>
@@ -16,22 +16,22 @@
                 <div class="row">
                     <div class="col-md-6">
                         <center>
-                            <label>Add Variable:</label><br>
+                            <label>新增變數(Add Variable):</label><br>
                             <select id="d3-custom-add-field-input" class="form-control"></select>
                         </center>
                     </div>
                     <div class="col-md-6">
                         <center>
-                            <label>Add Custom Number:</label><br>
-                            <input type="number" class="form-control" id="start_number" placeholder="Start Number">
-                            <input type="number" class="form-control" id="increment_number" placeholder="Increment Number">
-                            <button class="btn btn-primary" id="d3-add-number">Add</button>
+                            <label>新增自訂編號(Add Custom Number):</label><br>
+                            <input type="number" class="form-control" id="start_number" placeholder="起始編號(Start Number)">
+                            <input type="number" class="form-control" id="increment_number" placeholder="遞增量(Increment Number)">
+                            <button class="btn btn-primary" id="d3-add-number">新增(Add)</button>
                         </center>
                     </div>
                 </div>
                 <br>
                 <div class="row">
-                    <center><button class="btn btn-primary" id="d3-custom-preview">See Preview</button></center><br><br>
+                    <center><button class="btn btn-primary" id="d3-custom-preview">查看預覽(See Preview)</button></center><br><br>
                     <div class="col-md-3"></div>
                     <div class="col-md-6">
                         <center><p id="d3-custom-content"></p></center>
@@ -40,8 +40,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="d3-custom-field-save" type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉(Close)</button>
+                <button id="d3-custom-field-save" type="button" class="btn btn-primary" data-dismiss="modal">確定(Ok)</button>
             </div>
         </div>
     </div>
@@ -57,7 +57,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <center>
-                            <label>Additional Settings:</label>
+                            <label>額外設定(Additional Settings):</label>
                         <br>
                         <img src="/static/img/print_setting_options.png" class="img-responsive" alt="printer settings" height="196" width="480" style="border: 1px solid black;">
                     </center>
@@ -68,30 +68,14 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Top Margin:</label><br>
-                            <input class="form-control" placeholder="Top Margin in pixels (72/inch)" type="number" id="top_margin" style="max-width: 100%;">
+                            <br><label>頂端邊距(Top Margin):</label><br>
+                            <input class="form-control" placeholder="頂端邊距，像素 (72/英吋) (Top Margin in pixels (72/inch))" type="number" id="top_margin" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Left Margin:</label><br>
-                            <input class="form-control" placeholder="Left Margin in pixels (72/inch)" type="number" id="left_margin" style="max-width: 100%;">
-                        </center>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-                <div class="col-md-12" id="">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5">
-                        <center>
-                            <br><label>Horizontal Gap:</label><br>
-                            <input class="form-control" placeholder="Horizontal Gap in pixels (72/inch)" type="number" id="horizontal_gap" style="max-width: 100%;">
-                        </center>
-                    </div>
-                    <div class="col-md-5">
-                        <center>
-                            <br><label>Vertical Gap:</label><br>
-                            <input class="form-control" placeholder="Vertical Gap in pixels (72/inch)" type="number" id="vertical_gap" style="max-width: 100%;">
+                            <br><label>左側邊距(Left Margin):</label><br>
+                            <input class="form-control" placeholder="左側邊距，像素 (72/英吋) (Left Margin in pixels (72/inch))" type="number" id="left_margin" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-1"></div>
@@ -100,14 +84,30 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Number of Columns:</label>
-                            <input class="form-control" placeholder="Num labels across" type="number" id="number_of_columns" style="max-width: 100%;">
+                            <br><label>水平間距(Horizontal Gap):</label><br>
+                            <input class="form-control" placeholder="水平間距，像素 (72/英吋) (Horizontal Gap in pixels (72/inch))" type="number" id="horizontal_gap" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Number of Rows:</label>
-                            <input class="form-control" placeholder="Num labels down" type="number" id="number_of_rows" style="max-width: 100%;">
+                            <br><label>垂直間距(Vertical Gap):</label><br>
+                            <input class="form-control" placeholder="垂直間距，像素 (72/英吋) (Vertical Gap in pixels (72/inch))" type="number" id="vertical_gap" style="max-width: 100%;">
+                        </center>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+                <div class="col-md-12" id="">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-5">
+                        <center>
+                            <br><label>欄數/橫向標籤數(Number of Columns):</label>
+                            <input class="form-control" placeholder="每行橫向標籤數(Num labels across)" type="number" id="number_of_columns" style="max-width: 100%;">
+                        </center>
+                    </div>
+                    <div class="col-md-5">
+                        <center>
+                            <br><label>列數/縱向標籤數(Number of Rows):</label>
+                            <input class="form-control" placeholder="每列縱向標籤數(Num labels down)" type="number" id="number_of_rows" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-1"></div>
@@ -116,14 +116,14 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                        <br><label>Sort Labels by:</label>
+                        <br><label>標籤排序依據(Sort Labels by):</label>
                             <select class="form-control" id="sort_order" name="sort_by" style="max-width: 100%">
                             </select>
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                        <br><label>Limit by Rep:</label>
+                        <br><label>依重複限制(Limit by Rep):</label>
                             <select class="form-control" id="plot_filter" name="plot_filter" style="max-width: 100%">
                             </select>
                         </center>
@@ -134,13 +134,13 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Copies per label:</label>
+                            <br><label>每張標籤份數(Copies per label):</label>
                             <input class="form-control" id="copies_per_plot" name="copies_per_plot" type="number" value="1" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Total # to download:</label>
+                            <br><label>下載總數(Total # to download):</label>
                             <input class="form-control" id="label_designer_labels_to_download" name="label_designer_labels_to_download" type="number" placeholder="10" style="max-width: 100%;">
                         </center>
                     </div>
@@ -150,8 +150,8 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <br /><br />
-                        <p><strong>Position of First Label:</strong><br />
-                        Set the column and row number of where to print the first label, if using a sheet that has already been partially used</p>
+                        <p><strong>首張標籤位置(Position of First Label):</strong><br />
+                        若使用已部分使用的標籤紙，請設定第一張標籤要列印在哪個縱欄與橫列(Set the column and row number of where to print the first label, if using a sheet that has already been partially used)</p>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
@@ -159,13 +159,13 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Start Column:</label>
+                            <br><label>起始欄(Start Column):</label>
                             <input class="form-control" id="start_col" name="start_col" type="number" value="1" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Start Row:</label>
+                            <br><label>起始列(Start Row):</label>
                             <input class="form-control" id="start_row" name="start_row" type="number" value="1" style="max-width: 100%;">
                         </center>
                     </div>
@@ -173,8 +173,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="d3-edit-additional-settings" type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉(Close)</button>
+                <button id="d3-edit-additional-settings" type="button" class="btn btn-primary" data-dismiss="modal">儲存(Save)</button>
             </div>
         </div>
     </div>
@@ -188,7 +188,7 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-10">
                         <center>
-                            <label>Batch Download:</label>
+                            <label>批次下載(Batch Download):</label>
                         <br>
                         <p id="batch_download_message"></p>
                     </center>
@@ -199,13 +199,13 @@
                     <div class="col-md-1"></div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>Start Number:</label><br>
+                            <br><label>起始編號(Start Number):</label><br>
                             <input class="form-control" placeholder="0" type="number" id="label_designer_start_number" style="max-width: 100%;">
                         </center>
                     </div>
                     <div class="col-md-5">
                         <center>
-                            <br><label>End Number:</label><br>
+                            <br><label>結束編號(End Number):</label><br>
                             <input class="form-control" placeholder="1000" type="number" id="label_designer_end_number" style="max-width: 100%;">
                         </center>
                     </div>
@@ -213,8 +213,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="d3-batch-download-submit" type="button" class="btn btn-primary" data-dismiss="modal">Download</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉(Close)</button>
+                <button id="d3-batch-download-submit" type="button" class="btn btn-primary" data-dismiss="modal">下載(Download)</button>
             </div>
         </div>
     </div>

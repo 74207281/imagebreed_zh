@@ -6,38 +6,38 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="seedlot_upload_dialog">Upload Seedlots</h4>
+                <h4 class="modal-title" id="seedlot_upload_dialog">上傳種子批次(Upload Seedlots)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "upload_seedlot_main_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"What are seedlots?" &>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"什麼是種子批次？(What are seedlots?)" &>
                             <ul>
-                            <li>Seedlots represent physical seed in packets.</li>
-                            <li>This seed can be from crosses or for named accessions.</li>
-                            <li>Seedlots can have a specific location, box, weight(g), and count.</li>
-                            <li>Seedlots can belong to breeding programs and organizations.</li>
-                            <li>Seedlots can be used in trials (e.g. they were planted in a plot) and they can be harvested from a plot or plant (e.g. a cross was performed and seeds were collected.)</li>
+                            <li>種子批次代表封裝於紙袋或容器中的實體種子。</li>
+                            <li>這些種子可來自雜交組合或具名種原。</li>
+                            <li>種子批次可包含特定地點、箱號、重量（克）和數量。</li>
+                            <li>種子批次可屬於育種計畫和機構。</li>
+                            <li>種子批次可用於試驗（例如種植在小區中），也可以從小區或植株收穫（例如進行雜交並收集種子）。</li>
                             </ul>
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "What seedlots do you have?" &>
-                            <& /page/page_title.mas, title=>"Seedlots fall into two categories" &>
+                        <&| /util/workflow.mas:step, title=> "您擁有什麼種子批次？(What seedlots do you have?)" &>
+                            <& /page/page_title.mas, title=>"種子批次分為兩類(Seedlots fall into two categories)" &>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Select One: </label>
+                                <label class="col-sm-3 control-label">請選擇一項：</label>
                                 <div class="col-sm-9">
                                     <select class="form-control" id="upload_seedlots_type_select" name="upload_seedlots_type_select">
                                         <option value=""></option>
-                                        <option data-desc="If you have seed lots for named accessions, such as seed that was ordered from a vendor, use this option. Use this option if the seed was not harvested from a cross that is in the database." value="from_accession">I have seed lots for named accessions</option>
-                                        <option data-desc="If you have seed lots that were harvested from crosses that are in the database, use this option." value="from_cross">I have seed lots harvested from crosses</option>
+                                        <option data-desc="如果您擁有具名種原的種子批次（例如從廠商訂購的種子），請使用此選項。如果種子不是從資料庫中的雜交組合收穫的，請使用此選項。" value="from_accession">我擁有具名種原的種子批次</option>
+                                        <option data-desc="如果您的種子批次是從資料庫中的雜交組合收穫的，請使用此選項。" value="from_cross">我擁有從雜交收穫的種子批次</option>
                                     </select>
                                 </div>
                             </div>
@@ -46,43 +46,43 @@
                             </div>
                             <br/>
                             <center>
-                                <button disabled id="seedlot_upload_type_select_button" class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button disabled id="seedlot_upload_type_select_button" class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "File format" &>
-                            <& /page/page_title.mas, title=>"Make sure your file matches the correct file format" &>
+                        <&| /util/workflow.mas:step, title=> "檔案格式(File format)" &>
+                            <& /page/page_title.mas, title=>"請確認您的檔案符合正確的檔案格式(Make sure your file matches the correct file format)" &>
                             <br/><br/>
                             <center>
                                 <div id="upload_seedlots_accessions_template_section" style="display:none">
-                                    <button class="btn btn-info" name="guided_help_seedlot_upload_format_button">Information about file format for uploading seedlots of named accessions</button><br/><br/>
+                                    <button class="btn btn-info" name="guided_help_seedlot_upload_format_button">上傳具名種原種子批次的檔案格式資訊(Information about file format for uploading seedlots of named accessions)</button><br/><br/>
                                 </div>
                                 <div id="upload_seedlots_crosses_template_section" style="display:none">
-                                    <button class="btn btn-info" name="guided_help_seedlot_crosses_upload_format_button">Information about file format for uploading seed lots harvested</button><br/><br/>
+                                    <button class="btn btn-info" name="guided_help_seedlot_crosses_upload_format_button">上傳收穫種子批次的檔案格式資訊(Information about file format for uploading seed lots harvested)</button><br/><br/>
                                 </div>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Once you think your file matches, go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">確認檔案符合格式後，前往下一步(Once you think your file matches, go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "Upload seedlots" &>
-                            <& /page/page_title.mas, title=>"Provide basic information about the seedlots and upload your file" &>
+                        <&| /util/workflow.mas:step, title=> "上傳種子批次(Upload seedlots)" &>
+                            <& /page/page_title.mas, title=>"提供種子批次的基本資訊並上傳您的檔案(Provide basic information about the seedlots and upload your file)" &>
 
                             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_seedlot_form" name="upload_seedlot_form">
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Company: </label>
+                                    <label class="col-sm-3 control-label">公司：</label>
                                     <div class="col-sm-9" >
                                         <div id="upload_seedlot_private_company_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫：</label>
                                     <div class="col-sm-9" >
                                         <div id="upload_seedlot_breeding_program_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Location of seedlot storage: </label>
+                                    <label class="col-sm-3 control-label">種子批次存放地點：</label>
                                     <div class="col-sm-9" >
                                         <div id="upload_seedlot_location_div"></div>
                                     </div>
@@ -96,15 +96,15 @@
                                 </div>
                                 -->
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Organization Name: </label>
+                                    <label class="col-sm-3 control-label">機構名稱：</label>
                                     <div class="col-sm-9" >
-                                        <input class="form-control" name="upload_seedlot_organization_name" id="upload_seedlot_organization_name" placeholder="Optional">
+                                        <input class="form-control" name="upload_seedlot_organization_name" id="upload_seedlot_organization_name" placeholder="選填">
                                     </div>
                                 </div>
 
                                 <div id="upload_seedlots_accessions_section" style="display:none">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Upload File (.xls or .xlsx): </label>
+                                        <label class="col-sm-3 control-label">上傳檔案 (.xls 或 .xlsx)：</label>
                                         <div class="col-sm-9" >
                                             <input type="file" name="seedlot_uploaded_file" id="seedlot_uploaded_file" encoding="multipart/form-data" />
                                         </div>
@@ -113,7 +113,7 @@
 
                                 <div id="upload_seedlots_harvested_section" style="display:none">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Upload File (.xls or .xlsx): </label>
+                                        <label class="col-sm-3 control-label">上傳檔案 (.xls 或 .xlsx)：</label>
                                         <div class="col-sm-9" >
                                             <input type="file" name="seedlot_harvested_uploaded_file" id="seedlot_harvested_uploaded_file" encoding="multipart/form-data" />
                                         </div>
@@ -122,50 +122,50 @@
 
                             </form>
                             <center>
-                            <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false);" name="upload_seedlot_button" >Upload Seedlots</button><br/><br/>
+                            <button type="button" class="btn btn-lg btn-primary" onclick="Workflow.complete(this, false);" name="upload_seedlot_button" >上傳種子批次(Upload Seedlots)</button><br/><br/>
                             </center>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Fix errors in file" &>
-                            <& /page/page_title.mas, title=>"Fix all errors in your file" &>
+                        <&| /util/workflow.mas:step, title=> "修正檔案中的錯誤(Fix errors in file)" &>
+                            <& /page/page_title.mas, title=>"修正檔案中的所有錯誤(Fix all errors in your file)" &>
 
                             <div id="upload_seedlots_missing_accessions_or_crosses_div" style="display:none">
                                 <div id="upload_seedlots_missing_accessions_div" style="display:none">
                                     <div class="well">
                                         <ul>
-                                            <li>Accessions must exist in the database prior to adding seedlots of them. The reason for this is that an accession can be exist in many seedlots and therefore exists as a separate entity in the database. We also want to be careful about adding new accessions into the database because we do not want incorrectly duplicated data.</li>
-                                            <li>When adding accessions into the database, you can use either a list of accessions or an Excel file.</li>
+                                            <li>在新增種原的種子批次之前，種原必須已存在於資料庫中。原因是一個種原可以存在於多個種子批次中，因此在資料庫中作為獨立實體存在。我們在向資料庫新增新種原時也需要謹慎，以避免錯誤的重複資料。</li>
+                                            <li>向資料庫新增種原時，您可以使用種原清單或 Excel 檔案。</li>
                                         </ul>
                                     </div>
 
                                     <div id="upload_seedlots_add_missing_accessions_html">
                                     </div>
 
-                                    <button class="btn btn-info" name="add_accessions_link">Add your accessions to the database</button><br/><br/>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">Once all your accessions are in the database Click Here</button><br/><br/>
+                                    <button class="btn btn-info" name="add_accessions_link">新增您的種原至資料庫(Add your accessions to the database)</button><br/><br/>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">所有種原皆已存在於資料庫後點擊此處(Once all your accessions are in the database Click Here)</button><br/><br/>
                                 </div>
                                 <div id="upload_seedlots_missing_crosses_div" style="display:none">
                                     <div class="well">
                                         <ul>
-                                            <li>Crosses must exist in the database before adding your seed lots. The reason for this is that a cross can produce many seed lots and so the cross must exists as a separate entity in the database. We also want to be careful about adding new crosses into the database because we do not want data to be incorrectly linked to duplicates.</li>
+                                            <li>在新增種子批次之前，雜交組合必須已存在於資料庫中。原因是雜交組合可以產生多個種子批次，因此雜交組合必須在資料庫中作為獨立實體存在。我們在向資料庫新增新雜交組合時也需要謹慎，以避免資料與重複項錯誤連結。</li>
                                         </ul>
                                     </div>
                                     <ul>
-                                    <li>When adding crosses into the database, you can upload an Excel file or you can add seedlots one at a time.<br/><br/>
+                                    <li>向資料庫新增雜交組合時，您可以上傳 Excel 檔案，也可以一次新增一個雜交組合。<br/><br/>
                                         <ul>
-                                        <li><button class="btn btn-info" name="upload_crosses_link">Upload Excel file</button><br/><br/></li>
-                                        <li><button class="btn btn-info" name="create_cross_link">Add One Cross</button></li>
+                                        <li><button class="btn btn-info" name="upload_crosses_link">上傳 Excel 檔案(Upload Excel file)</button><br/><br/></li>
+                                        <li><button class="btn btn-info" name="create_cross_link">新增一個雜交(Add One Cross)</button></li>
                                         </ul>
                                     </li>
                                     </ul><br/>
                                     <center>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">Once all your crosses are in the database Click Here</button><br/><br/>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">所有雜交組合皆已存在於資料庫後點擊此處(Once all your crosses are in the database Click Here)</button><br/><br/>
                                     </center>
                                 </div>
                             </div>
                             <div id="upload_seedlots_error_display" style="display:none">
 
-                                <h3>Seedlot Upload Error Messages</h3>
+                                <h3>種子批次上傳錯誤訊息(Seedlot Upload Error Messages)</h3>
                                 <div class="panel panel-danger">
                                     <div class="panel-body">
                                         <table>
@@ -181,11 +181,11 @@
                             </div>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Try submitting seedlots again" &>
-                            <& /page/page_title.mas, title=>"Submit your seedlots again. You should have corrected all errors by now, but if not please take a look at the errors in the red box below. You can continue to modify your file and then click Upload until it works." &>
+                        <&| /util/workflow.mas:step, title=> "再次嘗試提交種子批次(Try submitting seedlots again)" &>
+                            <& /page/page_title.mas, title=>"再次提交您的種子批次。此時您應該已經修正了所有錯誤，如果仍有錯誤，請查看下方紅色方框中的錯誤訊息。您可以繼續修改檔案，然後點擊上傳直到成功。(Submit your seedlots again. You should have corrected all errors by now, but if not please take a look at the errors in the red box below. You can continue to modify your file and then click Upload until it works.)" &>
                             <div id="seedlot_upload_show_repeat_upload_button">
                                 <center>
-                                <button type="button" class="btn btn-lg btn-primary" name="upload_seedlot_button" >Upload Seedlots</button><br/><br/>
+                                <button type="button" class="btn btn-lg btn-primary" name="upload_seedlot_button" >上傳種子批次(Upload Seedlots)</button><br/><br/>
                                 </center>
                             </div>
                             <center>
@@ -195,7 +195,7 @@
 
                             <div id="upload_seedlots_error_display_second_try" style="display:none">
 
-                                <h3>There exist these problems in your file:</h3>
+                                <h3>您的檔案中存在以下問題：</h3>
                                 <div class="panel panel-danger">
                                     <div class="panel-body">
                                         <table>
@@ -205,20 +205,20 @@
                                 </div>
                             </div>
                         </&>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your seedlots are now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的種子批次現已在資料庫中(Finished! Your seedlots are now in the database)" &>
                             <p>
                                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                The seedlot file was uploaded successfully
+                                種子批次檔案已成功上傳
                             </p>
 
                             <ul>
-                                <li>You may want to proceed to the seedlot detail page(s) for the seedlot(s) you just created.</li>
-                                <li>You can print barcodes for the seedlots.</li>
+                                <li>您可能想要前往剛剛建立的種子批次之詳細資訊頁面。</li>
+                                <li>您可以為種子批次列印條碼。</li>
                             </ul>
                             <br/>
                             <center>
-                            <button class="btn btn-primary" name="upload_seedlot_success_complete_button">The seedlots were saved to the database with no errors! Congrats Click Here</button><br/><br/>
+                            <button class="btn btn-primary" name="upload_seedlot_success_complete_button">種子批次已成功儲存至資料庫，無任何錯誤！恭喜，點擊此處(The seedlots were saved to the database with no errors! Congrats Click Here)</button><br/><br/>
                             </center>
                         </&>
                     </&>
@@ -226,7 +226,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_seedlot_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_seedlot_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -237,15 +237,15 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSeedlotInfoDialog">Upload Template Information For Named Accessions</h4>
+                <h4 class="modal-title" id="uploadSeedlotInfoDialog">具名種原上傳範本資訊(Upload Template Information For Named Accessions)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>Seedlots may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>種子批次可以 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br />
-                    <b>Header:</b>
+                    <b>表頭：</b>
                     <br>
-                    The first row (header) must contain the following:
+                    第一列（表頭）必須包含以下內容：
                     <br />
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -265,32 +265,32 @@
                         </tbody>
                     </table>
 
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                    <li>seedlot_name (must be unique)</li>
-                    <li>accession_name (must exist in the database. the accession_name is the unique identifier for the named genotype)</li>
-                    <li>operator_name (the name of the person who oversaw the inventory process. can be any name.)</li>
+                    <li>seedlot_name（必須唯一）</li>
+                    <li>accession_name（必須存在於資料庫中。accession_name 是具名基因型的唯一識別碼）</li>
+                    <li>operator_name（監督盤點過程的人員姓名，可為任意名稱。）</li>
                     <li>
-                    amount (number of seeds in seedlot. can be provided in conjunction with weight(g). must provide a value for amount or weight(g) or both.)
-                    <br/><b>AND/OR</b><br/>
-                    weight(g) (weight in grams of seedlot. can be provided in conjunction with amount. must provide a value for amount or weight(g) or both.)
+                    amount（種子批次中的種子數量。可與 weight(g) 一同提供。必須提供 amount 或 weight(g) 或兩者。）
+                    <br/><b>及／或</b><br/>
+                    weight(g)（種子批次的重量，以克為單位。可與 amount 一同提供。必須提供 amount 或 weight(g) 或兩者。）
                     </li>
-                    <li>box_name (the box name that the seed is located in. can be any name.)</li>
+                    <li>box_name（種子所在的箱號名稱，可為任意名稱。）</li>
                     </ul>
 
-                    <b>Optional fields:</b>
+                    <b>選填欄位：</b>
                     <ul>
-                      <li>description (information about why this seedlot is being added)</li>
-		      <li>quality (status of the seedlot, for example "ok", "moldy", "insect damage" etc.</li>
-		      <li>source (an alternate source, such as a plot or plant identifier from which the seed was sourced if no specific cross experiment was entered in the database)</li>
+                      <li>description（有關新增此種子批次原因的資訊）</li>
+		      <li>quality（種子批次的狀態，例如「ok」、「moldy」、「insect damage」等）</li>
+		      <li>source（替代來源，例如若資料庫中未輸入特定雜交試驗，則填寫種子來源的小區或植株識別碼）</li>
                     </ul>
 
-		    Note that the columns have to be arranged in the order presented above and carry the correct column headers.
+		    請注意，各欄必須按照上述順序排列，並帶有正確的欄表頭。
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_seedlot_info_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_seedlot_info_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -301,15 +301,15 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSeedlotHarvestedInfoDialog">Upload Template Information For Harvested Seedlots</h4>
+                <h4 class="modal-title" id="uploadSeedlotHarvestedInfoDialog">收穫種子批次上傳範本資訊(Upload Template Information For Harvested Seedlots)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>Seedlots may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>種子批次可以 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br />
-                    <b>Header:</b>
+                    <b>表頭：</b>
                     <br>
-                    The first row (header) must contain the following:
+                    第一列（表頭）必須包含以下內容：
                     <br />
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -329,31 +329,31 @@
                         </tbody>
                     </table>
 
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                    <li>seedlot_name (must be unique)</li>
-                    <li>cross_unique_id (must exist in the database. a cross_unique_id can represent a cross between accessions e.g. AxB, but a cross can also represent a cross between specific plots in the field if you have this information)</li>
-                    <li>operator_name (the name of the person who oversaw the inventory process. can be any name.)</li>
+                    <li>seedlot_name（必須唯一）</li>
+                    <li>cross_unique_id（必須存在於資料庫中。cross_unique_id 可以代表種原之間的雜交，例如 AxB，但如果您有田間特定小區之間雜交的資訊，也可以代表小區之間的雜交）</li>
+                    <li>operator_name（監督盤點過程的人員姓名，可為任意名稱。）</li>
                     <li>
-                    amount (number of seeds in seedlot. can be provided in conjunction with weight(g). must provide a value for amount or weight(g) or both.)
-                    <br/><b>AND/OR</b><br/>
-                    weight(g) (weight in grams of seedlot. can be provided in conjunction with amount. must provide a value for amount or weight(g) or both.)
+                    amount（種子批次中的種子數量。可與 weight(g) 一同提供。必須提供 amount 或 weight(g) 或兩者。）
+                    <br/><b>及／或</b><br/>
+                    weight(g)（種子批次的重量，以克為單位。可與 amount 一同提供。必須提供 amount 或 weight(g) 或兩者。）
                     </li>
-                    <li>box_name (the box name that the seed is located in. can be any name.)</li>
+                    <li>box_name（種子所在的箱號名稱，可為任意名稱。）</li>
                     </ul>
 
-                    <b>Optional fields:</b>
+                    <b>選填欄位：</b>
                     <ul>
-                      <li>description (information about why this seedlot is being added)</li>
-		      <li>quality (brief description of quality, e.g.,  "ok", "moldy", "insect damage", etc)</li>
-		      <li>source (an alternate source, such as a plot or plant identifier from which the seed was sourced if no specific cross experiment was entered in the database)</li>
+                      <li>description（有關新增此種子批次原因的資訊）</li>
+		      <li>quality（品質簡要說明，例如「ok」、「moldy」、「insect damage」等）</li>
+		      <li>source（替代來源，例如若資料庫中未輸入特定雜交試驗，則填寫種子來源的小區或植株識別碼）</li>
 		    </ul>
 
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_seedlot_harvested_info_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_seedlot_harvested_info_upload_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -418,15 +418,15 @@ jQuery(document).ready(function(){
         var breeding_program = jQuery("#upload_seedlot_breeding_program_id").val();
         jQuery('#upload_seedlot_form').attr("action", "/ajax/breeders/seedlot-upload");
         if (breeding_program === '') {
-            alert("Please choose a breeding program");
+            alert("請選擇育種計畫");
             return;
         }
         if (location === '') {
-            alert("Please give a location");
+            alert("請提供地點");
             return;
         }
         if (uploadSeedlotAccessionsFile === '' && uploadSeedlotsHarvestedFile == '') {
-            alert("Please select a file");
+            alert("請選擇一個檔案");
             return;
         }
         jQuery("#upload_seedlot_form").submit();
@@ -440,7 +440,7 @@ jQuery(document).ready(function(){
             jQuery('#working_modal').modal("show");
             if (uploadSeedlotAccessionsFile === '' && uploadSeedlotsHarvestedFile == '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選擇任何檔案");
             }
         },
         complete: function (response) {
@@ -457,7 +457,7 @@ jQuery(document).ready(function(){
                     jQuery('#upload_seedlots_missing_accessions_or_crosses_div').show();
                     if (response.missing_accessions){
                         jQuery('#upload_seedlots_missing_accessions_div').show();
-                        var missing_accessions_html = "<div class='well well-sm'><h3>Add the missing accessions to a list</h3><div id='upload_seedlots_missing_accessions' style='display:none'></div><div id='upload_seedlots_add_missing_accessions'></div></div><br/>";
+                        var missing_accessions_html = "<div class='well well-sm'><h3>將缺失的種原新增至清單</h3><div id='upload_seedlots_missing_accessions' style='display:none'></div><div id='upload_seedlots_add_missing_accessions'></div></div><br/>";
                         jQuery("#upload_seedlots_add_missing_accessions_html").html(missing_accessions_html);
 
                         var missing_accessions_vals = '';
@@ -474,7 +474,7 @@ jQuery(document).ready(function(){
                     }
                 } else {
                     jQuery('#upload_seedlots_missing_accessions_or_crosses_div').hide();
-                    var no_missing_accessions_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">There were no errors regarding missing accessions or crosses  Click Here</button><br/><br/>';
+                    var no_missing_accessions_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">沒有關於缺失種原或雜交的錯誤，點擊此處(There were no errors regarding missing accessions or crosses Click Here)</button><br/><br/>';
                     jQuery('#upload_seedlots_no_error_messages_accessions_html').html(no_missing_accessions_html);
                     Workflow.skip('#upload_seedlots_missing_accessions_or_crosses_div', false);
                 }
@@ -494,7 +494,7 @@ jQuery(document).ready(function(){
                 jQuery("#upload_seedlots_error_display").hide();
                 jQuery("#upload_seedlots_error_display_second_try").hide();
                 jQuery('#seedlot_upload_show_repeat_upload_button').hide();
-                jQuery('[name="upload_seedlots_completed_message"]').html('<button class="btn btn-primary" name="upload_seedlot_success_complete_button">The seedlots were saved to the database with no errors! Congrats Click Here</button><br/><br/>');
+                jQuery('[name="upload_seedlots_completed_message"]').html('<button class="btn btn-primary" name="upload_seedlot_success_complete_button">種子批次已成功儲存至資料庫，無任何錯誤！恭喜，點擊此處(The seedlots were saved to the database with no errors! Congrats Click Here)</button><br/><br/>');
                 Workflow.skip('#upload_seedlots_missing_accessions_or_crosses_div', false);
                 Workflow.skip('#upload_seedlots_error_display_second_try', false);
                 Workflow.focus("#upload_seedlot_main_workflow", -1); //Go to success page
@@ -505,7 +505,7 @@ jQuery(document).ready(function(){
     });
 
     jQuery(document).on('click', '[name="upload_seedlot_success_complete_button"]', function(){
-        alert('Seedlots were saved in the database');
+        alert('種子批次已儲存至資料庫');
         jQuery('#upload_seedlot_dialog').modal('hide');
         //location.reload();
     });

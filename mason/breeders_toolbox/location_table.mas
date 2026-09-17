@@ -9,21 +9,21 @@ $user_id => undef
     <table id="location_table" class="table table-hover table-striped table-bordered" width="100%">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Abbreviation</th>
-                <th>Country</th>
-                <th>Program</th>
-                <th>Company</th>
-                <th>Type</th>
-                <th>Lat</th>
-                <th>Long</th>
-                <th>Altitude(m)</th>
-                <th>Trials</th>
-                <th>Nearest NOAA Station ID</th>
+                <th>編號(Id)</th>
+                <th>名稱(Name)</th>
+                <th>縮寫(Abbreviation)</th>
+                <th>國家(Country)</th>
+                <th>計畫(Program)</th>
+                <th>公司(Company)</th>
+                <th>類型(Type)</th>
+                <th>緯度(Lat)</th>
+                <th>經度(Long)</th>
+                <th>海拔(Altitude)(m)</th>
+                <th>試驗(Trials)</th>
+                <th>最近 NOAA 測站 ID(Nearest NOAA Station ID)</th>
             </tr>
         </thead>
-        <!-- <caption class="well well-sm" style="caption-side: bottom;margin-top: 10px;"><center> Locations </center></caption> -->
+        <!-- <caption class="well well-sm" style="caption-side: bottom;margin-top: 10px;"><center> 地點(Locations) </center></caption> -->
     </table>
 </div>
 <br>
@@ -40,7 +40,7 @@ jQuery(document).ready(function() {
             // put working animation handling here
     	},
     	success: function(response) {
-            var export_message = 'Location data from ' + window.location.href;
+            var export_message = '來自 ' + window.location.href + ' 的地點資料';
             locationJSON = JSON.parse(response.data);
             // console.log("Data is "+JSON.stringify(locationJSON, null, 2));
 
@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
 
     	},
     	error: function(response) {
-    	    alert("An error occurred");
+    	    alert("發生錯誤");
     	}
     });
 

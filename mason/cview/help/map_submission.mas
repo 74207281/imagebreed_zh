@@ -1,109 +1,109 @@
 
-<& /page/page_title.mas, title=>"Submitting maps to SGN" &>
+<& /page/page_title.mas, title=>"向 SGN 提交圖譜(Submitting maps to SGN)" &>
 
-Maps can be submitted to SGN for inclusion in the comparative viewer and related tools. File formats are defined for these types of data: 
+可以向 SGN 提交圖譜以納入比較檢視器及相關工具中。已為以下幾種類型的資料定義了檔案格式(Maps can be submitted to SGN for inclusion in the comparative viewer and related tools. File formats are defined for these types of data)： 
 <ol>
-<li> A <b>mapping file</b> which contains the information about the markers positions each linkage group.</li>
-<li> One or more <b>marker data files</b> describing the markers used. The file format describing each type of marker is different, so that for one map, many marker description files may be required.</li>
-<li> Marker <b>polymorphism survey data</b> can also be submitted, even if the markers are not mapped.</li>
-<li> <b>Accession information</b> is needed for accessions that are not already in the SGN database. </li>
+<li> 包含每個連鎖群標記位置資訊的<b>圖譜檔案(mapping file)</b>。</li>
+<li> 一個或多個描述所使用標記的<b>標記資料檔案(marker data files)</b>。描述每種標記類型的檔案格式各不相同，因此對於單一圖譜，可能需要多個標記描述檔案(One or more marker data files describing the markers used. The file format describing each type of marker is different, so that for one map, many marker description files may be required)。</li>
+<li> 即使標記尚未定位，也可以提交標記<b>多型性調查資料(polymorphism survey data)</b>。</li>
+<li> SGN 資料庫中尚未存在的種原需要提供<b>種原資訊(Accession information)</b>。</li>
 </ol> 
 
-<p>These files should be tab-delimited text files (In Excel, choose type "Text (tab delimited)" in the Save As dialog). To submit the files send them as email attachments to <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a>.
-<i>Please make sure to include the column headings</i>.</p>
+<p>這些檔案應為製表符分隔的純文字檔案（在 Excel 中，於另存新檔對話方塊中選擇「純文字 (以定位字元分隔)」）。若要提交檔案，請將其作為電子郵件附件發送至(These files should be tab-delimited text files (In Excel, choose type "Text (tab delimited)" in the Save As dialog). To submit the files send them as email attachments to) <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a>。
+<i>請務必包含欄位標題(Please make sure to include the column headings)</i>。</p>
 
 
-<h3>The mapping file</h3>
+<h3>圖譜檔案(The mapping file)</h3>
 <p>
-This file gives the location of the markers on the map. When submitting a map, be sure to also provide a marker data file and accession information. These are the columns defined for the mapping file:
+此檔案提供了標記在圖譜上的位置。提交圖譜時，請務必同時提供標記資料檔案與種原資訊。以下是為圖譜檔案定義的欄位(This file gives the location of the markers on the map. When submitting a map, be sure to also provide a marker data file and accession information. These are the columns defined for the mapping file)：
 </p>
 
 <ul>
-<li><b>marker name</b>: Should be identical to the SGN marker name if already available on SGN.</li>
-<li><b>marker id</b>: (optional) If the marker is already in SGN, providing its marker id (SGN-M number) will allow us to process your map more quickly.</li>
-<li><b>linkage group</b>: The name or number of the chromosome or linkage group.</li>
-<li><b>position</b>: The position in cM on the linkage group.</li>
-<li><b>confidence</b>: Mapmaker's confidence for this marker - one of I, I(LOD2), F(LOD3), CF(LOD3). If your mapping software doesn't calculate a confidence, just omit this column.</li>
-<li><b>protocol</b>: The type of experiment used to map the marker. Currently we support CAPS, SSR, RFLP, SNP, and AFLP. We can accept most PCR-based markers; <a href="/contact/">contact SGN</a> if you would like to submit marker types that are not listed here.</li>
+<li><b>標記名稱(marker name)</b>：若已在 SGN 上提供，則應與 SGN 標記名稱完全相同(Should be identical to the SGN marker name if already available on SGN)。</li>
+<li><b>標記 ID(marker id)</b>：（選填）如果標記已在 SGN 中，提供其標記 ID（SGN-M 編號）將使我們能更快地處理您的圖譜((optional) If the marker is already in SGN, providing its marker id (SGN-M number) will allow us to process your map more quickly)。</li>
+<li><b>連鎖群(linkage group)</b>：染色體或連鎖群的名稱或編號(The name or number of the chromosome or linkage group)。</li>
+<li><b>位置(position)</b>：連鎖群上的位置 (cM)(The position in cM on the linkage group)。</li>
+<li><b>信賴度(confidence)</b>：Mapmaker 對此標記的信賴度 - I、I(LOD2)、F(LOD3)、CF(LOD3) 之一。如果您的定位軟體不計算信賴度，請直接省略此欄位(Mapmaker's confidence for this marker - one of I, I(LOD2), F(LOD3), CF(LOD3). If your mapping software doesn't calculate a confidence, just omit this column)。</li>
+<li><b>協定(protocol)</b>：用於定位標記的實驗類型。目前我們支援 CAPS、SSR、RFLP、SNP 和 AFLP。我們可接受大多數基於 PCR 的標記；如果您想提交此處未列出的標記類型，請<a href="/contact/">聯繫 SGN(contact SGN)</a>(The type of experiment used to map the marker. Currently we support CAPS, SSR, RFLP, SNP, and AFLP. We can accept most PCR-based markers; contact SGN if you would like to submit marker types that are not listed here)。</li>
 </ul>
 
-<h3>The marker data file</h3>
-<p>This file has a different format for each marker type. Please provide these columns:</p>
+<h3>標記資料檔案(The marker data file)</h3>
+<p>此檔案對每種標記類型有不同的格式。請提供以下欄位(This file has a different format for each marker type. Please provide these columns)：</p>
 
 
 <p>
-CAPS markers (<b>Note: revised 10/2008</b>):
+CAPS 標記 (<b>備註：2008 年 10 月修訂</b>)(CAPS markers (Note: revised 10/2008)):
 </p>
 <pre>
-  marker_name. The marker name.
-  fwd primer. The sequence of the forward primer.
-  rev primer. The sequence of the reverse primer.
-  temperature. The annealing temperature used in the PCR.
-  Mg concentration. The Mg++ concentration used in the PCR.
-  enzyme. The enzyme used for digestion, if applicable.
+  marker_name. 標記名稱(The marker name)。
+  fwd primer. 正向引子序列(The sequence of the forward primer)。
+  rev primer. 反向引子序列(The sequence of the reverse primer)。
+  temperature. PCR 中使用的黏合溫度(The annealing temperature used in the PCR)。
+  Mg concentration. PCR 中使用的 Mg++ 濃度(The Mg++ concentration used in the PCR)。
+  enzyme. 用於消化的酵素（若適用）(The enzyme used for digestion, if applicable)。
   band sizes of the undigested pcr products for the different parents, separated by a slash (see below)
   digested band sizes for the different parents, using enzyme in column 6.
-  other enzymes. A list of other enzymes predicted to be useful for this marker
+  other enzymes. 預測對此標記有用的其他酵素清單(A list of other enzymes predicted to be useful for this marker)。
 </pre>
 <p>
-SSR markers:
+SSR 標記(SSR markers):
 </p>
 <pre>
-  marker_name. The marker name.
-  fwd primer. The sequence of the forward primer.
-  rev primer. The sequence of the reverse primer.
-  temperature. The annealing temperature used in the PCR.
-  Mg concentration. The Mg++ concentration used in the PCR.
-  bands for parent 1. The band sizes for parent1 (see examples below).
-  bands for parent 2. The band sizes for parent2 (see examples below).
-  repeat motif. The repeat motif (for example AAT).
+  marker_name. 標記名稱(The marker name)。
+  fwd primer. 正向引子序列(The sequence of the forward primer)。
+  rev primer. 反向引子序列(The sequence of the reverse primer)。
+  temperature. PCR 中使用的黏合溫度(The annealing temperature used in the PCR)。
+  Mg concentration. PCR 中使用的 Mg++ 濃度(The Mg++ concentration used in the PCR)。
+  bands for parent 1. 親本 1 的條帶大小（見下方範例）(The band sizes for parent1 (see examples below))。
+  bands for parent 2. 親本 2 的條帶大小（見下方範例）(The band sizes for parent2 (see examples below))。
+  repeat motif. 重複基序（例如 AAT）(The repeat motif (for example AAT))。
 </pre>
 <p>
-RFLP markers:
+RFLP 標記(RFLP markers):
 </p>
 <pre>
-  marker_name. The marker name.
-  clone name. The clone used as a probe.
-  fwd sequence read name. The forward sequence read name. 
-  rev sequence read name. The reverse sequence read name.
-  bands for parent 1. The band sizes for parent1.
-  bands for parent 2. The band sizes for parent2.
+  marker_name. 標記名稱(The marker name)。
+  clone name. 用作探針的純化選殖株(The clone used as a probe)。
+  fwd sequence read name. 正向定序讀段名稱(The forward sequence read name)。 
+  rev sequence read name. 反向定序讀段名稱(The reverse sequence read name)。
+  bands for parent 1. 親本 1 的條帶大小(The band sizes for parent1)。
+  bands for parent 2. 親本 2 的條帶大小(The band sizes for parent2)。
 </pre>
 
 <p>
-For other types of markers, <a href="/contact/form">contact SGN</a>.
+若為其他類型的標記，請<a href="/contact/form">聯繫 SGN(contact SGN)</a>(For other types of markers, contact SGN)。
 </p>
 
-<h3>Polymorphism data</h3>
+<h3>多型性資料(Polymorphism data)</h3>
 <p>
-The polymorphism data file should have the following columns:
+多型性資料檔案應具有以下欄位(The polymorphism data file should have the following columns)：
 </p>
 <pre>
-  marker name.
-  band sizes accession 1. (see example below).
-  band sizes accession 2.
-  band sizes accession 3.
-  band sizes accession 4.
+  marker name. 標記名稱(The marker name)。
+  band sizes accession 1. 種原 1 條帶大小（見下方範例）(see example below)。
+  band sizes accession 2. 種原 2 條帶大小。
+  band sizes accession 3. 種原 3 條帶大小。
+  band sizes accession 4. 種原 4 條帶大小。
   ...
-  band sizes accession n.
+  band sizes accession n. 種原 n 條帶大小。
 </pre>
 
-<h3>Accession information</h3>
+<h3>種原資訊(Accession information)</h3>
 <p>
-We need the following information for each accession used in the mapping or polymorphism data files. (Some accessions are already in our database; <a href="/contact/form">Contact us</a> if you're not sure). This information can be sent in an email or text file.
+我們需要圖譜或多型性資料檔案中使用的每個種原的以下資訊。（某些種原已在我們的資料庫中；如果不確定，請<a href="/contact/form">聯繫我們(Contact us)</a>）。此資訊可以透過電子郵件或純文字檔案發送(We need the following information for each accession used in the mapping or polymorphism data files. (Some accessions are already in our database; Contact us if you're not sure). This information can be sent in an email or text file)。
 </p>
 <ul>
-<li>The accession's <b>identifier</b>, for example "TA210"</li>
-<li>The accession's <b>name</b> (optional), for example "Sunpear" </li>
-<li>The accession's <b>species</b> and (optional) <b>common name</b></li>
+<li>種原的<b>識別碼(identifier)</b>，例如 "TA210"</li>
+<li>種原的<b>名稱(name)</b>（選填），例如 "Sunpear" </li>
+<li>種原的<b>物種(species)</b>與（選填）<b>俗名(common name)</b></li>
 </ul>
 
-<p>If you have identified the accessions in the files as "parent 1", "parent 2", etc, remember to state which accession is which.</p>
+<p>如果您在檔案中將種原標識為「親本 1」、「親本 2」等，請記得說明哪個種原對應哪個親本(If you have identified the accessions in the files as "parent 1", "parent 2", etc, remember to state which accession is which)。</p>
 
-<h4>Notes and examples</h4>
+<h4>附註與範例(Notes and examples)</h4>
 
 <ol>
-<li>Marker names should either correspond to SGN marker names, if the markers are identical, or have a new name that is not yet in the SGN database, as the marker correspondences will be established on a name matching basis.</li>
-<li>The band sizes should be given separated by + symbols, if more than one band is detected, such as: 420+230. The original band size, prior to digestion, can be given in a separate column.</li>
-<li>For RFLP markers, if possible, provide sequence data for the clone, as chromatogram files (.ab1 or .scf). Usually, a forward and reverse read is taken. The file names can be indicated in the RFLP marker file.</li>
+<li>標記名稱應與 SGN 標記名稱相對應（如果標記完全相同），或者使用 SGN 資料庫中尚未存在的新名稱，因為標記對應關係將基於名稱匹配建立(Marker names should either correspond to SGN marker names, if the markers are identical, or have a new name that is not yet in the SGN database, as the marker correspondences will be established on a name matching basis)。</li>
+<li>如果檢測到多個條帶，條帶大小應以 + 符號分隔給出，例如：420+230。消化前的原始條帶大小可以在單獨的欄位中給出(The band sizes should be given separated by + symbols, if more than one band is detected, such as: 420+230. The original band size, prior to digestion, can be given in a separate column)。</li>
+<li>對於 RFLP 標記，如果可能，請以色譜圖檔案（.ab1 或 .scf）形式提供純化選殖株的序列資料。通常進行正向與反向讀取。檔案名稱可在 RFLP 標記檔案中註明(For RFLP markers, if possible, provide sequence data for the clone, as chromatogram files (.ab1 or .scf). Usually, a forward and reverse read is taken. The file names can be indicated in the RFLP marker file)。</li>
 </ol>

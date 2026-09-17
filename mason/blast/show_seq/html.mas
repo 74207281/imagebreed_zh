@@ -14,7 +14,7 @@
 	my $seq_bytes = $seq->length*1.018+length($seq->id)+length($seq->desc)+1;
 </%init>
 <div style="text-align: right; margin: 0 10px 1em 0">
-  <b>Whole sequence (<% Number::Bytes::Human::format_bytes($seq_bytes) %>B):</b>
+  <b>完整序列(Whole sequence) (<% Number::Bytes::Human::format_bytes($seq_bytes) %>B)：</b>
   <% join ' | ',
      map {
            my ($name,$link) = @$_;
@@ -27,6 +27,6 @@
    seq    => $seq,
    source => $source,
    highlight_coords      => $highlight_coords,
-   highlight_description => 'BLAST matches',
+   highlight_description => 'BLAST 比對相符區域(BLAST matches)',
    blast_url => $blast_url,
  &>

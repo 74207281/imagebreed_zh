@@ -13,35 +13,35 @@ Isaak Y Tecle (iyt2@cornell.edu)
 </%doc>
 
 <&| /page/info_section.mas, 
-   title      => "Step 5: Statistical parameters",
+   title      => "步驟 5：統計參數(Step 5: Statistical parameters)",
   collapsible => 1,
   collapsed   => 1
 &>
 
 
-The qtl analysis uses R/QTL package and implements an interval mapping with the following parameters. <br/>
+QTL 分析使用 R/qtl 套件，並使用以下參數實作區間定位(The qtl analysis uses R/QTL package and implements an interval mapping with the following parameters)。<br/>
 
 <ul>
   <li>
-    <strong>QTL model:</strong> Select the one dimension single QTL genome scan&nbsp; (the two-dimension two genome QTL scan is under development)
+    <strong>QTL 模型(QTL model)：</strong>選擇一維單 QTL 全基因組掃描（二維雙 QTL 全基因組掃描正在開發中）(Select the one dimension single QTL genome scan (the two-dimension two genome QTL scan is under development))
   </li>
   <li>
-    <strong>QTL mapping method:</strong> You can select&nbsp; 'Single Marker Analysis'&nbsp; or 'Maximum Likelihood' for standard interval mapping or for an approximation of it 'Haley-Knot Regression' or 'Multiple Imputation'. Use 'Multiple Imputation' only if you want to estimate the QTL genotype based on random imputation.
+    <strong>QTL 定位方法(QTL mapping method)：</strong>您可以選擇「單標記分析」或標準區間定位的「最大概似法」，或其近似法「Haley-Knott 迴歸」或「多重插補」。僅在您希望基於隨機插補來估計 QTL 基因型時使用「多重插補」(You can select 'Single Marker Analysis' or 'Maximum Likelihood' for standard interval mapping or for an approximation of it 'Haley-Knot Regression' or 'Multiple Imputation'. Use 'Multiple Imputation' only if you want to estimate the QTL genotype based on random imputation)。
   </li>
   <li>
-    <strong>QTL genotype probability method:</strong> Select 'Calculate' if you want the QTL genotype to be estimated based the observed marker data. This method must be selected if you selected 'Maximum Likelihood' or 'Haley-Knot Regression'. If you selected 'Multiple Imputation' then choose the 'Simulate' method.
+    <strong>QTL 基因型機率方法(QTL genotype probability method)：</strong>如果您希望基於觀察到的標記資料來估計 QTL 基因型，請選擇「計算」。如果您選擇了「最大概似法」或「Haley-Knott 迴歸」，則必須選擇此方法。如果您選擇了「多重插補」，請選擇「模擬」方法(Select 'Calculate' if you want the QTL genotype to be estimated based the observed marker data. This method must be selected if you selected 'Maximum Likelihood' or 'Haley-Knot Regression'. If you selected 'Multiple Imputation' then choose the 'Simulate' method)。
   </li>
   <li>
-    <strong>Genotype probability significance level:</strong> select the genotyping error rate you want to allow.
+    <strong>基因型機率顯著水準(Genotype probability significance level)：</strong>選擇您允許的基因分型錯誤率(select the genotyping error rate you want to allow)。
   </li>
   <li>
-    <strong>Genome scan size (cM):</strong> select the genome size (interval) you want the QTL genotype probabilities to be calculated.
+    <strong>全基因組掃描間距 (cM)(Genome scan size (cM))：</strong>選擇您希望計算 QTL 基因型機率的基因組間距 (區間)(select the genome size (interval) you want the QTL genotype probabilities to be calculated)。
   </li>
   <li>
-    <strong>No. of imputations:</strong> applicable only for 'Multiple Imputation' mapping method and 'Simulate' QTL genotype probability method. 
+    <strong>插補次數(No. of imputations)：</strong>僅適用於「多重插補」定位方法和「模擬」QTL 基因型機率方法(applicable only for 'Multiple Imputation' mapping method and 'Simulate' QTL genotype probability method)。 
   </li>
   <li>
-    <strong>No. of permutations and significance level:</strong> select the number of permutations to perform and the error rate for the calculation of the LOD threshold.
+    <strong>置換次數與顯著水準(No. of permutations and significance level)：</strong>選擇要執行的置換次數以及計算 LOD 閾值的錯誤率(select the number of permutations to perform and the error rate for the calculation of the LOD threshold)。
   </li>
 </ul>
 

@@ -11,22 +11,22 @@ $list_size
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form' ] &>
 <& /util/import_css.mas, paths => ['/documents/inc/datatables/jquery.dataTables.css'] &>
 
-<& /page/page_title.mas, title => "Details for List '$list_name'" &>
+<& /page/page_title.mas, title => "清單 '$list_name' 詳情(Details for List '$list_name')" &>
 
-<&| /page/info_section.mas, title=>"Details",  collapsible => 1, collapsed=>0,&>
+<&| /page/info_section.mas, title=>"詳情(Details)",  collapsible => 1, collapsed=>0,&>
     <table class="table table-bordered table-hover">
-        <tr><td><b>List Name</b></td><td><% $list_name %></td></tr>
-        <tr><td><b>List ID</b></td><td><% $list_id %></td></tr>
-        <tr><td><b>Type</b></td><td><% $list_type %></td></tr>
-        <tr><td><b>Number of Items</b></td><td><% $list_size %></td></tr>
-        <tr><td><b>Description</b></td><td><% $list_description %></td></tr>
+        <tr><td><b>清單名稱(List Name)</b></td><td><% $list_name %></td></tr>
+        <tr><td><b>清單代碼(List ID)</b></td><td><% $list_id %></td></tr>
+        <tr><td><b>類型(Type)</b></td><td><% $list_type %></td></tr>
+        <tr><td><b>項目數量(Number of Items)</b></td><td><% $list_size %></td></tr>
+        <tr><td><b>說明(Description)</b></td><td><% $list_description %></td></tr>
     </table>
 </&>
 
-<&| /page/info_section.mas, title => 'List Items', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '清單項目(List Items)', collapsible=>1, collapsed=>0 &>
     <div class = "well well-sm">
         <form id="download_list_details" action="/list/download_details" method="POST">
-            <button class="btn btn-primary" type="button" id="download_details_button">Download List Items</button>
+            <button class="btn btn-primary" type="button" id="download_details_button">下載清單項目(Download List Items)</button>
             <input type="hidden" id="list_download_token" name="list_download_token"/>
             <input name="list_id" id="list_id" type="hidden" value="<% $list_id %>">
         </form>
@@ -51,19 +51,19 @@ jQuery(document).ready( function() {
         'autoWidth': false,
         'ajax': '/ajax/list/details/' + <% $list_id %>,
         'columns': [
-            { title: "Seedlot Name", "data": null, "render": function ( data, type, row ){return "<a href='/breeders/seedlot/"+row.seedlot_id+"'>"+row.seedlot_name+"</a>"}},
-            { title: "Content Name", "data": null, "render": function ( data, type, row ) {
+            { title: "種子批名稱(Seedlot Name)", "data": null, "render": function ( data, type, row ){return "<a href='/breeders/seedlot/"+row.seedlot_id+"'>"+row.seedlot_name+"</a>"}},
+            { title: "內容物名稱(Content Name)", "data": null, "render": function ( data, type, row ) {
                 if (row.content_type == 'accession'){
                     return "<a href='/stock/"+row.content_id+"/view'>"+row.content_name+"</a>"
                 } else if (row.content_type == 'cross') {
                     return "<a href='/cross/"+row.content_id+"'>"+row.content_name+"</a>"
                 }
             }},
-            { title: "Content Type", "data": "content_type" },
-            { title: "Box Name", "data": "box_name" },
-            { title: "Current Count", "data": "current_count" },
-            { title: "Current Weight", "data": "current_weight" },
-            { title: "Quality", "data": "quality" },
+            { title: "內容物類型(Content Type)", "data": "content_type" },
+            { title: "盒號(Box Name)", "data": "box_name" },
+            { title: "目前數量(Current Count)", "data": "current_count" },
+            { title: "目前重量(Current Weight)", "data": "current_weight" },
+            { title: "品質(Quality)", "data": "quality" },
         ],
     });
 

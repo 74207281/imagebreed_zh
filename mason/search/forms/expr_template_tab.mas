@@ -15,7 +15,7 @@ $q ||= CXGN::Searches::GemTemplate->new()->new_query();
 </%perl>
 
 <table class="search_form_title"><tr><td>
-      <span class="search_form_title">Expression search by template</span>
+      <span class="search_form_title">依範本搜尋表現量(Expression Search by Template)</span>
     </td>
   </tr>
 </table>

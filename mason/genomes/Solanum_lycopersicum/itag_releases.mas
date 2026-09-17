@@ -3,7 +3,7 @@
 %   for my $release_name( sort { $b cmp $a } keys %release_datasources ) {
 
       <&| /page/info_section.mas,
-          title => "$release_name annotation release",
+          title => "$release_name 註釋發布($release_name annotation release)",
           is_subsection => 1,
           collapsible   => 1,
           collapsed     => $annot_index++ ? 1 : 0,
@@ -15,7 +15,7 @@
           <% info_table_html(
               __border => 0,
               # bulk download files
-              'Bulk files' => itag_release_ftp_link( $release_name ),
+              '批量檔案(Bulk files)' => itag_release_ftp_link( $release_name ),
             )
           %>
 
@@ -23,7 +23,7 @@
 %   }
 % } else {
 
-  <span class="ghosted">annotation data temporarily unavailable</span>
+  <span class="ghosted">註釋數據暫時不可用(annotation data temporarily unavailable)</span>
 
 % }
 
@@ -45,7 +45,7 @@ sub itag_release_ftp_link {
     my ( $r ) = @_;
 
     my $link_style = 'display: block; margin: 0.5em 0; font-size: 110%; font-weight: bold';
-    my $empty_link = qq|<span style="$link_style" class="ghosted">not available</span>|;
+    my $empty_link = qq|<span style="$link_style" class="ghosted">不可用(not available)</span>|;
     my $itag = $c->enabled_feature('ITAG')
 	or return $empty_link;
 
@@ -56,7 +56,7 @@ sub itag_release_ftp_link {
             or return $empty_link;
     }
 
-    return qq|<a style="$link_style" href="/itag/release/|.$r->release_number.'/list_files">Download bulk files</a>';
+    return qq|<a style="$link_style" href="/itag/release/|.$r->release_number.'/list_files">下載批量檔案(Download bulk files)</a>';
 }
 </%once>
 

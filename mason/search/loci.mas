@@ -8,7 +8,7 @@ $lg_names_ref       => undef
 
 <div class="container-fluid">
 
-<& /page/page_title.mas, title=>'Search Genes and Loci' &>
+<& /page/page_title.mas, title=>'搜尋基因與基因座(Search Genes and Loci)' &>
 
 <%perl>
 
@@ -33,17 +33,17 @@ my $linkage_group_select = simple_selectbox_html(
 no warnings 'uninitialized';
 
 my $advanced_search=  info_table_html(
-  'Organism'   => $organism,
-  'Chromosome / Linkage&nbsp;Group' => $linkage_group_select,
-  'Locus editor' =>qq|<input class="form-control" type="text" id="locus_editor" size="20"/>|,
-  'Show only genes with' => qq | <input type="checkbox" id="has_sequence"  />sequence <br />
-				<input type="checkbox" id="has_marker" />markers<br />
-				<input type="checkbox" id="has_annotation" />GO/PO annotation<br /> |,
+  '物種(Organism)'   => $organism,
+  '染色體 / 連鎖群(Chromosome / Linkage Group)' => $linkage_group_select,
+  '基因座編輯者(Locus Editor)' =>qq|<input class="form-control" type="text" id="locus_editor" size="20"/>|,
+  '僅顯示具有以下條件的基因(Show only genes with)' => qq | <input type="checkbox" id="has_sequence"  />序列(sequence) <br />
+				<input type="checkbox" id="has_marker" />標記(markers)<br />
+				<input type="checkbox" id="has_annotation" />GO/PO註釋(GO/PO annotation)<br /> |,
 
-      'Phenotype'  => qq|<input class="form-control" type="text" id="phenotype" size="30" /><a href="/search/phenotypes"> [Advanced SGN phenotype search]</a>|,
-      'Ontology term' => qq|<input class="form-control" type="text" id="ontology_term" placeholder="Term name or ID: e.g. 'carotenoid' or 'PO:0007010'"/>
+      '表型(Phenotype)'  => qq|<input class="form-control" type="text" id="phenotype" size="30" /><a href="/search/phenotypes"> [進階SGN表型搜尋(Advanced SGN phenotype search)]</a>|,
+      '本體術語(Ontology Term)' => qq|<input class="form-control" type="text" id="ontology_term" placeholder="術語名稱或ID，例如：'carotenoid' 或 'PO:0007010'"/>
              <!--<br /><span class="ghosted">(Term name or ID: e.g. 'carotenoid' or 'PO:0007010')</span>-->|,
-      'Genbank ID' =>qq|<input class="form-control" type="text" id="genbank_accession" placeholder="Accession or GI: e.g. 'EF091820' or '118185006'"/>
+      'GenBank ID' =>qq|<input class="form-control" type="text" id="genbank_accession" placeholder="登錄號或GI，例如：'EF091820' 或 '118185006'"/>
              <!--<br /><span class="ghosted">(Accession or GI: e.g. 'EF091820' or '118185006')</span>-->|,
       __border   =>1,
       __multicol =>2,
@@ -53,13 +53,13 @@ my $advanced_search=  info_table_html(
 </%perl>
 
 
-<&| /page/info_section.mas, title => 'Search', collapsible=>1, collapsed=>0, subtitle=>'[<a href="../help/gene_search_help.pl">Gene Search Help</a>]' &>
+<&| /page/info_section.mas, title => '搜尋(Search)', collapsible=>1, collapsed=>0, subtitle=>'[<a href="../help/gene_search_help.pl">基因搜尋說明(Gene Search Help)</a>]' &>
 
 <div class="well" id="locus_search_form">
 
   <div class="form-horizontal" >
     <div class="form-group">
-      <label class="col-sm-3 control-label">Search for any gene, locus, or allele:</label>
+      <label class="col-sm-3 control-label">搜尋任何基因、基因座或等位基因(Search for any gene, locus, or allele):</label>
       <div class="col-sm-9" >
         <% $any_name_select %>
       </div>
@@ -67,9 +67,9 @@ my $advanced_search=  info_table_html(
     <div class="container-fluid" align="center">
       <br/>
       <ul class="list-inline" >
-        <li style="padding-bottom:5px"><button class="btn btn-primary" id="submit_locus_search" />Search</button></li>
-	<li style="padding-bottom:5px"><a class="btn btn-info" href="/locus/0/new/" style="color:#fff" >Submit New Locus</a></li>
-	<li style="padding-bottom:5px"><input class="btn btn-default" type="button" value="Advanced Search Options" id="show_advanced_search" /></li>
+        <li style="padding-bottom:5px"><button class="btn btn-primary" id="submit_locus_search" />搜尋(Search)</button></li>
+	<li style="padding-bottom:5px"><a class="btn btn-info" href="/locus/0/new/" style="color:#fff" >提交新基因座(Submit New Locus)</a></li>
+	<li style="padding-bottom:5px"><input class="btn btn-default" type="button" value="進階搜尋選項(Advanced Search Options)" id="show_advanced_search" /></li>
       </ul>
     </div>
   </div>
@@ -86,7 +86,7 @@ my $advanced_search=  info_table_html(
 -->
 
 <div id="advanced_search_div" style="display:none;">
-   <&| /page/info_section.mas, title    => 'Advanced Options' &>
+   <&| /page/info_section.mas, title    => '進階選項(Advanced Options)' &>
      <% $advanced_search %>
    </&>
 </div>
@@ -98,17 +98,17 @@ my $advanced_search=  info_table_html(
 </div>
 
 
-<&| /page/info_section.mas, title => 'Search Results', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '搜尋結果(Search Results)', collapsible=>1, collapsed=>0 &>
 
 
 <div class="well">
 <table id="locus_search_results" class="display">
 <thead>
   <tr>
-    <th>Organism</th>
-    <th>Locus Name</th>
-    <th>Locus Symbol</th>
-    <th>Alleles</th>
+    <th>物種(Organism)</th>
+    <th>基因座名稱(Locus Name)</th>
+    <th>基因座符號(Locus Symbol)</th>
+    <th>等位基因(Alleles)</th>
   </tr>
 </thead>
 </table>

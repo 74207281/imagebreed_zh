@@ -63,7 +63,7 @@ foreach my $allele_id (@$alleles) {
 
 % if(@allele_data) {
 <& /page/columnar_table.mas,
-  headings => [ "Locus name", "Allele symbol", "Phenotype" ],
+  headings => [ "基因座名稱(Locus name)", "等位基因符號(Allele symbol)", "表型(Phenotype)" ],
   data     => \@allele_data ,
   &>
 

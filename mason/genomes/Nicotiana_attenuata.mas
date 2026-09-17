@@ -1,5 +1,5 @@
 <br />
-<& /page/page_title.mas, title=>"<i>Nicotiana attenuata</i> genome release v2 annotation v5" &>
+<& /page/page_title.mas, title=>"<i>Nicotiana attenuata</i> 基因組版本 v2 註釋 v5(<i>Nicotiana attenuata</i> genome release v2 annotation v5)" &>
 
 <div class="container-fluid">
   <div class="row">
@@ -7,13 +7,11 @@
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
     <p>
-      The genome assembly and genome annotation are deposited in NCBI under bioproject PRJNA316810.
-      Expression profile of predicted genes can be accessed via Nicotiana attenuata data hub:
-      http://nadh.ice.mpg.de/NaDH/
+      基因組組裝和基因組註釋已存放於 NCBI bioproject PRJNA316810 下。預測基因的表現譜可透過 Nicotiana attenuata 資料中心存取：http://nadh.ice.mpg.de/NaDH/(The genome assembly and genome annotation are deposited in NCBI under bioproject PRJNA316810. Expression profile of predicted genes can be accessed via Nicotiana attenuata data hub: http://nadh.ice.mpg.de/NaDH/)
     </p>
 <br>
     <p>
-      Further detailed description on the process of genome assembly and annotation can be found in this reference:<br><br>
+      有關基因組組裝和註釋過程的更詳細描述，請參閱本參考文獻：(Further detailed description on the process of genome assembly and annotation can be found in this reference:)<br><br>
       Xu S, Brockmöller T, Navarro-Quezada A, Kuhl H, Gase K, Ling Z, Zhou W, Kreitzer C, Stanke M, Tang H, et al.<br>
       <b>Wild tobacco genomes reveal the evolution of prolific nicotine production.</b><br>
       Proceedings of the National Academy of Sciences USA. In press.
@@ -27,7 +25,7 @@
 
 <center>
     <a class="btn btn-primary" href="/tools/blast/?db_id=293" target="_blank" style="color:white">BLAST</a>&nbsp;&nbsp;
-    <a class="btn btn-primary" href="ftp://ftp.sgn.cornell.edu/genomes/Nicotiana_attenuata/" target="_blank" style="color:white">FTP Site</a>&nbsp;&nbsp;
+    <a class="btn btn-primary" href="ftp://ftp.sgn.cornell.edu/genomes/Nicotiana_attenuata/" target="_blank" style="color:white">FTP 網站(FTP Site)</a>&nbsp;&nbsp;
     <!-- <a class="btn btn-primary" href="http://solgenomics.net/jbrowse_solgenomics/?data=data%2Fjson%2FPeaxi162&loc=Peaxi162Scf00001" target="_blank" style="color:white">JBrowse</a>&nbsp;&nbsp; -->
     <!-- <a class="btn btn-primary" href="http://vigs.solgenomics.net" target="_blank" style="color:white">VIGS Tool</a> -->
 </center>

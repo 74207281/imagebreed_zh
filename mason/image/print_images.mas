@@ -68,7 +68,7 @@ if ($images && !$image_objects) {
 ###print qq{  <script src="jquery.colorbox-min.js"></script> };
 
 if ($image_objects)  { # don't display anything for empty list of images
-  $image_html .= qq|<table class="table table-bordered"><thead><tr><th><button class="btn btn-sm btn-default" id="print_images_multi_image_view">View Selected</button></th><th>Image</th><th>Description</th><th>Type</th></tr></thead><tbody>|;
+  $image_html .= qq|<table class="table table-bordered"><thead><tr><th><button class="btn btn-sm btn-default" id="print_images_multi_image_view">檢視所選(View Selected)</button></th><th>圖片(Image)</th><th>說明(Description)</th><th>類型(Type)</th></tr></thead><tbody>|;
   my $i = 0;
   foreach my $image_ob (@$image_objects) {
     $count++;
@@ -83,8 +83,8 @@ if ($image_objects)  { # don't display anything for empty list of images
     ##$image_html .=  qq { $(".stock_image_group").colorbox({rel:'stock_image_group'}); };
 
     my $colorbox =
-      qq|<a href="$image_img"  title="<a href=$image_page>Go to image page ($image_name)</a>" class="stock_image_group" rel="gallery-figures"><img src="$small_image" alt="$image_description" /></a> |;
-    my $multi_open_colorbox =  qq|<a href="$image_img"  title="<a href=$image_page>Go to image page ($image_name)</a>" class="stock_image_group" rel="gallery-figures"><img src="$original_img" alt="$image_description" /></a> |;
+      qq|<a href="$image_img"  title="<a href=$image_page>前往圖片頁面 ($image_name)(Go to image page)</a>" class="stock_image_group" rel="gallery-figures"><img src="$small_image" alt="$image_description" /></a> |;
+    my $multi_open_colorbox =  qq|<a href="$image_img"  title="<a href=$image_page>前往圖片頁面 ($image_name)(Go to image page)</a>" class="stock_image_group" rel="gallery-figures"><img src="$original_img" alt="$image_description" /></a> |;
     my $fhtml =
       qq|<tr><td><input type="checkbox" name="print_images_checkbox" data-html_text='$multi_open_colorbox'></td><td>|
         . $colorbox
@@ -119,7 +119,7 @@ if ($image_objects)  { # don't display anything for empty list of images
 
 }
 $m_image_html .=
-  "<table class='table table-bordered'><thead><tr><th><button class='btn btn-sm btn-default' id='print_images_multi_image_view'>View Selected</button></th><th>Image</th><th>Description</th><th>Type</th></tr></thead><tbody>";  #open table tag for the hidden figures #4 and on
+  "<table class='table table-bordered'><thead><tr><th><button class='btn btn-sm btn-default' id='print_images_multi_image_view'>檢視所選(View Selected)</button></th><th>圖片(Image)</th><th>說明(Description)</th><th>類型(Type)</th></tr></thead><tbody>";  #open table tag for the hidden figures #4 and on
 my $more = scalar(@more_is);
 foreach (@more_is) { $m_image_html .= $_; }
 
@@ -128,7 +128,7 @@ $m_image_html .= "</tbody></table>";    #close tabletag for the hidden figures
 if (@more_is) {    #html_optional_show if there are more than 3 figures
   $image_html .= html_optional_show(
 				    $additional_image_button_id,
-				    "<b>See $more more images...</b>",
+				    "<b>查看其他 $more 張圖片...(See $more more images...)</b>",
 				    qq| $m_image_html |,
 				    0, #< do not show by default
 				    #'abstract_optional_show', #< don't use the default button-like style

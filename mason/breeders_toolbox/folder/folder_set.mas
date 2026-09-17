@@ -28,7 +28,7 @@ $folder_for_genotyping_trials => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="setFolderDialog">Place <% $dialog_type %> in folder</h4>
+        <h4 class="modal-title" id="setFolderDialog">將 <% $dialog_type %> 置於資料夾中(Place <% $dialog_type %> in Folder)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -36,41 +36,41 @@ $folder_for_genotyping_trials => undef
 	       <form class="form-horizontal" role="form" method="post" id="set_folder_dialog_form" name="set_folder_dialog_form">
 
          <div class="form-group">
-             <label class="col-sm-3 control-label">Breeding Program: </label>
+             <label class="col-sm-3 control-label">育種計畫：</label>
              <div class="col-sm-9" >
                <div id="folder_set_breeding_program_select_div">
 % if ($breeding_program_id) {
                <input type="text" class="form-control" value="<% $breeding_program_name %>" disabled/>
                <input type="hidden" id="folder_set_breeding_program_id" name="folder_set_breeding_program_id" value="<% $breeding_program_id %>" />
 % } else {
- [Loading...]
+ [載入中...]
 % }
                </div>
              </div>
          </div>
          <hr>
          <div class="form-group">
-             <label class="col-sm-3 control-label"><% $dialog_type %> Folders: </label>
+             <label class="col-sm-3 control-label"><% $dialog_type %> 資料夾：</label>
              <div class="col-sm-9" >
                <div id="trial_folder_select_div">
 % if ($folder_id) {
                 <input type="text" class="form-control" value="<% $folder_name %>" disabled/>
                 <input type="hidden" id="html_select_folder_for_trial" name="html_select_folder_for_trial" value="<% $folder_id %>" />
 % } else {
- [Loading...]
+ [載入中...]
 % }
                </div>
              </div>
          </div>
 	        <div class="form-group">
-      	      <label class="col-sm-3 control-label"><% $dialog_type %>: </label>
+      	      <label class="col-sm-3 control-label"><% $dialog_type %>：</label>
       	      <div class="col-sm-9" >
                 <div id="select_trial_for_folder">
 % if ($trial_id) {
                 <input type="text" class="form-control" value="<% $trial_name %>" disabled/>
                 <input type="hidden" id="html_select_trial_for_folder" name="html_select_trial_for_folder" value="<% $trial_id %>" />
 % } else {
-  [Loading...]
+  [載入中...]
 % }
                 </div>
               </div>
@@ -79,8 +79,8 @@ $folder_for_genotyping_trials => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      <button type="button" class="btn btn-primary" name="set_trial_folder" id="set_trial_folder" title="Save a trial to a folder">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	      <button type="button" class="btn btn-primary" name="set_trial_folder" id="set_trial_folder" title="將試驗儲存至資料夾(Save a trial to a folder)">儲存(Save)</button>
       </div>
     </div>
   </div>
@@ -91,18 +91,18 @@ $folder_for_genotyping_trials => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="setFolderSuccessDialog"><% $dialog_type %> Move Successful</h4>
+                <h4 class="modal-title" id="setFolderSuccessDialog"><% $dialog_type %> 移動成功(Move Successful)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The <% $dialog_type %> was moved into the folder successfully
+                        <% $dialog_type %> 已成功移動至資料夾中
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_set_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_set_folder_success_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -131,7 +131,7 @@ jQuery(document).ready(function() {
   });
 
   jQuery('#set_trial_folder').click( function() {
-    jQuery('#trial_folder_div').html('[Updating...]');
+    jQuery('#trial_folder_div').html('[更新中...]');
     set_trial_folder();
     display_trial_folder();
     jQuery('#set_folder_dialog').modal("hide");
@@ -180,7 +180,7 @@ function set_trial_folder() {
     jQuery.each(trial_ids, function(index, value) {
         //console.log(value);
         if (value == folder_id) {
-          alert("Cannot make a folder its own parent.");
+          alert("無法將資料夾設為自己的上層資料夾。");
           return;
         }
         jQuery.ajax( {
@@ -193,7 +193,7 @@ function set_trial_folder() {
             },
             error: function(response) {
                 errors = 1;
-                alert('An error occurred trying to associate a folder to the trial.');
+                alert('嘗試將資料夾關聯至試驗時發生錯誤。');
             }
         });
     });
@@ -209,7 +209,7 @@ function set_trial_folder() {
     }
   } else {
       if (trial_ids == folder_id) {
-        alert("Cannot make a folder its own parent.");
+        alert("無法將資料夾設為自己的上層資料夾。");
         return;
       }
       jQuery.ajax( {
@@ -223,7 +223,7 @@ function set_trial_folder() {
               }
           },
           error: function(response) {
-              alert('An error occurred trying to associate a folder to the trial.');
+              alert('嘗試將資料夾關聯至試驗時發生錯誤。');
           }
       });
   }
@@ -238,7 +238,7 @@ function display_trial_folder() {
                 jQuery('#trial_folder_div').html("<a href='/folder/"+response.folder[0]+"'>"+response.folder[1]+"</a>");
             },
             error: function(response) {
-                jQuery('#trial_folder_div').html('[ Protocol error. ]');
+                jQuery('#trial_folder_div').html('[ 協定錯誤。 ]');
             }
         });
     }

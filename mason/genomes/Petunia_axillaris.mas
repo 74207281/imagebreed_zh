@@ -1,28 +1,28 @@
 <br />
-<& /page/page_title.mas, title=>"<i>Petunia axillaris</i> draft genome sequence v1.6.2" &>
+<& /page/page_title.mas, title=>"<i>Petunia axillaris</i> 草圖基因組序列 v1.6.2(<i>Petunia axillaris</i> draft genome sequence v1.6.2)" &>
 
 <p>
-  A draft sequence of the <i>Petunia axillaris</i> genome, one of the ancestors of Petunia hybrida, is publicly available (Bombarely et al, 2016).
-  The P. axillaris N genome sequence, was performed using a hybrid de novo assembly with a combination of short read (Illumina; coverage 137X) and long read technologies (PacBio; coverage 22X)<br>
+  <i>Petunia axillaris</i>（Petunia hybrida 的祖先之一）的草圖基因組序列已公開發布（Bombarely 等人，2016）。P. axillaris N 基因組定序是結合短讀段（Illumina；深度 137X）與長讀段技術（PacBio；深度 22X）採用混合從頭組裝完成的。(A draft sequence of the <i>Petunia axillaris</i> genome, one of the ancestors of Petunia hybrida, is publicly available (Bombarely et al, 2016).
+  The P. axillaris N genome sequence, was performed using a hybrid de novo assembly with a combination of short read (Illumina; coverage 137X) and long read technologies (PacBio; coverage 22X))<br>
 </p>
 
 
 <p>
-  The <i>Petunia axillaris</i> genome data are accessible on SGN through BLAST, JBrowse and the SGN VIGS Tool, and they can be downloaded from the SGN ftp site.
+  <i>Petunia axillaris</i> 基因組數據可透過 BLAST、JBrowse 和 SGN VIGS 工具在 SGN 上存取，並可從 SGN FTP 網站下載。(The <i>Petunia axillaris</i> genome data are accessible on SGN through BLAST, JBrowse and the SGN VIGS Tool, and they can be downloaded from the SGN ftp site.)
 </p>
 
 <br>
 
 <center>
     <a class="btn btn-primary" href="/tools/blast/?db_id=272" target="_blank" style="color:white">BLAST</a>&nbsp;&nbsp;
-    <a class="btn btn-primary" href="ftp://ftp.solgenomics.net/genomes/Petunia_axillaris/" target="_blank" style="color:white">FTP Site</a>&nbsp;&nbsp;
+    <a class="btn btn-primary" href="ftp://ftp.solgenomics.net/genomes/Petunia_axillaris/" target="_blank" style="color:white">FTP 網站(FTP Site)</a>&nbsp;&nbsp;
     <a class="btn btn-primary" href="http://solgenomics.net/jbrowse_solgenomics/?data=data%2Fjson%2FPeaxi162&loc=Peaxi162Scf00001" target="_blank" style="color:white">JBrowse</a>&nbsp;&nbsp;
-    <a class="btn btn-primary" href="http://vigs.solgenomics.net" target="_blank" style="color:white">VIGS Tool</a>
+    <a class="btn btn-primary" href="http://vigs.solgenomics.net" target="_blank" style="color:white">VIGS 工具(VIGS Tool)</a>
 </center>
 
 <br>
 <br>
-<h4>References</h4>
+<h4>參考文獻(References)</h4>
 <ul style="list-style-type:disc">
   <li>
     Bombarely, A., Moser, M, ... Sims, T.L. and Kuhlemeier, C. (2016)<br>

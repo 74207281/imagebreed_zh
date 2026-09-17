@@ -12,9 +12,9 @@
 
 </%perl>
 
-<& /page/page_title.mas, title=>"BLAST db details" &>
+<& /page/page_title.mas, title=>"BLAST 資料庫詳細資訊(BLAST db details)" &>
 
-<div >This page provides details for each of the BLAST sequence sets available at SGN.</div>
+<div >此頁面提供本系統中所有可用 BLAST 序列集的詳細資訊(This page provides details for each of the BLAST sequence sets available)。</div>
 
 % foreach my $g (@groups) { 
 
@@ -24,7 +24,7 @@
 
    <%perl>
      my $needs_update ="";
-     if ($d->{needs_update}) { $needs_update = $d->{needs_update} ? qq|<span style="background: #c22; padding: 3px; color: white">needs update</span>| : qq|<span style="background: #2c2; padding: 3ppx; color: white">up to date</span>|;
+     if ($d->{needs_update}) { $needs_update = $d->{needs_update} ? qq|<span style="background: #c22; padding: 3px; color: white">需要更新(needs update)</span>| : qq|<span style="background: #2c2; padding: 3px; color: white">已是最新(up to date)</span>|;
 }
      my $source_url = "";
      if (exists($d->{source_url}) && $d->{source_url} =~ m/^http|^ftp/) { 
@@ -34,19 +34,19 @@
       
 <&| /page/info_section.mas, title=> $d->{title}, is_subsection=>1 &>
   <& /page/info_table.mas, data => [
-    'Type'    => $d->{sequence_type}, 
-    'Seq count'   => $d->{sequence_count},
-				    'Current as of'    => $d->{current_as_of},
-				    'Updates' => $d->{update_freq},
+    '類型(Type)'    => $d->{sequence_type}, 
+    '序列數量(Seq count)'   => $d->{sequence_count},
+				    '更新截至(Current as of)'    => $d->{current_as_of},
+				    '更新頻率(Updates)' => $d->{update_freq},
 				    ' '     => $needs_update,
 				   ],
     'multicol'=>5 &>
     <& /page/info_table.mas, data => [ 
-				      'Source URL'       => $source_url,
+				      '來源網址(Source URL)'       => $source_url,
 				     ],
       &>
       <& /page/info_table.mas, data => [
-        'Description'      => $d->{description} 
+        '描述(Description)'      => $d->{description} 
 				       ],
 					 &>
 </&>

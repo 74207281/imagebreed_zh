@@ -11,102 +11,102 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="downloadHighDimDataDialog">Download High-Dimensional Phenotype Data</h4>
+        <h4 class="modal-title" id="downloadHighDimDataDialog">下載高維度表型資料(Download High-Dimensional Phenotype Data)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "high_dim_data_download_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Intro" &>
-                    <& /page/page_title.mas, title=>"This workflow will guide you through downloading high-dimensional data from the database." &>
+                <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                    <& /page/page_title.mas, title=>"此工作流程將引導您從資料庫下載高維度資料(This workflow will guide you through downloading high-dimensional data from the database.)" &>
 
                     <center>
                         <div class="well">
-                            <h4>High-dimensional phenotype data includes:</h4>
-                            <p>NIRS</p>
-                            <p>Transcriptomics</p>
-                            <p>Metabolomics</p>
+                            <h4>高維度表型資料包括(High-dimensional phenotype data includes)：</h4>
+                            <p>近紅外光譜(NIRS)</p>
+                            <p>轉錄組學(Transcriptomics)</p>
+                            <p>代謝組學(Metabolomics)</p>
                         </div>
                     </center>
 
                     <center>
-                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                    <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Data Type" &>
-                    <& /page/page_title.mas, title=>"Select the type of high-dimensional data to download" &>
+                <&| /util/workflow.mas:step, title=> "資料類型(Data Type)" &>
+                    <& /page/page_title.mas, title=>"選擇要下載的高維度資料類型(Select the type of high-dimensional data to download)" &>
                     <br/><br/>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Data Type: </label>
+                            <label class="col-sm-3 control-label">資料類型(Data Type): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="high_dim_data_download_type_select"> 
 %  if ($high_dimensional_phenotype_type eq 'NIRS') {
-                                    <option value="NIRS">NIRS</option>
-                                    <option disabled value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="Metabolomics">Metabolomics</option>
+                                    <option value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option disabled value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="Metabolomics">代謝組學(Metabolomics)</option>
 %  } elsif ($high_dimensional_phenotype_type eq 'Transcriptomics') {
-                                    <option value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="NIRS">NIRS</option>
-                                    <option disabled value="Metabolomics">Metabolomics</option>
+                                    <option value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option disabled value="Metabolomics">代謝組學(Metabolomics)</option>
 %  } elsif ($high_dimensional_phenotype_type eq 'Metabolomics') {
-                                    <option value="Metabolomics">Metabolomics</option>
-                                    <option disabled value="Transcriptomics">Transcriptomics</option>
-                                    <option disabled value="NIRS">NIRS</option>
+                                    <option value="Metabolomics">代謝組學(Metabolomics)</option>
+                                    <option disabled value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option disabled value="NIRS">近紅外光譜(NIRS)</option>
 %  } else {
-                                    <option value="NIRS">NIRS</option>
-                                    <option value="Transcriptomics">Transcriptomics</option>
-                                    <option value="Metabolomics">Metabolomics</option>
+                                    <option value="NIRS">近紅外光譜(NIRS)</option>
+                                    <option value="Transcriptomics">轉錄組學(Transcriptomics)</option>
+                                    <option value="Metabolomics">代謝組學(Metabolomics)</option>
 %  }
                                 </select>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_download_data_type_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="high_dim_data_download_data_type_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Protocol Info" &>
-                    <& /page/page_title.mas, title=>"Select a protocol for the data to download" &>
+                <&| /util/workflow.mas:step, title=> "實驗方案資訊(Protocol Info)" &>
+                    <& /page/page_title.mas, title=>"選擇要下載資料的實驗方案(Select a protocol for the data to download)" &>
 
                     <div id="high_dim_data_download_protocol_select">
                     </div>
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_download_protocol_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="high_dim_data_download_protocol_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Dataset" &>
-                    <& /page/page_title.mas, title=>"Select a dataset for the data to download" &>
+                <&| /util/workflow.mas:step, title=> "資料集(Dataset)" &>
+                    <& /page/page_title.mas, title=>"選擇要下載資料的資料集(Select a dataset for the data to download)" &>
 
                     <div id="high_dim_data_download_dataset_select">
                     </div>
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="high_dim_data_download_dataset_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="high_dim_data_download_dataset_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Download" &>
-                    <& /page/page_title.mas, title=>"Download high dimensional phenotypes" &>
+                <&| /util/workflow.mas:step, title=> "下載(Download)" &>
+                    <& /page/page_title.mas, title=>"下載高維度表型資料(Download high dimensional phenotypes)" &>
 
                     <div class="form-horizontal" >
                         <div class="form-group">
-                            <label class="col-sm-6 control-label">Query Associated Stocks (e.g. Your dataset contains accessions, however, the high-dim phenotypes are saved for tissue samples of the accession): </label>
+                            <label class="col-sm-6 control-label">查詢關聯種質材料（例如：您的資料集包含種原，但高維度表型儲存在該種原的組織樣本中）(Query Associated Stocks (e.g. Your dataset contains accessions, however, the high-dim phenotypes are saved for tissue samples of the accession)): </label>
                             <div class="col-sm-6" >
                                 <select class="form-control" id="high_dim_data_download_associated_stocks" name="high_dim_data_download_associated_stocks">
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
+                                    <option value="yes">是(Yes)</option>
+                                    <option value="no">否(No)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-6 control-label">Download File: </label>
+                            <label class="col-sm-6 control-label">下載檔案(Download File): </label>
                             <div class="col-sm-6" >
                                 <select class="form-control" id="high_dim_data_download_file_type" name="high_dim_data_download_file_type">
-                                    <option value="data_matrix">High Dimensional Phenotypes</option>
-                                    <option value="identifier_metadata">Metadata of Phenotype Identifiers</option>
+                                    <option value="data_matrix">高維度表型資料(High Dimensional Phenotypes)</option>
+                                    <option value="identifier_metadata">表型識別碼元資料(Metadata of Phenotype Identifiers)</option>
                                 </select>
                             </div>
                         </div>
@@ -114,7 +114,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
 
                     <hr>
                     <center>
-                        <button type="button" class="btn btn-primary" name="high_dim_data_download_submit" id="high_dim_data_download_submit" title="Download">Download</button>
+                        <button type="button" class="btn btn-primary" name="high_dim_data_download_submit" id="high_dim_data_download_submit" title="下載(Download)">下載(Download)</button>
                     </center>
 
                 </&>
@@ -122,7 +122,7 @@ $high_dimensional_phenotype_type => undef #either NIRS, Transcriptomics, Metabol
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -163,7 +163,7 @@ jQuery(document).ready(function() {
         });
 
         if(selected.length > 1 || selected.length == 0) {
-            alert('Please select one dataset!');
+            alert('請選擇一個實驗方案！(Please select one protocol!)');
             return false;
         }
         else {
@@ -182,7 +182,7 @@ jQuery(document).ready(function() {
         });
 
         if(selected.length > 1 || selected.length == 0) {
-            alert('Please select one dataset!');
+            alert('請選擇一個資料集！(Please select one dataset!)');
             return false;
         }
         else {
@@ -221,7 +221,7 @@ jQuery(document).ready(function() {
                 window.location.href = response.download_file_link;
             },
             error: function(response){
-                alert('Error downloading high dim phenotype file!');
+                alert('下載高維度表型檔案錯誤！(Error downloading high dim phenotype file!)');
                 jQuery('#working_modal').modal('hide');
             }
         });

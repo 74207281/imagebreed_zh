@@ -7,10 +7,10 @@ $program_id
 <table id="program_cross_table" class="display">
     <thead>
         <tr>
-            <th>Cross Unique ID</th>
-            <th>Female Parent</th>
-            <th>Male Parent</th>
-            <th>Cross Type</th>
+            <th>雜交唯一 ID(Cross Unique ID)</th>
+            <th>母本(Female Parent)</th>
+            <th>父本(Male Parent)</th>
+            <th>雜交類型(Cross Type)</th>
         </tr>
     </thead>
 </table>

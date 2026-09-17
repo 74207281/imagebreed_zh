@@ -1,16 +1,14 @@
 
-<& /page/page_title.mas, title=>"FISH Data Submission Help" &>
+<& /page/page_title.mas, title=>"FISH 資料提交說明(FISH Data Submission Help)" &>
 
-<p>This document describes what we at SGN are prepared to accept for FISH
-experiment data. Please <a href="/contact/form">contact us</a> if you have any questions about these guidelines.</p>
+<p>本文件說明 SGN 接受 FISH 實驗資料的規範。若您對這些指引有任何疑問，請<a href="/contact/form">聯絡我們(contact us)</a>。(This document describes what we at SGN are prepared to accept for FISH experiment data. Please contact us if you have any questions about these guidelines.)</p>
 
 
-<p>When submitting spreads, the preferred folder layout looks like this:</p>
+<p>提交染色體展片時，建議的資料夾結構如下：(When submitting spreads, the preferred folder layout looks like this:)</p>
 
-<pre>&lt;chromosome arm&gt;/&lt;BACS on arm&gt;/&lt;spreads for BAC&gt;/&lt;files for spread&gt;</pre>
+<pre>&lt;染色體臂(chromosome arm)&gt;/&lt;該臂上的 BACs(BACS on arm)&gt;/&lt;該 BAC 的展片(spreads for BAC)&gt;/&lt;該展片的檔案(files for spread)&gt;</pre>
 
-<p>For example, a single spread for a BAC on chromosome 11's long arm would
-be:</p>
+<p>例如，第11號染色體長臂上某個 BAC 的單一展片將為：(For example, a single spread for a BAC on chromosome 11's long arm would be:)</p>
 
 <pre>
   Tomato_11Q/
@@ -21,40 +19,27 @@ be:</p>
   Tomato_11Q/BAC_323E19/Spread_127/127_fluorescence.jpg
 </pre>
 
-<p>Other spreads for BAC 323E19 would be beside Spread_127 in the
-BAC_323E19 folder, other BACs on Tomato's 11Q arm would be beside
-BAC_323E19 in the Tomato_11Q folder, and BACs on other chromosome arms
-would be in folders beside Tomato_11Q.</p>
+<p>BAC 323E19 的其他展片將與 Spread_127 並列於 BAC_323E19 資料夾中；番茄 11Q 臂上的其他 BAC 將與 BAC_323E19 並列於 Tomato_11Q 資料夾中；其他染色體臂上的 BAC 則將置於與 Tomato_11Q 並列的資料夾中。(Other spreads for BAC 323E19 would be beside Spread_127 in the BAC_323E19 folder, other BACs on Tomato's 11Q arm would be beside BAC_323E19 in the Tomato_11Q folder, and BACs on other chromosome arms would be in folders beside Tomato_11Q.)</p>
 
-<p>The "Spread" IDs above are arbitrary, but it's best if the submitter
-uses different IDs for each spread, across their entire FISHing project
-(we assume that the lab already uses unique identifiers for their
-experiements, so we can just use those identifiers, for simplicity).</p>
+<p>上述 "Spread" ID 可自訂，但提交者最好在其整個 FISH 計畫中為每個展片使用不同的 ID（我們假設實驗室已為其實驗使用唯一識別碼，因此為求簡化直接使用這些識別碼即可）。(The "Spread" IDs above are arbitrary, but it's best if the submitter uses different IDs for each spread, across their entire FISHing project (we assume that the lab already uses unique identifiers for their experiements, so we can just use those identifiers, for simplicity).)</p>
 
-<p>Each spread's folder must have at least the 3 image files.  We'll also
-store any additional per-spread datafiles beside the JPGs in the
-Spread_NNN folders.</p>
+<p>每個展片的資料夾必須至少包含 3 個影像檔案。我們也會將每個展片的任何其他額外資料檔案儲存在 Spread_NNN 資料夾中的 JPG 檔案旁。(Each spread's folder must have at least the 3 image files. We'll also store any additional per-spread datafiles beside the JPGs in the Spread_NNN folders.)</p>
 
-<p><em>Note</em> If possible, when multiple BACs occur in the same
-spread, make two distinct folders with a copy of each image in each
-folder (e.g., have two folders "Spread_15" and "Spread_16", rather
-than putting the images in a single folder called
-&quot;Spreads_15_and_16&quot; or something).</p>
+<p><em>備註(Note)</em> 若可能，當同一個展片中出現多個 BAC 時，請建立兩個獨立的資料夾，並在每個資料夾中各放一份影像檔案副本（例如，建立 "Spread_15" 和 "Spread_16" 兩個資料夾，而非將影像放在名為 "Spreads_15_and_16" 之類的單一資料夾中）。(If possible, when multiple BACs occur in the same spread, make two distinct folders with a copy of each image in each folder (e.g., have two folders "Spread_15" and "Spread_16", rather than putting the images in a single folder called "Spreads_15_and_16" or something).)</p>
 
-<p>For each upload of several spreads, a single spreadsheet with at
-least the following columns (columns of other data will be ignored):</p>
+<p>每次上傳數個展片時，請附帶一份至少包含以下各欄的試算表（其他資料欄將被忽略）：(For each upload of several spreads, a single spreadsheet with at least the following columns (columns of other data will be ignored):)</p>
 
 <pre>
-  BAC ID      Spread   BAC % from kc
-  ------      ------   -------------
-  323E19       127       86.99
-  323E19       128       87.73
-  323E19       129       88.27
-  323E19       130       90.60
-  323E19       131       90.58
-  323E19       132       90.01
-  323E19       133       86.37
-  323E19       134       84.70
+  BAC 編號(BAC ID)   展片(Spread)   距著絲點%(BAC % from kc)
+  ------             ------         -------------
+  323E19             127            86.99
+  323E19             128            87.73
+  323E19             129            88.27
+  323E19             130            90.60
+  323E19             131            90.58
+  323E19             132            90.01
+  323E19             133            86.37
+  323E19             134            84.70
 </pre>
 
 </div>

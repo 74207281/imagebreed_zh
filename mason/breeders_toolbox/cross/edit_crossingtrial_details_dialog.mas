@@ -17,13 +17,13 @@ $company_project_is_private
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="crossingtrialDetailsEditDialog">Edit Crossing Experiment Details</h4>
+                <h4 class="modal-title" id="crossingtrialDetailsEditDialog">編輯雜交實驗詳細資訊(Edit Crossing Experiment Details)</h4>
             </div>
             <div class="modal-body" id="trial_details_edit_body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_name">Crossing Experiment Name: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_name">雜交實驗名稱：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input class="form-control col-sm-8" id="edit_trial_name" title="name" type="text" value="<%$trial_name%>" aria-describedby="edit_trial_name_status"/>
@@ -31,7 +31,7 @@ $company_project_is_private
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_company">Company: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_company">公司：</label>
                             <div class="col-sm-8">
                               <div class="input-group">
                                 <select class="form-control" id="edit_trial_company" title="company" value="<%$company_id%>"></select>
@@ -39,7 +39,7 @@ $company_project_is_private
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_breeding_program">Breeding Program: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_breeding_program">育種計畫：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" id="edit_trial_breeding_program" title="breeding_program" value="<%$breeding_program_id%>"></select>
@@ -47,7 +47,7 @@ $company_project_is_private
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_location">Location: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_location">地點：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" id="edit_trial_location" title="location" value="<%$location_id%>"></select>
@@ -55,7 +55,7 @@ $company_project_is_private
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_year">Year: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_year">年份：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <select class="form-control" id="edit_trial_year" title="year" value="<%$year%>"></select>
@@ -63,25 +63,25 @@ $company_project_is_private
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_planting_date">Planting Date: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_planting_date">種植日期：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <span class="input-group-btn"><button class="btn btn-default" id="clear_planting_date" type="button">Clear</button></span>
+                                        <span class="input-group-btn"><button class="btn btn-default" id="clear_planting_date" type="button">清除(Clear)</button></span>
                                         <input class="form-control" id="edit_trial_planting_date" title="planting_date" type="text" value="<%$planting_date%>"/>
                                     </div>
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_harvest_date">Harvest Date: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_harvest_date">收穫日期：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <span class="input-group-btn"><button class="btn btn-default" id="clear_harvest_date" type="button">Clear</button></span>
+                                        <span class="input-group-btn"><button class="btn btn-default" id="clear_harvest_date" type="button">清除(Clear)</button></span>
                                         <input class="form-control" id="edit_trial_harvest_date" title="harvest_date" type="text" value="<%$harvest_date%>"/>
                                     </div>
                                 </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_trial_description">Description: </label>
+                            <label class="col-sm-3 control-label" for="edit_trial_description">描述：</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <textarea class="form-control" id="edit_trial_description" title="description" rows="5" maxlength="250"><% $trial_description %></textarea>
@@ -104,9 +104,9 @@ $company_project_is_private
                 </div>
             </div>
             <div class="modal-footer">
-                <p class="text-success vertical-align pull-left"><span class="glyphicon glyphicon-pencil"></span> Indicates pending change</p>
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_trial_details_cancel_button">Cancel</button>
-                <button type="button" class="btn btn-primary" id="save_trial_details">Save Changes</button>
+                <p class="text-success vertical-align pull-left"><span class="glyphicon glyphicon-pencil"></span> 表示待處理的變更</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_trial_details_cancel_button">取消(Cancel)</button>
+                <button type="button" class="btn btn-primary" id="save_trial_details">儲存變更(Save Changes)</button>
             </div>
         </div>
     </div>
@@ -117,13 +117,13 @@ $company_project_is_private
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialDetailsSavedDialog">Details Saved</h4>
+                <h4 class="modal-title" id="trialDetailsSavedDialog">詳細資訊已儲存(Details Saved)</h4>
             </div>
             <div class="modal-body" id="trial_details_saved_body">
                 <ul class="list-group" id="trial_details_saved_message"></ul>
             </div>
             <div class="modal-footer">
-                <button id="trial_details_saved_close_button" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="trial_details_saved_close_button" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新載入(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -134,13 +134,13 @@ $company_project_is_private
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialDetailsErrorDialog">Error Saving Crossing Experiment Details</h4>
+                <h4 class="modal-title" id="trialDetailsErrorDialog">儲存雜交實驗詳細資訊時發生錯誤(Error Saving Crossing Experiment Details)</h4>
             </div>
             <div class="modal-body" id="trial_details_error_body">
                 <ul class="list-group" id="trial_details_error_message"></ul>
             </div>
             <div class="modal-footer">
-                <button id="trial_details_error_close_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="trial_details_error_close_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

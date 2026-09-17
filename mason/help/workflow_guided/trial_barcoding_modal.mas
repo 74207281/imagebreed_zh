@@ -8,16 +8,16 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="guidedHelpTrialBarcodingDialog">Workflow for trial barcoding</h4>
+                <h4 class="modal-title" id="guidedHelpTrialBarcodingDialog">試驗條碼製作工作流程(Workflow for trial barcoding)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                Nothing Here Yet<br/>
-                Please refer to the <a href="https://solgenomics.github.io/sgn">Documentation</a>
+                此處尚無內容(Nothing Here Yet)<br/>
+                請參考 <a href="https://solgenomics.github.io/sgn">說明文件(Documentation)</a>(Please refer to the <a href="https://solgenomics.github.io/sgn">Documentation</a>)
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_guided_help_trial_barcoding_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_guided_help_trial_barcoding_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

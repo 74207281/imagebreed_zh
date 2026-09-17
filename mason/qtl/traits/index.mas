@@ -8,11 +8,11 @@ $traits_list
 </%args>
 
 <& /page/page_title.mas, 
-   title=>'List of traits with QTLs'
+   title=>'具 QTL 的性狀清單(List of traits with QTLs)'
 &>
 
 <&| /page/info_section.mas, 
-   title    => qq |Traits beginning with "$index" |
+   title    => qq |以 "$index" 開頭的性狀(Traits beginning with "$index") |
 &>
 
 <&/page/columnar_table.mas,

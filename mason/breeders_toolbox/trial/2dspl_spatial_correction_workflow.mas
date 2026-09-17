@@ -15,13 +15,13 @@ $is_analysis => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="trialAnalysis2DSplWorkflowDialog">Find 2D-Spline Spatial Correction for Measurements in <% $trial_name %></h4>
+                <h4 class="modal-title" id="trialAnalysis2DSplWorkflowDialog">尋找 <% $trial_name %> 中測量值的 2D-Spline 空間校正(Find 2D-Spline Spatial Correction for Measurements in <% $trial_name %>)</h4>
             </div>
             <div class="modal-body">
 
                 <&| /util/workflow.mas, id=> "trial_analysis_2dspl_workflow_dialog_workflow" &>
-                    <&| /util/workflow.mas:step, title=> "Input" &>
-                        <& /page/page_title.mas, title=>"Select the input measurements to spatially correct" &>
+                    <&| /util/workflow.mas:step, title=> "輸入(Input)" &>
+                        <& /page/page_title.mas, title=>"選擇要進行空間校正的輸入測量值(Select the input measurements to spatially correct)" &>
 
                         <div class="container-fluid">
                             <div class="form-horizontal">
@@ -33,19 +33,19 @@ $is_analysis => undef
 %  }
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">2D-Spline Method: </label>
+                                    <label class="col-sm-3 control-label">2D-Spline 方法：</label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="trial_analysis_2dspl_workflow_model_type">
-                                            <option value="">Select a model</option>
-                                            <option value="sommer_2dspl_uni">Sommer Univariate: y ~ f(rep) + r(G) + r(2DSpl(row,col)) + e</option>
-                                            <option value="sommer_2dspl_multi">Sommer Multivariate: (y1, .., yn) ~ f(rep) + r(G, unsm(n)) + r(2DSpl(row,col), diag(n)) + e</option>
+                                            <option value="">選擇模型</option>
+                                            <option value="sommer_2dspl_uni">Sommer 單變量：y ~ f(rep) + r(G) + r(2DSpl(row,col)) + e</option>
+                                            <option value="sommer_2dspl_multi">Sommer 多變量：(y1, .., yn) ~ f(rep) + r(G, unsm(n)) + r(2DSpl(row,col), diag(n)) + e</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div id="trial_analysis_2dspl_workflow_model_type_desc"></div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Trait(s): </label>
+                                    <label class="col-sm-3 control-label">性狀：</label>
                                     <div class="col-sm-9" >
                                         <div id="trial_analysis_2dspl_workflow_traits_div"></div>
                                     </div>
@@ -53,11 +53,11 @@ $is_analysis => undef
 
                                 <div class="well well-sm">
                                     <div class="form-group">
-                                        <label class="col-sm-3 control-label">Genetic Relationships: </label>
+                                        <label class="col-sm-3 control-label">遺傳親緣關係：</label>
                                         <div class="col-sm-9" >
                                             <select class="form-control" id="trial_analysis_2dspl_workflow_genetic_relationship_type">
-                                                <option value="identity">Identity Matrix (Equal relationships of all accessions)</option>
-                                                <option value="grm">Genomic Relationship Matrix (Relationships of accessions from genome-wide marker data)</option>
+                                                <option value="identity">單位矩陣（所有種原具有相等關係）</option>
+                                                <option value="grm">基因體親緣關係矩陣（GRM，來自全基因體標記資料的種原親緣關係）</option>
                                             </select>
                                         </div>
                                     </div>
@@ -67,14 +67,14 @@ $is_analysis => undef
                                             <div class="panel-body">
                                                 <div class="well well-sm">
                                                     <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Genomic Relationship Matrix (GRM) Protocols: </label>
+                                                        <label class="col-sm-3 control-label">基因體親緣關係矩陣（GRM）方案：</label>
                                                         <div class="col-sm-9" >
                                                             <div id="trial_analysis_2dspl_workflow_grm_div"></div>
                                                         </div>
                                                     </div>
                                                 </div>
 
-                                                <p>Only GRM protocols linked to this field trial are shown. Please link and/or create a new GRM protocol for this field trial in the Genomic Relationship Matrices section of the trial detail page. GRM protocols can be created directly for the accessions in the field trial or from the parental genotypes, if pedigree information between parental accessions and progeny are available.</p>
+                                                <p>僅顯示連結至此田間試驗的 GRM 方案。請在試驗詳細資訊頁面的「基因體親緣關係矩陣」區塊中為此田間試驗連結及／或建立新的 GRM 方案。若親本種原與後代之間的譜系資訊可用，則可直接為田間試驗中的種原或從親本基因型建立 GRM 方案。</p>
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@ $is_analysis => undef
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Tolerance: </label>
+                                    <label class="col-sm-3 control-label">容許誤差：</label>
                                     <div class="col-sm-9" >
                                         <select class="form-control" id="trial_analysis_2dspl_workflow_tolerance">
                                             <option value="0.001">0.001</option>
@@ -107,19 +107,19 @@ $is_analysis => undef
 
                             <hr>
                             <center>
-                                <button type="button" class="btn btn-primary" name="trial_analysis_2dspl_workflow_submit" id="trial_analysis_2dspl_workflow_submit" title="Submit">Submit</button>
+                                <button type="button" class="btn btn-primary" name="trial_analysis_2dspl_workflow_submit" id="trial_analysis_2dspl_workflow_submit" title="提交(Submit)">提交(Submit)</button>
                             </center>
                         </div>
                     </&>
-                    <&| /util/workflow.mas:step, title=> "Output" &>
-                        <& /page/page_title.mas, title=>"Results" &>
+                    <&| /util/workflow.mas:step, title=> "輸出(Output)" &>
+                        <& /page/page_title.mas, title=>"結果(Results)" &>
 
                         <div id="trial_analysis_2dspl_workflow_results_div"></div>
                     </&>
                 </&>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -145,10 +145,10 @@ jQuery(document).ready(function(){
             jQuery('#trial_analysis_2dspl_workflow_model_type_desc').html('');
         }
         if (trial_analysis_2dspl_workflow_model_type_val == 'sommer_2dspl_uni') {
-            jQuery('#trial_analysis_2dspl_workflow_model_type_desc').html('<div class="well well-sm"><p>The selected traits are run one at a time, univariately. A fixed effect for replicate. Random effects for the additive genetic effect and the 2D-Spline spatial effect across the rows and columns of the plots in the field. This model is run in R Sommer.</p></div>');
+            jQuery('#trial_analysis_2dspl_workflow_model_type_desc').html('<div class="well well-sm"><p>所選性狀以單變量逐一執行。重複為固定效應。加性遺傳效應以及田間小區行與列之間的 2D-Spline 空間效應為隨機效應。此模型在 R Sommer 中執行。</p></div>');
         }
         if (trial_analysis_2dspl_workflow_model_type_val == 'sommer_2dspl_multi') {
-            jQuery('#trial_analysis_2dspl_workflow_model_type_desc').html('<div class="well well-sm"><p>The selected traits are run in a single multi-trait model, multivariately. A fixed effect for replicate. Random effects for the additive genetic effect, with an un-structured matrix for the different traits enabling genetic covariances between traits to be estimated. Random effects for the 2D-Spline spatial effect across the rows and columns of the plots in the field, with a diagonal matrix enabling variance to be estimated for the different traits. This model is run in R Sommer.</p></div>');
+            jQuery('#trial_analysis_2dspl_workflow_model_type_desc').html('<div class="well well-sm"><p>所選性狀在單一多性狀模型中以多變量方式執行。重複為固定效應。加性遺傳效應為隨機效應，並使用非結構化矩陣處理不同性狀，以估算性狀間的遺傳共變異數。田間小區行與列之間的 2D-Spline 空間效應為隨機效應，並使用對角矩陣估算不同性狀的變異數。此模型在 R Sommer 中執行。</p></div>');
         }
     });
 
@@ -175,15 +175,15 @@ jQuery(document).ready(function(){
         var trial_analysis_2dspl_workflow_grm_id = jQuery('#trial_analysis_2dspl_workflow_grm_id').val();
 
         if (!selected_trait_ids || selected_trait_ids.length < 1) {
-            alert('Please select at least one trait!');
+            alert('請至少選擇一個性狀！');
             return false;
         }
         else if (trial_analysis_2dspl_workflow_model_type_val == '') {
-            alert('Please select an analysis!');
+            alert('請選擇分析！');
             return false;
         }
         else if (trial_analysis_2dspl_workflow_grm_type_val == 'grm' && trial_analysis_2dspl_workflow_grm_id == '') {
-            alert('Please select a GRM protocol if Genomic Relationships are to be used! You can always use an identity matrix instead!');
+            alert('若要使用基因體親緣關係，請選擇 GRM 方案！您也可以改用單位矩陣！');
             return false;
         }
         else {
@@ -213,7 +213,7 @@ jQuery(document).ready(function(){
                         trial_analysis_2dspl_workflow_response_spatial_data = response.result_blup_spatial_data_original;
                         trial_analysis_2dspl_workflow_response_heatmap_graphs = [response.heatmaps_plot];
 
-                        var html = '<div class="well well-sm"><button class="btn btn-primary" id="trial_analysis_2dspl_workflow_results_save_button" >Save Spatial Effect Results to <% $trial_name %></button></div><div class="well well-sm"><h4>Figures drawn below:</h4><button class="btn btn-default" id="trial_analysis_2dspl_workflow_results_save_graphs_button" >Export Graph to File</button><br/><br/>';
+                        var html = '<div class="well well-sm"><button class="btn btn-primary" id="trial_analysis_2dspl_workflow_results_save_button" >儲存空間效應結果至 <% $trial_name %>(Save Spatial Effect Results to <% $trial_name %>)</button></div><div class="well well-sm"><h4>繪製圖表如下：</h4><button class="btn btn-default" id="trial_analysis_2dspl_workflow_results_save_graphs_button" >匯出圖表至檔案(Export Graph to File)</button><br/><br/>';
                         html = html + '<img src="'+response.heatmaps_plot+'" />';
                         html = html + '<img src="'+response.gen_effects_line_plot+'" /></div>';
                         jQuery('#trial_analysis_2dspl_workflow_results_div').html(html);
@@ -224,7 +224,7 @@ jQuery(document).ready(function(){
                 },
                 error: function(response){
                     jQuery("#working_modal").modal("hide");
-                    alert('Error doing spatial correction! Try a larger tolerance!');
+                    alert('執行空間校正時發生錯誤！請嘗試較大的容許誤差！');
                 }
             });
         }
@@ -256,13 +256,13 @@ jQuery(document).ready(function(){
                     alert(response.error);
                 }
                 else {
-                    alert('Saved spatial effects! You can view them in the Phenotypes Section within the trial detail page!');
+                    alert('已儲存空間效應！您可以在試驗詳細資訊頁面內的「表型」區塊中檢視！');
                     location.reload();
                 }
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error saving spatial correction results!');
+                alert('儲存空間校正結果時發生錯誤！');
             }
         });
     });

@@ -1,26 +1,26 @@
 <%args>
     $feature
-    $title   => 'Feature'
+    $title   => '特徵(Feature)'
     $description_from => [ $feature ]
     $featurelocs
 </%args>
 
 
 <% info_table_html(
-    'Name'          => feature_link( $feature ),
-    ( $synonyms ? ( 'Synonyms / aliases' => $synonyms ) : () ),
-    'Type'          => cvterm_link( $feature->type, 'caps' ),
-    ( $length ? ( 'Length'        => $length ) : () ),
-    'Organism' => organism_link($feature->organism),
+    '名稱(Name)'          => feature_link( $feature ),
+    ( $synonyms ? ( '同義詞/別名(Synonyms / aliases)' => $synonyms ) : () ),
+    '類型(Type)'          => cvterm_link( $feature->type, 'caps' ),
+    ( $length ? ( '長度(Length)'        => $length ) : () ),
+    '生物體(Organism)' => organism_link($feature->organism),
      __border => 0,
      __multicol => 4
    )
 %>
 
 <% info_table_html(
-    ( $description ? ( 'Description'   => $description || '<span class="ghosted">none</span>' ) : () ),
-    ( $featurelocs->count ? ( 'Location(s)'   => join('', map "<div>$_</div>\n", location_list( $feature, $featurelocs )) ) : () ),
-    ( $cvterms_html =~ /\S/ ? ( 'Ontology term(s)' => $cvterms_html ) : () ),
+    ( $description ? ( '描述(Description)'   => $description || '<span class="ghosted">無(none)</span>' ) : () ),
+    ( $featurelocs->count ? ( '位置(Location(s))'   => join('', map "<div>$_</div>\n", location_list( $feature, $featurelocs )) ) : () ),
+    ( $cvterms_html =~ /\S/ ? ( '本體術語(Ontology term(s))' => $cvterms_html ) : () ),
      __border => 0,
 )%>
 

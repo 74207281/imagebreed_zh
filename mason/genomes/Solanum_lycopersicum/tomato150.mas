@@ -4,28 +4,28 @@
 </%doc>
 
 
-<& /page/page_title.mas, title=>"Wageningen UR 150 Tomato Genome Resequencing Project" &>
+<& /page/page_title.mas, title=>"瓦赫寧恩大學暨研究中心 150 番茄基因組重定序計畫(Wageningen UR 150 Tomato Genome Resequencing Project)" &>
 
 <div class="page_introduction">
 </div>
 
 
-<&| /page/info_section.mas, title => '150 Tomato Genomes' &>
-  Resequencing of <a href="https://www.ebi.ac.uk/ena/data/view/ERP004618">84 tomato accessions</a><br />
+<&| /page/info_section.mas, title => '150 個番茄基因組(150 Tomato Genomes)' &>
+  <a href="https://www.ebi.ac.uk/ena/data/view/ERP004618">84 個番茄種質</a>的重定序(Resequencing of <a href="https://www.ebi.ac.uk/ena/data/view/ERP004618">84 tomato accessions</a>)<br />
   <a href="https://www.ebi.ac.uk/ena/data/view/ERP004607"><i>Solanum arcanum</i> LA2157</a><br />
   <a href="https://www.ebi.ac.uk/ena/data/view/ERP004608"><i>Solanum habrochaites</i> LYC4</a><br />
   <a href="https://www.ebi.ac.uk/ena/data/view/ERP004609"><i>Solanum pennellii</i> LA716</a><br />
 
-  For more info see project's <a href="http://www.tomatogenome.net/index.html">web site</a>
+  更多資訊請參閱計畫<a href="http://www.tomatogenome.net/index.html">網站(web site)</a>。(For more info see project's <a href="http://www.tomatogenome.net/index.html">web site</a>)
 
 <br />
 
   <% info_table_html(
                      __border   => 0,
                      __multicol => 2,
-                     'Bulk Datasets (via FTP)' =>
-                     '<a href="ftp://ftp.solgenomics.net/genomes/tomato_150/">VCF files</a>',
-		     'Genome browser' => '<a href="/jbrowse_solgenomics/?data=data/json/tomato_150_variants_2.5">JBrowse</a>'
+                     '批量數據集 (透過 FTP)(Bulk Datasets (via FTP))' =>
+                     '<a href="ftp://ftp.solgenomics.net/genomes/tomato_150/">VCF 檔案(VCF files)</a>',
+		     '基因組瀏覽器(Genome browser)' => '<a href="/jbrowse_solgenomics/?data=data/json/tomato_150_variants_2.5">JBrowse</a>'
                     )
   %>
 </&>

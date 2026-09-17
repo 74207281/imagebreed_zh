@@ -1,22 +1,22 @@
 <div class="text-center">
-    <p>Last Step! Here you can edit additional layout settings and/or save your design.</p>
-    <p>When you are ready, click 'download' to generate your labels. If you are trying to download a very large set, you will be given the option to download your labels in batches.</p>
+    <p>最後一步！在此您可以編輯額外的版面設定以及/或儲存您的設計(Last Step! Here you can edit additional layout settings and/or save your design.)。</p>
+    <p>準備就緒後，請點擊「下載」以產生標籤。如果您要下載非常大量的標籤，系統將提供分批下載的選項(When you are ready, click 'download' to generate your labels. If you are trying to download a very large set, you will be given the option to download your labels in batches.)。</p>
 </div>
 </br>
 <div class="col-md-12" id="save_and_download">
     <div class="col-md-4" style="margin-top:40px;">
         <center>
         <br>
-            <button class="btn btn-primary" id="edit_additional_settings">Edit Additional Settings</button>
+            <button class="btn btn-primary" id="edit_additional_settings">編輯額外設定(Edit Additional Settings)</button>
         </center>
     </div></br></br>
     <div class="col-md-4" style="margin-top:40px;">
         <center>
-            <label>Save label design:</label>
+            <label>儲存標籤設計(Save label design):</label>
             <div class="input-group" id="save_design_div">
-                <input type="text" id="save_design_name" class="form-control" placeholder="Enter a name"></input>
+                <input type="text" id="save_design_name" class="form-control" placeholder="輸入名稱(Enter a name)"></input>
                 <span class="input-group-btn">
-                    <button class="btn btn-default" id="d3-save-button" type="button">Save</button>
+                    <button class="btn btn-default" id="d3-save-button" type="button">儲存(Save)</button>
                 </span>
             </div>
         </center>
@@ -24,8 +24,8 @@
     <div class="col-md-4" style="margin-top:40px;">
       <center>
           <br>
-          <button id="d3-pdf-button" value="pdf" class="btn btn-primary" style="display:none;">Download pdf</button>
-          <button id="d3-zpl-button" value="zpl" class="btn btn-primary" style="display:none;">Download zpl file</button>
+          <button id="d3-pdf-button" value="pdf" class="btn btn-primary" style="display:none;">下載 PDF(Download pdf)</button>
+          <button id="d3-zpl-button" value="zpl" class="btn btn-primary" style="display:none;">下載 ZPL 檔案(Download zpl file)</button>
       </center>
       &nbsp
       &nbsp

@@ -11,35 +11,35 @@
 
 <& /util/import_css.mas, paths => ['tools/GraphicalFiltering.css'] &>
 
-<& '/page/page_title.mas', title => "Graphical Filtering" &>
+<& '/page/page_title.mas', title => "圖形化過濾(Graphical Filtering)" &>
 
 <& '/util/import_javascript.mas', classes => [ 'jquery.dataTables-buttons-min', 'jquery.dataTables-buttons-html5-min', 'jszip-min', 'CXGN.List', 'd3.d3v4Min', 'brapi.BrAPI', 'brapi.GraphicalFilter' ] &>
 
 <div id="select_div" class="row" hidden="true">
     <!-- form for selecting a list -->
-    <p>Choose a list of <!--plant, plots, or -->trials to filter.</p>
+    <p>選擇要過濾的試驗清單(Choose a list of trials to filter)。</p>
     <form class="tc-form">
         <div class="form-group">
             <!-- list select -->
             <div id="filter_list_select_container" class="select_container col-md-6">
                 <select disabled class="form-control input-sm" id="filter_list_select">
-                    <option selected="selected">Loading...</option>
+                    <option selected="selected">載入中...(Loading...)</option>
                 </select>
             </div>
             <div id="type_list_select_container" class="select_container col-md-2">
                 <select disabled class="form-control input-sm" id="type_list_select">
-                    <option selected disabled value="">Select Type</option>
-                    <option value="plot">Plots</option>
-                    <option value="plant">Plants</option>
+                    <option selected disabled value="">選擇類型(Select Type)</option>
+                    <option value="plot">小區(Plots)</option>
+                    <option value="plant">植株(Plants)</option>
                 </select>
             </div>
             <div class="checkbox col-md-2">
                 <label>
-                    <input type="checkbox" id="accession_group"> Group By Accession
+                    <input type="checkbox" id="accession_group"> 依品系/種原分組(Group By Accession)
                 </label>
             </div>
             <div class="select_container col-md-2">
-                <button id="confirm_list_select" type="button" class="btn btn-primary">Confirm</button>
+                <button id="confirm_list_select" type="button" class="btn btn-primary">確認(Confirm)</button>
             </div>
         </div>
     </form>
@@ -55,10 +55,10 @@
 <div id="filter_div" class="row"></div>
 <!-- div with table of filtered results and an option to save the output as a list -->
 <div id="filtered_results_wrap" hidden="true" class="row dataTables_wrapper">
-<&| /page/info_section.mas, title => 'Filtered Results', collapsible=>0, collapsed=>0 &>
+<&| /page/info_section.mas, title => '過濾結果(Filtered Results)', collapsible=>0, collapsed=>0 &>
     <table id="filtered_results" width="100%" class="table table-hover table-striped dataTable no-footer" role="grid" style="width: 100%;"></table>
 </&>
-<&| /page/info_section.mas, title => 'Save Accessions results as List', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title => '將品系/種原結果儲存為清單(Save Accessions results as List)', collapsible=>1, collapsed=>1 &>
     <div style="text-align:right" id="graphical_filter_results_to_list_menu"></div>
     <div id="graphical_filter_result_names" style="display: none;"></div>
 
@@ -75,7 +75,7 @@
   var require_login = "<%  $c->get_conf('brapi_require_login') %>";
   if (require_login === '1'){
       auth_token = "<%  CXGN::Login->new($c->dbc->dbh)->get_login_cookie() %>";
-      if (!auth_token){ alert("Login required to display graphical filtering"); }
+      if (!auth_token){ alert("需登入以顯示圖形化過濾(Login required to display graphical filtering)"); }
   }
 
   $('#confirm_list_select').on("click", function() {
@@ -89,7 +89,7 @@
     switch (list_type) {
       case 'plots':
       case 'plants':
-        alert("not yet implimented");
+        alert("尚未實作(Not yet implemented)");
         break;
       case 'trials':
         updateGFilter(group,
@@ -138,7 +138,7 @@
             },
              {
                  extend: 'copyHtml5',
-                 text: "Copy to Clipboard",
+                 text: "複製到剪貼簿(Copy to Clipboard)",
             },
         ]
         );
@@ -150,7 +150,7 @@
     $('#select_div').show();
 
     // set up list
-    var filter_list_select_html = list.listSelect('filter', ['trials'/*,'plots','plants'*/], 'Choose a List:', undefined, undefined);
+    var filter_list_select_html = list.listSelect('filter', ['trials'/*,'plots','plants'*/], '選擇清單(Choose a List)：', undefined, undefined);
     $('#filter_list_select_container').html(filter_list_select_html);
     $('#filter_list_select>option:first-of-type').prop('disabled', true);
 
@@ -202,7 +202,7 @@
   // set up the form for saving results as a list
   $('#new-list-form').submit(function () {
     if (!window.gfiltering.data){
-      alert("Can't create a list from nothing.")
+      alert("無法從空白內容建立清單。(Can't create a list from nothing.)");
       return false;
     }
     try {
@@ -214,7 +214,7 @@
       var data = currentGFilter.data.filter(currentGFilter.root.getFilter());
       var count = list.addBulk(newListID,data.map(function(d){return d.observationUnitName}));
       if (!count) throw "Added nothing to list or addition failed.";
-      alert("List \""+form.get("name").value+"\" created with "+count+" entries.")
+      alert("已建立清單 \"" + form.get("name").value + "\"，共 " + count + " 筆項目。(List \"" + form.get("name").value + "\" created with " + count + " entries.)");
     }
     catch(err) {
       setTimeout(function(){throw err;});

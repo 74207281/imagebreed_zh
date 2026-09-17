@@ -7,83 +7,83 @@ $timestamp => localtime()
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addCatalogItemDialog">Add New Catalog Item</h4>
+                <h4 class="modal-title" id="addCatalogItemDialog">新增目錄品項(Add New Catalog Item)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" id="add_new_catalog_item_form" name="add_new_catalog_form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Item Name: </label>
+                            <label class="col-sm-3 control-label">品項名稱(Item Name)：</label>
                             <div class="col-sm-9" >
-                                <input class="form-control" id="item_name" placeholder="Item name must be in the database">
+                                <input class="form-control" id="item_name" placeholder="品項名稱必須已存在於資料庫中">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Item Type: </label>
+                            <label class="col-sm-3 control-label">品項類型(Item Type)：</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="item_type">
-                                    <option value="">Select an item type</option>
-                                    <option value="single item">single item</option>
-                                    <option value="set of items">set of items</option>
+                                    <option value="">請選取品項類型(Select an item type)</option>
+                                    <option value="single item">單一品項(single item)</option>
+                                    <option value="set of items">品項組合(set of items)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Category: </label>
+                            <label class="col-sm-3 control-label">類別(Category)：</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="item_category">
-                                    <option value="">Select a category</option>
-                                    <option value="released variety">released variety</option>
-                                    <option value="pathogen assay ">pathogen assay</option>
-                                    <option value="control">control</option>
+                                    <option value="">請選取類別(Select a category)</option>
+                                    <option value="released variety">已推廣品種(released variety)</option>
+                                    <option value="pathogen assay ">病原體檢測(pathogen assay)</option>
+                                    <option value="control">對照(control)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Description: </label>
+                            <label class="col-sm-3 control-label">說明(Description)：</label>
                             <div class="col-sm-9" >
                                 <input class="form-control" id="item_description" placeholder="">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Material Source: </label>
+                            <label class="col-sm-3 control-label">材料來源(Material Source)：</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="item_material_source">
-                                    <option value="">Select a material source</option>
+                                    <option value="">請選取材料來源(Select a material source)</option>
                                     <option value="OrderingSystemTest">OrderingSystemTest</option>
                                     <option value="Sendusu">Sendusu</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Breeding Program: </label>
+                            <label class="col-sm-3 control-label">育種計畫(Breeding Program)：</label>
                             <div class="col-sm-9" >
                                 <div id="item_breeding_program_div"></div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Availability: </label>
+                            <label class="col-sm-3 control-label">供貨狀態(Availability)：</label>
                             <div class="col-sm-9">
                                 <select class="form-control" id="item_availability">
-                                    <option value="">Select availability</option>
-                                    <option value="in stock">in stock</option>
-                                    <option value="out of stock">out of stock</option>
-                                    <option value="available in 3 months">available in 3 months</option>
+                                    <option value="">請選取供貨狀態(Select availability)</option>
+                                    <option value="in stock">現貨(in stock)</option>
+                                    <option value="out of stock">缺貨(out of stock)</option>
+                                    <option value="available in 3 months">3個月內可供貨(available in 3 months)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Contact Person Username: </label>
+                            <label class="col-sm-3 control-label">聯絡人使用者名稱(Contact Person Username)：</label>
                             <div class="col-sm-9" >
-                                <input class="form-control" id="contact_person_name" placeholder="Please provide contact person username">
+                                <input class="form-control" id="contact_person_name" placeholder="請提供聯絡人使用者名稱">
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button id="submit_catalog_item" type="button" class="btn btn-primary" >Add</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button id="submit_catalog_item" type="button" class="btn btn-primary" >新增(Add)</button>
             </div>
         </div>
     </div>
@@ -94,18 +94,18 @@ $timestamp => localtime()
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addItemSavedDialog">Success</h4>
+                <h4 class="modal-title" id="addItemSavedDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The catalog item was saved successfully.
+                        目錄品項已成功儲存。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_item_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_item_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新整理(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -135,14 +135,14 @@ jQuery(document).ready(function(){
         var availability = jQuery('#item_availability').val();
         var contact_person = jQuery('#contact_person_name').val();
 
-        if (name == '') { alert("Please provide a name") };
-        if (type == '') { alert("Please select a type") };
-        if (category == '') { alert("Please select a category") };
-        if (description == '') { alert("Please provide a description") };
-        if (material_source == '') { alert("Please select a material source") };
-        if (breeding_program == '') { alert("Please select a breeding program") };
-        if (availability == '') { alert("Please indicate availability") };
-        if (contact_person == '') { alert("Please indicate contact person") };
+        if (name == '') { alert("請提供名稱(Please provide a name)") };
+        if (type == '') { alert("請選取類型(Please select a type)") };
+        if (category == '') { alert("請選取類別(Please select a category)") };
+        if (description == '') { alert("請提供說明(Please provide a description)") };
+        if (material_source == '') { alert("請選取材料來源(Please select a material source)") };
+        if (breeding_program == '') { alert("請選取育種計畫(Please select a breeding program)") };
+        if (availability == '') { alert("請指明供貨狀態(Please indicate availability)") };
+        if (contact_person == '') { alert("請指明聯絡人(Please indicate contact person)") };
 
         jQuery.ajax({
             url: '/ajax/catalog/add_item',
@@ -173,7 +173,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred adding item');
+                alert('新增品項時發生錯誤(An error occurred adding item)');
             }
         });
     });

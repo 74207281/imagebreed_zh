@@ -14,7 +14,7 @@ use CXGN::Tools::File;
 
 my $file = File::Spec->catfile($c->config->{'homepage_files_dir'}, 'sgn_events.txt');
 
-my $contents = "No SGN event is scheduled at the moment.<br /><br />";
+my $contents = "目前未安排 SGN 活動(No SGN event is scheduled at the moment)。<br /><br />";
 
 eval {
   $contents = CXGN::Tools::File::get_sections($file);
@@ -24,6 +24,6 @@ eval {
 </%perl>
 
 <div class="boxbgcolor1" style="margin:0px;">
-<div class="boxheading">SGN Presentations</div>
+<div class="boxheading">SGN 簡報與發表(SGN Presentations)</div>
 <div class="boxcontent"><% $contents %></div>
 </div>
