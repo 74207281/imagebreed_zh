@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/blue_section_html page_title_html html_break_string/;
 use CXGN::Chromatogram;
@@ -20,7 +21,7 @@ our ($auto_idq, $request_typeq, $cloneq, $clone_read_idq,
     @known_request_from_types);
 
 
-our $page = CXGN::Page->new( "SGN EST Search Result", "Koni");
+our $page = CXGN::Page->new( "SGN EST 搜尋結果 (SGN EST Search Result)", "Koni");
 
 my $dbh = CXGN::DB::Connection->new;
 
@@ -122,7 +123,7 @@ my ($request_id, $request_type, $request_from, $show_hierarchy, $random) =
 # If the identifier is not given, or the identifier parameter is 
 # screwed up, we want to give the right error instead of failing
 # later on for an unrelated reason.
-$page->message_page("No EST identifier specified") unless $request_id || ($random eq 'yes');
+$page->message_page("未指定 EST 識別碼 (No EST identifier specified)") unless $request_id || ($random eq 'yes');
 
 
 if ($random eq "yes") {
@@ -141,7 +142,7 @@ if ($request_id eq "" || $request_type eq "") {
 }
 
 if ($request_from<0 || $request_from>$#known_request_from_types) {
-  $request_from = "external (unknown - unsupported)";
+  $request_from = "外部 (未知/不支援) / external (unknown - unsupported)";
 } else {
   $request_from = $known_request_from_types[$request_from];
 }
@@ -158,15 +159,15 @@ if ($id_type eq "automatic") {
   # Check for internal types. These will not be in the id_linkage table
   if ($id =~ m/^SGN[|-]C([0-9]+)$/i) {
     $id_type = 8;
-    $id_type_name = "SGN Clone Identifier";
+    $id_type_name = "SGN 選殖株識別碼 (SGN Clone Identifier)";
     $id = $1;
   } elsif ($id =~ m/^SGN[|-]T([0-9]+)$/i) {
     $id_type = 9;
-    $id_type_name = "SGN Chromatogram Identifer";
+    $id_type_name = "SGN 圖譜識別碼 (SGN Chromatogram Identifier)";
     $id = $1;
   } elsif ($id =~ m/^SGN[|-]E([0-9]+)$/i) {
     $id_type = 7;
-    $id_type_name = "SGN EST Identifier";
+    $id_type_name = "SGN EST 識別碼 (SGN EST Identifier)";
     $id = $1;
   } else {
     # OK, try the id_linkage table then
@@ -259,8 +260,8 @@ $clone_read_idq->execute($est_id);
 # Section containing information on what was searched for and what was found
 my $search_info = <<EOF;
 <$table>
-<tr><td width="50%"><b>Request:</b> $request_id</td><td><b>Match:</b> $match_id</td></tr>
-<tr><td><b>Request From:</b> $request_from</td><td><b>Match Type:</b> $id_type_name</td></tr>
+<tr><td width="50%"><b>請求 (Request):</b> $request_id</td><td><b>比對 (Match):</b> $match_id</td></tr>
+<tr><td><b>請求來源 (Request From):</b> $request_from</td><td><b>比對類型 (Match Type):</b> $id_type_name</td></tr>
 </table>
 EOF
 
@@ -278,8 +279,8 @@ if ($clone_id ne "" && $cloneq->execute($clone_id) && $cloneq->rows>0) {
 
   # If there are nulls in the table we'll get undefs for these values, so we
   # set displayed values here.
-  $organism_name = "Unknown" if !defined($organism_name);
-  $tissue = "Unknown" if !defined($tissue);
+  $organism_name = "未知 (Unknown)" if !defined($organism_name);
+  $tissue = "未知 (Unknown)" if !defined($tissue);
 
   # If we have a clone group, seek out the replicate clone_ids so we can
   # search them below for alternative reads
@@ -303,21 +304,21 @@ if ($clone_id ne "" && $cloneq->execute($clone_id) && $cloneq->rows>0) {
       while (($chip_name, $version, $release, $spot_id) =
 	     $arrayq->fetchrow_array) {
 	if ($_->[0] != $clone_id) {
-	  $microarray .= qq{Alias clone <a href="/search/est.pl?request_id=$_->[0]&request_type=8&request_from=1">SGN-C$_->[0]</a> is on microarray $chip_name: SGN-S$version-$release-$spot_id\n};
+	  $microarray .= qq{別名選殖株 <a href="/search/est.pl?request_id=$_->[0]&request_type=8&request_from=1">SGN-C$_->[0]</a> 位於微陣列晶片 $chip_name: SGN-S$version-$release-$spot_id\n};
 	} else {
-	  $microarray .= qq{SGN-C$_->[0] is on microarray $chip_name spot ID $version-$release-$spot_id [<a href="http://bti.cornell.edu/CGEP/CGEP.html">Order</a>] [<a href="http://ted.bti.cornell.edu/cgi-bin/array/basicsearch.cgi?arrayID=$version-$release-$spot_id">Tomato Microarray Database</a>]\n};
+	  $microarray .= qq{SGN-C$_->[0] 位於微陣列晶片 $chip_name 點位 ID $version-$release-$spot_id [<a href="http://bti.cornell.edu/CGEP/CGEP.html">訂購 (Order)</a>] [<a href="http://ted.bti.cornell.edu/cgi-bin/array/basicsearch.cgi?arrayID=$version-$release-$spot_id">蕃茄微陣列資料庫 (Tomato Microarray Database)</a>]\n};
 	}
       }
     }
-    $microarray ||= '<span class="ghosted">This clone is not found on any microarray</span>';
-    $microarray = "<b>Microarray:</b> $microarray<br />";
+    $microarray ||= '<span class="ghosted">此選殖株未在任何微陣列晶片上找到 (This clone is not found on any microarray)</span>';
+    $microarray = "<b>微陣列晶片 (Microarray):</b> $microarray<br />";
   }
 
   my $ordering;
   if ($order_routing_id) {
-    $ordering = qq{<table cellpadding="1" cellspacing="0" border="0"><tr><td><a href="/search/clone-order.pl?add_clone=$clone_name"><img src="/documents/img/sgn-cart.gif" border="0" alt="cart" /></a></td><td>Order Clone</td></tr></table>};
+    $ordering = qq{<table cellpadding="1" cellspacing="0" border="0"><tr><td><a href="/search/clone-order.pl?add_clone=$clone_name"><img src="/documents/img/sgn-cart.gif" border="0" alt="cart" /></a></td><td>訂購選殖株 (Order Clone)</td></tr></table>};
   } else {
-    $ordering = qq{<table cellpadding="1" cellspacing="0" border="0"><tr><td><img src="/documents/img/sgn-nocart.gif" border="0" alt="nocart" /></td><td><span class="ghosted">Ordering Not Available</span></td></tr></table>};
+    $ordering = qq{<table cellpadding="1" cellspacing="0" border="0"><tr><td><img src="/documents/img/sgn-nocart.gif" border="0" alt="nocart" /></td><td><span class="ghosted">無法訂購 (Ordering Not Available)</span></td></tr></table>};
   }
 
 # Section with information about the selected clone
@@ -330,20 +331,20 @@ if ($clone_id ne "" && $cloneq->execute($clone_id) && $cloneq->rows>0) {
 #       So much for organizing the script into little sections.
   $clone_info = <<EOF;
     <$table>
-    <tr><td width="40%"><b>SGN ID:</b> SGN-C$clone_id</td><td><b>Clone name:</b> $clone_name</td><td width="20%" rowspan="2">$ordering</td></tr>
-    <tr><td><b>Library Name:</b> $library_name</td><td><b>Organism:</b> $organism_name</td></tr>
+    <tr><td width="40%"><b>SGN ID:</b> SGN-C$clone_id</td><td><b>選殖株名稱 (Clone name):</b> $clone_name</td><td width="20%" rowspan="2">$ordering</td></tr>
+    <tr><td><b>庫名稱 (Library Name):</b> $library_name</td><td><b>生物物種 (Organism):</b> $organism_name</td></tr>
     </table>
     <br />
-    <b>Tissue:</b> $tissue<br />
-    <b>Development Stage:</b> $development_stage<br />
+    <b>組織 (Tissue):</b> $tissue<br />
+    <b>發育階段 (Development Stage):</b> $development_stage<br />
     <br />
     $microarray
 EOF
 
 } else {
   # no clone information was found
-  $clone_info = '<div><span class="ghosted">No clone information found</span></div>';
-  $clone_name = "clone name unknown";
+  $clone_info = '<div><span class="ghosted">未找到選殖株資訊 (No clone information found)</span></div>';
+  $clone_name = "未知選殖株名稱 (clone name unknown)";
 }
 
 # Search for information on the chromatogram
@@ -358,22 +359,22 @@ if ($read_id && $readq->execute($read_id) && $readq->rows>0) {
    $submitter_name) = $readq->fetchrow_array();
 
   if (!defined($seqdir)) {
-    $seqdir = "Unknown";
+    $seqdir = "未知 (Unknown)";
   } elsif ($seqdir eq "5") {
     $seqdir = "5'";
   } elsif ($seqdir eq "3") {
     $seqdir = "3'";
   } else {
-    $seqdir = "Unknown";
+    $seqdir = "未知 (Unknown)";
   }
 
-  $submitter_name = '<span class="ghosted">None</span>' unless $submitter_name;
+  $submitter_name = '<span class="ghosted">無 (None)</span>' unless $submitter_name;
   $atb_display ||= $atb_organization;
   if ($atb_display) {
-    $atb_display = "<b>Funding Organization:</b>&nbsp;$atb_display";
+    $atb_display = "<b>資助機構 (Funding Organization):</b>&nbsp;$atb_display";
   }
 
-  my $view_link='[<span class="ghosted">View</span>]';
+  my $view_link='[<span class="ghosted">檢視 (View)</span>]';
 #  my $view_link=" [<a href=\"/tools/trace_view.pl?read_id=$read_id&est_id=$est_id\">View</a>]";
   my $tmp_tracename;
   if($tmp_tracename=CXGN::Chromatogram::has_abi_chromatogram($read_id))
@@ -381,23 +382,23 @@ if ($read_id && $readq->execute($read_id) && $readq->rows>0) {
       my $path_to_remove = $c->path_to( $c->tempfiles_subdir('traceimages') );
       $tmp_tracename=~s/$path_to_remove//;
       my $file=URI::Escape::uri_escape("$tmp_tracename");
-      $view_link=" [<a href=\"/tools/trace_view.pl?file=$file&temp=yes\">View</a>]";
+      $view_link=" [<a href=\"/tools/trace_view.pl?file=$file&temp=yes\">檢視 (View)</a>]";
   }
 
   $read_info = <<EOF;
     <$table>
-      <tr><td width="50%"><b>SGN-ID:</b> SGN-T$read_id [<a href="/search/trace_download.pl?read_id=$read_id">Download</a>]$view_link</td>
-          <td><b>Facility Assigned ID:</b> $chroma_name\n</td>
+      <tr><td width="50%"><b>SGN-ID:</b> SGN-T$read_id [<a href="/search/trace_download.pl?read_id=$read_id">下載 (Download)</a>]$view_link</td>
+          <td><b>機構指定 ID (Facility Assigned ID):</b> $chroma_name\n</td>
       </tr>
-      <tr><td><b>Submitter:</b> $submitter_name</td>
-          <td><b>Sequencing Facility:</b> $facility_name</td>
+      <tr><td><b>提交者 (Submitter):</b> $submitter_name</td>
+          <td><b>定序機構 (Sequencing Facility):</b> $facility_name</td>
       </tr>
     </table>
 
   $atb_display
 EOF
 } else {
-  $read_info='<span class="ghosted">No chromatogram information found for this sequence</span>';
+  $read_info='<span class="ghosted">未找到此序列的定序圖譜資訊 (No chromatogram information found for this sequence)</span>';
 }
 
 # Find alternate reads for this clone group
@@ -410,30 +411,30 @@ foreach ( @clone_group ) {
 	= $alt_readq->fetchrow_array()) {
     next if $eid==$est_id;
     if (!defined($dir)) {
-      $dir = "Unknown";
+      $dir = "未知 (Unknown)";
     } elsif ($dir eq "5") {
       $dir = "5'";
     } elsif ($dir eq "3") {
       $dir = "3'";
     } else {
-      $dir = "Unknown";
+      $dir = "未知 (Unknown)";
     }
 
     # This is hacked in here as an after thought, to draw the viewer's
     # attention to the additional sequencing section.
     if ($seqdir eq "5'" && $dir eq "3'") {
-      $see_also = "[See links to 3' reads above]";
+      $see_also = "[參閱上方 3' 讀段連結 / See links to 3' reads above]";
     } elsif ($seqdir eq "3'" && $dir eq "5'") {
-      $see_also = "[See links to 5' reads above]";
+      $see_also = "[參閱上方 5' 讀段連結 / See links to 5' reads above]";
     }
 
-    $facility = "Unknown" if !defined($facility);
+    $facility = "未知 (Unknown)" if !defined($facility);
     $alt_reads .= <<EOF
-      <tr><td><b>Clone:</b> SGN-C$_->[0] [$clone_name]</td>
-	  <td><b>Trace:</b> SGN-T$trace_id</td>
+      <tr><td><b>選殖株 (Clone):</b> SGN-C$_->[0] [$clone_name]</td>
+	  <td><b>圖譜 (Trace):</b> SGN-T$trace_id</td>
 	  <td><b>EST:</b> <a href="/search/est.pl?request_id=$eid&amp;request_type=7&amp;request_from=1">SGN-E$eid</a></td>
-	  <td><b>Direction:</b> $dir</td>
-	  <td><b>Facility:</b> $facility</td>
+	  <td><b>方向 (Direction):</b> $dir</td>
+	  <td><b>機構 (Facility):</b> $facility</td>
       </tr>
 EOF
   }
@@ -441,7 +442,7 @@ EOF
 if($alt_reads) {
   $alt_reads = "<table>$alt_reads</table>" ;
 } else {
-  $alt_reads = '<span class="ghosted">No additional reads found.</span>';
+  $alt_reads = '<span class="ghosted">未找到額外的定序讀段 (No additional reads found)。</span>';
 }
 
 
@@ -457,19 +458,19 @@ my $untrim_length = length($seq);
 my $seq_length;
 if (defined($start) && defined($length) && ($length > 10) ) {
   if ($flags) {
-    $fasta_header = "&gt;SGN-E$est_id [$clone_name]  (trimmed - flagged)";
+    $fasta_header = "&gt;SGN-E$est_id [$clone_name]  (已修剪 - 有標記 / trimmed - flagged)";
   } else {
-    $fasta_header = "&gt;SGN-E$est_id [$clone_name]  (trimmed)";
+    $fasta_header = "&gt;SGN-E$est_id [$clone_name]  (已修剪 / trimmed)";
   }
   $seq = substr $seq,$start,$length;
-  $seq_length = qq|${length} bp <span class="ghosted">(${untrim_length} bp untrimmed)</span>|;
+  $seq_length = qq|${length} bp <span class="ghosted">(${untrim_length} bp 未修剪 / untrimmed)</span>|;
 } else {
   if ($status & 0x1) {
-    $fasta_header = ">SGN-E$est_id [$clone_name] (called/trimmed by facility)<br />";
-    $seq_length = "${untrim_length} bp (called/trimmed by facility)<br />";
+    $fasta_header = ">SGN-E$est_id [$clone_name] (由機構判定/修剪 / called/trimmed by facility)<br />";
+    $seq_length = "${untrim_length} bp (由機構判定/修剪 / called/trimmed by facility)<br />";
   } else {
-    $fasta_header = ">SGN-E$est_id [$clone_name] (untrimmed)<br />";
-    $seq_length = qq{<span class="ghosted">${untrim_length} bp (untrimmed)</span>};
+    $fasta_header = ">SGN-E$est_id [$clone_name] (未修剪 / untrimmed)<br />";
+    $seq_length = qq{<span class="ghosted">${untrim_length} bp (未修剪 / untrimmed)</span>};
   }
 }
 
@@ -478,28 +479,28 @@ $seq_display = html_break_string($seq,95);
 
 my $display_status = "";
 if ($status == 0) {
-  $display_status = "Current Version";
+  $display_status = "目前版本 (Current Version)";
 }
 if ($status & 0x1) {
-  $display_status .= "Legacy ";
+  $display_status .= "舊版 (Legacy) ";
 }
 if ($status & 0x2) {
-  $display_status .= "Discarded ";
+  $display_status .= "已廢棄 (Discarded) ";
 }
 if ($status & 0x4) {
-  $display_status .= "Deprecated ";
+  $display_status .= "已過期 (Deprecated) ";
 }
 if ($status & 0x8) {
-  $display_status .= "Censored ";
+  $display_status .= "已排除 (Censored) ";
 }
 if ($status & 0x10) {
-  $display_status .= "Vector/Quality trimming not applied ";
+  $display_status .= "未應用載體/品質修剪 (Vector/Quality trimming not applied) ";
 }
 if ($status & 0x20) {
-  $display_status .= "Contaminants not assessed ";
+  $display_status .= "未評估污染物 (Contaminants not assessed) ";
 }
 if ($status & 0x40) {
-  $display_status .= "Chimera not assessed ";
+  $display_status .= "未評估嵌合 (Chimera not assessed) ";
 }
 
 my $insert_recovery = "";
@@ -510,38 +511,38 @@ if (!($status & 0x11)) {
 
 
   my @vector_sig_strings =
-    ("5' sequence read -- flanking 3' vector arm detected.",
-     "3' sequence read -- flanking 5' vector arm detected.",
-     "5' sequence read, incomplete (flanking vector not found)",
-     "3' sequence read, incomplete (flanking vector not found)",
+    ("5' 定序讀段 -- 檢測到兩側 3' 載體臂 (5' sequence read -- flanking 3' vector arm detected)。",
+     "3' 定序讀段 -- 檢測到兩側 5' 載體臂 (3' sequence read -- flanking 5' vector arm detected)。",
+     "5' 定序讀段，未完成 (未找到兩側載體 / incomplete)",
+     "3' 定序讀段，未完成 (未找到兩側載體 / incomplete)",
      #make these red and bold
      (map {'<span style="color: red; font-weight: bold;">'.$_.'</span>'}
-      ('No vector sequence detected',
-       'Vector found but pattern inconsistent with a normal insert',
-       'Multiple cloning site sequence detected -- chimeric clone suspected.',
+      ('未檢測到載體序列 (No vector sequence detected)',
+       '找到載體但模式與正常插入不一致 (Vector found but pattern inconsistent with normal insert)',
+       '檢測到多重選殖位點序列 -- 疑似嵌合選殖株 (chimeric clone suspected)。',
       )
      ),
     );
 
   $vector_signature = $vector_sig_strings[$vs_status]
-    || '<span class="ghosted">Not available</span>';
+    || '<span class="ghosted">無可用資訊 (Not available)</span>';
 
 
   ### render any flags as html
-  my @flag_strings = ('Vector anomaly',
-		      'Possibly chimeric (anomalous insert into vector)',
-		      'Too short after trimming low-quality bases',
-		      'High expected error (low overall quality)',
-		      'Low complexity',
-		      'E. Coli (cloning host) sequence detected',
-		      'rRNA contamination detected',
-		      "Possibly chimeric (ends match significantly different genes in arabidopsis)",
-		      "Possibly chimeric, detected by unigene assembly preclustering",
-		      "Manually censored by SGN staff");
+  my @flag_strings = ('載體異常 (Vector anomaly)',
+		      '可能為嵌合體 (載體插入異常 / Anomalous insert into vector)',
+		      '修剪低品質鹼基後過短 (Too short after trimming)',
+		      '預期錯誤率高 (整體品質偏低 / High expected error)',
+		      '低複雜度序列 (Low complexity)',
+		      '檢測到大腸桿菌選殖宿主序列 (E. Coli sequence detected)',
+		      '檢測到 rRNA 污染 (rRNA contamination detected)',
+		      "可能為嵌合體 (末端與阿拉伯芥顯著不同基因比對相符)",
+		      "可能為嵌合體 (由單一基因組裝預分群檢測出)",
+		      "由 SGN 人員手動排除 (Manually censored by SGN staff)");
 		
   my $flags_display = "";
   if ($flags == 0) {
-    $flags_display = "Passed all screens and filters";
+    $flags_display = "通過所有篩選與過濾 (Passed all screens and filters)";
   } else {
     my @flags = ();
 
@@ -550,38 +551,38 @@ if (!($status & 0x11)) {
       push @flags,$str if $flags & (1<<$ind++);
     }
 
-    $flags_display = qq{<$table><tr><td width="10%"><b>Problems: </b></td><td>} . join("<br />",@flags) . "</td></tr></table>";
+    $flags_display = qq{<$table><tr><td width="10%"><b>問題 (Problems): </b></td><td>} . join("<br />",@flags) . "</td></tr></table>";
   }
 
   $insert_recovery= <<EOF;
-<$table><tr><td width="50%"><b>Processed By:</b> SGN</td>
-            <td><b>Basecalling Software:</b> phred</td>
+<$table><tr><td width="50%"><b>處理者 (Processed By):</b> SGN</td>
+            <td><b>鹼基判定軟體 (Basecalling Software):</b> phred</td>
        </tr>
 </table>
-<b>Vector Signature:</b> $vector_signature<br />
+<b>載體特徵 (Vector Signature):</b> $vector_signature<br />
 $flags_display
 <table cellspacing="0" cellpadding="0" border="0" width="90%" align="center">
-  <tr><td><b>Sequence Entropy:</b> $entropy</td>
-      <td><b>Expected Error Rate:</b> $expected_error</td>
-      <td><b>Quality Trim Threshold:</b> $qtrim_threshold</td>
+  <tr><td><b>序列熵 (Sequence Entropy):</b> $entropy</td>
+      <td><b>預期錯誤率 (Expected Error Rate):</b> $expected_error</td>
+      <td><b>品質修剪閾值 (Quality Trim Threshold):</b> $qtrim_threshold</td>
   </tr>
 </table>
 EOF
 } else {
-  $insert_recovery = "<span class=\"ghosted\">Processing information not available for this sequence</span>";
+  $insert_recovery = "<span class=\"ghosted\">此序列無可用處理資訊 (Processing information not available for this sequence)</span>";
 }
 
 my $sequence_info = <<END_HTML;
   <$table>
-  <tr><td width="50%"><b>Sequence Id:</b> SGN-E$est_id</td><td><b>Length:</b> $seq_length</td></tr>
-  <tr><td><b>Status:</b> $display_status</td><td><b>Direction:</b> $seqdir $see_also</td></tr>
+  <tr><td width="50%"><b>序列 ID (Sequence Id):</b> SGN-E$est_id</td><td><b>長度 (Length):</b> $seq_length</td></tr>
+  <tr><td><b>狀態 (Status):</b> $display_status</td><td><b>方向 (Direction):</b> $seqdir $see_also</td></tr>
   </table>
   <div class="sequence" style="margin: 1em">
         $fasta_header
         $seq_display
   </div>
   <center>
-  [<a href="/tools/blast/?preload_id=$est_id&amp;preload_type=7">BLAST</a>]&nbsp;&nbsp;[<a href="/tools/sixframe_translate.pl?est_id=$est_id">AA Translate</a>]
+  [<a href="/tools/blast/?preload_id=$est_id&amp;preload_type=7">BLAST</a>]&nbsp;&nbsp;[<a href="/tools/sixframe_translate.pl?est_id=$est_id">六讀框轉譯 (AA Translate)</a>]
   </center>
 END_HTML
 
@@ -611,7 +612,7 @@ while(my ($unigene_id, $build_id, $og_name, $build_nr, $build_date,
 	last;
       }
       if ($alt_microarray_found) {
-	$alt_microarray .= qq{See unigene <a href="/search/unigene.pl?unigene_id=$unigene_id">SGN-U$unigene_id</a> for alternatives which are available on a microarray<br />};
+	$alt_microarray .= qq{參閱單一基因 <a href="/search/unigene.pl?unigene_id=$unigene_id">SGN-U$unigene_id</a> 以獲取微陣列晶片上可用的替代項目<br />};
       }
     }
   }
@@ -619,7 +620,7 @@ while(my ($unigene_id, $build_id, $og_name, $build_nr, $build_date,
   $marker_mappingq->execute($clone_id);
   if ($marker_mappingq->rows > 0) {
     while (my ($marker_id, $alias) = $marker_mappingq->fetchrow_array()){
-      $alt_mapped .= qq{This clone has been mapped as <a href="/search/markers/markerinfo.pl?marker_id=$marker_id">$alias</a>.<br />} 
+      $alt_mapped .= qq{此選殖株已定位為 (This clone has been mapped as) <a href="/search/markers/markerinfo.pl?marker_id=$marker_id">$alias</a>。<br />} 
     }
   } else {
     $mapped_memberq->execute($unigene_id);
@@ -630,7 +631,7 @@ while(my ($unigene_id, $build_id, $og_name, $build_nr, $build_date,
 	$alt_mapped_found = 1;
       }
       if ($alt_mapped_found) {
-	$alt_mapped .= qq{See unigene <a href="/search/unigene.pl?unigene_id=$unigene_id">SGN-U$unigene_id</a> for alternative clones/ESTs which are mapped};
+	$alt_mapped .= qq{參閱單一基因 <a href="/search/unigene.pl?unigene_id=$unigene_id">SGN-U$unigene_id</a> 以獲取已定位之替代選殖株/EST};
       }
     }
   }
@@ -638,37 +639,37 @@ while(my ($unigene_id, $build_id, $og_name, $build_nr, $build_date,
   <tr><td>[SGN-E$eid]  </td>
       <td><a href="/search/unigene.pl?unigene_id=$unigene_id&amp;highlight=$eid">SGN-U$unigene_id</a></td>
       <td>$og_name        </td>
-      <td>Build $build_nr </td>
-      <td>$nr_members ESTs assembled</td>
+      <td>第 $build_nr 版構建 (Build $build_nr)</td>
+      <td>組裝了 $nr_members 個 EST ($nr_members ESTs assembled)</td>
   </tr>
 EOF
 }
 
 if (!$alt_microarray &&
     ($organism_id == 1 || $organism_id == 2 || $organism_id == 3)) {
-  $alt_microarray = '<span class="ghosted">No alternative clones from any current unigene containing this EST are available on a microarray</span>';
+  $alt_microarray = '<span class="ghosted">包含此 EST 的任何目前單一基因中，均無可在微陣列晶片上使用的替代選殖株 (No alternative clones on microarray)</span>';
 }
 
-$alt_mapped ||= "<div><span class=\"ghosted\">There is no map position defined on SGN for this EST or others in the same unigene.</span></div>";
+$alt_mapped ||= "<div><span class=\"ghosted\">此 EST 或同單一基因中的其他 EST 在 SGN 上均無定義的圖譜位置 (There is no map position defined on SGN for this EST or others in the same unigene)。</span></div>";
 
 
 
 $unigene_content = '<table align="center" cellspacing="0" cellpadding="0" border="0" width="100%">';
 
 if ($other_estid) {
-  $unigene_content .= qq{<tr><td colspan="6"><span class="ghosted">Note: Some unigenes listed here are assembled from different versions of the sequence displayed above. Note SGN-E# in left column. All versions were derived from the same chromatogram</span></td></tr><tr><td colspan="6"><br /></td></tr>};
+  $unigene_content .= qq{<tr><td colspan="6"><span class="ghosted">附註：此處列出的某些單一基因是由上方顯示序列的不同版本組裝而成。請注意左欄的 SGN-E#。所有版本均源自同一定序圖譜。</span></td></tr><tr><td colspan="6"><br /></td></tr>};
 }
 
 if (@recent) {
   $unigene_content .= <<EOF;
-<tr><td colspan="6"><b>Current Unigene builds</b></td></tr>
+<tr><td colspan="6"><b>目前單一基因構建版本 (Current Unigene builds)</b></td></tr>
 @recent
-<tr><td colspan="6" align="center"><span class="ghosted">Follow SGN-U# link for detailed information and annotations</span></td></tr>
+<tr><td colspan="6" align="center"><span class="ghosted">點擊 SGN-U# 連結以查看詳細資訊與註釋 (Follow SGN-U# link for detailed information and annotations)</span></td></tr>
 EOF
 } else {
   $unigene_content .= <<EOF;
-<tr><td align="left" colspan="6"><b>Current Unigene builds</b></td></tr>
-<tr><td colspan="6"><span class="ghosted">No current unigene builds incorporate this sequence</td></tr>
+<tr><td align="left" colspan="6"><b>目前單一基因構建版本 (Current Unigene builds)</b></td></tr>
+<tr><td colspan="6"><span class="ghosted">目前沒有單一基因構建版本納入此序列 (No current unigene builds incorporate this sequence)</td></tr>
 EOF
 }
 
@@ -676,19 +677,19 @@ $unigene_content .= "</table>";
 
 
 $page->header();
-print page_title_html("EST details &mdash; $match_id");
-print blue_section_html('Search information',$search_info);
-print blue_section_html('Clone information',<<EOH);
+print page_title_html("EST 詳細資訊 (EST details) &mdash; $match_id");
+print blue_section_html('搜尋資訊 (Search information)',$search_info);
+print blue_section_html('選殖株資訊 (Clone information)',<<EOH);
 $clone_info
 $alt_microarray
 $alt_mapped
 EOH
-$alt_reads .= qq{<center style="margin-top: 0.8em"><a href="/search/est.pl?request_id=$clone_id&amp;request_type=8&amp;request_from=1&amp;show_hierarchy=1">[Show information hierarchy]</a></center>};
-print blue_section_html('Additional sequencing',$alt_reads);
-print blue_section_html('Sequence',$sequence_info);
-print blue_section_html('Unigenes',$unigene_content);
-print blue_section_html('Chromatogram',$read_info);
-print blue_section_html('Quality processing',$insert_recovery);
+$alt_reads .= qq{<center style="margin-top: 0.8em"><a href="/search/est.pl?request_id=$clone_id&amp;request_type=8&amp;request_from=1&amp;show_hierarchy=1">[顯示階層架構資訊 / Show information hierarchy]</a></center>};
+print blue_section_html('其他定序讀段 (Additional sequencing)',$alt_reads);
+print blue_section_html('序列 (Sequence)',$sequence_info);
+print blue_section_html('單一基因 (Unigenes)',$unigene_content);
+print blue_section_html('定序圖譜 (Chromatogram)',$read_info);
+print blue_section_html('品質處理 (Quality processing)',$insert_recovery);
 
 $page->footer();
 
@@ -793,12 +794,12 @@ sub try_clone_group {
 
   print <<EOF;
   <center>
-  <h4>Direct Search Result - Not Found</h4>
+  <h4>直接搜尋結果 - 未找到 (Direct Search Result - Not Found)</h4>
   </center>
 
-  <p>Your search resolved to a clone identifier (SGN-C$id) that has no associated reads. An alias group was detected, however. See links below for other clone ids/names that are expected to be from identical stock. </p>
+  <p>您的搜尋解析至一個沒有相關定序讀段的選殖株識別碼 (SGN-C$id)。但檢測到一個別名群組。請參閱下方連結以獲取預期來自相同材料庫存的其他選殖株 ID/名稱。</p>
 
-  <p>This may happen for cases where clones were "rearrayed" and resequenced, but the resequenced data has not been recovered yet or the reactions failed. In this case, the rearrayed clone identifier and name will have no associated sequence, but the original clone may have usable reads available in the database.</p>
+  <p>這可能發生在選殖株被「重新排列 (rearrayed)」並重新定序，但重新定序的資料尚未恢復或反應失敗的情況。在這種情況下，重新排列的選殖株識別碼和名稱將沒有關聯序列，但原始選殖株在資料庫中可能有可用的讀段。</p>
   <br /><br />
   <$table>$clones</table>
   <br /><br />
@@ -818,7 +819,7 @@ sub invalid_search {
 
   print <<EOF;
   <center>
-  <h4>Not Found - Search Invalid</h4>
+  <h4>未找到 - 搜尋無效 (Not Found - Search Invalid)</h4>
   </center>
 EOF
 
@@ -840,7 +841,7 @@ sub not_found {
 
   print <<EOF;
   <center>
-  <h4>Direct Search Result - Not Found</h4>
+  <h4>直接搜尋結果 - 未找到 (Direct Search Result - Not Found)</h4>
   </center>
 EOF
 
@@ -862,10 +863,10 @@ sub not_traceable_to_est {
 
   print <<EOF;
   <center>
-  <h4>Direct Search Result - Not Found</h4>
+  <h4>直接搜尋結果 - 未找到 (Direct Search Result - Not Found)</h4>
   </center>
 
-  <p>The identifier $id of the specified type can not be traced to an EST in SGN\'s databases</p>
+  <p>指定類型的識別碼 $id 無法在 SGN 資料庫中追蹤到 EST (The identifier of the specified type can not be traced to an EST in SGN databases)</p>
   <br />
 EOF
 
@@ -898,17 +899,17 @@ sub hierarchy_requested {
   my $content = build_hierarchy($page, $id);
 
   $page->header();
-  print page_title_html("Information Hierarchy for Clone $id");
+  print page_title_html("選殖株 $id 的階層架構資訊 (Information Hierarchy for Clone $id)");
 
   if (!$content) {
     print <<EOF;
-    No structure was found for identifier $id
+    未找到識別碼 $id 的結構 (No structure was found for identifier $id)
 EOF
     $page->footer();
   exit 0;
   }
 
-  print blue_section_html('Information Hierarchy',$content);
+  print blue_section_html('階層架構資訊 (Information Hierarchy)',$content);
   $page->footer();
 
   exit 0;
@@ -939,29 +940,29 @@ sub build_hierarchy {
 
   foreach my $clone ( @clones ) {
     # Lookup the reads
-    $flat .= "Clone SGN-C$clone->[0] - $clone->[1]\n";
+    $flat .= "選殖株 (Clone) SGN-C$clone->[0] - $clone->[1]\n";
 
     my ($read_id, $trace_name);
     $h_traceq->execute($clone->[0]);
     $h_traceq->bind_columns(\$read_id, \$trace_name);
     while($h_traceq->fetch()) {
-      $flat .= " "x4 . "Chromatogram SGN-T$read_id - $trace_name\n";
+      $flat .= " "x4 . "定序圖譜 (Chromatogram) SGN-T$read_id - $trace_name\n";
 
       my ($est_id, $version);
       $h_estq->execute($read_id);
       $h_estq->bind_columns(\$est_id, \$version);
       while($h_estq->fetch()) {
-	$flat .= " "x8 . "Processed EST <a href=\"/search/est.pl?request_id=$est_id&amp;request_type=7&amp;request_from=1\">SGN-E$est_id</a> - version $version\n";
+	$flat .= " "x8 . "已處理 EST (Processed EST) <a href=\"/search/est.pl?request_id=$est_id&amp;request_type=7&amp;request_from=1\">SGN-E$est_id</a> - 版本 (version) $version\n";
 
 	my ($unigene_id, $build, $organism);
 	$h_unigeneq->execute($est_id);
 	$h_unigeneq->bind_columns(\$unigene_id,\$build,\$organism);
 	while($h_unigeneq->fetch()) {
-	  $flat .= " "x12 . "Unigene member <a href=\"/search/unigene.pl?unigene_id=$unigene_id\">SGN-U$unigene_id</a> - $organism Build $build\n";
+	  $flat .= " "x12 . "單一基因成員 (Unigene member) <a href=\"/search/unigene.pl?unigene_id=$unigene_id\">SGN-U$unigene_id</a> - $organism 第 $build 版構建\n";
 	  $blastq->execute($unigene_id);
 	  while(my ($db_name, $blast_program, $n_hits) =
 		$blastq->fetchrow_array()) {
-	    $flat .= " "x16 . "$n_hits stored BLAST hits against $db_name [$blast_program]\n";
+	    $flat .= " "x16 . "$n_hits 筆儲存之 BLAST 比對紀錄 ($db_name [$blast_program])\n";
 	  }
 # This is old from when we were displaying the entire blast hit, which we
 # may want to do still...
