@@ -1,11 +1,12 @@
 #!/usr/bin/perl -w
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Login;
 use CXGN::Contact;
 use CXGN::People;
 
-my $page=CXGN::Page->new("SGN Stats","johnathon");
+my $page=CXGN::Page->new("SGN 統計 (SGN Stats)","johnathon");
 my $logged_in_person_id=CXGN::Login->new()->verify_session();
 my $logged_in_user=CXGN::People::Person->new($logged_in_person_id);
 my $logged_in_person_id=$logged_in_user->get_sp_person_id();
@@ -28,7 +29,7 @@ if($logged_in_user_type eq 'curator'){
 
 else
 {
-   $page->message_page('Sorry, but you are not authorized to view statistics.');
+   $page->message_page('抱歉，您無權檢視統計資料 (Sorry, but you are not authorized to view statistics)。');
 }
 
 #Finds the columns in the sp_person table.
@@ -55,7 +56,7 @@ sub find_recently_active_users{
     }
     my $people_logged_in;
     $people_logged_in = $dbh->selectall_arrayref("select sp_person_id, username, extract(epoch from current_timestamp - last_access_time), last_access_time from sp_person where extract(epoch from current_timestamp - last_access_time) <= ? order by last_access_time DESC", undef, $time_to_check*60*60);
-    $user_table = "<table align='left' style='width: 100%'><tr><th>ID:</th><th>Username:</th><th>Mins since last action:</th><th>Timestamp:</th></tr><tr><td>";
+    $user_table = "<table align='left' style='width: 100%'><tr><th>ID:</th><th>使用者名稱 (Username):</th><th>距離上次操作時間（分）(Mins since last action):</th><th>時間戳記 (Timestamp):</th></tr><tr><td>";
     $people_logged_in = epoch_to_minutes($people_logged_in);
     for my $row(@$people_logged_in){
 	$user_table .="<tr><td align='center'>";
@@ -69,7 +70,7 @@ sub find_recently_active_users{
 
 
 #HTML Printing Start Here
-$page->header("SGN Stats", "SGN Stats");
+$page->header("SGN 統計 (SGN Stats)", "SGN 統計 (SGN Stats)");
 print <<html;
 
 <script type='text/javascript' language='javascript'>
@@ -103,12 +104,12 @@ print <<html;
     }
 </script>
 <br />
-<form method="get" action="stats.pl" name="time" id="time"><label for="minutes">Time restraint (in hours): &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<form method="get" action="stats.pl" name="time" id="time"><label for="minutes">時間範圍（小時）(Time restraint (in hours)): &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
 <input type="text" size="5" name="hours" id="hours" value="$time_to_check" />
-<input type="submit" id="submit" value="Submit" /></form>
+<input type="submit" id="submit" value="送出 (Submit)" /></form>
 <script type="text/javascript" language="javascript">document.time.hours.focus();</script>
 $user_table
-<table align='left' style='width:100%'><tr><th>ID</th><th>Username</th><th>$table_columns[0]</th><th>$table_columns[1]</th><th>$table_columns[2]</th></tr>
+<table align='left' style='width:100%'><tr><th>ID</th><th>使用者名稱 (Username)</th><th>$table_columns[0]</th><th>$table_columns[1]</th><th>$table_columns[2]</th></tr>
 <tr><td><input type='text' size='5' name='id1' id='id1' /></td></tr></table>
 
 html

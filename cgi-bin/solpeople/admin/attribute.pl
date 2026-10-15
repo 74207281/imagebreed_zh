@@ -1,5 +1,6 @@
 
 use strict;
+use utf8;
 
 use CXGN::DB::Connection;
 use CXGN::Page;
@@ -7,7 +8,7 @@ use CXGN::Login;
 use CXGN::People;
 use CXGN::DB::Connection;
 
-my $page = CXGN::Page->new("Make Attributions", "Lukas and John");
+my $page = CXGN::Page->new("進行歸屬設定 (Make Attributions)", "Lukas and John");
 our $dbh = CXGN::DB::Connection-> new("sgn_people"); 
 
 my($action, $data_type, $data_id, $attributed_to_id, $attributed_to_type, $role_id)=$page->get_encoded_arguments('action', 'data_type', 'data_id','attributed_to_id', 'attributed_to_type', 'role_id');
@@ -19,7 +20,7 @@ my $logged_in_username=$logged_in_user->get_first_name()." ".$logged_in_user->ge
 my $logged_in_user_type=$logged_in_user->get_user_type();
 
 if($logged_in_user_type ne 'curator') { 
-    $page->message_page("You don't have the necessary privileges to perform this action! ");
+    $page->message_page("您沒有執行此操作所需的權限！(You don't have the necessary privileges to perform this action!)");
 }
 
 
@@ -56,40 +57,40 @@ sub form {
     
     <form>
 	<table><tr>
-	<td>Data type:</td>
+	<td>資料類型 (Data type):</td>
 	<td>
 	<select name="data_type">
 	<option value="bac">BAC</option>
-	<option value="marker">Marker</option>
+	<option value="marker">分子標記 (Marker)</option>
 	</select>
 	</td>
-	<td>Data id:</td>
+	<td>資料 ID (Data id):</td>
 	<td> <input name="data_id" /></td>
 	</tr>
 	<tr>
-	<td>Role type:</td>
+	<td>角色類型 (Role type):</td>
 	<td colspan="3">
 	$role_select
 	</td>
 	</tr>
 
 	<tr>
-	<td>Attribution to</td>
+	<td>歸屬於 (Attribution to):</td>
 	<td>
 	<select name="attributed_to_type">
-	<option value="person">Person</option>
-	<option value="organization">Organization</option>
-	<option value="project">Project</option>
+	<option value="person">人員 (Person)</option>
+	<option value="organization">機構/組織 (Organization)</option>
+	<option value="project">專案 (Project)</option>
 	</select>
 	</td>
-	<td>id</td>
+	<td>ID (id):</td>
 	<td> <input name="attributed_to_id" /></td>
 	</tr></table>
 	
 	
 	<br />
 	<input type="hidden" name="action" value="verify" />
-	<input type="submit" value="Submit" />
+	<input type="submit" value="送出 (Submit)" />
 	
 	</form>
 	
@@ -104,7 +105,7 @@ sub verify {
     
     
     if (!$attributed_to_type || !$attributed_to_id || !$data_type || !$data_id) { 
-	$page->message_page("Need all data filled in!");
+	$page->message_page("請填寫所有欄位！(Need all data filled in!)");
     }
     
     my $attributed_name = "";
@@ -135,11 +136,11 @@ sub verify {
     $sth->execute($data_id);
     my ($hashref) = $sth->fetchrow_hashref();
 
-    print qq { <div class="boxbgcolor2"><b>Database object</b><br /><br /> };
+    print qq { <div class="boxbgcolor2"><b>資料庫物件 (Database object)</b><br /><br /> };
     foreach my $k (keys %$hashref) { 
 	print "$k: $$hashref{$k}<br />\n" if (exists $$hashref{$k});
     }
-    print "<br /></div><br />Attribute to : <br />";
+    print "<br /></div><br />歸屬於 (Attribute to) : <br />";
     print "<b>$attributed_name</b><br /><br />";
     
     print <<HTML;
@@ -151,7 +152,7 @@ sub verify {
 <input type="hidden" name="data_id" value="$data_id" />
 <input type="hidden" name="action" value="store" />
 
-    <input type="submit" value="Store" /> 
+    <input type="submit" value="儲存 (Store)" /> 
     </form>
 
 HTML
@@ -192,7 +193,7 @@ sub store {
       $sth->execute($database_name,$table_name, $data_id);
       my $attribution_id="";
       if ($attribution_id = ($sth->fetchrow_array())[0]) { 
-	  print "The attribution is already in the database.\n";
+	  print "此歸屬已存在於資料庫中 (The attribution is already in the database)。\n";
 	  
       }
       else { 
@@ -219,9 +220,9 @@ sub store {
 	  $isth -> execute($attribution_id, $person_id, $organization_id, $project_id, $role_id);
       }
       else { 
-	  print "The data object was already attributed to that entity in the database.";
+	  print "該資料物件在資料庫中已歸屬於該實體 (The data object was already attributed to that entity in the database)。\n";
       }
-      print "All done!\n";
+      print "全部完成！(All done!)\n";
 }
       
 

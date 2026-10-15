@@ -8,6 +8,7 @@ use CatalystX::GlobalContext qw( $c );
 ######################################################################
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers
@@ -18,10 +19,10 @@ use CXGN::Searches::People;
 #################################################
 
 # Start a new SGN page.
-my $page = CXGN::Page->new( "SGN directory search results", "Evan" );
+my $page = CXGN::Page->new( "SGN 名錄搜尋結果 (SGN Directory Search Results)", "Evan" );
 $page->header();
 
-print page_title_html('Directory search results');
+print page_title_html('名錄搜尋結果 (Directory Search Results)');
 
 #create the search and query objects
 my $search = CXGN::Searches::People->new();
@@ -34,7 +35,7 @@ my %params = CGI->new->Vars
 $query->from_request( \%params );
 
 my $search_again_html = info_section_html(
-    title    => 'Search again',
+    title    => '再次搜尋 (Search again)',
     contents => CXGN::Search::CannedForms::people_search_form( $page, $query )
 );
 
@@ -63,7 +64,7 @@ my $results_html = <<EOH;
 EOH
 
 $results_html .= columnar_table_html(
-    headings   => [ 'Name', 'E-mail', 'Organization', 'Country' ],
+    headings   => [ '姓名 (Name)', '電子郵件 (E-mail)', '機構 (Organization)', '國家 (Country)' ],
     data       => \@results,
     __alt_freq => 2
 );
@@ -75,17 +76,18 @@ EOH
 
 if (@results) {
     print info_section_html(
-        title => 'Results',
+        title => '搜尋結果 (Results)',
         contents =>
             sprintf(
-                '<span class="paginate_summary">%s matches </span>',
+                '<span class="paginate_summary">%s 筆相符項目 (%s matches)</span>',
+                $result->total_results(),
                 $result->total_results()
                )
            .$results_html,
        );
 }
 else {
-    print '<h4>No matches found</h4>';
+    print '<h4>未找到相符項目 (No matches found)</h4>';
 }
 
 print $search_again_html;
