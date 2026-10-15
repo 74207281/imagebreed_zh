@@ -44,7 +44,7 @@ use CatalystX::GlobalContext '$c';
 sub new {
   my $class=shift;
   my $self = bless {},$class;
-  $self->{content_type} = 'text/html';
+  $self->{content_type} = 'text/html; charset=utf-8';
   $self->{request} = $c ? $c->request : '';
 
   return $self;
@@ -268,8 +268,10 @@ sub is_bot_request {
 
 sub send_content_type_header {
     my ( $self, $type ) = @_;
-    $c->res->content_type($type || $self->{content_type} || 'text/html');
-    print "\n" unless $c->res->body;
+    my $ct = $type || $self->{content_type} || 'text/html; charset=utf-8';
+    $ct .= '; charset=utf-8' if $ct =~ m{^text/html$}i;
+    $c->res->content_type($ct) if $c && $c->res;
+    print "\n" unless $c && $c->res && $c->res->body;
 }
 
 

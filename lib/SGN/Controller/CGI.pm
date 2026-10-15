@@ -73,6 +73,10 @@ if( eval{ SGN->debug } ) {
 after 'cgi_to_response' => sub {
     my ( $self, $c ) = @_;
     $c->res->headers->remove_header('content-length');
+    my $ct = $c->res->content_type;
+    if ( $ct && $ct =~ m{^text/}i && $ct !~ /charset/i ) {
+        $c->res->content_type("$ct; charset=utf-8");
+    }
 };
 
 sub cgi_action_for {
