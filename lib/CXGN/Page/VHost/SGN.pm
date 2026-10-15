@@ -30,7 +30,7 @@ sub html_head {
     my $ret_html = <<EOHTMLEIEIO;
 <head>
   <title>$page_title</title>
-  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link rel="stylesheet" href="/css/sgn.css" type="text/css" />
   <link rel="search" type="application/opensearchdescription+xml" title="SGN Sol Search" href="/documents/sgn_sol_search.xml" />
 

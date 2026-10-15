@@ -76,6 +76,8 @@ sub new {
     $self->{author}       = $author;
     $self->{embedded_css} = "";
 
+    binmode STDOUT, ':utf8';
+
     return $self;
 }
 
