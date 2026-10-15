@@ -12,6 +12,7 @@ A refering_page parameter can be used to generate a link back to the calling pag
 =cut
     
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::DB::Connection;
@@ -24,7 +25,7 @@ use CXGN::Page::FormattingHelpers qw/  page_title_html
 
 my $SIZELIMIT = 10000; # the maximal number of bytes in a post.
 
-my $page = CXGN::Page->new( "SGN Forum | Add Post", "Lukas");
+my $page = CXGN::Page->new( "SGN 論壇 | 新增貼文 (Add Post)", "Lukas");
 my $dbh = CXGN::DB::Connection->new();
 
 #
@@ -70,7 +71,7 @@ if ($topic_id) {
     $parent_post_explain = "";
     $display_subject = "RE: $parent_subject";
     if ($parent_post_text) { 
-	$parent_post_explain = "Your message will be attached to the following message: 
+	$parent_post_explain = "您的訊息將附加於以下訊息 (Your message will be attached to the following message): 
 	<table summary=\"\" class=\"sgnblue\"><tr><td><pre>$parent_post_text</pre></td></tr></table>
 	<br />";
 	$subject_input = "<input type=\"text\" name=\"subject\" value=\"$display_subject\" /><br /><br /> ";
@@ -78,7 +79,7 @@ if ($topic_id) {
 
     $topic = CXGN::People::Forum::Topic -> new($dbh, $topic_id);
     if (!$topic) { 
-	$page->error_page("No legal topic id was supplied. [topic_id=$topic_id]");
+	$page->error_page("未提供有效的主題 ID (No legal topic id was supplied)。[topic_id=$topic_id]");
     }
     $topic_name =  $topic -> get_topic_name();
 }
@@ -97,7 +98,7 @@ elsif ($page_type && $page_object_id) {
 }
 else
 {
-    $page->error_page("Sorry, but there was insufficient data to add this post.");    
+    $page->error_page("抱歉，新增此貼文的資料不足 (Sorry, but there was insufficient data to add this post)。");    
 }
 
 #
@@ -116,10 +117,10 @@ my $formatted_post_text = $post->format_post_text($post_text);
 #
 my $link;
 if ($refering_page) { 
-    $link = "<a href=\"$refering_page\">Back to posts</a>"; 
+    $link = "<a href=\"$refering_page\">返回貼文列表 (Back to posts)</a>"; 
 }
 else { 
-    $link = "<a href=\"posts.pl?topic_id=$topic_id\">Back to posts</a>";
+    $link = "<a href=\"posts.pl?topic_id=$topic_id\">返回貼文列表 (Back to posts)</a>";
 }
 #
 # perform the appropriate action, depending on the
@@ -139,21 +140,18 @@ if ($action eq "review") {
     
     my $truncated_warning = "";
     if ($truncated) { 
-	$truncated_warning = "<b>Note:</b> Your post exceeds $SIZELIMIT characters and has been truncated.
-                Please use the 'go back' button to edit your post, or submit to accept the 
-                truncated version.<br /><br />\n";
+	$truncated_warning = "<b>提示 (Note):</b> 您的貼文超過 $SIZELIMIT 個字元，已被截斷。請點擊「修改貼文」返回修改，或送出以接受截斷後的版本。<br /><br />\n";
     }
 
 
     $page -> header();
 
-    print page_title_html("Review your post");
+    print page_title_html("審閱您的貼文 (Review your post)");
     
     print <<HTML;
     <div class="container-fluid">
-    Enter post -> <b>Review post</b> -> Store post<br /><br />
-    This is how the text of your post will appear. Please use the 'store post' button for permanently adding the post
-    or the 'modify post' button to go back and revise the post. To cancel, click on 'back to posts'.<br /><br />
+    輸入貼文 (Enter post) -> <b>審閱貼文 (Review post)</b> -> 儲存貼文 (Store post)<br /><br />
+    以下為您貼文文字的呈現樣式。請使用「儲存貼文」按鈕永久新增貼文，或使用「修改貼文」按鈕返回修改。若要取消，請點擊「返回貼文列表」。<br /><br />
  
     $truncated_warning
 
@@ -169,7 +167,7 @@ if ($action eq "review") {
     <input type="hidden" name="refering_page" value="$refering_page" />
     <input type="hidden" name="action" value="input" />
     <input type="hidden" name="topic_id" value="$topic_id" />
-    <input class="btn btn-info" type="submit" value="modify post" />
+    <input class="btn btn-info" type="submit" value="修改貼文 (Modify post)" />
     </form>
     <td><td>
     $link
@@ -181,7 +179,7 @@ if ($action eq "review") {
     <input type="hidden" name="refering_page" value="$refering_page" />
     <input type="hidden" name="action" value="save" />
     <input type="hidden" name="topic_id" value="$topic_id" />
-    <input class="btn btn-primary" type="submit" value="store post" />
+    <input class="btn btn-primary" type="submit" value="儲存貼文 (Store post)" />
     </form>
     </td></tr></table>
     </div>
@@ -212,11 +210,11 @@ elsif ($action eq "save") {
 
     $page->header();
 
-    print page_title_html("Your post was successfully stored");
-    print "Enter post -> Review post -> <b>Store post</b></a><br /><br />\n";
+    print page_title_html("您的貼文已成功儲存 (Your post was successfully stored)");
+    print "輸入貼文 (Enter post) -> 審閱貼文 (Review post) -> <b>儲存貼文 (Store post)</b><br /><br />\n";
 
     if ($truncated) { 
-	print "<b>Note:</b>Your post has been truncated to $SIZELIMIT characters.<br />\n";
+	print "<b>提示 (Note):</b> 您的貼文已被截斷至 $SIZELIMIT 個字元。<br />\n";
     }
 
     my $display_post_text = $post->format_post_text($post_text);
@@ -237,21 +235,21 @@ else {
     #
     $page -> header();
 
-    print page_title_html("Enter Post for topic \"$topic_name\"");
+    print page_title_html("輸入主題 \"$topic_name\" 的貼文 (Enter Post for topic \"$topic_name\")");
 
     print <<HTML;
 
     <form method="post" action="add_post.pl">
 	
-	Steps: <b>Enter post</b> -> Review post -> Store post<br /><br /> 
+	步驟 (Steps): <b>輸入貼文 (Enter post)</b> -> 審閱貼文 (Review post) -> 儲存貼文 (Store post)<br /><br /> 
 	$parent_post_explain<br />
 	
-	Please enter your comment below. You can delete the post later if you are logged in.<br />
-	HTML tags are not supported. You can add links to your post by using square brackets.  For example:<br />
-	<tt>[url]sgn.cornell.edu[/url]</tt> will appear as <a href="http://sgn.cornell.edu">sgn.cornell.edu</a> in the post.<br /><br />
+	請在下方輸入您的評論。登入後您隨時可以刪除此貼文。<br />
+	不支援 HTML 標籤。您可以使用方括號新增連結，例如：<br />
+	<tt>[url]sgn.cornell.edu[/url]</tt> 這在貼文中將顯示為 <a href="http://sgn.cornell.edu">sgn.cornell.edu</a>。<br /><br />
 
-	Size limit per post is $SIZELIMIT characters, including spaces and punctuation.<br /><br />
-	<b>Note:</b> this service is provided as a courtesy. SGN reserves the right to delete posts at any time for any reason.
+	每則貼文的大小限制為 $SIZELIMIT 個字元（包含空格與標點符號）。<br /><br />
+	<b>注意事項 (Note):</b> 此服務由 SGN 免費提供。SGN 保留隨時因任何原因刪除貼文的權利。
 	<br /><br />
 	<input type="hidden" name="parent_post_id" value="$parent_post_id" />
 	<input type="hidden" name="topic_id" value="$topic_id" />
@@ -261,14 +259,14 @@ else {
 	<input type="hidden" name="action" value="review" />
 	$subject_input
 
-	Post Text:<br />
+	貼文內容 (Post Text):<br />
 	<textarea class="form-control" rows="12" cols="80" name="post_text">$post_text</textarea>
 	<br /><br />
 
 	<table width="100%"><tr><td align="left">
 	$link 
 	</td><td align="right">
-	<input class="btn btn-primary" type=submit value="Review post" />
+	<input class="btn btn-primary" type=submit value="審閱貼文 (Review post)" />
 	</form>
 	</td></tr></table>
 

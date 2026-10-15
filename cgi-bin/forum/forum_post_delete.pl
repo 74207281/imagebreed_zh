@@ -5,6 +5,7 @@
 #
 
 use strict;
+use utf8;
 use CXGN::DB::Connection;
 use CXGN::Page;
 use CXGN::Login;
@@ -14,7 +15,7 @@ use CXGN::People;
 #
 # create a page object
 #
-my $page = CXGN::Page -> new( "Delete Post", "Lukas");
+my $page = CXGN::Page -> new( "刪除貼文 (Delete Post)", "Lukas");
 my $dbh = CXGN::DB::Connection->new();
 #
 # check if there is a valid login going on
@@ -57,9 +58,8 @@ if ($post_id) {
 
     if (!$post) { 
 	$page->header();
-	print "<h4>No such post</h4>\n<br />
-               The post you are trying to delete does not exist. 
-               It may have been deleted previously or never existed.
+	print "<h4>查無此貼文 (No such post)</h4>\n<br />
+               您嘗試刪除的貼文不存在。該貼文可能先前已被刪除或從未存在過 (The post you are trying to delete does not exist)。
                <br /><br /><br /><br />\n";
 	$page->footer();
 	
@@ -70,9 +70,9 @@ if ($post_id) {
 	    
 	    print <<HTML;
 	    <div class="container-fluid">
-	    <h4>Confirm user comment delete</h4>
-		Comment \# $post_id from user <b>$post_person_first_name $post_person_last_name</b><br /><br />
-	      Are you sure you want to delete this post? <br /><br />
+	    <h4>確認刪除使用者留言 (Confirm user comment delete)</h4>
+		使用者 <b>$post_person_first_name $post_person_last_name</b> 的留言編號 $post_id<br /><br />
+	      確定要刪除此貼文嗎？(Are you sure you want to delete this post?) <br /><br />
 
 	      <div class="panel panel-primary"><div class="panel-body">$post_text</div></div>
 	      
@@ -82,8 +82,8 @@ if ($post_id) {
 	      <input type="hidden" name="post_id" value="$post_id" />
 	      <input type="hidden" name="refering_page" value="$refering_page" />
 	      <input type="hidden" name="topic_id" value="$topic_id" />
-	      <input class="btn btn-primary" type="submit" value="Delete" /><br /><br />
-	      <a href="$refering_page">Go back</a>
+	      <input class="btn btn-primary" type="submit" value="刪除 (Delete)" /><br /><br />
+	      <a href="$refering_page">返回 (Go back)</a>
 	      </form>
 	     </div> 
 HTML
@@ -96,14 +96,14 @@ HTML
 	    
 	    if ($rows == 1) { 
 		$page->header();
-		print "<h4>Your post has been deleted.</h4>\n<br /><br /><br />";
+		print "<h4>您的貼文已刪除 (Your post has been deleted)。</h4>\n<br /><br /><br />";
 
-		print "<a href=\"$refering_page\">Go back to user comments on the detail page.</a><br /><br />\n";
+		print "<a href=\"$refering_page\">返回詳細資料頁面上的使用者留言 (Go back to user comments on the detail page)。</a><br /><br />\n";
 		$page->footer();
 	    }
 	    else { 
 		$page->header();
-		print "<h4>ERROR</h4><h4>An error occurred during deletion. The post_id supplied may be invalid.</h4>";
+		print "<h4>錯誤 (ERROR)</h4><h4>刪除過程中發生錯誤。所提供的 post_id 可能無效 (An error occurred during deletion. The post_id supplied may be invalid)。</h4>";
 		$page->footer();
 		
 	    }
@@ -112,9 +112,9 @@ HTML
     }
     else { 
 	$page ->header();
-	print "<h4>POST CAN'T BE DELETED!</h4>\n";
-	print "<h4>Either this post_id does not exist anymore or you are not the owner of post $post_id. Only the posters can delete their own posts. Sorry!</h4>\n";
-	print "<br /><br /><a href=\"$refering_page\">Return to user comments.</a><br /><br />\n";
+	print "<h4>無法刪除貼文！(POST CAN'T BE DELETED!)</h4>\n";
+	print "<h4>此貼文已不存在，或您不是貼文 $post_id 的作者。只有發布者可以刪除自己的貼文。抱歉！(Only the posters can delete their own posts. Sorry!)</h4>\n";
+	print "<br /><br /><a href=\"$refering_page\">返回使用者留言 (Return to user comments)。</a><br /><br />\n";
 
 
 	$page->footer();
@@ -123,7 +123,7 @@ HTML
 }
 else {
     $page->header();
-    print "<h4>No post id was supplied. Nothing was deleted.</h4>\n";
+    print "<h4>未提供貼文 ID。未刪除任何內容 (No post id was supplied. Nothing was deleted)。</h4>\n";
     $page->footer();
 }
 
