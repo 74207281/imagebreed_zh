@@ -10,6 +10,7 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 use strict;
 use warnings;
+use utf8;
 
 
 use CGI qw //;
@@ -255,8 +256,8 @@ sub confidence_interval
 	    if ($m_pos == $left_position) { $marker_details_of{$m}{orientation} = 'left'; }
 		
 	    my $m_id    = $marker->marker_id();
-	    my $remark1 = "<i>Highest LOD score is $highest_lod at $peak_position cM</i>."  if $m_lod == $peak_marker_lod;
-	    my $remark2 = "<i>The closest marker to the peak position ($peak_position cM)</i>."  if $m eq $p_m;
+	    my $remark1 = "<i>最高 LOD 分數為 $highest_lod，位於 $peak_position cM (Highest LOD score is $highest_lod at $peak_position cM)</i>。"  if $m_lod == $peak_marker_lod;
+	    my $remark2 = "<i>最接近峰值位置 ($peak_position cM) 的分子標記 (The closest marker to the peak position)</i>。"  if $m eq $p_m;
       				
 	    push @marker_html,
 	    [
@@ -342,34 +343,34 @@ sub legend
 
         if ( $parameter =~ /qtl_method/ )
         {
-            $parameter = 'Mapping method';
+            $parameter = '定位方法 (Mapping method)';
         }
         if ( $parameter =~ /qtl_model/ )
         {
-            $parameter = 'Mapping model';
+            $parameter = '定位模型 (Mapping model)';
         }
         if ( $parameter =~ /prob_method/ )
         {
-            $parameter = 'QTL genotype probability method';
+            $parameter = 'QTL 基因型機率方法 (QTL genotype probability method)';
         }
         if ( $parameter =~ /step_size/ )
         {
-            $parameter = 'Genome scan size (cM)';
+            $parameter = '基因體掃描步長 (Genome scan size (cM))';
         }
         if ( $parameter =~ /permu_level/ )
         {
-            $parameter = 'Permutation significance level';
+            $parameter = '置換顯著性水準 (Permutation significance level)';
         }
         if ( $parameter =~ /permu_test/ ) {
-            $parameter = 'No. of permutations';
+            $parameter = '置換次數 (No. of permutations)';
         }
         if ( $parameter =~ /prob_level/ )
         {
-            $parameter = 'QTL genotype significance level';
+            $parameter = 'QTL 基因型顯著性水準 (QTL genotype significance level)';
         }
         if ( $parameter =~ /stat_no_draws/ )
         {
-            $parameter = 'No. of imputations';
+            $parameter = '插補次數 (No. of imputations)';
         }
         if ( $value eq 'zero' || $value eq 'Marker Regression' )
         {
@@ -406,16 +407,16 @@ sub legend
 
     if ( !$lod )
     {
-        $lod = qq |<i>Not calculated</i>|;
+        $lod = qq |<i>未計算 (Not calculated)</i>|;
     }
 
-    push @stat, [ map {$_} ( 'LOD threshold', $lod ) ];
+    push @stat, [ map {$_} ( 'LOD 閾值 (LOD threshold)', $lod ) ];
 
     unless ($ci)
     {
         push @stat,
-            [ map {$_} ( 'Confidence interval',
-                         'Based on 95% Bayesian Credible Interval'
+            [ map {$_} ( '信賴區間 (Confidence interval)',
+                         '基於 95% 貝氏可信區間 (Based on 95% Bayesian Credible Interval)'
               )
             ];
     }
@@ -427,9 +428,9 @@ sub legend
 
 sub download_qtl_region 
 {
-my $link = qq | <a href="https://www.eu-sol.wur.nl/marker2seq/marker2seq.do?marker1=$l_m&marker2=$r_m">View/download</a> genetic markers in the tomato F2.2000 reference map region (+5cM) matching the QTL region and gene models from the ITAG annotated tomato genome. |;
+my $link = qq | <a href="https://www.eu-sol.wur.nl/marker2seq/marker2seq.do?marker1=$l_m&marker2=$r_m">檢視/下載 (View/download)</a> 符合此 QTL 區域的番茄 F2.2000 參考圖譜區域 (+5cM) 分子標記及 ITAG 註釋番茄基因體的基因模型 (genetic markers in the reference map region (+5cM) matching the QTL region and gene models)。 |;
 
-$link  .=   qq | <p><i>Courtesy of</i> <a href="http://www.eu-sol.wur.nl"><img src ="/img/eusol_logo_small.jpg"/></a></p> |;
+$link  .=   qq | <p><i>提供者 (Courtesy of)</i> <a href="http://www.eu-sol.wur.nl"><img src ="/img/eusol_logo_small.jpg"/></a></p> |;
 
     return $link;
 
