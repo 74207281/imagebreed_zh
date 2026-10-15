@@ -4,6 +4,7 @@
 #####################
 
 use strict;
+use utf8;
 
 use CXGN::DB::Connection;
 use CXGN::Page;
@@ -21,7 +22,7 @@ our $c;
 use CatalystX::GlobalContext qw($c);
 
 
-my $page = CXGN::Page->new( "solpeople main menu", "john" );
+my $page = CXGN::Page->new( "Solpeople 主選單 (solpeople main menu)", "john" );
 my $dbh = CXGN::DB::Connection->new();
 my $site_name = $c->config->{project_name};
 
@@ -80,14 +81,14 @@ print <<END_HTML;
 </script>
 END_HTML
 
-print page_title_html("My $site_name");
-print qq|<div align="center">Welcome <b>$username</b></div>\n|;
+print page_title_html("我的 $site_name (My $site_name)");
+print qq|<div align="center">歡迎 <b>$username</b> (Welcome <b>$username</b>)</div>\n|;
 print
-qq|<div align="right" style="margin-bottom: 0.5em">Not $username? <a href="login.pl?logout=yes">[log out]</a></div>\n|;
-print info_section_html( title => 'General Tools', contents => <<EOHTML);
-    <a href="personal-info.pl?action=edit&sp_person_id=$sp_person_id">View or update personal (contact and research) information</a><br />
-    <a href="change-account.pl?action=edit&sp_person_id=$sp_person_id">Update account information</a><br />
-    <a href="/forum/topics.pl">Post to SGN forum</a><br />
+qq|<div align="right" style="margin-bottom: 0.5em">不是 $username？(Not $username?) <a href="login.pl?logout=yes">[登出 (log out)]</a></div>\n|;
+print info_section_html( title => '一般工具 (General Tools)', contents => <<EOHTML);
+    <a href="personal-info.pl?action=edit&sp_person_id=$sp_person_id">檢視或更新個人資訊（聯絡與研究）(View or update personal (contact and research) information)</a><br />
+    <a href="change-account.pl?action=edit&sp_person_id=$sp_person_id">更新帳號資訊 (Update account information)</a><br />
+    <a href="/forum/topics.pl">在論壇發文 (Post to SGN forum)</a><br />
 EOHTML
 
 # my $queries =
@@ -115,7 +116,7 @@ if ( in( $sp->get_user_type, qw/curator sequencer/ ) ) {
         if ( $sp->get_user_type eq 'curator' ) {
             tpf_agp_upload_forms(<<EOHTML);
       <!-- the string 'TYPE' will be replaced in each instance by tpf_agp_upload_forms() -->
-<label for="chrnuminputTYPE">For Chromosome #: </label><input id="chrnuminputTYPE" name="chr" type="text" size="2" maxlength="2" />
+<label for="chrnuminputTYPE">染色體編號 (For Chromosome #): </label><input id="chrnuminputTYPE" name="chr" type="text" size="2" maxlength="2" />
 EOHTML
         }
         elsif ( $sp->get_user_type eq 'sequencer'
@@ -128,15 +129,15 @@ EOHTML
               ? simple_selectbox_html(
                 name    => 'chr',
                 choices => \@projects,
-                label   => 'For Chromosome #:',
+                label   => '染色體編號 (For Chromosome #):',
               )
-              : qq|For Chromosome #: <b>$projects[0]</b> <input type="hidden" value="$projects[0]" name="chr" />|;
+              : qq|染色體編號 (For Chromosome #): <b>$projects[0]</b> <input type="hidden" value="$projects[0]" name="chr" />|;
             tpf_agp_upload_forms($chrinput);
         }
     };
 
-    print info_section_html( title => 'Sequencer Tools', contents => <<EOHTML);
-<a href="attribute_bacs.pl">Attribute a BAC to your chromosome sequencing project</a><br />
+    print info_section_html( title => '定序人員工具 (Sequencer Tools)', contents => <<EOHTML);
+<a href="attribute_bacs.pl">將 BAC 歸屬於您的染色體定序專案 (Attribute a BAC to your chromosome sequencing project)</a><br />
 <div style="vertical-align: middle; font-weight: bold"></div>
 $tpf_agp_upload
 EOHTML
@@ -150,9 +151,9 @@ EOHTML
 # }
 
 if ( in( $sp->get_user_type(), qw/submitter curator/ ) ) {
-    print info_section_html( title => 'QTL data submission',
+    print info_section_html( title => 'QTL 資料提交 (QTL data submission)',
         contents => <<EOHTML);
-<a href="/phenome/qtl_form.pl">Upload and analyse your QTL data</a>
+<a href="/phenome/qtl_form.pl">上傳並分析您的 QTL 資料 (Upload and analyse your QTL data)</a>
 EOHTML
 }
 
@@ -160,30 +161,30 @@ my @pops = CXGN::Phenome::Population->my_populations($sp_person_id);
 
 if (@pops) {
     my $pop_list = my_populations(@pops);
-    print info_section_html( title => 'Populations', contents => $pop_list );
+    print info_section_html( title => '族群 (Populations)', contents => $pop_list );
 }
 
 if ( $sp->get_user_type() eq 'curator' ) {
-    print info_section_html( title => 'Curator Tools', contents => <<EOHTML);
-<a href="/solpeople/admin/crash_test.pl">Test website error handling</a><br />
-<a href="/solpeople/admin/stats.pl">View user stats</a><br />
-<a href="/solpeople/admin/quick_create_account.pl">Create new user account</a><br />
-<a href="/solpeople/admin/create_organization.pl">Create new organization</a>
+    print info_section_html( title => '管理者工具 (Curator Tools)', contents => <<EOHTML);
+<a href="/solpeople/admin/crash_test.pl">測試網站錯誤處理 (Test website error handling)</a><br />
+<a href="/solpeople/admin/stats.pl">檢視使用者統計 (View user stats)</a><br />
+<a href="/solpeople/admin/quick_create_account.pl">建立新使用者帳號 (Create new user account)</a><br />
+<a href="/solpeople/admin/create_organization.pl">建立新機構/組織 (Create new organization)</a>
 EOHTML
 }
 
 if ( $sp->get_user_type() =~ /curator/i ) {
     my $publications =
-qq| <a href= "/search/pub_search.pl">Search the SGN publication database </a><br />|;
+qq| <a href= "/search/pub_search.pl">搜尋出版文獻資料庫 (Search publication database)</a><br />|;
     $publications .=
-qq| <a href= "/search/pub_search.pl?w9b3_assigned_to=$sp_person_id">See your assigned publications</a><br />|;
+qq| <a href= "/search/pub_search.pl?w9b3_assigned_to=$sp_person_id">查看指派給您的文獻 (See your assigned publications)</a><br />|;
     $publications .=
-qq| <a href= "/search/pub_search.pl?w9b3_status=pending">See publications pending curation</a><br />|;
+qq| <a href= "/search/pub_search.pl?w9b3_status=pending">查看待審核文獻 (See publications pending curation)</a><br />|;
     $publications .=
-qq| <a href= "/chado/fetch_pubmed.pl">Load new publications from PubMed</a><br />|;
+qq| <a href= "/chado/fetch_pubmed.pl">從 PubMed 匯入新文獻 (Load new publications from PubMed)</a><br />|;
 
     print info_section_html(
-        title    => 'Literature mining',
+        title    => '文獻探勘 (Literature mining)',
         contents => $publications
     );
 }
@@ -200,7 +201,7 @@ if ( $sp->get_user_type() =~ /submitter|curator|sequencer/i ) {
         $max  = 24;
     }
 
-    my $locus_editor_info = qq { None.<br /> };
+    my $locus_editor_info = qq { 無 (None)。<br /> };
     if ( @loci > 0 ) {
         $locus_editor_info = "";
     }
@@ -215,11 +216,11 @@ qq { <a href="/phenome/locus_display.pl?locus_id=$locus_id&amp;action=view">$sym
     }
     if ($more) {
         $locus_editor_info .=
-qq|<br><b>and <a href="/search/locus/>$more more</a></b><br />|;
+qq|<br><b>以及另外 <a href="/search/locus/>$more 個 (and $more more)</a></b><br />|;
     }
 
     print info_section_html(
-        title    => 'Loci with Editor Privileges',
+        title    => '具有編輯權限的基因位點 (Loci with Editor Privileges)',
         contents => $locus_editor_info
     );
 
@@ -251,18 +252,18 @@ qq { <a href="/locus/$locus_id/view">$symbol</a> };
     }
 
     if ($more) {
-        $locus_annotations .= " and $more more, not shown.<br />";
+        $locus_annotations .= " 以及另外 $more 個，未顯示 (and $more more, not shown)。<br />";
 
         $locus_annotations .=
-          html_optional_show( 'locus_annotations', 'Show more',
+          html_optional_show( 'locus_annotations', '顯示更多 (Show more)',
             qq|<div class="minorbox">$more_annotations</div> |,
           );
     }
 
     $locus_annotations .=
-qq| <a href="../phenome/recent_annotated_loci.pl">[View annotated loci by date]</a> |;
+qq| <a href="../phenome/recent_annotated_loci.pl">[依日期檢視已註釋基因位點 (View annotated loci by date)]</a> |;
     print info_section_html(
-        title    => 'Annotated Loci',
+        title    => '已註釋基因位點 (Annotated Loci)',
         contents => $locus_annotations
     );
 
@@ -272,18 +273,18 @@ qq| <a href="../phenome/recent_annotated_loci.pl">[View annotated loci by date]<
 
     if ( @user_maps > 0 ) {
         $html .=
-"<table alt=\"\" ><tr><td><i>Name</i></td><td></td><td></td><td><i>status</i></td></tr>";
+"<table alt=\"\" ><tr><td><i>名稱 (Name)</i></td><td></td><td></td><td><i>狀態 (Status)</i></td></tr>";
         foreach my $um (@user_maps) {
-            my $public = " (not public) ";
-            if ( $um->get_map()->get_is_public() ) { $public = "(public)"; }
+            my $public = " (未公開 / not public) ";
+            if ( $um->get_map()->get_is_public() ) { $public = "(公開 / public)"; }
             $html .=
                 "<tr><td><b>"
               . $um->get_short_name()
               . "</b></td><td> <a href=\"/cview/umap.pl?action=view&amp;user_map_id="
               . $um->get_id()
-              . "\" >[view]</a></td><td><a href=\"/cview/umap.pl?action=edit&amp;user_map_id="
+              . "\" >[檢視 (view)]</a></td><td><a href=\"/cview/umap.pl?action=edit&amp;user_map_id="
               . $um->get_id()
-              . "\">[configure]</a></td><td>$public</td></tr>";
+              . "\">[設定 (configure)]</a></td><td>$public</td></tr>";
 
         }
         $html .= "</table>";
@@ -300,18 +301,18 @@ qq| <a href="../phenome/recent_annotated_loci.pl">[View annotated loci by date]<
 
 my $user_type = $sp->get_user_type();
 my $user_info = {
-    user => qq{ Your current user status is <b>$user_type</b>. Please contact <a href="mailto:sgn-feedback\@sgn.cornell.edu">SGN</a> to upgrade to a <b>submitter</b> account with more privileges. Submitters can upload user maps, EST data, and become locus editors. },
+    user => qq{ 您目前的使用者狀態為 <b>$user_type</b> (Your current user status is <b>$user_type</b>)。如需升級為擁有更多權限的 <b>提交者 (submitter)</b> 帳號，請聯絡 <a href="mailto:sgn-feedback\@sgn.cornell.edu">SGN</a>。提交者可以上傳使用者地圖、EST 資料，並成為基因位點編輯者。 },
 
-    submitter => qq{ Your current user status is <b>$user_type</b>. You have the maximum user privileges on SGN. Please contact <a href="mailto:sgn-feedback\@sgn.cornell.edu">SGN</a> if you would like to change your user status.},
+    submitter => qq{ 您目前的使用者狀態為 <b>$user_type</b> (Your current user status is <b>$user_type</b>)。您擁有系統上的最高使用者權限。如果您想變更使用者狀態，請聯絡 <a href="mailto:sgn-feedback\@sgn.cornell.edu">SGN</a>。},
 
-    curator => qq{ Your current user status is <b>$user_type</b>. },
+    curator => qq{ 您目前的使用者狀態為 <b>$user_type</b> (Your current user status is <b>$user_type</b>)。 },
 
-    sequencer => qq{ Your current user status is <b>$user_type</b>. You have maximum user privileges on SGN. },
+    sequencer => qq{ 您目前的使用者狀態為 <b>$user_type</b> (Your current user status is <b>$user_type</b>)。您擁有系統上的最高使用者權限。 },
 
-    genefamily_editor => qq{ Your current user status is <b>$user_type</b>. },
+    genefamily_editor => qq{ 您目前的使用者狀態為 <b>$user_type</b> (Your current user status is <b>$user_type</b>)。 },
 };
 
-print info_section_html( title => 'User Status',
+print info_section_html( title => '使用者狀態 (User Status)',
     contents => $user_info->{$user_type} );
 
 $page->footer();
@@ -335,8 +336,8 @@ sub my_populations {
         my $pop_name  = $pop->get_name();
         my $pop_id    = $pop->get_population_id();
         my $is_public = $pop->get_privacy_status();
-        if ($is_public)    { $is_public = 'is publicly available'; }
-        if ( !$is_public ) { $is_public = 'is not publicly available yet'; }
+        if ($is_public)    { $is_public = '公開可用 (publicly available)'; }
+        if ( !$is_public ) { $is_public = '尚未公開 (not publicly available yet)'; }
         $pops_list .=
 qq |<a href="/qtl/population/$pop_id">$pop_name</a> <i>($is_public)</i><br/>|;
     }
