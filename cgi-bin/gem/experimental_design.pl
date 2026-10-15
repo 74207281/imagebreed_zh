@@ -23,6 +23,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use HTML::Mason;
 use CXGN::Page;

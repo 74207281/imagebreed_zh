@@ -26,6 +26,7 @@
 
 use strict;
 use warnings;
+use utf8;
 use CXGN::Page;
 
 ## Use of CXGN::Page to take the arguments from the URL

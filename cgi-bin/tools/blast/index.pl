@@ -59,10 +59,11 @@ changes by SGN staff. POD by Lukas.
 =cut
 
 
+    use utf8;
     use CXGN::Page;
 
 
-my $page  = CXGN::Page->new("BLAST Search Interface","Evan");
+my $page  = CXGN::Page->new("BLAST 搜尋介面 (BLAST Search Interface)","Evan");
 
 $page->client_redirect("/tools/blast");
 
