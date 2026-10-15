@@ -1,65 +1,51 @@
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw | info_section_html |;
 my $p = CXGN::Page->new();
 
 $p->header("PerlCyc.pm", "PerlCyc.pm");
 
-print info_section_html (title=>"Description", contents=> <<HTML );
+print info_section_html (title=>"說明 (Description)", contents=> <<HTML );
 
 
-PerlCyc is a Perl interface for <a href="http://bioinformatics.ai.sri.com/ptools/">Pathway Tools software</a>. It allows internal Pathay Tools Lisp functions to be accessed through Perl. <br /><br />
+PerlCyc 是 <a href="http://bioinformatics.ai.sri.com/ptools/">Pathway Tools 軟體</a> 的 Perl 介面。它允許透過 Perl 存取內部的 Pathway Tools Lisp 函式。<br /><br />
 
-For a description of what the individual functions do, please
-       refer to the Pathway Tools documentation at http://bioinformat-
-       ics.ai.sri.com/ptools .
+有關個別函式功能的描述，請參閱位於 http://bioinformatics.ai.sri.com/ptools 的 Pathway Tools 說明文件。
 <br /><br />
-       In general, the Lisp function name has to be converted to something
-       compatible with Perl: Dashes have to be replaced by underlines, and
-       question marks with underline p (_p).
+一般而言，Lisp 函式名稱必須轉換為與 Perl 相容的格式：連字號 (-) 必須替換為底線 (_)，問號 (?) 必須替換為底線加 p (_p)。
 <br /><br />
-       Note that the optional parameters of all functions
-       are not supported in perlcyc, except for all_pathways() which can
-       use the optional arguments :all T to get the base pathways only (no
-       super-pathways).
+請注意，perlcyc 不支援所有函式的選填參數，但 all_pathways() 除外，該函式可使用選填引數 :all T 以僅獲取基本路徑（不包含超級路徑）。
 
 HTML
 
-    print info_section_html (title=>"Installation", contents=> <<HTML );
+    print info_section_html (title=>"安裝指南 (Installation)", contents=> <<HTML );
 
-Installation is standard as for any Perl module. If you downloaded the
-       compressed tar file, uncompress and untar the file with the following
-       commands:
+安裝步驟與任何標準 Perl 模組相同。若您下載了壓縮的 tar 檔案，請使用以下指令解壓縮並解開 tar 檔：
 <pre>
         gzip < perlcyc.tar.gz | tar xvf -
 </pre>
-       This will create a directory called perlcyc in your current directory.
-       To install the program, type
+這將在您的目前目錄中建立名為 perlcyc 的目錄。若要安裝程式，請輸入：
 <pre>
         make
         make install
 </pre>
-       The program should now be available in all your Perl programs. "make
-       install" may require root access or access through sudo. For the latter
-       case, type
+該程式現在應可在您的所有 Perl 程式中使用。「make install」可能需要 root 權限或透過 sudo 存取。後者情況下，請輸入：
 <pre>
         sudo make install
 </pre>
-       You will be prompted for your password.
+系統將提示您輸入密碼。
 
 HTML
 
-    print info_section_html (title=>"Limitations", contents=><<HTML);
+    print info_section_html (title=>"功能限制 (Limitations)", contents=><<HTML);
 
-Perlcyc does not implement the GFP objects in Perl, rather it just
-       sends snippets of code to Pathway-Tools through a socket connection.
-       Only one such connection can be openend at any given time. Because the
-       objects are not implemented in Perl, only object references are supported.
+Perlcyc 並未在 Perl 中實作 GFP 物件，而是僅透過 socket 連線向 Pathway-Tools 發送程式碼片段。在任何給定時間只能開啟一個此類連線。由於物件未在 Perl 中實作，因此僅支援物件參考 (object references)。
 
 HTML
 
-    print info_section_html (title=>"Supported functions", contents=><<HTML);
+    print info_section_html (title=>"支援的函式 (Supported functions)", contents=><<HTML);
 
 
 Object functions:
@@ -358,19 +344,15 @@ HTML
 
 HTML
 
-    print info_section_html(title=>"Troubleshooting", contents=> <<HTML );
+    print info_section_html(title=>"疑難排解 (Troubleshooting)", contents=> <<HTML );
 
-       If your program terminates with the following error message: "connect:
-       No such file or directory at perlcyc.pm line 166."  then the
-       lisp_server.lisp module in Pathway Tools is not running.  Refer to
-       http://aracyc.stanford.edu for more information on how to run the
-       server program.
+       若您的程式終止並出現以下錯誤訊息：「connect: No such file or directory at perlcyc.pm line 166.」，則表示 Pathway Tools 中的 lisp_server.lisp 模組未在執行。有關如何執行伺服器程式的詳細資訊，請參閱 http://aracyc.stanford.edu。
 
-       Please send bug reports and comments to LAM87\@cornell.edu
+       錯誤回報與意見回饋請寄至 LAM87\@cornell.edu
 
 HTML
 
-    print info_section_html(title=>"License", contents=> <<HTML );
+    print info_section_html(title=>"授權條款 (License)", contents=> <<HTML );
 
 <pre>
        According to the MIT License:<br />

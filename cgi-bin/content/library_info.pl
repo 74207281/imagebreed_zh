@@ -1,13 +1,14 @@
 use CXGN::Page;
 
 use strict;
+use utf8;
 use CXGN::DB::Connection;
 
 library_info_main();
 
 sub library_info_main {
 
-     our $page = CXGN::Page->new( "SGN Library Info", "Lukas");
+     our $page = CXGN::Page->new( "SGN 基因庫資訊 (SGN Library Info)", "Lukas");
 
      my ($library) = $page -> get_arguments("library");
      my $db = CXGN::DB::Connection->new();
@@ -27,13 +28,13 @@ sub library_info_main {
 
 	 $page -> header();
 
-	 my $temp_value = "<h4>Library Detail Page</h4> Library \n";
+	 my $temp_value = "<h4>基因庫詳細資訊頁面 (Library Detail Page)</h4> 基因庫 (Library) \n";
 
     if ($library) {
 	$temp_value = $temp_value."\"<b>$library</b>\" \n";
 }
 
-$temp_value = $temp_value."unknown. Sorry! Please try again.<br /><br /><br /><br /><br />\n";
+$temp_value = $temp_value."查無資料。很抱歉，請重新嘗試。(unknown. Sorry! Please try again.)<br /><br /><br /><br /><br />\n";
 
 	 print $temp_value;
 
@@ -63,22 +64,22 @@ $temp_value = $temp_value."unknown. Sorry! Please try again.<br /><br /><br /><b
 
      print <<HTML;
      
-     <h4>Library Detail Page for $library</h4>
+     <h4>$library 基因庫詳細資訊頁面 (Library Detail Page for $library)</h4>
      <table>
-     <tr><td width="180">Short Name:</td><td>$$lib{library_shortname}</td></tr>
-     <tr><td>Organism:</td><td>$$lib{organism_name}</td></tr>
-     <tr><td>Library Name: </td><td>$$lib{library_name}</td></tr>
-     <tr><td>Total Sequences: </td><td>$seq_count sequences from $clone_count clones</td></tr>
-     <tr><td>Average Sequence Length:</td><td>$average_seqlen (Standard deviation $std_dev)</td></tr>
-     <tr><td>Type:</td><td>$$lib{type}</td></tr>
-     <tr><td>Tissue:</td><td>$$lib{tissue}</td></tr>
-     <tr><td>Development Stage:</td><td>$$lib{development_stage}</td></tr>
-     <tr><td valign="top">Treatment Conditions:</td><td>$$lib{treatment_conditions}</td></tr>
-     <tr><td>Cloning Host:</td><td>$$lib{cloning_host}</td></tr>
-     <tr><td>Cloning Kit: </td><td>$$lib{cloning_kit}</td></tr>
-     <tr><td valign="top">Comments</td><td>$$lib{comments}</td></tr>
-     <tr><td valign="top">Authors</td><td>$$lib{authors}</td></tr>
-     <tr><td valign="top">Contact Information</td><td>$$lib{contact_information}</td></tr>
+     <tr><td width="180">短簡稱 (Short Name):</td><td>$$lib{library_shortname}</td></tr>
+     <tr><td>生物體/物種 (Organism):</td><td>$$lib{organism_name}</td></tr>
+     <tr><td>基因庫名稱 (Library Name): </td><td>$$lib{library_name}</td></tr>
+     <tr><td>總序列數 (Total Sequences): </td><td>$seq_count 條序列（來自 $clone_count 個選殖株）</td></tr>
+     <tr><td>平均序列長度 (Average Sequence Length):</td><td>$average_seqlen（標準差 $std_dev）</td></tr>
+     <tr><td>類型 (Type):</td><td>$$lib{type}</td></tr>
+     <tr><td>組織 (Tissue):</td><td>$$lib{tissue}</td></tr>
+     <tr><td>發育階段 (Development Stage):</td><td>$$lib{development_stage}</td></tr>
+     <tr><td valign="top">處理條件 (Treatment Conditions):</td><td>$$lib{treatment_conditions}</td></tr>
+     <tr><td>選殖宿主 (Cloning Host):</td><td>$$lib{cloning_host}</td></tr>
+     <tr><td>選殖套組 (Cloning Kit): </td><td>$$lib{cloning_kit}</td></tr>
+     <tr><td valign="top">備註說明 (Comments):</td><td>$$lib{comments}</td></tr>
+     <tr><td valign="top">作者 (Authors):</td><td>$$lib{authors}</td></tr>
+     <tr><td valign="top">聯絡資訊 (Contact Information):</td><td>$$lib{contact_information}</td></tr>
      </table>
      <br /><br /><br /><br /><br />
 

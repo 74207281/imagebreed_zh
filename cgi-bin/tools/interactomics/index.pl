@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::Toolbar::SGN;
-my $page=CXGN::Page->new("Tools","Andrew");
+my $page=CXGN::Page->new("互動體學工具 (Interactomics Tools)","Andrew");
 $page->header();
 
 
@@ -10,22 +11,18 @@ print qq{
 <table width="800px" cellpadding="10px">
 	<table width="100%">
 		<tr><td>
-		<a href="/CytoScape/cy1.jnlp">Start Cytoscape</a>
+		<a href="/CytoScape/cy1.jnlp">啟動 Cytoscape (Start Cytoscape)</a>
 		</td></tr>
 	</table>
 	<table width="100%">
 		<tr><td>
 		<div id="footer">
-		<b>Funding for Cytoscape is provided by a federal grant from the U.S.
-		<a href="http://www.nigms.nih.gov">National Institute of General Medical Sciences (NIGMS)</a> of the
-		<a href="http://www.nih.gov">National Institutes of Health (NIH)</a> under award number GM070743-01 and
-		the U.S. <a href="http://www.nsf.gov">National Science Foundation (NSF) </a>.
-		Corporate funding is provided through a contract from
-		<a href="http://www.unilever.com">Unilever PLC</a>.
+		<b>Cytoscape 的資助由美國國家衛生研究院 (<a href="http://www.nih.gov">NIH</a>) 國家通病醫學科學研究所 (<a href="http://www.nigms.nih.gov">NIGMS</a>，獎助編號 GM070743-01) 及美國國家科學基金會 (<a href="http://www.nsf.gov">NSF</a>) 聯邦補助款提供。
+		企業贊助由 <a href="http://www.unilever.com">Unilever PLC</a> 依合約提供。
 		</b>
 		<p>
 		<center>
-		<a href="http://cytoscape.org">Cytoscape home</a>
+		<a href="http://cytoscape.org">Cytoscape 首頁 (Cytoscape home)</a>
 		|
 		<a href="http://www.systemsbiology.org">ISB</a>
 		|

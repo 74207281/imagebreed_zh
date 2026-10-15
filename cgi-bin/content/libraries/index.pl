@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('Sol Genomics Network');
+$page->header('SGN EST 基因庫 (SGN EST Libraries)');
 print<<END_HEREDOC;
 
   
@@ -17,10 +18,10 @@ print<<END_HEREDOC;
 	  <br />
 	    
 	    <div class="subheading">
-	    <u>SGN EST Libraries</u> 
+	    <u>SGN EST 基因庫 (SGN EST Libraries)</u> 
 	    </div>
 	    <div class="boxsubcontent">
-              <a class="creativitylinks" href="/about/tomato_project/nsf_9872617/progress.pl">Progress of EST Sequencing</a><br />
+              <a class="creativitylinks" href="/about/tomato_project/nsf_9872617/progress.pl">EST 定序進度 (Progress of EST Sequencing)</a><br />
             </div>
           </div>
 </td>
