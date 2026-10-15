@@ -48,7 +48,7 @@ sub submit_contact_form_POST : Args(0) {
     my $website_name = $c->config->{project_name};
     my $ua = LWP::UserAgent->new;
 
-    my $server_endpoint = "https://api.github.com/repos/nickmorales/imagebreed/issues";
+    my $server_endpoint = "https://api.github.com/repos/74207281/imagebreed_zh/issues";
     my $req = HTTP::Request->new(POST => $server_endpoint);
     $req->header('content-type' => 'application/json');
     $req->header("Authorization" => "token $github_access_token");
