@@ -7,16 +7,17 @@
 ######################################################################
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/blue_section_html info_section_html page_title_html columnar_table_html/;
 use CXGN::Search::CannedForms;
 use CXGN::Searches::Library;
 
-my $page=CXGN::Page->new("EST library search results", "Evan");
+my $page=CXGN::Page->new("EST 庫搜尋結果 (EST library search results)", "Evan");
 $page->header();
 
-print page_title_html('Library search results');
+print page_title_html('庫搜尋結果 (Library search results)');
 
 #create the search and query objects
 my $search = CXGN::Searches::Library->new();
@@ -44,7 +45,7 @@ if(%params)
 	<div id="searchresults">
 EOH
 
-	$results_html .= columnar_table_html(headings => ['Name', 'Organism', 'Tissue', 'Development Stage'], 
+	$results_html .= columnar_table_html(headings => ['庫名稱 (Name)', '生物體 (Organism)', '組織 (Tissue)', '發育階段 (Development Stage)'], 
 														data => \@results, __alt_freq => 2);
 
 	$results_html .= <<EOH;
@@ -54,13 +55,13 @@ EOH
 
 	if(@results)
 	{
-		print blue_section_html('Results', , sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results(), $result->time), $results_html);
+		print blue_section_html('搜尋結果 (Results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results(), $result->time), $results_html);
 	}
 	else
 	{
-		print '<span class=""><h4>No matches found</h4></span>';
+		print '<span class=""><h4>未找到相符結果 (No matches found)</h4></span>';
 	}
-	print info_section_html(title => 'Search again', contents =>CXGN::Search::CannedForms::library_search_form($page, $query));
+	print info_section_html(title => '重新搜尋 (Search again)', contents =>CXGN::Search::CannedForms::library_search_form($page, $query));
 }
 
 $page->footer();

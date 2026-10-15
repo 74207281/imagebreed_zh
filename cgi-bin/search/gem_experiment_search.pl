@@ -7,6 +7,7 @@
 ######################################################################
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/blue_section_html info_section_html page_title_html columnar_table_html/;
@@ -16,7 +17,7 @@ use CXGN::Searches::GemExperiment;
 my $page=CXGN::Page->new("Expression search results by experiment", "Aure");
 $page->header();
 
-print page_title_html('Expression search results by experiment');
+print page_title_html('依實驗搜尋表現量結果 (Expression search results by experiment)');
 
 #create the search and query objects
 my $search = CXGN::Searches::GemExperiment->new();
@@ -50,7 +51,7 @@ if(%params)
 	<div id="searchresults">
 EOH
 
-	$results_html .= columnar_table_html(headings => ['Experimental Design', 'Experiment'], 
+	$results_html .= columnar_table_html(headings => ['實驗設計 (Experimental Design)', '實驗 (Experiment)'], 
 		         data => \@results, __alt_freq => 2);
 
 	$results_html .= <<EOH;
@@ -60,13 +61,13 @@ EOH
 
 	if(@results)
 	{
-		print blue_section_html('Results', , sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results(), $result->time), $results_html);
+		print blue_section_html('搜尋結果 (Results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results(), $result->time), $results_html);
 	}
 	else
 	{
-		print '<span class=""><h4>No matches found</h4></span>';
+		print '<span class=""><h4>未找到相符結果 (No matches found)</h4></span>';
 	}
-	print info_section_html(title => 'Search again', contents =>CXGN::Search::CannedForms::expr_experiment_search_form($page, $query));
+	print info_section_html(title => '重新搜尋 (Search again)', contents =>CXGN::Search::CannedForms::expr_experiment_search_form($page, $query));
 }
 
 $page->footer();
