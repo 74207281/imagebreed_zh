@@ -2,6 +2,7 @@
 #!/usr/bin/perl -w
 use strict;
 use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/  page_title_html
                                        blue_section_html  /;
@@ -12,7 +13,7 @@ use File::Temp;
 use CXGN::DB::Connection;
 use CatalystX::GlobalContext '$c';
 
-my $page = CXGN::Page->new( "SGN Gene Family Build", "Chenwei Lin");
+my $page = CXGN::Page->new( "SGN 基因家族構建 (SGN Gene Family Build)", "Chenwei Lin");
 my ($family_build_sum_q, $total_family_q, $total_gene_q, $other_build_q, $organism_member_q, $family_organism_q, $family_size_q);
 my ($family_build_id, $family_build_nr) = $page->get_arguments("family_build_id", "family_build_nr");
 
@@ -55,13 +56,13 @@ my ($i_value_content, $date_content, $group_comment_content, $build_nr_content, 
 if (($group_id, $i_value, $build_date, $group_comment, $build_nr, $total_family) = $family_build_sum_q->fetchrow_array()){
   my $date_content = substr($build_date, 0, 10);
   if ($i_value < 2){
-    $i_value_content =  $i_value . "  (Low stringency in grouping genes together)";
+    $i_value_content =  $i_value . "  (基因分組嚴格度較低 / Low stringency in grouping genes together)";
   }
   elsif ($i_value >= 2 && $i_value < 5){
-    $i_value_content = $i_value . "  (Normal stringency in grouping genes together)";
+    $i_value_content = $i_value . "  (基因分組嚴格度一般 / Normal stringency in grouping genes together)";
   }
   elsif ($i_value >= 5){
-    $i_value_content =  $i_value . "  (High stringency in grouping genes together)";
+    $i_value_content =  $i_value . "  (基因分組嚴格度較高 / High stringency in grouping genes together)";
   }
   else { $i_value_content = $i_value }
 
@@ -69,14 +70,14 @@ if (($group_id, $i_value, $build_date, $group_comment, $build_nr, $total_family)
   ($total_family) = $total_family_q->fetchrow_array();
   $total_gene_q->execute($family_build_id);
   ($total_gene) = $total_gene_q->fetchrow_array();
-  $date_content = "<tr><th>Build Date</th><td>" . $date_content . "</td></tr>";
-  $i_value_content = "<tr><th>i Value</th><td> ". $i_value_content . "</td></tr>"; 
-  $group_comment_content = "<tr><th>Data Set</th><td>" . $group_comment . "</td></tr>";
-  $build_nr_content = "<tr><th>Build number</th><td>" . $build_nr . "</td></tr>";
-  $total_family_content = "<tr><th>Total Families</th><td>" . $total_family . "</td></tr>";
-  $total_gene_content = "<tr><th>Total Genes/Unigenes</th><td>" . $total_gene . "</td></tr>";
+  $date_content = "<tr><th>構建日期 (Build Date)</th><td>" . $date_content . "</td></tr>";
+  $i_value_content = "<tr><th>i 值 (i Value)</th><td> ". $i_value_content . "</td></tr>"; 
+  $group_comment_content = "<tr><th>資料集 (Data Set)</th><td>" . $group_comment . "</td></tr>";
+  $build_nr_content = "<tr><th>構建編號 (Build number)</th><td>" . $build_nr . "</td></tr>";
+  $total_family_content = "<tr><th>家族總數 (Total Families)</th><td>" . $total_family . "</td></tr>";
+  $total_gene_content = "<tr><th>基因/單一基因總數 (Total Genes/Unigenes)</th><td>" . $total_gene . "</td></tr>";
   $sum_content = $date_content . $i_value_content . $group_comment_content . $build_nr_content . $total_family_content . $total_gene_content;
-  $sum_content .= "<tr><td colspan=\"2\" align=\"center\" bgcolor=\"gray\"><a href=\"/about/family_analysis.pl\" target=\"blank\">For help with gene family analysis, please click here.</a></td></tr>";
+  $sum_content .= "<tr><td colspan=\"2\" align=\"center\" bgcolor=\"gray\"><a href=\"/about/family_analysis.pl\" target=\"blank\">關於基因家族分析的說明，請點擊此處 (For help with gene family analysis, please click here)。</a></td></tr>";
 }
 else {
   &invalid_search;
@@ -125,7 +126,7 @@ foreach (keys %family_organism){
   }
 }
   
-my $member_data_content = "<tr><th>Species</th><th># Genes or Unigenes</th><th># Families</th><th># Unique Families</th></tr>";
+my $member_data_content = "<tr><th>物種 (Species)</th><th>基因/單一基因數 (# Genes or Unigenes)</th><th>家族數 (# Families)</th><th>獨特家族數 (# Unique Families)</th></tr>";
 foreach (sort {$organism_gene_count{$b} <=> $organism_gene_count{$a}} keys %organism_gene_count){
   $member_data_content .= "<tr><td>$organism_comment{$_}</td><td>$organism_gene_count{$_}</td><td>$organism_family_count{$_}</td><td>$organism_uniq_family_count{$_}</td></tr>";
 }
@@ -141,20 +142,20 @@ while (my ($other_build_id, $other_build_nr, $other_i_value) = $other_build_q->f
 {
   
   if ($other_i_value < 2){
-    $other_i_value .= " (Low stringency in grouping genes together)";
+    $other_i_value .= " (基因分組嚴格度較低 / Low stringency in grouping genes together)";
   }
   elsif($other_i_value >= 2 && $other_i_value < 5){
-    $other_i_value .= " (Normal stringency in grouping genes together)";
+    $other_i_value .= " (基因分組嚴格度一般 / Normal stringency in grouping genes together)";
   }
   else {
-    $other_i_value .= " (High stringency in grouping genes together)";
+    $other_i_value .= " (基因分組嚴格度較高 / High stringency in grouping genes together)";
   }
   $other_build{$other_build_nr} = $other_i_value;
   $other_build_id{$other_build_nr} = $other_build_id;
 
 }
 
-$other_build_content = "<tr><th>Build number</th><th>i Value</th></tr>";
+$other_build_content = "<tr><th>構建編號 (Build number)</th><th>i 值 (i Value)</th></tr>";
 foreach (sort keys %other_build){
   $other_build_content .= "<tr><td><a href=\"family_build.pl?family_build_id=$other_build_id{$_}\">$_</a></td><td>$other_build{$_}</td></tr>";
 }
@@ -239,11 +240,11 @@ my $size_content = "<tr><td><center><img src=\"$tmp\" alt=\"\" /></center></td><
 ###############################################
 #Page printout
 $page->header();
-print page_title_html("SGN Gene Family Build $family_build_id");
-print blue_section_html('Summary','<table width="100%" cellpadding="5" cellspacing="0" border="0">' . $sum_content . '</table>');
-print blue_section_html('Member Data Sets','<table width="100%" cellpadding="5" cellspacing="0" border="1">' . $member_data_content . '</table>');
-print blue_section_html('Other Builds with Different Inflation Factor','<table width="100%" cellpadding="5" cellspacing="0" border="0">' . $other_build_content . '</table>');
-print blue_section_html('Unigene Family Size Distribution','<table width="100%" cellpadding="5" cellspacing="0" border="0" align="center">' . $size_content . '</table>');
+print page_title_html("SGN 基因家族構建 $family_build_id (SGN Gene Family Build $family_build_id)");
+print blue_section_html('摘要 (Summary)','<table width="100%" cellpadding="5" cellspacing="0" border="0">' . $sum_content . '</table>');
+print blue_section_html('成員資料集 (Member Data Sets)','<table width="100%" cellpadding="5" cellspacing="0" border="1">' . $member_data_content . '</table>');
+print blue_section_html('具有不同膨脹係數的其他構建版本 (Other Builds with Different Inflation Factor)','<table width="100%" cellpadding="5" cellspacing="0" border="0">' . $other_build_content . '</table>');
+print blue_section_html('單一基因家族大小分佈 (Unigene Family Size Distribution)','<table width="100%" cellpadding="5" cellspacing="0" border="0" align="center">' . $size_content . '</table>');
 
 
   $page->footer();
@@ -254,7 +255,7 @@ sub empty_search {
 
   print <<EOF;
 
-  <b>No family id specified</b>
+  <b>未指定家族 ID (No family id specified)</b>
 
 EOF
 
@@ -269,7 +270,7 @@ sub invalid_search {
 
   print <<EOF;
 
-  <b>The specified family identifer ($family_build_id) does not result in a valid search.</b>
+  <b>指定的家族識別碼 ($family_build_id) 未產生有效搜尋 (The specified family identifier does not result in a valid search)。</b>
 
 EOF
 

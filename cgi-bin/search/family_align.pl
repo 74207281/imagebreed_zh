@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/  page_title_html
                                        blue_section_html  /;
@@ -11,7 +12,7 @@ use Bio::Seq;
 use Bio::SeqIO;
 use CatalystX::GlobalContext '$c';
 
-our $page = CXGN::Page->new( "SGN Gene Family Alignment", "Chenwei Lin");
+our $page = CXGN::Page->new( "SGN 基因家族比對 (SGN Gene Family Alignment)", "Chenwei Lin");
 
 our $family_size_limit = 100;
 
@@ -181,15 +182,15 @@ my $total_align_member = int (@all_align_members);
 my @nonhidden_align_members = $family_align->get_nonhidden_member_ids();
 my $total_show_align_member = int (@nonhidden_align_members);
 
-$sum_content = "<tr><td colspan=\"2\"><a target=\"blank\" href=\"/about/fam_align_analysis.pl\">For help with how we made the alignment, please click here.</a></td></tr>";
-$sum_content .="<tr><th>Sequence Type</th><td>Nucleotide</td></tr>";
-$sum_content .= "<tr><th>Total Family Members</th><td>$total_member_nr</td></tr>";
-$sum_content .= "<tr><th>Available Member Sequences</th><td>$total_align_member</td></tr>";
-$sum_content .= "<tr><th>Show Member Sequences</th><td>$total_show_align_member</td></tr>";
-$sum_content .= "<tr><th>Range</th><td>$range_start - $range_end bp</td></tr>";
-$sum_content .= "<tr><th>Overlap</th><td>$overlap_len bp</td></tr>";
+$sum_content = "<tr><td colspan=\"2\"><a target=\"blank\" href=\"/about/fam_align_analysis.pl\">關於比對建立方式的說明，請點擊此處 (For help with alignment construction, please click here)。</a></td></tr>";
+$sum_content .="<tr><th>序列類型 (Sequence Type)</th><td>核苷酸 (Nucleotide)</td></tr>";
+$sum_content .= "<tr><th>家族成員總數 (Total Family Members)</th><td>$total_member_nr</td></tr>";
+$sum_content .= "<tr><th>可用成員序列 (Available Member Sequences)</th><td>$total_align_member</td></tr>";
+$sum_content .= "<tr><th>顯示成員序列 (Show Member Sequences)</th><td>$total_show_align_member</td></tr>";
+$sum_content .= "<tr><th>範圍 (Range)</th><td>$range_start - $range_end bp</td></tr>";
+$sum_content .= "<tr><th>重疊區間 (Overlap)</th><td>$overlap_len bp</td></tr>";
 
-$sum_content .= "<tr><td colspan=\"2\" align=\"center\"><a target=\"blank\" href=\"/about/align_term.pl\">For an explanation of the terms, plase click here.</a></td></tr>";
+$sum_content .= "<tr><td colspan=\"2\" align=\"center\"><a target=\"blank\" href=\"/about/align_term.pl\">關於術語的說明，請點擊此處 (For an explanation of the terms, please click here)。</a></td></tr>";
 
 #############################################################
 #Draw family_alignment image
@@ -211,7 +212,7 @@ close $tmp_image;
 $tmp_image =~ s/$html_root_path//;
 
 $align_content = "<tr><td><center><img src=\"$tmp_image\" usemap=\"#align_image_map\" alt=\"\" /></center></td></tr>";
-$align_content .= "<tr><td>To view details for a particular family member, click the member image or the identifier.</td></tr>";
+$align_content .= "<tr><td>欲查看特定家族成員的詳細資訊，請點擊成員圖像或識別碼 (To view details for a particular family member, click the member image or the identifier)。</td></tr>";
 
 ###Write image map
 my $map_string = $family_align->write_image_map();
@@ -223,7 +224,7 @@ my ($ob_ref, $pi_ref, $sp_ref) = $family_align -> get_sv_candidates();
 my %ob = %$ob_ref;
 my %pi = %$pi_ref;
 my %species = %$sp_ref;
-$sv_content = "<tr><th>Species</th><th>Sequence id</th><th>Sequence id</th><th>Overlap Bases</th><th>%Identical</th></tr>";
+$sv_content = "<tr><th>物種 (Species)</th><th>序列 ID (Sequence ID)</th><th>序列 ID (Sequence ID)</th><th>重疊鹼基 (Overlap Bases)</th><th>同一性百分比 (% Identical)</th></tr>";
 foreach my $first_key (keys %ob) {
   foreach my $second_key (keys %{$ob{$first_key}}) {
     $sv_content .= "<tr><td>$species{$first_key}</td><td>$first_key</td><td>$second_key</td><td>$ob{$first_key}{$second_key}</td><td>$pi{$first_key}{$second_key}</td></tr>";
@@ -237,7 +238,7 @@ my ($al_ob_ref, $al_pi_ref, $al_sp_ref) = $family_align -> get_allele_candidates
 my %al_ob = %$al_ob_ref;
 my %al_pi = %$al_pi_ref;
 my %al_species = %$al_sp_ref;
-$al_content = "<tr><th>Species</th><th>Sequence id</th><th>Sequence id</th><th>Overlap Bases</th><th>%Identical</th></tr>";
+$al_content = "<tr><th>物種 (Species)</th><th>序列 ID (Sequence ID)</th><th>序列 ID (Sequence ID)</th><th>重疊鹼基 (Overlap Bases)</th><th>同一性百分比 (% Identical)</th></tr>";
 foreach my $first_key (keys %al_ob) {
   foreach my $second_key (keys %{$al_ob{$first_key}}) {
     $al_content .= "<tr><td>$al_species{$first_key}</td><td>$first_key</td><td>$second_key</td><td>$al_ob{$first_key}{$second_key}</td><td>$al_pi{$first_key}{$second_key}</td></tr>";
@@ -270,7 +271,7 @@ foreach (keys %ng) {
 }
 
 
-$seq_sum_content = "<tr><th>Sequence id</th><th>Species</th><th>Cover Range</th><th>Bases</th><th>Gaps</th><th>Medium</th><th>Overlap Score</th></tr>";
+$seq_sum_content = "<tr><th>序列 ID (Sequence ID)</th><th>物種 (Species)</th><th>涵蓋範圍 (Cover Range)</th><th>鹼基數 (Bases)</th><th>空位 (Gaps)</th><th>中位值 (Medium)</th><th>重疊分數 (Overlap Score)</th></tr>";
 
 foreach (@family_member_ids) { ##Access the align_seqs members this way, instead of by the keys of the hashes,  so that the sequences are grouped together
   $seq_sum_content .= "<tr><td><a target=\"blank\" href=\"$url{$)}\">$_</a></td><td>$species{$_}</td><td>$head{$_} - $tail{$_}</td><td>$ng{$_}</td><td>$gap{$_}</td><td>$medium{$_}</td><td>$ov_score{$_}</td></tr>";
@@ -308,7 +309,7 @@ if (defined $seq_ref) {
 
   $tmp_seq_file =~ s/$html_root_path//;
 
-  $seq_output_content = "<tr><td><a target=\"blank\" href=\"$tmp_seq_file\">All Sequences (No gap)</a></td></tr>";
+  $seq_output_content = "<tr><td><a target=\"blank\" href=\"$tmp_seq_file\">所有序列 (無空位) / All Sequences (No gap)</a></td></tr>";
 }
 
 
@@ -338,10 +339,10 @@ if (defined $align_seq_ref) {
 
   my $pass_tmp_align_seq_file = $html_root_path . $tmp_align_seq_file;
 
-  $seq_output_content .= "<tr><td><a target=\"blank\" href=\"$tmp_align_seq_file\">All Alignment Sequences (Padded with gap)</a></td>";
+  $seq_output_content .= "<tr><td><a target=\"blank\" href=\"$tmp_align_seq_file\">所有比對序列 (含空位填補) / All Alignment Sequences (Padded with gap)</a></td>";
 
   my $title = 'Family ' . $family_id;
-  $seq_output_content .= "<td><a target=\"blank\" href=\"/tools/align_viewer/show_align.pl?format='fasta'&amp;temp_file=$pass_tmp_align_seq_file&amp;type=nt&amp;start_value=1&amp;end_value=10000&amp;title=$title\">Analyze and Optimize with Alignment Viewer.</a></td></tr>";
+  $seq_output_content .= "<td><a target=\"blank\" href=\"/tools/align_viewer/show_align.pl?format='fasta'&amp;temp_file=$pass_tmp_align_seq_file&amp;type=nt&amp;start_value=1&amp;end_value=10000&amp;title=$title\">使用比對檢視器進行分析與最佳化 (Analyze and Optimize with Alignment Viewer)。</a></td></tr>";
 }
 
 if ($overlap_len > 0) {
@@ -369,7 +370,7 @@ if ($overlap_len > 0) {
   close $tmp_ol_seq_file;
 
   $tmp_ol_seq_file =~ s/$html_root_path//;
-  $seq_output_content .= "<tr><td><a target=\"blank\" href=$tmp_ol_seq_file>Overlap Sequences</a></td></tr>";
+  $seq_output_content .= "<tr><td><a target=\"blank\" href=$tmp_ol_seq_file>重疊序列 (Overlap Sequences)</a></td></tr>";
 
 }
 
@@ -378,40 +379,40 @@ if ($overlap_len > 0) {
 #Retrieve tree information
 $family_tree_log_q->execute($family_id);
 if (my ($taxa_num, $ol_len, $lf_loc) = $family_tree_log_q->fetchrow_array()) {
-  $gene_tree_content = "<tr><td colspan=\"2\" align=\"center\"><a target=\"blank\" href=\"/about/fam_tree_analysis.pl\">For help with gene tree construction, please click here.</a></td></tr>";
-  $gene_tree_content .= "<tr><th>No. of Taxa</th><td>$taxa_num</td></tr>";
-  $gene_tree_content .= "<tr><th>No. of Characters</th><td>$ol_len</td></tr>";
-  $gene_tree_content .= "<tr><th>Log File</th><td><a href=\"$lf_loc\">View</a></td></tr>";
+  $gene_tree_content = "<tr><td colspan=\"2\" align=\"center\"><a target=\"blank\" href=\"/about/fam_tree_analysis.pl\">關於基因樹構建的說明，請點擊此處 (For help with gene tree construction, please click here)。</a></td></tr>";
+  $gene_tree_content .= "<tr><th>分類單元數 (No. of Taxa)</th><td>$taxa_num</td></tr>";
+  $gene_tree_content .= "<tr><th>性狀/字元數 (No. of Characters)</th><td>$ol_len</td></tr>";
+  $gene_tree_content .= "<tr><th>日誌檔案 (Log File)</th><td><a href=\"$lf_loc\">檢視 (View)</a></td></tr>";
 
   $family_tree_nw_q->execute($family_id);
   while (my ($tree_nr, $nw) = $family_tree_nw_q->fetchrow_array()) {
     my $tree_title = 'Family ' . $family_id . ' Tree No. ' . $tree_nr;
-    $gene_tree_content .= "<tr><th>Tree No. $tree_nr</th><td>$nw<br><br><a target=\"blanc\" href=\"/tools/tree_browser/?tree_string=$nw&amp;title=$tree_title\">View in Tree Browser</a><br><br></td></tr>";
+    $gene_tree_content .= "<tr><th>樹狀圖編號 $tree_nr (Tree No. $tree_nr)</th><td>$nw<br><br><a target=\"blanc\" href=\"/tools/tree_browser/?tree_string=$nw&amp;title=$tree_title\">在樹狀檢視器中檢視 (View in Tree Browser)</a><br><br></td></tr>";
   }
 }
 else {
-  $gene_tree_content = "<tr><td>No tree available</td></tr>";
+  $gene_tree_content = "<tr><td>無可用樹狀圖 (No tree available)</td></tr>";
 }
 
 
 ######################################################
 #Page output
 $page->header();
-print page_title_html("Gene Family $family_id Alignment Details");
+print page_title_html("基因家族 $family_id 比對詳細資訊 (Gene Family $family_id Alignment Details)");
 
-print blue_section_html('Family Sequence Alignment','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$align_content.'</table>');
+print blue_section_html('家族序列比對 (Family Sequence Alignment)','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$align_content.'</table>');
 
-print blue_section_html('Summary','<table width="80%" cellpadding="5" cellspacing="0" border="0">'.$sum_content.'</table>');
+print blue_section_html('摘要 (Summary)','<table width="80%" cellpadding="5" cellspacing="0" border="0">'.$sum_content.'</table>');
 
-print blue_section_html('Putative Splice Variant Pairs','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$sv_content.'</table>');
+print blue_section_html('推測之剪接變異體對 (Putative Splice Variant Pairs)','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$sv_content.'</table>');
 
-print blue_section_html('Putative Allele Pairs','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$al_content.'</table>');
+print blue_section_html('推測之等位基因對 (Putative Allele Pairs)','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$al_content.'</table>');
 
-print blue_section_html('Aligment Analysis','<table width="100%" cellpadding="5" cellspacing="0" border="1">'.$seq_sum_content.'</table>');
+print blue_section_html('比對分析 (Alignment Analysis)','<table width="100%" cellpadding="5" cellspacing="0" border="1">'.$seq_sum_content.'</table>');
 
-print blue_section_html('Output Sequences','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$seq_output_content.'</table>');
+print blue_section_html('輸出序列 (Output Sequences)','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$seq_output_content.'</table>');
 
-print blue_section_html('Family Gene Tree','<table width="100%" cellpadding="5" cellspacing="0" border="1">'.$gene_tree_content.'</table>');
+print blue_section_html('家族基因樹 (Family Gene Tree)','<table width="100%" cellpadding="5" cellspacing="0" border="1">'.$gene_tree_content.'</table>');
 
 
 $page->footer();
@@ -423,7 +424,7 @@ sub empty_search {
 
   print <<EOF;
 
-  <b>No family id specified</b>
+  <b>未指定家族 ID (No family id specified)</b>
 
 EOF
 
@@ -438,7 +439,7 @@ sub not_applicable {
 
   print <<EOF;
 
-  <b>The specified $family_id has only $num valid member so that alignment is not applicable.</b>
+  <b>指定的 $family_id 僅有 $num 個有效成員，不適用序列比對 (Alignment is not applicable)。</b>
 
 EOF
 
@@ -453,7 +454,7 @@ sub large_size {
 
   print <<EOF;
 
-  <b>The specified $family_id has $num valid members.  Alignment is available for families having up to $family_size_limit members.</b>
+  <b>指定的 $family_id 擁有 $num 個有效成員。目前序列比對僅支援最多 $family_size_limit 個成員的家族 (Alignment is available for families having up to $family_size_limit members)。</b>
 
 EOF
 
