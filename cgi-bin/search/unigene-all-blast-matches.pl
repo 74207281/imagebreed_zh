@@ -1,12 +1,13 @@
 #!/usr/bin/perl -w
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::Connection;
 use CXGN::Tools::Identifiers qw/link_identifier/;
 
 our ($blastq, $blast_hitq);
 
-our $page = CXGN::Page->new( "SGN Unigene - Show All Stored BLAST Hits", "Koni");
+our $page = CXGN::Page->new( "SGN 單一基因 - 顯示所有儲存的 BLAST 比對結果 (Show All Stored BLAST Hits)", "Koni");
 my ($unigene_id, $unigene_length, $target_id) = $page->get_arguments("unigene_id","l", "t");
 
 my $dbh = CXGN::DB::Connection->new();
@@ -60,7 +61,7 @@ if ($target_id =~ /^\d+$/){
 
   while(my ($blast_annotation_id, $blast_target_id, $blast_program,
 	    $target_dbname, $n_hits, $hits_stored) = $blastq->fetchrow_array()) {
-    $blast_content .= qq(<tr><td align="left"><b>$target_dbname [$blast_program]</b></td><td align="right" colspan="5"> Showing best $hits_stored hits recorded </td></tr>);
+    $blast_content .= qq(<tr><td align="left"><b>$target_dbname [$blast_program]</b></td><td align="right" colspan="5"> 顯示記錄中最佳的 $hits_stored 筆比對 (Showing best $hits_stored hits recorded) </td></tr>);
 
     $blast_hitq->execute($blast_annotation_id);
     while(my ($match_id,$evalue,$score,$identity,$start,$end,
@@ -86,12 +87,12 @@ if ($target_id =~ /^\d+$/){
       }
 
       $blast_content .= <<EOF;
-      <tr><td><b>Match:</b> $match_id</td>
-	  <td><b>score:</b> $score</td>
-          <td><b>e-value:</b> $evalue</td>
-          <td><b>Identity:</b> $identity%</td>
-          <td><b>Span:</b> ${alignment_length}bp ($span_percent)</td>
-	  <td><b>Frame:</b> $frame</td>
+      <tr><td><b>比對項目 (Match):</b> $match_id</td>
+	  <td><b>分數 (Score):</b> $score</td>
+          <td><b>E值 (e-value):</b> $evalue</td>
+          <td><b>同一性 (Identity):</b> $identity%</td>
+          <td><b>跨度 (Span):</b> ${alignment_length}bp ($span_percent)</td>
+	  <td><b>讀框 (Frame):</b> $frame</td>
       </tr>
       <tr><td colspan="6">$defline</td></tr>
 EOF
@@ -99,13 +100,13 @@ EOF
     $blast_content .= qq(<tr><td colspan="6"><br /></td></tr>);
     if ($hits_stored < $n_hits) {
       my $t_hits = $n_hits - $hits_stored;
-      $blast_content .= qq(<tr><td colspan="6" align="center"><font color="gray">$t_hits lower scoring hits censored --  only $hits_stored best hits are stored.</font></td></tr>);
+      $blast_content .= qq(<tr><td colspan="6" align="center"><font color="gray">$t_hits 筆較低分數的比對已過濾 -- 僅儲存前 $hits_stored 筆最佳比對 ($t_hits lower scoring hits censored -- only $hits_stored best hits are stored)。</font></td></tr>);
     }
   }
 
 
   if ($blast_content eq "") {
-    $blast_content = qq(<tr><td><font color="gray">No BLAST annotations were found</td></tr>);
+    $blast_content = qq(<tr><td><font color="gray">未找到 BLAST 註釋 (No BLAST annotations were found)</td></tr>);
   } else {
     $blast_content = qq(<tr><td><table cellspacing="0" border="0" width="100%" align="center">) . $blast_content ."</table></td></tr>";
   }
@@ -116,7 +117,7 @@ $page->header();
 
 print <<EOF;
 <table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
-<tr><td align="center"><b>All Stored BLAST annotations for SGN-U$unigene_id</b></td></tr>
+<tr><td align="center"><b>SGN-U$unigene_id 的所有儲存 BLAST 註釋 (All Stored BLAST annotations for SGN-U$unigene_id)</b></td></tr>
 $blast_content
 <tr><td><br /></td></tr>
 </table>
@@ -131,7 +132,7 @@ sub empty_search {
 
   print <<EOF;
   <br />
-  <b>Not enough unigene search criteria specified</b>
+  <b>未指定足夠的單一基因搜尋條件 (Not enough unigene search criteria specified)</b>
 
 EOF
 
@@ -147,7 +148,7 @@ sub invalid_search {
 
   print <<EOF;
   <br />
-  <b>The specified unigene identifer ($unigene_id) does not result in a valid search.</b>
+  <b>指定的單一基因識別碼 ($unigene_id) 未產生有效搜尋 (The specified unigene identifier does not result in a valid search)。</b>
 
 EOF
 
