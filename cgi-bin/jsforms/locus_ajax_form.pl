@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 my $locus_form = CXGN::Phenome::LocusForm->new();
 
@@ -41,11 +42,11 @@ sub define_object {
     if ( $self->get_object()->get_obsolete() eq 't' && $user_type ne 'curator' )
     {
 	##print STDERR "ERROR:: Locus $locus_id is obsolete!";
-	$json_hash{error}="Locus $locus_id is obsolete!";
+	$json_hash{error}="基因座 $locus_id 已作廢 (Locus $locus_id is obsolete!)";
     }
     unless ( ( $locus_id =~ m /^\d+$/ || !$locus_id  )  ) {
         #print STDERR "ERROR:: 'No locus exists for identifier $locus_id'\n\n";
-	$json_hash{error}="No locus exists for identifier $locus_id";
+	$json_hash{error}="找不到識別碼 $locus_id 的基因座 (No locus exists for identifier $locus_id)";
     }
     $self->set_json_hash(%json_hash);
     $self->set_primary_key("locus_id");
@@ -70,13 +71,13 @@ sub store {
 	$locus->exists_in_database( $args{locus_name}, $args{locus_symbol} );
     my $validate;
     if ($message) {
-	$error = " Locus $args{locus_name} (symbol=  $args{locus_symbol} ) already exists in the database ";
+	$error = " 基因座 $args{locus_name} (代號= $args{locus_symbol}) 已存在於資料庫中 (Locus already exists in the database) ";
     }else {
 	try{
 	    $self->SUPER::store(); #this sets $json_hash{validate} if the form validation failed.
 	    $locus_id = $locus->get_locus_id() ;
 	} catch {
-	    $error = " An error occurred. Cannot store to the database\n An  email message has been sent to the SGN development team";
+	    $error = " 發生錯誤。無法儲存至資料庫 (An error occurred. Cannot store to the database)\n 已發送電子郵件至 SGN 開發團隊";
 	    CXGN::Contact::send_email('locus_ajax_form.pl died', $error . "\n" . $_ , 'sgn-bugs@sgn.cornell.edu');
 	};
     }
@@ -113,7 +114,7 @@ sub delete {
 	try {
 	    $locus->delete();
 	}catch {
-	    $json_hash{error} = " An error occurred. Cannot delete locus\n An  email message has been sent to the SGN development team";
+	    $json_hash{error} = " 發生錯誤。無法刪除基因座 (An error occurred. Cannot delete locus)\n 已發送電子郵件至 SGN 開發團隊";
 	};
 	$json_hash{reload} = 1;
     }
@@ -143,7 +144,7 @@ sub generate_form {
 
     if ( $self->get_action =~ /new|store/ ) {
 	$form->add_select(
-	    display_name       => "Organism ",
+	    display_name       => "生物體 (Organism): ",
 	    field_name         => "common_name_id",
 	    contents           => $locus->get_common_name_id(),
 	    length             => 20,
@@ -157,13 +158,13 @@ sub generate_form {
 
     if ( $locus->get_obsolete() eq 't' ) {
 	$form->add_label(
-	    display_name => "Status",
+	    display_name => "狀態 (Status)",
 	    field_name   => "obsolete_stat",
-	    contents     => 'OBSOLETE',
+	    contents     => '已作廢 (OBSOLETE)',
 	    );
     }
     $form->add_field(
-        display_name => "Locus",
+        display_name => "基因座 (Locus)",
         field_name   => "Locus",
         id           => "genome_locus",
         object       => $locus,
@@ -172,7 +173,7 @@ sub generate_form {
         autocomplete => '/ajax/locus/genome_autocomplete',
         );
     $form->add_field(
-	display_name => "Locus name ",
+	display_name => "基因座名稱 (Locus name): ",
 	field_name   => "locus_name",
 	object       => $locus,
 	getter       => "get_locus_name",
@@ -181,7 +182,7 @@ sub generate_form {
 	);
 
     $form->add_field(
-        display_name => "Symbol ",
+        display_name => "代號 (Symbol): ",
         field_name   => "locus_symbol",
         object       => $locus,
         getter       => "get_locus_symbol",
@@ -191,7 +192,7 @@ sub generate_form {
 	);
 
     $form->add_field(
-	display_name => "Gene activity ",
+	display_name => "基因活性 (Gene activity): ",
 	field_name   => "gene_activity",
 	object       => $locus,
 	getter       => "get_gene_activity",
@@ -200,7 +201,7 @@ sub generate_form {
 	);
 
     $form->add_textarea(
-	display_name => "Description ",
+	display_name => "描述 (Description): ",
 	field_name   => "description",
 	object       => $locus,
 	getter       => "get_description",
@@ -210,7 +211,7 @@ sub generate_form {
 	);
 
     $form->add_select(
-	display_name       => "Chromosome ",
+	display_name       => "染色體 (Chromosome): ",
 	field_name         => "lg_name",
 	contents           => $locus->get_linkage_group(),
 	length             => 10,
@@ -222,7 +223,7 @@ sub generate_form {
 	);
 
     $form->add_select(
-	display_name       => "Arm",
+	display_name       => "染色體臂 (Arm): ",
 	field_name         => "lg_arm",
 	contents           => $locus->get_lg_arm(),
 	length             => 10,
