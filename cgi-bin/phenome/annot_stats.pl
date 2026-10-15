@@ -1,6 +1,7 @@
 #!usr/bin/perl
 use warnings;
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Login;
@@ -24,7 +25,7 @@ my $dbh = $c->dbc->dbh;
 
 my $logged_sp_person_id = CXGN::Login->new($dbh)->verify_session();
 
-my $page = CXGN::Page->new("Phenome annotation stats","Naama");
+my $page = CXGN::Page->new("基因型註釋統計 (Phenome annotation stats)","Naama");
 
 $page->header();
 
@@ -34,7 +35,7 @@ my @lstats=CXGN::Phenome::Locus->get_locus_stats( $dbh );
 
 
 my $image= get_graph(@lstats);
-print info_section_html(title   => 'Locus stats',
+print info_section_html(title   => '基因座統計 (Locus stats)',
 			    contents => $image,
 			);
 
