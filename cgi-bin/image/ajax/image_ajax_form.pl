@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 my $image_ajax_form = CXGN::ImageAjaxForm->new();
 
@@ -70,7 +71,7 @@ sub generate_form {
     }
 
     $form->add_field(
-        display_name => "Image Name:",
+        display_name => "圖片名稱 (Image Name):",
         field_name   => "name",
         contents     => $name,
         length       => 15,
@@ -79,7 +80,7 @@ sub generate_form {
         setter       => "set_name"
     );
     $form->add_field(
-        display_name => "Image Description: ",
+        display_name => "圖片描述 (Image Description): ",
         field_name   => "description",
         contents     => $description,
         length       => 40,
@@ -98,7 +99,7 @@ sub generate_form {
         contents     => "store"
     );
     $form->add_label(
-        display_name => "Uploaded by: ",
+        display_name => "上傳者 (Uploaded by): ",
         field_name   => "submitter",
         contents     => $submitter_link,
     );
