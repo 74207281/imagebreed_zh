@@ -1,7 +1,7 @@
 
 use strict;
 use warnings; 
-
+use utf8;
 
 my $allele_synonym_detail_page = CXGN::Phenome::AlleleSynonymDetailPage->new();
 
@@ -59,8 +59,8 @@ sub store {
 	print STDERR "**Allele Synonym already exists...\n";
 
 	$self->get_page()->header();
-	print $not_new_allele_synonym = "Allele synonym '".$args{allele_alias}. "' already exists <br />";
-	print qq { <a href="javascript:history.back(1)">back to allele synonyms</a> };
+	print $not_new_allele_synonym = "等位基因同義字 (Allele synonym) '".$args{allele_alias}. "' 已存在 (already exists) <br />";
+	print qq { <a href="javascript:history.back(1)">返回等位基因同義字 (back to allele synonyms)</a> };
 	$self->get_page()->footer();
 	exit();
     }
@@ -105,8 +105,8 @@ sub delete {
     $self->get_page()->header();
     
     if ($allele) { 
-	print qq { Removed allele synonym "$allele_synonym_name" association from allele "$allele_symbol" ($allele_name).<br /> }; 
-	print qq { <a href="allele_synonym.pl?allele_id=$args{allele_id}&amp;action=new">Back to allele synonyms page</a> };
+	print qq { 已從等位基因 "$allele_symbol" ($allele_name) 移除等位基因同義字 "$allele_synonym_name" 的關聯 (Removed allele synonym "$allele_synonym_name" association from allele "$allele_symbol" ($allele_name))。<br /> }; 
+	print qq { <a href="allele_synonym.pl?allele_id=$args{allele_id}&amp;action=new">返回等位基因同義字頁面 (Back to allele synonyms page)</a> };
     }
   
     $self->get_page()->footer();		   
@@ -133,7 +133,7 @@ sub generate_form {
     
     # add form elements
     #
-    $self->get_form()->add_field(display_name=>"Allele synonym: ", 
+    $self->get_form()->add_field(display_name=>"等位基因同義字 (Allele synonym): ", 
 				 field_name=>"allele_alias", 
 				 length=>20, 
 				 object=>$allele_synonym, 
@@ -193,26 +193,26 @@ sub display_page {
     #
     $self->get_page()->header();
     
-    print page_title_html( qq { <h3>SGN <a href="/search/direct_search.pl?search=loci">genes</a> database } );
+    print page_title_html( qq { <h3>SGN <a href="/search/direct_search.pl?search=loci">基因 (genes)</a> 資料庫 } );
 
-    print qq { <b>Allele synonyms</b> };
+    print qq { <b>等位基因同義字 (Allele synonyms)</b> };
 
     if ($args{allele_id}) { 
 	$allele = CXGN::Phenome::Allele->new($self->get_dbh(), $args{allele_id});
 	@allele_synonyms=$allele->get_allele_aliases();
 	$allele_id = $allele->get_allele_id();
 	$locus_id= $allele->get_locus_id();
-	print "for allele ".$allele->get_allele_symbol()." (".$allele->get_allele_name().")<br /><br />\n";
+	print " 針對等位基因 (for allele) ".$allele->get_allele_symbol()." (".$allele->get_allele_name().")<br /><br />\n";
 	foreach my $as (@allele_synonyms) { 
 	    my $allele_synonym_id = $as->get_allele_alias_id();
-	    print $as->get_allele_alias(). qq { \n <a href="allele_synonym.pl?allele_id=$allele_id&amp;allele_alias_id=$allele_synonym_id&amp;locus_id=$locus_id&amp;action=confirm_delete">[Remove]</a> <br />\n };
+	    print $as->get_allele_alias(). qq { \n <a href="allele_synonym.pl?allele_id=$allele_id&amp;allele_alias_id=$allele_synonym_id&amp;locus_id=$locus_id&amp;action=confirm_delete">[移除 (Remove)]</a> <br />\n };
 	}
 
     }
 
-    if (!@allele_synonyms) { print "<b>None found</b><br /><br />\n"; }
+    if (!@allele_synonyms) { print "<b>未找到任何記錄 (None found)</b><br /><br />\n"; }
 
-    print qq { <br /><br /><b>Add another allele synonym</b>: };
+    print qq { <br /><br /><b>新增另一個等位基因同義字 (Add another allele synonym)</b>: };
 
     print qq { <center> };
 
@@ -220,8 +220,8 @@ sub display_page {
 
     print qq { </center> };
 
-    print qq { <a href = "/phenome/allele.pl?allele_id=$allele_id&amp;action=view">back to allele page</a><br> };
-    print qq { <a href="/locus/$locus_id/view">back to locus page</a> };
+    print qq { <a href = "/phenome/allele.pl?allele_id=$allele_id&amp;action=view">返回等位基因頁面 (back to allele page)</a><br> };
+    print qq { <a href="/locus/$locus_id/view">返回基因座頁面 (back to locus page)</a> };
     $self->get_page()->footer();
 
 }

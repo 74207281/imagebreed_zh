@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 my $population_detail_page = CXGN::Phenome::PopulationDetailPage->new();
 
@@ -89,7 +90,7 @@ sub generate_form {
     }
 
    $form->add_field(
-                      display_name=>"Name:",
+                      display_name=>"名稱 (Name):",
                       field_name=>"name",
                       length=>15,
                       object=>$population,
@@ -98,7 +99,7 @@ sub generate_form {
                       validate => 'string',
                       );
     $form->add_textarea(
-                          display_name=>"Description: ",
+                          display_name=>"描述 (Description): ",
                           field_name=>"description",
                           object=>$population,
                           getter=>"get_description", setter=>"set_description",
@@ -107,7 +108,7 @@ sub generate_form {
                           );
 
 
-    $form->add_label( display_name=>"Uploaded by: ",
+    $form->add_label( display_name=>"上傳者 (Uploaded by): ",
                           field_name=>"submitter",
                           contents=>$submitter_link,
                           );
@@ -184,13 +185,13 @@ EOS
     my $login_user_type= $login_user->get_user_type();
     my $page="../phenome/population.pl?population_id=$population_id";
 
-    $self->get_page()->header("SGN Population name: $population_name");
+    $self->get_page()->header("SGN 族群名稱 (Population name): $population_name");
 
-    print page_title_html("Population: $population_name \n");
+    print page_title_html("族群 (Population): $population_name \n");
 
     $args{calling_page} = $page;
 
-    my $population_html = $self->get_edit_link_html(). "\t[<a href=/phenome/qtl_form.pl>New QTL Population</a>] <br />";
+    my $population_html = $self->get_edit_link_html(). "\t[<a href=/phenome/qtl_form.pl>新增 QTL 族群 (New QTL Population)</a>] <br />";
 
     #print all editable form  fields
     $population_html .= $self->get_form()->as_table_string();
@@ -289,8 +290,8 @@ EOS
                  } else
                  { push  @phenotype,  [map {$_} (qq | <a href="/cvterm/$cvterm_id/view">$cvterm_name</a>|,
                             $min, $max, $avg, $count,
-                     qq | <a href="/phenome/population_indls.pl?population_id=$population_id&amp;cvterm_id=$cvterm_id">
-                          $graph_icon</a>
+                      qq | <a href="/phenome/population_indls.pl?population_id=$population_id&amp;cvterm_id=$cvterm_id">
+                           $graph_icon</a>
                         |  ) ];
                  }
              } else
@@ -311,7 +312,7 @@ EOS
      }
 
     my $accessions_link = qq |<a href="../search/phenotype_search.pl?wee9_population_id=$population_id">
-                              See all accessions ...</a>
+                              檢視所有種原 (See all accessions)...</a>
                              |;
 
     my ($phenotype_data, $data_view, $data_download);
@@ -320,12 +321,12 @@ EOS
     {
         if ($is_qtl_pop) {
             $phenotype_data = columnar_table_html(headings => [
-                                                           'Trait',
-                                                           'Minimum',
-                                                           'Maximum',
-                                                           'Average',
-                                                           'No. of lines',
-                                                           'QTL(s)...',
+                                                           '性狀 (Trait)',
+                                                           '最小值 (Minimum)',
+                                                           '最大值 (Maximum)',
+                                                           '平均值 (Average)',
+                                                           '品系數量 (No. of lines)',
+                                                           'QTL...',
                                                            ],
                                               data     =>\@phenotype,
                                               __alt_freq   =>2,
@@ -334,20 +335,20 @@ EOS
                                               __align =>'l',
                                               );
 
-            $data_download .=  qq { <span><br/><br/>Download:<a href="phenotype_download.pl?population_id=$population_id"><b>\
-                                [Phenotype raw data]</b></a> <a href="genotype_download.pl?population_id=$population_id"><b>\
-                                [Genotype raw data]</b></a></span>
+            $data_download .=  qq { <span><br/><br/>下載 (Download): <a href="phenotype_download.pl?population_id=$population_id"><b>\
+                                [表型原始資料 (Phenotype raw data)]</b></a> <a href="genotype_download.pl?population_id=$population_id"><b>\
+                                [基因型原始資料 (Genotype raw data)]</b></a></span>
                               };
 
 
         } else
         {
             $phenotype_data = columnar_table_html(headings => [
-                                                           'Trait',
-                                                           'Minimum',
-                                                           'Maximum',
-                                                           'Average',
-                                                           'No. of lines',
+                                                           '性狀 (Trait)',
+                                                           '最小值 (Minimum)',
+                                                           '最大值 (Maximum)',
+                                                           '平均值 (Average)',
+                                                           '品系數量 (No. of lines)',
                                                            ],
                                               data     =>\@phenotype,
                                               __alt_freq   =>2,
@@ -356,8 +357,8 @@ EOS
                                               __align =>'l',
                                               );
 
-            $data_download .=  qq { <span><br/><br/>Download:<a href="phenotype_download.pl?population_id=$population_id"><b>\
-                                [Phenotype raw data]</b></a></span>
+            $data_download .=  qq { <span><br/><br/>下載 (Download): <a href="phenotype_download.pl?population_id=$population_id"><b>\
+                                [表型原始資料 (Phenotype raw data)]</b></a></span>
                               };
 
         }
@@ -369,11 +370,11 @@ EOS
 
     my $pub_subtitle;
     if ($population_name && ($login_user_type eq 'curator' || $login_user_type eq 'submitter')) {
-        $pub_subtitle .= qq|<a href="../chado/add_publication.pl?type=population&amp;type_id=$population_id&amp;refering_page=$page&amp;action=new">[Associate publication]</a>|;
+        $pub_subtitle .= qq|<a href="../chado/add_publication.pl?type=population&amp;type_id=$population_id&amp;refering_page=$page&amp;action=new">[關聯文獻 (Associate publication)]</a>|;
 
     }
 
-    else { $pub_subtitle= qq|<span class=\"ghosted\">[Associate publication]</span>|;
+    else { $pub_subtitle= qq|<span class=\"ghosted\">[關聯文獻 (Associate publication)]</span>|;
 
     }
 
@@ -432,7 +433,7 @@ EOS
 
 
             $abstract_view = html_optional_show("abstracts$abstract_count",
-                               'Show/hide abstract',
+                               '顯示/隱藏摘要 (Show/hide abstract)',
                                qq|$abstract <b> <i>$authors.</i> $journal. $pyear. $volume($issue). $pages.</b>|,
                                                  0, #< do not show by default
                                                  'abstract_optional_show', #< don't use the default button-like style
@@ -443,7 +444,7 @@ EOS
         }
     }
 
-    print info_section_html(title   => 'Population Details',
+    print info_section_html(title   => '族群詳細資訊 (Population Details)',
                             contents => $population_html,
                             );
 
@@ -457,17 +458,17 @@ EOS
         {
             my $correlation_data = $self->display_correlation();
 
-            print info_section_html(title    => 'Phenotype Data and QTLs',
+            print info_section_html(title    => '表型資料與 QTL (Phenotype Data and QTLs)',
                                     contents => $phenotype_data ." ".$data_download
                                    );
 
-            print info_section_html( title    => 'Pearson Correlation Analysis',
+            print info_section_html( title    => '皮爾森相關性分析 (Pearson Correlation Analysis)',
                                      contents => $correlation_data,
                                    );
         }
         else
         {
-            print info_section_html(title    => 'Phenotype Data',
+            print info_section_html(title    => '表型資料 (Phenotype Data)',
                                     contents => $accessions_link
                                    );
         }
@@ -475,7 +476,7 @@ EOS
         my $map_link = $self->genetic_map();
         unless (!$map_link)
         {
-            print info_section_html( title    => 'Genetic Map',
+            print info_section_html( title    => '遺傳圖譜 (Genetic Map)',
                                      contents => $map_link
                                    );
         }
@@ -484,20 +485,19 @@ EOS
     else
     {
         my ($submitter_obj, $submitter_link) = $self->submitter();
-        my $message = "The QTL data for this population is not public yet.
-                       If you would like to know more about this data,
-                       please contact the owner of the data: <b>$submitter_link</b>
-                       or email to SGN:
+        my $message = "此族群的 QTL 資料尚未公開 (The QTL data for this population is not public yet)。
+                       如果您想了解有關此資料的更多資訊，請聯絡資料擁有者 (please contact the owner of the data): <b>$submitter_link</b>
+                       或發送電子郵件至 SGN (or email to SGN):
                        <a href=mailto:sgn-feedback\@sgn.cornell.edu>
-                       sgn-feedback\@sgn.cornell.edu</a>.\n";
+                       sgn-feedback\@sgn.cornell.edu</a>。\n";
 
-        print info_section_html(title   => 'Phenotype Data and QTLs',
+        print info_section_html(title   => '表型資料與 QTL (Phenotype Data and QTLs)',
                                 contents =>$message,
                                );
 
     }
 
-    print info_section_html(title   => 'Literature Annotation',
+    print info_section_html(title   => '文獻註釋 (Literature Annotation)',
                             #subtitle => $pub_subtitle,
                             contents => $pubmed,
                             );
@@ -697,7 +697,7 @@ sub display_correlation {
    
     if ($pop_id == 18) 
     { 
-	$corre_data = qq | Correlation analysis canno't be run for this population. |;
+	$corre_data = qq | 無法對此族群執行相關性分析 (Correlation analysis cannot be run for this population)。 |;
     }
     else 
     {
@@ -723,7 +723,7 @@ sub display_correlation {
 	}
 
 	my $acronym_key  = columnar_table_html(
-                                           headings     => [ 'Acronym',  'Trait'],
+                                           headings     => [ '縮寫 (Acronym)',  '性狀 (Trait)'],
                                            data         => \@tr_acronym_table,
                                            __alt_freq   => 2,
                                            __alt_width  => 1,
@@ -732,12 +732,12 @@ sub display_correlation {
                                           );
 
 	my  $acronym_view = html_optional_show("key",
-                                           'Show/hide acronym key',
+                                           '顯示/隱藏縮寫對照 (Show/hide acronym key)',
                                            qq | $acronym_key |,
                                            0,
                                           );
 
-	$corre_data = $heatmap_image .  qq | <span><br/><br/>Download:<a href="correlation_download.pl?population_id=$pop_id&amp;corre_file=$corre_table_file">[Correlation coefficients and p-values table]</a> $acronym_view</span> |;
+	$corre_data = $heatmap_image .  qq | <span><br/><br/>下載 (Download): <a href="correlation_download.pl?population_id=$pop_id&amp;corre_file=$corre_table_file">[相關係數與 p 值表格 (Correlation coefficients and p-values table)]</a> $acronym_view</span> |;
     }
     return $corre_data;
 

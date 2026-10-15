@@ -13,6 +13,7 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 use strict;
 use warnings;
+use utf8;
 
 my $qtl_load_detail_page = CXGN::Phenome::QtlLoadDetailPage->new();
 
@@ -1376,7 +1377,7 @@ sub population_exists {
 
 sub guideline {
     my $self = shift;
-    return qq |<a  href="/qtl/submission/guide">Guidelines</a> |;
+    return qq |<a href="/qtl/submission/guide">指南 (Guidelines)</a> |;
 }
 
 =head2 trait_columns
@@ -1543,7 +1544,7 @@ sub post_trait_form {
 
     if (!$trait_file) 
     {
-        $self->error_page("Trait file");
+        $self->error_page("性狀檔案 (Trait file)");
     }
    
     my $uploaded_file = $self->trait_upload($qtl_obj, $trait_file);
@@ -1569,7 +1570,7 @@ sub post_pheno_form {
     
     if (!$pheno_file) 
     { 
-        $self->error_page('Phenotype dataset file'); 
+        $self->error_page('表型資料集檔案 (Phenotype dataset file)'); 
     } 
    
     my $uploaded_file = $self->pheno_upload($qtl_obj, $pheno_file);
@@ -1593,7 +1594,7 @@ sub post_geno_form {
         
     if (!$geno_file) 
     { 
-        $self->error_page('Genotype dataset file'); 
+        $self->error_page('基因型資料集檔案 (Genotype dataset file)'); 
     } 
 
     my ($map_id, $map_version_id);     
@@ -1605,7 +1606,7 @@ sub post_geno_form {
     }
     else 
     {
-        $self->error_page('Genotype dataset file');
+        $self->error_page('基因型資料集檔案 (Genotype dataset file)');
     }
   
     my $genotype_uploaded;
