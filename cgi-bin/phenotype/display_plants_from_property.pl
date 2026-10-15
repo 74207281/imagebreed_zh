@@ -3,6 +3,7 @@
 #Display page by property
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CGI;
@@ -19,14 +20,14 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Plants By Property");
+$page->header("依性狀檢視植株 (Plants By Property)");
 
 print <<EOF
 
 <table summary="" width="100%" cellpadding="0" cellspacing="10" border="0">
 
 <tr><td>
-<center><h3><u>Plants By Property</u></h3></center>
+<center><h3><u>依性狀檢視植株 (Plants By Property)</u></h3></center>
 </td></tr>
 
 EOF
@@ -39,10 +40,10 @@ my $prop_name;
   my $param_list = "pop_id=$pop_id"."&amp;"."pop_name=$pop_name"."&amp;"."prop_id=$prop_id"."&amp;"."prop_name=$prop_name";
   my $prev_page = "property";
 print "<tr><td>";
-print "<b><u>Property Information</u></b>";
+print "<b><u>性狀資訊 (Property Information)</u></b>";
 print "<ul>";
-  print "<li>Population: <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>";
-  print "<li>Property Name: <b>$prop_name</b> (<a href=\"display_prop_list.pl?prev_page=$prev_page"."\&amp;"."$param_list\">Property Descriptions</a>)</li>";
+  print "<li>族群 (Population): <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>";
+  print "<li>性狀名稱 (Property Name): <b>$prop_name</b> (<a href=\"display_prop_list.pl?prev_page=$prev_page"."\&amp;"."$param_list\">性狀描述說明 (Property Descriptions)</a>)</li>";
 print "</ul>";
 print "</td></tr>\n";
 
@@ -52,7 +53,7 @@ print "</td></tr>\n";
   if (@plant_info_by_location) {
 
     print "<tr><td width=\"100%\">";
-    print "<b><u>Plants with the Selected Property and Population</u></b>";
+    print "<b><u>符合所選性狀與族群之植株 (Plants with the Selected Property and Population)</u></b>";
     print "</td></tr>\n";
 
     for (my $i=1; $i<@plant_info_by_location; $i++) {
@@ -66,7 +67,7 @@ print "</td></tr>\n";
 
       #display 8 images per row of the table of all images
       print "<tr><td><ul>";
-      print "<li style=\"list-style-type:none\">Location: $institution $environment $year</li>";
+      print "<li style=\"list-style-type:none\">地點 (Location): $institution $environment $year</li>";
       print "</ul></td></tr>\n";
 
       print "<tr><td>\n<center><table width=\"80%\" summary=\"\" cellspacing=\"7\">\n";
@@ -93,7 +94,7 @@ print "</td></tr>\n";
 
 	print "<td><center>";
 	print "<a href=\"/phenotype/display_property_data_from_plant.pl?pop_id=$pop_id\&amp;pop_name=$pop_name&amp;plant_id=$plant_id&amp;plant_name=$plant_name&amp;prop_id=$prop_id&amp;prop_name=$prop_name\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\">";
-	print "<img src='" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg'"." align=\"middle\" alt=\"N\.A\.\" /><br />Plant $plant_name</a>";
+	print "<img src='" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg'"." align=\"middle\" alt=\"暫無 (N\.A\.)\" /><br />植株 (Plant) $plant_name</a>";
 	
 	print "</center></td>\n";
 
@@ -112,7 +113,7 @@ print "</td></tr>\n";
   #no plants with this property... somebody playing with the link?
   else {
     print "<tr><td>";
-    print "Sorry, there are no plants currently available for this property.";
+    print "抱歉，目前暫無此性狀的植株資料。(Sorry, there are no plants currently available for this property.)";
     print "</td></tr>";
   }
 
@@ -123,7 +124,7 @@ print "</td></tr>\n";
 #no property_id or pop_name  specified, something wrong with the form or somebody playing with the link?
 else {
   print "<tr><td>";
-  print "ERROR:  No property specified";
+  print "錯誤：未指定性狀 (ERROR: No property specified)";
   print "</td></tr>";
 }
 

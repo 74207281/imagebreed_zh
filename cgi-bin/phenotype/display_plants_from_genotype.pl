@@ -3,6 +3,7 @@
 #Display page by genotype
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CGI;
@@ -18,14 +19,14 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Plants By Genotype");
+$page->header("依基因型檢視植株 (Plants By Genotype)");
 
 print <<EOF
 
 <table summary="" width="100%" cellpadding="0" cellspacing="10" border="0">
 
 <tr><td>
-<center><h3><u>Plants By Genotype</u></h3></center>
+<center><h3><u>依基因型檢視植株 (Plants By Genotype)</u></h3></center>
 </td></tr>
 
 EOF
@@ -38,11 +39,11 @@ my $param_list = "pop_id=$pop_id"."&"."pop_name=$pop_name"."&"."gen_id=$gen_id".
 my $prev_page = "genotype";
 
 print "<tr><td>\n";
-print "<b><u>Genotype Information</u></b>\n";
+print "<b><u>基因型資訊 (Genotype Information)</u></b>\n";
 print "<ul>\n";
-print "<li>Population: <a href =\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>\n";
+print "<li>族群 (Population): <a href =\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>\n";
 $gen_name = CXGN::DB::PhenoPopulation::get_gen_name_from_gen_id ($gen_id);
-print "<li>Genotype Group: <b> $gen_name</b></li>\n";
+print "<li>基因型群組 (Genotype Group): <b> $gen_name</b></li>\n";
 print "</ul>\n";
 print "</td></tr>\n";
 
@@ -53,7 +54,7 @@ print "</td></tr>\n";
     if (@plant_info_from_gen) {
 
       print "<tr><td>";
-      print "<b><u>Plants with the Selected Genotype and Population</u></b>";
+      print "<b><u>符合所選基因型與族群之植株 (Plants with the Selected Genotype and Population)</u></b>";
       print "</td></tr>\n";
 
       #plant name, location; link to page of all images by plant; list available properties
@@ -68,13 +69,13 @@ print "</td></tr>\n";
 	my $year = $plant_info_from_gen[$i][0][4];
 
         print "<tr><td>";
-        print "<ul><li style=\"list-style-type:none\"><b>Plant $plant_name</b> grown in <b>$institution $environment $year</b></li></ul>";
+        print "<ul><li style=\"list-style-type:none\"><b>植株 (Plant) $plant_name</b> 種植於 (grown in) <b>$institution $environment $year</b></li></ul>";
         print "</td></tr>\n";
 
 
         print "<tr><td>\n";
         print "<ul style=\"list-style-type:none\"><li><ul style=\"list-style-type:none\">\n"; 
-        print "<li><a href=\"/phenotype/display_samples_from_plant.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\&amp;gen_name=$gen_name\&amp;plant_name=$plant_name\&amp;plant_id=$plant_id\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\">View all images for this plant</a></li>\n";
+        print "<li><a href=\"/phenotype/display_samples_from_plant.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\&amp;gen_name=$gen_name\&amp;plant_name=$plant_name\&amp;plant_id=$plant_id\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\">檢視此植株的所有影像 (View all images for this plant)</a></li>\n";
         print "<li>&nbsp;</li>\n";
 
 	#display existing properties for this plant in a drop box
@@ -83,7 +84,7 @@ print "</td></tr>\n";
 
           print "<li>\n<form action=\"/phenotype/display_property_data_from_plant.pl\" method=\"get\">\n";
           print "<table summary=\"\" width=\"80%\">\n<tr><td align=\"left\">\n";
-          print "Property: <select name=\"prop_id\">\n";
+          print "性狀/屬性 (Property): <select name=\"prop_id\">\n";
 
 	  #go through each organ
 	  for my $j (0..$#prop_by_organ) {
@@ -113,7 +114,7 @@ print "</td></tr>\n";
           print "<input type=\"hidden\" name=\"institution\" value=\"$institution\" />\n";
           print "<input type=\"hidden\" name=\"environment\" value=\"$environment\" />\n";
           print "<input type=\"hidden\" name=\"year\" value=\"$year\" />\n";
-          print "<input type=\"submit\" value=\"Get Data by Property\" />\n";	
+          print "<input type=\"submit\" value=\"依性狀獲取資料 (Get Data by Property)\" />\n";	
           print "</td></tr>\n</table>\n";
           print "</form>\n";
           print "</li>\n";
@@ -128,14 +129,14 @@ print "</td></tr>\n";
     #no plants for this genotype
     else {
       print "<tr><td>";
-      print "Sorry, there are no plants currently available for this genotype.";
+      print "抱歉，目前暫無此基因型的植株資料。(Sorry, there are no plants currently available for this genotype.)";
       print "</td></tr>";
     }
 }
 
 else {
   print "<tr><td>";
-  print "ERROR:  No genotype has been specified";
+  print "錯誤：未指定基因型 (ERROR: No genotype has been specified)";
   print "</td></tr>";
 }
 

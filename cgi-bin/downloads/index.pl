@@ -1,43 +1,46 @@
 
 use strict;
+use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/ page_title_html info_section_html /;
 
-my $page = CXGN::Page->new("SGN software downloads", "Lukas");
+my $page = CXGN::Page->new("下載 SGN 軟體 (SGN software downloads)", "Lukas");
 
-my $title = page_title_html("Download SGN software",);
+my $title = page_title_html("下載 SGN 軟體 (Download SGN software)");
 
-$page->header("Downloads", $title);
+$page->header("下載 (Downloads)", $title);
 
 my $contents ="";
 
-$contents .= info_section_html(title=>"SGN Comparative Viewer", contents=><<CVIEW);
+$contents .= info_section_html(title=>"SGN 比較檢視器 (SGN Comparative Viewer)", contents=><<CVIEW);
 
-The SGN Comparative Viewer Application. <br /><br />
-Download  [<a href="ftp://ftp.sgn.cornell.edu/programs/cview/">FTP</a>]
+SGN 比較檢視器應用程式 (The SGN Comparative Viewer Application)。<br /><br />
+下載 (Download) [<a href="ftp://ftp.sgn.cornell.edu/programs/cview/">FTP</a>]
 
 CVIEW
 
 $contents .= info_section_html(title=>"PerlCyc", contents=><<PERLCYC);
 
-PerlCyc is a Perl interface for <a href="http://bioinformatics.ai.sri.com/ptools/">Pathway Tools software</a>. It allows internal Pathway Tools Lisp functions to be accessed through Perl. <a href="perlcyc.pl">More...</a><br /><br />
+PerlCyc 是 <a href="http://bioinformatics.ai.sri.com/ptools/">Pathway Tools 軟體</a> 的 Perl 介面。它允許透過 Perl 存取 Pathway Tools 內部的 Lisp 函式。<a href="perlcyc.pl">更多資訊 (More...)...</a><br /><br />
 
-    Download [<a href="ftp://ftp.sgn.cornell.edu/programs/perlcyc/">FTP</a>]
+    下載 (Download) [<a href="ftp://ftp.sgn.cornell.edu/programs/perlcyc/">FTP</a>]
 
 PERLCYC
 
 
 $contents .= info_section_html(title=>"JavaCyc", contents=><<JAVACYC);
 
-JavaCyc is a Java interface for Pathway Tools software. It allows internal Pathway Tools Lisp function to be accessed through Java.<br /><br />
+JavaCyc 是 Pathway Tools 軟體的 Java 介面。它允許透過 Java 存取 Pathway Tools 內部的 Lisp 函式。<br /><br />
 
-Download [<a href="ftp://ftp.sgn.cornell.edu/programs/javacyc/">FTP</a>]
+下載 (Download) [<a href="ftp://ftp.sgn.cornell.edu/programs/javacyc/">FTP</a>]
 
 JAVACYC
 
     print $contents;
 
 $page->footer();
+
 
 

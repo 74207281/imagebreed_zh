@@ -27,6 +27,7 @@ it under the same terms as Perl itself.
 =cut
 
 use Modern::Perl;
+use utf8;
 
 use English;
 use File::Basename;
@@ -51,7 +52,7 @@ use List::MoreUtils 'minmax';
 
 use constant MAX_FORMATTABLE_REPORT_FILE_SIZE => 2_000_000;
 
-our $page = CXGN::Page->new( "BLAST Search Report", "Rob");
+our $page = CXGN::Page->new( "BLAST 搜尋報告 (BLAST Search Report)", "Rob");
 our %params;
 
 our $tempfiles_subdir_rel = File::Spec->catdir($c->config->{'tempfiles_subdir'},'blast'); #path relative to website root dir
@@ -84,18 +85,19 @@ $page->header();
 
 # stuff to support AJAXy disambiguation of site xrefs
 print <<EOJS;
-<div id="xref_menu_popup" title="Match information">
+<div id="xref_menu_popup" title="比對資訊 (Match information)">
   <dl>
-    <dt>Hit region <span class="region_string"></span></dt>
+    <dt>比對命中區域 (Hit region) <span class="region_string"></span></dt>
       <dd>
-        <div style="margin: 0.5em 0"><a class="match_details" href="">View matched sequence</a></div>
+        <div style="margin: 0.5em 0"><a class="match_details" href="">檢視比對序列 (View matched sequence)</a></div>
         <div class="hit_region_xrefs"></div>
       </dd>
-    <dt>Subject sequence <span class="sequence_name"></span></dt>
+    <dt>目標主體序列 (Subject sequence) <span class="sequence_name"></span></dt>
       <dd class="subject_sequence_xrefs">
       </dd>
   </dl>
 </div>
+
 <script>
 
   function resolve_blast_ident( id, id_region, match_detail_url, identifier_url ) {
@@ -173,15 +175,15 @@ print graphics_html($raw_report_file,$formatted_report_file,$got_hits);
 
 # display the blast results
 my $report_filesize = Number::Bytes::Human::format_bytes( -s $raw_report_file );
-my $report_download_link = qq|[<a href="$raw_report_url">View / download raw report</a>] ($report_filesize)|;
+my $report_download_link = qq|[<a href="$raw_report_url">檢視／下載原始報告 (View / download raw report)</a>] ($report_filesize)|;
 my $report_text =
-  !$got_hits ? 'No hits found.'
-  : -s $raw_report_file > MAX_FORMATTABLE_REPORT_FILE_SIZE ? 'report too large to display, please right-click the link above to download it'
+  !$got_hits ? '未找到任何比對命中結果 (No hits found)。'
+  : -s $raw_report_file > MAX_FORMATTABLE_REPORT_FILE_SIZE ? '報告過大無法直接顯示，請右鍵點擊上方連結下載 (Report too large to display, please right-click the link above to download it)'
   : slurp($formatted_report_file);
 
 
 
-print info_section_html( title => 'BLAST Report',
+print info_section_html( title => 'BLAST 報告 (BLAST Report)',
                          subtitle => $report_download_link,
                          collapsible => 1,
                          contents => <<EOH);
@@ -201,10 +203,11 @@ sub format_report_file {
 
     # check if $raw_report_file exists
     unless (-e $raw_report_file) {
-        my $message = "BLAST results are automatically deleted after 7 days. You may need to run your BLAST again. "
-            . "If you feel you received this message in error, please <a href='/contact/form'>contact us</a>.";
-        $page->message_page('BLAST results not found.',$message);
+        my $message = "BLAST 結果將在 7 天後自動刪除。您可能需要重新執行您的 BLAST。"
+            . "如果您認為收到此訊息是系統錯誤，請<a href='/contact/form'>聯絡我們 (contact us)</a>。";
+        $page->message_page('找不到 BLAST 結果 (BLAST results not found)。',$message);
     }
+
 
 
     #don't do any formatting on report files that are huge
@@ -319,22 +322,22 @@ sub get_custom_formatter {
 sub graphics_html {
   my ($raw_report_file,$formatted_report_file,$got_hits) = @_;
 
-  sub section { info_section_html( title => 'Graphics', collapsible => 1, empty_message => shift, contents => shift) }
+  sub section { info_section_html( title => '圖形分析 (Graphics)', collapsible => 1, empty_message => shift, contents => shift) }
 
-  return section('not available for multiple query sequences') if $params{seq_count} > 1;
+  return section('不適用於多個查詢序列 (not available for multiple query sequences)') if $params{seq_count} > 1;
 
-  return section('available for 0 - pairwise output format only') unless $params{outformat} == 0;
+  return section('僅適用於 0 - pairwise 輸出格式 (available for 0 - pairwise output format only)') unless $params{outformat} == 0;
 
-  return section('disabled by user') if $params{output_graphs}  eq 'none';
+  return section('已被使用者停用 (disabled by user)') if $params{output_graphs}  eq 'none';
 
-  return section('No BLAST hits, graphics not generated') unless $got_hits;
+  return section('無 BLAST 比對命中，未生成圖形 (No BLAST hits, graphics not generated)') unless $got_hits;
 
   #call the bioperl graph package for a graphic of the various alignments
   my $bioperl_graph =
-    info_section_html( title => 'Alignment Summary',
+    info_section_html( title => '比對摘要圖 (Alignment Summary)',
                        is_subsection => 1,
                        collapsible => 1,
-                       empty_message => 'disabled by user',
+                       empty_message => '已被使用者停用 (disabled by user)',
                        contents => $params{output_graphs} =~ /bioperl/
                          ? bioperl_graph_html($raw_report_file)
                          : '',
@@ -342,12 +345,12 @@ sub graphics_html {
 
   #call Evan's BlastGraph package for a different type of graph
   my $evan_graph =
-    info_section_html( title => 'Conservedness Histogram',
+    info_section_html( title => '保守性長條圖 (Conservedness Histogram)',
                        is_subsection => 1,
                        collapsible => 1,
 
-                       $params{output_graphs} !~ /histogram/ ? ( empty_message => 'disabled by user' ) :
-                       $params{program} !~ /blastn/ ? (empty_message => 'not available for '.uc($params{program})) :
+                       $params{output_graphs} !~ /histogram/ ? ( empty_message => '已被使用者停用 (disabled by user)' ) :
+                       $params{program} !~ /blastn/ ? (empty_message => '不適用於 '.uc($params{program}).' (not available for '.uc($params{program}).')') :
                        (contents => conservedness_histogram_html($raw_report_file)),
                      );
 
@@ -366,19 +369,18 @@ sub conservedness_histogram_html {
                                                 graph_outfile => "$tempfiles_subdir_abs/$graph_img_filename",
                                               );
 
-  return 'graphical display not available BLAST reports larger than 1 MB' if -s $raw_report_file > 1_000_000;
+  return 'BLAST 報告大於 1 MB 時無法提供圖形顯示 (graphical display not available for BLAST reports larger than 1 MB)' if -s $raw_report_file > 1_000_000;
 
   my $errstr = $graph2->write_img();
-  $errstr and die "<b>ERROR:</b> $errstr";
+  $errstr and die "<b>錯誤 (ERROR):</b> $errstr";
 
 
   return join '',
     ( <<EOH,
-<center><b>Conservedness Histogram</b></center>
-<p>The histogram shows a count of hits <i>for each base</i> in the query sequence,
-but counts <i>only the domains BLAST finds</i>, meaning this is really more a function of region than of individual base.
-Within the graph, green shows exact base matches within conserved regions; blue shows non-matching bases within conserved regions. Gaps introduced into the query by BLAST are ignored; gaps introduced into target sequences are not.</p>
+<center><b>保守性長條圖 (Conservedness Histogram)</b></center>
+<p>此長條圖顯示查詢序列中<i>每個鹼基</i>的命中次數，但<i>僅統計 BLAST 所找到的結構域</i>，這意味著這主要反映區域特徵而非單個鹼基。在圖表中，綠色表示保守區域內的精確鹼基比對；藍色表示保守區域內的非匹配鹼基。BLAST 在查詢序列中引入的間隙會被忽略；在目標序列中引入的間隙則會計入。</p>
 EOH
+
       $graph2->get_map_html(), #code for map element (should have the name used below in the image)
       qq|<div align="center" style="color: #777777">|,
       qq|<img src="$tempfiles_subdir_rel/$graph_img_filename" border="2" usemap="#graph2map" alt="" />|,

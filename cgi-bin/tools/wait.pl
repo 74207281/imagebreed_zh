@@ -1,5 +1,7 @@
 
 use strict;
+use warnings;
+use utf8;
 use Storable qw / retrieve /;
 use File::Temp qw / tempfile /;
 use File::Copy;
@@ -15,7 +17,7 @@ use CXGN::Tools::Run;
 
 use CatalystX::GlobalContext qw( $c );
 
-my $page = CXGN::Page->new("Generic SGN Cluster Job Waiting Page", "Lukas");
+my $page = CXGN::Page->new("SGN 叢集工作等待頁面 (SGN Cluster Job Waiting Page)", "Lukas");
 
 #extra_params added since I couldn't prevent encoding/decoding merges
 # format: param1:value1::param2:value2::etc3:v3  
@@ -45,11 +47,12 @@ $job_file = catfile($tmpdir,$job_file);
 $d->d("Arguments: job_file = $job_file redirect = $redirect");
 
 unless( -f $job_file ) {
-  $c->throw( message => "Job not found.  Has it already been executed and the results retrieved?",
+  $c->throw( message => "找不到該工作。是否已執行完成並已取回結果？ (Job not found. Has it already been executed and the results retrieved?)",
              is_error => 0,
              developer_message => "Job file was '$job_file'\n",
             );
 }
+
 
 
 my $job = retrieve($job_file)
@@ -104,15 +107,15 @@ else {
 sub display_not_finished { 
 
 	my $message = shift;
-	$message ||= "Job running, please wait.";
+	$message ||= "工作正在執行中，請稍候... (Job running, please wait.)";
 
     print <<HTML;
-Content-type: text/html
+Content-type: text/html; charset=utf-8
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>Job running</title>
+<title>工作執行中 (Job running)</title>
 <meta http-equiv="Refresh" content="3" />
 <link rel="stylesheet" href="/css/sgn.css" type="text/css" />
 </head>
@@ -127,8 +130,8 @@ Content-type: text/html
     </style>
     <img src="/img/sgn_logo_animated.gif" alt="SGN logo"/>
     <h2>$message</h2>
-    <div>Please note: jobs are limited to 1 hour of run time.</div>
-    <img src="/img/progressbar1.gif" alt="In Progress..."/>
+    <div>請注意：工作執行時間上限為 1 小時。(Please note: jobs are limited to 1 hour of run time.)</div>
+    <img src="/img/progressbar1.gif" alt="處理中 (In Progress)..."/>
 </body>
 </html>
 HTML
@@ -138,7 +141,7 @@ HTML
 sub display_finished { 
     my $link = shift;
 
-    my $title = page_title_html("Job completed.");
+    my $title = page_title_html("工作已完成 (Job completed)。");
 
     $page->header();
 
@@ -148,7 +151,7 @@ sub display_finished {
 <center>
 
 <br />
-<a href="$link"><b>View Result</b></a>
+<a href="$link"><b>檢視結果 (View Result)</b></a>
 <br /><br /><br />
 </center>
 
@@ -160,3 +163,4 @@ HTML
 
 $page->footer();
 }
+
