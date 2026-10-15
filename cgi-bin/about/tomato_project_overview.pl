@@ -1,4 +1,6 @@
 use strict;
+use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/info_section_html columnar_table_html info_table_html/;
@@ -8,38 +10,29 @@ $page->add_style(text => <<EOS);
 #seqpeople a.person {}
 #seqpeople div.org {padding-left: 1em; white-space: nowrap;}
 EOS
-$page->header(('International Tomato Sequencing Project Overview') x 2);
-print info_section_html( title => 'Abstract',
+$page->header(('國際番茄定序專案總覽(International Tomato Sequencing Project Overview)') x 2);
+print info_section_html( title => '摘要(Abstract)',
 			 contents => <<EOH);
 EOH
 
-print info_section_html( title => 'Objectives',
+print info_section_html( title => '目標(Objectives)',
 			 contents => <<EOH);
-The objectives of the tomato sequencing project are to:
+番茄定序專案的目標為：(The objectives of the tomato sequencing project are to:)
 
 <ol>
-  <li>produce a contiguous sequence of the gene rich,
-  euchromatic arms of each of the 12 tomato
-  chromosomes</li>
+  <li>產生 12 條番茄染色體中每條染色體富含基因之真染色質臂的連續序列(produce a contiguous sequence of the gene rich, euchromatic arms of each of the 12 tomato chromosomes)</li>
 
-  <li>process and annotate this sequence in a manner
-  consistent and compatible with similar data from
-  Arabidopsis, rice and other plant species.</li>
+  <li>以與來自擬南芥、水稻和其他植物物種的類似數據一致且相容的方式處理和註解此序列。(process and annotate this sequence in a manner consistent and compatible with similar data from Arabidopsis, rice and other plant species.)</li>
 
-  <li>create an international bioinformatics portal for
-  comparative Solanaceae genomics which can store,
-  process, and make available to the public the sequence
-  data and derived information from this project and
-  associated genomics activities in other solanaceous
-  plants</li>
+  <li>建立比較茄科基因組學的國際生物資訊入口網站，以儲存、處理並向公眾提供來自本專案的序列數據和衍生資訊，以及其他茄科植物的相關基因組活動。(create an international bioinformatics portal for comparative Solanaceae genomics which can store, process, and make available to the public the sequence data and derived information from this project and associated genomics activities in other solanaceous plants)</li>
 </ol>
 EOH
 
-print info_section_html( title => 'More Project Documents',
+print info_section_html( title => '更多專案文件(More Project Documents)',
 			 contents => <<EOH);
 <ul>
-<li><a href="/about/tomato_sequencing.pl">International Tomato Genome Sequencing Project Home</a></li>
-<li><a href="/about/tomato_sequencing_scope.pl">Tomato Sequencing Scope and Completion Criteria</a></li>
+<li><a href="/about/tomato_sequencing.pl">國際番茄基因組定序專案首頁(International Tomato Genome Sequencing Project Home)</a></li>
+<li><a href="/about/tomato_sequencing_scope.pl">番茄定序範圍與完成標準(Tomato Sequencing Scope and Completion Criteria)</a></li>
 </ul>
 EOH
 
@@ -62,23 +55,23 @@ sub people_list {
 }
 
 print info_section_html
-  ( title => 'Participants and Funding',
+  ( title => '參與者與資助(Participants and Funding)',
     contents => ''
     .qq|<div align="right">\n|
     .info_table_html( __multicol => 2,
-		      'Est. Total MBases' => 219, 'Est. Total BACs' => 2276,
+		      '預估總百萬鹼基數(Est. Total MBases)' => 219, '預估總 BAC 數(Est. Total BACs)' => 2276,
 		    )
     ."</div>\n"
     .columnar_table_html
     (
      headings => [
-		   'Chr.',
-		   'Country',
-		   'People',
-		   'Grant Agency',
-		   'Target Deadline',
-		   'Est. Euchromatin Size (Mb)',
-		   'Est. # BACs',
+		   '染色體(Chr.)',
+		   '國家(Country)',
+		   '人員(People)',
+		   '資助機構(Grant Agency)',
+		   '目標截止日期(Target Deadline)',
+		   '預估真染色質大小 (Mb)(Est. Euchromatin Size (Mb))',
+		   '預估 BAC 數量(Est. # BACs)',
 		  ],
      __border => 1,
      __align => 'ccllccc',
