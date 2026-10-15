@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 package CXGN::Chado::Pub::PubForm;
 my $pub_form = CXGN::Chado::Pub::PubForm->new();
@@ -43,7 +44,7 @@ sub define_object {
 
 
     unless ( ( $pub_id =~ m /^\d+$/ || !$pub_id  )  ) {
-        $json_hash{error}="No publication exists for identifier $pub_id";
+        $json_hash{error}="找不到識別碼 $pub_id 的文獻 (No publication exists for identifier $pub_id)";
     }
     $self->set_json_hash(%json_hash);
     $self->set_primary_key("pub_id");
@@ -83,7 +84,7 @@ sub store {
 	$self->SUPER::store(); #this sets $json_hash{validate} if the form validation failed.
 	$pub_id = $pub->get_pub_id() ;
     } catch {
-	$error = " An error occurred. Cannot store to the database\n An  email message has been sent to the SGN development team";
+	$error = " 發生錯誤。無法儲存至資料庫 (An error occurred. Cannot store to the database)\n 已發送電子郵件至 SGN 開發團隊";
 	CXGN::Contact::send_email('pub_ajax_form.pl died', $error . "\n" . $_ , 'sgn-bugs@sgn.cornell.edu');
     };
     
@@ -123,7 +124,7 @@ sub delete {
             $message = $pub->delete ;
 	    $json_hash{error} = $message;
 	}catch {
-            $json_hash{error} = " An error occurred. Cannot delete publication\n An  email message has been sent to the SGN development team";
+            $json_hash{error} = " 發生錯誤。無法刪除文獻 (An error occurred. Cannot delete publication)\n 已發送電子郵件至 SGN 開發團隊";
             $self->send_form_email({subject=>"Publication delete failed!  ($pub_id) $_", mailing_list=>'sgn-db-curation@sgn.cornell.edu', refering_page=>"www.solgenomics.net".$refering_page, action=>'delete'});
         };
         $json_hash{reload} = 1;
@@ -152,11 +153,11 @@ sub generate_form {
     my @types = qw |journal book curator |;
 
     #########
-    my $author_example = tooltipped_text('Authors', 'Author names should be entered in the order of  last name, followed by "," then first name followed by ".". e.g Darwin, Charles. van Rijn, Henk. Giorgio,AB'); 
+    my $author_example = tooltipped_text('作者 (Authors)', '作者姓名應依照姓氏，接著「,」，然後名字接著「.」的順序輸入。例如：Darwin, Charles. van Rijn, Henk. Giorgio,AB (Author names should be entered in the order of  last name, followed by "," then first name followed by ".")'); 
 
     if ($self->get_action =~ /new|edit/ ) { 
 	$form->add_select(
-            display_name       => "Publication type",
+            display_name       => "文獻類型 (Publication type)",
             field_name         => "cvterm_name",
             contents           => $pub->get_cvterm_name(),
             length             => 20,
@@ -168,7 +169,7 @@ sub generate_form {
             );
     }
     $form->add_textarea(
-	display_name => "Title",
+	display_name => "標題 (Title)",
 	field_name   => "title",
 	object       => $pub,
 	getter       => "get_title",
@@ -178,7 +179,7 @@ sub generate_form {
 	rows         => 1,
 	);
     $form->add_field(
-	display_name       => "Series name",
+	display_name       => "期刊/系列名稱 (Series name)",
 	field_name         => "series_name",
 	object             => $pub,
 	getter             => "get_series_name",
@@ -187,21 +188,21 @@ sub generate_form {
 	);
     
     $form->add_field(
-	display_name       => "Volume",
+	display_name       => "卷 (Volume)",
 	field_name         => "volume",
 	object             => $pub,
 	getter             => "get_volume",
 	setter             => "set_volume",
 	);
     $form->add_field(
-	display_name       => "Issue",
+	display_name       => "期 (Issue)",
 	field_name         => "issue",
 	object             => $pub,
 	getter             => "get_issue",
 	setter             => "set_issue",
 	);
     $form->add_field(
-	display_name       => "Year",
+	display_name       => "年份 (Year)",
 	field_name         => "year",
 	object             => $pub,
 	getter             => "get_pyear",
@@ -209,7 +210,7 @@ sub generate_form {
 	validate           => 'integer',
 	);
     $form->add_field(
-	display_name       => "Pages",
+	display_name       => "頁碼 (Pages)",
 	field_name         => "pages",
 	object             => $pub,
 	getter             => "get_pages",
@@ -227,7 +228,7 @@ sub generate_form {
 	);
 
     $form->add_textarea(
-	display_name       => "Abstract",
+	display_name       => "摘要 (Abstract)",
 	field_name         => "abstract",
 	object             => $pub,
 	getter             => "get_abstract",
