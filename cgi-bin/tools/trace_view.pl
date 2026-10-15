@@ -1,21 +1,23 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Chromatogram;
 use URI::Escape;
 use CatalystX::GlobalContext '$c';
 
-my $page = CXGN::Page->new( "Chromatogram viewer", "john" );
+my $page = CXGN::Page->new( "色譜圖檢視器 (Chromatogram viewer)", "john" );
 my ( $file, $temp ) = $page->get_encoded_arguments( 'file', 'temp' );
 if ($file) {
 
 #do not accept files specified with /. because that might be an attempt to view some other file that they
 #are not allowed to view
     if ( $file =~ /\/\./ ) {
-        $page->message_page( 'Invalid file location.',
+        $page->message_page( '無效的檔案位置 (Invalid file location)。',
             '', '', "Invalid file location: $file" );
     }
+
 
     #if it's a tempfile, look in the tempfile location
     if ($temp) {
@@ -86,24 +88,25 @@ s/trace_files/data\/prod\/public\/pgn_data_processing\/processed_traces\//;
             }
             else {
                 $page->message_page(
-'Sorry, but the viewer does not support this type of chromatogram file.'
+'抱歉，檢視器不支援此種類型的色譜圖檔案 (Sorry, but the viewer does not support this type of chromatogram file)。'
                 );
             }
         }
     }
     else {
-        $page->message_page( 'Invalid file location.',
+        $page->message_page( '無效的檔案位置 (Invalid file location)。',
             '', '', "Chromatogram file not found at $file" );
         print STDERR
           "/cgi-bin/tools/trace_view.pl: invalid file location: $file\n";
     }
 
     #create the page
-    $page->header("Chromatogram viewer: $temp_image_filename");
+    $page->header("色譜圖檢視器 (Chromatogram viewer): $temp_image_filename");
     print
 "<center><h4>$temp_image_filename</h4></center><img src=\"$display_pngfile\" border=\"0\">";
     $page->footer();
 }
 else {
-    $page->message_page('Invalid arguments.');
+    $page->message_page('無效的參數 (Invalid arguments)。');
 }
+

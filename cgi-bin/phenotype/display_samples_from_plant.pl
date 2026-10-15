@@ -3,6 +3,7 @@
 #Display thumbnails of all images of a given plant
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CGI;
@@ -25,14 +26,14 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Samples From Plant");
+$page->header("植株樣本 (Samples From Plant)");
 
 print <<EOF
 
 <table summary="" width="100%" cellpadding="0" cellspacing="10" border="0">
 
 <tr><td>
-<center><h3><u>Samples From Plant</u></h3></center>
+<center><h3><u>植株樣本 (Samples From Plant)</u></h3></center>
 </td></tr>
 EOF
 ;
@@ -41,12 +42,12 @@ if ($pop_name && $gen_name && $plant_name) {
 
 #display plant information & link
 print "<tr><td>";
-print "<b><u>Plant Information</u></b>";
+print "<b><u>植株資訊 (Plant Information)</u></b>";
 print "<ul>";
-  print "<li>Population: <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>";
-  print "<li>Genotype Group: <b> $gen_name</b></li>";
-  print "<li>Plant Name: <b> $plant_name</b></li>";
-  print "<li>Location Grown: <b> $institution $environment $year</b></li>"; 
+  print "<li>族群 (Population): <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>";
+  print "<li>基因型群組 (Genotype Group): <b> $gen_name</b></li>";
+  print "<li>植株名稱 (Plant Name): <b> $plant_name</b></li>";
+  print "<li>種植地點 (Location Grown): <b> $institution $environment $year</b></li>"; 
 print "</ul>";
 print "</td></tr>";
 
@@ -58,7 +59,7 @@ print "</td></tr>";
     #display thumbnail images by organ and then sample
     if (@image_info_by_organ) {
       print "<tr><td>";
-      print "<b><u>All Images for the Selected Plant</u></b>";
+      print "<b><u>所選植株的所有影像 (All Images for the Selected Plant)</u></b>";
 
       my $i;
       for my $i (0..$#image_info_by_organ) {
@@ -67,7 +68,7 @@ print "</td></tr>";
 	#display organ name
 	my $organ_name = $image_info_by_organ[$i][0][4];
 	print "<ul>";
-	print "<li style=\"list-style-type:none\">$organ_name images</li>";
+	print "<li style=\"list-style-type:none\">$organ_name 影像 ($organ_name images)</li>";
 	print "</ul>";
 
 	print "<center><table summary=\"\" cellspacing=\"7\">";
@@ -96,13 +97,13 @@ print "</td></tr>";
 
 
 	   if ($sample_group eq $sample_name) {
-	     print "<img src=\"" . $gen_image_dir . "thumbnails/" .$no_ext ."_thumbnail\.jpg\""." align=\"middle\" alt=\"N/A\" /><br />Sample $sample_name</a>\n";
+	     print "<img src=\"" . $gen_image_dir . "thumbnails/" .$no_ext ."_thumbnail\.jpg\""." align=\"middle\" alt=\"暫無 (N/A)\" /><br />樣本 (Sample) $sample_name</a>\n";
 	   }
 	  elsif ($sample_group eq "0") {
-	    print "<img src=\"" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg\""." align=\"middle\" alt=\"N/A\" /><br />Sample $sample_name</a>\n";
+	    print "<img src=\"" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg\""." align=\"middle\" alt=\"暫無 (N/A)\" /><br />樣本 (Sample) $sample_name</a>\n";
 	  }
 	  else {
-	    print "<img src=\"" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg\""." align=\"middle\" alt=\"N/A\" /><br />Sample $sample_group</a>\n";
+	    print "<img src=\"" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg\""." align=\"middle\" alt=\"暫無 (N/A)\" /><br />樣本 (Sample) $sample_group</a>\n";
 	  }
 
 	  print "</td>\n";
@@ -133,7 +134,7 @@ print "</td></tr>";
     #no images found...
       else {
       print "<tr><td>";
-      print "Sorry, there are no images currently available for this plant.";
+      print "抱歉，目前暫無此植株的影像資料。(Sorry, there are no images currently available for this plant.)";
       print "</td></tr>";
     }
 
@@ -142,7 +143,7 @@ print "</td></tr>";
   #no plant_id passed into this page... somebody playing with the link?
   else {
     print "<tr><td>";
-    print "ERROR:  No plant has been specified";
+    print "錯誤：未指定植株 (ERROR: No plant has been specified)";
     print "</td></tr>";
   }
 
@@ -152,7 +153,7 @@ print "</td></tr>";
 
 else {
   print "<tr><td>";
-  print "ERROR:  No population, genotype, and/or plant has been specified";
+  print "錯誤：未指定族群、基因型及/或植株 (ERROR: No population, genotype, and/or plant has been specified)";
   print "</td></tr>";
 }
 

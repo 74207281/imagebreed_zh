@@ -48,12 +48,14 @@ Search code by Chenwei Lin (cl295@cornell.edu) with edits by Robert Albright (rf
 =cut
 
 use strict;
+use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/  page_title_html
                                        blue_section_html  /;
 use Bio::SeqIO;
 
-our $page = CXGN::Page->new("SSR Search Results", "rfa5");
+our $page = CXGN::Page->new("SSR 搜尋結果 (SSR Search Results)", "rfa5");
 use CatalystX::GlobalContext qw( $c );
 
 if ($c->req->method() ne "POST") {
@@ -78,7 +80,7 @@ if (defined $upload) {
 }
 
 if ($seq_data eq "") {
-    user_error($page, "No sequence was entered!");
+    user_error($page, "未輸入任何序列！ (No sequence was entered!)");
 }
 
 
@@ -90,12 +92,13 @@ if ($output_type eq "tab") {
     print $out{tab};
 } elsif ($output_type eq "html") {
     $page->header();
-    print page_title_html("SSR Search Results");
-    print blue_section_html("$out{num} SSRs Found",'<table width="100%" cellpadding="5" cellspacing="0" border="0" summary=""><tr><td>' . $out{html} . '</td></tr></table>');
+    print page_title_html("SSR 搜尋結果 (SSR Search Results)");
+    print blue_section_html("找到 $out{num} 個 SSR ($out{num} SSRs Found)",'<table width="100%" cellpadding="5" cellspacing="0" border="0" summary=""><tr><td>' . $out{html} . '</td></tr></table>');
     $page -> footer();    
 } else {
-    user_error($page, "Unrecognized output type!");
+    user_error($page, "無法識別的輸出類型！ (Unrecognized output type!)");
 }
+
 
 sub search {
     (@_ == 4) or die "Please supply minimum unit length, maximum unit length, minimum repeat time, input sequence (in blast format), true if output should be HTML, false if tab delimited.";
@@ -111,7 +114,7 @@ sub search {
 				 );
 
     #Search and write result to output file
-    my $result_table = '<table width="100%"><tr><th>Sequence</th><th>Motif</th><th>Repeat</th><th>Start</th><th>Length</th></tr>'."\n";
+    my $result_table = '<table width="100%"><tr><th>序列 (Sequence)</th><th>基序 (Motif)</th><th>重複次數 (Repeat)</th><th>起始位置 (Start)</th><th>長度 (Length)</th></tr>'."\n";
     my $result_tab   = "Sequence\tMotif\tRepeat\tStart\tLength\n";
     
     open OUT_TAB, "+>>", \$result_tab or die "Couldn't open output file\n";
@@ -167,9 +170,9 @@ sub post_only {
 
   print <<EOF;
 
-  <h4>SGN SSR Interface Error</h4>
+  <h4>SGN SSR 介面錯誤 (SGN SSR Interface Error)</h4>
 
-  <p>SSR subsystem can only accept HTTP POST requests</p>
+  <p>SSR 子系統僅接受 HTTP POST 請求 (SSR subsystem can only accept HTTP POST requests)</p>
 
 EOF
 
@@ -183,7 +186,7 @@ sub user_error {
 
   print <<EOF;
 
-  <h4>SGN SSR Interface Error</h4>
+  <h4>SGN SSR 介面錯誤 (SGN SSR Interface Error)</h4>
 
   <p>$reason</p>
 EOF
@@ -191,3 +194,4 @@ EOF
   $page->footer();
   exit(0);
 }
+

@@ -7,6 +7,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use Bio::SearchIO;
@@ -23,6 +24,7 @@ package SigpepFind;
 use strict;
 use CatalystX::GlobalContext '$c';
 use warnings;
+use utf8;
 use English;
 
 sub new {
@@ -41,7 +43,7 @@ sub new {
     $obj->{output} = "";    #raw HMMER output
     $obj->{tmpdir} =$c->path_to( $c->tempfiles_subdir( 'sigpep_finder' ) );
     $obj->{hmmsearch_path} = $c->config->{'hmmsearch_location'};
-    $obj->{page} = CXGN::Page->new( "Signal Peptide Finder", "Evan" );
+    $obj->{page} = CXGN::Page->new( "訊號胜肽預測工具 (Signal Peptide Finder)", "Evan" );
     $obj->{content} = "";    #the output HTML
 
     bless( $obj, $classname );   #use $obj as an object of this type from now on
@@ -104,17 +106,17 @@ sub check_input {
 
     #process input from textbox and fill seqarray
     my $error_msg =
-      $self->read_sequences( $self->{sequences}, 'sequence input box' )
+      $self->read_sequences( $self->{sequences}, '序列輸入框 (sequence input box)' )
       ;    #includes the period at the end of a sentence
     if ( $error_msg ne '' ) {
-        $self->print_warning("$error_msg Skipping the rest of the input.");
+        $self->print_warning("$error_msg 跳過剩餘的輸入內容。(Skipping the rest of the input.)");
     }
 
     #process input from uploaded file and fill seqarray
     $error_msg =
-      $self->read_sequences( $self->{file_contents}, 'uploaded file' );
+      $self->read_sequences( $self->{file_contents}, '上傳檔案 (uploaded file)' );
     if ( $error_msg ne '' ) {
-        $self->print_warning("$error_msg Skipping the rest of the input.");
+        $self->print_warning("$error_msg 跳過剩餘的輸入內容。(Skipping the rest of the input.)");
     }
 
     #print extracted sequence info
@@ -156,9 +158,9 @@ sub read_sequences {
             $seq_count++;
             my $temp_seq = uc $seq->seq();
             if ( my $illegals = $self->contains_illegal_alphabet($temp_seq) ) {
-                $self->print_warning( "Sequence #$seq_count ("
-                      . ( $seq->id || 'no name' )
-                      . ") in the $input_loc contains illegal character(s) '$illegals', skipping."
+                $self->print_warning( "於 $input_loc 中第 $seq_count 條序列 ("
+                      . ( $seq->id || '無名稱 (no name)' )
+                      . ") 包含不合法字元 '$illegals'，已跳過。(contains illegal character(s) '$illegals', skipping.)"
                 );
                 next;
             }
@@ -175,11 +177,11 @@ sub read_sequences {
         }
     };
     if ($EVAL_ERROR) {
-        $self->print_error("Sequence processing failed, please check input");
+        $self->print_error("序列處理失敗，請檢查輸入內容。(Sequence processing failed, please check input.)");
     }
 
     unless ( $valid_seqs > 0 ) {
-        $self->print_error("Sequence processing failed, no valid sequences.");
+        $self->print_error("序列處理失敗，無有效序列。(Sequence processing failed, no valid sequences.)");
     }
     return '';
 }
@@ -269,18 +271,14 @@ sub process_seqs {
         #result is a Bio::Search::Result::HMMERResult object
         my $qname = $result->query_name();
         $resultString .= <<EOHTML;
-				<h2 style="text-align: center">Results for HMM $qname</h1>
-				<p>If you elected to "show all output", note that we can't show more output than HMMER produces; it doesn't always
-				report results for all input sequences. The sequence marked "least likely" to have a signal peptide is only
-				least likely <i>among those sequences for which output was reported</i>; sequences that don't show up in the
-				results table are even less likely to start with signals.</p>
-				<p>For a detailed explanation of the output, see <a href="/documents/hmmer_userguide.pdf">the HMMER user guide (pdf)</a>. Look for the "search the
-				sequence database with hmmsearch" section.</p>
+				<h2 style="text-align: center">HMM $qname 分析結果 (Results for HMM $qname)</h2>
+				<p>若您選擇「顯示所有輸出」，請注意顯示內容受限於 HMMER 所產生的輸出；它並不一定會回報所有輸入序列的結果。標記為「可能性最低 (Least likely)」具有訊號胜肽的序列，僅代表在<i>有回報結果的序列中</i>可能性最低；未出現在結果表格中的序列，具有訊號胜肽的可能性更低。</p>
+				<p>有關輸出的詳細說明，請參閱 <a href="/documents/hmmer_userguide.pdf">HMMER 使用者手冊 (pdf)</a> 中的「search the sequence database with hmmsearch」章節。</p>
 				<table style="margin: 0 auto" border="0" cellspacing="0" cellpadding="1">
 					<tr>
-						<td align="center" bgcolor="#e0ddff"><b>&nbsp;&nbsp;&nbsp;Sequence&nbsp;&nbsp;|&nbsp;&nbsp;Domain&nbsp;&nbsp;&nbsp;</b>
-						<td align="center" bgcolor="#d0ccee"><b>&nbsp;&nbsp;&nbsp;Score&nbsp;&nbsp;|&nbsp;&nbsp;E-value&nbsp;&nbsp;&nbsp;</b>
-						<td align="center" bgcolor="#e0ddff"><b>&nbsp;&nbsp;&nbsp;Signal Likelihood&nbsp;&nbsp;&nbsp;</b>
+						<td align="center" bgcolor="#e0ddff"><b>&nbsp;&nbsp;&nbsp;序列 (Sequence)&nbsp;&nbsp;|&nbsp;&nbsp;區域 (Domain)&nbsp;&nbsp;&nbsp;</b>
+						<td align="center" bgcolor="#d0ccee"><b>&nbsp;&nbsp;&nbsp;分數 (Score)&nbsp;&nbsp;|&nbsp;&nbsp;E-值 (E-value)&nbsp;&nbsp;&nbsp;</b>
+						<td align="center" bgcolor="#e0ddff"><b>&nbsp;&nbsp;&nbsp;訊號胜肽可能性 (Signal Likelihood)&nbsp;&nbsp;&nbsp;</b>
  					</tr>
 EOHTML
         my $lineNum = 0;
@@ -288,7 +286,7 @@ EOHTML
         my $next_hit = $result->next_hit();
         if ( !$next_hit ) {
             $resultString .=
-              qq|</table>\n<div style="margin: 1em auto; text-align: center; width: 20%; color: #ff0000">[ no hits ]</div>\n|;
+              qq|</table>\n<div style="margin: 1em auto; text-align: center; width: 20%; color: #ff0000">[ 無匹配結果 (no hits) ]</div>\n|;
         }
         else {
             while ( $hit = $next_hit ) {
@@ -334,8 +332,8 @@ EOHTML
                   . $colStr1
                   . (
                       ( $lineNum == 0 )
-                    ? ( $next_hit ? "Most likely" : "n/a" )
-                    : ( !$next_hit ? "Least likely" : "&#8595;" )
+                    ? ( $next_hit ? "可能性最高 (Most likely)" : "n/a" )
+                    : ( !$next_hit ? "可能性最低 (Least likely)" : "&#8595;" )
                   )
                   . $colStr2 . "</tr>
                                                         <tr>
@@ -350,15 +348,11 @@ EOHTML
         $resultString .= <<EOHTML;
                                         <table border="0" cellspacing="10" cellpadding="0">
                                                 <tr>
-                                                        <td colspan="1" align="center"><b>HMMER histogram</b>
+                                                        <td colspan="1" align="center"><b>HMMER 直方圖 (HMMER histogram)</b>
                                                 </tr>
                                                 <tr>
                                                         <td colspan="1" align="left">
-                                                                &nbsp;&nbsp;&nbsp;The histogram compares the observed (obs) sequence score distribution to that expected 
-                                                                (exp) from a file of the same size as the one you submitted but full of random sequences. The further down 
-                                                                the page the distribution of equal signs is with respect to that of asterisks, the more likely it is that 
-                                                                your sequences contain signal peptides. If the sequences you submitted all come from the same protein family, 
-                                                                the histogram suggests how likely it is that that family is secreted.
+                                                                &nbsp;&nbsp;&nbsp;直方圖比較了觀察到的 (obs) 序列分數分佈與由相同大小但填滿隨機序列的檔案所預期的 (exp) 分佈。等號 (=) 的分佈相對於星號 (*) 在頁面中越偏向下方，您的序列包含訊號胜肽的可能性就越高。如果您提交的序列都來自同一個蛋白質家族，此直方圖可暗示該家族是否可能具備分泌性質。
                                                 </tr>
                                                 <tr>
                                                         <td align="left">
@@ -415,7 +409,7 @@ sub debug {
 #one parameter: error string (should be complete sentence(s) )
 sub print_warning {
     my $self = shift(@_);
-    $self->print( "<div><b>WARNING: " . shift(@_) . "</b></div>" );
+    $self->print( "<div><b>警告 (WARNING): " . shift(@_) . "</b></div>" );
 }
 
 #output an error to the content field and set a flag to bypass future processing
@@ -424,7 +418,7 @@ sub print_error {
     my $self = shift(@_);
     $self->print( "<div><b>"
           . shift(@_)
-          . "</b></div><div>Please press the back button and re-enter input.</div>"
+          . "</b></div><div>請點擊瀏覽器上一頁按鈕並重新輸入。(Please press the back button and re-enter input.)</div>"
     );
     $self->{error} = 1;
 }
@@ -433,7 +427,7 @@ sub print_error {
 #no parameters
 sub write_page {
     my $self = shift(@_);
-    $self->{page}->header("Signal Peptide Finder");
+    $self->{page}->header("訊號胜肽預測工具 (Signal Peptide Finder)");
     print $self->{content};
     $self->{page}->footer();
 }

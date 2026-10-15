@@ -15,9 +15,10 @@ Lukas Mueller (lam87@cornell.edu)
 
 =cut
 
-
-use CXGN::Page;
 use strict;
+use warnings;
+use utf8;
+use CXGN::Page;
 use DBI;
 use CXGN::DB::Connection;
 
@@ -35,6 +36,7 @@ $sbf -> clean_up();
 package seedbac_finder;
 
 1;
+
 
 sub new {
     my $class = shift;
@@ -81,11 +83,11 @@ sub input_box {
     my $marker = $self->get_marker();
     print <<HTML;
 
-    <h3>Seedbac finder</h3>
-    This tool will suggest a seed bac given a marker name from the tomato F2-2000 map. Experimental (overgo), computational (blast) and manual (curated from experimental evidence) associations are reported.<br /><br />
+    <h3>種子 BAC 搜尋器 (Seedbac finder)</h3>
+    此工具根據番茄 F2-2000 圖譜中的標記名稱推薦種子 BAC。報告實驗性 (overgo)、計算性 (blast) 及人工標註 (依實驗證據策展) 關聯。<br /><br />
 	<form action=\"sbfinder.pl\">
-	Marker name: <input name="marker"  value="$marker" />
-	<input type="submit" value="Submit" />
+	標記名稱 (Marker name)：<input name="marker"  value="$marker" />
+	<input type="submit" value="送出 (Submit)" />
 	</form>
 
 HTML
@@ -111,14 +113,20 @@ sub display_results {
 
     $self->input_box();
 
-    print "<br /><h3>Suggested Seedbacs for marker ".$self->get_marker()."</h3>";
+    print "<br /><h3>標記 ".$self->get_marker()." 的建議種子 BAC (Suggested Seedbacs for marker ".$self->get_marker().")</h3>";
 
     print qq { <table cellspacing="10"> };
-    print "<tr><td>BAC name</td><td>estimated length</td><td>contig name</td><td>contig size</td><td>top pick</td></tr>";
+    print "<tr><td>BAC 名稱 (BAC name)</td><td>估計長度 (estimated length)</td><td>重疊群名稱 (contig name)</td><td>重疊群大小 (contig size)</td><td>最佳選擇 (top pick)</td></tr>";
+    my %a_type_names = (
+        overgo => '實驗性 (overgo) 關聯',
+        computational => '計算性 (computational) 關聯',
+        manual => '人工標註 (manual) 關聯',
+    );
     foreach my $a_type ("overgo", "computational", "manual") {
-	print qq { <tr><td colspan="4"><b>$a_type associations</b></td></tr> };
+        my $display_type = $a_type_names{$a_type} || "$a_type 關聯";
+	print qq { <tr><td colspan="4"><b>$display_type ($a_type associations)</b></td></tr> };
 	if (!@{$bacs{$a_type}}) {
-	    print qq { <tr><td colspan="4">None found.</td></tr> };
+	    print qq { <tr><td colspan="4">未找到關聯 (None found)。</td></tr> };
 	}
 	foreach my $b (@{$bacs{$a_type}}) {
 
@@ -135,6 +143,7 @@ sub display_results {
     $self->{page}->footer();
 
 }
+
 
 sub get_bacs {
 

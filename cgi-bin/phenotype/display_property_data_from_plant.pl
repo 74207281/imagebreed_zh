@@ -3,6 +3,7 @@
 #Display all data values for a specified property and plant
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CGI;
@@ -30,14 +31,14 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Property Data From Plant");
+$page->header("植株性狀數據 (Property Data From Plant)");
 
 print <<EOF
 
 <table summary="" width="100%" cellpadding="0" cellspacing="10" border="0">
 
 <tr><td colspan="5">
-<center><h3><u>Property Data From Plant</u></h3></center>
+<center><h3><u>植株性狀數據 (Property Data From Plant)</u></h3></center>
 </td></tr>
 
 EOF
@@ -52,13 +53,13 @@ if ($plant_id && $prop_id && $prop_name) {
 
   #plant information
   print "<tr><td>\n";
-  print "<b><u>Plant Information</u></b>\n";
+  print "<b><u>植株資訊 (Plant Information)</u></b>\n";
   print "<ul>\n";
-  print "<li>Population: <a href=\"http://localhost/phenotype/population.pl?pop_id=1\"><b>$pop_name</b></a></li>\n";
-  print "<li>Genotype Group: <a href =\"display_plants_from_genotype.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\"><b>$gen_name</b></a></li>\n";
-  print "<li>Plant Name: <b>$plant_name</b></li>\n";
-  print "<li>Location: <b> $institution $environment $year</b></li>\n";
-  print "<li>Property: <a href =\"display_plants_from_property.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;prop_id=$prop_id\"><b>$prop_name</b></a> (<a href=\"http://localhost/phenotype/display_prop_list.pl\">Property Descriptions</a>)</li>\n";
+  print "<li>族群 (Population): <a href=\"/phenotype/population.pl?pop_id=1\"><b>$pop_name</b></a></li>\n";
+  print "<li>基因型群組 (Genotype Group): <a href =\"display_plants_from_genotype.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\"><b>$gen_name</b></a></li>\n";
+  print "<li>植株名稱 (Plant Name): <b>$plant_name</b></li>\n";
+  print "<li>地點 (Location): <b> $institution $environment $year</b></li>\n";
+  print "<li>性狀/屬性 (Property): <a href =\"display_plants_from_property.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;prop_id=$prop_id\"><b>$prop_name</b></a> (<a href=\"/phenotype/display_prop_list.pl\">性狀描述說明 (Property Descriptions)</a>)</li>\n";
   print "</ul>\n";
   print "</td></tr>\n";
 
@@ -70,7 +71,7 @@ if ($plant_id && $prop_id && $prop_name) {
 
   # table for thumbnails
   print "<table summary=\"\">\n";
-  print "<tr><td><b><u>Thumbnail Images of Samples with the Selected Property Measured</u></b></td></tr>\n";
+  print "<tr><td><b><u>已測量所選性狀的樣本縮圖 (Thumbnail Images of Samples with the Selected Property Measured)</u></b></td></tr>\n";
 
   my %dp_info_by_image = CXGN::DB::PhenoPopulation::get_dp_image_from_plant_and_prop($plant_id, $prop_id);
   if (%dp_info_by_image) {
@@ -96,7 +97,7 @@ if ($plant_id && $prop_id && $prop_name) {
       print "<a href=\"/phenotype/display_image_and_data.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_name=$gen_name\&amp;gen_id=$gen_id\&amp;plant_name=$plant_name\&amp;plant_id=$plant_id\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\&amp;filepath=$filepath\&amp;prop_name=$prop_name\&amp;prop_id=$prop_id\">";
 
       #display image
-      print "<img src='" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg' align=\"middle\" alt=\"N/A\" />";
+      print "<img src='" . $gen_image_dir . "thumbnails/" . $no_ext . "_thumbnail\.jpg' align=\"middle\" alt=\"暫無 (N/A)\" />";
 
       my @dp_info = @{$dp_info_by_image{$filepath_key}};
       @dp_info = sort {$a cmp $b} @dp_info;
@@ -112,10 +113,10 @@ if ($plant_id && $prop_id && $prop_name) {
 	#print sample group and sample name
 	my $fullname = $dp_info[$dp_count];
 	if ($fullname eq "ALL") {
-	  print "ALL";
+	  print "全部 (ALL)";
 	}
 	else {
-	  print "Sample $fullname";
+	  print "樣本 (Sample) $fullname";
 	}
 
       }
@@ -147,7 +148,7 @@ if ($plant_id && $prop_id && $prop_name) {
 
   #table for graph
   print "<table summary=\"\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\">";
-  print "<tr><td align=\"center\"><b><u>Data</u></b></td></tr>";
+  print "<tr><td align=\"center\"><b><u>數據 (Data)</u></b></td></tr>";
   
   print "<tr><td>";
   print "<img src=\"/documents/img/dot_clear.gif\" alt=\"\" width=\"220\" height=\"1\" />";
@@ -156,7 +157,7 @@ if ($plant_id && $prop_id && $prop_name) {
   print "<tr><td>";
   print "<table summary=\"\" border=\"1\" width=\"100%\">";
   print "<tr>";
-  print "<td width=\"50%\"><center><b>Samples</b></center></td>";
+  print "<td width=\"50%\"><center><b>樣本 (Samples)</b></center></td>";
   print "<td width=\"50%\"><center><b>";
 
   my $prev_page = "prop_data";
@@ -185,7 +186,7 @@ if ($plant_id && $prop_id && $prop_name) {
 
       my $dp_value = $dp_value_by_key{$hash_key}[$dp_count];
       if (!$dp_value || ($dp_value eq "n/a") || ($dp_value eq "-") || ($dp_value eq "no data")) {
-        $dp_value = "Not Available";
+        $dp_value = "暫無資料 (Not Available)";
       }
       if ($dp_value =~ /(\d+)((\.\d+)*)/) {
 	$dp_num++;
@@ -221,7 +222,7 @@ if ($plant_id && $prop_id && $prop_name) {
       $avg = sprintf ("%10.2f", $avg);
     }
     print "<tr>";
-    print "<td><center>Average of All Values</center></td>";
+    print "<td><center>所有數值平均值 (Average of All Values)</center></td>";
     print "<td><center>$avg</center></td>";
     print "</tr>";
   }
@@ -235,7 +236,7 @@ if ($plant_id && $prop_id && $prop_name) {
 #no specified, something wrong with the prev link or somebody playing with the link?
 else {
   print "<tr><td>";
-  print "ERROR:  plant and property has not yet been specified";
+  print "錯誤：尚未指定植株與性狀 (ERROR: Plant and property has not yet been specified)";
   print "</td></tr>";
 }
 

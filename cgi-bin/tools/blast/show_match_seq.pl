@@ -53,6 +53,7 @@ Robert Buels <rmb32@cornelle.edu>
 
 use strict;
 use warnings;
+use utf8;
 
 use CGI ();
 
@@ -93,11 +94,11 @@ my @coords =
 # look up our blastdb
 my $bdbo = CXGN::BlastDB->from_id( $blast_db_id )
     or $c->throw( is_error => 0,
-                  message => "The blast database with id $blast_db_id could not be found (please set the blast_db_id parameter).");
+                  message => "找不到 ID 為 $blast_db_id 的 BLAST 資料庫 (請設定 blast_db_id 參數) (The blast database with id $blast_db_id could not be found)。");
 
 my $seq = $bdbo->get_sequence( $id ) # returns a Bio::Seq object.
     or $c->throw( is_error => 0,
-                  message => "The sequence could not be found in the blast database with id $blast_db_id.");
+                  message => "在 ID 為 $blast_db_id 的 BLAST 資料庫中找不到該序列 (The sequence could not be found in the blast database with id $blast_db_id)。");
 
 # dispatch to the proper view
 if ( $format eq 'html' ) {
@@ -110,8 +111,8 @@ if ( $format eq 'html' ) {
         highlight_coords => \@coords,
         source           => '"'.$bdbo->title.'" BLAST dataset ',
         format_links     => [
-            ( $seq->length > 500_000 ? () : [ 'View as FASTA' => $view_link ] ),
-            [ 'Download as FASTA' => $download_link ],
+            ( $seq->length > 500_000 ? () : [ '檢視為 FASTA (View as FASTA)' => $view_link ] ),
+            [ '下載為 FASTA (Download as FASTA)' => $download_link ],
            ],
         blast_url => '/tools/blast/index.pl',
        );
@@ -120,12 +121,13 @@ if ( $format eq 'html' ) {
 
     require Bio::SeqIO;
 
-    print "Content-Type: text/plain\n";
+    print "Content-Type: text/plain; charset=utf-8\n";
     my $attachment = $format eq 'fasta_file' ? 'attachment;' : '';
     print "Content-Disposition: $attachment filename=$id.fa\n";
     print "\n";
     Bio::SeqIO->new( -fh => \*STDOUT, -format => 'fasta' )
               ->write_seq( $seq )
 }
+
 
 

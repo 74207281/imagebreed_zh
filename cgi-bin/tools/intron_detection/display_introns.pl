@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use IO::Scalar;
 use File::Temp;
@@ -13,7 +14,7 @@ use SGN::IntronFinder::Homology;
 
 my $d = CXGN::Debug->new();
 
-my $page = CXGN::Page->new( "Intron Finder Results", "Emil" );
+my $page = CXGN::Page->new( "內含子搜尋結果 (Intron Finder Results)", "Emil" );
 
 my $temp_file_path = $page->path_to($page->tempfiles_subdir('intron_detection'));
 
@@ -48,7 +49,7 @@ my $out_file = File::Temp->new(
 $out_file->close;    #< can't use this filehandle
 
 $page->header();
-print page_title_html("Intron Finder Results");
+print page_title_html("內含子搜尋結果 (Intron Finder Results)");
 
 $d->d("Runninge the intron finder command...\n");
 
@@ -76,7 +77,7 @@ SGN::IntronFinder::Homology::find_introns_txt
     );
 print $output;
 print '</pre>';
-print qq|<a href="find_introns.pl">Return to search page</a><br /><br />|;
+print qq|<a href="find_introns.pl">返回搜尋頁面 (Return to search page)</a><br /><br />|;
 
 $page->footer();
 
@@ -89,19 +90,20 @@ sub show_error {
 
     $page->add_style( text => "p.error {font-weight: bold}" );
     $page->header();
-    print page_title_html("Bad Input");
+    print page_title_html("輸入錯誤 (Bad Input)");
     if ( $errors{e_bad} ) {
         print
-"<p class=\"error\">E-value for blast should be an integer or in xe-xx format.</p>";
+"<p class=\"error\">BLAST 的 E-value 應為整數或 xe-xx 格式 (E-value for blast should be an integer or in xe-xx format)。</p>";
     }
     if ( $errors{seq_bad} ) {
-        print "<p class=\"error\">Please enter your query in FASTA format.</p>";
+        print "<p class=\"error\">請以 FASTA 格式輸入您的查詢序列 (Please enter your query in FASTA format)。</p>";
     }
     elsif ( $errors{seq_notindb} ) {
         print
-"<p class=\"error\">EST identifier $errors{unfound_seq_id} could not be found in the database. Please enter a DNA sequence for it.</p>";
+"<p class=\"error\">在資料庫中找不到 EST 識別碼 $errors{unfound_seq_id}。請輸入其 DNA 序列 (EST identifier $errors{unfound_seq_id} could not be found in the database. Please enter a DNA sequence for it)。</p>";
     }
 
-    print "<p><a href=\"find_introns.pl\">Go back</a> and try again.</p>";
+    print "<p><a href=\"find_introns.pl\">返回 (Go back)</a> 並重試。</p>";
     $page->footer();
 }
+
