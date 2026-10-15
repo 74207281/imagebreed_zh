@@ -2,6 +2,7 @@
 package main;
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Search::CannedForms;
 use CXGN::Page::FormattingHelpers qw/blue_section_html  page_title_html columnar_table_html/;
@@ -24,7 +25,7 @@ $form->from_request(\%params);
 #warn "name param is $params{w822_marker_name}\n";
 #warn "name param is ". $form->data('marker_name');
 
-$page->header('SGN: Marker search') unless $form->data('text');
+$page->header('SGN：標記搜尋 (SGN: Marker search)') unless $form->data('text');
 
 
 if($form->data('submit') && ($form->data('submit') eq 'Search') || ($form->data('random') && $form->data('random') eq 'yes')) {
@@ -161,9 +162,9 @@ if($form->data('submit') && ($form->data('submit') eq 'Search') || ($form->data(
     } else {
 
       if (@$resultset == 0){
-	print blue_section_html('No results',"Sorry, no results matched your search criteria.\n" );
+	print blue_section_html('無結果 (No results)',"抱歉，沒有符合您搜尋條件的結果。(Sorry, no results matched your search criteria.)\n" );
 
-	print '<br /><br />', blue_section_html('Search Again', form_html($form));
+	print '<br /><br />', blue_section_html('重新搜尋 (Search Again)', form_html($form));
 
       } else {
 
@@ -212,9 +213,9 @@ if($form->data('submit') && ($form->data('submit') eq 'Search') || ($form->data(
 	}
 
 	my $link = $ENV{SCRIPT_NAME};
-	my $prevlink = qq{<a href="$link?$prevparams">\&laquo; Prev $resultsize</a>};
-	my $nextlink = qq{<a href="$link?$nextparams">Next $resultsize \&raquo;</a>};
-	my $textlink = qq{[Or <a href="$link?$textparams">download these results as a text file</a>]};
+	my $prevlink = qq{<a href="$link?$prevparams">\&laquo; 上 $resultsize 筆 (Prev $resultsize)</a>};
+	my $nextlink = qq{<a href="$link?$nextparams">下 $resultsize 筆 (Next $resultsize) \&raquo;</a>};
+	my $textlink = qq{[或 <a href="$link?$textparams">下載結果為文字檔 (download text file)</a>]};
 
 	#warn "link was $link?$textparams\n";
 
@@ -227,26 +228,26 @@ if($form->data('submit') && ($form->data('submit') eq 'Search') || ($form->data(
 
 	if ($resultend >= $resultcount){
 	  # there's no next result
-	  $nextlink = qq{<span class="ghosted">Next $resultsize \&raquo;</span>};
+	  $nextlink = qq{<span class="ghosted">下 $resultsize 筆 (Next $resultsize) \&raquo;</span>};
 	}
 
 	if ($resultstart<=1){
 	  # there's no prev result
-	  $prevlink = qq{<span class="ghosted">\&laquo; Prev $resultsize</span>};
+	  $prevlink = qq{<span class="ghosted">\&laquo; 上 $resultsize 筆 (Prev $resultsize)</span>};
 	}
 
 	$resultend = $resultcount if $resultend > $resultcount;
-	my $resultsummary = "Showing results $resultstart to $resultend of $resultcount. $textlink<br />$prevlink | $nextlink<br /><br />";
+	my $resultsummary = "顯示第 $resultstart 至 $resultend 筆結果，共 $resultcount 筆。(Showing results $resultstart to $resultend of $resultcount.) $textlink<br />$prevlink | $nextlink<br /><br />";
 
 	# the form was submitted, so we should present some results.
-	print blue_section_html('Marker search results',
-				"$resultcount results found in $timeelapsed seconds",
+	print blue_section_html('標記搜尋結果 (Marker search results)',
+				"找到 $resultcount 筆結果（耗時 $timeelapsed 秒）($resultcount results found in $timeelapsed seconds)",
 				$resultsummary
 				. columnar_table_html(
-						      headings => ['Marker', 'Protocol', 'Map', 'Chromosome', 'Position', 'Confidence'],
+						      headings => ['標記 (Marker)', '實驗方法 (Protocol)', '圖譜 (Map)', '染色體 (Chromosome)', '位置 (Position)', '信心度 (Confidence)'],
 						      data => $tabledata));
 
-	print '<br /><br />', blue_section_html('Search again', form_html($form));
+	print '<br /><br />', blue_section_html('重新搜尋 (Search again)', form_html($form));
 
       } # end of if-else text output
     }
