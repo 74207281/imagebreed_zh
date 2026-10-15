@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new("Sol Genomics Network","Tyler");
-$page->header();
+$page->header('SGN 批次下載 (SGN Bulk Download)');
 print <<END_HEREDOC;
 
      <br />
@@ -13,10 +14,10 @@ print <<END_HEREDOC;
           <div class="boxcontent">
         
             <div class="subheading">
-            <u>SGN Bulk</u> 
+            <u>SGN 批次下載 (SGN Bulk)</u> 
             </div>
             <div class="boxsubcontent">
-              <a href="/bulk/input.pl">Bulk Download</a> - Download information for a list of identifiers, or for complete datasets with FTP.
+              <a href="/bulk/input.pl">批次下載 (Bulk Download)</a> - 透過識別碼清單下載資訊，或透過 FTP 下載完整資料集。<br />(Download information for a list of identifiers, or for complete datasets with FTP.)
             </div>
        
           </div>

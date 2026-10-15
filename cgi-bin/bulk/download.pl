@@ -30,6 +30,7 @@ use CatalystX::GlobalContext qw( $c );
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::DB::Connection;
@@ -218,13 +219,13 @@ sub get_parameters {
 
 sub post_only {
   my ($page) = @_;
-  $page->error_page('This page can only accept HTTP POST requests. Please go to <a href="input.pl">Bulk Download</a> to make your selections.');
+  $page->error_page('本頁面僅接受 HTTP POST 請求。請前往<a href="input.pl">批次下載 (Bulk Download)</a>進行選擇。(This page can only accept HTTP POST requests. Please go to Bulk Download to make your selections.)');
 }
 
 sub _invalid_params {
     $c->throw(
-        title    => "An Error has occured",
-        message  => "ID Type must be provided",
+        title    => "發生錯誤 (An Error has occurred)",
+        message  => "必須提供識別碼類型 (ID Type must be provided)",
         notify   => 0,
         is_error => 0,
     );
