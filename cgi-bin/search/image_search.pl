@@ -6,6 +6,7 @@
 ######################################################################
 
 use strict;
+use utf8;
 
 use CXGN::Searches::Images;
 use CXGN::Page;
@@ -18,10 +19,10 @@ use CXGN::Search::CannedForms;
 #################################################
 
 # Start a new SGN page.
-my $page=CXGN::Page->new("SGN image search results","Jessica");
+my $page=CXGN::Page->new("SGN 影像搜尋結果 (SGN image search results)","Jessica");
 $page->header();
 
-print page_title_html('Image search results');
+print page_title_html('影像搜尋結果 (Image search results)');
 
 #create the search and query objects
 my $search = CXGN::Searches::Images->new;
@@ -83,9 +84,9 @@ if(%params) {
     <div id="searchresults">
 EOH
 
-	$results_html .= columnar_table_html(headings => ['Image Description',
-							  'Image Filename',
-							  'Submitter (ID) Name'],
+	$results_html .= columnar_table_html(headings => ['影像描述 (Image Description)',
+							  '影像檔名 (Image Filename)',
+							  '提交者 (Submitter)'],
 					     data => \@results,
 					     );
 
@@ -96,12 +97,12 @@ EOH
 
 
 	if (@results) {
-	    print blue_section_html('Image search results', ,sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results,$result->time),$results_html);
+	    print blue_section_html('影像搜尋結果 (Image search results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results), $results_html);
 	}else {
-	    print '<h4>No matches found</h4>';
+	    print '<h4>未找到相符結果 (No matches found)</h4>';
 	}
 
-    print info_section_html(title    => 'Search again', 
+    print info_section_html(title    => '重新搜尋 (Search again)', 
 			    contents =>CXGN::Search::CannedForms::image_search_form($page,$query)
 			    );
     

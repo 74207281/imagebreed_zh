@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Publication;
 use CXGN::Page;
@@ -19,14 +20,14 @@ use CXGN::Chado::Publication;
 
 # Start a new SGN page.
 
-my $page = CXGN::Page->new( "SGN publcation search results", "Naama" );
+my $page = CXGN::Page->new( "SGN 文獻搜尋結果 (SGN publication search results)", "Naama" );
 
 $page->jsan_use("jquery");
 $page->jsan_use("CXGN.Phenome.Publication");
 
 $page->header();
 
-print page_title_html('SGN Publication search');
+print page_title_html('SGN 文獻搜尋 (SGN Publication search)');
 my $dbh = CXGN::DB::Connection->new;
 
 #create the search and query objects
@@ -126,7 +127,7 @@ qq|<select id="pub_curator_select" onchange="Publication.updatePubCuratorAssigne
 EOH
 
     $results_html .= columnar_table_html(
-        headings   => [ 'Title', 'Status', 'Assigned to', 'Stored' ],
+        headings   => [ '標題 (Title)', '狀態 (Status)', '指派對象 (Assigned to)', '儲存日期 (Stored)' ],
         data       => \@results,
         __alt_freq => 2,
         __align    => 'llll'
@@ -141,21 +142,21 @@ EOH
 
     if (@results) {
         print blue_section_html(
-            'Publication search results',
+            '文獻搜尋結果 (Publication search results)',
             ,
             sprintf(
-                '<span class="paginate_summary">%s matches </span>',
+                '<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>',
                 $result->total_results, $result->time
             ),
             $results_html
         );
     }
     else {
-        print '<h4>No matches found</h4>';
+        print '<h4>未找到相符結果 (No matches found)</h4>';
     }
 
     print info_section_html(
-        title => 'Search again',
+        title => '重新搜尋 (Search again)',
         contents =>
           CXGN::Search::CannedForms::publication_search_form( $page, $query )
     );

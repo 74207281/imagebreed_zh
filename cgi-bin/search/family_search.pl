@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/ 
@@ -10,10 +11,10 @@ use CXGN::Page::FormattingHelpers qw/
 use CXGN::Search::CannedForms;
 use CXGN::Searches::Family;
 
-my $page = CXGN::Page->new("SGN Family Search Results", "Chris");
+my $page = CXGN::Page->new("SGN 家族搜尋結果 (SGN Family Search Results)", "Chris");
 $page->header();
 
-print page_title_html("Family Search Results");
+print page_title_html("家族搜尋結果 (Family Search Results)");
 
 my $search = CXGN::Searches::Family->new();
 my $query = $search->new_query();
@@ -37,18 +38,18 @@ if(%params){
 
 	my $results_html = '<div id="searchresults">';
 
-	$results_html .= columnar_table_html(headings => ['Family Number', 'Number of Members', 'I-Value', 'Build #', 'Family ID', 'Annotation'], 
+	$results_html .= columnar_table_html(headings => ['家族編號 (Family Number)', '成員數量 (Number of Members)', 'I-數值 (I-Value)', '建置版本 # (Build #)', '家族 ID (Family ID)', '註解 (Annotation)'], 
 														data => \@results, __alt_freq => 2);
 
 	$results_html .= "</div>\n$pagination_html\n";
 
 	if(@results) {
-		print blue_section_html('Results', , sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results(), $result->time), $results_html);
+		print blue_section_html('搜尋結果 (Results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results(), $result->time), $results_html);
 	}
 	else {
-		print '<span class=""><h4>No matches found</h4></span>';
+		print '<span class=""><h4>未找到相符結果 (No matches found)</h4></span>';
 	}
-	print info_section_html(title => 'Search again', contents =>CXGN::Search::CannedForms::family_search_form($page, $query));
+	print info_section_html(title => '重新搜尋 (Search again)', contents =>CXGN::Search::CannedForms::family_search_form($page, $query));
 }
 
 $page->footer();
