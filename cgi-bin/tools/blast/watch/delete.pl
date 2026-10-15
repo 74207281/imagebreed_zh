@@ -1,6 +1,7 @@
 #!usr/bin/perl
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::BlastWatch;
@@ -22,24 +23,24 @@ my $dbh = CXGN::DB::Connection->new("public");
 
 my $deleted = CXGN::BlastWatch::delete_query($dbh,$sp_person_id,@bw_query_ids);
 
-unless ($deleted) { user_error($page, "ERROR: Sequence does not exist or you do not have permission to remove it.") }
+unless ($deleted) { user_error($page, "錯誤：序列不存在，或您沒有權限將其移除。(ERROR: Sequence does not exist or you do not have permission to remove it.)") }
 
 $dbh->disconnect(42);
 
 website($page);
 
 sub throw_error {
-    $c->throw( message => 'BLAST subsystem can only accept HTTP POST requests',
+    $c->throw( message => 'BLAST 子系統僅接受 HTTP POST 請求 (BLAST subsystem can only accept HTTP POST requests)',
                is_error => 0 );
 }
 
 sub website {
     my ($page) = @_;
     $page->header();
-    print page_title_html('Success!');
+    print page_title_html('成功！(Success!)');
     
     print <<EOF;
-    <p>Your query has been removed from SGN BLAST Watch.</p>
+    <p>您的查詢已從 SGN BLAST 監控中移除。(Your query has been removed from SGN BLAST Watch.)</p>
 EOF
 	
     $page->footer(); 
@@ -51,7 +52,7 @@ sub user_error {
     my $reason = shift;
     
     $page->header();
-    print page_title_html('SGN BLAST Watch Error');
+    print page_title_html('SGN BLAST 監控錯誤 (SGN BLAST Watch Error)');
 
     print <<EOF;
     <p>$reason</p>
