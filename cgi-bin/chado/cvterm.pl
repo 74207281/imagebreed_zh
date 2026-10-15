@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 use CGI qw /param/;
 use CXGN::Chado::Cvterm;
 
@@ -23,7 +24,7 @@ if ( $cvterm_accession  ) {
 }
 
 unless ( $cvterm_id && $cvterm_id =~ m /^\d+$/ ) {
-    $c->throw( is_client_error => 1, public_message => 'Invalid arguments' );
+    $c->throw( is_client_error => 1, public_message => '引數無效 (Invalid arguments)' );
 }
 
 
