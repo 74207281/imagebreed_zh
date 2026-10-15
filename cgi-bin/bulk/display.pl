@@ -15,6 +15,7 @@
 
 use strict;
 use warnings;
+use utf8;
 use CatalystX::GlobalContext '$c';
 
 bulk_display->new($c)->display_page;
@@ -149,7 +150,7 @@ sub render_html_page {
 sub render_html_table_page {
     my $self = shift;
 
-    $self->{page}->header("Bulk download results");
+    $self->{page}->header("批次下載結果 (Bulk download results)");
 
     #
     # open the file
@@ -166,7 +167,7 @@ sub render_html_table_page {
     $self->debug("Line Count in the file: $line_count");
     if ( $line_count < 2 ) {
         $self->{content} .=
-"No data was retrieved. Please verify your input parameters. Thanks.<br /><br />\n";
+"未擷取到任何資料。請確認您的輸入參數，謝謝。(No data was retrieved. Please verify your input parameters. Thanks.)<br /><br />\n";
     }
     else {
         open( F, "<" . $self->{tempdir} . "/" . $self->{dumpfile} )
@@ -199,7 +200,7 @@ sub render_html_table_page {
 
         # print table header
         $self->{content} .=
-            "<tr><td>line</td><td>"
+            "<tr><td>行號 (Line)</td><td>"
           . ( join "</td><td>", @output_fields )
           . "</td></tr>";
 
@@ -495,7 +496,7 @@ sub render_fasta_page {
 sub buttons {
     my $self  = shift;
     my $pages = ( int( $self->{line_count} / $self->{page_size} ) ) + 1;
-    $self->{content} .= "<br />Page" . $self->{page_number} . " of $pages | ";
+    $self->{content} .= "<br />第 " . $self->{page_number} . " 頁，共 $pages 頁 (Page " . $self->{page_number} . " of $pages) | ";
     $self->previousButton();
     $self->{content} .= " | ";
     $self->summaryButton();
@@ -528,10 +529,10 @@ sub nextButton {
           . ( $self->{dumpfile} )
           . "&amp;page_number="
           . ( $self->{page_number} + 1 )
-          . "\">Next Page</a>";
+          . "\">下一頁 (Next Page)</a>";
     }
     else {
-        $self->{content} .= "Next Page";
+        $self->{content} .= "下一頁 (Next Page)";
     }
 }
 
@@ -553,10 +554,10 @@ sub previousButton {
           . ( $self->{dumpfile} )
           . "&amp;page_number="
           . ( $self->{page_number} - 1 )
-          . "\">Previous Page</a>";
+          . "\">上一頁 (Previous Page)</a>";
     }
     else {
-        $self->{content} .= "Previous Page";
+        $self->{content} .= "上一頁 (Previous Page)";
     }
 }
 
@@ -577,7 +578,7 @@ sub summaryButton {
       . ( $self->{dumpfile} )
       . "&amp;idType="
       . ( $self->{idType} )
-      . "\">Summary Page</a>";
+      . "\">摘要頁面 (Summary Page)</a>";
 }
 
 =head2 newSearchButtons
@@ -592,7 +593,7 @@ sub summaryButton {
 
 sub newSearchButton {
     my $self = shift;
-    $self->{content} .= "<a href=\"input.pl\">New Search</a>";
+    $self->{content} .= "<a href=\"input.pl\">新搜尋 (New Search)</a>";
 }
 
 =head2 getFileLines
@@ -644,7 +645,7 @@ sub display_ids_notfound {
     my $self  = shift;
     my $file  = $self->{tempdir} . "/" . $self->{dumpfile} . ".notfound";
     my $count = $self->getFileLines($file);
-    $self->dumptextfile( $file, "IDs not found in the database: $count" );
+    $self->dumptextfile( $file, "資料庫中未找到的識別碼：$count (IDs not found in the database: $count)" );
 }
 
 =head2 dumptextfile
@@ -707,7 +708,7 @@ sub debug {
 
 sub no_data_error_page {
     print
-"The results of that search or not available anymore. Please repeat your search.";
+"該搜尋的結果已不再可用。請重新進行搜尋。(The results of that search are not available anymore. Please repeat your search.)";
 }
 
 =head1 BUGS
