@@ -5,6 +5,7 @@
 ######################################################################
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::Connection;
 
@@ -68,28 +69,28 @@ while (my ($rflp_id, $mrkr_id, $rflp_name, $library_name, $insert_size, $vector,
 			"</td><td align=\"center\">" . $drug_resist . "</td><td align=\"center\">" .
 			    (length $fwd_seq) . "</td><td align=\"center\">" .
 				(length $rev_seq) . "</td><td>" .
-				    ($mapped ? "mapped" : "unmapped") .
+				    ($mapped ? "已定位 (mapped)" : "未定位 (unmapped)") .
 					"</td><td align=\"center\">" . ($num_fwd_unigenes[$rflp_id] || "0") ."/" . ($num_rev_unigenes[$rflp_id] || "0") . "</td></tr>\n";
     }
 }
 $sth->finish;
 
 # Print the page.
-$page->header("Restriction Fragment Length Polymorphism Markers on SGN");
+$page->header("SGN 上的限制性片段長度多型性標記 (RFLP Markers on SGN)");
  
-print "<center><h2>Restriction Fragment Length Polymorphism Markers on SGN</h2></center>\n";
+print "<center><h2>SGN 上的限制性片段長度多型性 (RFLP) 標記<br />(Restriction Fragment Length Polymorphism Markers on SGN)</h2></center>\n";
 print "\n<table summary=\"\" width=\"100%\" align=\"center\" border=\"2\">\n<tr>\n";
-print "<td><b>RFLP<br />Marker</b></td>\n";
+print "<td><b>RFLP<br />標記 (Marker)</b></td>\n";
 # NO library info in db at this time.  Therefore, DON'T show it on the table.
 #print "<td><b>Library</b></td>\n";
-print "<td><b>Insert<br />size</b></td>\n";
-print "<td><b>Vector</b></td>\n";
-print "<td><b>Cutting<br />Site</b></td>\n";
-print "<td><b>Drug<br />Resistance</b></td>\n";
-print "<td><b>Forward<br />sequence<br />length (bp)</b></td>\n";
-print "<td><b>Reverse<br />sequence<br />length (bp)</b></td>\n";
-print "<td><b>Mapped</b></td>\n";
-print "<td><b>Unigne matches<br />fwd / rev</b></td>\n";
+print "<td><b>插入片段<br />大小 (Insert size)</b></td>\n";
+print "<td><b>載體 (Vector)</b></td>\n";
+print "<td><b>切割<br />位點 (Cutting Site)</b></td>\n";
+print "<td><b>抗藥性<br />(Drug Resistance)</b></td>\n";
+print "<td><b>正向<br />序列長度 (bp)<br />(Forward length)</b></td>\n";
+print "<td><b>反向<br />序列長度 (bp)<br />(Reverse length)</b></td>\n";
+print "<td><b>已定位<br />(Mapped)</b></td>\n";
+print "<td><b>單一基因比對<br />正向 / 反向<br />(Unigene matches)</b></td>\n";
 print "</tr>\n";
 
 print @rflplist;
