@@ -1,38 +1,34 @@
 use strict;
+use utf8;
 use CXGN::Page;
-my $page=CXGN::Page->new("Scheduled outage","Marty");
+my $page=CXGN::Page->new("預定停機維護 (Scheduled outage)","Marty");
 $page->header();
 print <<END_HEREDOC;
 
 <div>
-  <h1>Scheduled service downtime for SGN and related projects</h1>
+  <h1>SGN 及相關專案預定停機服務維護 (Scheduled service downtime for SGN and related projects)</h1>
 
   <p>
-    We are moving our servers to a new room during the week of April
-    3, 2006.  The following services will be unavailable from
-    Wednesday April 5, 2006 to Friday, April 7, 2006:
+    我們將於 2006 年 4 月 3 日當週將伺服器移至新機房。以下服務將於 2006 年 4 月 5 日（週三）至 2006 年 4 月 7 日（週五）暫停提供 (We are moving our servers to a new room during the week of April 3, 2006. The following services will be unavailable from Wednesday April 5, 2006 to Friday, April 7, 2006)：
 </p>
 
     <ul>
-      <li>ftp downloads</li>
-      <li>BAC submissions</li>
-      <li>website login</li>
-      <li>EST uploads      </li>
-      <li>mailing lists (sgn-feedback and others)</li>
+      <li>FTP 下載 (ftp downloads)</li>
+      <li>BAC 提交 (BAC submissions)</li>
+      <li>網站登入 (website login)</li>
+      <li>EST 上傳 (EST uploads)</li>
+      <li>郵件論壇 (mailing lists: sgn-feedback 及其他)</li>
     </ul>
 
 <p>
-    Additionally, our websites (sgn.cornell.edu, pgn.cornell.edu),
-    may be unavailable for short periods during these days.
+    此外，我們的網站（sgn.cornell.edu, pgn.cornell.edu）在這些日子可能會有短暫時間無法存取 (Additionally, our websites may be unavailable for short periods during these days)。
   </p>
 
   <p>
-    In case our schedule should change, we will update this page to
-    reflect our modified plans.  Please check here for further
-    announcements.
+    若排程有所變動，我們將更新此頁面以反映修改後的計畫。請查看此處以獲取後續公告 (In case our schedule should change, we will update this page to reflect our modified plans. Please check here for further announcements)。
   </p>
 
-    <h4>Photos from the server move</h4>
+    <h4>伺服器遷移照片 (Photos from the server move)</h4>
     <a href="/static_content/sgn_photos/server_move_2006/P1010103.jpg"><img src="/static_content/sgn_photos/server_move_2006/thumbs/P1010103.jpg" style="margin: 2px; float: left;" alt="" /></a>
 
     <a href="/static_content/sgn_photos/server_move_2006/P1010112.jpg"><img src="/static_content/sgn_photos/server_move_2006/thumbs/P1010112.jpg" style="margin: 2px; float: left;" alt="" /></a>
