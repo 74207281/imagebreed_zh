@@ -3,6 +3,8 @@
 #Main Page for Phenotypic Database
 
 use strict;
+use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CGI;
@@ -16,7 +18,7 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Search the Phenotype Database");
+$page->header("搜尋表型資料庫(Search the Phenotype Database)");
 
 #-------------------------------------------------
 my @populations = CXGN::DB::PhenoPopulation::get_all_populations;
@@ -51,9 +53,9 @@ print <<EOF
 
 <tr><td>
 <center>
-<h3><u>Welcome to the Phenotype Database</u></h3>
-<p>From this page, you can search the phenotype databse for data and images of all plants from all populations.</p>
-<p>There are two ways to find specific data and images: searching by genotype and phenotype.</p>
+<h3><u>歡迎使用表型資料庫(Welcome to the Phenotype Database)</u></h3>
+<p>在此頁面中，您可以搜尋表型資料庫以獲取來自所有族群之所有植株的數據與影像。(From this page, you can search the phenotype database for data and images of all plants from all populations.)</p>
+<p>有兩種方式可以尋找特定數據與影像：依基因型搜尋與依表型搜尋。(There are two ways to find specific data and images: searching by genotype and phenotype.)</p>
 </center>
 </td></tr>
 
@@ -62,7 +64,7 @@ print <<EOF
 <tr><td><img src="/documents/img/dot_clear.gif" width="1" height="10" alt="" /></td></tr>
 
 <tr><td>
-<center><h3><u>Search the Phenotype Database</u></h3></center>
+<center><h3><u>搜尋表型資料庫(Search the Phenotype Database)</u></h3></center>
 
 <center>
 <table summary="" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -76,13 +78,13 @@ print <<EOF
 EOF
 ;
 
-print "<b><u>selected POPULATION:</u> $current_pop_name</b>";
+print "<b><u>已選取的族群(selected POPULATION)：</u> $current_pop_name</b>";
 
 print <<EOF
 </td></tr>
-<tr><td><p>Below is the list of population(s) currently in the database. Select a population and click the button to search images and data in another population.</p></td></tr>
+<tr><td><p>以下是目前資料庫中的族群清單。選取族群並點擊按鈕，以搜尋另一個族群中的影像和數據。(Below is the list of population(s) currently in the database. Select a population and click the button to search images and data in another population.)</p></td></tr>
 <tr><td valign="top" align="left">
-All Populations:
+所有族群(All Populations)：
 <select name="pop_id">
 EOF
 ;
@@ -95,7 +97,7 @@ print <<EOF
 </select>
 </td>
 <td valign="top" align="right">
-<input type="submit" value="Change Population" />
+<input type="submit" value="變更族群(Change Population)" />
 </td></tr>
 </table>
 </form>
@@ -107,16 +109,15 @@ print <<EOF
 <form action="/phenotype/display_plants_from_genotype.pl" method="get">
 <table summary="">
 <tr><td>
-<b><u>Search By GENOTYPES</u></b>
+<b><u>依基因型搜尋(Search By GENOTYPES)</u></b>
 </td></tr>
-<tr><td><p>Below is a list of all <b>genotypes</b> in the selected population above -  
-selecting a genotype will take you to a page of plants with the selected genotype.  This new page will have links to all images and data of these plants:</p></td></tr>
+<tr><td><p>以下是上方所選族群中的所有<b>基因型(genotypes)</b>清單 - 選取基因型將引導您至具有所選基因型的植株頁面。該新頁面將包含這些植株的所有影像和數據連結：(Below is a list of all genotypes in the selected population above - selecting a genotype will take you to a page of plants with the selected genotype. This new page will have links to all images and data of these plants:)</p></td></tr>
 <tr><td valign="top" align="left">
 
 EOF
 ;
 
-print "Genotypes in <b>$current_pop_name</b>:";
+print "<b>$current_pop_name</b> 中的基因型(Genotypes)：";
 print "<select name=\"gen_id\">";
 for my $i (0..$#genotypes) {
   print "<option value = \"$genotypes[$i][0]\"> $genotypes[$i][1]</option>";
@@ -128,7 +129,7 @@ print "<input type=\"hidden\" name=\"pop_name\" value=\"$current_pop_name\" />";
 print <<EOF
 </td>
 <td valign="top" align="right">
-<input type="submit" value="get Plants by Genotype" />
+<input type="submit" value="依基因型取得植株(get Plants by Genotype)" />
 </td></tr>
 </table>
 </form>
@@ -138,19 +139,18 @@ print <<EOF
 <tr><td>
 <form action="/phenotype/display_plants_from_property.pl" method="get">
 <table summary=""><tr><td>
-<b><u>Search By PROPERTIES</u></b> (<a href="display_prop_list.pl">Property Descriptions</a>)
+<b><u>依性狀/屬性搜尋(Search By PROPERTIES)</u></b> (<a href="display_prop_list.pl">性狀描述(Property Descriptions)</a>)
 </td></tr>
 <tr><td>
 EOF
 ;
 
-print "<p>Below is a list of all <b>properties</b> measured in the selected population above - 
-selecting a property will take you to a page of plants with the selected property measured.  This new page will have links to each plant's sample data and images:</p>";
+print "<p>以下是上方所選族群中測量的所有<b>性狀/屬性(properties)</b>清單 - 選取性狀將引導您至測量了所選性狀的植株頁面。該新頁面將包含每株植株的樣本數據與影像連結：(Below is a list of all properties measured in the selected population above - selecting a property will take you to a page of plants with the selected property measured. This new page will have links to each plant's sample data and images:)</p>";
 
 print "</td></tr>";
 print "<tr><td width=\"100%\" valign=\"top\" align=\"left\">";
 
-print "Properties in <b>$current_pop_name</b>:";
+print "<b>$current_pop_name</b> 中的性狀(Properties)：";
 print "<select name=\"prop_id\">";
 
 for (0..$#prop_info_by_organ) {
@@ -175,7 +175,7 @@ print <<EOF
 
 </td>
 <td width="100%" valign="top" align="right">
-<input type="submit" value="get Plants by Property" />
+<input type="submit" value="依性狀取得植株(get Plants by Property)" />
 </td></tr></table>
 </form>
 </td></tr>
@@ -194,18 +194,18 @@ print <<EOF
 
 <!--terminology-->
 <tr><td>
-<center><h3><u>Terminology</u></h3></center>
+<center><h3><u>術語詞彙(Terminology)</u></h3></center>
 
 <table summary="" width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr><td>
 
 <dl>
-<dt><b>Population</b></dt>
-<dd>all the organisms that constitute a specific group or occur in a specified location.</dd>
-<dt><br /><b>Genotype</b></dt>
-<dd>a group of organisms sharing a specific genetic constitution.</dd>
-<dt><br /><b>Property/Phenotype</b></dt>
-<dd>the observable physical or biochemical characteristics of an organism, as determined by both genetic makeup and environmental influences.</dd>
+<dt><b>族群(Population)</b></dt>
+<dd>構成特定群體或出現在特定地點的所有生物。(all the organisms that constitute a specific group or occur in a specified location.)</dd>
+<dt><br /><b>基因型(Genotype)</b></dt>
+<dd>共享特定遺傳組成的生物群體。(a group of organisms sharing a specific genetic constitution.)</dd>
+<dt><br /><b>性狀/表型(Property/Phenotype)</b></dt>
+<dd>由遺傳組成和環境影響共同決定的生物體可觀察到的物理或生化特徵。(the observable physical or biochemical characteristics of an organism, as determined by both genetic makeup and environmental influences.)</dd>
 </dl>
 
 </td></tr>
