@@ -1,14 +1,15 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('Summer_Internship_2008.html','html2pl converter');
-$page->header('2008 Summer Interns');
+$page->header('2008 年暑期實習生 (2008 Summer Interns)');
 print<<END_HEREDOC;
 
 <div class="boxbgcolor2">
 
-<h2 align="center">2008 Bioinformatics Summer Interns</h2>
+<h2 align="center">2008 年生物資訊暑期實習生 (2008 Bioinformatics Summer Interns)</h2>
 
-<p>Four students participated in our Bioinformatics Summer Internship Program offered through the NSF-funded project entitled Sequence and annotation of the tomato euchromatin:  a framework for Solanceae comparative biology (http://www.sgn.cornell.edu/about/tomato_project_overview.pl). The internships provide opportunities in bioinformatics training for undergraduates and high school students.  Below are photographs of the 2008 summer interns along with descriptions of their projects.  For information on the internships, contact Dr. Joyce Van Eck (jv27\@cornell.edu).</p>
+<p>共有四位學生參加了我們透過美國國家科學基金會 (NSF) 資助專案「番茄真染色質定序與註解：茄科比較生物學架構 (Sequence and annotation of the tomato euchromatin: a framework for Solanaceae comparative biology)」(<a href="/about/tomato_project_overview.pl">專案詳情</a>) 提供的生物資訊暑期實習計畫。該實習計畫為大學生和高中生提供生物資訊培訓機會。以下為 2008 年暑期實習生照片及其專案描述。有關實習資訊，請聯絡 Joyce Van Eck 博士 (jv27\@cornell.edu)。(Four students participated in our Bioinformatics Summer Internship Program offered through the NSF-funded project. The internships provide opportunities in bioinformatics training for undergraduates and high school students. Below are photographs of the 2008 summer interns along with descriptions of their projects.)</p>
 
 <br />
 
@@ -17,26 +18,26 @@ print<<END_HEREDOC;
 <tr><td><strong>Carolyn Ochoa</strong></td></tr>
 <tr>
 <td><img src="/static_content/sgn_photos/interns_2008/cochoa.jpg" /></td>
-<td>Carolyn is a recent graduate of Ramapo College. During her internship at SGN, she analyzed the promoter regions of tomato contigs for transcription factor binding motifs, grouped the tomato contigs into their corresponding biochemical pathways according to the LycoCyc database, and used MEME to predict motifs and compare them to known motifs found in the PlantCARE database. She then performed the same analyses on Arabidopsis promoters and compared results.</td>
+<td>Carolyn 是拉馬波學院的應屆畢業生。在 SGN 實習期間，她分析了番茄重疊群 (contig) 啟動子區域的轉錄因子結合基序，根據 LycoCyc 資料庫將番茄重疊群分組到相應的生化途徑中，並使用 MEME 預測基序並與 PlantCARE 資料庫中發現的已知基序進行比較。隨後她對擬南芥啟動子進行了相同的分析並比較了結果。<br />(Carolyn is a recent graduate of Ramapo College. During her internship at SGN, she analyzed the promoter regions of tomato contigs for transcription factor binding motifs, grouped the tomato contigs into their corresponding biochemical pathways according to the LycoCyc database, and used MEME to predict motifs and compare them to known motifs found in the PlantCARE database. She then performed the same analyses on Arabidopsis promoters and compared results.)</td>
 </tr>
 
 <tr><td><br /><strong>Mallory Freeberg</strong></td></tr>
 <tr>
 <td><img src="/static_content/sgn_photos/interns_2008/mfreeberg.jpg" /></td>
-<td>Mallory is an undergraduate student at Saint Vincent College. During her internship at SGN, she wrote a motif finder to find commonly occurring sequence motifs within the untranslated regions (UTRs) of Solanaceae unigenes. After finding possible motifs, she compared these sequences to known coding sequences, vector sequences, etc, in order to determine whether or not they are truly UTRs. The goal was to create a set of motifs that are biologically significant and which should be further studied in the laboratory to find out how they function.</td>
+<td>Mallory 是聖文森特學院的大學生。在 SGN 實習期間，她編寫了一個基序尋找工具，用於尋找茄科 unigene 非轉譯區 (UTR) 中常見的序列基序。在找到可能的基序後，她將這些序列與已知編碼序列、載體序列等進行比較，以確定它們是否為真實的 UTR。目標是建立一組具有生物學意義的基序，以便在實驗室中進一步研究其功能。<br />(Mallory is an undergraduate student at Saint Vincent College. During her internship at SGN, she wrote a motif finder to find commonly occurring sequence motifs within the untranslated regions (UTRs) of Solanaceae unigenes. After finding possible motifs, she compared these sequences to known coding sequences, vector sequences, etc, in order to determine whether or not they are truly UTRs. The goal was to create a set of motifs that are biologically significant and which should be further studied in the laboratory to find out how they function.)</td>
 </tr>
 
 <tr><td><br /><strong>Aileen Tolentino
 </strong></td></tr>
 <tr>
 <td><img src="/static_content/sgn_photos/interns_2008/atolentino.jpg" /></td>
-<td>Aileen is a recent graduate of Ramapo College. During her internship with Dr. Zhangjun Fei, she used a combination of perl scripts and existing bioinformatics programs to search for putative miRNA sequences within the tomato genome and created and populated small RNA and miRNA tables within the Tomato Functional Genomics Database.</td>
+<td>Aileen 是拉馬波學院的應屆畢業生。在費章君 (Zhangjun Fei) 博士指導下實習期間，她結合使用 Perl 指令碼和現有生物資訊程式在番茄基因組中搜尋推測的 miRNA 序列，並在番茄功能基因組學資料庫中建立並填入了 small RNA 和 miRNA 資料表。<br />(Aileen is a recent graduate of Ramapo College. During her internship with Dr. Zhangjun Fei, she used a combination of perl scripts and existing bioinformatics programs to search for putative miRNA sequences within the tomato genome and created and populated small RNA and miRNA tables within the Tomato Functional Genomics Database.)</td>
 </tr>
 
 <tr><td><br /><strong>Viktor Vassilev</strong></td></tr>
 <tr>
 <td><img src="/static_content/sgn_photos/interns_2008/vvasilev.jpg" /></td>
-<td>Viktor is an undergraduate student at Ramapo College. During his internship with Dr. Zhangjun Fei, he identified SNPs from ESTs generated by 454 sequencing technology and created an EST unigene build.</td>
+<td>Viktor 是拉馬波學院的大學生。在費章君 (Zhangjun Fei) 博士指導下實習期間，他從 454 定序技術產生的 EST 中鑑定出 SNP，並建立了 EST unigene 組裝版本。<br />(Viktor is an undergraduate student at Ramapo College. During his internship with Dr. Zhangjun Fei, he identified SNPs from ESTs generated by 454 sequencing technology and created an EST unigene build.)</td>
 </tr>
 
 <tr><td>&nbsp;<br /></td></tr>

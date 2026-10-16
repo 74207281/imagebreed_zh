@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('release_20040301.html','html2pl converter');
-$page->header('About The Sol Genomics Network');
+$page->header('SGN 版本說明 (Release Notes) - 2004-03-01');
 print<<END_HEREDOC;
 
   <center>
@@ -11,22 +12,20 @@ print<<END_HEREDOC;
   border="0">
     <tr>
       <td>
-        <h4>Release Notes March 1, 2004</h4><b>Summary</b>
+        <h4>2004 年 3 月 1 日版本說明 (Release Notes March 1, 2004)</h4><b>摘要 (Summary)</b>
 <ol>
-<li>New datasets -- eggplant, petunia and pepper ESTs and
-        unigene builds.</li>
-<li>International Solanaceae Project Page -- A new version
-        of the whitepaper is available!</li>
-<li>Updated toolbar and user interface</li>
-<li>Physical map data updated</li>
-<li>SGN people directory</li>
-<li>SOL Forum mailing list</li>
-<li>Bulk download facility</li>
-<li>FTP site</li>
-<li>Improved search interface</li>
+<li>新資料集——茄子、矮牽牛和辣椒 EST 及 unigene 建構版本。(New datasets -- eggplant, petunia and pepper ESTs and unigene builds.)</li>
+<li>國際茄科計畫頁面——白皮書新版本現已推出！(International Solanaceae Project Page -- A new version of the whitepaper is available!)</li>
+<li>更新工具列與使用者介面 (Updated toolbar and user interface)</li>
+<li>物理圖譜資料更新 (Physical map data updated)</li>
+<li>SGN 人員名錄 (SGN people directory)</li>
+<li>SOL 論壇郵寄清單 (SOL Forum mailing list)</li>
+<li>批次下載工具 (Bulk download facility)</li>
+<li>FTP 站點 (FTP site)</li>
+<li>改進搜尋介面 (Improved search interface)</li>
 </ol>
 
-        <p><b>Detailed descriptions</b></p>
+        <p><b>詳細說明 (Detailed descriptions)</b></p>
 <ol>
 <li><p>New datasets -- ESTs from Pepper, Petunia and
         Eggplant added, Potato build updated.</p>

@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use utf8;
 use GD::Graph::lines;
 use CXGN::Page;
 use CatalystX::GlobalContext '$c';
@@ -62,7 +63,7 @@ HTML
 if($time_diff > 1800) {  #30 minutes
 	$temp_disp=<<HTML;
 <font style="color:#555" size="5">$current_C C  ($current_F F)</font><br />
-<font size="6">  OUT-OF-DATE: $day_diff days</font>
+<font size="6">  逾期 (OUT-OF-DATE): $day_diff 天 (days)</font>
 HTML
 }
 
@@ -71,6 +72,7 @@ if ($mode eq "current") {
   print <<HTML;
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 <!--
@@ -90,10 +92,10 @@ if ($mode eq "current") {
 <table width="1200">
 <tr>
 <td width="600">
-Temperature as of $time:<br />
+截至 $time 的溫度 (Temperature as of $time):<br />
 $temp_disp<br /><br />
 <span style="font-size:0.9em">
-<a target="spong" href="cluster_services.pl?mode=html">Cluster QuickView</a>
+<a target="spong" href="cluster_services.pl?mode=html">叢集快速檢視 (Cluster QuickView)</a>
 </span>
 </td>
 <td width="600">
