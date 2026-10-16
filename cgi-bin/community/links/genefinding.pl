@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('genefinding.html','html2pl converter');
-$page->header('Gene Finding Links');
+$page->header('基因尋找相關連結 (Gene Finding Links)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,7 +12,7 @@ print<<END_HEREDOC;
     border="0">
       <tr>
         <td>
-          <h4>Genefinding tools</h4>
+          <h4>基因尋找工具 (Genefinding tools)</h4>
 
           <ul>
             <li><a href=
@@ -37,7 +38,7 @@ print<<END_HEREDOC;
             "http://www.itb.cnr.it/sun/webgene/">WebGene</a></li>
           </ul>
 
-          <h4>Primer Design</h4>
+          <h4>引子設計 (Primer Design)</h4>
 
           <ul>
             <li><a href="http://frodo.wi.mit.edu/">
@@ -76,7 +77,7 @@ print<<END_HEREDOC;
 	    <li><a href="http://www.primerdesign.co.uk/"> Primer Design Workshop</a></li>
           </ul>
 
-          <h4>Promoter Predictions</h4>
+          <h4>啟動子預測 (Promoter Predictions)</h4>
 
 
           <ul>

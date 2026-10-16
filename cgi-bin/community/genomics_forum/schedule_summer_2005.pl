@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('Cornell Genomics Discussion Group');
+$page->header('康乃爾基因體學討論小組 (Cornell Genomics Discussion Group)');
 print<<END_HEREDOC;
 
   <center>
@@ -13,7 +14,7 @@ print<<END_HEREDOC;
           "/documents/img/logo_cu_65.png" alt="Cornell University" width="65"
           height="65" border="0" /></a>
 
-          <h3>Cornell Genomics Forum</h3>The Cornell Genomics Forum
+          <h3>康乃爾基因體學論壇 (Cornell Genomics Forum)</h3>The Cornell Genomics Forum
           is an open forum for issues in computational biology,
           bioinformatics, biological databases and genomics at
           Cornell. It is currently formed by members of the
@@ -38,24 +39,24 @@ print<<END_HEREDOC;
             Plant Genetic Resources Unit</a></li>
           </ul>
 
-          <h3>Mailing List</h3>If you would like to subscribe to
+          <h3>郵寄清單 (Mailing List)</h3>If you would like to subscribe to
           the mailing list, please go to the <a href=
           "http://rubisco.sgn.cornell.edu/mailman/listinfo/cornell-genomics-forum/">
           list subscription form</a>.
 
-          <h3>Meeting Schedule</h3>Meetings are usually at 2pm
+          <h3>會議日程 (Meeting Schedule)</h3>Meetings are usually at 2pm
           unless otherwise noted.<br />
           <br />
 
           <table summary="" border="1" cellpadding="5">
             <tr>
-              <td><i>Date</i></td>
+              <td><i>日期 (Date)</i></td>
 
-              <td><i>Location</i></td>
+              <td><i>地點 (Location)</i></td>
 
-              <td><i>Speaker</i></td>
+              <td><i>主講人 (Speaker)</i></td>
 
-              <td><i>Topic</i></td>
+              <td><i>主題 (Topic)</i></td>
             </tr>
 
             <tr>
