@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('NSF_SPONSORED TOMATO GENOMICS PROJECT');
+$page->header('NSF 資助番茄基因組學計畫 (NSF-Sponsored Tomato Genomics Project)');
 print<<END_HEREDOC;
 
 <center>
@@ -11,24 +12,17 @@ print<<END_HEREDOC;
 <tr>
 <td>
 <center>
-<h2>Welcome to the NSF-Funded Tomato Genomics Project</h2>
+<h2>歡迎來到 NSF 資助之番茄基因組學計畫<br />(Welcome to the NSF-Funded Tomato Genomics Project)</h2>
 <a href=
 "https://www.fastlane.nsf.gov/servlet/showaward?award=0116076">NSF
 #0116076</a></center><br />
 
-<p>Welcome to the information pages for the Tomato Genomics Project
-(#0116076). This project is funded by the <a href=
-"http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=5338">National Science
-Foundation Plant Genome Research Program</a>.
-The purpose of these pages is to provide information on the goals
-of the project, the P.I's involved in the project and public
-resources developed as part of this project. If you have
-suggestions/comments about this site or the Tomato Genomics Project
-please e-mail <a href=
-"mailto:sdt4\@cornell.edu">Steve Tanklsley</a>. For more details,
-click on any of the topics below.</p>
+<p>歡迎瀏覽番茄基因組學計畫 (#0116076) 的資訊頁面。本計畫由<a href=
+"http://www.nsf.gov/funding/pgm_summ.jsp?pims_id=5338">美國國家科學基金會植物基因組研究計畫 (National Science Foundation Plant Genome Research Program)</a>資助。本頁面旨在提供有關專案目標、參與計畫的主持人 (P.I.) 以及專案開發之公共資源的資訊。若您對本站點或番茄基因組學計畫有任何建議或意見，請寄送電子郵件給 <a href=
+"mailto:sdt4\@cornell.edu">Steve Tanksley</a>。欲了解更多詳情，請點擊下方主題。<br />
+(Welcome to the information pages for the Tomato Genomics Project (#0116076). This project is funded by the National Science Foundation Plant Genome Research Program. The purpose of these pages is to provide information on the goals of the project, the P.I's involved in the project and public resources developed as part of this project.)</p>
 
-<h3>PROJECT SUMMARY</h3>
+<h3>計畫摘要 (PROJECT SUMMARY)</h3>
 
 <p>This project is the continuation and expansion of our previous tomato genome project <a href=
 "nsf_9872617/index.pl">(NSF#9872617)</a> with an emphasis on physical, evolutionary and
@@ -99,12 +93,12 @@ public databases will allow us and others to expand knowledge in
 the areas of defense response, fruit development and genome
 evolution.</p>
 
-<h3>PRINCIPAL INVESTIGATORS</h3>
+<h3>計畫主持人 (PRINCIPAL INVESTIGATORS)</h3>
 <table summary="">
 <tr>
-<td width="100"><u>Project P.I.s</u></td>
-<td width="150"><u>Contact</u></td>
-<td><u>Organization</u></td>
+<td width="150"><u>計畫主持人 (Project P.I.s)</u></td>
+<td width="150"><u>聯絡方式 (Contact)</u></td>
+<td><u>所屬機構 (Organization)</u></td>
 </tr>
 <tr>
 <td>S. Tanksley</td>
@@ -130,7 +124,7 @@ evolution.</p>
 </table>
 
 <div style="text-align:left; float:left">
-<h3>MEMBERS OF ADVISORY GROUP</h3>
+<h3>諮詢委員會成員 (MEMBERS OF ADVISORY GROUP)</h3>
 Harry Klee, U. Florida, chair<br />
 Sue Rhee, Carnegie Institution of Washington<br />
 Dani Zamir, Hebrew U., Israel<br />

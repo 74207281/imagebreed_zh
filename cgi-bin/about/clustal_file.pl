@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/  page_title_html
                                        blue_section_html  /;
@@ -7,7 +8,7 @@ my ($intro_content, $example_content, $ref_content);
 
 ##########################################
 #Define the introdution
-$intro_content = "<tr><td><p>Clustal alignment file is the result file from a alignment program, such as clustalw[1] and t_coffee[2].</p></td></tr>";
+$intro_content = "<tr><td><p>Clustal 比對檔案是來自多序列比對程式（例如 clustalw[1] 與 t_coffee[2]）的結果檔案。<br />(Clustal alignment file is the result file from an alignment program, such as clustalw[1] and t_coffee[2].)</p></td></tr>";
 
 #########################################
 #Define the exaple
@@ -18,7 +19,7 @@ $example_content .= "<tr><td><tt>seq_1<br />seq_2<br /><br /></tt></td><td><tt>A
 $example_content .= "<tr><td><tt>seq_1<br />seq_2</tt></td><td><tt>GCAAACATGAAAGAACACATTGAGACAGATGAATGTGTCGATGCTTGTGGCGTTGACAGA<br />TTGAGCATGAAAGAACACATTGAGACAGATGAATGTGTCGATGCTTGTGGCGTTGACAGA<br /><br /></tt></td></tr>";
 $example_content .= "<tr><td><tt>seq_1<br />seq_2</tt></td><td><tt>TCCCCTGTTTCTTTCTAATTTATTCCCTA<br />TCCCCTGTTTCTTTCTAATTTATTCCCTA<br /><br /></tt></td></tr>";
 
-#################################################
+################################################
 #Define references
 $ref_content = "<tr><th valign='top'>[1] </th><td><a href=\"http://www.ebi.ac.uk/clustalw\">www.ebi.ac.uk/clustalw</a></td></tr>";
 
@@ -28,12 +29,12 @@ $ref_content .= "<tr><th valign='top'>[2] </th><td><a href=\"http://www.igs.cnrs
 ################################################
 #Generate the page
 our $page = CXGN::Page->new( "Clustal Alignment File", "Chenwei Lin");
-$page->header();
-print page_title_html("Clustal Alignment File");
+$page->header('Clustal 多序列比對檔案 (Clustal Alignment File)');
+print page_title_html("Clustal 多序列比對檔案 (Clustal Alignment File)");
 
 
-print blue_section_html('Introduction','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$intro_content.'</table>');
-print blue_section_html('Example','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$example_content.'</table>');
-print blue_section_html('References','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$ref_content.'</table>');
+print blue_section_html('介紹 (Introduction)','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$intro_content.'</table>');
+print blue_section_html('範例 (Example)','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$example_content.'</table>');
+print blue_section_html('參考文獻 (References)','<table width="100%" summary="" cellpadding="3" cellspacing="0" border="0">'.$ref_content.'</table>');
 
 $page->footer();

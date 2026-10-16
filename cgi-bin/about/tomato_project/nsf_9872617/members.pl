@@ -1,11 +1,11 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('members.html','html2pl converter');
-$page->header('Members of the Advisory Group');
+$page->header('諮詢委員會成員 (Members of the Advisory Group)');
 print<<END_HEREDOC;
 
-  <h2>The following individuals have served on the Tomato Genomics
-  Project Advisory Group:</h2>
+  <h2>以下專家曾任番茄基因組學計畫諮詢委員會成員：<br />(The following individuals have served on the Tomato Genomics Project Advisory Group:)</h2>
 
   <p>Dr. Ray Bressan (<a href=
   "mailto:bressan\@hort.purdue.edu">bressan\@hort.purdue.edu</a>)<br />

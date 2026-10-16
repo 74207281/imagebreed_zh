@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('solanum_nomenclature.html','html2pl converter');
-$page->header('New nomenclature for Lycopersicon');
+$page->header('番茄屬新命名法 (New nomenclature for Lycopersicon)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,21 +12,20 @@ print<<END_HEREDOC;
 <tr>
 <td>
 
-<h3>New nomenclature for Lycopersicon</h3>
+<h3>番茄屬新命名法 (New nomenclature for Lycopersicon)</h3>
 
-<p>Kindly provided by Prof. Sandra Knapp, Natural History Museum, London, UK.<br />
-(see also the <a href="http://www.nhm.ac.uk/research-curation/projects/solanaceaesource/">Solanaceae Source</a> PBI Solanum web resource).</p>
+<p>由英國倫敦自然歷史博物館 Sandra Knapp 教授友情提供。<br />
+(Kindly provided by Prof. Sandra Knapp, Natural History Museum, London, UK. See also the <a href="http://www.nhm.ac.uk/research-curation/projects/solanaceaesource/">Solanaceae Source</a> PBI Solanum web resource).</p>
 
 <p>Species list for <em>Solanum</em> section <em>Lycopersicum</em> and allies  - the "Tomato clade" (with equivalents in the previously recognized genus <em>Lycopersicon</em>, now part of a monophyletic <em>Solanum</em>); please cite this information as coming from Peralta, Knapp &amp; Spooner, unpublished monograph) [For LA numbers applicable to the new taxa segregated from <em>S. peruvianum</em> see Spooner, D.M., I.E. Peralta &amp; S. Knapp. AFLP phylogeny of wild tomatoes [<em>Solanum</em> L. section <em>Lycopersicon</em> (Mill.) Wettst. subsection <em>Lycopersicon</em>]. Taxon, in press for late 2004 or early 2005.]</p>
 
 <table summary="" cellpadding="2" cellspacing="0" border="1" width="100\%">
 
 <tr align="center" valign="top">
-<td width="44"><strong>Sp. No.</strong></td>
-<td width="154"><strong>Name in tomato monograph (Peralta et al., in preparation for publication in 
-  <em>Systematic Botany Monographs</em>)</strong></td>
-<td width="189"><strong><em>Lycopersicon</em> equivalent</strong></td>
-<td width="270"><strong>Distribution</strong></td>
+<td width="44"><strong>物種編號<br />(Sp. No.)</strong></td>
+<td width="154"><strong>番茄專著中的名稱<br />(Name in tomato monograph)</strong></td>
+<td width="189"><strong>對應之番茄屬名稱<br />(<em>Lycopersicon</em> equivalent)</strong></td>
+<td width="270"><strong>分佈範圍<br />(Distribution)</strong></td>
 </tr>
 
 <tr align="center" valign="top">
