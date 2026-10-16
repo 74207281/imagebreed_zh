@@ -20,24 +20,18 @@ $guide
 </%args>
 
 <%perl>
- my $message = qq | <p> It appears that a population <b>$name</></b> already 
-                   exists in the database. To continue loading QTL data
-                   for a new population, try with a different population 
-                   name.</p>
+ my $message = qq | <p> 資料庫中似乎已存在群體(It appears that a population) <b>$name</b>。若要繼續為新群體載入 QTL 資料，請嘗試使用不同的群體名稱(To continue loading QTL data for a new population, try with a different population name)。</p>
                          
-                  <p>If you are trying to load more or change data to an 
-                  exising population contact us.</p>
+                  <p>如果您嘗試為現有群體載入更多資料或變更資料，請聯繫我們(If you are trying to load more or change data to an exising population contact us)。</p>
 
-                 <p>Please go <a href="javascript:history.go(-1)">back</a> 
-                  and try to use a different name or if you keep having 
-                  problem with it contact us.</p>
+                 <p>請<a href="javascript:history.go(-1)">返回(back)</a>並嘗試使用不同的名稱，或者如果您持續遇到問題，請聯繫我們(and try to use a different name or if you keep having problem with it contact us)。</p>
                  |;
 
 
 
 </%perl>
 
-<& /page/page_title.mas, title => 'QTL population' &>
+<& /page/page_title.mas, title => 'QTL 群體(QTL population)' &>
 <&| /page/info_section.mas, title => '', subtitle => $guide &>
   <% $message %>  
 </&>

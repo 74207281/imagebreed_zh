@@ -9,18 +9,18 @@
              &>
                 <&| /page/info_table.mas, border => 0,
                  &>
-                   Description
+                   描述(Description)
                    -----
                    <% $a->{description} |h %>
                    -----
 %                  if( $a->{annotation_sets} && @{$a->{annotation_sets}} ) {
-                     Annotated by
+                     註釋者(Annotated by)
                      -----
                      <% join ' ', map $_->sample_name, @{$a->{annotation_sets}} | h %>
                      -----
 %                  }
 %                  if( $a->{files} && @{$a->{files}} ) {
-                     Files
+                     檔案(Files)
                      -----
                      <dl>
 %                    for my $link (@{$a->{files}}) {

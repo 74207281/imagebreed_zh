@@ -24,15 +24,15 @@ jQuery(document).ready(function () {
                 jQuery("#working_modal").modal("hide");
                 var html1 = '';
 % if ($trial_type eq 'field_trial'){
-                html1 = '<table class="table table-hover table-bordered"><thead><tr><th>Genotyping Plates(s) From This Field Trial</th><th>Options</th></tr></thead><tbody>';
+                html1 = '<table class="table table-hover table-bordered"><thead><tr><th>來自此田間試驗之基因分型樣品盤(Genotyping Plate(s) From This Field Trial)</th><th>選項(Options)</th></tr></thead><tbody>';
                 for (var i=0; i<response.genotyping_trials_from_field_trial.length; i++){
-                    html1 = html1 + '<tr><td><a href="/breeders/trial/'+response.genotyping_trials_from_field_trial[i][0]+'">'+response.genotyping_trials_from_field_trial[i][1]+'</a></td><td><a href="javascript:remove_linkage('+response.genotyping_trials_from_field_trial[i][0]+','+<% $trial_id %>+')">Remove linkage</a></td></tr>';
+                    html1 = html1 + '<tr><td><a href="/breeders/trial/'+response.genotyping_trials_from_field_trial[i][0]+'">'+response.genotyping_trials_from_field_trial[i][1]+'</a></td><td><a href="javascript:remove_linkage('+response.genotyping_trials_from_field_trial[i][0]+','+<% $trial_id %>+')">移除關聯</a></td></tr>';
                 }
 % }
 % if ($trial_type eq 'genotyping_trial'){
-                html1 = '<table class="table table-hover table-bordered"><thead><tr><th>Field Trial(s) That Are Source of This Genotyping Plate</th><th>Options</th></tr></thead><tbody>';
+                html1 = '<table class="table table-hover table-bordered"><thead><tr><th>作為此基因分型樣品盤來源之田間試驗(Field Trial(s) Source of This Genotyping Plate)</th><th>選項(Options)</th></tr></thead><tbody>';
                 for (var i=0; i<response.field_trials_source_of_genotyping_trial.length; i++){
-                    html1 = html1 + '<tr><td><a href="/breeders/trial/'+response.field_trials_source_of_genotyping_trial[i][0]+'">'+response.field_trials_source_of_genotyping_trial[i][1]+'</a></td><td> <a href="javascript:remove_linkage('+<% $trial_id %>+', '+response.field_trials_source_of_genotyping_trial[i][0]+')">Remove linkage</a></td></tr>';
+                    html1 = html1 + '<tr><td><a href="/breeders/trial/'+response.field_trials_source_of_genotyping_trial[i][0]+'">'+response.field_trials_source_of_genotyping_trial[i][1]+'</a></td><td> <a href="javascript:remove_linkage('+<% $trial_id %>+', '+response.field_trials_source_of_genotyping_trial[i][0]+')">移除關聯</a></td></tr>';
                 }
 % }
                 html1 = html1 + '</tbody></table>';
@@ -40,7 +40,7 @@ jQuery(document).ready(function () {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error retrieving genotyping plate to field trial linkage.");
+                alert("檢索基因分型樣品盤與田間試驗的關聯時發生錯誤。");
             }
         });
     });
@@ -48,18 +48,18 @@ jQuery(document).ready(function () {
 });
 
 function remove_linkage(plate_id, trial_id) {
-   var yes = confirm('Are you sure you want to remove the genotyping plate and field trial linkage? This operation cannot be undone.');
+   var yes = confirm('您確定要移除基因分型樣品盤與田間試驗的關聯嗎？此操作無法復原。');
    if (yes) {
       jQuery.ajax({
           url: '/ajax/breeders/trial/'+plate_id+'/delete_genotyping_plate_from_field_trial_linkage/'+trial_id,
           success: function(r) {
               if (r.error) { alert(r.error); }
               else {
-                  alert("The genotyping plate link has been removed from the field trial.");
+                  alert("已從田間試驗移除基因分型樣品盤的關聯。");
                     location.reload(); 
               }
            },
-           error: function(r) {  alert("An error occurred!") }
+           error: function(r) {  alert("發生錯誤！") }
       });
     }
 }

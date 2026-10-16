@@ -1,18 +1,18 @@
 
-<& /page/page_title.mas, title=>"Toolbar Help" &>
+<& /page/page_title.mas, title=>"工具列說明(Toolbar Help)" &>
 
 <%perl>
 use CXGN::Page::Toolbar::SGN;
 
 print<<END_HEREDOC;
-The toolbar is located on the upper portion of the screen on almost
+工具列位於 SGN 網站幾乎所有頁面的螢幕上方，提供瀏覽本站的簡便方式。工具列包含 SGN 標誌以及連結至本站主要部分的連結列。當滑鼠游標移至連結上方時，將顯示下拉選單（前提是您已開啟 JavaScript）。您可以點擊主連結，或是捲動選單以選取選單項目。若您在使用工具列時遇到問題，可以將此頁加入書籤作為替代使用。(The toolbar is located on the upper portion of the screen on almost
 every page on the SGN site and provides an easy way to navigate the
 site. The toolbar consists of the SGN logo and a row of links that link
 to the main portions of the site. When the mouse passes over a link, a
 pull down menu is displayed (assuming you have JavaScript turned on). 
 You can either click the main link or scroll down the menu to choose a 
 menu item. If you are having problems with the toolbar, you may want to
-bookmark this page, and use it instead.
+bookmark this page, and use it instead.)
 <br /><br />
 END_HEREDOC
 

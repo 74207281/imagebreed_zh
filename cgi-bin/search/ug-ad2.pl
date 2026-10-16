@@ -6,6 +6,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use English;
 use CXGN::Page;
@@ -23,8 +24,8 @@ use CatalystX::GlobalContext '$c';
 
 #################################
 # Start a new SGN page.
-our $page = CXGN::Page->new( 'Unigene Advanced Search', 'Rob Buels');
-$page->header('Unigene Search Results'); #print out header immediately so users get 'in progress' message
+our $page = CXGN::Page->new( '單一基因進階搜尋 (Unigene Advanced Search)', 'Rob Buels');
+$page->header('單一基因搜尋結果 (Unigene Search Results)'); #print out header immediately so users get 'in progress' message
 
 #create the search and query objects
 my $search = CXGN::Unigene::Search->new;
@@ -38,7 +39,7 @@ eval { #initialize the query object from the page parameters
   $query->from_request(\%params);
 }; if( $EVAL_ERROR ) {
   if($c->config->{'production_server'}) {
-    print "<b>Invalid search parameters.</b>\n";
+    print "<b>無效的搜尋參數 (Invalid search parameters)。</b>\n";
   } else {
     die $EVAL_ERROR; #die it on
   }
@@ -59,7 +60,7 @@ my $sql = $query->to_query_string();
 my $pagination_html = $search->pagination_buttons_html( $query, $result );
 
 
-my @tableheadings = ('Unigene','Build','Length (bp)','# Members');
+my @tableheadings = ('單一基因 (Unigene)','構建版本 (Build)','長度 (Length, bp)','成員數 (# Members)');
 my @tabledata;
 my $querystring = $query->to_query_string;
 while(my $ug = $result->next_result) {
@@ -80,11 +81,11 @@ EOH
 $pagination_html
 EOH
 
-print page_title_html('Unigene Search Results');
+print page_title_html('單一基因搜尋結果 (Unigene Search Results)');
 
-print blue_section_html('Unigene Search Results',sprintf('<span class="paginate_summary">%s matches (%0.1f seconds)</span>',commify_number($result->total_results),$result->time),$results_html);
+print blue_section_html('單一基因搜尋結果 (Unigene Search Results)',sprintf('<span class="paginate_summary">%s 筆相符項目 (%0.1f 秒) / %s matches (%0.1f seconds)</span>',commify_number($result->total_results),$result->time,commify_number($result->total_results),$result->time),$results_html);
 
-print blue_section_html('Search Again',CXGN::Search::CannedForms::unigene_search_form($page,$query));
+print blue_section_html('再次搜尋 (Search Again)',CXGN::Search::CannedForms::unigene_search_form($page,$query));
 
 $page->footer();
 

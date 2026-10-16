@@ -35,11 +35,11 @@
 
           <div class="carousel-sgn-links">
             <ul class="sgn_sm_list">
-              <a href="/jbrowse_solgenomics/?data=data/json/SL3.0"><li>Browse the tomato genome</li></a>
-              <a href="/tools/blast?db_id=283"><li>Find sequences by similarity</li></a>
+              <a href="/jbrowse_solgenomics/?data=data/json/SL3.0"><li>瀏覽番茄基因組(Browse the tomato genome)</li></a>
+              <a href="/tools/blast?db_id=283"><li>依相似性搜尋序列(Find sequences by similarity)</li></a>
               <!--<a href="http://vigs.solgenomics.net"><li>Design VIGS constructs</li></a> -->
-              <a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/annotation/ITAG3.0_release/"><li>Download the annotations</li></a>
-              <a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/assembly/build_3.00/"><li>Download the Genome Sequence</li></a>
+              <a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/annotation/ITAG3.0_release/"><li>下載註釋資訊(Download the annotations)</li></a>
+              <a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/assembly/build_3.00/"><li>下載基因組序列(Download the Genome Sequence)</li></a>
             </ul>
           </div>
         </div>
@@ -55,10 +55,10 @@
 
         <div class="carousel-sgn-links">
           <ul class="sgn_sm_list">
-            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPepper.v.1.55"><li>Browse the pepper genome</li></a>
-            <a href="/tools/blast?db_id=217"><li>Find sequences by similarity</li></a>
-            <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/"><li>Download the annotations</li></a>
-            <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/"><li>Download the Genome Sequence</li></a>
+            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPepper.v.1.55"><li>瀏覽甜椒/辣椒基因組(Browse the pepper genome)</li></a>
+            <a href="/tools/blast?db_id=217"><li>依相似性搜尋序列(Find sequences by similarity)</li></a>
+            <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/"><li>下載註釋資訊(Download the annotations)</li></a>
+            <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/"><li>下載基因組序列(Download the Genome Sequence)</li></a>
           </ul>
         </div>
 
@@ -74,11 +74,11 @@
 
         <div class="carousel-sgn-links">
           <ul class="sgn_sm_list">
-            <a href="http://bti.cornell.edu/research/projects/nicotiana-benthamiana/"><li>The <i>N. benthamiana</i> sequencing project</li></a>
-            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FNiben1.0.1&loc=Niben101Scf00005"><li>Browse the genome</li></a>
-            <a href="/tools/blast/?db_id=266"><li>Find sequences by similarity</li></a>
-            <a href="http://vigs.solgenomics.net"><li>Design VIGS constructs</li></a>
-            <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana"><li>Downloads</li></a>
+            <a href="http://bti.cornell.edu/research/projects/nicotiana-benthamiana/"><li><i>N. benthamiana</i> 定序計畫(sequencing project)</li></a>
+            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FNiben1.0.1&loc=Niben101Scf00005"><li>瀏覽基因組(Browse the genome)</li></a>
+            <a href="/tools/blast/?db_id=266"><li>依相似性搜尋序列(Find sequences by similarity)</li></a>
+            <a href="http://vigs.solgenomics.net"><li>設計 VIGS 建構體(Design VIGS constructs)</li></a>
+            <a href="ftp://ftp.solgenomics.net/genomes/Nicotiana_benthamiana"><li>下載(Downloads)</li></a>
           </ul>
         </div>
 
@@ -95,12 +95,12 @@
 
         <div class="carousel-sgn-links">
           <ul class="sgn_sm_list">
-            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPeaxi162&loc=Peaxi162Scf00001"><li>Browse the <i>P. axillaris</i> genome</li></a>
-            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPeinf101&loc=Peinf101Scf00001"><li>Browse the <i>P. inflata</i> genome</li></a>
-            <a href="/tools/blast/?db_id=270"><li>Find sequences by similarity</li></a>
-            <a href="http://vigs.solgenomics.net"><li>Design VIGS constructs</li></a>
-            <a href="ftp://ftp.solgenomics.net/genomes/Petunia_axillaris"><li><i>P. axillaris</i> Downloads</li></a>
-            <a href="ftp://ftp.solgenomics.net/genomes/Petunia_inflata"><li><i>P. inflata</i> Downloads</li></a>
+            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPeaxi162&loc=Peaxi162Scf00001"><li>瀏覽 <i>P. axillaris</i> 基因組(Browse genome)</li></a>
+            <a href="/jbrowse_solgenomics/?data=data%2Fjson%2FPeinf101&loc=Peinf101Scf00001"><li>瀏覽 <i>P. inflata</i> 基因組(Browse genome)</li></a>
+            <a href="/tools/blast/?db_id=270"><li>依相似性搜尋序列(Find sequences by similarity)</li></a>
+            <a href="http://vigs.solgenomics.net"><li>設計 VIGS 建構體(Design VIGS constructs)</li></a>
+            <a href="ftp://ftp.solgenomics.net/genomes/Petunia_axillaris"><li><i>P. axillaris</i> 下載(Downloads)</li></a>
+            <a href="ftp://ftp.solgenomics.net/genomes/Petunia_inflata"><li><i>P. inflata</i> 下載(Downloads)</li></a>
           </ul>
         </div>
 
@@ -141,9 +141,9 @@
 
             <div class="carousel-sgn-links" style="background-color: #efefef">
               <ul class="sgn_sm_list">
-                <a href="https://www.sol2019.org/registration" target="_blank"><li style="color: #00426c">Registration</li></a>
-                <a href="https://www.sol2019.org/program-outline" target="_blank"><li style="color: #00426c">Program outline</li></a>
-                <a href="https://www.sol2019.org/general-information" target="_blank"><li style="color: #00426c">Venue and Information</li></a>
+                <a href="https://www.sol2019.org/registration" target="_blank"><li style="color: #00426c">註冊/報名(Registration)</li></a>
+                <a href="https://www.sol2019.org/program-outline" target="_blank"><li style="color: #00426c">議程大綱(Program outline)</li></a>
+                <a href="https://www.sol2019.org/general-information" target="_blank"><li style="color: #00426c">會場與資訊(Venue and Information)</li></a>
               </ul>
             </div>
 
@@ -161,22 +161,22 @@
   <!-- Left and right controls -->
   <a id="prev_slide" class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="color:white;">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+    <span class="sr-only">上一張(Previous)</span>
   </a>
   <a  id="next_slide" class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="color:white;">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+    <span class="sr-only">下一張(Next)</span>
   </a>
 
 </div>
 
 <ul id="btn_carousel_indicators" class="nav nav-pills nav-justified sgn_carousel_button_group">
     <li><a data-target="#myCarousel" data-slide-to="0">Varitome</a></li>
-    <li class="active"><a data-target="#myCarousel" data-slide-to="1">Tomato</a></li>
-  <li><a data-target="#myCarousel" data-slide-to="2">Pepper</a></li>
+    <li class="active"><a data-target="#myCarousel" data-slide-to="1">番茄(Tomato)</a></li>
+  <li><a data-target="#myCarousel" data-slide-to="2">甜椒/辣椒(Pepper)</a></li>
   <li><a data-target="#myCarousel" data-slide-to="3"><i>N. benthamiana</i></a></li>
   <li><a data-target="#myCarousel" data-slide-to="4">Petunia</a></li>
-  <li><a data-target="#myCarousel" data-slide-to="5">SOL Meeting</a></li>
+  <li><a data-target="#myCarousel" data-slide-to="5">SOL 會議(SOL Meeting)</a></li>
   <!-- <li><a data-target="#myCarousel" data-slide-to="6">5th ISTD</a></li> -->
 </ul>
 

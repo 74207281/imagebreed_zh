@@ -13,12 +13,12 @@ Isaak Y Tecle (iyt2@cornell.edu)
 </%doc>
 
 <&| /page/info_section.mas, 
-   title      => "Step 3: Phenotype dataset",
+   title      => "步驟 3：表型資料集(Step 3: Phenotype dataset)",
   collapsible => 1,
   collapsed   => 1
 &>
 
-The phenotype dataset should be in a text file and in the following format. The traits names in the phenotype dataset must match exactly with the traits in the traits file, submitted in the previous step.
+表型資料集應為純文字檔案，並採用以下格式。表型資料集中的性狀名稱必須與前一步驟中提交的性狀檔案中的性狀完全相符(The phenotype dataset should be in a text file and in the following format. The traits names in the phenotype dataset must match exactly with the traits in the traits file, submitted in the previous step)。
 
 <pre>
                 plant    fruit       fruit     fruit

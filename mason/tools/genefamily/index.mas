@@ -3,12 +3,12 @@
 
 </%doc>
 
-<& /page/page_title.mas, title=>"Tomato Genefamily Annotation Resources" &>
+<& /page/page_title.mas, title=>"番茄基因家族註釋資源(Tomato Genefamily Annotation Resources)" &>
 
-<p>This is a temporary interface to make the gene families from the tomato genome sequencing project available to gene family curators.</p>
-<p>You can search in different gene family builds, both for a specific family, and for a gene family member. You can then view the fasta, alignments, and trees, if available.</p>
-<p>More functionality will be added later.</p>
-<p>To continue, you need to log in with a special username and password that was provided to you.</p>
+<p>此為臨時介面，旨在將番茄基因組定序計畫之基因家族提供給基因家族策展人員使用。</p>
+<p>您可以在不同的基因家族版本中搜尋特定家族或基因家族成員。若可用，您可以檢視 FASTA、比對結果及演化樹。</p>
+<p>後續將新增更多功能。</p>
+<p>若要繼續，您需要使用提供給您的專用使用者名稱與密碼登入。</p>
 
 
 <!-- div class="boxbgcolor2">
@@ -16,5 +16,5 @@ Submit a new gene family<br /><br />
 </div -->
 <br />
 <div class="boxbgcolor2">
-<a href="search.pl">Search gene families</a><br /><br />
+<a href="search.pl">搜尋基因家族(Search gene families)</a><br /><br />
 </div>

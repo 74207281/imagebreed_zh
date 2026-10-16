@@ -28,7 +28,7 @@ $file
 
 use File::Slurp qw | slurp |;
 
-my $contents = 'Content not available.';
+my $contents = '無法取得內容(Content not available)。';
 
 eval { 
   $contents = slurp($file);

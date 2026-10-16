@@ -6,7 +6,7 @@
     <div class="modal-content">
       <div class="modal-header" style="text-align:center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="listDialog">Your Lists</h3>
+        <h3 class="modal-title" id="listDialog">您的清單(Your Lists)</h3>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -15,8 +15,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button id="view_public_lists_button" type="button" class="btn btn-primary" >View Public Lists</button>
-        <button id="close_list_dialog_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="view_public_lists_button" type="button" class="btn btn-primary" >檢視公開清單(View Public Lists)</button>
+        <button id="close_list_dialog_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -27,7 +27,7 @@
     <div class="modal-content">
       <div class="modal-header" style="text-align:center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="publicListDialog">Public Lists</h4>
+        <h4 class="modal-title" id="publicListDialog">公開清單(Public Lists)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button id="close_public_list_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="close_public_list_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
     <div class="modal-content">
       <div class="modal-header" style="text-align:center">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="listItemDialog">List Contents</h4>
+        <h4 class="modal-title" id="listItemDialog">清單內容(List Contents)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -56,7 +56,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button id="close_list_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="close_list_item_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -68,14 +68,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="listValidationErrorDialog">List Validation Failed</h4>
+                <h4 class="modal-title" id="listValidationErrorDialog">清單驗證失敗(List Validation Failed)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div id="validate_stock_add_missing_accessions_html">
                     </div>
                     <div class="well">
-                    <h3>Elements not found:</h3>
+                    <h3>未找到的項目：</h3>
                     <table>
                         <tbody></tbody>
                     </table>
@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_missing_accessions_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_missing_accessions_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="fuzzySearchResultDialog">Fuzzy Search Results</h4>
+                <h4 class="modal-title" id="fuzzySearchResultDialog">模糊搜尋結果(Fuzzy Search Results)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -103,8 +103,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="download_fuzzy_search_result" type="button" class="btn btn-primary" onclick="javascript:downloadFuzzyResponse()" >Download</button>
-                <button id="close_fuzzy_search_result_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="download_fuzzy_search_result" type="button" class="btn btn-primary" onclick="javascript:downloadFuzzyResponse()" >下載(Download)</button>
+                <button id="close_fuzzy_search_result_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -115,7 +115,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="synonymSearchResultDialog">Synonym Search Results</h4>
+                <h4 class="modal-title" id="synonymSearchResultDialog">同義詞搜尋結果(Synonym Search Results)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -125,12 +125,12 @@
             </div>
             <div class="modal-footer">
               <form id="new-list-from-unames" class="form-inline" style="float:left">
-                <label>Create a New List from Unique Names:</label>
-                <input name="name" type="text" class="form-control" placeholder="List Name...">
-                <button class="btn btn-primary" type="submit">Save</button>
+                <label>從唯一名稱建立新清單：</label>
+                <input name="name" type="text" class="form-control" placeholder="清單名稱...">
+                <button class="btn btn-primary" type="submit">儲存(Save)</button>
               </form>
               <form class="form-inline" style="float:right">
-                <button id="close_fuzzy_search_result_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_fuzzy_search_result_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
               </form>
             </div>
         </div>
@@ -142,7 +142,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4>Available Seedlots</h4>
+                <h4>可用種子批次(Available Seedlots)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -151,13 +151,13 @@
             </div>
             <div class="modal-footer">
               <form id="new-list-from-seedlots" class="form-inline" style="float:left">
-                <label>Create a New List from Selected Seedlots:</label>
-                <input name="name" type="text" class="form-control" placeholder="List Name...">
-                <button class="btn btn-primary" type="submit">Save</button>
+                <label>從所選種子批次建立新清單：</label>
+                <input name="name" type="text" class="form-control" placeholder="清單名稱...">
+                <button class="btn btn-primary" type="submit">儲存(Save)</button>
               </form>
               <form class="form-inline" style="float:right">
-                <a href="/breeders/seedlots/" class="btn btn-primary">Manage Seedlots</a>
-                <button id="close_availible_seedlots_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="/breeders/seedlots/" class="btn btn-primary">管理種子批次(Manage Seedlots)</a>
+                <button id="close_availible_seedlots_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
               </form>
             </div>
         </div>

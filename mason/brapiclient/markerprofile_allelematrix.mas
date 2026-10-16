@@ -3,11 +3,11 @@
 
 <& /util/import_javascript.mas, classes => [ 'brapi.Table' ] &>
 
-<& /page/page_title.mas, title=>"Genotype Retrieval" &>
+<& /page/page_title.mas, title=>"檢索基因型(Genotype Retrieval)" &>
 
-<h4>Database Select</h4>
+<h4>選擇資料庫(Database Select)</h4>
 <select name="brapi_home_genotypes_url_select" id="brapi_home_genotypes_url_select" class="form-control" />
-    <option value="">local</option>
+    <option value="">本地(local)</option>
     <option value="https://cassbase.org">cassbase.org</option>
     <option value="https://cassavabase.org">cassavabase.org</option>
     <option value="https://musabase.org">musabase.org</option>
@@ -20,18 +20,18 @@
 
 <div id="brapi_home_markerprofile_allelematrix_div">
 
-    <h4>MarkerProfile Details</h4>
-    <input name="brapi_home_markerprofiledbid1" id="brapi_home_markerprofiledbid1" class="form-control" type="text" placeholder="MarkerProfileDbId e.g. 1622" value="1622"/>
-    <input name="brapi_home_markerprofiledbid2" id="brapi_home_markerprofiledbid2" class="form-control" type="text" placeholder="MarkerProfileDbId e.g. 1623" value="1623"/>
-    <input name="brapi_home_markerprofiledbid3" id="brapi_home_markerprofiledbid3" class="form-control" type="text" placeholder="MarkerProfileDbId e.g. 1624" value="1624"/>
-    <input name="brapi_home_markerprofiledbid4" id="brapi_home_markerprofiledbid4" class="form-control" type="text" placeholder="MarkerProfileDbId e.g. 1625" value="1625"/>
+    <h4>標記特徵詳細資訊(MarkerProfile Details)</h4>
+    <input name="brapi_home_markerprofiledbid1" id="brapi_home_markerprofiledbid1" class="form-control" type="text" placeholder="標記特徵資料庫 ID 如 1622(MarkerProfileDbId e.g. 1622)" value="1622"/>
+    <input name="brapi_home_markerprofiledbid2" id="brapi_home_markerprofiledbid2" class="form-control" type="text" placeholder="標記特徵資料庫 ID 如 1623(MarkerProfileDbId e.g. 1623)" value="1623"/>
+    <input name="brapi_home_markerprofiledbid3" id="brapi_home_markerprofiledbid3" class="form-control" type="text" placeholder="標記特徵資料庫 ID 如 1624(MarkerProfileDbId e.g. 1624)" value="1624"/>
+    <input name="brapi_home_markerprofiledbid4" id="brapi_home_markerprofiledbid4" class="form-control" type="text" placeholder="標記特徵資料庫 ID 如 1625(MarkerProfileDbId e.g. 1625)" value="1625"/>
     <select name="brapi_home_allelematrix_format" id="brapi_home_allelematrix_format" class="form-control" />
-        <option value="json">JSON (transformed to HTML table)</option>
+        <option value="json">JSON（轉換為 HTML 表格）(JSON (transformed to HTML table))</option>
         <option value="tsv">TSV</option>
         <option value="csv">CSV</option>
     </select>
     <br/>
-    <button class="btn btn-primary" name="brapi_home_allelematrix_submit" id="brapi_home_allelematrix_submit">Get AlleleMatrix</button>
+    <button class="btn btn-primary" name="brapi_home_allelematrix_submit" id="brapi_home_allelematrix_submit">獲取對立基因矩陣(Get AlleleMatrix)</button>
     <br/><br/>
     <div id="brapi_markerprofile_allelematrix_div">
     </div>
@@ -50,7 +50,7 @@ jQuery(document).ready(function() {
             'success': function(response) {
                 console.log(response);
                 if (response.metadata.datafiles.length > 0){
-                    var html = "<h4>Download Study Phenotype File(s) From Here: <br/>";
+                    var html = "<h4>從此處下載研究表型檔案(Download Study Phenotype File(s) From Here): <br/>";
                     for (var j=0; j<response.metadata.datafiles.length; j++){
                         html = html + "<a href='"+response.metadata.datafiles[j]+"'>"+response.metadata.datafiles[j]+"</a><br/>";
                     }
@@ -64,7 +64,7 @@ jQuery(document).ready(function() {
                 }
             },
             error: function(response) {
-                alert('An error occurred');
+                alert('發生錯誤(An error occurred)');
             }
         });
 

@@ -3,14 +3,14 @@
 $stock_id
 </%args>
 
-<&| /page/info_section.mas, title=>'Pedigree string' &>
+<&| /page/info_section.mas, title=>'系譜字串(Pedigree string)' &>
   <select id="pedigree_level_select">
-    <option value="Parents">Parents</option>
-    <option value="Grandparents">Grandparents</option>
-    <option value="Great-Grandparents">Great-Grandparents</option>
+    <option value="Parents">親本(Parents)</option>
+    <option value="Grandparents">祖親本(Grandparents)</option>
+    <option value="Great-Grandparents">曾祖親本(Great-Grandparents)</option>
   </select>
 
-  <span id="pedigree_string">[loading...]</span>
+  <span id="pedigree_string">[載入中(loading)...]</span>
 
   <br /><br />
 </&>
@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 
   get_pedigree_string(<% $stock_id %>);
   jQuery('#pedigree_level_select').change( function() {
-    jQuery('#pedigree_string').html('[loading...]');
+    jQuery('#pedigree_string').html('[載入中(loading)...]');
     get_pedigree_string(<% $stock_id %>);
   });
 });
@@ -31,7 +31,7 @@ function get_pedigree_string(stock_id) {
       url : '/stock/'+ stock_id +'/pedigreestring',
       data : { 'level' : jQuery('#pedigree_level_select').val() },
       error : function(response) {
-         alert("an error occurred");
+         alert("發生錯誤(An error occurred)");
       },
       success: function(response) {
          jQuery('#pedigree_string').html(response.pedigree_string);

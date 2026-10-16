@@ -48,12 +48,12 @@ $genotyping_facility => undef
 
 <br/>
 
-<& /page/page_title.mas, title=>"Imaging Event Band Project: ".$trial_name &>
+<& /page/page_title.mas, title=>"影像事件波段專案(Imaging Event Band Project): ".$trial_name &>
 
-% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">Add/edit data agreement</button>';
-% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">Add/edit data agreement</button>'; }
+% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">新增/編輯資料協議(Add/edit data agreement)</button>';
+% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">新增/編輯資料協議(Add/edit data agreement)</button>'; }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Data Agreement License</h4>", info_section_subtitle => 'View and edit the public data agreement on this experiment.', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>資料協議授權(Data Agreement License)</h4>", info_section_subtitle => '檢視並編輯此試驗的公開資料協議。', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
 
 <& /breeders_toolbox/add_data_agreement_dialogs.mas, trial_id => $trial_id &>
 

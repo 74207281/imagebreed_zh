@@ -16,7 +16,7 @@
 
 <div class="container-fluid">
 
-<& /page/page_title.mas, title=>'Search Accessions and Plots' &>
+<& /page/page_title.mas, title=>'搜尋種原與小區(Search Accessions and Plots)' &>
 
 
 <%perl>
@@ -50,51 +50,51 @@ my $breeding_programs_select = simple_selectbox_html(
 
 </%perl>
 
-<&| /page/info_section.mas, title => 'Search', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '搜尋(Search)', collapsible=>1, collapsed=>0 &>
 
   <div id="stock_search_form" class="well well-sm">
 
     <div class="form-horizontal">
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Stock Name: </label>
+            <label class="col-sm-3 control-label">材料名稱(Stock Name)：</label>
             <div class="col-sm-9" >
                 <div class="input-group">
                     <span class="input-group-btn">
                         <select class="form-control" id="any_name_matchtype" name="any_name_matchtype">
-                            <option title="contains" value="contains" selected="selected">contains</option>
-                            <option title="starts with" value="starts_with">starts with</option>
-                            <option title="ends with" value="ends_with">ends with</option>
-                            <option title="exactly" value="exactly">exactly</option>
+                            <option title="contains" value="contains" selected="selected">包含(contains)</option>
+                            <option title="starts with" value="starts_with">開頭為(starts with)</option>
+                            <option title="ends with" value="ends_with">結尾為(ends with)</option>
+                            <option title="exactly" value="exactly">完全一致(exactly)</option>
                         </select>
                     </span>
                     <span class="input-group-btn">
-                        <input class="form-control" name="any_name" id="any_name" value="" size="30" type="text" placeholder="Type search here..."/>
+                        <input class="form-control" name="any_name" id="any_name" value="" size="30" type="text" placeholder="在此輸入搜尋關鍵字...(Type search here...)"/>
                     </span>
                 </div>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Stock Type: </label>
+            <label class="col-sm-3 control-label">材料類型(Stock Type)：</label>
             <div class="col-sm-9" >
                 <% $stock_type_select %>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Your Companies: </label>
+            <label class="col-sm-3 control-label">您的公司/單位(Your Companies)：</label>
             <div class="col-sm-9" >
                 <div id="stock_search_companies_div"></div>
             </div>
         </div>
     </div>
 
-    <&| /page/info_section.mas, title => 'Advanced Search', collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title => '進階搜尋(Advanced Search)', collapsible=>1, collapsed=>1 &>
 
-    <&| /page/info_section.mas, title => 'Properties', collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title => '屬性(Properties)', collapsible=>1, collapsed=>1 &>
 
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Organism: </label>
+          <label class="col-sm-3 control-label">生物物種(Organism)：</label>
           <div class="col-sm-9" >
             <% $organism_select %>
           </div>
@@ -102,9 +102,9 @@ my $breeding_programs_select = simple_selectbox_html(
       </div>
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Stock Owner: </label>
+          <label class="col-sm-3 control-label">材料擁有者(Stock Owner)：</label>
           <div class="col-sm-9" >
-            <input type="text" class="form-control" id="person" placeholder="Type to Autocomplete"/>
+            <input type="text" class="form-control" id="person" placeholder="輸入以自動完成(Type to Autocomplete)"/>
           </div>
         </div>
       </div>
@@ -113,9 +113,9 @@ my $breeding_programs_select = simple_selectbox_html(
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-4 control-label">Organization: </label>
+          <label class="col-sm-4 control-label">機構/組織(Organization)：</label>
           <div class="col-sm-8" >
-            <input type="text" class="form-control" id="organization" placeholder="Type to Autocomplete"/>
+            <input type="text" class="form-control" id="organization" placeholder="輸入以自動完成(Type to Autocomplete)"/>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ my $breeding_programs_select = simple_selectbox_html(
     <div class="row">
       <div class="col-sm-11">
         <div class="form-group form-group-sm">
-      	  <label class="col-sm-3 control-label">Search By Another Property: </label>
+      	  <label class="col-sm-3 control-label">依其他屬性搜尋(Search By Another Property)：</label>
           <div class="col-sm-9" >
             <div class="form-group">
               <div class="input-group">
@@ -137,7 +137,7 @@ my $breeding_programs_select = simple_selectbox_html(
                   </select>
                 </span>
                   <span class="input-group-btn">
-                    <button class="btn btn-primary btn-sm" id="editable_stockprop_search_add">Add</button>
+                    <button class="btn btn-primary btn-sm" id="editable_stockprop_search_add">新增(Add)</button>
                 </span>
               </div>
             </div>
@@ -150,22 +150,22 @@ my $breeding_programs_select = simple_selectbox_html(
     </div>
 
     </&>
-    <&| /page/info_section.mas, title => 'Usage', collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title => '使用情形(Usage)', collapsible=>1, collapsed=>1 &>
 
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Project Name: </label>
+          <label class="col-sm-3 control-label">專案/試驗名稱(Project Name)：</label>
           <div class="col-sm-9" >
-            <input type="text" class="form-control" id="project" placeholder="Type to Autocomplete"/>
+            <input type="text" class="form-control" id="project" placeholder="輸入以自動完成(Type to Autocomplete)"/>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Project Location: </label>
+          <label class="col-sm-3 control-label">專案/試驗地點(Project Location)：</label>
           <div class="col-sm-9" >
-            <input type="text" class="form-control" id="location" placeholder="Type to Autocomplete"/>
+            <input type="text" class="form-control" id="location" placeholder="輸入以自動完成(Type to Autocomplete)"/>
           </div>
         </div>
       </div>
@@ -173,15 +173,15 @@ my $breeding_programs_select = simple_selectbox_html(
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Project Year: </label>
+          <label class="col-sm-3 control-label">專案/試驗年份(Project Year)：</label>
           <div class="col-sm-9" >
-            <input type="text" class="form-control" id="year" placeholder="Type to Autocomplete"/>
+            <input type="text" class="form-control" id="year" placeholder="輸入以自動完成(Type to Autocomplete)"/>
           </div>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Breeding Program: </label>
+          <label class="col-sm-3 control-label">育種計畫(Breeding Program)：</label>
           <div class="col-sm-9" >
             <% $breeding_programs_select %>
           </div>
@@ -190,20 +190,20 @@ my $breeding_programs_select = simple_selectbox_html(
     </div>
 
     </&>
-    <&| /page/info_section.mas, title => 'Phenotypes', collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title => '表型(Phenotypes)', collapsible=>1, collapsed=>1 &>
 
     <div class="row">
         <div class="col-sm-6">
           <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Trait: </label>
+            <label class="col-sm-3 control-label">性狀(Trait)：</label>
             <div class="col-sm-9" >
-              <input type="text" class="form-control" id="trait" placeholder="Type to Autocomplete"/>
+              <input type="text" class="form-control" id="trait" placeholder="輸入以自動完成(Type to Autocomplete)"/>
             </div>
           </div>
         </div>
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Minimum Trait Value: </label>
+          <label class="col-sm-3 control-label">性狀最小值(Minimum Trait Value)：</label>
           <div class="col-sm-9" >
             <input type="text" class="form-control" id="minimum_trait_value" />
           </div>
@@ -213,7 +213,7 @@ my $breeding_programs_select = simple_selectbox_html(
       <div class="row">
       <div class="col-sm-6">
         <div class="form-group form-group-sm">
-          <label class="col-sm-3 control-label">Maximum Trait Value: </label>
+          <label class="col-sm-3 control-label">性狀最大值(Maximum Trait Value)：</label>
           <div class="col-sm-9" >
             <input type="text" class="form-control" id="maximum_trait_value" />
           </div>
@@ -222,30 +222,30 @@ my $breeding_programs_select = simple_selectbox_html(
     </div>
     </&>
 
-    <&| /page/info_section.mas, title => 'Search Accessions Using Genotypes', collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, title => '使用基因型搜尋種原(Search Accessions Using Genotypes)', collapsible=>1, collapsed=>1 &>
         <div class="row">
-            <a href="/search/stocks_using_genotypes"><p>Go to Search Accessions Using Genotypes Page.</p></a>
+            <a href="/search/stocks_using_genotypes"><p>前往「使用基因型搜尋種原」頁面(Go to Search Accessions Using Genotypes Page)。</p></a>
         </div>
     </&>
 
     </&> <!-- closes advanced search -->
 
     <center>
-    <button class="btn btn-primary" id="submit_stock_search" />Search</button>
+    <button class="btn btn-primary" id="submit_stock_search" />搜尋(Search)</button>
     </center>
   </div>
 </&>
 
 <br />
 
-<&| /page/info_section.mas, title => 'Search Results', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '搜尋結果(Search Results)', collapsible=>1, collapsed=>0 &>
 
 <div class="well well-sm">
 
     <div class="row">
       <div class="col-sm-11">
         <div class="form-group form-group-sm">
-          <label class="col-sm-4 control-label">View Another Property: </label>
+          <label class="col-sm-4 control-label">檢視其他屬性(View Another Property)：</label>
           <div class="col-sm-8" >
             <div class="form-group">
               <div class="input-group">
@@ -257,7 +257,7 @@ my $breeding_programs_select = simple_selectbox_html(
                   </select>
                 </span>
                   <span class="input-group-btn">
-                    <button class="btn btn-primary btn-sm" id="editable_stockprop_view_column_add">Add</button>
+                    <button class="btn btn-primary btn-sm" id="editable_stockprop_view_column_add">新增(Add)</button>
                 </span>
               </div>
             </div>
@@ -272,13 +272,13 @@ my $breeding_programs_select = simple_selectbox_html(
                 <table id="stock_search_results" width="100%" class="table table-hover table-striped">
                 <thead>
                   <tr>
-                    <th>Stock Name</th>
-                    <th>Company</th>
-                    <th>Stock Type</th>
-                    <th>Organism</th>
-                    <th>Synonyms</th>
-                    <th>Submitters</th>
-                    <th>Organization</th>
+                    <th>材料名稱(Stock Name)</th>
+                    <th>公司/單位(Company)</th>
+                    <th>材料類型(Stock Type)</th>
+                    <th>物種(Organism)</th>
+                    <th>同義名(Synonyms)</th>
+                    <th>提交者(Submitters)</th>
+                    <th>機構/組織(Organization)</th>
                 </tr>
                 </thead>
 
@@ -289,7 +289,7 @@ my $breeding_programs_select = simple_selectbox_html(
 
     <div class="panel panel-default">
         <div class="panel-body">
-            <&| /page/info_section.mas, title => 'Copy Results to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Copy the stock names currently showing in the search results table to a new or exisiting list</i>'&>
+            <&| /page/info_section.mas, title => '複製結果至清單(Copy Results to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將目前搜尋結果表格中顯示的材料名稱複製到新清單或現有清單中</i>'&>
             <br>
             <div style="text-align:right" id="results_to_list_menu"></div>
             <div id="search_result_names" style="display: none;"></div>
@@ -301,7 +301,7 @@ my $breeding_programs_select = simple_selectbox_html(
 
 </&>
 
-<& /page/detail_page_2_col_section.mas, info_section_title => "<h4 style='display:inline'>Graphical Filtering on Phenotype Performance</h4>", info_section_subtitle => 'Graphically filter an accessions average performance for combinations of traits', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "stocks_search_graphical_filtering" &>
+<& /page/detail_page_2_col_section.mas, info_section_title => "<h4 style='display:inline'>依表型表現進行圖形化篩選(Graphical Filtering on Phenotype Performance)</h4>", info_section_subtitle => '針對性狀組合以圖形化方式篩選種原的平均表現', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "stocks_search_graphical_filtering" &>
 
 
 </div>
@@ -387,7 +387,7 @@ jQuery(document).ready(function () {
         jQuery('#editable_stockprop_search_div').html('');
         for (var property in editable_stockprops_search) {
             if (editable_stockprops_search.hasOwnProperty(property)) {
-                jQuery('#editable_stockprop_search_div').append('<div class="form-group form-group-sm"><label class="col-sm-3 control-label">'+property+': </label><div class="col-sm-9" ><div class="form-group"><div class="input-group"><span class="input-group-btn" width="20%"><select class="form-control" id="editable_stockprop_matchtype" name="editable_stockprop_matchtype" data-property="'+property+'"><option title="contains" value="contains" selected="selected">contains</option><option title="starts with" value="starts_with">starts with</option><option title="ends with" value="ends_with">ends with</option><option title="exactly" value="exactly">exactly</option><option title="one of" value="one of">one of (separate multiple possibilities with commas)</option></select></span><span class="input-group-btn"><input type="text" class="form-control" name="editable_stockprop_search_inputs" id="'+property+'_input_id" data-property="'+property+'" placeholder="Type to Autocomplete"/></span><span class="input-group-btn"><button name="editable_stockprop_search_remove" data-property="'+property+'" class="btn"><span class="glyphicon glyphicon-remove"></span></button></span></div></div></div></div>');
+                jQuery('#editable_stockprop_search_div').append('<div class="form-group form-group-sm"><label class="col-sm-3 control-label">'+property+': </label><div class="col-sm-9" ><div class="form-group"><div class="input-group"><span class="input-group-btn" width="20%"><select class="form-control" id="editable_stockprop_matchtype" name="editable_stockprop_matchtype" data-property="'+property+'"><option title="contains" value="contains" selected="selected">包含(contains)</option><option title="starts with" value="starts_with">開頭為(starts with)</option><option title="ends with" value="ends_with">結尾為(ends with)</option><option title="exactly" value="exactly">精確符合(exactly)</option><option title="one of" value="one of">其中之一(one of - 多個請以逗號分隔)</option></select></span><span class="input-group-btn"><input type="text" class="form-control" name="editable_stockprop_search_inputs" id="'+property+'_input_id" data-property="'+property+'" placeholder="輸入以自動完成(Type to Autocomplete)"/></span><span class="input-group-btn"><button name="editable_stockprop_search_remove" data-property="'+property+'" class="btn"><span class="glyphicon glyphicon-remove"></span></button></span></div></div></div></div>');
 
                 jQuery('#editable_stockprop_search_div').find("#"+property+"_input_id").autocomplete({
                    source: '/ajax/stock/stockproperty_autocomplete?property='+property,
@@ -405,7 +405,7 @@ jQuery(document).ready(function () {
             stockprop_extra_columns_view[selected_property] = 1;
             stockprop_extra_columns_view_array.push(selected_property);
 
-            var table_header_html = '<table id="stock_search_results" class="table table-hover table-striped"><thead><tr><th>Stock Name</th><th>Company</th><th>Stock Type</th><th>Organism</th><th>Synonyms</th><th>Submitters</th>';
+            var table_header_html = '<table id="stock_search_results" class="table table-hover table-striped"><thead><tr><th>材料名稱(Stock Name)</th><th>公司/單位(Company)</th><th>材料類型(Stock Type)</th><th>物種(Organism)</th><th>同義名(Synonyms)</th><th>提交者(Submitters)</th>';
             for (var i=0; i<stockprop_extra_columns_view_array.length; i++){
                 table_header_html = table_header_html + '<th>' + stockprop_extra_columns_view_array[i] + '</th>';
             }
@@ -472,7 +472,7 @@ jQuery(document).ready(function () {
                 },
                 beforeSend: function() {
                     jQuery("#working_modal").modal("show");
-                    jQuery('#stock_search_graphical_filter_div').html("[LOADING...]");
+                    jQuery('#stock_search_graphical_filter_div').html("[載入中... (LOADING...)]");
                 },
                 success: function(response){
                     //console.log(response);
@@ -495,11 +495,11 @@ jQuery(document).ready(function () {
                 },
                 error: function(response){
                     jQuery("#working_modal").modal("hide");
-                    alert("Error retrieving accessions in graphical filtering.");
+                    alert("圖形化篩選檢索種原時發生錯誤。(Error retrieving accessions in graphical filtering.)");
                 }
             });
         } else {
-            jQuery('#stock_search_graphical_filter_div').html("Graphical Filtering only configured for accessions. Currently searching across "+stock_type+". Change your search to accesions to use graphical filtering.");
+            jQuery('#stock_search_graphical_filter_div').html("圖形化篩選僅設定用於種原(accessions)。目前搜尋範圍為 "+stock_type+"。請將搜尋變更為種原以使用圖形化篩選。(Graphical Filtering only configured for accessions. Currently searching across "+stock_type+". Change your search to accessions to use graphical filtering.)");
         }
     });
 

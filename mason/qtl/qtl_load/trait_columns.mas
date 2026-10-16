@@ -20,14 +20,12 @@ $guide
 </%args>
 
 <%perl>
-$error .= qq |<p>Please go <a href="javascript:history.go(-1)"><b>back</b></a> and 
-                 rearrange the order of the columns and upload the file again or if 
-                 you keep having problem with it contact us.
+$error .= qq |<p>請<a href="javascript:history.go(-1)"><b>返回(back)</b></a>並重新排列欄位順序，然後再次上傳檔案，或者如果您持續遇到問題，請聯繫我們(rearrange the order of the columns and upload the file again or if you keep having problem with it contact us)。
               </p>
              |;
 </%perl>
 
-<& /page/page_title.mas, title => 'Traits file' &>
+<& /page/page_title.mas, title => '性狀檔案(Traits file)' &>
 <&| /page/info_section.mas, title => '', subtitle => $guide &>
   <% $error %>  
 </&>

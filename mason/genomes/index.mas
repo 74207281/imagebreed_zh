@@ -21,11 +21,11 @@ Lukas Mueller
 
 </%doc>
 
-<& /page/page_title.mas, title=> "Genome Projects" &>
+<& /page/page_title.mas, title=> "基因組計畫(Genome Projects)" &>
 
 <div style="width: 30em; margin: 0 auto">
 
-  <% @links ? @links : '<div class="ghosted" style="text-align: center">none found</div>' %>
+  <% @links ? @links : '<div class="ghosted" style="text-align: center">未找到(none found)</div>' %>
 
 </div>
 

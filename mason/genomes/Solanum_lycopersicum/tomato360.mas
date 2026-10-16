@@ -4,26 +4,26 @@
 </%doc>
 
 
-<& /page/page_title.mas, title=>"AGIS Tomato 360 Resequencing Project" &>
+<& /page/page_title.mas, title=>"深圳農業基因組研究所 (AGIS) 番茄 360 重定序計畫(AGIS Tomato 360 Resequencing Project)" &>
 
 <div class="page_introduction">
-  Genomic analysis of 360 tomato accessions by the Agricultural Genomic Institute at Shenzhen.
+  由深圳農業基因組研究所進行的 360 個番茄種質基因組分析。(Genomic analysis of 360 tomato accessions by the Agricultural Genomic Institute at Shenzhen.)
 </div>
 
 
-<&| /page/info_section.mas, title => '360 Tomato Genomes' &>
-  Genomic analyses provide insights into the history of tomato breeding <a href="http://www.nature.com/ng/journal/v46/n11/full/ng.3117.html">Lin et al. Nature Genetics, 2014</a><br />
+<&| /page/info_section.mas, title => '360 個番茄基因組(360 Tomato Genomes)' &>
+  基因組分析揭示了番茄育種歷史(Genomic analyses provide insights into the history of tomato breeding) <a href="http://www.nature.com/ng/journal/v46/n11/full/ng.3117.html">Lin et al. Nature Genetics, 2014</a><br />
 
-  See more info about the project on the <a href="http://bti.cornell.edu/news/new-genomics-study-mines-360-tomato-varieties-to-trace-history-find-room-for-improvement/">BTI web site</a>
+  在 <a href="http://bti.cornell.edu/news/new-genomics-study-mines-360-tomato-varieties-to-trace-history-find-room-for-improvement/">BTI 網站(BTI web site)</a> 上查看有關該計畫的更多資訊。(See more info about the project on the BTI web site)
 
 <br />
 
   <% info_table_html(
                      __border   => 0,
                      __multicol => 2,
-                     'Bulk Datasets (via FTP)' =>
-                     '<a href="ftp://ftp.solgenomics.net/genomes/tomato_360/">VCF files</a>',
-		     'Genome browser' => '<a href="/jbrowse_solgenomics/?data=data/json/tomato_variants_2.5">JBrowse</a>'
+                     '批量數據集 (透過 FTP)(Bulk Datasets (via FTP))' =>
+                     '<a href="ftp://ftp.solgenomics.net/genomes/tomato_360/">VCF 檔案(VCF files)</a>',
+		     '基因組瀏覽器(Genome browser)' => '<a href="/jbrowse_solgenomics/?data=data/json/tomato_variants_2.5">JBrowse</a>'
                     )
   %>
 </&>

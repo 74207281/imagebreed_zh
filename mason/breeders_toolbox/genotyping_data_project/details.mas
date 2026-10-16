@@ -17,89 +17,89 @@ $genotype_data_type
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Genotyping Data Project Name</b></td>
+                <td><b>基因分型資料專案名稱(Genotyping Data Project Name)</b></td>
                 <td>
                     <div id="trial_name">
 % if ($trial_name) {
 %   print "$trial_name";
 % } else {
-%   print "<span class='text-danger'>[No Trial Name]</span>";
+%   print "<span class='text-danger'>[無專案名稱]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Breeding Program </b></td>
+                <td><b>育種計畫(Breeding Program)</b></td>
                 <td>
                     <span id="breeding_program">
 % if ($breeding_program_name) {
         <a href="/breeders/program/<% $breeding_program_id %>"><% $breeding_program_name %></a>
 % }
 % else {
-%  print "<span class='text-danger'>[No Breeding Program]</span>";
+%  print "<span class='text-danger'>[無育種計畫]</span>";
 % }
                     </span>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Location</b></td>
+                <td><b>試驗地點(Location)</b></td>
                 <td>
                     <div id="trial_location">
 % if ($location_name) {
 %  print "$location_name";
 % } else {
-%  print "<span class='text-danger'>[No Location]</span>";
+%  print "<span class='text-danger'>[無地點]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Year</b></td>
+                <td><b>年份(Year)</b></td>
                 <td>
                     <div id="trial_year">
 % if ($year) {
 %  print "$year";
 % } else {
-%  print "<span class='text-danger'>[No Year]</span>";
+%  print "<span class='text-danger'>[無年份]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Genotyping Facility</b></td>
+            <tr><td><b>基因分型實驗室/設施(Genotyping Facility)</b></td>
                 <td>
                     <div id="trial_genotyping_facility">
 % if ($genotyping_facility) {
 %  print "$genotyping_facility";
 % } else {
-%  print "<span class='text-danger'>[No Genotyping Facility]</span>";
+%  print "<span class='text-danger'>[無基因分型實驗室/設施]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Data Type</b></td>
+            <tr><td><b>資料類型(Data Type)</b></td>
                 <td>
                     <div id="trial_data_type">
 % if ($genotype_data_type) {
 %  print "$genotype_data_type";
 % } else {
-%      print "<span class='text-danger'>[No Data Type]</span>";
+%      print "<span class='text-danger'>[無資料類型]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Description</b></td>
+            <tr><td><b>描述(Description)</b></td>
                 <td>
                     <div id="trial_description">
 % if ($trial_description) {
 %  print "$trial_description";
 % } else {
-%  print "<span class='text-danger'>[No Description]</span>";
+%  print "<span class='text-danger'>[無描述]</span>";
 % }
                     </div>
                 </td>

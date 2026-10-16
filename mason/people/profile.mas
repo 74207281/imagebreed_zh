@@ -25,15 +25,15 @@ $user_status => undef
 
 % if ($is_users_profile) {
 
-    <&| /page/info_section.mas, title=>'General Tools', collapsible=>0, collapsed=>0 &>
+    <&| /page/info_section.mas, title=>'常用工具(General Tools)', collapsible=>0, collapsed=>0 &>
         <div class="well">
-            <a href="/solpeople/personal-info.pl?action=edit&sp_person_id=<% $sp_person_id %>">View or update personal (contact and research) information</a><br />
-            <a href="/user/update">Update account information</a><br />
-            <a href="/forum/topics.pl">Post to SGN forum</a><br />
+            <a href="/solpeople/personal-info.pl?action=edit&sp_person_id=<% $sp_person_id %>">檢視或更新個人（聯絡與研究）資訊(View or update personal info)</a><br />
+            <a href="/user/update">更新帳號資訊(Update account information)</a><br />
+            <a href="/forum/topics.pl">在論壇發文(Post to forum)</a><br />
         </div>
     </&>
 
-<&| /page/info_section.mas, title=>'User Status', collapsible=>0, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'使用者狀態(User Status)', collapsible=>0, collapsed=>0 &>
     <div class="well">
         <% $user_status %>
     </div>

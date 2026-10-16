@@ -2,9 +2,9 @@
 
 use CXGN::Page::FormattingHelpers qw/info_section_html info_table_html/;
 
-print info_section_html( title => 'Funding', contents => <<EOHTML);
+print info_section_html( title => '贊助與經費(Funding)', contents => <<EOHTML);
 
-SGN gratefully acknowledges funding from the following funding sources:
+SGN 衷心感謝來自以下來源的經費贊助(SGN gratefully acknowledges funding from the following sources)：
 <br /><br />
 <table><tr>
 <td width="100"><a href="http://www.nsf.gov/" class="footer"><img src="/documents/img/nsf_logo.png" border="0" /></a></td>
@@ -42,9 +42,9 @@ SGN gratefully acknowledges funding from the following funding sources:
 
 EOHTML
 
- print info_section_html( title=>"Acknowledgments", contents=><<EOHTML );
-<p>Special thanks to the <a href="http://cbsu.tc.cornell.edu">Cornell Biological Services Unit</a> for making their compute clusters available for some of our analyses.</p>
-<p>Some data on SGN was obtained from EU-SOL projects. Special thanks to our colleagues at EU-SOL. <br />
+ print info_section_html( title=>"致謝(Acknowledgments)", contents=><<EOHTML );
+<p>特別感謝 <a href="http://cbsu.tc.cornell.edu">康乃爾生物服務部門 (CBSU)</a> 提供計算集群以進行部分分析。</p>
+<p>SGN 上的部分數據來自 EU-SOL 計畫。特別感謝我們在 EU-SOL 的合作夥伴。<br />
 <center>
 <a href="http://www.eu-sol.net" class="footer"><img src="/documents/img/eusol_logo_small.jpg" /></a> <br />
 </center>

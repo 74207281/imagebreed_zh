@@ -1,14 +1,15 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('USDA Public SNP Consortium');
+$page->header('USDA 公共 SNP 聯盟 (USDA Public SNP Consortium)');
 print<<END_HEREDOC;
 
-<h4>Public Tomato SNP Consortium</h4>
+<h4>公共番茄 SNP 聯盟 (Public Tomato SNP Consortium)</h4>
 
-This page has been removed. 
+此頁面已被移除。(This page has been removed.) 
 
-For questions about the SNP consortium, please write to the <a href="http://rubisco.sgn.cornell.edu/mailman/listinfo/public-snp">SNP mailing list</a>.
+有關 SNP 聯盟的疑問，請寫信至 <a href="http://rubisco.sgn.cornell.edu/mailman/listinfo/public-snp">SNP 郵寄清單 (SNP mailing list)</a>。
 
 END_HEREDOC
 
@@ -17,7 +18,7 @@ END_HEREDOC
 #   <center>
     
 
-#     <h4>Public Tomato SNP Consortium</h4>
+#     <h4>公共番茄 SNP 聯盟 (Public Tomato SNP Consortium)</h4>
 
 #      <center><img src=
 #     "/static_content/community/snp_consortium/CTRI_Main_Logo_small.jpg" alt="" />&nbsp;&nbsp;&nbsp;&nbsp;<img src=

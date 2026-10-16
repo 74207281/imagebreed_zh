@@ -66,6 +66,8 @@ Code by Chenwei Lin (cl295@cornell.edu). Documentation and minor modifications (
 =cut
 
 use strict;
+use warnings;
+use utf8;
 use Storable qw /store/;
 use File::Copy;
 use CXGN::Page;
@@ -87,7 +89,8 @@ use CatalystX::GlobalContext '$c';
 our $ALIGN_SEQ_COUNT_LIMIT        = 500;
 our $ALIGN_SEQ_TOTAL_LENGTH_LIMIT = 500_000;
 
-my $page = CXGN::Page->new( "SGN Alignment Analyzer", "Chenwei-Carpita" );
+my $page = CXGN::Page->new( "SGN 比對分析器 (SGN Alignment Analyzer)", "Chenwei-Carpita" );
+
 $page->jsan_use("CXGN.Effects");
 
 our (
@@ -605,15 +608,15 @@ my $term_help_content = <<HTML;
 <tr style='background-color:#ddf'><th valign='top'>Overlap Score</th><td>An indication of how well the sequence overlaps with other members in the alignment.  If a non-gap character of a sequence overlaps with a character in another alignment sequence, it gets a point.<br><br>Sometimes a few sequences share very little overlap with the rest, significantly reducing the overall overlapping sequence of the alignment.  Usually these sequences are short and will not help with the understanding of overall alignment.  We suggest the user leaves out these sequences before further analysis of the aligment sequence. </td></tr></table>
 HTML
 $term_help_content =
-  blue_section_html( "<em>Help With Terms</em>", $term_help_content );
+  blue_section_html( "<em>術語說明 (Help With Terms)</em>", $term_help_content );
 
 my ( $help_link, $hidden_help_content ) = collapser(
     {
         id                  => "alignment_help_content",
         alt_href            => "/about/align_term.pl",
         alt_target          => "align_about",
-        linktext            => "(-) Help me understand terms on this page",
-        hide_state_linktext => "(?) Help me understand terms on this page",
+        linktext            => "(-) 說明此頁面的術語 (Help me understand terms on this page)",
+        hide_state_linktext => "(?) 說明此頁面的術語 (Help me understand terms on this page)",
         linkstyle           => "font-size:1.1em",
         collapsed           => 1,
         content             => $term_help_content,
@@ -632,24 +635,24 @@ $combined_content = get_combined_content($alignment);
 #Page printout: Nav Section
 
 print
-"<a href=\"index.pl?id_data=$id_data\" style=\"margin-left:10px;font-size:1.1em\">&lt;&lt; Start over</a>";
+"<a href=\"index.pl?id_data=$id_data\" style=\"margin-left:10px;font-size:1.1em\">&lt;&lt; 重新開始 (Start over)</a>";
 my $disp_title = "";
-$disp_title = "View and Analyze Alignment of <em>$title</em>" if ($title);
-$disp_title ||= "View and Analyze Alignment";
+$disp_title = "檢視並分析 <em>$title</em> 的比對 (View and Analyze Alignment of <em>$title</em>)" if ($title);
+$disp_title ||= "檢視並分析比對 (View and Analyze Alignment)";
 print page_title_html("$disp_title");
 
 print "&nbsp;&nbsp;" . $help_link . "<br><br>";
 print $hidden_help_content; #this is actually a blue_section_html, but the whole thing is hidden
 
-my $image_title = "Alignment Image";
-$image_title .= ":&nbsp;&nbsp; CDS Translated" if ( $type eq "cds" );
+my $image_title = "比對影像 (Alignment Image)";
+$image_title .= ":&nbsp;&nbsp; CDS 已轉譯 (CDS Translated)" if ( $type eq "cds" );
 print blue_section_html( $image_title,
         '<table width="100%" cellpadding="0" cellspacing="0" border="0">'
       . $image_content
       . '</table>' );
 
 print blue_section_html(
-    'Summary, Files, Change Parameters',
+    '摘要、檔案與更改參數 (Summary, Files, Change Parameters)',
     '<table width="100%" cellpadding="5" cellspacing="0" border="0">'
       . $combined_content
       . '</table>'
@@ -659,10 +662,10 @@ if ($show_breakdown) {
     $seq_sum_content = get_seq_sum_content($alignment);
 }
 else {
-    $seq_sum_content .= "Not Calculated &nbsp;&nbsp;( <a href=\"show_align.pl?";
+    $seq_sum_content .= "未計算 &nbsp;&nbsp;( <a href=\"show_align.pl?";
     $seq_sum_content .= hash2param( \%PARAM, { show_breakdown => 1 } );
     $seq_sum_content .=
-      "\">showing this table</a> will increase page load time )";
+      "\">顯示此表格</a> 將增加頁面載入時間 )";
 }
 
 ###########################################################
@@ -672,21 +675,22 @@ if ($show_sv) {
     ( $sv_content, $al_content ) = get_sv_al_content($alignment);
 }
 else {
-    $al_content = "Not Calculated &nbsp;&nbsp;( <a href=\"show_align.pl?";
+    $al_content = "未計算 &nbsp;&nbsp;( <a href=\"show_align.pl?";
     $al_content .= hash2param( \%PARAM, { show_sv => 1 } );
-    $al_content .= "\">showing this table</a> will increase page load time )";
-    $sv_content = "Not Calculated &nbsp;&nbsp;( <a href=\"show_align.pl?";
+    $al_content .= "\">顯示此表格</a> 將增加頁面載入時間 )";
+    $sv_content = "未計算 &nbsp;&nbsp;( <a href=\"show_align.pl?";
     $sv_content .= hash2param( \%PARAM, { show_sv => 1 } );
-    $sv_content .= "\">showing this table</a> will increase page load time )";
+    $sv_content .= "\">顯示此表格</a> 將增加頁面載入時間 )";
 }
 
 ###########################################################
 ##Page Printout: Breakdown and Alleles
-print blue_section_html( 'Alignment Breakdown', $seq_sum_content );
+print blue_section_html( '比對細項明細 (Alignment Breakdown)', $seq_sum_content );
 
-print blue_section_html( 'Putative Splice Variants', $sv_content );
+print blue_section_html( '推定的剪接變體 (Putative Splice Variants)', $sv_content );
 
-print blue_section_html( 'Putative Alleles', $al_content );
+print blue_section_html( '推定的等位基因 (Putative Alleles)', $al_content );
+
 
 #print blue_section_html('Output Sequences','<table width="100%" cellpadding="5" cellspacing="0" border="0">'.$seq_output_content.'</table>');
 
@@ -1098,10 +1102,11 @@ sub input_err_page {
     $input_err_page->header();
     my ($disp_err_message) = $err_message =~ /(.*) at \/usr\/local\//;
     $disp_err_message = $err_message unless $disp_err_message;
-    print page_title_html("Combined Tree/Alignment Error");
-    print "$disp_err_message<br><br><a href=\"index.pl\">Start over</a><br>";
+    print page_title_html("合併樹狀圖/比對錯誤 (Combined Tree/Alignment Error)");
+    print "$disp_err_message<br><br><a href=\"index.pl\">重新開始 (Start over)</a><br>";
     $input_err_page->footer();
     exit;
+
 }
 
 sub fasta_check {

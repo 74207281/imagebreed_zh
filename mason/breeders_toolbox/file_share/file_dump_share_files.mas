@@ -4,10 +4,10 @@
 <table class="table table-bordered table-hover" id="manage_file_share_dump_table">
     <thead>
         <tr>
-            <th>File Name</th>
-            <th>User Name</th>
-            <th>Date</th>
-            <th>Options</th>
+            <th>檔案名稱(File Name)</th>
+            <th>使用者名稱(User Name)</th>
+            <th>日期(Date)</th>
+            <th>選項(Options)</th>
         </tr>
     </thead>
 </table>

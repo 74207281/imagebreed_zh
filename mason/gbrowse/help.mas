@@ -1,7 +1,7 @@
 % unless( my $g = $c->enabled_feature('gbrowse2') ) {
 
-<h2>GBrowse not installed.</h2>
-No help available.
+<h2>未安裝 GBrowse(GBrowse not installed.)</h2>
+無可用說明(No help available.)
 
 % } else {
 <& .gbrowse_info, gb => $g &>
@@ -13,22 +13,20 @@ No help available.
   $gb
 </%args>
 
-<& /page/page_title.mas, title => 'GBrowse help' &>
+<& /page/page_title.mas, title => 'GBrowse 說明(GBrowse help)' &>
 
-<&| /page/info_section.mas, title => 'About' &>
+<&| /page/info_section.mas, title => '關於(About)' &>
   <p>
-    <% $c->site_name %> uses the Generic Genome Browser (GBrowse),
-    produced by the <a href="http://gmod.org">GMOD project</a>, for
-    providing browsable sequence annotations.
+    <% $c->site_name %> 使用由 <a href="http://gmod.org">GMOD 專案(GMOD project)</a> 所開發的通用基因組瀏覽器（GBrowse，Generic Genome Browser），以提供可瀏覽的序列註解(uses the Generic Genome Browser (GBrowse), produced by the GMOD project, for providing browsable sequence annotations)。
   </p>
 
-  <p>See the <a href="http://gmod.org/wiki/GBrowse#On-line_documentation">GBrowse online documentation</a> for instructions on how to use GBrowse.</p>
+  <p>請參閱 <a href="http://gmod.org/wiki/GBrowse#On-line_documentation">GBrowse 線上文件(GBrowse online documentation)</a> 以取得有關如何使用 GBrowse 的說明(for instructions on how to use GBrowse)。</p>
 </&>
 
-<&| /page/info_section.mas, title => 'Available GBrowse Datasets' &>
+<&| /page/info_section.mas, title => '可用的 GBrowse 資料集(Available GBrowse Datasets)' &>
 
 %   my $s = $m->scomp('/gbrowse/list_sources.mas');
-    <% $s =~ /\S/ ? $s : '<strong>no sources available</strong>' %>
+    <% $s =~ /\S/ ? $s : '<strong>無可用來源(no sources available)</strong>' %>
 
 </&>
 

@@ -1,6 +1,5 @@
-#!/usr/bin/perl
-
-
+use strict;
+use utf8;
 use CGI;
 my $cgi = new CGI;
 
@@ -55,8 +54,8 @@ foreach my $mach ( sort keys %cpu_files ) {
 			$total_used++;
 		}
 	}
-	$row_html .= "<span style=\"color:#555\">Available</span>" unless $used;
-	$web_html .= "&nbsp;$used&nbsp;in&nbsp;use&nbsp;&nbsp;</td><td style=\"vertical-align:top\">$row_html</td></tr>";	
+	$row_html .= "<span style=\"color:#555\">可用 (Available)</span>" unless $used;
+	$web_html .= "&nbsp;$used&nbsp;使用中 (in use)&nbsp;&nbsp;</td><td style=\"vertical-align:top\">$row_html</td></tr>";	
 #	$content .= "\n" unless $used;
 	print "\t$used/4 processors in use" unless $mode eq "html";
 	print $content unless $mode eq "html";
@@ -70,34 +69,34 @@ $web_html = <<HTML;
 
 <html>
 <head>
-<title>Cluster QuickView</title>
-
+<title>叢集快速檢視 (Cluster QuickView)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h2>Cluster QuickView</h2>
+<h2>叢集快速檢視 (Cluster QuickView)</h2>
 <!--
 <a href="http://rubisco.sgn.cornell.edu/spong-cgi/www-spong.cgi">&lt;&lt;Back to Spong</a><br />
 -->
 <span style="font-size:1.05em; color:#222">
-Total processors used: <b style="color:#411">$total_used</b> &nbsp;&nbsp;&nbsp; Available: <b style="color:#141">$available</b>
+已使用處理器總數 (Total processors used): <b style="color:#411">$total_used</b> &nbsp;&nbsp;&nbsp; 可用 (Available): <b style="color:#141">$available</b>
 <br />
 </span>
 <br />
 $web_html
 <br />
-<a href="server_room.pl" target="_TOP">&lt;&lt; Back</a>
+<a href="server_room.pl" target="_TOP">&lt;&lt; 返回 (Back)</a>
 </body>
 </html>
 HTML
 
 
 if($mode eq "html"){
+	print "Content-Type: text/html; charset=UTF-8\n\n";
 	print $web_html;
 }
 else{
 	print "\n";
-	print "\nTotal Processors used: $total_used\tAvailable: $available";
-	print "\n";
+	print "\nTotal Processors used: $total_used\tAvailable: $available\n";
 }
 
 

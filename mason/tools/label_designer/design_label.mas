@@ -1,6 +1,6 @@
 <div class="text-center">
-    <p>Time to design! Start by selecting a type and field. Then click 'add' to generate your new label element in the draw area.</p>
-    <p>Add, drag, customize, resize, and delete as many elements as you like. A barcode containing your unique identifier (plot_name, plant_name, etc) is strongly recommended.</p>
+    <p>開始設計！首先選擇類型與欄位，然後點擊「新增(Add)」即可在繪製區域產生新的標籤元件(Time to design! Start by selecting a type and field. Then click 'add' to generate your new label element in the draw area.)。</p>
+    <p>您可以依需求自由新增、拖曳、自訂、調整大小以及刪除元件。強烈建議包含帶有唯一識別碼（如 plot_name、plant_name 等）的條碼(Add, drag, customize, resize, and delete as many elements as you like. A barcode containing your unique identifier (plot_name, plant_name, etc) is strongly recommended.)。</p>
 </div>
 </br>
 <div class="col-md-12" id="d3-draw-div" style="margin-bottom:20px;">
@@ -8,41 +8,41 @@
 </div>
 <div class="col-md-12">
     <center>
-        <h4>Add Elements:</h4>
+        <h4>新增元件(Add Elements):</h4>
     </center>
 </div>
 <div class="col-md-12" style="margin-bottom:20px;">
     <div class="col-md-3" id="d3-add-type-div">
         <center>
-            <label>Type:</label><br>
+            <label>類型(Type):</label><br>
             <select id="d3-add-type-input" class="form-control"></select>&nbsp&nbsp
         </center>
     </div>
     <div class="col-md-3" id="d3-add-field-div">
         <center>
-            <label>Field:</label><br>
+            <label>欄位(Field):</label><br>
             <select id="d3-add-field-input" class="form-control"></select><br>
-            <button class="btn btn-primary" id="d3-custom-field">Create Custom Field</button>
+            <button class="btn btn-primary" id="d3-custom-field">建立自訂欄位(Create Custom Field)</button>
         </center>
         &nbsp&nbsp
     </div>
     <div class="col-md-2" id="d3-add-size-div">
         <center>
-            <label>Size:</label><br>
+            <label>大小(Size):</label><br>
             <input class="form-control" id="d3-add-size-input" type="number"></input>
             <input class="form-control" id="d3-add-size-slider" type="range"></input>
         </center>
     </div>
     <div class="col-md-3" id="d3-add-font-div">
         <center>
-            <label>Font:</label><br>
+            <label>字型(Font):</label><br>
             <select id="d3-add-font-input" class="form-control"></select>&nbsp
         </center>
     </div>
     <div class="col-md-1">
         <center>
             <br>
-            <button class="btn btn-primary d3-add" id="d3-add">Add</button>
+            <button class="btn btn-primary d3-add" id="d3-add">新增(Add)</button>
         </center>
     </div>
 </div>

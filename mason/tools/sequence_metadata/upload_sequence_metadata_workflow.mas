@@ -9,7 +9,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addHighDimDataDialog">Upload Sequence Metadata</h4>
+        <h4 class="modal-title" id="addHighDimDataDialog">上傳序列元資料(Upload Sequence Metadata)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -17,44 +17,43 @@
           <&| /util/workflow.mas, id=> "upload_sequence_metadata_workflow" &>
 
             <!-- Step 1: Intro -->
-            <&| /util/workflow.mas:step, title=> "Intro" &>
-              <& /page/page_title.mas, title=>"Upload Sequence Metadata" &>
+            <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+              <& /page/page_title.mas, title=>"上傳序列元資料(Upload Sequence Metadata)" &>
               <div class="well">
-                  <p>This workflow will guide you through the process of uploading sequence metadata to the database using a
-                  <a href="https://m.ensembl.org/info/website/upload/gff3.html">gff3-formatted</a> file.</p>
-                  <p>The following gff3 columns are used by the sequence metadata uploader:</p>
+                  <p>此工作流程將引導您使用 <a href="https://m.ensembl.org/info/website/upload/gff3.html">gff3 格式</a>檔案將序列元資料上傳至資料庫(This workflow will guide you through the process of uploading sequence metadata to the database using a gff3-formatted file)。</p>
+                  <p>序列元資料上傳工具使用以下 GFF3 欄位(The following gff3 columns are used by the sequence metadata uploader)：</p>
                   <ul>
                     <li>
-                      <strong>#1 / seqid:</strong> The name of the database feature (ie chromosome) the metadata is associated with<br />
-                      <em>The names in this column must match existing features in the database.</em>
+                      <strong>#1 / seqid:</strong> 元資料所關聯的資料庫特徵名稱（即染色體）(The name of the database feature (ie chromosome) the metadata is associated with)<br />
+                      <em>此欄中的名稱必須與資料庫中現有的特徵相符(The names in this column must match existing features in the database)。</em>
                     </li>
-                    <li><strong>#4 / start:</strong> The metadata's start position</li>
-                    <li><strong>#5 / end:</strong> The metadata's end position</li>
-                    <li><strong>#6 / score:</strong> The primary score attribute of the metadata</li>
+                    <li><strong>#4 / start:</strong> 元資料的起始位置(The metadata's start position)</li>
+                    <li><strong>#5 / end:</strong> 元資料的結束位置(The metadata's end position)</li>
+                    <li><strong>#6 / score:</strong> 元資料的主要評分屬性(The primary score attribute of the metadata)</li>
                     <li>
-                      <strong>#9 / attributes:</strong> Secondary key/value attributes to be saved with the score<br />
-                      <em>The attribute key cannot be either <strong>score</strong>, <strong>start</strong>, or <strong>end</strong>.</em>
+                      <strong>#9 / attributes:</strong> 與評分一同儲存的次要鍵/值屬性(Secondary key/value attributes to be saved with the score)<br />
+                      <em>屬性鍵名不能為 <strong>score</strong>、<strong>start</strong> 或 <strong>end</strong>(The attribute key cannot be either score, start, or end)。</em>
                     </li>
                   </ul>
               </div>
 
               <div class="center">
-                <button class="btn btn-primary" id="sequence_metadata_intro_step">Go to Next Step</button>
+                <button class="btn btn-primary" id="sequence_metadata_intro_step">前往下一步(Go to Next Step)</button>
               </div>
             </&>
             <!-- End Intro -->
 
 
             <!-- Step 2: Data Type -->
-            <&| /util/workflow.mas:step, title=> "Data Type" &>
-              <& /page/page_title.mas, title=>"Select the type of sequence metadata" &>
+            <&| /util/workflow.mas:step, title=> "資料類型(Data Type)" &>
+              <& /page/page_title.mas, title=>"選擇序列元資料類型(Select the type of sequence metadata)" &>
               <br /><br />
               <form class="form-horizontal">
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Data Type:&nbsp;</label>
+                  <label class="col-sm-3 control-label">資料類型(Data Type):&nbsp;</label>
                   <div class="col-sm-9">
                     <select class="form-control" id="sequence_metadata_upload_type_select" disabled>
-                      <option value="">Loading...</option>
+                      <option value="">載入中(Loading)...</option>
                     </select>
                     <br />
                     <div class="well">
@@ -63,24 +62,24 @@
                   </div>
                 </div>
               </form>
-              <p><span class="glyphicon glyphicon-question-sign"></span>&nbsp;If your data is not one of the above data types, please <a href="/contact/form">contact us</a> about adding a new data type.</p>
+              <p><span class="glyphicon glyphicon-question-sign"></span>&nbsp;如果您的資料不屬於上述任何資料類型，請<a href="/contact/form">聯繫我們</a>以新增資料類型(If your data is not one of the above data types, please contact us about adding a new data type)。</p>
 
               <br /><br />
 
               <div class="center">
-                <button class="btn btn-primary" id="sequence_metadata_upload_type_step">Go to Next Step</button>
+                <button class="btn btn-primary" id="sequence_metadata_upload_type_step">前往下一步(Go to Next Step)</button>
               </div>
             </&>
             <!-- End Data Type -->
 
 
             <!-- Step 3: Protocol Info -->
-            <&| /util/workflow.mas:step, title=> "Protocol Info" &>
-              <& /page/page_title.mas, title=>"Select a protocol for how your data was generated or create a new protocol" &>
+            <&| /util/workflow.mas:step, title=> "實驗方案資訊(Protocol Info)" &>
+              <& /page/page_title.mas, title=>"選擇產生資料的實驗方案或建立新實驗方案(Select a protocol for how your data was generated or create a new protocol)" &>
 
               <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#sequence_metadata_upload_protocol_select">Select Existing Protocol</a></li>
-                <li><a data-toggle="tab" href="#sequence_metadata_upload_protocol_div">Create New Protocol</a></li>
+                <li class="active"><a data-toggle="tab" href="#sequence_metadata_upload_protocol_select">選擇現有實驗方案(Select Existing Protocol)</a></li>
+                <li><a data-toggle="tab" href="#sequence_metadata_upload_protocol_div">建立新實驗方案(Create New Protocol)</a></li>
               </ul>
 
               <div class="tab-content">
@@ -94,11 +93,11 @@
                 <div id="sequence_metadata_upload_protocol_div" class="tab-pane fade">
                   <form class="form-horizontal" id="sequence_metadata_upload_protocol_form" name="sequence_metadata_upload_file_form">
 
-                    <h3>Protocol Information</h3>
+                    <h3>實驗方案資訊(Protocol Information)</h3>
 
                     <!-- Protocol Name -->
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Protocol Name: </label>
+                      <label class="col-sm-3 control-label">實驗方案名稱(Protocol Name): </label>
                       <div class="col-sm-9">
                         <input class="form-control" id="sequence_metadata_upload_protocol_name" type="text">
                       </div>
@@ -106,15 +105,15 @@
 
                     <!-- Protocol Description -->
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Protocol Description: </label>
+                      <label class="col-sm-3 control-label">實驗方案描述(Protocol Description): </label>
                       <div class="col-sm-9">
-                        <textarea class="form-control" id="sequence_metadata_upload_protocol_description" rows="5" placeholder="Include a description of the methods used to generate the data"></textarea>
+                        <textarea class="form-control" id="sequence_metadata_upload_protocol_description" rows="5" placeholder="請包含用於產生資料之方法的描述(Include a description of the methods used to generate the data)"></textarea>
                       </div>
                     </div>
 
                     <!-- Sequence Metadata Type -->
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Sequence Metadata Type: </label>
+                      <label class="col-sm-3 control-label">序列元資料類型(Sequence Metadata Type): </label>
                       <div class="col-sm-9">
                         <input class="form-control" id="sequence_metadata_upload_protocol_sequence_metadata_type" type="text" disabled>
                       </div>
@@ -122,10 +121,10 @@
 
                     <!-- Reference Genome -->
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Reference Genome: </label>
+                      <label class="col-sm-3 control-label">參考基因組(Reference Genome): </label>
                       <div class="col-sm-9">
                         <select class="form-control" id="sequence_metadata_upload_protocol_reference_genome" disabled>
-                          <option value="">Loading...</option>
+                          <option value="">載入中(Loading)...</option>
                         </select>
                       </div>
                     </div>
@@ -133,43 +132,43 @@
                     <br /><br />
 
                     <!-- Attribute Descriptions -->
-                    <h3>Attribute Descriptions</h3>
+                    <h3>屬性描述(Attribute Descriptions)</h3>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Score Description: </label>
+                      <label class="col-sm-3 control-label">評分描述(Score Description): </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="sequence_metadata_upload_score_description" type="text" placeholder="Include a description of the values in the 'score' column">
+                        <input class="form-control" id="sequence_metadata_upload_score_description" type="text" placeholder="請包含 'score' 欄位中數值的描述(Include a description of the values in the 'score' column)">
                       </div>
                     </div>
 
                     <br />
-                    <p><strong>Add a description for each of the key/value pairs included in the attributes column.</strong></p>
-                    <p><em>Specifying the attribute here in the protocol will allow the attribute to be used as a filter in a query.  Make sure the attribute key exactly matches the key used in the gff file.</em></p>
+                    <p><strong>為屬性欄位中包含的各個鍵/值對新增描述(Add a description for each of the key/value pairs included in the attributes column)。</strong></p>
+                    <p><em>在此實驗方案中指定屬性將允許該屬性在查詢中用作篩選條件。請確保屬性鍵名與 GFF 檔案中使用的鍵名完全相符(Specifying the attribute here in the protocol will allow the attribute to be used as a filter in a query. Make sure the attribute key exactly matches the key used in the gff file)。</em></p>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Attribute Key: </label>
+                      <label class="col-sm-3 control-label">屬性鍵名(Attribute Key): </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="sequence_metadata_upload_new_attribute_key" type="text" placeholder="Enter attribute key">
+                        <input class="form-control" id="sequence_metadata_upload_new_attribute_key" type="text" placeholder="輸入屬性鍵名(Enter attribute key)">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Attribute Description: </label>
+                      <label class="col-sm-3 control-label">屬性描述(Attribute Description): </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="sequence_metadata_upload_new_attribute_description" type="text" placeholder="Enter a description of this attribute">
+                        <input class="form-control" id="sequence_metadata_upload_new_attribute_description" type="text" placeholder="輸入此屬性的描述(Enter a description of this attribute)">
                       </div>
                     </div>
 
                     <div class="form-group center">
-                      <button class="btn btn-info" id="sequence_metadata_upload_new_attribute_submit">Save Attribute</button>
+                      <button class="btn btn-info" id="sequence_metadata_upload_new_attribute_submit">儲存屬性(Save Attribute)</button>
                     </div>
 
                     <div>
-                      <p><strong>Saved Attributes:</strong></p>
+                      <p><strong>已儲存屬性(Saved Attributes):</strong></p>
                       <table id="sequence_metadata_upload_new_attributes_table" class="table table-striped table-hover">
                         <tr>
-                          <th>Key</th>
-                          <th>Description</th>
+                          <th>鍵名(Key)</th>
+                          <th>描述(Description)</th>
                           <th></th>
                         </tr>
                       </table>
@@ -178,37 +177,35 @@
                     <br /><br />
 
                     <!-- External Link Templates -->
-                    <h3>External Links</h3>
+                    <h3>外部連結(External Links)</h3>
 
-                    <p><strong>Add templates for generating external links displayed with the sequence metadata results.</strong></p>
-                    <p>External links are defined using templates that can include the feature/chrom name, start and/or end position, and/or any attribute value
-                    as a variable in the URL.  The variable will be replaced with the value for each sequence metadata result and displayed in the query results table.  The variable in the URL takes the form of: <code>{{variable}}</code> where <code>variable</code> can be: <code>feature</code>, <code>start</code>,
-                    <code>end</code> or the key of any attribute defined by the sequence metadata protocol.</p>
-                    <p>Example: <code>https://wheat.pw.usda.gov/jb/?data=/ggds/whe-iwgsc2018&loc={{Locus}}&highlight={{feature}}:{{start}}..{{end}}</code></p>
+                    <p><strong>新增用於產生隨序列元資料結果顯示之外部連結的範本(Add templates for generating external links displayed with the sequence metadata results)。</strong></p>
+                    <p>外部連結使用範本進行定義，該範本可在 URL 中包含特徵/染色體名稱、起始和/或結束位置，以及/或任何屬性值作為變數。該變數將替換為各序列元資料結果的值，並顯示在查詢結果表中。URL 中的變數形式為：<code>{{variable}}</code>，其中 <code>variable</code> 可以是：<code>feature</code>、<code>start</code>、<code>end</code> 或序列元資料實驗方案所定義的任何屬性鍵名(External links are defined using templates that can include feature, start, end, or attributes as variables)。</p>
+                    <p>範例(Example): <code>https://wheat.pw.usda.gov/jb/?data=/ggds/whe-iwgsc2018&loc={{Locus}}&highlight={{feature}}:{{start}}..{{end}}</code></p>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Link Title: </label>
+                      <label class="col-sm-3 control-label">連結標題(Link Title): </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="sequence_metadata_upload_new_link_title" type="text" placeholder="Enter external link title">
+                        <input class="form-control" id="sequence_metadata_upload_new_link_title" type="text" placeholder="輸入外部連結標題(Enter external link title)">
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-3 control-label">Link URL Template: </label>
+                      <label class="col-sm-3 control-label">連結 URL 範本(Link URL Template): </label>
                       <div class="col-sm-9">
-                        <input class="form-control" id="sequence_metadata_upload_new_link_url" type="text" placeholder="Enter external link URL template">
+                        <input class="form-control" id="sequence_metadata_upload_new_link_url" type="text" placeholder="輸入外部連結 URL 範本(Enter external link URL template)">
                       </div>
                     </div>
 
                     <div class="form-group center">
-                      <button class="btn btn-info" id="sequence_metadata_upload_new_link_submit">Save Link</button>
+                      <button class="btn btn-info" id="sequence_metadata_upload_new_link_submit">儲存連結(Save Link)</button>
                     </div>
 
                     <div>
-                      <p><strong>Saved Links:</strong></p>
+                      <p><strong>已儲存連結(Saved Links):</strong></p>
                       <table id="sequence_metadata_upload_new_links_table" class="table table-striped table-hover">
                         <tr>
-                          <th>Title</th>
+                          <th>標題(Title)</th>
                           <th>URL</th>
                           <th></th>
                         </tr>
@@ -224,7 +221,7 @@
               <br /><br />
 
               <div class="center">
-                <button class="btn btn-primary" id="sequence_metadata_upload_protocol_step">Go to Next Step</button>
+                <button class="btn btn-primary" id="sequence_metadata_upload_protocol_step">前往下一步(Go to Next Step)</button>
               </div>
 
               <br /><br />
@@ -234,18 +231,17 @@
 
 
             <!-- Step 4: Upload -->
-            <&| /util/workflow.mas:step, title=> "Upload" &>
-              <& /page/page_title.mas, title=>"Upload your gff3 file" &>
+            <&| /util/workflow.mas:step, title=> "上傳(Upload)" &>
+              <& /page/page_title.mas, title=>"上傳您的 GFF3 檔案(Upload your gff3 file)" &>
               <br /><br />
 
-              <p>Select your gff3 file to upload.  Then, click the <strong>Verify</strong> button to upload your file and check its format and contents.  If
-              successfully verified, click the <strong>Store</strong> button to store the data in the database.</p>
+              <p>請選擇要上傳的 GFF3 檔案。然後點擊<strong>驗證(Verify)</strong>按鈕以上傳檔案並檢查其格式與內容。如果驗證成功，請點擊<strong>儲存至資料庫(Store)</strong>按鈕以儲存資料(Select your gff3 file to upload. Then, click the Verify button to upload your file and check its format and contents. If successfully verified, click the Store button to store the data in the database)。</p>
 
               <br /><br />
 
               <form id="sequence_metadata_upload_file_form" class="form-horizontal" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label class="col-sm-3 control-label">Select GFF3 File: </label>
+                  <label class="col-sm-3 control-label">選擇 GFF3 檔案(Select GFF3 File): </label>
                   <div class="col-sm-9" >
                       <input type="file" id="sequence_metadata_upload_file_input" name="sequence_metadata_upload_file_input" encoding="multipart/form-data" />
                   </div>
@@ -255,8 +251,8 @@
               <br /><br />
 
               <div class="center">
-                <button id="sequence_metadata_upload_verify" class="btn btn-info">Verify</button>
-                <button id="sequence_metadata_upload_store" class="btn btn-primary" disabled>Store</button>
+                <button id="sequence_metadata_upload_verify" class="btn btn-info">驗證(Verify)</button>
+                <button id="sequence_metadata_upload_store" class="btn btn-primary" disabled>儲存(Store)</button>
               </div>
 
               <br /><br />
@@ -272,7 +268,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -434,7 +430,7 @@ function complete_protocol_step() {
   use_existing_protocol = jQuery('#sequence_metadata_upload_protocol_select').is(':visible');
   if ( use_existing_protocol ) {
     if ( jQuery('input[name="sequence_metadata_upload_protocol_id"]:checked').length !== 1 ) {
-      alert('Please select one existing protocol!');
+      alert('請選擇一個現有的實驗方案！(Please select one existing protocol!)');
       return false;
     }
   }
@@ -442,11 +438,11 @@ function complete_protocol_step() {
     new_protocol_name = jQuery('#sequence_metadata_upload_protocol_name').val();
     new_protocol_description = jQuery('#sequence_metadata_upload_protocol_description').val();
     if ( !new_protocol_name || new_protocol_name === "" ) {
-      alert('Please enter a name for the new protocol');
+      alert('請為新實驗方案輸入名稱(Please enter a name for the new protocol)');
       return false;
     }
     if ( !new_protocol_description || new_protocol_description === "" ) {
-      alert('Please enter a description for the new protocol');
+      alert('請為新實驗方案輸入描述(Please enter a description for the new protocol)');
       return false;
     }
   }
@@ -473,12 +469,12 @@ function complete_protocol_step() {
 function upload_and_verify() {
   let file = jQuery('#sequence_metadata_upload_file_input').val();
   if ( !file || file === '' ) {
-    alert("Please select your gff file");
+    alert("請選擇您的 GFF 檔案(Please select your gff file)");
     return false;
   }
 
   // Setup working modal
-  jQuery('#working_msg').html("Uploading GFF File");
+  jQuery('#working_msg').html("正在上傳 GFF 檔案(Uploading GFF File)...");
   jQuery('#working_modal_progress').css('width', 0).attr('aria-valuenow', 0);
   jQuery('#working_modal_progress_div').css('display', 'block');
   jQuery('#working_modal').modal("show");
@@ -516,7 +512,7 @@ function upload_and_verify() {
             let prog = (e.loaded / e.total)*100;
             jQuery('#working_modal_progress').css('width', prog + "%").attr('aria-valuenow', prog);
             if ( prog >= 100 ) {
-              jQuery('#working_msg').html("Verifying GFF File");
+              jQuery('#working_msg').html("正在驗證 GFF 檔案(Verifying GFF File)...");
             }
           }
         }, false);
@@ -540,21 +536,21 @@ function upload_and_verify() {
       }
       else if ( response && response.results ) {
         if ( response.results.processed === 1 ) {
-          add_message("success", "File successfully uploaded and processed");
+          add_message("success", "檔案上傳並處理成功(File successfully uploaded and processed)");
         }
         else {
-          add_message("error", "ERROR: File not successfully uploaded and processed!");
+          add_message("error", "錯誤：檔案上傳並處理失敗！(ERROR: File not successfully uploaded and processed!)");
         }
 
         if ( response.results.verified === 1 ) {
-          add_message("success", "File successfully verified");
+          add_message("success", "檔案驗證成功(File successfully verified)");
         }
         else {
-          add_message("error", "ERROR: File not successfully verfied!");
+          add_message("error", "錯誤：檔案驗證失敗！(ERROR: File not successfully verified!)");
         }
 
         if ( response.results.missing_features && response.results.missing_features.length > 0 ) {
-          let msg = "ERROR: The following features do not exist in the database.  Contact us to have them added or change the feature names to match existing features.";
+          let msg = "錯誤：以下特徵不存在於資料庫中。請聯繫我們將其新增，或修改特徵名稱以符合現有特徵(ERROR: The following features do not exist in the database. Contact us to have them added or change the feature names to match existing features)：";
           msg += "<ul>";
           for ( let i = 0; i < response.results.missing_features.length; i++ ) {
             msg += "<li>" + response.results.missing_features[i] + "</li>";
@@ -564,24 +560,24 @@ function upload_and_verify() {
         }
 
         if ( response.results.missing_attributes && response.results.missing_attributes.length > 0 ) {
-          let msg = "WARNING: The following attributes are defined in the protocol but are <em>not present in the gff file</em>.";
+          let msg = "警告：以下屬性已在實驗方案中定義，但<em>未出現在 GFF 檔案中</em>(WARNING: The following attributes are defined in the protocol but are not present in the gff file)：";
           msg += "<ul>";
           for ( let i = 0; i < response.results.missing_attributes.length; i++ ) {
             msg += "<li>" + response.results.missing_attributes[i] + "</li>";
           }
           msg += "</ul>";
-          msg += "You can either <a href='javascript:Workflow.focus(\"#upload_sequence_metadata_workflow\", 2);'>remove the attributes from the protocol info</a> or continue to store the file with the attributes defined in the protocol but missing from the file.";
+          msg += "您可以<a href='javascript:Workflow.focus(\"#upload_sequence_metadata_workflow\", 2);'>從實驗方案資訊中移除該屬性</a>，或繼續儲存檔案（即使實驗方案中定義的屬性在檔案中缺失）(You can either remove the attributes from the protocol info or continue to store the file)。";
           add_message("warning", msg);
         }
 
         if ( response.results.undefined_attributes && response.results.undefined_attributes.length > 0 ) {
-          let msg = "WARNING: The following attributes are present in the gff file but are <em>not defined in the protocol</em>.";
+          let msg = "警告：以下屬性出現在 GFF 檔案中，但<em>未在實驗方案中定義</em>(WARNING: The following attributes are present in the gff file but are not defined in the protocol)：";
           msg += "<ul>";
           for ( let i = 0; i < response.results.undefined_attributes.length; i++ ) {
             msg += "<li>" + response.results.undefined_attributes[i] + "</li>";
           }
           msg += "</ul>";
-          msg += "You can either <a href='javascript:Workflow.focus(\"#upload_sequence_metadata_workflow\", 2);'>add the attributes to the protocol info</a> or continue to store the file with the attributes not defined in the protocol.";
+          msg += "您可以<a href='javascript:Workflow.focus(\"#upload_sequence_metadata_workflow\", 2);'>將該屬性新增至實驗方案資訊</a>，或繼續儲存檔案（包含未在方案中定義的屬性）(You can either add the attributes to the protocol info or continue to store the file)。";
           add_message("warning", msg);
         }
       }
@@ -590,7 +586,7 @@ function upload_and_verify() {
       if ( response && response.results && response.results.processed && response.results.processed === 1 && response.results.verified && response.results.verified === 1 && response.results.processed_filepath ) {
         jQuery('#sequence_metadata_upload_verify').attr('disabled', true);
         jQuery('#sequence_metadata_upload_store').attr('disabled', false);
-        add_message("info", "Verification Complete.  Next, click the <strong>Store</strong> button to save the data to the database.");
+        add_message("info", "驗證完成。接下來請點擊<strong>儲存至資料庫(Store)</strong>按鈕以將資料儲存至資料庫(Verification Complete. Next, click the Store button to save the data to the database)。");
         processed_filepath = response.results.processed_filepath;
       }
 
@@ -601,7 +597,7 @@ function upload_and_verify() {
       jQuery('#working_modal_progress_div').css('display', 'none');
       jQuery('#working_modal').modal("hide");
 
-      alert("ERROR: Could not upload and verify gff file due to server error!");
+      alert("錯誤：由於伺服器錯誤，無法上傳並驗證 GFF 檔案！(ERROR: Could not upload and verify gff file due to server error!)");
     }
   });
 }
@@ -612,7 +608,7 @@ function upload_and_verify() {
 function store() {
 
   // Setup working modal
-  jQuery('#working_msg').html("Storing Sequence Metadata");
+  jQuery('#working_msg').html("正在儲存序列元資料(Storing Sequence Metadata)...");
   jQuery('#working_modal').modal("show");
   jQuery('#sequence_metadata_upload_messages_list').empty();
 
@@ -666,13 +662,13 @@ function store() {
       }
       else if ( response && response.results ) {
         if ( response.results.stored === 1 ) {
-          add_message("success", "File successfully stored");
+          add_message("success", "檔案儲存成功(File successfully stored)");
           if ( response.results.chunks ) {
-            add_message("info", response.results.chunks + " chunks written to the database.");
+            add_message("info", "已寫入 " + response.results.chunks + " 個資料區塊至資料庫(" + response.results.chunks + " chunks written to the database)。");
           }
         }
         else {
-          add_message("error", "ERROR: File not stored!");
+          add_message("error", "錯誤：檔案未儲存！(ERROR: File not stored!)");
         }
       }
 
@@ -686,7 +682,7 @@ function store() {
     error: function() {
       jQuery('#working_msg').html("");
       jQuery('#working_modal').modal("hide");
-      alert("ERROR: Could not store sequence metadata due to server error!");
+      alert("錯誤：由於伺服器錯誤，無法儲存序列元資料！(ERROR: Could not store sequence metadata due to server error!)");
     }
   });
 
@@ -720,7 +716,7 @@ function save_attribute_description() {
   let key = jQuery('#sequence_metadata_upload_new_attribute_key').val();
   let description = jQuery('#sequence_metadata_upload_new_attribute_description').val();
   if ( !key || key === "" ) {
-    alert("An attribute key is required!");
+    alert("屬性鍵名為必填項！(An attribute key is required!)");
     return false;
   }
 
@@ -752,11 +748,11 @@ function save_link_definition() {
   let title = jQuery('#sequence_metadata_upload_new_link_title').val();
   let url = jQuery('#sequence_metadata_upload_new_link_url').val();
   if ( !title || title === "" ) {
-    alert("A link title is required!");
+    alert("連結標題為必填項！(A link title is required!)");
     return false;
   }
   if ( !url || url === "" ) {
-    alert("A link url is required!");
+    alert("連結 URL 為必填項！(A link url is required!)");
     return false;
   }
 

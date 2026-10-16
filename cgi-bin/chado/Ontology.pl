@@ -2,12 +2,13 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Chado::Cvterm;
 use CXGN::Page;
 
-my $page = CXGN::Page->new('SGN Ontology Browser', 'Jessica Reuter');
-$page->header( "SGN Ontology Browser", "SGN Ontology Browser" );
+my $page = CXGN::Page->new('SGN 本體論瀏覽器 (SGN Ontology Browser)', 'Jessica Reuter');
+$page->header( "SGN 本體論瀏覽器 (SGN Ontology Browser)", "SGN 本體論瀏覽器 (SGN Ontology Browser)" );
 
 load_ontology();
 
@@ -19,34 +20,34 @@ $page->footer();
 ###############################################################################
 
 sub load_ontology {
-    print "Please scan through the available SGN ontologies to find terms.<br/>";
-    print "To search for a specific term, please enter the qualified name (database and accession) below.";
-    print " When finished, click \"Get Term\".<br/><br/>";
+    print "請瀏覽可用的 SGN 本體論以尋找詞彙 (Please scan through the available SGN ontologies to find terms)。<br/>";
+    print "欲搜尋特定詞彙，請在下方輸入限定名稱（資料庫與編號）(To search for a specific term, please enter the qualified name (database and accession) below)。";
+    print " 完成後點擊「取得詞彙 (Get Term)」。<br/><br/>";
 
-    print "<i>There may be short delays while tree nodes are being processed or searches are being conducted.";
-    print " Please wait (do not click nodes multiple times), and the requested content will load momentarily.";
+    print "<i>處理樹狀節點或進行搜尋時可能會有短暫延遲 (There may be short delays while tree nodes are being processed or searches are being conducted)。";
+    print " 請稍候（請勿重複點擊節點），請求的內容將在片刻後載入 (Please wait, do not click nodes multiple times, and the requested content will load momentarily)。";
     print "</i><br/><br/><br/>";
 
     print <<EOJS;
     <form name="ontologies" onSubmit='return false;'>
-	Enter term here: <input type='text' id='termSelect'>
-	<input type='button' onclick='specific( "termSelect" )' value='Get Term'/>
+	在此輸入詞彙 (Enter term here): <input type='text' id='termSelect'>
+	<input type='button' onclick='specific( "termSelect" )' value='取得詞彙 (Get Term)'/>
 	<div id='notice'></div><br/>
 
 	<input type='button' onclick='roots( "GO", this );node( this )' value='+' id='go' style="font-family:mono"/> 
-	GO (Gene Ontology)<div id='GO'></div><br/>
+	GO (基因本體論 Gene Ontology)<div id='GO'></div><br/>
 
 	<input type='button' onclick='roots( "PO", this );node( this )' value='+' id='po' style="font-family:mono"/> 
-	PO (Plant Ontology)<div id='PO'></div><br/>
+	PO (植物本體論 Plant Ontology)<div id='PO'></div><br/>
 
 	<input type='button' onclick='roots( "SO", this );node( this )' value='+' id='so' style="font-family:mono"/> 
-	SO (Sequence Ontology)<div id='SO'></div><br/>
+	SO (序列本體論 Sequence Ontology)<div id='SO'></div><br/>
 
 	<input type='button' onclick='roots( "SP", this );node( this )' value='+' id='sp' style="font-family:mono"/> 
-	SP (Solanaceae Phenotype Ontology)<div id='SP'></div><br/>
+	SP (茄科表型本體論 Solanaceae Phenotype Ontology)<div id='SP'></div><br/>
 	
 	<input type='button' onclick='roots( "PATO", this );node( this )' value='+' id='pato' style="font-family:mono"/> 
-	PATO (Phenotype and Trait Ontology)<div id='PATO'></div><br/>
+	PATO (表型與性狀本體論 Phenotype and Trait Ontology)<div id='PATO'></div><br/>
 	
     </form>
 
@@ -64,7 +65,7 @@ sub load_ontology {
 		    try {
 			rootRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		    } catch (e) {
-			alert("The ontology browser could not run!");
+			alert("本體論瀏覽器無法執行！(The ontology browser could not run!)");
 			return false;
 		    }
 		}
@@ -109,7 +110,7 @@ sub load_ontology {
 		    try {
 			childRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		    } catch (e) {
-			alert("The ontology browser could not run!");
+			alert("本體論瀏覽器無法執行！(The ontology browser could not run!)");
 			return false;
 		    }
 		}
@@ -151,7 +152,7 @@ sub load_ontology {
 		    try {
 			specificRequest = new ActiveXObject("Microsoft.XMLHTTP");
 		    } catch (e) {
-			alert("The ontology browser could not run!");
+			alert("本體論瀏覽器無法執行！(The ontology browser could not run!)");
 			return false;
 		    }
 		}
@@ -175,17 +176,15 @@ sub load_ontology {
 			text = text.replace( /\\n/g, "" );
 			if( text.indexOf( "obsolete" ) == -1 ) {
 			    if( text.indexOf( "<scrap></scrap>" ) != -1 ) {
-				alert( "This term does not exist in the SGN ontologies." );
+				alert( "此詞彙不存在於 SGN 本體論中 (This term does not exist in the SGN ontologies)。" );
 			    } else {
-				alert( "The ontology browser has encountered an unexpected error.\\n" +
-				       "Please try your query again." );
+				alert( "本體論瀏覽器發生未預期的錯誤 (The ontology browser has encountered an unexpected error)。\\n請重新嘗試您的查詢 (Please try your query again)。" );
 				document.getElementById('notice').innerHTML=text;
 			    }
 			}
 
 			else {
-			    alert( "The term you searched for is obsolete.\\n" + 
-				   "Please browse the ontology to find a suitable replacement." );
+			    alert( "您搜尋的詞彙已廢棄 (The term you searched for is obsolete)。\\n請瀏覽本體論以尋找合適的替代詞彙 (Please browse the ontology to find a suitable replacement)。" );
 			}
 		    }
 		}

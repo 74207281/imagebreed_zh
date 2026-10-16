@@ -1,5 +1,6 @@
 
 use strict;
+use utf8;
 
 my $locus_synonym_detail_page = CXGN::Phenome::LocusSynonymDetailPage->new();
 
@@ -51,8 +52,8 @@ sub store {
     if ($existing_id && $obsolete == 0) { 
 
 	$self->get_page()->header();
-	print $not_new_locus_synonym = "Locus synonym '".$args{locus_alias}. "' already exists <br />";
-	print qq { <a href="javascript:history.back(1)">back to locus synonyms</a> };
+	print $not_new_locus_synonym = "基因座同義字 (Locus synonym) '".$args{locus_alias}. "' 已存在 (already exists) <br />";
+	print qq { <a href="javascript:history.back(1)">返回基因座同義字 (back to locus synonyms)</a> };
 	$self->get_page()->footer();
 	exit();
     }else { 
@@ -88,7 +89,7 @@ sub delete {
 	$locus->remove_locus_alias($args{locus_alias_id});
 	$self->send_synonym_email('delete');
     }
-    if ($locus) {
+    if ($locus) { 
 	my $locus_id= $args{locus_id};
 	$self->get_page()->client_redirect("/phenome/locus_synonym.pl?locus_id=$locus_id&action=new");
     }
@@ -113,7 +114,7 @@ sub generate_form {
 
     # add form elements
     #
-    $self->get_form()->add_field(display_name=>"Locus synonym: ", 
+    $self->get_form()->add_field(display_name=>"基因座同義字 (Locus synonym): ", 
 				 field_name=>"locus_alias", 
 				 length=>20, 
 				 object=>$locus_synonym, 
@@ -174,24 +175,24 @@ sub display_page {
     #
     $self->get_page()->header();
 
-    print page_title_html( qq { SGN <a href="/search/direct_search.pl?search=loci">genes</a> database } );
+    print page_title_html( qq { SGN <a href="/search/direct_search.pl?search=loci">基因 (genes)</a> 資料庫 } );
 
-    print qq { <b>Locus synonyms</b> };
+    print qq { <b>基因座同義字 (Locus synonyms)</b> };
 
     if ($args{locus_id}) { 
 	$locus = CXGN::Phenome::Locus->new($self->get_dbh(), $args{locus_id});
 	@locus_synonyms=$locus->get_locus_aliases('f', 'f');
 	my $locus_id = $locus->get_locus_id();
-	print "for locus ".$locus->get_locus_name()."<br /><br />\n";
+	print " 針對基因座 (for locus) ".$locus->get_locus_name()."<br /><br />\n";
 	foreach my $ls (@locus_synonyms) { 
 	    my $locus_synonym_id = $ls->get_locus_alias_id();
-	    print $ls->get_locus_alias(). qq { \n <a href="locus_synonym.pl?locus_id=$locus_id&amp;locus_alias_id=$locus_synonym_id&amp;action=confirm_delete">[Remove]</a> <br />\n };
+	    print $ls->get_locus_alias(). qq { \n <a href="locus_synonym.pl?locus_id=$locus_id&amp;locus_alias_id=$locus_synonym_id&amp;action=confirm_delete">[移除 (Remove)]</a> <br />\n };
 	}
     }
 
-    if (!@locus_synonyms && !@image_tags) { print "<b>None found</b><br /><br />\n"; }
+    if (!@locus_synonyms && !@image_tags) { print "<b>未找到任何記錄 (None found)</b><br /><br />\n"; }
 
-    print qq { <br /><br /><b>Add another locus synonym</b>: };
+    print qq { <br /><br /><b>新增另一個基因座同義字 (Add another locus synonym)</b>: };
 
     print qq { <center> };
 
@@ -199,7 +200,7 @@ sub display_page {
 
     print qq { </center> };
 
-    print qq { <a href="/locus/$args{locus_id}/view">back to locus page</a> };
+    print qq { <a href="/locus/$args{locus_id}/view">返回基因座頁面 (back to locus page)</a> };
 
     $self->get_page()->footer();
 }

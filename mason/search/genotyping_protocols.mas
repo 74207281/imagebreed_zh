@@ -4,7 +4,7 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title => "Genotyping Protocol Search" &>
+<& /page/page_title.mas, title => "基因分型實驗流程搜尋(Genotyping Protocol Search)" &>
 
 <div class="well well-sm">
     <div class="panel panel-default">
@@ -12,15 +12,15 @@
             <table id="genotyping_protocol_search_results" width="100%" class="table table-hover table-striped">
                 <thead>
                     <tr>
-                        <th>Protocol</th>
-                        <th>Marker Type</th>
-                        <th>Header Description</th>
-                        <th>Number of Markers</th>
-                        <th>Protocol Description</th>
-                        <th>Reference Genome</th>
-                        <th>Species Name</th>
-                        <th>Sample Type</th>
-                        <th>Create Date</th>
+                        <th>實驗流程(Protocol)</th>
+                        <th>標記類型(Marker Type)</th>
+                        <th>表頭描述(Header Description)</th>
+                        <th>標記數量(Number of Markers)</th>
+                        <th>流程描述(Protocol Description)</th>
+                        <th>參考基因組(Reference Genome)</th>
+                        <th>物種名稱(Species Name)</th>
+                        <th>樣本類型(Sample Type)</th>
+                        <th>建立日期(Create Date)</th>
                     </tr>
                 </thead>
             </table>
@@ -30,7 +30,7 @@
     <div class="panel panel-default">
         <div class="panel-body">
             <br><br>
-            <&| /page/info_section.mas, title => 'Copy Results to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Copy the protocol names currently showing in the search results table to a new or exisiting list</i>'&>
+            <&| /page/info_section.mas, title => '複製結果至清單(Copy Results to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將目前搜尋結果表格中顯示的流程名稱複製到新清單或現有清單中</i>'&>
                 <br>
                 <div style="text-align:right" id="genotyping_protocol_to_list_menu"></div>
                 <div id="genotyping_protocol_result_names" style="display: none;"></div>

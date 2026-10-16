@@ -1,10 +1,10 @@
 <%args>
 </%args>
 
-<h4>Calls</h4>
+<h4>呼叫(Calls)</h4>
 
 <div id="brapi_calls_home_div">
-<button class="btn btn-primary" id="brapi_home_show_calls">Show Calls</button>
+<button class="btn btn-primary" id="brapi_home_show_calls">顯示呼叫(Show Calls)</button>
 
 </div>
 
@@ -22,13 +22,13 @@ jQuery("#brapi_home_show_calls").click(function() {
         for(var i = 0; i < response.result.data.length; i++) {
             html = html+'<li>'+response.result.data[i].call+'</li>';
             html = html+'<ul>';
-                html = html+'<li>Datatypes:';
+                html = html+'<li>資料類型(Datatypes):';
                 html = html+'<ul>';
                 for(var j = 0; j < response.result.data[i].datatypes.length; j++){
                     html = html+'<li>'+response.result.data[i].datatypes[j]+'</li>';
                 }
                 html = html+'</ul>';
-                html = html+'<li>Methods:';
+                html = html+'<li>方法(Methods):';
                 html = html+'<ul>';
                 for(var j = 0; j < response.result.data[i].methods.length; j++){
                     html = html+'<li>'+response.result.data[i].methods[j]+'</li>';
@@ -40,7 +40,7 @@ jQuery("#brapi_home_show_calls").click(function() {
         jQuery("#brapi_calls_home_div").empty().html(html);
       },
       error: function(response) {
-        alert('An error occurred getting calls');
+        alert('獲取呼叫時發生錯誤(An error occurred getting calls)');
       }
     });
 });

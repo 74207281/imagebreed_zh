@@ -128,6 +128,7 @@ The following functions are documented in this script:
 =cut
 
 use strict;
+use utf8;
 
 use CXGN::DB::Connection;
 use CXGN::Page;
@@ -165,11 +166,11 @@ if ($args{action} =~/new|confirm|store/i ) {
     $user =  CXGN::People::Person->new($dbh, $sp_person_id);
     #$sp_person_id= $user->get_sp_person_id();
     if ($user->get_user_type() !~ /curator|submitter/) { 
-	$page->message_page("You do not have sufficient privileges to upload images. You need an account of type 'submitter'. Please contact SGN to change your account type. Sorry.");
+	$page->message_page("您沒有足夠的權限上傳圖片。您需要「提交者 (submitter)」類型的帳號。請聯絡我們以變更您的帳號類型。抱歉！(You do not have sufficient privileges to upload images.)");
     }
 }
 else { 
-    $page->message_page("Unknown action $args{action}. What do you want to do exactly?");
+    $page->message_page("未知操作 $args{action} (Unknown action)。");
 }
 
 # create an new image object and go through the different 
@@ -198,7 +199,7 @@ elsif ($args{action} eq "store") {
     store($dbh, $page, $image, %args);
 }
 else { 
-    $page->message_page("No valid parameters were supplied.");
+    $page->message_page("未提供有效參數 (No valid parameters were supplied)。");
 }
 
 
@@ -228,25 +229,24 @@ sub add_dialog {
 
     $page->header();
 
-    print page_title_html("Add image to $args{type} $args{type_id}" );
+    print page_title_html("新增圖片至 $args{type} $args{type_id} (Add image to $args{type} $args{type_id})" );
 
     print qq { 
 
-	<p class="boxbgcolor2">Note: By pressing the "Upload" button, you are considered to be the copyright owner of the image being uploaded and that you grant a non-exclusive license to SGN to display and use the image on SGN webpages and materials related to SGN.<br /></p>
-        <p> Supported file formats include .jpg. .jpeg, .gif, .png, .pdf, .ps,
-	.eps <br></p>
+	<p class="boxbgcolor2">注意：點擊「上傳」按鈕即表示您被視為所上傳圖片的版權所有人，且您授予非專屬授權以在網頁及相關材料上顯示並使用該圖片 (Note: By pressing the "Upload" button, you are considered to be the copyright owner of the image being uploaded)。<br /></p>
+        <p> 支援的檔案格式包括 (Supported file formats include): .jpg, .jpeg, .gif, .png, .pdf, .ps, .eps <br></p>
 	<form action="add_image.pl" method="post" enctype="multipart/form-data" >
-	    Upload an image, and associated with object <b>$args{type}</b> id $args{type_id}<br /><br />
+	    上傳圖片並關聯至物件 <b>$args{type}</b> ID $args{type_id} (Upload an image and associate with object):<br /><br />
 	    <input type="file" name="file" value="Choose image file" />
 	    <input type="hidden" name="action" value="confirm" /><br /><br />
 	    <input type="hidden" name="type" value="$args{type}" />
 	    <input type="hidden" name="type_id" value="$args{type_id}" />
 	    <input type="hidden" name="refering_page" value="$args{refering_page}" />
-	    <input type="submit" value="Upload" />
+	    <input type="submit" value="上傳 (Upload)" />
 	 </form>
      };
 
-    if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">Go back</a>"; }
+    if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">返回 (Go back)</a>"; }
     
     $page->footer();
 }
@@ -289,12 +289,12 @@ sub confirm {
         my $filename_validation_msg =  validate_image_filename($temp_file_base);
         if ( $filename_validation_msg )  { #if non-blank, there is a problem with Filename, print messages
             #print STDERR "Invalid Upload Filename Attempt: $temp_file_base, $filename_validation_msg \n";
-	    print qq { There is a problem with the image file you selected: $temp_file_base <br />};
-            print qq { Error:  };
+	    print qq { 您選擇的圖片檔案有問題 (There is a problem with the image file you selected): $temp_file_base <br />};
+            print qq { 錯誤 (Error):  };
             print $filename_validation_msg; 
             print qq {<br />};
             unlink $args{temp_file};  # remove upload! prevents more errors on item we have rejected
-            if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[Return]</a><br /><br />\n"; }
+            if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[返回 (Return)]</a><br /><br />\n"; }
         } else {	
 	### deanx Testing --  this is trashable
         if   ($temp_file_base =~ /(.*)\.(.{1,4})$/ ) {
@@ -304,12 +304,12 @@ sub confirm {
 	     }
 	 }
 
-	print qq { The image uploaded is shown below. Please click on "Store in SGN database" to permanently store the image in the database. <br /> };
+	print qq { 上傳的圖片顯示如下。請點擊「儲存在資料庫中」以永久儲存該圖片 (The image uploaded is shown below. Please click on "Store in database" to permanently store the image)。<br /> };
 	
  	print "<br /><br />\n";
- 	if ($args{type} && $args{type_id}) { print "<b>Association</b> $args{type} id $args{type_id}<br /><br />\n"; }
+ 	if ($args{type} && $args{type_id}) { print "<b>關聯 (Association):</b> $args{type} ID $args{type_id}<br /><br />\n"; }
 
-	print "Submitter: $sp_person_id<br />\n";
+	print "提交者 (Submitter): $sp_person_id<br />\n";
 
 	print qq { 
 	    <form method="get">
@@ -317,12 +317,12 @@ sub confirm {
 		<input type="hidden" name="action" value="store" />
 		<input type="hidden" name="type" value="$args{type}" />
 		<input type="hidden" name="type_id" value="$args{type_id}" />
-		<input type="submit" value="Store in SGN database" />
+		<input type="submit" value="儲存在資料庫中 (Store in database)" />
 		
 		</form>
 	    };
 
- 	if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[Cancel]</a><br /><br />\n"; }
+ 	if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[取消 (Cancel)]</a><br /><br />\n"; }
 
 	print qq { <img src="/documents/tempfiles/temp_images/$sample_image" /> };
 
@@ -331,7 +331,7 @@ sub confirm {
        } # Ok filename
     }
     else { 
-	$page->error_page("A freakin error occurred!"); 
+	$page->error_page("發生錯誤 (An error occurred)！"); 
     }
    
 }
@@ -367,7 +367,7 @@ sub store {
     $image -> set_sp_person_id($sp_person_id);
 
     if ((my $err = $image->process_image($temp_image_dir."/".$args{temp_file}, $args{type}, $args{type_id}))<=0) { 
-	$page->message_page("An error occurred during the upload. Is the file you are uploading an image file? [$err] ");
+	$page->message_page("上傳過程中發生錯誤。您上傳的檔案是圖片檔案嗎？(An error occurred during upload. Is the file you are uploading an image file?) [$err]");
 	exit();
     }
     
@@ -423,8 +423,7 @@ sub validate_image_filename {
   $test_fn =~ s/[^$OK_CHARS]/_/go;
   if ( $fn ne $test_fn ) {
       #print STDERR "Upload Attempt with bad shell characters: $fn \n";
-       return "Invalid characters found in filename, must not contain
-	characters <b>\& ; : \` \' \\ \| \* \? ~ ^ < > ( ) [ ] { } \$</b>" ;
+       return "檔名中包含無效字元，不得包含字元 (Invalid characters found in filename, must not contain characters): <b>\& ; : \` \' \\ \| \* \? ~ ^ < > ( ) [ ] { } \$</b>" ;
      }
 
 
@@ -433,10 +432,10 @@ sub validate_image_filename {
   if ($fn =~ m/^(.*)(\.\S{1,4})\r*$/) {
       $ext = lc ($2);
       #print STDERR "Upload Attempt with disallowed filename extension: $fn Extension: $ext\n";
-      return "File Type must be one of: .png, .jpg, .jpeg, .gif, .pdf, .ps, or .eps" unless exists $file_types{$ext};
+      return "檔案類型必須為以下之一 (File Type must be one of)：.png, .jpg, .jpeg, .gif, .pdf, .ps, .eps" unless exists $file_types{$ext};
     } else {
       #print STDERR "Upload Attempt with filename extension we could not parse: $fn \n";
-      return "File Type must be one of: .png, .jpg, .jpeg, .gif, .pdf, .ps, or .eps";
+      return "檔案類型必須為以下之一 (File Type must be one of)：.png, .jpg, .jpeg, .gif, .pdf, .ps, .eps";
     }
 
   return 0;  # FALSE, if passes all tests

@@ -5,49 +5,49 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title=>'Accession Usage' &>
+<& /page/page_title.mas, title=>'種原使用情形(Accession Usage)' &>
 
-<&| /page/info_section.mas, title => 'Accession Usage for Trials', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title => '試驗中的種原使用情形(Accession Usage for Trials)', collapsible=>1, collapsed=>1 &>
 
 <table id="accession_usage_trials" width="100%" class="table table-hover table-striped">
 <thead>
   <tr>
-    <th>Accession Name</th>
-    <th>Number of Trials</th>
-    <th>Total Number of Plots</th>
+    <th>種原名稱(Accession Name)</th>
+    <th>試驗數量(Number of Trials)</th>
+    <th>總小區數(Total Number of Plots)</th>
   </tr>
 </thead>
 </table>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Accession Usage as Female Parent', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title => '作為母本的種原使用情形(Accession Usage as Female Parent)', collapsible=>1, collapsed=>1 &>
 
 <table id="accession_usage_female" width="100%" class="table table-hover table-striped">
 <thead>
   <tr>
-    <th>Accession Name</th>
-    <th>Number of Progenies</th>
+    <th>種原名稱(Accession Name)</th>
+    <th>後代數量(Number of Progenies)</th>
   </tr>
 </thead>
 </table>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Accession Usage as Male Parent', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title => '作為父本的種原使用情形(Accession Usage as Male Parent)', collapsible=>1, collapsed=>1 &>
 
 <table id="accession_usage_male" width="100%" class="table table-hover table-striped">
 <thead>
   <tr>
-    <th>Accession Name</th>
-    <th>Number of Progenies</th>
+    <th>種原名稱(Accession Name)</th>
+    <th>後代數量(Number of Progenies)</th>
   </tr>
 </thead>
 </table>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Accession Phenotype Performace', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '種原表型表現(Accession Phenotype Performance)', collapsible=>1, collapsed=>0 &>
 
 <div class="well">
     <div class="panel panel-default">
@@ -56,14 +56,14 @@
             <table id="accession_usage_phenotypes" class='table table-bordered table-hover'>
                 <thead>
                     <tr>
-                        <th>Accession</th>
-                        <th>Observation Variable</th>
-                        <th>Mean</th>
-                        <th>Min</th>
-                        <th>Max</th>
-                        <th>Std Dev</th>
-                        <th>CV</th>
-                        <th>Count</th>
+                        <th>種原(Accession)</th>
+                        <th>觀測變數(Observation Variable)</th>
+                        <th>平均值(Mean)</th>
+                        <th>最小值(Min)</th>
+                        <th>最大值(Max)</th>
+                        <th>標準差(Std Dev)</th>
+                        <th>變異係數(CV)</th>
+                        <th>計數(Count)</th>
                     </tr>
                 </thead>
                 <tbody>

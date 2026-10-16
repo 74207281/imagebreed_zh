@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('unigene-methods.html','html2pl converter');
-$page->header('Unigene Assembly Process Overview');
+$page->header('單一基因組裝流程概述 (Unigene Assembly Process Overview)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,7 +13,7 @@ print<<END_HEREDOC;
         <td>
           
 
-          <h3>Unigene Assembly Process Overview</h3>
+          <h3>單一基因組裝流程概述 (Unigene Assembly Process Overview)</h3>
 
           <p>The "unigene problem" consists of two fundamental
           questions:</p>
@@ -101,7 +102,7 @@ print<<END_HEREDOC;
           assembly.</p>
           <hr />
 
-          <p>References:</p>
+          <p>參考文獻 (References):</p>
 
           <ol>
             <li>Huang, X. and Madan, A. (1999) CAP3: A DNA Sequence

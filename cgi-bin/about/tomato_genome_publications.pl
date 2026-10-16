@@ -1,14 +1,15 @@
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw | info_section_html |;
 
 my $page = CXGN::Page->new("Tomato Genome Publications", "Lukas");
 
-$page->header("SGN | Tomato Genome Publications", "Tomato Genome Publications");
+$page->header("SGN | 番茄基因組出版物 (Tomato Genome Publications)", "番茄基因組出版物 (Tomato Genome Publications)");
 
-print info_section_html(title => "Selected Publications related to the tomato genome sequence", contents=><<PUBLICATION_DATA);
+print info_section_html(title => "番茄基因組定序相關精選出版物 (Selected Publications related to the tomato genome sequence)", contents=><<PUBLICATION_DATA);
 
 <ul>
 <li>Lukas A. Mueller,
@@ -207,7 +208,7 @@ Genetics. 1995 Oct;141(2):683-708.
 Plant Mol Biol Rep. 9:208-218.</li>
 </ul>
 
-[<a href="mailto:sgn-feedback\@sgn.cornell.edu">Contact us</a> to add a publication]
+[<a href="mailto:sgn-feedback\@sgn.cornell.edu">聯絡我們以新增出版物 (Contact us to add a publication)</a>]
 PUBLICATION_DATA
 
 

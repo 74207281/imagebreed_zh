@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200409.html','html2pl converter');
 my $stylesheet=<<END_STYLESHEET;
@@ -26,11 +27,11 @@ my $stylesheet=<<END_STYLESHEET;
 -->
 </style>
 END_STYLESHEET
-$page->header('The Seymour Lab', undef, $stylesheet);
+$page->header('Seymour 實驗室 (The Seymour Lab)', undef, $stylesheet);
 print<<END_HEREDOC;
 
   <center>
-    <h1>The Seymour Lab</h1>
+    <h1>Seymour 實驗室 (The Seymour Lab)</h1>
   </center>
 
   <p class="footnote" style="text-align:center"><img src=

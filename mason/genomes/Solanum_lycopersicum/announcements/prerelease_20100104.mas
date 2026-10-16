@@ -4,27 +4,27 @@
     <tr><td>
       <img src="/documents/img/sliced_tomato_60x57.png" width="60" border="0" />
     </td><td>
-      <div style="text-align: center; font-size: 120%; font-weight: bold">Prerelease of Tomato Genome Shotgun Sequence</div>
+      <div style="text-align: center; font-size: 120%; font-weight: bold">番茄基因組鳥槍法定序預先發布(Prerelease of Tomato Genome Shotgun Sequence)</div>
 
       <div class="boxcontent">
-         The <span style="font-weight: bold">International Tomato Genome Sequencing Project</span> is happy to make available a prerelease version of the <span style="font-weight: bold">Tomato Genome Shotgun Sequence</span> to the community. <a href="/tomato/">More...</a></div>
+         <span style="font-weight: bold">國際番茄基因組定序計畫(International Tomato Genome Sequencing Project)</span>很高興向社群提供<span style="font-weight: bold">番茄基因組鳥槍法定序(Tomato Genome Shotgun Sequence)</span>的預先發布版本。<a href="/tomato/">更多資訊...(More...)</a></div>
 
 </td></tr>
 <tr><td colspan="2">
-<b>News</b>
+<b>最新消息(News)</b>
 <ul>
 % my ($gbrowse_link) = map $_->view_url, grep $_->description =~ /ITAG1.+genomic/, map $_->data_sources, $c->enabled_feature('gbrowse2');
-<li>CABOG assembly <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly/cabog_1.00/">released</a>. [March 26, 2010]</li>
-<li>Tomato <b>annotation released</b> for assembly <b>v1.00</b>, available in the <a href="<% $gbrowse_link %>">SGN genome browser</a> and <a href="/tools/blast/">SGN BLAST</a>. [Feb 26, 2010]</li>
-<li><b>Assembly v1.03</b> has been released. Includes better screening for <i>E. coli</i> sequences, two more 454 runs, and latest release of assembly software. [Jan 24, 2010]</li>
+<li>CABOG 組裝已<a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly/cabog_1.00/">發布</a>。[2010 年 3 月 26 日](CABOG assembly <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly/cabog_1.00/">released</a>. [March 26, 2010])</li>
+<li>組裝版本 <b>v1.00</b> 的番茄<b>註釋已發布</b>，可在 <a href="<% $gbrowse_link %>">SGN 基因組瀏覽器(SGN genome browser)</a> 和 <a href="/tools/blast/">SGN BLAST</a> 中使用。[2010 年 2 月 26 日](Tomato <b>annotation released</b> for assembly <b>v1.00</b>, available in the <a href="<% $gbrowse_link %>">SGN genome browser</a> and <a href="/tools/blast/">SGN BLAST</a>. [Feb 26, 2010])</li>
+<li><b>組裝版本 v1.03</b> 已發布。包括對大腸桿菌 (<i>E. coli</i>) 序列更好的篩選、增加了兩次 454 定序運行，以及組裝軟體的最新版本。[2010 年 1 月 24 日](<b>Assembly v1.03</b> has been released. Includes better screening for <i>E. coli</i> sequences, two more 454 runs, and latest release of assembly software. [Jan 24, 2010])</li>
 </ul>
 
 
-        <div style="text-align: center; margin: 1.5em 0 0 1em"><a href="/tomato/#disclaimer">Data Agreement and Disclaimer</a> | 
-	  <a href="/tomato/">Tomato Whole Genome Shotgun data</a> 
-	  <br /> <a href="/about/tomato_sequencing.pl">BAC by BAC progress overview</a> |
-      <a href="/tools/blast/?db_id=93">BLAST WGS scaffolds</a><br />
-      <a href="/tools/blast/?db_id=56">BLAST tomato BAC contigs</a> | <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly">FTP</a></div>
+        <div style="text-align: center; margin: 1.5em 0 0 1em"><a href="/tomato/#disclaimer">數據協議與免責聲明(Data Agreement and Disclaimer)</a> | 
+	  <a href="/tomato/">番茄全基因組鳥槍法數據(Tomato Whole Genome Shotgun data)</a> 
+	  <br /> <a href="/about/tomato_sequencing.pl">BAC by BAC 進度概覽(BAC by BAC progress overview)</a> |
+      <a href="/tools/blast/?db_id=93">BLAST WGS scaffold(BLAST WGS scaffolds)</a><br />
+      <a href="/tools/blast/?db_id=56">BLAST 番茄 BAC contig(BLAST tomato BAC contigs)</a> | <a href="ftp://ftp.solgenomics.net/tomato_genome/wgs/assembly">FTP</a></div>
       
 
     

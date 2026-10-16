@@ -5,7 +5,7 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title=>'Search Accessions Containing Specific Genotypes' &>
+<& /page/page_title.mas, title=>'搜尋包含特定基因型的種原(Search Accessions Containing Specific Genotypes)' &>
 
 <!--
 <&| /page/info_section.mas, title=>'Step 1: Select a set of accessiions (dataset)'&>
@@ -19,7 +19,7 @@
 </&>
 -->
 
-<&| /page/info_section.mas, title=>'Step 1:'&>
+<&| /page/info_section.mas, title=>'步驟一(Step 1):'&>
     <div class="row" id="search_form_1" >
         <div class="col-sm-1">
         </div>
@@ -28,11 +28,11 @@
                 <div class="col-sm-11">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Select a list of accessions:</label>
+                            <label class="control-label col-sm-4">選擇種原清單(Select a list of accessions):</label>
                             <div class="col-sm-8" >
                                 <div class="input-group">
                                     <select class="form-control" id="stock_list_select">
-                                        <option value="">Select a list of accessions</option>
+                                        <option value="">選擇種原清單(Select a list of accessions)</option>
                                     </select>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@
 </&>
 
 <br>
-<&| /page/info_section.mas, title=>'Step 2:'&>
+<&| /page/info_section.mas, title=>'步驟二(Step 2):'&>
     <div class="row" id="search_form_2" >
         <div class="col-sm-1">
         </div>
@@ -54,11 +54,11 @@
                 <div class="col-sm-11">
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="control-label col-sm-4">Select a set of markers (markerset):</label>
+                            <label class="control-label col-sm-4">選擇分子標記組(Select a markerset):</label>
                             <div class="col-sm-8" >
                                 <div class="input-group">
                                     <select class="form-control" id="markerset_select">
-                                        <option value="">Select a markerset</option>
+                                        <option value="">選擇分子標記組(Select a markerset)</option>
                                     </select>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4"></label>
                             <div class="col-sm-8" >
-                                <a href="/breeders/markers"><p>Need to create new markerset.</p></a>
+                                <a href="/breeders/markers"><p>需要建立新的分子標記組(Need to create new markerset)。</p></a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
     </div>
 </&>
 <br>
-<&| /page/info_section.mas, title=>'Step 3:'&>
+<&| /page/info_section.mas, title=>'步驟三(Step 3):'&>
     <div class="row" id="search_form_3" >
         <div class="col-sm-1">
         </div>
@@ -87,7 +87,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-4"></label>
                             <div class="col-sm-8" >
-                                <button class="btn btn-primary" id="search_accessions_using_markerset"><i class="glyphicon glyphicon-search"></i> Search Accessions</button>
+                                <button class="btn btn-primary" id="search_accessions_using_markerset"><i class="glyphicon glyphicon-search"></i> 搜尋種原(Search Accessions)</button>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
  </&>
 
 
-<&| /page/info_section.mas, title => 'Search Results' , collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title => '搜尋結果(Search Results)' , collapsible=>1, collapsed=>0 &>
 
     <table id="genotype_search_results" width="100%" class="table table-hover table-striped">
     </table>
@@ -113,9 +113,9 @@ jQuery(document).ready(function (){
     var lo = new CXGN.List();
 
 //    get_select_box('datasets', 'dataset_accessions', {"checkbox_name":"dataset_accessions_checkbox"});
-    jQuery('#stock_list_select').html(lo.listSelect('stock_list_select', ['accessions'], 'Select a list of accessions', undefined, undefined));
+    jQuery('#stock_list_select').html(lo.listSelect('stock_list_select', ['accessions'], '選擇種原清單(Select a list of accessions)', undefined, undefined));
 
-    jQuery('#markerset_select').html(lo.listSelect('markerset_select', ['markers'], 'Select a markerset', undefined, undefined));
+    jQuery('#markerset_select').html(lo.listSelect('markerset_select', ['markers'], '選擇分子標記組(Select a markerset)', undefined, undefined));
 
     jQuery("#search_accessions_using_markerset").click(function(){
 
@@ -138,14 +138,14 @@ jQuery(document).ready(function (){
         var stock_list_id = jQuery('#stock_list_select').val();
 
         if (!stock_list_id) {
-            alert("Please choose a list of accessions");
+            alert("請選擇種原清單！(Please choose a list of accessions)");
             return;
         }
 
         var markerset_id = jQuery('#markerset_select').val();
 
         if (!markerset_id) {
-            alert("Please choose a markerset");
+            alert("請選擇分子標記組！(Please choose a markerset)");
             return;
         }
 
@@ -159,21 +159,21 @@ jQuery(document).ready(function (){
             },
             columns: [
                 {
-                    title: "Accession Name",
+                    title: "種原名稱(Accession Name)",
                     data: null,
                     render: function(data, type, row){return "<a href='/stock/"+row.stock_id+"/view'>"+row.stock_name+"</a>";}
                 },
                 {
-                    title: "Sample Name",
+                    title: "樣本名稱(Sample Name)",
                     data: null,
                     render: function(data, type, row){return "<a href='/stock/"+row.sample_id+"/view'>"+row.sample_name+"</a>";}
                 },
                 {
-                    title: "Sample Type",
+                    title: "樣本類型(Sample Type)",
                     data: "sample_type",
                 },
                 {
-                    title: "Genotypes",
+                    title: "基因型(Genotypes)",
                     data: "genotypes",
 //                    render: function(data, type,row){
 //                        var newFormat = data.split(",").join("&nbsp &nbsp &nbsp &nbsp &nbsp");

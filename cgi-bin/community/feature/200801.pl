@@ -1,11 +1,12 @@
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 
-my $page = CXGN::Page->new("Lab of the month", "Lukas");
+my $page = CXGN::Page->new("本月精選實驗室 (Lab of the month)", "Lukas");
 
-$page->header("Lab of the month", "Moffett Lab, BTI");
+$page->header("本月精選實驗室 (Lab of the month)", "Moffett 實驗室，博伊斯湯普森研究所 (Moffett Lab, BTI)");
 
 print <<HTML;
 
@@ -49,7 +50,7 @@ Agro-expression: Transient expression of proteins is accomplished by infiltratin
 </td><td>
 Pepper plants uninfected (left), or infected with (right), <i>Phytophthora capsici</i>.</td></tr></table>
 
-<h3>Contact Details:</h3>
+<h3>聯絡資訊 (Contact Details):</h3>
 <p>
 Peter Moffett, PhD<br />
 Boyce Thompson Institute for Plant Research<br />
@@ -61,7 +62,7 @@ fax: 607-254-1242<br />
 pm99\@cornell.edu<br />
 <a href="http://bti.cornell.edu/PeterMoffett.php">http://bti.cornell.edu/PeterMoffett.php</a><br />
 
-<h3>Recent Publications:</h3>
+<h3>近期發表文獻 (Recent Publications):</h3>
 <p>
 Sacco, M.A, S. Mansoor, P. Moffett. 2007. A RanGAP protein physically interacts with the NB-LRR protein Rx, and is required for Rx-mediated viral resistance. Plant J : 82-93</p>
 <p>

@@ -8,8 +8,8 @@ $program_id
 <table id="accession_summary_data" class="display">
     <thead>
         <tr>
-            <th>Accession name</th>
-            <th>Description</th>
+            <th>種原名稱(Accession Name)</th>
+            <th>描述(Description)</th>
         </tr>
     </thead>
 </table>

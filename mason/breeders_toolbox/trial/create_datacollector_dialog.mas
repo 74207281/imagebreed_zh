@@ -11,25 +11,25 @@ $trial_stock_type => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="downloadDatacollectorDialog">Download Datacollector for <% $trial_name %></h4>
+        <h4 class="modal-title" id="downloadDatacollectorDialog">下載 <% $trial_name %> 的資料收集器(Download Datacollector for <% $trial_name %>)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 	       <form class="form-horizontal" role="form" method="post" >
 	        <div class="form-group">
-                <label class="col-sm-3 control-label">Trait List: </label>
+                <label class="col-sm-3 control-label">性狀清單：</label>
                 <div class="col-sm-9" >
                     <div id ="trait_list_dc">
                     </div>
                 </div>
 	        </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Data Level: </label>
+                <label class="col-sm-3 control-label">資料層級：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_datacollector_data_level">
-                        <option value="plots">Plots</option>
-                        <option value="plants">Plants</option>
+                        <option value="plots">小區</option>
+                        <option value="plants">植株</option>
                     </select>
                 </div>
 	        </div>
@@ -38,8 +38,8 @@ $trial_stock_type => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="download_datacollector_cancel_button" id="download_datacollector_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="create_DataCollector_submit_button" id="create_DataCollector_submit_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="download_datacollector_cancel_button" id="download_datacollector_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="create_DataCollector_submit_button" id="create_DataCollector_submit_button" title="提交(Submit)">提交(Submit)</button>
       </div>
     </div>
   </div>
@@ -88,7 +88,7 @@ function create_DataCollector() {
             jQuery('#working_modal').modal("hide");
 
             if (response.error) {
-                alert("Error: "+response.error);
+                alert("錯誤："+response.error);
                 jQuery('#download_datacollector_dialog').modal("hide");
             } else {
                 //alert("success: "+response.filename);
@@ -99,7 +99,7 @@ function create_DataCollector() {
         },
         error: function () {
             jQuery('#working_modal').modal("hide");
-            alert('An error occurred creating a DataCollector file.');
+            alert('建立資料收集器檔案時發生錯誤。');
             jQuery('#download_datacollector_dialog').modal("hide");
         }
     });

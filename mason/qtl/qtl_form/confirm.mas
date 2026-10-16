@@ -32,18 +32,14 @@ if ($pop_id)  {
 
 </%perl>
 
-<& /page/page_title.mas, title => "Step 6: Confirmation" &>
-<&| /page/info_section.mas, title => "Confirmation", subtitle => $guide &>
+<& /page/page_title.mas, title => "步驟 6：確認(Step 6: Confirmation)" &>
+<&| /page/info_section.mas, title => "確認(Confirmation)", subtitle => $guide &>
  <form action="/phenome/qtl_load.pl" method="POST" enctype="MULTIPART/FORM-DATA">  
     <table cellspacing=20>
     <tr>
-      <td><b><p>You have successfully uploaded your QTL data.</p> 
-           <p>On the next page you will see the population data summary. 
-             The qtl analysis is performed on-the-fly and you need to click the 
-             graph icon  corresponding to the trait of your interest to proceed 
-             with the QTL mapping analysis. The QTL analysis takes a few minutes, 
-             so please be patient. </p>
-          <p>To continue to the QTL analysis page, follow the link below:</p>
+      <td><b><p>您已成功上傳 QTL 資料(You have successfully uploaded your QTL data)。</p> 
+           <p>在下一頁中，您將看到群體資料摘要。QTL 分析是即時進行的，您需要點擊與您感興趣的性狀對應的圖表圖示以繼續進行 QTL 定位分析。QTL 分析需要幾分鐘，請耐心等待(On the next page you will see the population data summary. The qtl analysis is performed on-the-fly and you need to click the graph icon corresponding to the trait of your interest to proceed with the QTL mapping analysis. The QTL analysis takes a few minutes, so please be patient)。</p>
+          <p>若要繼續前往 QTL 分析頁面，請點擊以下連結(To continue to the QTL analysis page, follow the link below)：</p>
           <% $pop_link %></b>
       </td>
      </tr>

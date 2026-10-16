@@ -10,7 +10,7 @@ $member_id => undef
 $action => undef
 </%args>
 
-<& /page/page_title.mas, title=>'Gene family search' &>
+<& /page/page_title.mas, title=>'基因家族搜尋(Gene family search)' &>
 
 <%perl>
 
@@ -45,7 +45,7 @@ if ($action eq 'detail') {
       $seq_data = $gf->get_alignment();
     };
     if ($@) {
-      $errors .= "Alignment data not available. ";
+      $errors .= "無可用的比對資料。(Alignment data not available.) ";
       $big_errors++;
       $align_link_disabled="disabled";
     }
@@ -54,7 +54,7 @@ if ($action eq 'detail') {
 
     };
     if ($@) {
-      $errors .= "Sequence data not available. ";
+      $errors .= "無可用的序列資料。(Sequence data not available.) ";
       $big_errors++;
       $fasta_link_disabled = "disabled";
     }
@@ -62,18 +62,18 @@ if ($action eq 'detail') {
       $tree_data = $gf->get_tree();
     };
     if ($@) {
-      $errors .= "Tree data not available. ";
+      $errors .= "無可用的演化樹資料。(Tree data not available.) ";
       $tree_link_disabled = "disabled"
     }
     eval {
       $annot_data = $gf->get_annotation();
     };
     if ($@) {
-      $errors .= "Annotation data not available. ";
-      $annot_data = "(No annotation data available)";
+      $errors .= "無可用的註釋資料。(Annotation data not available.) ";
+      $annot_data = "(無可用的註釋資料 No annotation data available)";
     }
     eval {
-      $errors .= "Expression data not available. ";
+      $errors .= "無可用的表現量資料。(Expression data not available.) ";
       $exp_data = $gf->get_expression();
     };
     if ($@) {
@@ -81,22 +81,22 @@ if ($action eq 'detail') {
     }
 
     if ($big_errors > 0) { 
-      $errors = "This family does not seem to exist!\n";
+      $errors = "此家族似乎不存在！(This family does not seem to exist!)\n";
     }
 
 </%perl>
 
-<h1>Family detail for family <% $genefamily_id %></h1>
-<table><tr><td>Family: <b><% $genefamily_id %></b></td><td><% $annot_data %></td></tr>
-  <tr><td colspan="2">Note: <% $errors %></td></tr>
+<h1>家族 <% $genefamily_id %> 詳細資訊(Family detail for family <% $genefamily_id %>)</h1>
+<table><tr><td>家族(Family)：<b><% $genefamily_id %></b></td><td><% $annot_data %></td></tr>
+  <tr><td colspan="2">備註(Note)：<% $errors %></td></tr>
 </table>
 <table><tr>
     <hr>
-    <td>View</td>
+    <td>檢視(View)</td>
     <td>
       <form name="alignment_viewer_form" method="POST" action="/tools/align_viewer/index.pl">
 	<input type="hidden" name="seq_data" value="<% $seq_data %>" />
-	<input type="submit" value="Alignment" <% $align_link_disabled %> />
+	<input type="submit" value="比對(Alignment)" <% $align_link_disabled %> />
 	<input type="hidden" name="format" value="fasta" />
       </form>
     </td>
@@ -104,7 +104,7 @@ if ($action eq 'detail') {
     <td>
       <form name="tree_browser_form" method="post" action="/tools/tree_browser/index.pl">
 	<input type="hidden" name="" value="<% $tree_data %>" />
-	<input type="submit" value="Tree" <% $tree_link_disabled %> />
+	<input type="submit" value="演化樹(Tree)" <% $tree_link_disabled %> />
       </form>
     </td>
 
@@ -114,11 +114,11 @@ if ($action eq 'detail') {
 </table>
 <hr>
 <table><tr><td>
-Sequences in fasta:</td><td>
+FASTA 格式序列(Sequences in fasta)：</td><td>
 <form name="tree_browser_unaligned" method="post" action="/tools/align_viewer/index.pl">
   <input type="hidden" name="seq_data" value="<% $fasta_data %>" />
   <input type="hidden" name="format" value="fasta_unaligned" />
-  <input type="submit" value="Align" />
+  <input type="submit" value="進行比對(Align)" />
 </form>
 
 <td></tr>
@@ -149,16 +149,16 @@ if ($action eq 'search' && $member_id) {
 </%perl>
 
         <form name="genefamily_display_form">
-        In dataset <b><% $dataset %></b>, sequence <% $member_id %> is in family <% $family_nr %>.
+        在資料集 <b><% $dataset %></b> 中，序列 <% $member_id %> 位於家族 <% $family_nr %>。(In dataset <b><% $dataset %></b>, sequence <% $member_id %> is in family <% $family_nr %>.)
         <input type="hidden" name="genefamily_id" value="<% $family_nr %>" />
 	<input type="hidden" name="dataset" value="<% $dataset %>" />
 	  <input type="hidden" name="action" value="detail" />
-	  <input type="submit" name="view_family" value="view family <% $family_nr %>" />
+	  <input type="submit" name="view_family" value="檢視家族 <% $family_nr %> (view family <% $family_nr %>)" />
         </form>
 
 %   }
 %   else {
-        <% $member_id %> was not found in any family.
+        在任何家族中皆未找到 <% $member_id %>。(<% $member_id %> was not found in any family.)
 %	return;
 %   }
 %}
@@ -180,23 +180,23 @@ if ($action eq 'input')  {
 </%perl>
 
 	  <table>
-	    <tr><td colspan="2">If you know the ID of your gene family, enter it below.</td></tr>
-	    <tr><td>Genefamily id</td><td>
+	    <tr><td colspan="2">若您知道基因家族 ID，請於下方輸入。(If you know the ID of your gene family, enter it below.)</td></tr>
+	    <tr><td>基因家族 ID(Genefamily id)</td><td>
 		<form name="genefamily_detail_form">
-		  <input name="genefamily_id" size="10" />(a number)
+		  <input name="genefamily_id" size="10" />（數字 a number）
 		  <input type="hidden" name="action" value="detail" />
 		  <% $select %>
-		  <input type="submit" value="Details" />
+		  <input type="submit" value="詳細資訊(Details)" />
 		</form>
 	    </td></tr>
-	    <tr><td colspan="2"><b>-OR-</b></td></tr>
-	    <tr><td colspan="2">if you know a member ID, search for the corresponding family:</td></tr>
-	    <tr><td>Member id</td><td>
+	    <tr><td colspan="2"><b>— 或(OR) —</b></td></tr>
+	    <tr><td colspan="2">若您知道成員 ID，可搜尋對應的家族：(if you know a member ID, search for the corresponding family:)</td></tr>
+	    <tr><td>成員 ID(Member id)</td><td>
 	      <form name="member_search_form">
 		<input name="member_id" size="10" /> (e.g. At1g01060)
 		<input type="hidden" name="action" value="search" />
 		<% $select %>
-		<input type="submit" />
+		<input type="submit" value="搜尋(Search)" />
 	      </form>
 </td>
 </tr>

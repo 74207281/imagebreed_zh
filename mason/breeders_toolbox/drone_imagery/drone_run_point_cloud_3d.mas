@@ -19,10 +19,10 @@ jQuery(document).ready(function() {
             },
             success: function(response){
                 console.log(response);
-                alert('This is not working yet! You can download the point_cloud.ply from the Report Files section above and view the 3D cloud in Meshlab!');
+                alert('此功能尚未開放！您可以從上方的報告檔案區段下載 point_cloud.ply，並在 Meshlab 中檢視 3D 點雲！');
             },
             error: function(response){
-                alert('Error retrieving point cloud 3D!');
+                alert('擷取 3D 點雲時發生錯誤！');
             }
         });
 

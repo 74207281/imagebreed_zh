@@ -13,25 +13,25 @@ $user_id => undef
 
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form', 'CXGN.BreedersToolbox.FieldBook03152022'] &>
 
-<& /page/page_title.mas, title=>'Field Book Tools' &>
+<& /page/page_title.mas, title=>'田間記錄簿工具(Field Book Tools)' &>
 
 <div class="container-fluid">
 
-<&| /page/explanation.mas, title=>'Field Layout Files', collapsible=>1, collapsed=>0, &>
+<&| /page/explanation.mas, title=>'田間配置檔案(Field Layout Files)', collapsible=>1, collapsed=>0, &>
   <p>
-    <em><b>Field Book</b></em> is an app for collecting phenotypic data on field research plots using an android tablet computer.
+    <em><b>Field Book</b></em> 是一款使用 Android 平板電腦收集田間研究小區表型資料的應用程式。
     <br/><br/>
-    <a href="https://play.google.com/store/apps/details?id=com.fieldbook.tracker"> Field Book Software</a>
+    <a href="https://play.google.com/store/apps/details?id=com.fieldbook.tracker"> Field Book 軟體(Field Book Software)</a>
     <br/><br/>
-    To use Fieldbook you need a Field Layout File and a Trait File; both can be created on this page. <br/>Once you have created and downloaded your Field Layout and Trait files, move them onto your mobile device into the Fieldbook directories (generally /fieldbook/import_field/ for your Field Layout Files and /fieldbook/traits/ for your trait files.)
+    使用 Fieldbook 需要田間配置檔案與性狀檔案；兩者皆可在此頁面中建立。<br/>建立並下載田間配置與性狀檔案後，請將它們傳輸至行動裝置中的 Fieldbook 目錄（田間配置檔案通常位於 /fieldbook/import_field/，性狀檔案位於 /fieldbook/traits/）。
     <br/><br/>
-    By using Fieldbook with the Field Layout and Trait Files created here, you can be sure that your traits are properly defined and your experimental units, whether they are plots or plants or tissue samples, are also properly defined.
+    透過將 Fieldbook 與此處建立的田間配置與性狀檔案搭配使用，您可以確保性狀得到妥善定義，且無論是小區、植株還是組織樣本等實驗單位皆獲得標準化定義。
   </p>
 </&>
 
 <& /fieldbook/create_fieldbook_dialog.mas &>
 
-<&| /page/info_section.mas, title=>'Field Layout Files', empty_message=>'', collapsible=>1, collapsed=>0, subtitle=>'[<a name="create_fieldbook_link">New</a>]' &>
+<&| /page/info_section.mas, title=>'田間配置檔案(Field Layout Files)', empty_message=>'', collapsible=>1, collapsed=>0, subtitle=>'[<a name="create_fieldbook_link">新增(New)</a>]' &>
 <%perl>
 #my @breeding_programs = @{$programs};
 #foreach my $prog (@breeding_programs) {
@@ -40,7 +40,7 @@ $user_id => undef
 foreach my $file (@file_metadata) {
    my @trial_array = @{$file};
    my $file_name = $trial_array[1];
-   my $trial_layout_download = '[<a href="/fieldbook/trial_download/'.$trial_array[2].'">Download File</a>]  |   [<a id="delete_fieldbook_layout_link" href="/fieldbook/delete_file/'.$trial_array[2].'">Delete File</a>]';
+   my $trial_layout_download = '[<a href="/fieldbook/trial_download/'.$trial_array[2].'">下載檔案(Download File)</a>]  |   [<a id="delete_fieldbook_layout_link" href="/fieldbook/delete_file/'.$trial_array[2].'">刪除檔案(Delete File)</a>]';
    print $trial_array[1]."$trial_layout_download<br>";
    #print $trial_array[2]."</br>";
 }
@@ -49,22 +49,22 @@ foreach my $file (@file_metadata) {
 
 <& /fieldbook/create_trait_file_dialog.mas &>
 
-<&| /page/info_section.mas, title=>'Trait Files', empty_message=>'', collapsible=>1, collapsed=>0, subtitle=>'[<a id="create_new_trait_file_link">New</a>]' &>
+<&| /page/info_section.mas, title=>'性狀檔案(Trait Files)', empty_message=>'', collapsible=>1, collapsed=>0, subtitle=>'[<a id="create_new_trait_file_link">新增(New)</a>]' &>
   <%perl>
   foreach my $trait_ref (@trait_files) {
     my @trait_array = @{$trait_ref};
     my $trait_file_name = $trait_array[0];
-    my $trait_file_download = '[<a href="/fieldbook/trait_file_download/'.$trait_array[1].'">Download File</a>] |   [<a id="delete_trait_file_link" href="/fieldbook/delete_file/'.$trait_array[1].'">Delete File</a>]';
+    my $trait_file_download = '[<a href="/fieldbook/trait_file_download/'.$trait_array[1].'">下載檔案(Download File)</a>] |   [<a id="delete_trait_file_link" href="/fieldbook/delete_file/'.$trait_array[1].'">刪除檔案(Delete File)</a>]';
     print $trait_array[0]."$trait_file_download<br>";
     #print $trial_array[4]."</br>";
   }
   </%perl>
 </&>
 
-<&| /page/info_section.mas, title=>'Uploaded Phenotype Files', collapsible=>1, collapsed=>0, subtitle=>'[<a id="upload_fieldbook_phenotypes_link">Upload</a>]' &>
+<&| /page/info_section.mas, title=>'已上傳表型檔案(Uploaded Phenotype Files)', collapsible=>1, collapsed=>0, subtitle=>'[<a id="upload_fieldbook_phenotypes_link">上傳(Upload)</a>]' &>
   <%perl>
   if (scalar(@phenotype_files)>0) {
-    print qq { <br/><div class="well well-sm"><table class="table fieldbook_phenotype_datatables"><thead><tr><th>Filename</th><th>Delete</th></tr></thead><tbody> };
+    print qq { <br/><div class="well well-sm"><table class="table fieldbook_phenotype_datatables"><thead><tr><th>檔案名稱(Filename)</th><th>刪除(Delete)</th></tr></thead><tbody> };
 
     foreach my $phenotype_ref (@phenotype_files) {
       my @phenotype_array = @{$phenotype_ref};
@@ -82,14 +82,14 @@ foreach my $file (@file_metadata) {
 
 <& /fieldbook/upload_phenotype_fieldbook.mas &>
 
-<&| /page/info_section.mas, title=>'Removed Phenotype Files', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>'已移除表型檔案(Removed Phenotype Files)', collapsible=>1, collapsed=>1 &>
   <%perl>
   foreach my $phenotype_ref (@removed_phenotype_files) {
     my @phenotype_array = @{$phenotype_ref};
     my $phenotype_file_name = $phenotype_array[0];
     #my $phenotype_file_download = '[<a href="/fieldbook/trait_file_download/'.$trait_array[1].'">Download</a>]';
     #print $phenotype_array[0]."$trait_file_download<br>";
-    print qq { $phenotype_array[0]  <button disabled="1" id="re-upload" >re-upload</button><br /> };
+    print qq { $phenotype_array[0]  <button disabled="1" id="re-upload" >重新上傳(re-upload)</button><br /> };
   }
   </%perl>
 </&>
@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
 } );
 
   function remove_phenotype_data(file_id) {
-    var yes = confirm("Do you really want to remove all data associated with this file (id="+file_id+")");
+    var yes = confirm("您確定要移除與此檔案相關的所有資料嗎 (id="+file_id+")？(Do you really want to remove all data associated with this file?)");
     jQuery.ajax( {
       beforeSend: function() { jQuery('#working_modal').modal("show"); },
       url: '/breeders/trial/delete/file/'+file_id,
@@ -114,13 +114,13 @@ jQuery(document).ready(function() {
            alert(response.error);
          }
          else {
-            alert("SUCCESS!");
+            alert("成功(SUCCESS)！");
             location.reload();
          }
       },
       error: function(response) {
          jQuery('#working_modal').modal("hide");
-         alert("An error occurred!");
+         alert("發生錯誤(An error occurred)！");
       }
     });
   }

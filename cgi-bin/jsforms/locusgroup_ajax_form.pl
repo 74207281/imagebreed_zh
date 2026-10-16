@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 my $form = CXGN::Phenome::LocusGroupForm->new();
 
@@ -42,10 +43,10 @@ sub define_object {
         CXGN::Phenome::LocusGroup->new( $schema, $self->get_object_id ) );
     if ( $self->get_object()->get_obsolete() eq 't' && $user_type ne 'curator' )
     {
-        $json_hash{error}="Locus group $lg_id is obsolete!";
+        $json_hash{error}="基因群 $lg_id 已作廢 (Locus group $lg_id is obsolete!)";
     }
     unless ( ( $lg_id =~ m /^\d+$/ || !$lg_id  )  ) {
-	$json_hash{error}="No locus group exists for identifier $lg_id";
+	$json_hash{error}="找不到識別碼 $lg_id 的基因群 (No locus group exists for identifier $lg_id)";
     }
     $self->set_json_hash(%json_hash);
     $self->set_primary_key("locusgroup_id");
@@ -68,13 +69,13 @@ sub store {
     my ($message) = $locusgroup->exists_in_database($args{locusgroup_name});
     my $validate;
     if ($message) {
-	$error = " Locus group $args{locusgroup_name} already exists in the database ";
+	$error = " 基因群 $args{locusgroup_name} 已存在於資料庫中 (Locus group already exists in the database) ";
     }else {
 	try{
 	    $self->SUPER::store(); #this sets $json_hash{validate} if the form validation failed.
 	    $lg_id = $locusgroup->get_locusgroup_id() ;
 	} catch {
-	    $error = " An error occurred. Cannot store to the database\n An  email message has been sent to the SGN development team";
+	    $error = " 發生錯誤。無法儲存至資料庫 (An error occurred. Cannot store to the database)\n 已發送電子郵件至 SGN 開發團隊";
 	    CXGN::Contact::send_email('locus_ajax_form.pl died', $error . "\n" . $_ , 'sgn-bugs@sgn.cornell.edu');
 	};
     }
@@ -109,7 +110,7 @@ sub delete {
 	try {
 	    $locusgroup->delete();
 	}catch {
-	    $json_hash{error} = " An error occurred. Cannot delete locusgroup\n An  email message has been sent to the SGN development team";
+	    $json_hash{error} = " 發生錯誤。無法刪除基因群 (An error occurred. Cannot delete locusgroup)\n 已發送電子郵件至 SGN 開發團隊";
 	};
 	$json_hash{reload} = 1;
     }
@@ -132,13 +133,13 @@ sub generate_form {
 
     if ( $locusgroup->get_obsolete() eq 't' ) {
 	$form->add_label(
-	    display_name => "Status",
+	    display_name => "狀態 (Status)",
 	    field_name   => "obsolete_stat",
-	    contents     => 'OBSOLETE',
+	    contents     => '已作廢 (OBSOLETE)',
 	    );
     }
     $form->add_field(
-        display_name => "Gene family name",
+        display_name => "基因家族名稱 (Gene family name)",
         field_name   => "locusgroup_name",
         id           => "locusgroup_name",
         object       => $locusgroup,
@@ -147,7 +148,7 @@ sub generate_form {
         validate     => 'string',
         );
     $form->add_label(
-        display_name => "Relationship",
+        display_name => "關聯性 (Relationship)",
         field_name   => "relationship",
         contents     => $relationship,
 	    );

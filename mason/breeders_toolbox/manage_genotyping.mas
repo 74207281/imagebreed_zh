@@ -6,36 +6,36 @@ $breeding_programs
 $facilities => ();
 </%args>
 
-<& /page/page_title.mas, title=>"Manage Genotyping Plates" &>
+<& /page/page_title.mas, title=>"管理基因型分型樣品板(Manage Genotyping Plates)" &>
 
 <div class="container-fluid">
 
-    <&| /page/info_section.mas, title=>"About Genotyping Plates",  collapsible => 1, collapsed=>1 &>
+    <&| /page/info_section.mas, title=>"關於基因型分型樣品板(About Genotyping Plates)",  collapsible => 1, collapsed=>1 &>
         <div class="well well-sm">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <b><p>What are genotyping plates?</p></b>
+                    <b><p>什麼是基因型分型樣品板？</p></b>
                     <ul>
-                    <li>Genotyping plates represent 96 or 384 well plates.</li>
-                    <li>Each well in the plate has a unique tissue sample ID.</li>
-                    <li>The "contents" of each well can be either a tissue sample, plant name, plot name, or accession name. This "source" name must be in the database already.</li>
-                    <li>If you choose to submit your genotyping plate to a genotyping facility (Cornell IGD, Intertek, etc) we can generate the files they require for you. Please be aware of their requirements, such as blank well positions and concentrations.</li>
+                    <li>基因型分型樣品板代表 96 孔或 384 孔板。</li>
+                    <li>樣品板中的每個孔都有一個唯一的組織樣品 ID。</li>
+                    <li>每個孔的「內容物」可以是組織樣品、植株名稱、小區名稱或種原名稱。此「來源」名稱必須已存在於資料庫中。</li>
+                    <li>如果您選擇將基因型分型樣品板提交給基因型鑑定機構（Cornell IGD、Intertek 等），我們可以為您產生他們所需的檔案。請注意他們的要求，例如空白孔位置和濃度。</li>
                     </ul>
 
-                    <b><p>How do I record a genotyping plate?</p></b>
+                    <b><p>如何記錄基因型分型樣品板？</p></b>
                     <ul>
-                    <li>1) Know what the "source" units for each well will be (either a tissue sample, plant, plot, or accession name). These "source" names must exist in the database (e.g. as tissue samples or plants or plots from a trial, or just as accession names). Ideally you will have the barcodes from the field with you.</li>
-                    <li>2) Use the "Coordinate" Android Application to scan your "source" barcodes and record the position of the tissue sample in the 96 or 384 well plate. If you prefer you can create your own XLS file and upload that, if you do not want to use the Coordinate Application. Alternatively you can let the database generate the genotyping plate for you, and then produce the plate in that layout.</li>
-                    <li><b>For more info about the "Coordinate" Android Application go to <a href="https://play.google.com/store/apps/details?id=org.wheatgenetics.coordinate">Coordinate</a>.</b></li>
-                    <li>3) Click "Add Genotyping Plate" and fill in the form completely.</li>
-                    <li>4) To ease shipping materials to the genotyping facility, we can generate the required templates for you after the data is in the database.</li>
+                    <li>1) 清楚每個孔的「來源」單位為何（組織樣品、植株、小區或種原名稱）。這些「來源」名稱必須存在於資料庫中（例如來自試驗的組織樣品、植株或小區，或者純粹是種原名稱）。理想情況下您手邊應備有田間的條碼。</li>
+                    <li>2) 使用「Coordinate」Android 應用程式掃描您的「來源」條碼，並記錄組織樣品在 96 或 384 孔板中的位置。如果您不想使用 Coordinate 應用程式，也可以自行建立 XLS 檔案並上傳。或者，您也可以讓資料庫為您產生基因型分型樣品板，然後按照該版面配置製作樣品板。</li>
+                    <li><b>有關「Coordinate」Android 應用程式的更多資訊，請造訪 <a href="https://play.google.com/store/apps/details?id=org.wheatgenetics.coordinate">Coordinate</a>。</b></li>
+                    <li>3) 點擊「新增/上傳基因型分型樣品板」並完整填寫表單。</li>
+                    <li>4) 為了便於將材料運送到基因型鑑定機構，在資料輸入資料庫後，我們可以為您產生所需的範本。</li>
                     </ul>
                 </div>
             </div>
         </div>
     </&>
 
-    <&| /page/info_section.mas, title=>'Genotyping Plates', collapsible=>1, collapsed=>0, subtitle => '<button class="btn btn-sm btn-primary" style="margin:3px" name="create_genotyping_project_link">Add Genotyping Project</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="create_genotyping_trial_link">Add/Upload Genotyping Plate</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="upload_genotyping_data_link">Upload Genotyping Data (VCF, GRM, SSR)</button>' &>
+    <&| /page/info_section.mas, title=>'基因型分型樣品板(Genotyping Plates)', collapsible=>1, collapsed=>0, subtitle => '<button class="btn btn-sm btn-primary" style="margin:3px" name="create_genotyping_project_link">新增基因型分型專案(Add Genotyping Project)</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="create_genotyping_trial_link">新增/上傳基因型分型樣品板(Add/Upload Genotyping Plate)</button> <button class="btn btn-sm btn-primary" style="margin:3px" name="upload_genotyping_data_link">上傳基因型分型資料 (VCF, GRM, SSR)(Upload Genotyping Data (VCF, GRM, SSR))</button>' &>
         <& /breeders_toolbox/genotyping_trials/trials.mas, trials_by_breeding_project=>$genotyping_trials_by_breeding_project, locations=>$locations,  breeding_programs=>$breeding_programs, facilities=>$facilities &>
     </&>
 

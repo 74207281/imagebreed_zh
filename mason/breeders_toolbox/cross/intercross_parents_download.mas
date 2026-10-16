@@ -9,23 +9,23 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossParentsDownloaddialog">Download Intercross Parents File</h4>
+                <h4 class="modal-title" id="intercrossParentsDownloaddialog">下載互交親本檔案(Download Intercross Parents File)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-11">
-                            <&| /page/explanation.mas, title=>'File Information' &>
+                            <&| /page/explanation.mas, title=>'檔案資訊(File Information)' &>
                                 <p>
-                                    <b>File Information</b>
+                                    <b>檔案資訊</b>
                                     <br>
-                                    <a id="intercross_parents_file_info">Intercross Parents</a>
+                                    <a id="intercross_parents_file_info">互交親本</a>
                                     <br>
                                 </p>
                             </&>
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3">Female parents:</label>
+                                    <label class="control-label col-sm-3">母本：</label>
                                     <div class="col-sm-7" >
                                         <div class="input-group">
                                             <select class="form-control" id="female_parents_list_select"></select>
@@ -33,7 +33,7 @@ $trial_id
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-3">Male parents:</label>
+                                    <label class="control-label col-sm-3">父本：</label>
                                     <div class="col-sm-7" >
                                         <div class="input-group">
                                             <select class="form-control" id="male_parents_list_select"></select>
@@ -46,7 +46,7 @@ $trial_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="download_intercross_parents_submit" type="button" class="btn btn-primary" >Download</button>
+                <button id="download_intercross_parents_submit" type="button" class="btn btn-primary" >下載(Download)</button>
                 <input type="hidden" id="intercross_parents_download_token" name="intercross_parents_download_token"/>
             </div>
         </div>
@@ -58,21 +58,21 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossParentsDownloadMessage">Intercross Parents File Created</h4>
+                <h4 class="modal-title" id="intercrossParentsDownloadMessage">互交親本檔案已建立(Intercross Parents File Created)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The Intercross parents file was created successfully.
+                        互交親本檔案已成功建立。
                     </p>
                     <p>
-                        <a id="intercross_parents_download_link">Download Intercross Parents</a>
+                        <a id="intercross_parents_download_link">下載互交親本檔案</a>
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" name="intercross_parents_download_close_button" id="intercross_parents_download_close_button" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" name="intercross_parents_download_close_button" id="intercross_parents_download_close_button" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -83,23 +83,23 @@ $trial_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="intercrossParentsFileInfoDialog">Intercross Parents</h4>
+                <h4 class="modal-title" id="intercrossParentsFileInfoDialog">互交親本(Intercross Parents)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <b>
-                        Names in the list must be uniquenames.
+                        清單中的名稱必須為唯一名稱（uniquename）。
                     </b>
                     <br>
-                        Intercross Parents file is a CSV file (.csv).
+                        互交親本檔案為 CSV 檔案（.csv）。
                     <br>
-                        The file can be used directly with Intercross app.
+                        此檔案可直接在 Intercross 應用程式中使用。
                     <br><br>
                     <b>
-                        Header:
+                        標題列：
                     </b>
                     <br>
-                        The first row (header) contains the following:
+                        第一列（標題）包含以下欄位：
                     <br>
                     <table class="table table-bordered table-hover">
                         <tbody>
@@ -111,17 +111,17 @@ $trial_id
                         </tbody>
                     </table>
                     <b>
-                        Column Information:
+                        欄位資訊：
                     </b>
                     <ul>
-                        <li><b>codeId:</b> stock_ids in the database.</li>
-                        <li><b>sex:</b> 0 (female), 1 (male)</li>
-                        <li><b>name:</b> uniquenames in the database.</li>
+                        <li><b>codeId:</b> 資料庫中的 stock_id。</li>
+                        <li><b>sex:</b> 0（母本），1（父本）</li>
+                        <li><b>name:</b> 資料庫中的唯一名稱（uniquename）。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -135,8 +135,8 @@ jQuery(document).ready(function(){
     var crossing_experiment_id = "<% $trial_id %>";
     var lo = new CXGN.List();
 
-    jQuery('#female_parents_list_select').html(lo.listSelect('female_parents_list_select', ['accessions'], 'Select a list of female parents', undefined, undefined));
-    jQuery('#male_parents_list_select').html(lo.listSelect('male_parents_list_select', ['accessions'], 'Select a list of male parents', undefined, undefined));
+    jQuery('#female_parents_list_select').html(lo.listSelect('female_parents_list_select', ['accessions'], '請選擇母本清單', undefined, undefined));
+    jQuery('#male_parents_list_select').html(lo.listSelect('male_parents_list_select', ['accessions'], '請選擇父本清單', undefined, undefined));
 
     jQuery('#download_intercross_parents').click(function(){
         jQuery('#intercross_parents_download_dialog').modal("show");
@@ -152,12 +152,12 @@ jQuery(document).ready(function(){
         var male_list_id = jQuery('#male_parents_list_select').val();
 
         if (!female_list_id) {
-            alert("Please choose a list of female parents");
+            alert("請選擇母本清單");
             return;
         }
 
         if (!male_list_id) {
-            alert("Please choose a list of male parents");
+            alert("請選擇父本清單");
             return;
         }
 
@@ -185,7 +185,7 @@ jQuery(document).ready(function(){
             },
             error: function() {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred creating the parents file.');
+                alert('建立親本檔案時發生錯誤。');
                 jQuery('#intercross_parents_download_dialog').modal("hide");
             },
         });

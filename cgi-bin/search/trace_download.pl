@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 use strict;
 use warnings;
+use utf8;
 use CXGN::Page;
 use CXGN::Genomic::Chromat;
 use CXGN::DB::Connection;
@@ -10,7 +11,7 @@ use CatalystX::GlobalContext '$c';
 #
 # New download script for chromatogram access.
 our $trace_basepath;
-our $page = CXGN::Page->new( "Trace Download", "Koni");
+our $page = CXGN::Page->new( "定序圖譜下載 (Trace Download)", "Koni");
 
 my $dbh = CXGN::DB::Connection->new();
 
@@ -67,7 +68,7 @@ foreach $type_ext ( '',qw/.ab1 .abi .scf .esd .SCF/) {
 
 if (!$full_pathname) {
     print STDERR "Can't find chromatogram file at $basename";
-  $page->message_page("This sequence does not seem to have an associated chromatogram.");
+  $page->message_page("此序列似乎沒有關聯的定序圖譜 (This sequence does not seem to have an associated chromatogram)。");
 }
 
 open F, "<$full_pathname"
@@ -90,7 +91,7 @@ sub invalid_search {
 
   print <<EOF;
 
-Requested search is invalid.
+所要求的搜尋無效 (Requested search is invalid)。
 EOF
 
   $page->footer();
@@ -104,7 +105,7 @@ sub not_found {
 
   print <<EOF;
 
-No chromatogram was found for SGN-T$id.
+未找到 SGN-T$id 的定序圖譜 (No chromatogram was found for SGN-T$id)。
 
 EOF
 

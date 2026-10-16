@@ -1,71 +1,72 @@
 
 
+<& /page/page_title.mas, title=>"標記搜尋說明(Marker Search Help)" &>
+
 <p>
-The <a href="/search/markers/markersearch.pl">marker search</a> is a
-tool for locating markers in SGN's database.
+<a href="/search/markers/markersearch.pl">標記搜尋(marker search)</a>是在 SGN 資料庫中尋找標記的工具。(The marker search is a tool for locating markers in SGN's database.)
 </p>
 
-<img src="/documents/help/screenshots/marker_search_form.png" alt="screenshot of marker search form" style="margin: auto; border: 1px solid black;" />
+<img src="/documents/help/screenshots/marker_search_form.png" alt="標記搜尋表單截圖(screenshot of marker search form)" style="margin: auto; border: 1px solid black;" />
 
-<h4>1. Marker name</h4>
+<h4>1. 標記名稱(Marker name)</h4>
 <p>
-If you know the name of your marker, type it in. By default, the database will be searched for all markers with a name that <i>starts with</i> what you type in.For example, if you type in "TG1", your results might include TG1, TG10, TG11, TG150, etc.
+若您知道標記名稱，請在此輸入。預設情況下，資料庫將搜尋標記名稱以您輸入內容<i>開頭</i>的所有標記。例如，若輸入 "TG1"，結果可能包含 TG1、TG10、TG11、TG150 等。(If you know the name of your marker, type it in. By default, the database will be searched for all markers with a name that starts with what you type in. For example, if you type in "TG1", your results might include TG1, TG10, TG11, TG150, etc.)
 </p><p>
- To search for an exact name, choose "exactly" from the menu. Or choose "contains" if you don't know the beginning of the marker's name. For example, a "contains" search on "T16" will include CT16, T1600, T1601, etc.
+若要搜尋完全相符的名稱，請從選單中選擇「完全相符(exactly)」。若不知道標記名稱的開頭，請選擇「包含(contains)」。例如，針對 "T16" 進行「包含」搜尋將包含 CT16、T1600、T1601 等。(To search for an exact name, choose "exactly" from the menu. Or choose "contains" if you don't know the beginning of the marker's name. For example, a "contains" search on "T16" will include CT16, T1600, T1601, etc.)
 </p>
 <p>
-The search is not case-sensitive; "Tm2" and "TM2" are equivalent searches, though those two names could refer to two different markers in our database.
+搜尋不區分大小寫；"Tm2" 與 "TM2" 為等價搜尋，儘管這兩個名稱在我們資料庫中可能指兩種不同的標記。(The search is not case-sensitive; "Tm2" and "TM2" are equivalent searches, though those two names could refer to two different markers in our database.)
 </p>
 
-<h4>2. BAC associations</h4>
+<h4>2. BAC 關聯(BAC associations)</h4>
 <p>
-</p>
-
-
-<h4>3. Species</h4>
-<p>
-In this multiple-select box you will see a list of the common names of species (or groups of species, such as "tomato") that make up the mapping populations in our collection of maps. Selecting a species here limits your search results to markers that have been mapped in that species.
 </p>
 
 
-<h4>4. Mapped by</h4>
+<h4>3. 物種(Species)</h4>
 <p>
-This multiple-select box shows a list of experimental protocols. Selecting one or more of these protocols, for example CAPS, will limit the search results to markers that have been mapped with this protocol.
+在此多選方塊中，您將看到構成我們圖譜收藏中製圖族群之物種（或物種群，如「番茄」）的俗名清單。在此選擇物種會將搜尋結果限制為已在該物種中定位的標記。(In this multiple-select box you will see a list of the common names of species (or groups of species, such as "tomato") that make up the mapping populations in our collection of maps. Selecting a species here limits your search results to markers that have been mapped in that species.)
 </p>
 
 
-<h4>5. Group</h4>
+<h4>4. 製圖方法(Mapped by)</h4>
 <p>
-Some of our markers have been grouped into collections for organizational purposes, or because all markers in that group are part of a particular project. Here are the meanings of the markers in our collections:
+此多選方塊顯示實驗流程清單。選擇其中一個或多個流程（例如 CAPS）會將搜尋結果限制為使用該流程定位的標記。(This multiple-select box shows a list of experimental protocols. Selecting one or more of these protocols, for example CAPS, will limit the search results to markers that have been mapped with this protocol.)
+</p>
+
+
+<h4>5. 群組(Group)</h4>
+<p>
+我們的一些標記因組織管理目的，或因為該群組中的所有標記皆屬於特定計畫的一部分，而已被分組為不同集合。以下是我們集合中標記的含義：(Some of our markers have been grouped into collections for organizational purposes, or because all markers in that group are part of a particular project. Here are the meanings of the markers in our collections:)
 </p>
 <ul>
-<li><b>COS</b> - Conserved Ortholog Set, markers that have been mapped in both tomato and <i>Arabidopsis</i>. </li>
-<li><b>COSII</b> - Conserved Ortholog Set, part II - markers that have been mapped in several asterid species, including several solanaceous species. <a href="http://www.sgn.cornell.edu/markers/cosii_markers.pl">Learn more about COSII markers here</a></li>
-<li><b>KFG</b> - Known Function Genes - markers that correspond to known genes in tomato</li>
-<li><b>P</b> - a subset of our EST collection</li>
-<li><b>TM</b> - also EST-derived markers</li>
+<li><b>COS</b> - 保守直系同源集合(Conserved Ortholog Set)，在番茄與阿拉伯芥中皆已定位的標記。(markers that have been mapped in both tomato and <i>Arabidopsis</i>.)</li>
+<li><b>COSII</b> - 保守直系同源集合第二部分(Conserved Ortholog Set, part II)，在數個菊類物種（包含數種茄科物種）中已定位的標記。<a href="http://www.sgn.cornell.edu/markers/cosii_markers.pl">在此了解更多關於 COSII 標記的資訊(Learn more about COSII markers here)</a></li>
+<li><b>KFG</b> - 已知功能基因(Known Function Genes)，對應於番茄中已知基因的標記。(markers that correspond to known genes in tomato)</li>
+<li><b>P</b> - 我們 EST 集合的子集(a subset of our EST collection)</li>
+<li><b>TM</b> - 亦為 EST 來源之標記(also EST-derived markers)</li>
 </ul>
 
 
-<h4>6. Chromosomes</h4>
+<h4>6. 染色體(Chromosomes)</h4>
 <p>
-Choose a chromosome from this box to limit results to markers mapped on that chromosome or linkage group.
+從此方塊中選擇染色體，以將結果限制為在該染色體或連鎖群上定位的標記。(Choose a chromosome from this box to limit results to markers mapped on that chromosome or linkage group.)
 </p>
 
 
-<h4>7. Position</h4>
+<h4>7. 位置(Position)</h4>
 <p>
-If you are interested in a particular region of the chromosome, enter the bounds of that region here.
+若您對染色體的特定區域感興趣，請在此輸入該區域的邊界。(If you are interested in a particular region of the chromosome, enter the bounds of that region here.)
 </p>
 
 
-<h4>8. Confidence</h4>
+<h4>8. 信賴度(Confidence)</h4>
 <p>
-Some of our markers have a confidence assigned by the mapping program MapMaker. To view only markers with a certain level of confidence or greater, select that confidence from this list. Markers not mapped by MapMaker will have a confidence listed as "uncalculated". Leaving this setting on "uncalculated", the default, will not exclude any markers.
+我們的一些標記具有由製圖軟體 MapMaker 所分配的信賴度。若僅檢視具有特定信賴度或更高信賴度的標記，請從此清單中選擇該信賴度。非由 MapMaker 定位的標記其信賴度將列為「未計算(uncalculated)」。保持此設定為預設的「未計算」，將不會排除任何標記。(Some of our markers have a confidence assigned by the mapping program MapMaker. To view only markers with a certain level of confidence or greater, select that confidence from this list. Markers not mapped by MapMaker will have a confidence listed as "uncalculated". Leaving this setting on "uncalculated", the default, will not exclude any markers.)
 </p>
 
 
-<h4>9. Maps</h4>
+<h4>9. 圖譜(Maps)</h4>
 <p>
-This multiple-select box shows a list of our available maps. For more information on these maps, see the <a href="/cview/">map overview page</a>.
+此多選方塊顯示我們可用圖譜的清單。有關這些圖譜的更多資訊，請參閱<a href="/cview/">圖譜總覽頁面(map overview page)</a>。(This multiple-select box shows a list of our available maps. For more information on these maps, see the map overview page.)
 </p>

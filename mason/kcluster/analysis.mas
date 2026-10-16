@@ -51,24 +51,24 @@ $pop_id = undef if $list_id || $combo_pops_id;
 <&| /page/info_section.mas, 
     collapsible => 0, 
     collapsed   => 0,
-    title       => "Select a list of accessions or trials and run cluster analysis using k-means method",
+    title       => "選擇材料或試驗清單並使用 K-means 方法執行分群分析(Select a list of accessions or trials and run cluster analysis using k-means method)",
   &>
 
  
  <div class="fileupload-buttonbar">
    
     <div class="list_upload" id="list_label">
-      <label for="cluster_genotypes_list">Select</label>
+      <label for="cluster_genotypes_list">選擇(Select)</label>
     </div> 
     <div class="list_upload" id="cluster_genotypes_list">      
     </div>
     <div class="list_upload go_btn">
-      <input type="button" value="Go" />
+      <input type="button" value="執行(Go)" />
     </div>
     
     <div class="list_upload" style="margin-left:5px">     
       <i class="glyphicon-plus"></i>
-      <a href="/solgs/breeder_search" style="color:#ffffff">Create a new list</a>  
+      <a href="/solgs/breeder_search" style="color:#ffffff">建立新清單(Create a new list)</a>  
     </div>
 
     <br>

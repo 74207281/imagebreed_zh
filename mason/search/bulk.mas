@@ -3,32 +3,32 @@
 
 <div class="container-fluid">
 
-<& /page/page_title.mas, title=>'Bulk Search' &>
+<& /page/page_title.mas, title=>'批次搜尋(Bulk Search)' &>
 
-<p>The Bulk Search will check a list of data items if they exist in the database for the specified data type.<p>
+<p>批次搜尋將檢查資料項目清單是否存在於指定資料類型的資料庫中。<p>
 
 <br />
 
 <!-- QUERY SECTION -->
 <div id="bulk_search_query">
 
-    <h3>Data Type</h3>
+    <h3>資料類型(Data Type)</h3>
 
     <select id="bulk_search_type" class="form-control" disabled>
-        <option>Loading...</option>
+        <option>載入中...(Loading...)</option>
     </select>
 
     <br />
 
-    <h3>Data Items</h3>
+    <h3>資料項目(Data Items)</h3>
 
-    <p>Enter the names of the data items (one per line)</p>
+    <p>請輸入資料項目的名稱（每行一個）：</p>
 
     <textarea id="bulk_search_items" class="form-control" rows="25"></textarea>
 
     <br />
 
-    <button id="bulk_search_start" class="btn btn-primary btn-block">Search</button>
+    <button id="bulk_search_start" class="btn btn-primary btn-block">搜尋(Search)</button>
 
 </div>
 
@@ -36,27 +36,27 @@
 <!-- RESULTS SECTION -->
 <div id="bulk_search_results" style="display: none">
 
-    <h3>Existing Items</h3>
+    <h3>已存在的項目(Existing Items)</h3>
 
     <table id="bulk_search_existing" class="table table-striped table-hover">
         <tr>
-            <th>Name</th>
+            <th>名稱(Name)</th>
         </tr>
     </table>
 
     <br />
 
-    <h3>Missing Items</h3>
+    <h3>不存在的項目(Missing Items)</h3>
 
     <table id="bulk_search_missing" class="table table-striped table-hover">
         <tr>
-            <th>Name</th>
+            <th>名稱(Name)</th>
         </tr>
     </table>
 
     <br /><br />
 
-    <button id="bulk_search_back" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;Back to Search</button>
+    <button id="bulk_search_back" class="btn btn-primary btn-block"><span class="glyphicon glyphicon-chevron-left"></span>&nbsp;返回搜尋(Back to Search)</button>
 
 </div>
 
@@ -80,7 +80,7 @@ jQuery(document).ready(function() {
         dom: 'Bfrtip',
         autoWidth: false,
         data: [],
-        columns: [{ title: "Name" }],
+        columns: [{ title: "名稱(Name)" }],
         buttons: [
             {
                 extend: 'excelHtml5',
@@ -96,7 +96,7 @@ jQuery(document).ready(function() {
         dom: 'Bfrtip',
         autoWidth: false,
         data: [],
-        columns: [{ title: "Name" }],
+        columns: [{ title: "名稱(Name)" }],
         buttons: [
             {
                 extend: 'excelHtml5',
@@ -136,7 +136,7 @@ function updateDataTypes() {
             }
         },
         error: function() {
-            alert("Could not get supported data types!");
+            alert("無法取得支援的資料類型！(Could not get supported data types)");
         }
     })
 }
@@ -154,7 +154,7 @@ function bulkSearch() {
         return /\S/.test(str);
     });
 
-    jQuery('#bulk_search_start').html('Searching...').attr('disabled', true);
+    jQuery('#bulk_search_start').html('搜尋中...(Searching...)').attr('disabled', true);
 
     jQuery.ajax({
         url: "/list/validate/temp",
@@ -164,12 +164,12 @@ function bulkSearch() {
             "items": JSON.stringify(names),
         },
         success: function(data) {
-            jQuery('#bulk_search_start').html('Search').attr('disabled', false);
+            jQuery('#bulk_search_start').html('搜尋(Search)').attr('disabled', false);
             displayResults(data);
         },
         error: function() {
-            alert("Could not run bulk search!");
-            jQuery('#bulk_search_start').html('Search').attr('disabled', false);
+            alert("無法執行批次搜尋！(Could not run bulk search)");
+            jQuery('#bulk_search_start').html('搜尋(Search)').attr('disabled', false);
         }
     });
 }
@@ -199,7 +199,7 @@ function displayResults(data) {
         }
     }
     else {
-        alert("Invalid response from the server!");
+        alert("伺服器傳回無效的回應！(Invalid response from the server)");
     }
 
     dte.draw();

@@ -2,22 +2,22 @@
 $protocol_id
 </%args>
 
-<input type="checkbox" id="protocol_genotype_data_forbid_cache"> Refresh results
+<input type="checkbox" id="protocol_genotype_data_forbid_cache"> 重新整理結果
 <hr>
 
 <div style="overflow:scroll">
     <table id="protocol_genotype_data" width="100%" class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Protocol</th>
-                <th>Sample Name</th>
-                <th>Sample Type</th>
-                <th>Accession Name</th>
-                <th>Synonyms</th>
-                <th>Description</th>
-                <th>Number of Marker Scores</th>
-                <th>IGD Number</th>
-                <th>Download</th>
+                <th>協定(Protocol)</th>
+                <th>樣本名稱(Sample Name)</th>
+                <th>樣本類型(Sample Type)</th>
+                <th>品系名稱(Accession Name)</th>
+                <th>同義詞(Synonyms)</th>
+                <th>描述(Description)</th>
+                <th>標記評分數量(Number of Marker Scores)</th>
+                <th>IGD 編號(IGD Number)</th>
+                <th>下載(Download)</th>
             </tr>
         </thead>
     </table>

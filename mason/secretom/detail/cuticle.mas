@@ -1,37 +1,16 @@
-<& /page/page_title.mas, title => 'The Tomato Fruit Cuticular Cell Wall Proteome' &>
+<& /page/page_title.mas, title => '番茄果實角質層細胞壁蛋白質組(The Tomato Fruit Cuticular Cell Wall Proteome)' &>
 
 <div class="indentedcontent">
   <p>
-  The plant cuticle is a highly specialized hydrophobic cell wall that
-  covers the aerial organs of land plants and provides protection
-  against desiccation, pathogens, UV radiation and herbivory. It is
-  continuous with the outer-periclinal polysaccharide cell wall of the
-  epidermis and consists of organic soluble waxes embedded in, and
-  layered on, a non-soluble polyester matrix of &omega;-substituted
-  fatty acids. The waxes include both aliphatic compounds, derived from
-  very long chain fatty acids, and secondary metabolites, such as
-  triterpenoids and flavonoids.
+  植物角質層是一種高度特化的疏水性細胞壁，覆蓋陸生植物的地上器官，提供抵禦水分蒸散、病原體、紫外線輻射和植食性動物侵害的保護(The plant cuticle is a highly specialized hydrophobic cell wall that covers the aerial organs of land plants and provides protection against desiccation, pathogens, UV radiation and herbivory)。它與表皮的外平周多醣細胞壁相連，由嵌入並分層於 &omega;-取代脂肪酸之不可溶聚酯基質上的有機可溶性蠟質組成(It is continuous with the outer-periclinal polysaccharide cell wall of the epidermis and consists of organic soluble waxes embedded in, and layered on, a non-soluble polyester matrix of &omega;-substituted fatty acids)。這些蠟質包括源自超長鏈脂肪酸的脂肪族化合物，以及三萜類和類黃酮等次級代謝物(The waxes include both aliphatic compounds, derived from very long chain fatty acids, and secondary metabolites, such as triterpenoids and flavonoids)。
   </p>
 
   <p>
-  Little is yet known about many key mechanisms of cuticle biogenesis,
-  and experimental strategies to identify new proteins that associate
-  with cutin and waxes could provide a valuable means to identify new
-  candidates.
+  目前對於角質層生物發生的許多關鍵機制仍知之甚少，而鑑定與角質和蠟質相關的新蛋白質之實驗策略，可為鑑定新的候選蛋白提供有價值的途徑(Little is yet known about many key mechanisms of cuticle biogenesis, and experimental strategies to identify new proteins that associate with cutin and waxes could provide a valuable means to identify new candidates)。
   </p>
 
   <p>
-  Although Arabidopsis research has greatly accelerated the discovery of
-  new cuticle-related genes, its cuticle poses some experimental
-  limitations since it is relatively thin, fragile and difficult to
-  isolate in substantial quantities. Conversely, tomato fruit cuticles
-  are astomatous and large amounts of intact cuticular material can be
-  isolated for chemical and biomechanical analyses. For example, the
-  fruit accumulate on the order of 1 mg cm<sup>-2</sup> cutin,
-  compared to the stem of Arabidopsis, which has 0.5-10 &mu;g
-  cm<sup>-2</sup>. Thus, the typical 6 week period of early tomato
-  fruit development represents a remarkably rapid and extensive phase of
-  cuticle biosynthesis.
+  儘管阿拉伯芥的研究大大加速了新角質層相關基因的發現，但其角質層由於相對較薄、脆弱且難以大量分離，因此存在一些實驗局限性(Although Arabidopsis research has greatly accelerated the discovery of new cuticle-related genes, its cuticle poses some experimental limitations since it is relatively thin, fragile and difficult to isolate in substantial quantities)。相反地，番茄果實角質層無氣孔，並且可以分離出大量完整的角質層材料用於化學與生物力學分析(Conversely, tomato fruit cuticles are astomatous and large amounts of intact cuticular material can be isolated for chemical and biomechanical analyses)。例如，果實累積約 1 mg cm<sup>-2</sup> 的角質，相較之下阿拉伯芥的莖只有 0.5-10 &mu;g cm<sup>-2</sup>(For example, the fruit accumulate on the order of 1 mg cm<sup>-2</sup> cutin, compared to the stem of Arabidopsis, which has 0.5-10 &mu;g cm<sup>-2</sup>)。因此，早期番茄果實發育典型的 6 週時期代表了角質層生物合成極其迅速且廣泛的階段(Thus, the typical 6 week period of early tomato fruit development represents a remarkably rapid and extensive phase of cuticle biosynthesis)。
   </p>
 
   <div style="width: 420px" class="captioned_image img_float_left caption_right">
@@ -39,32 +18,17 @@
     <img src="/documents/img/secretom/tomato_cuticle_stain_400.jpg" />
 
     <p>
-    Light microscope image of the surface of an expanding tomato fruit
-    with the cuticle stained red.
+    膨大期番茄果實表面的光學顯微鏡影像，角質層染成紅色(Light microscope image of the surface of an expanding tomato fruit with the cuticle stained red)。
     </p>
 
   </div>
 
   <p>
-  To identify new candidate proteins with a potential role in cuticle
-  biosynthesis, and particularly those that are secreted to the
-  apoplast, we are generating a more comprehensive inventory of proteins
-  that are associated with the outermost surface tissues of plant
-  organs, we are using a range of complementary protein fractionation
-  strategies (1D gel-based and liquid chromatography) coupled with
-  several sensitive mass spectrometry (MS) platforms.
+  為了鑑定在角質層生物合成中具有潛在作用的新候選蛋白質，特別是那些分泌至質外體的蛋白質，我們正在對與植物器官最外層表面組織相關的蛋白質進行更全面的清查(To identify new candidate proteins with a potential role in cuticle biosynthesis, and particularly those that are secreted to the apoplast, we are generating a more comprehensive inventory of proteins that are associated with the outermost surface tissues of plant organs)；我們正在使用一系列互補的蛋白質分級分離策略（一維膠體與液相層析），並結合數種高靈敏度的質譜（MS）平台(we are using a range of complementary protein fractionation strategies (1D gel-based and liquid chromatography) coupled with several sensitive mass spectrometry (MS) platforms)。
   </p>
 
   <p>
-  We are also characterizing a number of tomato fruit cuticle mutants
-  and have developing a new 3D imaging technique using confocal scanning
-  laser microscopy for visualizing the architecture, deposition patterns
-  and micro-structure of plant cuticles. This has allowed 3-D cuticle
-  modeling based on the reconstruction of serial optical sections and
-  its use in the identification of several previously unreported
-  features of the tomato fruit cuticle. This information, together with
-  the proteome study is providing new insights into the molecular
-  processes underlying cuticle formation and restructuring.
+  我們亦在對許多番茄果實角質層突變體進行特徵分析，並開發了一種使用共軛焦雷射掃描顯微鏡的新型 3D 成像技術，用於視覺化植物角質層的結構、沉積模式和微觀結構(We are also characterizing a number of tomato fruit cuticle mutants and have developing a new 3D imaging technique using confocal scanning laser microscopy for visualizing the architecture, deposition patterns and micro-structure of plant cuticles)。這使得基於連續光學切片重建的 3D 角質層建模成為可能，並利用其鑑定出番茄果實角質層先前未報導的若干特徵(This has allowed 3-D cuticle modeling based on the reconstruction of serial optical sections and its use in the identification of several previously unreported features of the tomato fruit cuticle)。這些資訊連同蛋白質組研究，為角質層形成與重塑背後的分子過程提供了新的見解(This information, together with the proteome study is providing new insights into the molecular processes underlying cuticle formation and restructuring)。
   </p>
 </div>
 
@@ -73,7 +37,7 @@
     <img src="/documents/img/secretom/tomato_cuticle_3d_350.jpg" />
 
     <p>
-    A 3-D rendering of the tomato fruit (cv. M8) cuticle.
+    番茄果實（品系 M82）角質層的 3D 算圖影像(A 3-D rendering of the tomato fruit (cv. M82) cuticle)。
     </p>
 
   </div>
@@ -81,17 +45,11 @@
 <div style="float: left; width: 345px">
   <&| /secretom/section_templates/objectives.mas &>
 
-    Isolate and identify proteins from the surface of expanding tomato
-    fruits at the time of maximal cuticle biosynthesis, using solvent
-    dips followed by gel- and liquid chromatography-based separation and
-    several MS approaches
+    在角質層生物合成達到頂峰時，使用溶劑浸洗隨後進行膠體和液相層析分離以及數種質譜方法，從膨大期番茄果實表面分離並鑑定蛋白質(Isolate and identify proteins from the surface of expanding tomato fruits at the time of maximal cuticle biosynthesis, using solvent dips followed by gel- and liquid chromatography-based separation and several MS approaches)
 
-    Identify potentially secreted proteins and characterize their
-    expression patterns during fruit ontogeny
+    鑑定潛在的分泌蛋白並分析其在果實個體發育過程中的表現模式(Identify potentially secreted proteins and characterize their expression patterns during fruit ontogeny)
 
-    Incorporate this information into related studies of the tomato
-    fruit cuticle t develop a more detailed understanding of cuticle
-    deposition and restructuring
+    將此資訊整合到番茄果實角質層的相關研究中，以建立對角質層沉積與重塑更詳細的了解(Incorporate this information into related studies of the tomato fruit cuticle to develop a more detailed understanding of cuticle deposition and restructuring)
 
   </&>
 </div>
@@ -99,13 +57,13 @@
 <&| /secretom/section_templates/data_items.mas,
       default_ref_base => '/download/data/secretom/Tomato_fruit_cuticular_cell_wall_proteome'
  &>
-- text: "Tomato fruit (cv. M82) surface proteins identified"
+- text: "已鑑定的番茄果實（品系 M82）表面蛋白質(Tomato fruit (cv. M82) surface proteins identified)"
   ref: Tomato_fruit_surface_proteins.xlsx
-- text: "Tomato fruit (cv. M82) surface proteins: from gel bands"
+- text: "番茄果實（品系 M82）表面蛋白質：來自膠體條帶(Tomato fruit (cv. M82) surface proteins: from gel bands)"
   ref: Tomato_fruit_surface_proteins_gel_bands.xlsx
-- text: "Tomato fruit (cv. M82) surface proteins: from gel slabs"
+- text: "番茄果實（品系 M82）表面蛋白質：來自膠片(Tomato fruit (cv. M82) surface proteins: from gel slabs)"
   ref: Tomato_fruit_surface_proteins_gel_slabs.xlsx
-- text: "Tomato fruit (cv. M82) surface proteins: from gel free"
+- text: "番茄果實（品系 M82）表面蛋白質：非膠體分析(Tomato fruit (cv. M82) surface proteins: from gel free)"
   ref: Tomato_fruit_surface_proteins_gel_free.xlsx
 </&>
 

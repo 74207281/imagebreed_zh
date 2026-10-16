@@ -16,6 +16,7 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 use strict;
 use warnings;
+use utf8;
 
 my $individuals_range_detail_page = CXGN::Phenome::IndividualsRangeDetailPage->new();
 
@@ -107,13 +108,13 @@ sub generate_form {
     }
        
    $form->add_label ( 
-		      display_name=>"Name:",
+		      display_name=>"名稱 (Name):",
 		      field_name=>"name",
 		      contents=> $pop_link, 
 		     );
 
     $form->add_textarea(  
-			  display_name=>"Description: ", 
+			  display_name=>"描述 (Description): ", 
 			  field_name=>"description",
 			  object=>$population, 
 			  getter=>"get_description", setter=>"set_description",
@@ -122,7 +123,7 @@ sub generate_form {
 			  );
     
     
-    $form->add_label( display_name=>"Uploaded by: ", 
+    $form->add_label( display_name=>"上傳者 (Uploaded by): ", 
 			  field_name=>"submitter", 
 			  contents=>$submitter_link,
 			  );
@@ -184,9 +185,9 @@ EOS
     my $login_user_type= $login_user->get_user_type(); 
     
     
-    $self->get_page()->header("SGN Population name: $population_name");
+    $self->get_page()->header("SGN 族群名稱 (Population name): $population_name");
     
-    print page_title_html("SGN population: $population_name \n");
+    print page_title_html("SGN 族群 (SGN population): $population_name \n");
  
     my $population_html .= $self->get_form()->as_table_string(); 
    
@@ -217,16 +218,12 @@ EOS
    
     my ($phenotype_data, $data_view, $data_download);
     
-    my $cvterm_note = " <br><b>$indls_count plant accessions had 
-                            $cvterm_name values >$lower but <= $upper. 
-                            The population average, minimum, and maximum 
-                            values for the trait were $avg, $min, and $max, 
-                            respectively.</b> <br />";   
+    my $cvterm_note = " <br><b>$indls_count 個植物種原之 $cvterm_name 數值大於 $lower 且小於等於 $upper ($indls_count plant accessions had $cvterm_name values >$lower but <= $upper)。此性狀之族群平均值、最小值與最大值分別為 $avg、$min 與 $max (The population average, minimum, and maximum values for the trait were $avg, $min, and $max, respectively)。</b> <br />";   
     
     if (@phenotype) {
 	$phenotype_data = columnar_table_html(headings => [
-							   'Plant accession',
-							   'Value',
+							   '植物種原 (Plant accession)',
+							   '數值 (Value)',
                                                          
 							   ],
 					      data     =>\@phenotype,
@@ -237,11 +234,11 @@ EOS
 					      );
         
 	$data_view = html_optional_show("phenotype",
-					'View/hide phenotype data summary',
+					'檢視/隱藏表型資料摘要 (View/hide phenotype data summary)',
 					qq|<b>$phenotype_data</b>|,
 					1, #<  show data by default
 					);
-	$data_download .=  qq { <span><a href="/qtl/download/phenotype/$population_id"><b>\[download population raw data\]</b></a></span> }; 
+	$data_download .=  qq { <span><a href="/qtl/download/phenotype/$population_id"><b>\[下載族群原始資料 (download population raw data)\]</b></a></span> }; 
     }
     
     my $page="../phenome/indls_range_cvterm.pl?cvterm_id=$cvterm_id&amp;lower=$lower&amp;upper=$upper&amp;population_id=$population_id ";
@@ -299,7 +296,7 @@ EOS
 	 
     	
 	   $abstract_view = html_optional_show("abstracts$abstract_count",
-			       'Show/hide abstract',
+			       '顯示/隱藏摘要 (Show/hide abstract)',
 			       qq|$abstract <b> <i>$authors.</i> $journal. $pyear. $volume($issue). $pages.</b>|,
 						 0, #< do not show by default
 						 'abstract_optional_show', #< don't use the default button-like style
@@ -310,17 +307,17 @@ EOS
     }
 }
 
-    print info_section_html(title   => 'Population details',
+    print info_section_html(title   => '族群詳細資訊 (Population details)',
 			    contents => $population_html,
 			    );   
     
-    print info_section_html(title   => 'Phenotype Data',
+    print info_section_html(title   => '表型資料 (Phenotype Data)',
 			    contents =>$cvterm_note . $data_view ." ".$data_download, 
 			    );
     
 
     
-    print info_section_html(title   => 'Literature annotation',
+    print info_section_html(title   => '文獻註釋 (Literature annotation)',
 			    #subtitle => $pub_subtitle,
 			    contents =>$pubmed , 
 			    );

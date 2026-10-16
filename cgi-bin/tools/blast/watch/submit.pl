@@ -1,6 +1,7 @@
 #!usr/bin/perl -w
 
 use strict;
+use utf8;
 use CXGN::Page;
 use File::Spec;
 use CXGN::DB::Connection;
@@ -23,23 +24,23 @@ my $matrix = $params->{matrix};
 # check evalue
 my $evalue = $params->{evalue};
 if (!$evalue) {
-    user_error($page, "Please enter a valid expect value.\n");
+    user_error($page, "請輸入有效的預期值 (Expect value)。\n(Please enter a valid expect value.)\n");
 }
 elsif ($evalue !~ m/(e\-[0-9]+|[0-9]+e\-[0-9]+|[0-9]+\.[0-9]+)/ or $evalue <= 0.0) {
-    user_error($page, "Invalid Expect value \"$evalue\". Please enter a valid expect value.\n");
+    user_error($page, "無效的預期值 \"$evalue\"。請輸入有效的預期值。\n(Invalid Expect value \"$evalue\". Please enter a valid expect value.)\n");
 }
 
 # check sequence
 my $sequence = $params->{sequence};
 if (!$sequence or $sequence eq "") {
-    user_error($page,"You must specify a sequence in FASTA format to perform a BLAST search");
+    user_error($page,"您必須指定 FASTA 格式的序列才能執行 BLAST 搜尋 (You must specify a sequence in FASTA format to perform a BLAST search)");
 }
 
 if ($sequence =~ />.+>/ ) { }
 
 my $seq_count = ($sequence =~ tr/>//);
 if($seq_count > 1) {
-    &user_error($page,"Please submit only one query sequence at a time.");
+    &user_error($page,"一次請僅提交一條查詢序列。(Please submit only one query sequence at a time.)");
 }
 
 if ($sequence !~ m/\s*>/) {
@@ -48,13 +49,13 @@ if ($sequence !~ m/\s*>/) {
 
 my $sp_person_id = $params->{sp_person_id};
 if (!$sp_person_id) {
-    user_error($page,"Please login first.");
+    user_error($page,"請先登入系統。(Please login first.)");
 }
 
 my $dbh = CXGN::DB::Connection->new();
 
 unless (my $flag = CXGN::BlastWatch::insert_query($dbh, $sp_person_id, $sequence, $program, $database, $matrix, $evalue)) {
-    user_error($page,"You have already submitted this query!");
+    user_error($page,"您已經提交過此查詢！(You have already submitted this query!)");
 }
 
 $dbh->disconnect(42);
@@ -66,10 +67,10 @@ website($page);
 sub website {
     my ($page) = @_;
     $page->header();
-    print page_title_html('Success!');
+    print page_title_html('成功！(Success!)');
 
     print <<EOF;
-    <p>Your query has been added to SGN BLAST Watch.  You will receive an email when there are new results.</p>
+    <p>您的查詢已加入 SGN BLAST 監控。當有新結果時，您將會收到電子郵件通知。(Your query has been added to SGN BLAST Watch. You will receive an email when there are new results.)</p>
 EOF
 	
     $page->footer();
@@ -80,10 +81,10 @@ sub post_only {
     my ($page) = @_;
     
     $page->header();
-    print page_title_html('SGN BLAST Watch Interface Error');
+    print page_title_html('SGN BLAST 監控介面錯誤 (SGN BLAST Watch Interface Error)');
     
     print <<EOF;
-    <p>BLAST subsystem can only accept HTTP POST requests</p>
+    <p>BLAST 子系統僅接受 HTTP POST 請求 (BLAST subsystem can only accept HTTP POST requests)</p>
 EOF
 	
     $page->footer();
@@ -95,7 +96,7 @@ sub user_error {
     my ($page,$reason) = @_;
     
     $page->header();
-    print page_title_html('SGN BLAST Watch Error');
+    print page_title_html('SGN BLAST 監控錯誤 (SGN BLAST Watch Error)');
 
     print <<EOF;
     <p>$reason</p>

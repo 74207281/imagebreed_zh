@@ -8,18 +8,18 @@ $thin
 <& /util/import_javascript.mas, classes => [ 'd3.d3v4Min.js', 'x3dom.x3dom-full' ] &>
 
 
-<& /page/page_title.mas, title=>"View Point Cloud" &>
+<& /page/page_title.mas, title=>"檢視點雲(View Point Cloud)" &>
 
 <div class="well well-sm">
     <center>
-        <h4>Please use the Brave or Chrome web-browsers to view these image tools. In the future, other browsers may be supported.</h4>
+        <h4>請使用 Brave 或 Chrome 網頁瀏覽器檢視這些影像工具。未來可能會支援其他瀏覽器。</h4>
     </center>
 </div>
 
 <div class="well well-sm">
     <div class="form-horizontal">
         <div class="form-group">
-            <label class="col-sm-6 control-label">Reduce Number of Points to Display By: (e.g. 2 will reduce number to half, 5 will reduce number to one fifth. Too many points can crash your browser)</label>
+            <label class="col-sm-6 control-label">減少顯示點數的比例：(例如輸入 2 將點數減少至一半，5 將減少至五分之一。過多點數可能導致瀏覽器當機)</label>
             <div class="col-sm-6" >
                 <input class="form-control" type="number" id="visual_point_cloud_thin_value" name="visual_point_cloud_thin_value" value="<% $thin %>" />
             </div>
@@ -28,8 +28,8 @@ $thin
 </div>
 
 <div class="well well-sm">
-    <h4>3D Interactive Point Cloud (Please be patient)</h4>
-    <p><a href="/breeders/phenotyping/download/<% $point_cloud_file_id %>">Download Full Point Cloud</a></p>
+    <h4>3D 互動式點雲（請耐心等待）(3D Interactive Point Cloud)</h4>
+    <p><a href="/breeders/phenotyping/download/<% $point_cloud_file_id %>">下載完整點雲(Download Full Point Cloud)</a></p>
 </div>
 
 <div class="well well-sm">

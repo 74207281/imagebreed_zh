@@ -3,9 +3,9 @@
 
 <div id="brapi_home_germplasm_detail_div">
 
-    <h4>Germplasm Details</h4>
-    <input name="brapi_home_germplasmdbid" id="brapi_home_germplasmdbid" class="form-control" type="text" placeholder="GermplasmDbId e.g. 38896" value="38896"/>
-    <button class="btn btn-primary" name="brapi_home_germplasmdbid_submit" id="brapi_home_germplasmdbid_submit">Get Details</button>
+    <h4>種原詳細資訊(Germplasm Details)</h4>
+    <input name="brapi_home_germplasmdbid" id="brapi_home_germplasmdbid" class="form-control" type="text" placeholder="種原資料庫 ID 如 38896(GermplasmDbId e.g. 38896)" value="38896"/>
+    <button class="btn btn-primary" name="brapi_home_germplasmdbid_submit" id="brapi_home_germplasmdbid_submit">獲取詳細資訊(Get Details)</button>
     <br/><br/>
     <div id="brapi_germplasm_detail_result_div">
     </div>
@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
 
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
 
@@ -42,7 +42,7 @@ jQuery(document).ready(function() {
 
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
 
@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
 
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
     });

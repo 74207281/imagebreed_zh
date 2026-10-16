@@ -7,8 +7,8 @@ $program_id
 <table id="program_genotyping_plates" class="display">
     <thead>
         <tr>
-            <th>Genotyping Plate Name</th>
-            <th>Description</th>
+            <th>基因分型微孔盤名稱(Genotyping Plate Name)</th>
+            <th>描述(Description)</th>
         </tr>
     </thead>
 </table>

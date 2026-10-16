@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadNewAnalysisDialog">Upload Analysis</h4>
+                <h4 class="modal-title" id="uploadNewAnalysisDialog">上傳分析(Upload Analysis)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -16,84 +16,84 @@
                     <form class="form-horizontal" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_new_analysis_dialog_form" name="upload_new_analysis_dialog_form">
                     
                         <&| /util/workflow.mas, id=> "upload_new_analysis_workflow" &>
-                            <&| /util/workflow.mas:step, title=> "Intro" &>
-                                <& /page/page_title.mas, title=>"This workflow will guide you through uploading an analysis to the database" &>
-                                <p>You should have a spreadsheet (.csv) where the first column names the accession names or plots, and the subsequent columns have result values.</p>
-                                <p>The header row should have 'stock_name' in the first column and subsequent column headers should be for a trait variable e.g. 'plant height|CO_323:0000123'</p>
+                            <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                                <& /page/page_title.mas, title=>"此工作流程將引導您上傳分析至資料庫(This workflow will guide you through uploading an analysis to the database)" &>
+                                <p>您應該備妥一份試算表 (.csv)，其中第一欄為品系/材料名稱或小區名稱，後續欄位為結果數值。(You should have a spreadsheet (.csv) where the first column names the accession names or plots, and the subsequent columns have result values.)</p>
+                                <p>標題列的第一欄應為 'stock_name'，後續欄位標題應為性狀變數，例如 'plant height|CO_323:0000123'。(The header row should have 'stock_name' in the first column and subsequent column headers should be for a trait variable e.g. 'plant height|CO_323:0000123')</p>
 
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Analysis" &>
-                                <& /page/page_title.mas, title=>"Define the analysis" &>
+                            <&| /util/workflow.mas:step, title=> "分析(Analysis)" &>
+                                <& /page/page_title.mas, title=>"定義分析(Define the analysis)" &>
 
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Name (must be unique): </label>
+                                    <label class="col-sm-3 control-label">分析名稱（必須唯一）(Analysis Name (must be unique)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_name" name="upload_new_analysis_name" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Description: </label>
+                                    <label class="col-sm-3 control-label">分析描述(Analysis Description): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_description" name="upload_new_analysis_description" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Protocol (describe the analysis as a formula arbitrarily) (e.g. lme4(t1 ~ rep + accession)): </label>
+                                    <label class="col-sm-3 control-label">分析協定（以任意公式描述分析，例如 lme4(t1 ~ rep + accession)）(Analysis Protocol (describe the analysis as a formula arbitrarily) (e.g. lme4(t1 ~ rep + accession))): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_protocol" name="upload_new_analysis_protocol" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Of: </label>
+                                    <label class="col-sm-3 control-label">分析對象(Analysis Of): </label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="upload_new_analysis_result_values_type" name="upload_new_analysis_result_values_type" >
-                                            <option value='analysis_result_values_match_accession_names'>Accession Names (for genetic blups, genetic results)</option>
-                                            <option value='analysis_result_values_match_precomputed_design'>Plot Names (for plot predictions, spatial, temporal results)</option>
+                                            <option value='analysis_result_values_match_accession_names'>品系/材料名稱（用於遺傳 BLUPs、遺傳結果）(Accession Names (for genetic blups, genetic results))</option>
+                                            <option value='analysis_result_values_match_precomputed_design'>小區名稱（用於小區預測、空間、時間結果）(Plot Names (for plot predictions, spatial, temporal results))</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫(Breeding Program): </label>
                                     <div class="col-sm-9">
                                         <div id="upload_new_analysis_breeding_program_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Year: </label>
+                                    <label class="col-sm-3 control-label">年份(Year): </label>
                                     <div class="col-sm-9">
                                         <div id="upload_new_analysis_year_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Statistical Ontology Term (from SGNSTAT): </label>
+                                    <label class="col-sm-3 control-label">統計本體詞彙（來自 SGNSTAT）(Statistical Ontology Term (from SGNSTAT)): </label>
                                     <div class="col-sm-9">
                                         <div id="upload_new_analysis_stat_term_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Results File (.csv): </label>
+                                    <label class="col-sm-3 control-label">結果檔案 (.csv)(Results File (.csv)): </label>
                                     <div class="col-sm-9" >
                                         <input type="file" name="upload_new_analysis_file" id="upload_new_analysis_file" encoding="multipart/form-data" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Dataset ID (optional): </label>
+                                    <label class="col-sm-3 control-label">資料集 ID（可選）(Dataset ID (optional)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_dataset_id" name="upload_new_analysis_dataset_id" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Result Summary (optional) (key:value comma separated. e.g. genetic_variance:0.6,phenotypic_variance:0.8): </label>
+                                    <label class="col-sm-3 control-label">結果摘要（可選，以逗號分隔 key:value，例如 genetic_variance:0.6,phenotypic_variance:0.8）(Result Summary (optional) (key:value comma separated. e.g. genetic_variance:0.6,phenotypic_variance:0.8)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_result_summary_string" name="upload_new_analysis_result_summary_string" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Compose Trait Info With Time Term (optional) (key||||value comma separated. e.g. harvest info|CO_323:0000101||||day 10|TIME:0002020) (all uploaded variables must be represented here): </label>
+                                    <label class="col-sm-3 control-label">以時間詞彙組合性狀資訊（可選，以逗號分隔 key||||value，例如 harvest info|CO_323:0000101||||day 10|TIME:0002020，所有上傳的變數均必須在此表示）(Compose Trait Info With Time Term (optional) (key||||value comma separated. e.g. harvest info|CO_323:0000101||||day 10|TIME:0002020) (all uploaded variables must be represented here)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="upload_new_analysis_result_trait_compose_info_string" name="upload_new_analysis_result_trait_compose_info_string" type="text"/>
                                     </div>
@@ -101,67 +101,67 @@
 
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" id="upload_new_analysis_analysis_continue">Go to Next Step</button>
+                                <button class="btn btn-primary" id="upload_new_analysis_analysis_continue">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Model" &>
-                                <& /page/page_title.mas, title=>"Define the model used to generate the analysis results" &>
+                            <&| /util/workflow.mas:step, title=> "模型(Model)" &>
+                                <& /page/page_title.mas, title=>"定義用於產生分析結果的模型(Define the model used to generate the analysis results)" &>
 
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Select a Model: </label>
+                                    <label class="col-sm-3 control-label">選擇模型(Select a Model): </label>
                                     <div class="col-sm-9">
                                         <div id="upload_new_analysis_model_select_div"></div>
                                     </div>
                                 </div>
 
                                 <center>
-                                    <button type="button" class="btn btn-default" id="upload_new_analysis_model_button" >Create a New Model if Needed</button>
+                                    <button type="button" class="btn btn-default" id="upload_new_analysis_model_button" >若有需要可建立新模型(Create a New Model if Needed)</button>
                                 </center>
                                 <hr>
 
                                 <div id="upload_new_analysis_model_div" style="display:none">
                                 
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Model Name (must be unique): </label>
+                                        <label class="col-sm-3 control-label">模型名稱（必須唯一）(Model Name (must be unique)): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_name" name="upload_new_analysis_model_name" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Model Description: </label>
+                                        <label class="col-sm-3 control-label">模型描述(Model Description): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_description" name="upload_new_analysis_model_description" type="text" />
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Model Is Public: </label>
+                                        <label class="col-sm-3 control-label">模型是否公開(Model Is Public): </label>
                                         <div class="col-sm-9">
                                             <select class="form-control" id="upload_new_analysis_model_is_public" name="upload_new_analysis_model_is_public" >
-                                                <option value="yes">Yes</option>
-                                                <option value="no">No</option>
+                                                <option value="yes">是(Yes)</option>
+                                                <option value="no">否(No)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Model Language (e.g. R, Python, F90): </label>
+                                        <label class="col-sm-3 control-label">模型語言（例如 R、Python、F90）(Model Language (e.g. R, Python, F90)): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_language" name="upload_new_analysis_model_language" type="text"/>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Model Properties (required) (key:value comma separated e.g. conversion_criteria:0.01,protocol_id:2): </label>
+                                        <label class="col-sm-3 control-label">模型屬性（必填，以逗號分隔 key:value，例如 conversion_criteria:0.01,protocol_id:2）(Model Properties (required) (key:value comma separated e.g. conversion_criteria:0.01,protocol_id:2)): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_properties_string" name="upload_new_analysis_model_properties_string" type="text"/>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Application Name (e.g. MyAmazingPipeline): </label>
+                                        <label class="col-sm-3 control-label">應用程式名稱（例如 MyAmazingPipeline）(Application Name (e.g. MyAmazingPipeline)): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_application_name" name="upload_new_analysis_model_application_name" type="text"/>
                                         </div>
                                     </div>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-3 control-label">Application Version (e.g. v1.01): </label>
+                                        <label class="col-sm-3 control-label">應用程式版本（例如 v1.01）(Application Version (e.g. v1.01)): </label>
                                         <div class="col-sm-9">
                                             <input class="form-control" id="upload_new_analysis_model_application_version" name="upload_new_analysis_model_application_version" type="text"/>
                                         </div>
@@ -170,20 +170,20 @@
                                 </div>
 
                                 <div class="well well-sm">
-                                    <h4>Data files from this analysis model</h4>
+                                    <h4>此分析模型的資料檔案(Data files from this analysis model)</h4>
                                     
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>File Upload</th>
-                                                <th>File Type</th>
+                                                <th>檔案上傳(File Upload)</th>
+                                                <th>檔案類型(File Type)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">Main Phenotype Data File To Archive (required) (this should be the primary data file input into the model e.g. MyPhenotypes.csv): </label>
+                                                        <label class="col-sm-3 control-label">要存檔的主要表型資料檔案（必填，此應為輸入模型的主要資料檔案，例如 MyPhenotypes.csv）(Main Phenotype Data File To Archive (required) (this should be the primary data file input into the model e.g. MyPhenotypes.csv)): </label>
                                                         <div class="col-sm-9">
                                                             <input id="upload_new_analysis_model_training_data_file" name="upload_new_analysis_model_training_data_file" type="file" encoding="multipart/form-data"/>
                                                         </div>
@@ -191,7 +191,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">Archive Main Phenotype Data File Type (required) (e.g. MyAmazingPipeline_MainPhenotypeFile): </label>
+                                                        <label class="col-sm-3 control-label">存檔主要表型資料檔案類型（必填，例如 MyAmazingPipeline_MainPhenotypeFile）(Archive Main Phenotype Data File Type (required) (e.g. MyAmazingPipeline_MainPhenotypeFile)): </label>
                                                         <div class="col-sm-9">
                                                             <input class="form-control" id="upload_new_analysis_model_training_data_file_type" name="upload_new_analysis_model_training_data_file_type" type="text"/>
                                                         </div>
@@ -201,7 +201,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">Model File To Archive (optional) (this should be a model weights file): </label>
+                                                        <label class="col-sm-3 control-label">要存檔的模型檔案（可選，此應為模型權重檔案）(Model File To Archive (optional) (this should be a model weights file)): </label>
                                                         <div class="col-sm-9">
                                                             <input id="upload_new_analysis_model_file" name="upload_new_analysis_model_file" type="file" encoding="multipart/form-data"/>
                                                         </div>
@@ -209,7 +209,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">Archive Model File Type (optional) (e.g. MyAmazingPipeline_ModelWeights.Rds or MyAmazingPipeline_CNNWeights.hdf5): </label>
+                                                        <label class="col-sm-3 control-label">存檔模型檔案類型（可選，例如 MyAmazingPipeline_ModelWeights.Rds 或 MyAmazingPipeline_CNNWeights.hdf5）(Archive Model File Type (optional) (e.g. MyAmazingPipeline_ModelWeights.Rds or MyAmazingPipeline_CNNWeights.hdf5)): </label>
                                                         <div class="col-sm-9">
                                                             <input class="form-control" id="upload_new_analysis_model_file_type" name="upload_new_analysis_model_file_type" type="text"/>
                                                         </div>
@@ -219,7 +219,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(1) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file): </label>
+                                                        <label class="col-sm-3 control-label">(1) 要存檔的輔助檔案（可選，例如日誌檔、參數檔、grm 輸入檔）((1) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file)): </label>
                                                         <div class="col-sm-9">
                                                             <input id="upload_new_analysis_model_auxiliary_file_1" name="upload_new_analysis_model_auxiliary_file_1" type="file" encoding="multipart/form-data"/>
                                                         </div>
@@ -227,7 +227,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(1) Auxiliary File Type (optional): </label>
+                                                        <label class="col-sm-3 control-label">(1) 輔助檔案類型（可選）((1) Auxiliary File Type (optional)): </label>
                                                         <div class="col-sm-9">
                                                             <input class="form-control" id="upload_new_analysis_model_auxiliary_file_type_1" name="upload_new_analysis_model_auxiliary_file_type_1" type="text"/>
                                                         </div>
@@ -237,7 +237,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(2) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file): </label>
+                                                        <label class="col-sm-3 control-label">(2) 要存檔的輔助檔案（可選，例如日誌檔、參數檔、grm 輸入檔）((2) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file)): </label>
                                                         <div class="col-sm-9">
                                                             <input id="upload_new_analysis_model_auxiliary_file_2" name="upload_new_analysis_model_auxiliary_file_2" type="file" encoding="multipart/form-data"/>
                                                         </div>
@@ -245,7 +245,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(2) Auxiliary File Type (optional): </label>
+                                                        <label class="col-sm-3 control-label">(2) 輔助檔案類型（可選）((2) Auxiliary File Type (optional)): </label>
                                                         <div class="col-sm-9">
                                                             <input class="form-control" id="upload_new_analysis_model_auxiliary_file_type_2" name="upload_new_analysis_model_auxiliary_file_type_2" type="text"/>
                                                         </div>
@@ -255,7 +255,7 @@
                                             <tr>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(3) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file): </label>
+                                                        <label class="col-sm-3 control-label">(3) 要存檔的輔助檔案（可選，例如日誌檔、參數檔、grm 輸入檔）((3) Auxiliary File To Archive (optional) (e.g. log file, param file, grm input file)): </label>
                                                         <div class="col-sm-9">
                                                             <input id="upload_new_analysis_model_auxiliary_file_3" name="upload_new_analysis_model_auxiliary_file_3" type="file" encoding="multipart/form-data"/>
                                                         </div>
@@ -263,7 +263,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="form-group form-group-sm">
-                                                        <label class="col-sm-3 control-label">(3) Auxiliary File Type (optional): </label>
+                                                        <label class="col-sm-3 control-label">(3) 輔助檔案類型（可選）((3) Auxiliary File Type (optional)): </label>
                                                         <div class="col-sm-9">
                                                             <input class="form-control" id="upload_new_analysis_model_auxiliary_file_type_3" name="upload_new_analysis_model_auxiliary_file_type_3" type="text"/>
                                                         </div>
@@ -275,7 +275,7 @@
                                 </div>
 
                                 <center>
-                                    <button type="button" class="btn btn-primary" id="upload_new_analysis_submit" >Submit</button>
+                                    <button type="button" class="btn btn-primary" id="upload_new_analysis_submit" >送出(Submit)</button>
                                 </center>
                             </&>
                         </&>
@@ -284,7 +284,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -317,27 +317,27 @@ jQuery(document).ready(function () {
         var upload_new_analysis_file = jQuery('#upload_new_analysis_file').val();
 
         if (upload_new_analysis_name == '' || upload_new_analysis_description == '') {
-            alert('Please give an analysis name and description');
+            alert('請提供分析名稱與描述(Please give an analysis name and description)');
             return false;
         }
         else if (upload_new_analysis_protocol == '') {
-            alert('Please give an analysis protocol');
+            alert('請提供分析協定(Please give an analysis protocol)');
             return false;
         }
         else if (upload_new_analysis_result_values_type == '') {
-            alert('Please select result values type');
+            alert('請選擇結果數值類型(Please select result values type)');
             return false;
         }
         else if (upload_new_analysis_breeding_program_id == '') {
-            alert('Please select a breeding program');
+            alert('請選擇育種計畫(Please select a breeding program)');
             return false;
         }
         else if (upload_new_analysis_statistical_ontology_term == '') {
-            alert('Please select a statistical ontology term');
+            alert('請選擇統計本體詞彙(Please select a statistical ontology term)');
             return false;
         }
         else if (upload_new_analysis_file === '') {
-            alert('Please select a results file');
+            alert('請選擇結果檔案(Please select a results file)');
             return false;
         }
         else {
@@ -351,7 +351,7 @@ jQuery(document).ready(function () {
         var uploadFile = jQuery("#upload_new_analysis_file").val();
         jQuery('#upload_new_analysis_dialog_form').attr("action", "/ajax/analysis/store/spreadsheet");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選擇檔案(Please select a file)");
             return;
         }
 
@@ -375,59 +375,59 @@ jQuery(document).ready(function () {
         var upload_new_analysis_model_auxiliary_file_type_3 = jQuery('#upload_new_analysis_model_auxiliary_file_type_3').val();
 
         if (upload_new_analysis_model_id != '' && upload_new_analysis_model_name != '') {
-            alert('Please select a model or create a new model, not both!');
+            alert('請選擇模型或建立新模型，兩者請勿同時進行！(Please select a model or create a new model, not both!)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_name == '') {
-            alert('Please select a saved model or give a new model name');
+            alert('請選擇已儲存的模型或提供新模型名稱(Please select a saved model or give a new model name)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_description == '') {
-            alert('Please give a new model description');
+            alert('請提供新模型描述(Please give a new model description)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_is_public == '') {
-            alert('Please give a new model is public');
+            alert('請設定新模型是否公開(Please give a new model is public)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_language == '') {
-            alert('Please give a new model language');
+            alert('請提供新模型語言(Please give a new model language)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_properties_string == '') {
-            alert('Please give a new model properties. At least one key:value!');
+            alert('請提供新模型屬性，至少一組 key:value！(Please give a new model properties. At least one key:value!)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_application_name == '') {
-            alert('Please give a new model application name');
+            alert('請提供新模型應用程式名稱(Please give a new model application name)');
             return false;
         }
         if (upload_new_analysis_model_id == '' && upload_new_analysis_model_application_version == '') {
-            alert('Please give a new model application version');
+            alert('請提供新模型應用程式版本(Please give a new model application version)');
             return false;
         }
         if (upload_new_analysis_model_training_data_file === '') {
-            alert('Please give a new model training data file (or the main phenotype file you used to do the analysis)');
+            alert('請提供新模型訓練資料檔案（或用於進行分析的主要表型檔案）(Please give a new model training data file (or the main phenotype file you used to do the analysis))');
             return false;
         }
         if (upload_new_analysis_model_training_data_file_type == '') {
-            alert('Please give a new model training data file type (or the main phenotype file you used to do the analysis)');
+            alert('請提供新模型訓練資料檔案類型（或用於進行分析的主要表型檔案類型）(Please give a new model training data file type (or the main phenotype file you used to do the analysis))');
             return false;
         }
         if ( (upload_new_analysis_model_file == '' && upload_new_analysis_model_file_type != '') || (upload_new_analysis_model_file != '' && upload_new_analysis_model_file_type == '') ) {
-            alert('If you give a new model file, please give a new model file type also');
+            alert('若提供新模型檔案，亦請提供新模型檔案類型(If you give a new model file, please give a new model file type also)');
             return false;
         }
         if ( (upload_new_analysis_model_auxiliary_file_1 == '' && upload_new_analysis_model_auxiliary_file_type_1 != '') || (upload_new_analysis_model_auxiliary_file_1 != '' && upload_new_analysis_model_auxiliary_file_type_1 == '') ) {
-            alert('If you give a new model aux file 1, please give a new model aux file 1 type also');
+            alert('若提供新模型輔助檔案 1，亦請提供新模型輔助檔案 1 類型(If you give a new model aux file 1, please give a new model aux file 1 type also)');
             return false;
         }
         if ( (upload_new_analysis_model_auxiliary_file_2 == '' && upload_new_analysis_model_auxiliary_file_type_2 != '') || (upload_new_analysis_model_auxiliary_file_2 != '' && upload_new_analysis_model_auxiliary_file_type_2 == '') ) {
-            alert('If you give a new model aux file 2, please give a new model aux file 2 type also');
+            alert('若提供新模型輔助檔案 2，亦請提供新模型輔助檔案 2 類型(If you give a new model aux file 2, please give a new model aux file 2 type also)');
             return false;
         }
         if ( (upload_new_analysis_model_auxiliary_file_3 == '' && upload_new_analysis_model_auxiliary_file_type_3 != '') || (upload_new_analysis_model_auxiliary_file_3 != '' && upload_new_analysis_model_auxiliary_file_type_3 == '') ) {
-            alert('If you give a new model aux file 3, please give a new model aux file 3 type also');
+            alert('若提供新模型輔助檔案 3，亦請提供新模型輔助檔案 3 類型(If you give a new model aux file 3, please give a new model aux file 3 type also)');
             return false;
         }
 
@@ -449,13 +449,13 @@ jQuery(document).ready(function () {
                 alert(response.error_messages);
             }
             else {
-                alert('Successfully saved! Page will now refresh!')
+                alert('儲存成功！頁面即將重新整理！(Successfully saved! Page will now refresh!)');
                 location.reload();
             }
         },
         error: function(response) {
             jQuery('#working_modal').modal("hide");
-            alert("An error occurred uploading analysis");
+            alert("上傳分析時發生錯誤(An error occurred uploading analysis)");
         }
     });
 

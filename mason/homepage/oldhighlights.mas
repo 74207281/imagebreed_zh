@@ -5,7 +5,7 @@ use File::Spec;
 
 my $file=File::Spec->catfile($c->get_conf('homepage_files_dir'), 'news.txt');
 
-my $highlights = qq{ <p class="boxbgcolor5"><br />News are not available at the moment. We apologize for any inconvenience. Please check back later.<br /><br /></p> };
+my $highlights = qq{ <p class="boxbgcolor5"><br />新聞內容目前無法取得。造成不便敬請見諒，請稍後再試(News are not available at the moment)。<br /><br /></p> };
 
 eval { 
   $highlights = $m->file($file);
@@ -13,7 +13,7 @@ eval {
 
 </%perl>
 
-<& /page/page_title.mas, title=>'All past SGN news items' &>
+<& /page/page_title.mas, title=>'所有歷期 SGN 新聞(All Past SGN News Items)' &>
 
 <% $highlights %>
 

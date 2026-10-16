@@ -8,8 +8,8 @@ $program_id
 <table id="trial_summary_data_<% $program_id %>" class="display">
     <thead>
         <tr>
-            <th>Trial name</th>
-            <th>Description</th>
+            <th>試驗名稱(Trial Name)</th>
+            <th>描述(Description)</th>
         </tr>
     </thead>
 </table>

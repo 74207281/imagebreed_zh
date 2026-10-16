@@ -19,16 +19,16 @@ $stock_barcode_text => undef
         <div class="row">
             <div class="col-sm-8">
 
-                <button class="btn btn-default btn-sm" id="stock_detail_edit_button">Edit</button>
+                <button class="btn btn-default btn-sm" id="stock_detail_edit_button">編輯(Edit)</button>
                 <br/><br/>
 
                 <table class="table table-bordered table-hover">
-                    <tr><td><b>Unique Name</b></td><td><% $stock_uniquename %></td></tr>
-                    <tr><td><b>Organism Species</b></td><td><a href="/organism/<% $organism_id %>/view"><% $organism_species %></a></td></tr>
-                    <tr><td><b>Description</b></td><td><% $stock_description %></td></tr>
-                    <tr><td><b>Type</b></td><td><% $type_name %></td></tr>
-                    <tr><td><b>Company</b></td><td><a href="/company/<% $company_id %>"><% $company_name %></a></td></tr>
-                    <tr><td><b>Is Private to Company</b></td><td><% $company_stock_is_private %></td></tr>
+                    <tr><td><b>唯一名稱(Unique Name)</b></td><td><% $stock_uniquename %></td></tr>
+                    <tr><td><b>生物物種(Organism Species)</b></td><td><a href="/organism/<% $organism_id %>/view"><% $organism_species %></a></td></tr>
+                    <tr><td><b>描述(Description)</b></td><td><% $stock_description %></td></tr>
+                    <tr><td><b>類型(Type)</b></td><td><% $type_name %></td></tr>
+                    <tr><td><b>公司/單位(Company)</b></td><td><a href="/company/<% $company_id %>"><% $company_name %></a></td></tr>
+                    <tr><td><b>是否為公司私有(Is Private to Company)</b></td><td><% $company_stock_is_private %></td></tr>
                 </table>
 
             </div>
@@ -47,32 +47,32 @@ $stock_barcode_text => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editStockDetailDialog">Edit Details</h4>
+        <h4 class="modal-title" id="editStockDetailDialog">編輯詳細資訊(Edit Details)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Unique Name: </label>
+                    <label class="col-sm-4 control-label">唯一名稱(Unique Name)：</label>
                     <div class="col-sm-8">
                         <input class="form-control" type="text" id="edit_stock_details_uniquename" value="<% $stock_uniquename %>" />
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Description: </label>
+                    <label class="col-sm-4 control-label">描述(Description)：</label>
                     <div class="col-sm-8">
                         <input class="form-control" type="text" id="edit_stock_details_desc" value="<% $stock_description %>" />
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Organism Species: </label>
+                    <label class="col-sm-4 control-label">生物物種(Organism Species)：</label>
                     <div class="col-sm-8">
                         <input class="form-control" type="text" id="edit_stock_details_species" value="<% $organism_species %>" />
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Is Private: </label>
+                    <label class="col-sm-4 control-label">是否私有(Is Private)：</label>
                     <div class="col-sm-8">
                         <select class="form-control" id="edit_stock_details_is_private">
 %  if ($company_stock_is_private eq 'True') {
@@ -86,7 +86,7 @@ $stock_barcode_text => undef
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Company: </label>
+                    <label class="col-sm-4 control-label">公司/單位(Company)：</label>
                     <div class="col-sm-8">
                         <div id="edit_stock_details_company_div"></div>
                     </div>
@@ -96,8 +96,8 @@ $stock_barcode_text => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="edit_stock_details_submit" id="edit_stock_details_submit">Continue</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="edit_stock_details_submit" id="edit_stock_details_submit">繼續(Continue)</button>
       </div>
     </div>
   </div>
@@ -125,11 +125,11 @@ jQuery(document).ready(function() {
         var private_company_id = jQuery('#edit_stock_details_company_select').val();
 
         if (uniquename == '') {
-            alert('Please give a unique name!');
+            alert('請提供唯一名稱！(Please give a unique name!)');
             return false;
         }
         if (species == '') {
-            alert('Please give an organism species!');
+            alert('請提供生物物種！(Please give an organism species!)');
             return false;
         }
 
@@ -154,13 +154,13 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 else {
-                    alert("Successfully edited details!");
+                    alert("已成功編輯詳細資訊！(Successfully edited details!)");
                     location.reload();
                 }
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert("An error occurred editing details!");
+                alert("編輯詳細資訊時發生錯誤！(An error occurred editing details!)");
             },
         });
     });

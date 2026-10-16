@@ -1,4 +1,4 @@
-<& /page/page_title.mas, title => 'Spin-off Projects and Collaborations' &>
+<& /page/page_title.mas, title => '衍生計畫與合作研究(Spin-off Projects and Collaborations)' &>
 <style>
   div.indented_content > div.indented_content {
     width: 580px;
@@ -8,7 +8,7 @@
 <div class="indented_content">
 
   <h1>
-    Interspecific Reproductive Barriers in Tomato 
+    番茄種間生殖障礙(Interspecific Reproductive Barriers in Tomato) 
 	<a href="http://www.irbtomato.org"> (IRBT) </a> 
   </h1>
 
@@ -18,25 +18,18 @@
       <img src="/documents/img/secretom/tomato_flower_cropped_120.jpg" />
 
       <p>
-         Solanum lycopersicum flower
+         番茄花(Solanum lycopersicum flower)
       </p>
 
     </div>
 
     <p>
-      This is an NSF Plant Genome program funded collaborative scientific
-      endeavor to identify and understand the biological processes
-      underlying species isolation within the Tomato family. We are using
-      proteomic tools to study the molecular barriers between tomato
-      species, with particular focus on secreted proteins as these are
-      believed to be critical in establishing such barriers. We have been
-      characterizing the proteomes of pollen, styles and pollinated styles
-      from both Solanum lycopersicum, S. habrochaites and S. pennellii.
+      這是一項由 NSF 植物基因組計畫資助的合作科學研究，旨在識別並理解番茄家族內部物種隔離的生物學過程。我們正在使用蛋白質體工具研究番茄物種之間的分子障礙，特別關注分泌蛋白，因為這些被認為在建立此類障礙中至關重要。我們一直在表徵來自番茄（Solanum lycopersicum）、多毛番茄（S. habrochaites）和潘氏番茄（S. pennellii）的花粉、花柱和受粉花柱的蛋白質體。(This is an NSF Plant Genome program funded collaborative scientific endeavor to identify and understand the biological processes underlying species isolation within the Tomato family. We are using proteomic tools to study the molecular barriers between tomato species, with particular focus on secreted proteins as these are believed to be critical in establishing such barriers. We have been characterizing the proteomes of pollen, styles and pollinated styles from both Solanum lycopersicum, S. habrochaites and S. pennellii.)
     </p>
   </div>
 
   <h1>
-    The Evolutionary Origins of the Plant Cell Wall and Associated Secretome
+    植物細胞壁及其相關分泌組的演化起源(The Evolutionary Origins of the Plant Cell Wall and Associated Secretome)
   </h1>
 
   <div class="indented_content">
@@ -46,34 +39,13 @@
       <img src="/documents/img/secretom/p_margaritaceum_306.png" />
 
       <p>
-        Cells of Penium margaritaceum, a member of the Charophycean green
-        alga, following treatment with a microtubule inhibitor. Pectin
-        components of the wall are shown in green. Microscopic imaging and
-        cover design by David Domozych.
+        經微管抑制劑處理後的鏈軛藻（Penium margaritaceum，輪藻門綠藻成員）細胞。細胞壁的果膠成分以綠色顯示。顯微成像與封面設計由 David Domozych 提供。(Cells of Penium margaritaceum, a member of the Charophycean green alga, following treatment with a microtubule inhibitor. Pectin components of the wall are shown in green. Microscopic imaging and cover design by David Domozych.)
       </p>
 
     </div>
 
     <p>
-      One of the most important phases of plant evolution occurred
-      approximately 460-480 million years ago when photosynthetic
-      organisms developed the capacity to colonize land. This transition
-      to harsh terrestrial conditions would have required the ability to
-      resist new abiotic stresses, including desiccation and UV radiation,
-      as well as the development of mechanisms to promote progeny
-      dispersal. It is likely that polysaccharide and cuticular cell walls
-      were essential for the transition to a terrestrial environment and
-      yet the evolutionary origins of their biosynthesis are not well
-      understood. In collaboration with Dr. William Willats (University of
-      Copenhagen), Dr. David Domozych (Skidmore College). Dr. Jeffrey
-      Doyle and Dr. Iben S&oslash;rensen (Cornell University), we are addressing
-      the hypothesis that the origins of plant cell walls occurred during
-      divergence within the Charophycean green algae (CGA), which
-      represent the closest living relatives to land plants
-      (embryophytes). Characterization of the secretomes of divergent
-      members of the CGA will likely provide insights into the mechanisms
-      that are currently used by embryophytes for primary, secondary and
-      cuticular cell wall formation and restructuring.
+      植物演化最重要的階段之一發生在大約 4.6 至 4.8 億年前，當時行光合作用的生物發展出了在陸地定殖的能力。這種向嚴酷陸地條件的過渡需要具備抵抗新型非生物脅迫（包括乾旱和紫外線輻射）的能力，以及發展出促進後代傳播的機制。多醣和角質層細胞壁很可能對過渡到陸地環境至關重要，然而其生物合成的演化起源尚未得到充分了解。我們與 William Willats 博士（哥本哈根大學）、David Domozych 博士（斯基德莫爾學院）、Jeffrey Doyle 博士和 Iben S&oslash;rensen 博士（康奈爾大學）合作，正在探討植物細胞壁起源於輪藻門綠藻 (CGA) 內部發散過程中的假說，輪藻門綠藻代表了陸生植物（有胚植物）現存最親近的親屬。對 CGA 發散成員分泌組的表徵，可能有助於深入了解目前有胚植物用於初生壁、次生壁和角質層細胞壁形成與重組的機制。(One of the most important phases of plant evolution occurred approximately 460-480 million years ago when photosynthetic organisms developed the capacity to colonize land. This transition to harsh terrestrial conditions would have required the ability to resist new abiotic stresses, including desiccation and UV radiation, as well as the development of mechanisms to promote progeny dispersal. It is likely that polysaccharide and cuticular cell walls were essential for the transition to a terrestrial environment and yet the evolutionary origins of their biosynthesis are not well understood. In collaboration with Dr. William Willats (University of Copenhagen), Dr. David Domozych (Skidmore College). Dr. Jeffrey Doyle and Dr. Iben S&oslash;rensen (Cornell University), we are addressing the hypothesis that the origins of plant cell walls occurred during divergence within the Charophycean green algae (CGA), which represent the closest living relatives to land plants (embryophytes). Characterization of the secretomes of divergent members of the CGA will likely provide insights into the mechanisms that are currently used by embryophytes for primary, secondary and cuticular cell wall formation and restructuring.)
     </p>
   </div>
 

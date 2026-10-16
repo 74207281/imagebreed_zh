@@ -8,96 +8,51 @@
       <tr>
         <td>
           <center>
-            <h3>Conserved Ortholog Set (COS) markers</h3>
+            <h3>保守直系同源集合 (COS) 標記(Conserved Ortholog Set (COS) markers)</h3>
           </center>
 
-          <p>We have used a computational method to screen the
-          tomato EST database against the arabidopsis genome
-          sequence in order to find a set of highly conserved,
-          single copy genes which can be used as markers for
-          comparative mapping between the tomato and arabidopsis
-          genomes. Currently we have identified approximately 1000
-          of these Conserved Ortholog Set (COS) markers.<br /></p>
+          <p>我們使用了一種計算方法，將番茄 EST 資料庫與阿拉伯芥 (Arabidopsis) 基因體序列進行比對篩選，以尋找一組高度保守的單拷貝基因，這些基因可用作番茄與阿拉伯芥基因體之間比較圖譜繪製的標記。目前我們已經鑑定了大約 1000 個保守直系同源集合 (COS) 標記。(We have used a computational method to screen the tomato EST database against the arabidopsis genome sequence in order to find a set of highly conserved, single copy genes which can be used as markers for comparative mapping between the tomato and arabidopsis genomes. Currently we have identified approximately 1000 of these Conserved Ortholog Set (COS) markers.)<br /></p>
 
-          <p>In this section of SGN, you will find sequence and
-          clone information for each of these COS markers as well
-          as their matching counterpart in the arabidopsis genome.
-          We have surveyed these COS markers and mapped some of
-          these COS markers on the tomato genome to provide a
-          tomato: arabidopsis comparative map. This mapping
-          information is available on SGN now.<br /></p>
+          <p>在 SGN 的此部分中，您將找到每個 COS 標記的序列和選殖株資訊，以及它們在阿拉伯芥基因體中的匹配對應部分。我們調查了這些 COS 標記，並將其中一些 COS 標記定位在番茄基因體上，以提供番茄：阿拉伯芥比較圖譜。該圖譜資訊現已在 SGN 上提供。(In this section of SGN, you will find sequence and clone information for each of these COS markers as well as their matching counterpart in the arabidopsis genome. We have surveyed these COS markers and mapped some of these COS markers on the tomato genome to provide a tomato: arabidopsis comparative map. This mapping information is available on SGN now.)<br /></p>
 
-          <p>Because these COS markers are so highly conserved,
-          they may also be useful for comparative mapping in other
-          dicot species. The computational screen by how COS
-          markers were identified is described below:</p>
+          <p>由於這些 COS 標記高度保守，它們也可用於其他雙子葉植物物種的比較圖譜繪製。鑑定 COS 標記的計算篩選流程如下所述：(Because these COS markers are so highly conserved, they may also be useful for comparative mapping in other dicot species. The computational screen by how COS markers were identified is described below:)</p>
 
           <ul>
-            <li>TBLASTX tomato ESTs against the arabidopsis genome
-            (specifically, the BAC tiling path from TAIR)</li>
+            <li>將番茄 EST 與阿拉伯芥基因體進行 TBLASTX 比對（具體而言是來自 TAIR 的 BAC 瓦片路徑）。(TBLASTX tomato ESTs against the arabidopsis genome (specifically, the BAC tiling path from TAIR))</li>
 
-            <li>Identify single best matches (&lt; e -15) between a
-            single tomato EST (or associated contig) and a single
-            BAC in Arabidopsis. Each tomato EST must pass the
-            following criteria:
+            <li>在單個番茄 EST（或相關 contig）與阿拉伯芥中的單個 BAC 之間鑑定單個最佳匹配 (&lt; e -15)。每個番茄 EST 必須符合以下標準：(Identify single best matches (&lt; e -15) between a single tomato EST (or associated contig) and a single BAC in Arabidopsis. Each tomato EST must pass the following criteria:)
 
               <ul>
-                <li>it hits an arabidopsis sequence at a
-                significance level of &lt; e -15</li>
+                <li>它在顯著性水準 &lt; e -15 下比對到阿拉伯芥序列。(it hits an arabidopsis sequence at a significance level of &lt; e -15)</li>
 
-                <li>it is determined to be NOT part of a domain
-                (where several solanaceous sequences hit the same
-                arabidopsis region)</li>
+                <li>確認其不是結構域的一部分（即數個茄科序列比對到同一個阿拉伯芥區域）。(it is determined to be NOT part of a domain (where several solanaceous sequences hit the same arabidopsis region))</li>
 
-                <li>the next best Arabidopsis hit must be of lower
-                significance (delta e &gt; 10)</li>
+                <li>次佳的阿拉伯芥比對結果顯著性必須較低 (delta e &gt; 10)。(the next best Arabidopsis hit must be of lower significance (delta e &gt; 10))</li>
               </ul>
             </li>
 
-            <li>ESTs that pass all these criteria are classified as
-            conserved orthologs, all others are considered
-            potentially paralogous and eliminated.</li>
+            <li>通過所有這些標準的 EST 被歸類為保守直系同源物，其他所有 EST 均被視為潛在的旁系同源物並予以淘汰。(ESTs that pass all these criteria are classified as conserved orthologs, all others are considered potentially paralogous and eliminated.)</li>
           </ul><br />
 
-          <h4>Functional annotation of COS markers</h4>
+          <h4>COS 標記之功能註釋(Functional annotation of COS markers)</h4>
 
-          <p>COS-markers were functionally annotated using the MIPS
-          role categories as they were defined at the time of the
-          analysis. As the functional role descriptions are subject
-          to continued changes, a copy of the role categories and
-          the COS-marker annotations as used in the analysis can be
-          found below:<br /></p>
+          <p>COS 標記使用分析當時定義的 MIPS 角色類別進行功能註釋。由於功能角色描述會不斷變更，分析中使用的角色類別和 COS 標記註釋副本可在下方找到：(COS-markers were functionally annotated using the MIPS role categories as they were defined at the time of the analysis. As the functional role descriptions are subject to continued changes, a copy of the role categories and the COS-marker annotations as used in the analysis can be found below:)<br /></p>
 
-          <p><a href="/documents/markers/role_categories.txt">MIPS role categories at
-          time of COS marker annotation</a></p>
+          <p><a href="/documents/markers/role_categories.txt">COS 標記註釋時的 MIPS 角色類別(MIPS role categories at time of COS marker annotation)</a></p>
 
-          <h4>The list of COS markers is available in both online
-          and plain text format</h4>
+          <h4>COS 標記列表提供線上與純文字格式(The list of COS markers is available in both online and plain text format)</h4>
 
-          <p><a href="/search/markers/cos_list.pl">COS list
-          online</a> - online format with links to sequences and
-          tiling path.<br />
-          <a href="/documents/markers/cos_list-old.txt">Old plain text download</a> - plain
-          text format for download. <br />
-          <a href="/documents/markers/cos_list.txt">Old plain text download 2</a> - plain
-          text format for download. 
+          <p><a href="/search/markers/cos_list.pl">COS 線上列表(COS list online)</a> - 包含序列與瓦片路徑連結的線上格式。(online format with links to sequences and tiling path.)<br />
+          <a href="/documents/markers/cos_list-old.txt">舊版純文字下載(Old plain text download)</a> - 可供下載的純文字格式。(plain text format for download.)<br />
+          <a href="/documents/markers/cos_list.txt">舊版純文字下載 2(Old plain text download 2)</a> - 可供下載的純文字格式。(plain text format for download.) 
           </p>
 
-          <p><strong>Note:</strong> for the tomato map position in
-          the table linked above:</p>
+          <p><strong>注意(Note):</strong> 針對上述連結表格中的番茄圖譜位置：(for the tomato map position in the table linked above:)</p>
 
           <ul>
-            <li>Copy No is how many copies the COS marker shows on
-            a southern blot survey- S(single) is 1-2 copy, L(low)
-            is 3-4 copy, M(multiple) means more than 4 copy.</li>
+            <li>拷貝數 (Copy No) 是指 COS 標記在南方墨點法調查中顯示的拷貝數 - S（單一）為 1-2 個拷貝，L（低）為 3-4 個拷貝，M（多重）表示超過 4 個拷貝。(Copy No is how many copies the COS marker shows on a southern blot survey- S(single) is 1-2 copy, L(low) is 3-4 copy, M(multiple) means more than 4 copy.)</li>
 
-            <li>Map position is where the COS marker mapped on the
-            tomato: arabidopsis systeny map. For example, T1675 map
-            position is 01.005, meaning Chromosome 1, 5 cM down
-            from the top. Most of the COS markers have only one map
-            position, if the COS marker has a second or third map
-            position, then there were two or three alleles that
-            could be mapped.</li>
+            <li>圖譜位置 (Map position) 是 COS 標記在番茄：阿拉伯芥同線性圖譜上的定位位置。例如，T1675 圖譜位置為 01.005，表示第 1 號染色體，從頂部向下 5 cM。大多數 COS 標記只有一個圖譜位置，如果 COS 標記有第二個或第三個圖譜位置，則表示有兩個或三個可定位的等位基因。(Map position is where the COS marker mapped on the tomato: arabidopsis systeny map. For example, T1675 map position is 01.005, meaning Chromosome 1, 5 cM down from the top. Most of the COS markers have only one map position, if the COS marker has a second or third map position, then there were two or three alleles that could be mapped.)</li>
           </ul><br />
           <br />
         </td>

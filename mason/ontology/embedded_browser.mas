@@ -1,5 +1,5 @@
 <%args>
-    $title => 'Ontology browser'
+    $title => '本體瀏覽器(Ontology browser)'
     $cvterm
 </%args>
 <&| /page/info_section.mas,

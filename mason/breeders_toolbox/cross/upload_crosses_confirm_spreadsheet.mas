@@ -10,26 +10,26 @@ $upload_data_ref => undef
 
 <article>
   <header>
-    <h1>Upload cross file verification</h1>
+    <h1>上傳雜交檔案驗證(Upload Cross File Verification)</h1>
   </header>
 </article>
-<a id="return_to_home"  href="/breeders/home" >Return to breeders tools</button>
+<a id="return_to_home" href="/breeders/home" >返回育種者工具(Return to Breeders Tools)</a>
 
 
 
 <div id="verify_uploaded_data_dialog"  class="ui-widget" >
 <%perl>
-print "<br><b>Number of crosses added:</b> $number_of_crosses_added<br>";
-print "<b>Number of unique parents in added crosses</b>: $number_of_unique_parents<br><br>";
+print "<br><b>新增的雜交數量：</b> $number_of_crosses_added<br>";
+print "<b>新增雜交中的不重複親本數量</b>：$number_of_unique_parents<br><br>";
 </%perl>
-<button id="view_uploaded_data_link" >View uploaded data</button>
+<button id="view_uploaded_data_link" >檢視已上傳資料(View Uploaded Data)</button>
 </div>
 
 <div id="display_uploaded_data_dialog"  class="ui-widget" >
 <table border ="1">
 <%perl>
 my %upload_data = %{$upload_data_ref};
-print "<tr><th>cross_unique_id</th><th>maternal_parent</th><th>paternal_parent</th><th>trial</th><th>location</th><th>number_of_progeny</th><th>prefix</th><th>suffix</th><th>number_of_flowers</th><th>number_of_seeds</th></tr>";
+print "<tr><th>雜交唯一識別碼(cross_unique_id)</th><th>母本(maternal_parent)</th><th>父本(paternal_parent)</th><th>試驗(trial)</th><th>地點(location)</th><th>後代數量(number_of_progeny)</th><th>前綴(prefix)</th><th>後綴(suffix)</th><th>花朵數量(number_of_flowers)</th><th>種子數量(number_of_seeds)</th></tr>";
 foreach my $key (sort { $a <=> $b} keys %upload_data) {
   my %cross = %{$upload_data{$key}};
   print "<tr><td>".$cross{'cross_unique_id'}."</td><td>".$cross{'maternal_parent'}."</td><td>".$cross{'paternal_parent'}."</td><td>".$cross{'cross_trial'}."</td><td>".$cross{'cross_location'}."</td>";
@@ -74,7 +74,7 @@ foreach my $key (sort { $a <=> $b} keys %upload_data) {
 
    jQuery("#verify_uploaded_data_dialog").dialog( {
       autoOpen: true,
-      buttons: { "Close" :  function() { jQuery("#verify_uploaded_data_dialog").dialog("close"); }},
+      buttons: { "關閉(Close)" :  function() { jQuery("#verify_uploaded_data_dialog").dialog("close"); }},
       modal: true,
       width: 600,
       height: 250
@@ -87,7 +87,7 @@ foreach my $key (sort { $a <=> $b} keys %upload_data) {
 
    jQuery("#display_uploaded_data_dialog").dialog( {
       autoOpen: false,
-      buttons: { "OK" :  function() { jQuery("#display_uploaded_data_dialog").dialog("close"); },},
+      buttons: { "確定(OK)" :  function() { jQuery("#display_uploaded_data_dialog").dialog("close"); },},
       modal: true,
       width: 1000,
       height: 300

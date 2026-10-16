@@ -6,17 +6,17 @@ $user_role => undef
 <& /util/import_javascript.mas, classes => [ ] &>
 
 
-  <&| /page/info_section.mas, title=>"Delete seedlots using a list",  collapsible => 1, collapsed=>1 &>
+  <&| /page/info_section.mas, title=>"使用清單刪除種子批次(Delete seedlots using a list)",  collapsible => 1, collapsed=>1 &>
 
 
 % if ($user_role eq "curator" ) {
     <div style="margin-left:20px">
 
 
-      <p><strong>Select a list of type "seedlot" to delete from the database</strong></p>
-      Note:
-      <ul><li>Only seedlots that are not associated with crosses or trials can be deleted.</li>
-	<li>Deleting seedlots cannot be undone.</li>
+      <p><strong>從資料庫中選取「seedlot」類型的清單進行刪除</strong></p>
+      備註：
+      <ul><li>僅未與雜交或試驗關聯的種子批次才能被刪除。</li>
+	<li>刪除種子批次無法復原。</li>
       </ul>
       <form class="form-horizontal" role="form" method="post" id="delete_seedlots_form" name="delete_seedlots_form">
         <div class="form-group">
@@ -25,14 +25,14 @@ $user_role => undef
 	</div>
       </form>
       <br /><br />
-      <button type="button" class="btn btn-primary" name="delete_seedlots_submit" id="delete_seedlots_submit">Delete Seedlots</button>
+      <button type="button" class="btn btn-primary" name="delete_seedlots_submit" id="delete_seedlots_submit">刪除種子批次(Delete Seedlots)</button>
     </div>
 </div>
 
 %}
 % else {
 
-You need to be logged in or you do not have sufficient privileges to delete seedlots using lists.
+您需要登入，或者您沒有足夠的權限使用清單刪除種子批次。
 
 %}
 </&>
@@ -42,7 +42,7 @@ You need to be logged in or you do not have sufficient privileges to delete seed
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Seedlot Deletion Verify</h4>
+                <h4 class="modal-title">驗證刪除種子批次(Seedlot Deletion Verify)</h4>
             </div>
             <div class="modal-body">
               <div class="container-fluid">
@@ -51,8 +51,8 @@ You need to be logged in or you do not have sufficient privileges to delete seed
 	      </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="delete_seedlots_confirm" id="delete_seedlots_confirm">Delete green elements</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="delete_seedlots_confirm" id="delete_seedlots_confirm">刪除綠色標示項目(Delete green elements)</button>
             </div>
         </div>
     </div>
@@ -67,14 +67,14 @@ jQuery(window).ready( function() {
 
 jQuery('#delete_seedlots_submit').click( function() {
    var list_id = jQuery('#seedlots_to_delete_html_select_list_select').val();
-   if (list_id === "") { alert("Please select a list "+list_id); return; }
-   verify_seedlot_deletion(list_id).then(function(r) { display_seedlot_deletion_info(r) }, function(r) { alert("ERROR!")});
+   if (list_id === "") { alert("請選取清單"); return; }
+   verify_seedlot_deletion(list_id).then(function(r) { display_seedlot_deletion_info(r) }, function(r) { alert("錯誤！")});
 });
 
 jQuery('#delete_seedlots_confirm').click( function() {
     var list_id = jQuery('#seedlots_to_delete_html_select_list_select').val();
     if (list_id) {
-        delete_seedlots(list_id).then( function(r) { alert(r.delete_count+" elements have been deleted"); }, function(r) { alert('An error occurred'); });
+        delete_seedlots(list_id).then( function(r) { alert(r.delete_count+" 個項目已被刪除"); }, function(r) { alert('發生錯誤'); });
     }
 });
 
@@ -110,7 +110,7 @@ function display_seedlot_deletion_info(r) {
     html += "</ul>";
 
     if (ok.length === 0) {
-        html += '<br /><img src="/static/documents/img/info_icon.png"> No items can be deleted.';
+        html += '<br /><img src="/static/documents/img/info_icon.png"> 沒有任何項目可以被刪除。';
         jQuery('#delete_seedlots_confirm').prop('disabled', true);
     }
     else {

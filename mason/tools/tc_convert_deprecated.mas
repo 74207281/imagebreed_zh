@@ -1,31 +1,24 @@
-<& /page/page_title.mas, title => 'Converting between SGN unigenes and TGI TC sequences' &>
+<& /page/page_title.mas, title => '在 SGN Unigene 與 TGI TC 序列之間進行轉換(Converting between SGN unigenes and TGI TC sequences)' &>
 
 <div style="margin: 1em 0; padding: 0.2em 2em 0.4em 2em">
   <p>
-  SGN and <a href="http://compbio.dfci.harvard.edu/tgi/">the Gene Index Project (TGI)</a>, now at <a href="http://www.dana-farber.org/">DFCI</a>, maintain
-  independent unigene/TC databases, entries in which tend to have common
-  member ESTs.
+  SGN 與目前位於 <a href="http://www.dana-farber.org/">DFCI</a> 的<a href="http://compbio.dfci.harvard.edu/tgi/">基因索引計畫 (The Gene Index Project, TGI)</a> 各自維護獨立的 Unigene/TC 資料庫，其中的條目往往具有共同的成員 EST。
   </p>
 
   <p>
-  SGN no longer maintains a specific tool for mapping between these two
-  databases.  Instead, for users to establish correspondences between these two
-  sets, we recommend using the BLAST tools available on each of these
-  sites.
+  SGN 不再維護用於這兩個資料庫之間對應比對的特定工具。建議使用者利用這兩個網站上提供的 BLAST 工具來建立兩組序列之間的對應關係。
   </p>
 
 </div>
 
-<&| /page/info_section.mas, title => 'Mapping SGN-U to TGI TC' &>
+<&| /page/info_section.mas, title => '將 SGN-U 對應至 TGI TC(Mapping SGN-U to TGI TC)' &>
 
-  Use the SGN-U sequences as input to the BLAST tool at
-  <a href="http://compbio.dfci.harvard.edu/tgi/">the TGI site</a>.
+  使用 SGN-U 序列作為輸入，傳入 <a href="http://compbio.dfci.harvard.edu/tgi/">TGI 網站</a>的 BLAST 工具中。
 
 </&>
 
-<&| /page/info_section.mas, title => 'Mapping TGI TC to SGN-U' &>
+<&| /page/info_section.mas, title => '將 TGI TC 對應至 SGN-U(Mapping TGI TC to SGN-U)' &>
 
-  Use the TGI TC sequences as input to the <a href="/tools/blast">SGN
-  BLAST tool</a>, selecting one of the SGN unigene data sets.
+  使用 TGI TC 序列作為輸入，傳入 <a href="/tools/blast">SGN BLAST 工具</a>，並選擇其中一個 SGN Unigene 資料集。
 
 </&>

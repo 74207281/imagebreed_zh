@@ -1,10 +1,11 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('project.html','html2pl converter');
-$page->header('Tomato Genome Project Description');
+$page->header('番茄基因組計畫說明 (Tomato Genome Project Description)');
 print<<END_HEREDOC;
 
-  <h1>Project Background</h1>
+  <h1>計畫背景 (Project Background)</h1>
 
   <p>Tomato has long served as a model system for plant genetics,
   development, pathology, and physiology, resulting in the
@@ -46,7 +47,7 @@ print<<END_HEREDOC;
   more disease resistance (R) genes than in any other plant
   species.<br /></p>
 
-  <h1>Project Goals</h1>
+  <h1>計畫目標 (Project Goals)</h1>
 
   <p>The overall goal of the project includes the development of an
   integrated set of experimental tools for use in tomato functional
@@ -56,20 +57,17 @@ print<<END_HEREDOC;
   be made available to the research community for analysis of
   diverse plant biological phenomena.<br /></p>
 
-  <h1>Specific Objectives</h1>
+  <h1>具體目標 (Specific Objectives)</h1>
 
   <ol>
-    <li>Development of a tomato EST database with
-    emphasis on sequences expressed during fruit development and
-    maturation, and in pathogen-challenged tissues.</li>
+    <li>建立番茄 EST 資料庫，重點關注在果實發育和成熟期間以及受病原體侵染組織中表達的序列。<br />
+    (Development of a tomato EST database with emphasis on sequences expressed during fruit development and maturation, and in pathogen-challenged tissues.)</li>
 
-    <li>Genome-wide gene expression analysis during fruit
-    development and ripening and under pathogen infection.</li>
+    <li>果實發育和成熟過程以及病原體侵染下的全基因組基因表達分析。<br />
+    (Genome-wide gene expression analysis during fruit development and ripening and under pathogen infection.)</li>
 
-    <li>Development of a tomato-arabidopsis synteny map which will
-    be used by members of this group and made publicly available
-    for target gene isolation, candidate gene identification, and
-    analysis of dicot genome organization and evolution.</li>
+    <li>開發番茄-擬南芥同線性圖譜，供本研究小組成員使用並向公眾開放，用於目標基因分離、候選基因鑑定以及雙子葉植物基因組組織與演化分析。<br />
+    (Development of a tomato-arabidopsis synteny map which will be used by members of this group and made publicly available for target gene isolation, candidate gene identification, and analysis of dicot genome organization and evolution.)</li>
   </ol>
 
     

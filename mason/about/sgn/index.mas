@@ -1,14 +1,14 @@
-<& /page/page_title.mas, title=>'About Breedbase'  &>
+<& /page/page_title.mas, title=>'關於 Breedbase(About Breedbase)'  &>
 
   
 <div class="col-sm-11 col-md-11 col-lg-11">
-The Breedbase system has evolved from the <a href="https://solgenomics.net">Sol Genomics Network (SGN)</a> and <a href="https://cassavabase.org/">Cassavabase</a> and related sites (see <a href="https://rtbbase.org">RTBbase.org</a>).
+Breedbase 系統是由 <a href="https://solgenomics.net">茄科基因體網路 (SGN)</a>、<a href="https://cassavabase.org/">Cassavabase</a> 及相關網站演進而來（請參閱 <a href="https://rtbbase.org">RTBbase.org</a>）。
 </div>
 <div class="col-sm-11 col-md-11 col-lg-11">
-  Breedbase is striving to be a complete breeding management system, including field management, data collection, crossing utilities, and advanced trial analysis.
+  Breedbase 致力於成為一套完整的育種管理系統，涵蓋田區管理、數據收集、雜交工具與進階試驗分析。
 </div>
 <div class="col-sm-11 col-md-11 col-lg-11">
-  Please refer to the Breedbase <a href="https://solgenomics.github.io/sgn/">manual</a> for detailed information about available features.
+  有關可用功能的詳細資訊，請參閱 Breedbase <a href="https://solgenomics.github.io/sgn/">使用手冊(manual)</a>。
   </div>
 <div class="col-sm-11 col-md-11 col-lg-11">
   <br />

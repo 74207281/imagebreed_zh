@@ -12,37 +12,37 @@ $trial_stock_type => undef
     <& /breeders_toolbox/trial/design.mas, trial_id => $trial_id &>
 % my $stock_label = '';
 % if ($trial_stock_type eq 'family_name') {
-%     $stock_label = 'Family Names';
+%     $stock_label = '家族名稱(Family Names)';
 % } elsif ($trial_stock_type eq 'cross') {
-%     $stock_label = 'Cross Unique IDs';
+%     $stock_label = '雜交唯一識別碼(Cross Unique IDs)';
 % } else {
-%     $stock_label = 'Accessions'
+%     $stock_label = '種原(Accessions)'
 % }
     <&| /page/info_section.mas, id => "trial_stocks", title=> $stock_label, is_subsection => 1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_stocks.mas, trial_id => $trial_id &>
     </&>
 
-    <&| /page/info_section.mas, id => "trial_seedlots", title=>"Seedlots", is_subsection => 1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_seedlots", title=>"種子批次(Seedlots)", is_subsection => 1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_seedlots.mas, trial_id => $trial_id &>
     </&>
 
-    <&| /page/info_section.mas, id => "trial_controls", title=>"Controls",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_controls", title=>"對照組(Controls)",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_controls.mas, trial_id => $trial_id &>
     </&>
 
-    <&| /page/info_section.mas, id => "trial_plots", title=>"Plots",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_plots", title=>"小區(Plots)",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_plots.mas, trial_id => $trial_id &>
     </&>
 
-    <&| /page/info_section.mas, id => "trial_subplots", title=>"Subplots",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_subplots", title=>"次小區(Subplots)",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
 
         <div id="subplot_entries_section">
 
 % if (!$has_subplot_entries) {
-            <button class="btn btn-default" id="create_subplot_entries_button">Add subplot entries</button>
-            <button class="btn btn-default" id="upload_subplot_entries_button">Upload subplot entries using subplot_name</button>
-            <button class="btn btn-default" id="upload_subplot_entries_with_index_number_button">Upload subplot entries using subplot index number</button>
-            <button class="btn btn-default" id="trial_upload_subplots_with_num_subplots_button">Upload subplot entries using number of subplots per plot</button>
+            <button class="btn btn-default" id="create_subplot_entries_button">新增次小區項目(Add subplot entries)</button>
+            <button class="btn btn-default" id="upload_subplot_entries_button">使用 subplot_name 上傳次小區項目(Upload subplot entries using subplot_name)</button>
+            <button class="btn btn-default" id="upload_subplot_entries_with_index_number_button">使用次小區索引編號上傳次小區項目(Upload subplot entries using subplot index number)</button>
+            <button class="btn btn-default" id="trial_upload_subplots_with_num_subplots_button">使用每個小區次小區數上傳次小區項目(Upload subplot entries using number of subplots per plot)</button>
 % } else {
             <& /breeders_toolbox/trial/trial_subplots.mas, trial_id => $trial_id &>
 % }
@@ -51,23 +51,23 @@ $trial_stock_type => undef
 
     </&>
 
-    <&| /page/info_section.mas, id => "trial_plants", title=>"Plant Entries", is_subsection => 1, collapsible=> 1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_plants", title=>"植株項目(Plant Entries)", is_subsection => 1, collapsible=> 1, collapsed=>1 &>
 
         <div id="plant_entries_section">
 
 % if (!$has_plant_entries) {
-           <p><strong>Add Plants to Plots:</strong></p>
-           <button class="btn btn-default" id="create_plant_entries_button">Add plant entries</button>
-           <button class="btn btn-default" id="upload_plant_entries_button">Upload plant entries using plant_name</button>
-           <button class="btn btn-default" id="upload_plant_entries_with_index_number_button">Upload plant entries using plant index number</button>
-           <button class="btn btn-default" id="trial_upload_plants_with_num_plants_button">Upload plant entries using number of plants per plot</button>
+           <p><strong>新增植株至小區：</strong></p>
+           <button class="btn btn-default" id="create_plant_entries_button">新增植株項目(Add plant entries)</button>
+           <button class="btn btn-default" id="upload_plant_entries_button">使用 plant_name 上傳植株項目(Upload plant entries using plant_name)</button>
+           <button class="btn btn-default" id="upload_plant_entries_with_index_number_button">使用植株索引編號上傳植株項目(Upload plant entries using plant index number)</button>
+           <button class="btn btn-default" id="trial_upload_plants_with_num_plants_button">使用每個小區植株數上傳植株項目(Upload plant entries using number of plants per plot)</button>
 % if ($has_subplot_entries ) {
            <br /><br />
-           <p><strong>Add Plants to Subplots:</strong></p>
-           <button class="btn btn-default" id="create_plant_entries_subplots_button">Add plant entries</button>
-           <button class="btn btn-default" id="upload_plant_entries_subplots_button">Upload plant entries using plant_name</button>
-           <button class="btn btn-default" id="upload_plant_entries_with_index_number_subplots_button">Upload plant entries using plant index number</button>
-           <button class="btn btn-default" id="trial_upload_plants_with_num_plants_subplots_button">Upload plant entries using number of plants per subplot</button>
+           <p><strong>新增植株至次小區：</strong></p>
+           <button class="btn btn-default" id="create_plant_entries_subplots_button">新增植株項目(Add plant entries)</button>
+           <button class="btn btn-default" id="upload_plant_entries_subplots_button">使用 plant_name 上傳植株項目(Upload plant entries using plant_name)</button>
+           <button class="btn btn-default" id="upload_plant_entries_with_index_number_subplots_button">使用植株索引編號上傳植株項目(Upload plant entries using plant index number)</button>
+           <button class="btn btn-default" id="trial_upload_plants_with_num_plants_subplots_button">使用每個次小區植株數上傳植株項目(Upload plant entries using number of plants per subplot)</button>
 % }           
 % } else {
             <& /breeders_toolbox/trial/trial_plants.mas, trial_id => $trial_id &>
@@ -77,15 +77,15 @@ $trial_stock_type => undef
 
     </&>
 
-    <&| /page/info_section.mas, id => "trial_tissue_samples", title=>"Tissue Sample Entries", is_subsection => 1, collapsible=> 1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_tissue_samples", title=>"組織樣本項目(Tissue Sample Entries)", is_subsection => 1, collapsible=> 1, collapsed=>1 &>
 
         <div id="tissue_sample_entries_section">
 
 % if (!$has_tissue_sample_entries) {
-           <button class="btn btn-default" id="create_tissue_sample_entries_button">Add tissue sample entries</button>
+           <button class="btn btn-default" id="create_tissue_sample_entries_button">新增組織樣本項目(Add tissue sample entries)</button>
            <& /breeders_toolbox/trial/add_tissue_sample_per_plant.mas, trial_id => $trial_id, trial_name => $trial_name, trial_has_plants => $has_plant_entries &>
 % } else {
-		   <button class="btn btn-default" id="create_tissue_sample_entries_button">Add tissue sample entries</button>
+		   <button class="btn btn-default" id="create_tissue_sample_entries_button">新增組織樣本項目(Add tissue sample entries)</button>
            <& /breeders_toolbox/trial/add_tissue_sample_per_plant.mas, trial_id => $trial_id, trial_name => $trial_name, trial_has_plants => $has_plant_entries &>
            <& /breeders_toolbox/trial/trial_tissue_samples.mas, trial_id => $trial_id &>
 % }
@@ -94,11 +94,11 @@ $trial_stock_type => undef
 
     </&>
 
-    <&| /page/info_section.mas, id => "trial_treatments", title=>"Field Management Factors",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id => "trial_treatments", title=>"田間管理因子(Field Management Factors)",  is_subsection => 1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_treatments.mas, trial_id => $trial_id &>
     </&>
 
-    <&| /page/info_section.mas, id=>"trial_entry_numbers", title=>"Entry Numbers", is_subsection=>1, collapsible=>1, collapsed=>1 &>
+    <&| /page/info_section.mas, id=>"trial_entry_numbers", title=>"項目編號(Entry Numbers)", is_subsection=>1, collapsible=>1, collapsed=>1 &>
         <& /breeders_toolbox/trial/trial_entry_numbers.mas, trial_id => $trial_id, trial_name => $trial_name &>
     </&>
 

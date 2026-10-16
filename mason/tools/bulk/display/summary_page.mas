@@ -3,43 +3,39 @@
 $summary_data => {}
 </%args>
 
-    <& /page/page_title.mas, title=>"Bulk download summary" &>
+    <& /page/page_title.mas, title=>"批次下載摘要(Bulk download summary)" &>
 
-    The query you submitted contained <% $summary_data->{numlines} %> lines.<br />
-    Your query resulted in <% $summary_data->{total} %> lines being retrieved in
-    <% $summary_data->{query_time} %> seconds.<br />
+    您提交的查詢包含 <% $summary_data->{numlines} %> 行(The query you submitted contained <% $summary_data->{numlines} %> lines)。<br />
+    查詢在 <% $summary_data->{query_time} %> 秒內擷取了 <% $summary_data->{total} %> 行結果(Your query resulted in <% $summary_data->{total} %> lines being retrieved in <% $summary_data->{query_time} %> seconds)。<br />
     <% $summary_data->{missing_ids_msg} %><br /><br />
 
 %    if ( $summary_data->{total} == 0 ) {
 
-     Please verify that you used the correct search and that you chose the right
-     unigene or bac assembly to download from. Also make sure that the submitted
-     identifiers are appropriately formatted.<br />
+     請確認您使用了正確的搜尋條件，並選擇了正確的單一基因群或 BAC 組裝版本進行下載。同時請確認提交的識別碼格式正確(Please verify that you used the correct search and that you chose the right unigene or bac assembly to download from. Also make sure that the submitted identifiers are appropriately formatted)。<br />
      
-     Please try your search again.<br /><br />
+     請重新嘗試搜尋(Please try your search again)。<br /><br />
 %   }
 %   else {
  
-    The file size is <% $summary_data->{filesize} %> kBytes.
+    檔案大小為 <% $summary_data->{filesize} %> KB(The file size is <% $summary_data->{filesize} %> kBytes)。
     <br /><br />
-    <a href="/tools/bulk/display?outputType=HTML&amp;line_count=$line_count&amp;dumpfile=<% $summary_data->{file} %>&amp;page=1&amp;idType=<% $summary_data->{idType} %>">Browse</a>
-    the results.
+    <a href="/tools/bulk/display?outputType=HTML&amp;line_count=$line_count&amp;dumpfile=<% $summary_data->{file} %>&amp;page=1&amp;idType=<% $summary_data->{idType} %>">瀏覽結果(Browse the results)</a>。
     <br />
     <br />
 
-    <table border="0" cellpadding="0"><tr><td width="120"><b>View</b></td><td width="120">
-    <b>Download to disk</b></td></tr>
+    <table border="0" cellpadding="0"><tr><td width="120"><b>檢視(View)</b></td><td width="150">
+    <b>下載至磁碟(Download to disk)</b></td></tr>
     <tr><td>
 
-    as <a href="/tools/bulk/display?outputType=text&amp;dumpfile=<% $summary_data->{file} %>&amp;idType=<% $summary_data->{idType} %>">Text</a>
+    形式為(as) <a href="/tools/bulk/display?outputType=text&amp;dumpfile=<% $summary_data->{file} %>&amp;idType=<% $summary_data->{idType} %>">純文字(Text)</a>
     <br />
-    as <% $summary_data->{fastalink} %><br />
+    形式為(as) <% $summary_data->{fastalink} %><br />
 
     </td><td>
 
-    as <a href="/tools/bulk/display?outputType=text&amp;dumpfile=<% $summary_data->{file} %>&amp;idType=<% $summary_data->{idType} %>&amp;download=1">
-    Text</a><br />
-    as <% $summary_data->{fastadownload} %><br />
+    形式為(as) <a href="/tools/bulk/display?outputType=text&amp;dumpfile=<% $summary_data->{file} %>&amp;idType=<% $summary_data->{idType} %>&amp;download=1">
+    純文字(Text)</a><br />
+    形式為(as) <% $summary_data->{fastadownload} %><br />
 
     </td></tr></table>
     <br /><br /><% $summary_data->{fastamessage} %><br />

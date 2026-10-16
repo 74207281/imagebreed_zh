@@ -26,6 +26,7 @@ Bryan Ellerbrock (bje24@cornell.edu) - Oct 2015
 =cut
 
 use strict;
+use utf8;
 use File::Slurp;
 use Getopt::Std;
 use Bio::Chado::Schema;
@@ -126,8 +127,8 @@ storeClass = JBrowse/Store/SeqFeature/VCFTabix
 urlTemplate = ' . $path .'
 category = Diversity/NEXTGEN/Unimputed
 type = JBrowse/View/Track/HTMLVariants
-metadata.Description = Homozygous reference: Green	Heterozygous: Red		Homozygous alternate: Blue	Filtered to remove SNPs with a depth of 0 and SNPs with 2 or more alt alleles.
-metadata.Link = <a href=ftp://cassavabase.org/jbrowse/diversity/igdBuildWithV6_hapmap_20150404_vcfs/' . $file . '>Download VCF File</a>
+metadata.Description = 同型結合參考 (Homozygous reference): 綠色	異型結合 (Heterozygous): 紅色		同型結合替代 (Homozygous alternate): 藍色	過濾移除深度為 0 及具有 2 個或更多替代等位基因 (Alt alleles) 的 SNP。
+metadata.Link = <a href=ftp://cassavabase.org/jbrowse/diversity/igdBuildWithV6_hapmap_20150404_vcfs/' . $file . '>下載 VCF 檔案 (Download VCF File)</a>
 metadata.Provider = NEXTGEN Cassava project
 metadata.Accession = ' . $name . '
 label = ' . $key  . '
@@ -174,8 +175,8 @@ storeClass = JBrowse/Store/SeqFeature/VCFTabix
 urlTemplate = ' . $path .'
 category = Diversity/NEXTGEN/Imputed
 type = JBrowse/View/Track/HTMLVariants
-metadata.Description = Homozygous reference: Green	Heterozygous: Red		Homozygous alternate: Blue	Values imputed with GLMNET are shown at 1/3 opacity.
-metadata.Link = <a href=ftp://cassavabase.org/jbrowse/diversity/igdBuildWithV6_hapmap_20150404_vcfs/' . $file . '>Download VCF File</a>
+metadata.Description = 同型結合參考 (Homozygous reference): 綠色	異型結合 (Heterozygous): 紅色		同型結合替代 (Homozygous alternate): 藍色	使用 GLMNET 插補 (Imputed) 的數值以 1/3 不透明度顯示。
+metadata.Link = <a href=ftp://cassavabase.org/jbrowse/diversity/igdBuildWithV6_hapmap_20150404_vcfs/' . $file . '>下載 VCF 檔案 (Download VCF File)</a>
 metadata.Provider = NEXTGEN Cassava project                                                                                                                         
 metadata.Accession = ' . $name . '  
 label = ' . $key  . '

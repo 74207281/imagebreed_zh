@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('journals.html','html2pl converter');
-$page->header('Online Journal Links');
+$page->header('線上期刊連結 (Online Journal Links)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,7 +12,7 @@ print<<END_HEREDOC;
     border="0">
       <tr>
         <td>
-          <h4>Journals on the web</h4>
+          <h4>網路期刊 (Journals on the web)</h4>
 
           Please note that some journals may require a subscription. Some Universities
           have licenses that allow access to certain journals from

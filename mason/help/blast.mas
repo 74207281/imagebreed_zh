@@ -1,27 +1,26 @@
+<& /page/page_title.mas, title => "BLAST 說明(BLAST Help)" &>
 
-<& /page/page_title.mas, title => "BLAST Help" &>
+<p>本站的 BLAST 基於 NCBI BLAST，可於 <a href="/tools/blast">/tools/blast</a> 使用。(BLAST on this site is based on NCBI BLAST and is accessible on <a href="/tools/blast">/tools/blast</a>.)</p>
 
-<p>BLAST on this site is based on NCBI BLAST and is accessible on <a href="/tools/blast">/tools/blast</a>. </p>
+<p>為了加快尋找合適 BLAST 資料庫的速度，資料庫分為不同類別，可使用「類別(Categories)」下拉選單進行選擇。每個類別包含若干 BLAST 資料庫，可在「資料庫(Database)」下拉選單中選擇。(To make finding the right BLAST database faster, the databases are organized into different categories, which can be selected using the "Categories" pull-down menu. Each category contains a number of BLAST databases which can be selected in the "Database" pull down menu.)</p>
 
-<p>To make finding the right BLAST database faster, the databases are organized into different categories, which can be selected using the "Categories" pull-down menu. Each category contains a number of BLAST databases which can be selected in the "Database" pull down menu.</p>
+<p>先選擇類別，再選擇資料庫。(Select the category, then the database.)</p>
 
-<p>Select the category, then the database.</p>
+<p>在查詢序列(Query)文字方塊中輸入序列，並從格式選取器中選擇適當的格式（例如，核苷酸 fasta）。選擇合適的 blast 程式（例如，針對核苷酸資料庫執行核苷酸查詢時選擇 blastn）。預設值為自動偵測(autodetect)，其應能偵測您輸入的格式，並自動轉換為正確的序列格式以執行 blast。(Enter the sequence in the Query textarea and choose the appropriate format from the format selector (for example, nucleotide fasta). Choose the appropriate blast program (for example, blastn for running a nucleotide query against a nucleotide database). The default is autodetect, which should detect the format you entered and convert it to the correct sequence format to run blast automatically.)</p>
 
-<p>Enter the sequence in the Query textarea and choose the appropriate format from the format selector (for example, nucleotide fasta). Choose the appropriate blast program (for example, blastn for running a nucleotide query against a nucleotide database). The default is autodetect, which should detect the format you entered and convert it to the correct sequence format to run blast automatically.</p>
+<p>若您希望過濾查詢中的低複雜度序列，請保持選取「過濾(Filter)」核取方塊。此為建議設定。(If you would like to filter the query for low-complexity sequence, leave the Filter checkbox selected. This is the recommended setting.)</p>
 
-<p>If you would like to filter the query for low-complexity sequence, leave the Filter checkbox selected. This is the recommended setting.</p>
+<p>選擇適當的期望值閾值(e-value threshold)。預設的 1e-10 適用於大多數常見應用。(Select an appropriate e-value threshold. The default of 1e-10 should work for most common applications.)</p>
 
-<p>Select an appropriate e-value threshold. The default of 1e-10 should work for most common applications.</p>
+<h4>輸出選項(Output options)</h4>
 
-<h4>Output options</h4>
+<p>您可以選擇不同的輸出選項。「總覽圖(Overview graph)」選項將顯示資料庫中匹配項目的圖形表示。「覆蓋圖(Coverage graph)」以圖形顯示匹配項目在查詢序列上的排列情形。「Bioperl」解析器顯示格式化後的 BLAST 報告，其中包含嵌入至本站其他頁面的連結。「基本(Basic)」版本顯示 BLAST 報告的原始輸出。請注意，若查詢包含多個序列（例如 multi-fasta），輸出將一律預設為「基本(Basic)」解析選項。(You can choose different output options. The "Overview graph" option will show a graphic represenations of the hits in the database. The "Coverage graph" displays a graphical representation how the matches line up on the query sequence. The "Bioperl" parser displays a formatted version of the BLAST report with embedded links to other pages on the site. The "Basic" version shows the raw output of the BLAST report. Note that if the query contains several sequences (such as multi-fasta), the output will always default to the "Basic" parse option.)</p>
 
-<p>You can choose different output options. The "Overview graph" option will show a graphic represenations of the hits in the database. The "Coverage graph" displays a graphical representation how the matches line up on the query sequence. The "Bioperl" parser displays a formatted version of the BLAST report with embedded links to other pages on the site. The "Basic" version shows the raw output of the BLAST report. Note that if the query contains several sequences (such as multi-fasta), the output will always default to the "Basic" parse option.</p>
+<h4>結果(Results)</h4>
 
-<h4>Results</h4>
+<p>執行 BLAST 分析後，「結果(Results)」區段將顯示輸出內容（取決於您選擇的輸出選項）。分析完成後，輸入參數區段將摺疊並開啟結果區段。若要重新執行查詢，只需點擊輸入參數區段標題中的 + 號，即可再次檢視該區段並調整參數。(The Results section will show the ouput (depending on your chosen Output options) when a BLAST analysis has been run. When the analysis is finished, the Input parameters sections will be collapsed and the Results section opened. To re-run a query, simply click on the + sign in the Input parameter section header to view that section again and adjust the parameters.)</p>
 
-<p>The Results section will show the ouput (depending on your chosen Output options) when a BLAST analysis has been run. When the analysis is finished, the Input parameters sections will be collapsed and the Results section opened. To re-run a query, simply click on the + sign in the Input parameter section header to view that section again and adjust the parameters.</p>
+<p>使用結果區段標題中的下載連結可下載原始 BLAST 報告。(The raw BLAST report can be downloaded using the download link in the Results section header.)</p>
 
-<p>The raw BLAST report can be downloaded using the download link in the Results section header.</p>
-
-<h4>Extract sequences from BLAST databases</h4>
-You can extract sequences from the BLAST databases using identifiers or key words in the annotation of the sequences. Click on the "Extract sequences from BLAST databases" section and enter the search string. It will search in the database selected above.
+<h4>從 BLAST 資料庫中擷取序列(Extract sequences from BLAST databases)</h4>
+您可以使用序列註解中的識別碼或關鍵字從 BLAST 資料庫中擷取序列。點擊「從 BLAST 資料庫中擷取序列(Extract sequences from BLAST databases)」區段並輸入搜尋字串。系統將在上方選定的資料庫中進行搜尋。(You can extract sequences from the BLAST databases using identifiers or key words in the annotation of the sequences. Click on the "Extract sequences from BLAST databases" section and enter the search string. It will search in the database selected above.)

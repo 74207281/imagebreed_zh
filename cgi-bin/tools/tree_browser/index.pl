@@ -21,6 +21,7 @@ Lukas Mueller <lam87@cornell.edu>
 
 use strict;
 use warnings;
+use utf8;
 
 use CGI qw/ -compile :standard /;
 
@@ -51,7 +52,7 @@ our %urlencode;
 
 my $request = shift;
 
-my $page = CXGN::Page->new( "SGN Tree Browser", "Lukas" );
+my $page = CXGN::Page->new( "演化樹瀏覽器 (SGN Tree Browser)", "Lukas" );
 
 our ($align_temp_show, $newick_temp_show, $example_show, $native_commands) =
     $page->get_encoded_arguments(qw/align_temp_show newick_temp_show example_show native_commands/);
@@ -899,7 +900,7 @@ else {
     $page->header();
     my $align_filename = File::Basename::basename($align_temp_file);
     print page_title_html(
-qq|<a href="?align_temp_show=$align_filename&newick_temp_show=$filename">Tree browser:</a> |
+qq|<a href="?align_temp_show=$align_filename&newick_temp_show=$filename">演化樹瀏覽器 (Tree browser):</a> |
           . $tree->get_name() );
 
     print $renderer->get_html_image_map( "tree_image_map", $new_align_temp,
@@ -981,22 +982,22 @@ qq|<a href="?align_temp_show=$align_filename&newick_temp_show=$filename">Tree br
     my $not_show_domains = 0;
     $not_show_domains = 1 unless $show_domains;
 
-    my $blen_text = "Show Branch Length";
-    $blen_text = "Hide Branch Length" if $show_blen;
-    my $align_text = "Hide Alignment";
-    $align_text = "Show Alignment" if $hide_alignment;
-    my $domain_text = "Hide Domains";
-    $domain_text = "Show Domains" unless $show_domains;
-    my $show_species_text = "Hide species";
-    $show_species_text = "Show species" unless $show_species;
+    my $blen_text = "顯示分支長度 (Show Branch Length)";
+    $blen_text = "隱藏分支長度 (Hide Branch Length)" if $show_blen;
+    my $align_text = "隱藏比對 (Hide Alignment)";
+    $align_text = "顯示比對 (Show Alignment)" if $hide_alignment;
+    my $domain_text = "隱藏結構域 (Hide Domains)";
+    $domain_text = "顯示結構域 (Show Domains)" unless $show_domains;
+    my $show_species_text = "隱藏物種 (Hide species)";
+    $show_species_text = "顯示物種 (Show species)" unless $show_species;
 
     #    my $root_min_var_text = "Reroot (Min Var)";
     #    $root_min_var_text = "Original Root" if $root_min_var;
-    my $ortho_text = ($show_orthologs) ? "Hide Orthologs" : "Show Orthologs";
+    my $ortho_text = ($show_orthologs) ? "隱藏直系同源 (Hide Orthologs)" : "顯示直系同源 (Show Orthologs)";
     my $collapse_single_species_text =
       ($collapse_single_species_subtrees)
-      ? "Uncollapse 1-species subtrees"
-      : "Collapse 1-species subtrees";
+      ? "展開單物種子樹 (Uncollapse 1-species subtrees)"
+      : "摺疊單物種子樹 (Collapse 1-species subtrees)";
 
     unless ( $tree->get_alignment() ) {
         $align_text  = "";
@@ -1070,7 +1071,7 @@ qq|<a href="?align_temp_show=$align_filename&newick_temp_show=$filename">Tree br
 
     my $param_input_term = hash2hiddenpost( \%PARAM, {}, ["term"] );
 
-    my $original_link = qq|<a href="?$param_reset">&lt;&lt; See Original Tree</a>&nbsp;&nbsp;&nbsp;|;
+    my $original_link = qq|<a href="?$param_reset">&lt;&lt; 檢視原始演化樹 (See Original Tree)</a>&nbsp;&nbsp;&nbsp;|;
     $original_link = ""
       if ( $upload || $tree_string_param || !$node_operations );
 
@@ -1084,16 +1085,16 @@ qq|<a href="?align_temp_show=$align_filename&newick_temp_show=$filename">Tree br
   <form id="tree_style_form" style="margin-bottom:0; margin-top:0;font-size:1.0em">
     <table width="100%">
       <tr>
-        <td style="font-size:1.1em" width="$w1" >Tree Style:&nbsp; </td>
+        <td style="font-size:1.1em" width="$w1" >演化樹樣式 (Tree Style):&nbsp; </td>
         <td width="$w2" >
           <select name="tree_style" onchange="document.getElementById('tree_style_form').submit(); return false">
-            <option value="round" $round_selected>curve</option>
-            <option value="angle" $angle_selected>straight</option>
-            <option value="straight" $straight_selected>corner</option>
+            <option value="round" $round_selected>弧線 (curve)</option>
+            <option value="angle" $angle_selected>直線 (straight)</option>
+            <option value="straight" $straight_selected>折角 (corner)</option>
           </select>
         </td>
         <td width="$w3">
-          <input type="submit" value="Change" />
+          <input type="submit" value="變更 (Change)" />
           $param_input_tree_style
         </td>
       </tr>
@@ -1107,18 +1108,18 @@ EOH
   <form id="reroot_form" style="margin-bottom:0; margin-top:0;font-size:1.0em">
     <table width="100%">
     <tr>
-      <td width="$w1">Reroot:&nbsp;</td>
+      <td width="$w1">重定根 (Reroot):&nbsp;</td>
       <td width="$w2" >
         <select name="reroot" onchange=" document.getElementById('reroot_form').submit(); return false;    ">
-          <option value ="Original" $original_selected>original</option>
-          <option value="Midpoint" $midpoint_selected>midpoint</option>
-          <option value="MinVariance" $minvar_selected>minvar</option>
-          <option value="MinDuplication" $mindl_selected>mindupl</option>
-          <option value="MaxMin" $maxmin_selected>maxmin</option>
+          <option value ="Original" $original_selected>原始 (original)</option>
+          <option value="Midpoint" $midpoint_selected>中點 (midpoint)</option>
+          <option value="MinVariance" $minvar_selected>最小變異 (minvar)</option>
+          <option value="MinDuplication" $mindl_selected>最小重複 (mindupl)</option>
+          <option value="MaxMin" $maxmin_selected>極大極小 (maxmin)</option>
         </select>
       </td>
      <td width="$w3">
-       <input type="submit" value="Change" />
+       <input type="submit" value="變更 (Change)" />
        $param_input_reroot
      </td>
     </tr>
@@ -1135,7 +1136,7 @@ EOH
     <table>
     <tr>
       <td><input name="term" size="10" value="$term" /></td>
-      <td><input type="submit" value="Highlight" />    $param_input_term</td>
+      <td><input type="submit" value="醒目標示 (Highlight)" />    $param_input_term</td>
     </tr>
     </table>
   </form>
@@ -1160,10 +1161,10 @@ qq|<td style="text-align:center"> <a href="?$param_collapse_toggle">$collapse_si
 
     my $imagesize_str = <<EOH;
 <td style="text-align:center; vertical-align:bottom">
-  <span style="font-size:1.1em">Image Size:&nbsp;</span>
-  <a style="font-size:0.90em" href="?$param_smaller">Smaller</a>
-  <a style="font-size:1.18em" href="?$param_larger">Larger</a>
-  <a href="?$param_autosize">AUTO</a>
+  <span style="font-size:1.1em">影像大小 (Image Size):&nbsp;</span>
+  <a style="font-size:0.90em" href="?$param_smaller">縮小 (Smaller)</a>
+  <a style="font-size:1.18em" href="?$param_larger">放大 (Larger)</a>
+  <a href="?$param_autosize">自動 (AUTO)</a>
 </td>
 EOH
 
@@ -1201,11 +1202,11 @@ HTML
         <table style="border:1px solid #922; cell-padding:5px; padding:5px;font-size:1.0em;background-color:#eee">
           <tr>
             <td><a href="?$param_unselect">X</a></td>
-            <td><span style="font-weight:bold; color:#411">Node $hilite</span>&nbsp;&nbsp;&nbsp;</td>
-            <td><a href="?$param_hide">Hide</a>&nbsp;&nbsp;</td>
-            <td><a href="?$param_rotate">Rotate</a>&nbsp;&nbsp;</td>
-            <td><a href="?$param_prune_to_subtree">Subtree</a>&nbsp;&nbsp;</td>
-            <td><a href="?$param_set_as_root">Set&nbsp;as&nbsp;Root</a>&nbsp;&nbsp;</td>
+            <td><span style="font-weight:bold; color:#411">節點 (Node) $hilite</span>&nbsp;&nbsp;&nbsp;</td>
+            <td><a href="?$param_hide">隱藏 (Hide)</a>&nbsp;&nbsp;</td>
+            <td><a href="?$param_rotate">旋轉 (Rotate)</a>&nbsp;&nbsp;</td>
+            <td><a href="?$param_prune_to_subtree">子樹 (Subtree)</a>&nbsp;&nbsp;</td>
+            <td><a href="?$param_set_as_root">設為樹根 (Set&nbsp;as&nbsp;Root)</a>&nbsp;&nbsp;</td>
           </tr>
         </table>
       </div>
@@ -1245,7 +1246,7 @@ HTML
         my @leaves = $browser->get_tree->get_leaves;
         $browser->get_tree->set_show_standard_species($show_species);
         my $ortho_hilite_only = 0;
-        my $first_cell_text = "Orthologs of&nbsp&nbsp";
+        my $first_cell_text = "直系同源於 (Orthologs of)&nbsp&nbsp";
         @leaves = sort { $a->get_name cmp $b->get_name } @leaves;
         my $ostring = "";
         foreach my $leaf (@leaves) {
@@ -1274,7 +1275,7 @@ HTML
         my $newick_string = $browser->get_tree->generate_newick();
 
         print info_section_html(
-            title         => 'Ortholog pairs',
+            title         => '直系同源對 (Ortholog pairs)',
             contents      => $ostring,
             collapsible   => 'true',
             empty_message => ""
@@ -1295,7 +1296,7 @@ sub show_form {
 
     $page->header();
 
-    print page_title_html("Tree browser");
+    print page_title_html("演化樹瀏覽器 (Tree browser)");
 
     my $submit_preset = "";
     my $align_preset  = "";
@@ -1318,30 +1319,31 @@ sub show_form {
     #print STDERR "Debug marker 702\n";
 
     if ($example_show) {
-        $title_preset = "Arabidopsis Family Example";
+        $title_preset = "Arabidopsis 家族範例 (Arabidopsis Family Example)";
         if( open my $af, '<', "$HTML_ROOT_PATH/cgi-bin/tools/tree_browser/data/example_align_preset.txt" ) {
             while (<$af>) {
                 $align_preset .= $_;
             }
-            $submit_preset ||= "View Tree and Alignment";
+            $submit_preset ||= "檢視演化樹與比對 (View Tree and Alignment)";
         }
-        else { $align_preset = "Example File Not Found" }
+        else { $align_preset = "未找到範例檔案 (Example File Not Found)" }
         if( open my $nf, '<', "$HTML_ROOT_PATH/cgi-bin/tools/tree_browser/data/example_newick_preset.txt" ) {
             while (<$nf>) {
                 $newick_preset .= $_;
             }
         }
         else {
-            $newick_preset = "Example File Not Found";
+            $newick_preset = "未找到範例檔案 (Example File Not Found)";
         }
     }
     print table({ style => 'margin: 0 auto'},
-                Tr( td( 'Enter a tree in',
+                Tr( td( '以',
                         a( {href=> 'http://evolution.genetics.washington.edu/phylip/newicktree.html'},
                            'newick',
                          ),
+                        '格式輸入演化樹 (Enter a tree in newick):',
                         a( {href=> '?example_show=1'},
-                           'Show Me an Example',
+                           '檢視範例 (Show Me an Example)',
                          ),
                       ),
                   ),
@@ -1349,14 +1351,14 @@ sub show_form {
                    td( start_form(),
                        hidden( 'action', 'display'),
                        dl( 
-                          dt('Title'),
+                          dt('標題 (Title)'),
                           dd(textfield( -id   => 'title_box',
                                         -size => 30,
                                         -name => 'title',
                                         -value => $title_preset,
                                       ),
                             ),
-                          dt('Newick'),
+                          dt('Newick 格式 (Newick)'),
                           dd(textarea( -name => 'tree_string',
                                        -id   => 'tree_string_box',
                                        -rows => 4,
@@ -1364,30 +1366,30 @@ sub show_form {
                                        -value => $newick_preset,
                                      ),
                             ),
-                          dt('Optional Alignment'),
+                          dt('選填序列比對 (Optional Alignment)'),
                           dd( {class => 'boxbgcolor5'},
-                              div( 'Type:',
+                              div( '比對類型 (Type):',
                                    radio_group(  -name => 'align_type',
-                                                 -labels => { nt => 'Nucleotide',
-                                                              pep => 'Peptide',
+                                                 -labels => { nt => '核苷酸 (Nucleotide)',
+                                                              pep => '胜肽 (Peptide)',
                                                             },
                                                  -values => [qw[ nt pep ]],
                                                  -default => 'pep',
                                               ),
                                  ),
-                              div( 'Format:',
+                              div( '格式 (Format):',
                                    radio_group( -name => 'format',
                                                 -values => [qw[clustalw fasta]],
-                                                -labels => { clustalw => 'CLUSTAL alignment',
-                                                             fasta => 'Fasta (Gapped)',
+                                                -labels => { clustalw => 'CLUSTAL 比對格式',
+                                                             fasta => 'Fasta 格式 (含缺口)',
                                                            },
                                                 -default => 'fasta',
                                               ),
                                  ),
-                              div( 'Input Sequences:' ),
+                              div( '輸入序列 (Input Sequences):' ),
                               div( textarea(
                                             -onBlur => <<EOJS,
-document.getElementById('tree_submit').value = document.getElementById('align_seq_data_box').value ? 'View Tree and Alignment' : 'View Tree';
+document.getElementById('tree_submit').value = document.getElementById('align_seq_data_box').value ? '檢視演化樹與比對 (View Tree and Alignment)' : '檢視演化樹 (View Tree)';
 return false;
 EOJS
                                             -name    => 'align_seq_data',
@@ -1399,7 +1401,7 @@ EOJS
                                  ),
                             ),
                          ),
-                       CGI::reset( -value => 'Clear form',
+                       CGI::reset( -value => '清除表單 (Clear form)',
                                    -onClick => <<EOJS,
 document.getElementById('align_seq_data_box').value =
 document.getElementById('tree_string_box').value =
@@ -1409,7 +1411,7 @@ EOJS
                                  ),
                        submit(
                               -id => 'tree_submit',
-                              -value => $submit_preset || "View Tree",
+                              -value => $submit_preset || "檢視演化樹 (View Tree)",
                              ),
                        end_form(),
                      ),
@@ -1501,8 +1503,8 @@ sub input_err_page {
     my $input_err_page = shift;
     my $err_message    = shift;
     $input_err_page->header();
-    print page_title_html("Combined Tree/Alignment Error");
-    print "$err_message<br><br><a href=\"index.pl\">Start over</a><br>";
+    print page_title_html("演化樹/序列比對結合錯誤 (Combined Tree/Alignment Error)");
+    print "$err_message<br><br><a href=\"index.pl\">重新開始 (Start over)</a><br>";
     $input_err_page->footer();
     exit;
 }
@@ -1517,19 +1519,19 @@ sub oglist_html_table {
     my $row_end     = "</td></tr>";
     my $oglstring   = "<table width=\"100%\" border=\"0\" ><tr><td>";
     $oglstring .=
-        "Ortholog group"
-      . $cell_spacer . "Names"
+        "直系同源群組 (Ortholog group)"
+      . $cell_spacer . "名稱 (Names)"
       . $cell_spacer
-      . "Species"
+      . "物種 (Species)"
       . $cell_spacer
-      . "Matches species tree?"
+      . "符合物種樹？ (Matches species tree?)"
       . $cell_spacer
-      . "Distance"
+      . "距離 (Distance)"
       . $row_end;
 
     my $ognumber = 1;
     if ( scalar @oglist == 0 ) {
-        $oglstring .= "<tr><td>No ortholog groups found.$row_end";
+        $oglstring .= "<tr><td>未找到直系同源群組。(No ortholog groups found.)$row_end";
     }
     else {
         foreach my $o (@oglist) {

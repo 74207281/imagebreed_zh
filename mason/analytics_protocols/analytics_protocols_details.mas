@@ -16,31 +16,31 @@ $analytics_protocol_charts
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Analytics Protocol Name</b></td>
+                <td><b>分析實驗方案名稱(Analytics Protocol Name)</b></td>
                 <td>
                     <div id="analytics_protocol_name">
 % if ($analytics_protocol_name) {
 %   print "$analytics_protocol_name";
 % } else {
-%   print "<span class='text-danger'>[No Analytics Protocol Name]</span>";
+%   print "<span class='text-danger'>[無分析實驗方案名稱(No Analytics Protocol Name)]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Description</b></td>
+            <tr><td><b>描述(Description)</b></td>
                 <td>
                     <div id="analytics_protocol_description">
 % if ($analytics_protocol_description) {
 %  print "$analytics_protocol_description";
 % } else {
-%  print "<span class='text-danger'>[No Description]</span>";
+%  print "<span class='text-danger'>[無描述(No Description)]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Type</b></td>
+            <tr><td><b>類型(Type)</b></td>
                 <td>
                     <div id="analytics_protocol_type_name">
 %  print "$analytics_protocol_type_name";
@@ -48,7 +48,7 @@ $analytics_protocol_charts
                 </td>
             </tr>
 
-            <tr><td><b>Created</b></td>
+            <tr><td><b>建立時間(Created)</b></td>
                 <td>
                     <div id="analytics_protocol_create_date">
 %  print "$analytics_protocol_create_date";
@@ -56,7 +56,7 @@ $analytics_protocol_charts
                 </td>
             </tr>
 
-            <tr><td><b>Properties</b></td>
+            <tr><td><b>屬性(Properties)</b></td>
                 <td>
                     <div id="analytics_protocol_properties">
 %  if ($analytics_protocol_properties) {
@@ -68,7 +68,7 @@ $analytics_protocol_charts
                 </td>
             </tr>
 
-            <tr><td><b>Result Summary</b></td>
+            <tr><td><b>結果摘要(Result Summary)</b></td>
                 <td>
                     <div id="analytics_protocol_result_summary">
 %  if ($analytics_protocol_result_summary) {
@@ -83,11 +83,11 @@ $analytics_protocol_charts
 %           my $avg_varcomps_display = $s->{avg_varcomps_display};
 %           my $avg_cross_validation_display = $s->{avg_cross_validation_display};
 %           if ($analytics_result_type) {
-%               print "<h4>Type: ".$analytics_result_type."</h4>";
+%               print "<h4>類型(Type): ".$analytics_result_type."</h4>";
 %           }
 %           if ($env_corr_results) {
-%               print "<strong>Simulated Environment Correlation Results</strong><br/>";
-%               print $number_iterations." iterations<br/>";
+%               print "<strong>模擬環境相關性結果(Simulated Environment Correlation Results)</strong><br/>";
+%               print $number_iterations." 次迭代(iterations)<br/>";
 %               foreach my $env_type (sort keys %$env_corr_results) {
 %                   my $values = $env_corr_results->{$env_type}->{values};
 %                   my $values_string = join ',', @$values;
@@ -97,7 +97,7 @@ $analytics_protocol_charts
 %               }
 %           }
 %           if ($env_iterations) {
-%               print "<br/><strong>Simulated Environment Parameters</strong><br/>";
+%               print "<br/><strong>模擬環境參數(Simulated Environment Parameters)</strong><br/>";
 %               foreach my $iteration (sort keys %$env_iterations) {
 %                   print $iteration." : ";
 %                   foreach my $param (sort keys %{$env_iterations->{$iteration}}) {
@@ -129,7 +129,7 @@ $analytics_protocol_charts
 %           #    }
 %           #}
 %           if ($avg_varcomps_display) {
-%               print "<br/><strong>Variance Components</strong><br/>";
+%               print "<br/><strong>變異成分(Variance Components)</strong><br/>";
 %               foreach my $i (@$avg_varcomps_display) {
 %                   if (defined($i->{mean})) {
 %                       my $values_string = join ',', @{$i->{vals}};
@@ -138,7 +138,7 @@ $analytics_protocol_charts
 %               }
 %           }
 %           if ($avg_cross_validation_display) {
-%               print "<br/><strong>Cross Validation</strong><br/>";
+%               print "<br/><strong>交叉驗證(Cross Validation)</strong><br/>";
 %               foreach my $i (@$avg_cross_validation_display) {
 %                   print "$i->{type}: $i->{type_scenario}: CV1: $i->{cv1_mean} +- $i->{cv1_std} CV2: $i->{cv2_mean} +- $i->{cv2_std}<br/>";
 %               }

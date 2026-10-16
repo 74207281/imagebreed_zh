@@ -13,11 +13,11 @@
 =cut
 
 print <<HTML;
-    <h3 style="margin-bottom: 0.3em">SGN FTP site</h3>
-	<div style="margin: 0 1em 0 1em">Download complete datasets.</div><br />
+    <h3 style="margin-bottom: 0.3em">FTP 站台(FTP site)</h3>
+	<div style="margin: 0 1em 0 1em">下載完整資料集(Download complete datasets)。</div><br />
 
     <div style="margin: 0; padding: 1em; border: 1px solid #ccccff">
-	<a class="folderlink" href="ftp://ftp.solgenomics.net">ftp top level</a>
+	<a class="folderlink" href="ftp://ftp.solgenomics.net">FTP 根目錄(ftp top level)</a>
 	
 	<ul style="margin: 1em 0 0 0; list-style: none">
 	
@@ -25,25 +25,25 @@ HTML
 
     my %ftplinks = (
         'unigene_builds' =>
-'Sequence, quality, and membership information for all SGN unigene builds',
+'所有單一基因群建置版本的序列、品質及成員資訊(Sequence, quality, and membership information for all unigene builds)',
         'est_sequences' =>
-          'Sequence and quality files for all SGN ESTs, organized by library',
+          '依文庫組織之所有 EST 序列與品質檔案(Sequence and quality files for all ESTs, organized by library)',
         'maps_and_markers' =>
-          'Marker sequences and marker position lists for all SGN maps',
+          '所有圖譜之標記序列與標記位置列表(Marker sequences and marker position lists for all maps)',
         'physical_mapping' =>
-'Raw data files for Tomato HindIII BAC library FPC and overgo analyses',
+'番茄 HindIII BAC 文庫 FPC 與 Overgo 分析之原始資料檔案(Raw data files for Tomato HindIII BAC library FPC and overgo analyses)',
         'blast_annotations' =>
-'Highest-ranked hits vs. Genbank NR and Arabidopsis for all SGN unigenes.',
+'所有單一基因群比對 GenBank NR 與阿拉伯芥之最高排名比對結果(Highest-ranked hits vs. Genbank NR and Arabidopsis for all unigenes)',
         'manual_annotations' =>
-          'Manual annotations for a number of SGN unigenes',
+          '多個單一基因群之人工註解(Manual annotations for a number of unigenes)',
         'user_requests' =>
-'Custom-generated datasets for individual users (mail special requests to <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback</a>)',
+'針對個別使用者自訂產生的資料集（特殊需求請寄信至 <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback</a>）(Custom-generated datasets for individual users)',
         'genomes/Solanum_lycopersicum' =>
-          'Tomato genomic data, including BAC end and full BAC sequences',
+          '番茄基因組資料，包含 BAC 末端與完整 BAC 序列(Tomato genomic data, including BAC end and full BAC sequences)',
 	  'genomes/Solanum_tuberosum' => 
-	  'Potato genome data',
-	  'genomes/Nicotiana_benthamiana' => 'Nicotiana benthamiana genome data',
-        'COSII' => 'COSII marker data'
+	  '馬鈴薯基因組資料(Potato genome data)',
+	  'genomes/Nicotiana_benthamiana' => '本氏菸草基因組資料(Nicotiana benthamiana genome data)',
+        'COSII' => 'COSII 標記資料(COSII marker data)'
     );
 
     foreach my $dir ( sort keys %ftplinks ) {
@@ -60,7 +60,7 @@ HTML
     </div>
 
 	<br />
-	<i>Note:</i> The SGN FTP site can also be accessed directly through <a href="ftp://ftp.solgenomics.net">ftp://ftp.solgenomics.net</a> using a browser or ftp program.
+	<i>說明(Note)：</i> FTP 站台亦可透過瀏覽器或 FTP 客戶端程式直接連線至 <a href="ftp://ftp.solgenomics.net">ftp://ftp.solgenomics.net</a> 進行存取(The FTP site can also be accessed directly using a browser or ftp program)。
 HTML
 
 

@@ -22,7 +22,7 @@ use strict;
 use File::Spec;
 use CXGN::Tools::File;
 
-my $publications = "The publication of the week is currently unavailable.<br /><br />";
+my $publications = "本週精選出版物目前無法取得(The publication of the week is currently unavailable)。<br /><br />";
 
 eval {
 
@@ -34,11 +34,11 @@ eval {
 
 <!--
 <div class="boxbgcolor1" style="margin:0px;">
-<div class="boxheading">Featured publication</div>
+<div class="boxheading">精選出版物(Featured Publication)</div>
 <div class="boxcontent"><% $publications %>
-<a href="oldpublications.pl">See all publications...</a></div>
+<a href="oldpublications.pl">查看所有出版物(See all publications)...</a></div>
 -->
 
-<h4>Featured Publication</h4>
+<h4>精選出版物(Featured Publication)</h4>
 <% $publications %>
-<button class="btn btn-info btn-sm" onclick='location.href="/oldpublications.pl"'>See all publications...</button>
+<button class="btn btn-info btn-sm" onclick='location.href="/oldpublications.pl"'>查看所有出版物(See all publications)...</button>

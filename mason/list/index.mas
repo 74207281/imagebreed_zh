@@ -5,13 +5,13 @@ $user_id
 
 <& /util/import_javascript.mas, classes => [ ] &>
 
-<& /page/page_title.mas, title=>"Available lists" &>
+<& /page/page_title.mas, title=>"可用清單(Available lists)" &>
 <div id="list_div">
 
 </div>
 
 % if (! $user_id) {
-  <& /generic_message.mas, message=>"Login required for viewing your lists" &>
+  <& /generic_message.mas, message=>"檢視您的清單需要登入(Login required for viewing your lists)" &>
 % return;
 % }
 
@@ -32,8 +32,8 @@ pasteListMenu("test_area");
 </script>
 
 <form action="javascript:addNewList('new_list_name')">
-Create new list <input type="text" id="new_list_name" on/>
-<input type="submit" name="add" />
+建立新清單(Create new list) <input type="text" id="new_list_name" on/>
+<input type="submit" name="add" value="新增(Add)" />
 </form>
 
 

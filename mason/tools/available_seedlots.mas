@@ -3,16 +3,16 @@
   <table class="table table-hover table-bordered">
     <thead>
       <tr>
-        <th rowspan="2" style="text-align: center;">Accessions</th><th colspan="7" style="text-align: center;">Seedlots</th>
+        <th rowspan="2" style="text-align: center;">品系/種原(Accessions)</th><th colspan="7" style="text-align: center;">種子批次(Seedlots)</th>
       </tr>
       <tr>
         <th></th>
-        <th style="text-align: center;">Breeding Program</th>
-        <th style="text-align: center;">Seedlot Name</th>
-        <th style="text-align: center;">Contents</th>
-        <th style="text-align: center;">Seedlot Location</th>
-        <th style="text-align: center;">Count</th>
-        <th style="text-align: center;">Weight(g)</th>
+        <th style="text-align: center;">育種計畫(Breeding Program)</th>
+        <th style="text-align: center;">種子批次名稱(Seedlot Name)</th>
+        <th style="text-align: center;">內容物(Contents)</th>
+        <th style="text-align: center;">種子批次存放地點(Seedlot Location)</th>
+        <th style="text-align: center;">數量(Count)</th>
+        <th style="text-align: center;">重量(克)(Weight(g))</th>
       </tr>
     </thead>
   </table>
@@ -36,7 +36,7 @@
         error: function(response) {
           jQuery('#working_modal').modal('hide');
           console.log(response);
-          alert("Something went wrong in the available-seedlots AJAX call. See console for more information.")
+          alert("呼叫可用種子批次 (available-seedlots) AJAX 時發生錯誤，請參閱主控台以取得更多資訊。(Something went wrong in the available-seedlots AJAX call. See console for more information.)")
         }
       });
     };
@@ -88,7 +88,7 @@
       allOptionRows = newOptionRows.merge(optionRows);
       var optionRowCells = allOptionRows.selectAll("td").data(function(d){
           if (d==empty_placeholder){
-            return ['<input disabled type="checkbox">'," ","No Available Seedlots"," "," "," "," "]
+            return ['<input disabled type="checkbox">'," ","無可用種子批次(No Available Seedlots)"," "," "," "," "]
           }
           var cells = [];
           cells.push('<input value="'+d.seedlot[0]+'" name="'+d.seedlot[0]+'" type="checkbox">');

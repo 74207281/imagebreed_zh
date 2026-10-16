@@ -15,8 +15,8 @@ $trial_name
     <br /><br />
 </div>
 
-<button id="set_entry_numbers_template_btn" class="btn btn-default">Generate Entry Number Template</button>
-<button id="set_entry_numbers_upload_btn" class="btn btn-default">Upload Entry Number Template</button>
+<button id="set_entry_numbers_template_btn" class="btn btn-default">產生品系編號範本(Generate Entry Number Template)</button>
+<button id="set_entry_numbers_upload_btn" class="btn btn-default">上傳品系編號範本(Upload Entry Number Template)</button>
 
 <script src="//cdn.datatables.net/plug-ins/1.11.3/sorting/natural.js" defer></script>
 <script type="text/javascript">
@@ -37,8 +37,8 @@ $trial_name
             autoWidth: false,
             data: [],
             columns: [
-                { title: "Accession", data: "stock_name" },
-                { title: "Entry Number", data: "entry_number"}
+                { title: "種原(Accession)", data: "stock_name" },
+                { title: "品系編號(Entry Number)", data: "entry_number"}
             ],
             columnDefs: [
                 { type: 'natural', targets: 1 }
@@ -72,11 +72,11 @@ $trial_name
                     displayEntryNumbers(response.entry_numbers);
                 }
                 else {
-                    alert("ERROR: Could not load entry numbers due to a server error!");
+                    alert("錯誤：由於伺服器錯誤，無法載入品系編號！");
                 }
             },
             error: function() {
-                alert("ERROR: Could not load entry numbers due to a server error!");
+                alert("錯誤：由於伺服器錯誤，無法載入品系編號！");
             }
         });
     }

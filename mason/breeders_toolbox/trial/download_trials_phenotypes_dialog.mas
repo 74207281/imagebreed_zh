@@ -6,105 +6,105 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="downloadTrialsPhenotypesDialog">Download Phenotypes for Trials</h4>
+        <h4 class="modal-title" id="downloadTrialsPhenotypesDialog">下載試驗表型(Download Phenotypes for Trials)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 	       <form class="form-horizontal" role="form" method="post" >
 	        <div class="form-group">
-                <label class="col-sm-3 control-label">Format: </label>
+                <label class="col-sm-3 control-label">格式：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trials_phenotypes_format">
-                        <option value="csv">CSV Wide Format</option>
-                        <option value="csv_long">CSV Long Format</option>
-                        <option value="xlsx">Excel (xlsx) Wide Format</option>
-                        <option value="xlsx_long">Excel (xlsx) Long Format</option>
+                        <option value="csv">CSV 寬格式 (Wide Format)</option>
+                        <option value="csv_long">CSV 長格式 (Long Format)</option>
+                        <option value="xlsx">Excel (xlsx) 寬格式 (Wide Format)</option>
+                        <option value="xlsx_long">Excel (xlsx) 長格式 (Long Format)</option>
                     </select>
                 </div>
 	        </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Data Level: </label>
+                <label class="col-sm-3 control-label">資料層級：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trials_phenotypes_level_option">
-                        <option value="all">All Levels</option>
-                        <option value="plot">Plots</option>
-                        <option value="plant">Plants</option>
-                        <option value="subplot">Subplots</option>
+                        <option value="all">所有層級</option>
+                        <option value="plot">小區</option>
+                        <option value="plant">植株</option>
+                        <option value="subplot">次小區</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Repeated Measurements: </label>
+                <label class="col-sm-3 control-label">重複測量值：</label>
                 <div class="col-sm-9" >
                     <select class="form-control" id="download_trials_phenotypes_repeated_measurements">
-                        <option selected value="all">All Values</option>
-                        <option value="average">Average Repeated Values</option>
-                        <option value="first">First Value</option>
+                        <option selected value="all">所有數值</option>
+                        <option value="average">平均重複數值</option>
+                        <option value="first">第一筆數值</option>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Trait List (None gives all available traits): </label>
+                <label class="col-sm-3 control-label">性狀清單（無則提供所有可用性狀）：</label>
                 <div class="col-sm-9" >
                     <div id="download_trials_phenotypes_traits">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Accession List (None gives all available accessions): </label>
+                <label class="col-sm-3 control-label">種原清單（無則提供所有可用種原）：</label>
                 <div class="col-sm-9" >
                     <div id="download_trials_phenotypes_accessions">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Plot List (None gives all available plots): </label>
+                <label class="col-sm-3 control-label">小區清單（無則提供所有可用小區）：</label>
                 <div class="col-sm-9" >
                     <div id="download_trials_phenotypes_plots">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Plant List (None gives all available plants): </label>
+                <label class="col-sm-3 control-label">植株清單（無則提供所有可用植株）：</label>
                 <div class="col-sm-9" >
                     <div id="download_trials_phenotypes_plants">
                     </div>
                 </div>
             </div>
 
-<&| /page/info_section.mas, title=>"Additional Search Options",  collapsible => 1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>"其他搜尋選項(Additional Search Options)",  collapsible => 1, collapsed=>1 &>
 
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Include Timestamps: </label>
+                        <label class="col-sm-6 control-label">包含時間戳記：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trials_phenotypes_timestamp_option">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Suppress User Defined Outliers: </label>
+                        <label class="col-sm-6 control-label">排除使用者定義的離群值：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trials_phenotype_exclude_outliers">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label class="col-sm-6 control-label">Include Header: </label>
+                        <label class="col-sm-6 control-label">包含標頭：</label>
                         <div class="col-sm-6" >
                             <select class="form-control" id="download_trials_phenotype_include_header">
-                                <option value="0">No</option>
-                                <option value="1">Yes</option>
+                                <option value="0">否</option>
+                                <option value="1">是</option>
                             </select>
                         </div>
                     </div>
@@ -112,16 +112,16 @@
             </div>
 
             <div class="form-group">
-                <label class="col-sm-3 control-label">Trait Name Contains: </label>
+                <label class="col-sm-3 control-label">性狀名稱包含：</label>
                 <div class="col-sm-9" >
-                    <input id="download_trials_phenotype_trait_contains" name="download_trials_phenotype_trait_contains" type="text" class="form-control" placeholder="Example: storage root,oxoglutarate"/>
+                    <input id="download_trials_phenotype_trait_contains" name="download_trials_phenotype_trait_contains" type="text" class="form-control" placeholder="例如：storage root,oxoglutarate"/>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-8 control-label">Minimum Phenotype Value: </label>
+                        <label class="col-sm-8 control-label">最小表型值：</label>
                         <div class="col-sm-4" >
                             <input id="download_trials_phenotype_phenotype_min" name="download_trials_phenotype_phenotype_min" type="number" class="form-control" />
                         </div>
@@ -129,7 +129,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label class="col-sm-8 control-label">Maximum Phenotype Value: </label>
+                        <label class="col-sm-8 control-label">最大表型值：</label>
                         <div class="col-sm-4" >
                             <input id="download_trials_phenotype_phenotype_max" name="download_trials_phenotype_phenotype_max" type="number" class="form-control" />
                         </div>
@@ -143,8 +143,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="download_trials_phenotypes_cancel_button" id="download_trials_phenotypes_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="download_trials_phenotypes_submit_button" id="download_trials_phenotypes_submit_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="download_trials_phenotypes_cancel_button" id="download_trials_phenotypes_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="download_trials_phenotypes_submit_button" id="download_trials_phenotypes_submit_button" title="送出(Submit)">送出(Submit)</button>
       </div>
     </div>
   </div>
@@ -211,7 +211,7 @@ jQuery(document).ready(function() {
         if (selected.length !== 0) {
             window.open("/breeders/trials/phenotype/download?trial_list="+JSON.stringify(trial_id_array)+"&format="+format+"&timestamp="+timestamp+"&trait_contains="+JSON.stringify(trait_contains_array)+"&trait_list="+JSON.stringify(traits)+"&accession_list="+JSON.stringify(accessions)+"&plot_list="+JSON.stringify(plots)+"&plant_list="+JSON.stringify(plants)+"&dataLevel="+data_level+"&phenotype_min_value="+phenotype_min_value+"&phenotype_max_value="+phenotype_max_value+"&exclude_phenotype_outlier="+exclude_phenotype_outlier+"&return_only_first_measurement="+first_value_only+"&average_repeat_measurements="+average_repeat+"&has_header="+include_header);
         }
-        else { alert("No leaf nodes selected for download."); }
+        else { alert("未選擇可供下載的葉節點。"); }
     });
 
 });

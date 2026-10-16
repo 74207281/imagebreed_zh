@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Login;
@@ -25,9 +26,9 @@ if ((grep { $_ =~ /^$sp_person_id$/ } @owners) ) {
     $page->header();
     print <<HEREDOC;
     
-<h3>You are already the owner of the locus.<br>
-    Next time you can click on the 'login' link in the top right corner of every SGN page.<br><br>
-<a href="/locus/$locus_id/view">Go back</a> to the locus page.</h3> 
+<h3>您已經是該基因座的擁有者 (You are already the owner of the locus)。<br>
+    下次您可以點選每個 SGN 頁面右上角的「登入 (login)」連結。<br><br>
+<a href="/locus/$locus_id/view">返回 (Go back)</a> 基因座頁面。</h3> 
 
 HEREDOC
     $page->footer();
@@ -56,11 +57,11 @@ elsif ($args{action} eq 'request') {
 
     print <<END_HEREDOC;
 
-Your request for edit permissions on locus id: $locus_id<br /> 
-has been sent to the SGN development team.<br /><br />
-A reply will be sent to you shortly.<br /><br />
+您對基因座 ID: $locus_id 的編輯權限申請<br /> 
+已發送至 SGN 開發團隊。<br /><br />
+我們將盡快回覆您。<br /><br />
 
-<a href="locus_display.pl?locus_id=$locus_id">Go back</a> to the locus page. 
+<a href="locus_display.pl?locus_id=$locus_id">返回 (Go back)</a> 基因座頁面。 
 
 
 END_HEREDOC
@@ -76,15 +77,15 @@ sub confirm_dialog {
     #my $self = shift;
    
     my $locus_id = shift;
-    my $back_link = qq| <a href="locus_display.pl?locus_id=$locus_id">Go back</a> to the locus page without requesting edit privileges|;
+    my $back_link = qq| <a href="locus_display.pl?locus_id=$locus_id">返回 (Go back)</a> 基因座頁面（不申請編輯權限）|;
 
 
     print qq { 	
 	<form>
-	Request edit privileges for locus id: $locus_id? 
+	申請基因座 ID: $locus_id 的編輯權限？(Request edit privileges for locus id: $locus_id?) 
 	<input type="hidden" name="action" value="request" />
 	<input type="hidden" name="locus_id" value="$locus_id" />
-	<input type="submit" value="Sumbit request" />
+	<input type="submit" value="送出申請 (Submit request)" />
 	</form>
 	
 	$back_link

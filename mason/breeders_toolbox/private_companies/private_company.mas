@@ -22,127 +22,127 @@ $company_sp_person_access_cvterm_name
 $company_members
 </%args>
 
-<& /page/page_title.mas, title=>"Company: $name" &>
+<& /page/page_title.mas, title=>"公司(Company)：$name" &>
 
 %  my $edit_button_html = '';
 %  if ($company_sp_person_access_cvterm_name eq 'curator_access') {
-%    $edit_button_html = '<button class="btn btn-primary btn-sm" id="private_company_edit" style="margin:3px">Edit Company (Curators Only)</button>';
+%    $edit_button_html = '<button class="btn btn-primary btn-sm" id="private_company_edit" style="margin:3px">編輯公司（僅限策展人）(Edit Company (Curators Only))</button>';
 %  }
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>Company Info</h4>", info_section_subtitle => 'View and edit company information', buttons_html => $edit_button_html, icon_class => "glyphicon glyphicon-dashboard", info_section_id => "private_company_detail_page_info", company_id => $private_company_id, company_name => $name, company_description => $description, company_contact_email => $contact_email, company_contact_first_name => $contact_first_name, company_contact_last_name => $contact_last_name, company_contact_phone => $contact_phone, company_address_street => $address_street, company_address_street_2 => $address_street_2, company_address_state => $state, company_address_city => $city, company_address_zipcode => $zipcode, company_address_country => $country, company_create_date => $create_date, company_type_cvterm_id => $company_type_cvterm_id, company_type_cvterm_name => $company_type_cvterm_name, company_sp_person_access_cvterm_id => $company_sp_person_access_cvterm_id, company_sp_person_access_cvterm_name => $company_sp_person_access_cvterm_name &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>公司資訊(Company Info)</h4>", info_section_subtitle => '檢視並編輯公司資訊', buttons_html => $edit_button_html, icon_class => "glyphicon glyphicon-dashboard", info_section_id => "private_company_detail_page_info", company_id => $private_company_id, company_name => $name, company_description => $description, company_contact_email => $contact_email, company_contact_first_name => $contact_first_name, company_contact_last_name => $contact_last_name, company_contact_phone => $contact_phone, company_address_street => $address_street, company_address_street_2 => $address_street_2, company_address_state => $state, company_address_city => $city, company_address_zipcode => $zipcode, company_address_country => $country, company_create_date => $create_date, company_type_cvterm_id => $company_type_cvterm_id, company_type_cvterm_name => $company_type_cvterm_name, company_sp_person_access_cvterm_id => $company_sp_person_access_cvterm_id, company_sp_person_access_cvterm_name => $company_sp_person_access_cvterm_name &>
 
 %  my $members_button_html = '';
 %  if ($company_sp_person_access_cvterm_name eq 'curator_access' || $administrator eq 'site_admin') {
-%    $members_button_html = '<button class="btn btn-primary btn-sm" id="private_company_add_members" style="margin:3px">Add Members (Curators Only)</button>';
+%    $members_button_html = '<button class="btn btn-primary btn-sm" id="private_company_add_members" style="margin:3px">新增成員（僅限策展人）(Add Members (Curators Only))</button>';
 %  }
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, info_section_title => "<h4 style='display:inline'>Company Members</h4>", info_section_subtitle => 'View and edit company members', buttons_html => $members_button_html, icon_class => "glyphicon glyphicon-user", info_section_id => "private_company_detail_page_members", company_id => $private_company_id, company_name => $name, company_members => $company_members, company_sp_person_access_cvterm_id => $company_sp_person_access_cvterm_id, company_sp_person_access_cvterm_name => $company_sp_person_access_cvterm_name &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, info_section_title => "<h4 style='display:inline'>公司成員(Company Members)</h4>", info_section_subtitle => '檢視並編輯公司成員', buttons_html => $members_button_html, icon_class => "glyphicon glyphicon-user", info_section_id => "private_company_detail_page_members", company_id => $private_company_id, company_name => $name, company_members => $company_members, company_sp_person_access_cvterm_id => $company_sp_person_access_cvterm_id, company_sp_person_access_cvterm_name => $company_sp_person_access_cvterm_name &>
 
 <div class="modal fade" id="edit_company_dialog" name="edit_company_dialog" tabindex="-1" role="dialog" aria-labelledby="editCompanyDialog" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editCompanyDialog">Edit Company</h4>
+        <h4 class="modal-title" id="editCompanyDialog">編輯公司(Edit Company)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Company Name: </label>
+                    <label class="col-sm-4 control-label">公司名稱：</label>
                     <div class="col-sm-8" >
-                        <input class='form-control' type='text' id="add_company_name" placeholder="Your company name" value="<% $name %>" >
+                        <input class='form-control' type='text' id="add_company_name" placeholder="您的公司名稱" value="<% $name %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Company Description: </label>
+                    <label class="col-sm-4 control-label">公司描述：</label>
                     <div class="col-sm-8" >
-                        <input class='form-control' type='text' id="add_company_desc" placeholder="Your company description" value="<% $description %>" >
+                        <input class='form-control' type='text' id="add_company_desc" placeholder="您的公司描述" value="<% $description %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Contact Email: </label>
+                    <label class="col-sm-4 control-label">聯絡電子郵件：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_contact_email" value="<% $contact_email %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Contact First Name: </label>
+                    <label class="col-sm-4 control-label">聯絡人名字：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_contact_first_name" value="<% $contact_first_name %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Contact Last Name: </label>
+                    <label class="col-sm-4 control-label">聯絡人姓氏：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_contact_last_name" value="<% $contact_last_name %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Contact Phone Number: </label>
+                    <label class="col-sm-4 control-label">聯絡電話號碼：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_contact_phone" value="<% $contact_phone %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Street Address: </label>
+                    <label class="col-sm-4 control-label">街道地址：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_street_address" value="<% $address_street %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Apartment/Unit/Building Address: </label>
+                    <label class="col-sm-4 control-label">公寓/單元/大樓地址：</label>
                     <div class="col-sm-8" >
-                        <input class='form-control' type='text' id="add_company_street_address_2" placeholder="Optional (e.g. Unit 100)" value="<% $address_street_2 %>" >
+                        <input class='form-control' type='text' id="add_company_street_address_2" placeholder="選填 (例如：100 單元)" value="<% $address_street_2 %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">State: </label>
+                    <label class="col-sm-4 control-label">州/省：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_state" value="<% $state %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">City: </label>
+                    <label class="col-sm-4 control-label">城市：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_city" value="<% $city %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Zipcode: </label>
+                    <label class="col-sm-4 control-label">郵遞區號：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_zipcode" value="<% $zipcode %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Country: </label>
+                    <label class="col-sm-4 control-label">國家：</label>
                     <div class="col-sm-8" >
                         <input class='form-control' type='text' id="add_company_country" value="<% $country %>" >
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Company Access Type: </label>
+                    <label class="col-sm-4 control-label">公司存取類型：</label>
                     <div class="col-sm-8" >
                         <select class="form-control" id="add_company_access_type" name="add_company_access_type">
 %  if ($company_type_cvterm_name eq 'default_access') {
-                            <option value="default_access" selected>Make All Data Public</option>
+                            <option value="default_access" selected>將所有資料公開</option>
 %  } else {
-                            <option value="default_access">Make All Data Public</option>
+                            <option value="default_access">將所有資料公開</option>
 %  }
 %  if ($c->config->{subscription_model}) {
 
 %  if ($company_type_cvterm_name eq 'private_access') {
-                            <option value="" selected>Make All Data Private (Subscription Active)</option>
+                            <option value="" selected>將所有資料設為私有 (訂閱有效)</option>
 %  } else {
-                            <option value="" disabled>Make All Data Private (Subscription is Required. Contact Us!)</option>
+                            <option value="" disabled>將所有資料設為私有 (需要訂閱。請聯絡我們！)</option>
 %  }
 
 %  } else {
 
 %  if ($company_type_cvterm_name eq 'private_access') {
-                            <option value="private_access" selected>Make All Data Private (Subscription not Required)</option>
+                            <option value="private_access" selected>將所有資料設為私有 (不需要訂閱)</option>
 %  } else {
-                            <option value="private_access" >Make All Data Private (Subscription not Required)</option>
+                            <option value="private_access" >將所有資料設為私有 (不需要訂閱)</option>
 %  }
 
 %  }
@@ -153,8 +153,8 @@ $company_members
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="edit_company_submit" id="edit_company_submit">Continue</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="edit_company_submit" id="edit_company_submit">繼續(Continue)</button>
       </div>
     </div>
   </div>
@@ -165,24 +165,24 @@ $company_members
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addCompanyMembersDialog">Add Members to Company</h4>
+        <h4 class="modal-title" id="addCompanyMembersDialog">新增成員至公司(Add Members to Company)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Person: </label>
+                    <label class="col-sm-4 control-label">人員：</label>
                     <div class="col-sm-8" >
                         <div id="add_company_member_person_select_div"></div>
                     </div>
                 </div>
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-4 control-label">Access Type: </label>
+                    <label class="col-sm-4 control-label">權限類型：</label>
                     <div class="col-sm-8" >
                         <select class="form-control" id="add_company_member_access_type" name="add_company_access_type">
-                            <option value="user_access">User Access (Can view and download data)</option>
-                            <option value="submitter_access">Submitter Access (Can view, download, upload, and edit data)</option>
-                            <option value="curator_access">Curator Access (Can view, download, upload, edit, and delete data)</option>
+                            <option value="user_access">一般使用者權限 (可檢視與下載資料)</option>
+                            <option value="submitter_access">提交者權限 (可檢視、下載、上傳與編輯資料)</option>
+                            <option value="curator_access">策展人權限 (可檢視、下載、上傳、編輯與刪除資料)</option>
                         </select>
                     </div>
                 </div>
@@ -190,8 +190,8 @@ $company_members
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="add_company_member_submit" id="add_company_member_submit">Submit</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="add_company_member_submit" id="add_company_member_submit">送出(Submit)</button>
       </div>
     </div>
   </div>
@@ -208,43 +208,43 @@ jQuery(document).ready(function() {
     jQuery('#edit_company_submit').click(function(){
         var name = jQuery('#add_company_name').val();
         if (name == '') {
-            alert('Please give a company name!');
+            alert('請輸入公司名稱！');
             return false;
         }
 
         var description = jQuery('#add_company_desc').val();
         if (description == '') {
-            alert('Please give a company description!');
+            alert('請輸入公司描述！');
             return false;
         }
 
         var contact_email = jQuery('#add_company_contact_email').val();
         if (contact_email == '') {
-            alert('Please give a company contact email!');
+            alert('請輸入公司聯絡電子郵件！');
             return false;
         }
 
         var contact_first_name = jQuery('#add_company_contact_first_name').val();
         if (contact_first_name == '') {
-            alert('Please give a company contact first name!');
+            alert('請輸入公司聯絡人名字！');
             return false;
         }
 
         var contact_last_name = jQuery('#add_company_contact_last_name').val();
         if (contact_last_name == '') {
-            alert('Please give a company contact last name!');
+            alert('請輸入公司聯絡人姓氏！');
             return false;
         }
 
         var contact_phone = jQuery('#add_company_contact_phone').val();
         if (contact_phone == '') {
-            alert('Please give a company contact phone number!');
+            alert('請輸入公司聯絡電話號碼！');
             return false;
         }
 
         var address_street = jQuery('#add_company_street_address').val();
         if (address_street == '') {
-            alert('Please give a company street address!');
+            alert('請輸入公司街道地址！');
             return false;
         }
 
@@ -252,25 +252,25 @@ jQuery(document).ready(function() {
 
         var address_state = jQuery('#add_company_state').val();
         if (address_state == '') {
-            alert('Please give a company address state!');
+            alert('請輸入公司所在州/省！');
             return false;
         }
 
         var address_city = jQuery('#add_company_city').val();
         if (address_city == '') {
-            alert('Please give a company address city!');
+            alert('請輸入公司所在城市！');
             return false;
         }
 
         var address_zipcode = jQuery('#add_company_zipcode').val();
         if (address_zipcode == '') {
-            alert('Please give a company address zipcode!');
+            alert('請輸入公司地址郵遞區號！');
             return false;
         }
 
         var address_country = jQuery('#add_company_country').val();
         if (address_country == '') {
-            alert('Please give a company address country!');
+            alert('請輸入公司所在國家！');
             return false;
         }
 
@@ -304,13 +304,13 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 else {
-                    alert("Successfully edited company!");
+                    alert("成功編輯公司！");
                     location.reload();
                 }
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert("An error occurred creating new company");
+                alert("編輯公司時發生錯誤");
             },
         });
     });
@@ -333,7 +333,7 @@ jQuery(document).ready(function() {
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occured: '+response);
+                alert('發生錯誤：'+response);
             }
         });
 
@@ -358,13 +358,13 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 else {
-                    alert("Successfully added company member!");
+                    alert("成功新增公司成員！");
                     location.reload();
                 }
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert("An error occurred adding company member");
+                alert("新增公司成員時發生錯誤");
             },
         });
     });

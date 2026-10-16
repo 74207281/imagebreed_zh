@@ -3,6 +3,7 @@
 #Display page by property
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::PhenoPopulation;
 use CatalystX::GlobalContext qw( $c );
@@ -27,14 +28,14 @@ my $page = CXGN::Page->new('phenotype', 'Adri');
 
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 transitional//EN\" \"http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd\">";
 
-$page->header("Image and Data");
+$page->header("影像與數據 (Image and Data)");
 
 print <<EOF
 
 <table summary="" width="100%" cellpadding="0" cellspacing="10" border="0">
 
 <tr><td colspan="5">
-<center><h3><u>Image and Data</u></h3></center>
+<center><h3><u>影像與數據 (Image and Data)</u></h3></center>
 </td></tr>
 
 EOF
@@ -46,12 +47,12 @@ if ($filepath) {
 
 #plant info
 print "<tr><td>";
-print "<b><u>Image Information</u></b>\n";
+print "<b><u>影像資訊 (Image Information)</u></b>\n";
 print "<ul>\n";
-print "<li>Population: <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>\n";
-print "<li>Genotype Group: <a href=\"display_plants_from_genotype.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\"><b>$gen_name</b></a></li>\n";
-print "<li>Plant Name: <a href=\"display_samples_from_plant.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\&amp;gen_name=$gen_name\&amp;plant_name=$plant_name\&amp;plant_id=$plant_id\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\"><b>$plant_name</b></a></li>\n";
-print "<li>Location: <b> $institution $environment $year</b></li>\n";
+print "<li>族群 (Population): <a href=\"population.pl?pop_id=$pop_id\"><b>$pop_name</b></a></li>\n";
+print "<li>基因型群組 (Genotype Group): <a href=\"display_plants_from_genotype.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\"><b>$gen_name</b></a></li>\n";
+print "<li>植株名稱 (Plant Name): <a href=\"display_samples_from_plant.pl?pop_id=$pop_id\&amp;pop_name=$pop_name\&amp;gen_id=$gen_id\&amp;gen_name=$gen_name\&amp;plant_name=$plant_name\&amp;plant_id=$plant_id\&amp;institution=$institution\&amp;environment=$environment\&amp;year=$year\"><b>$plant_name</b></a></li>\n";
+print "<li>地點 (Location): <b> $institution $environment $year</b></li>\n";
 print "</ul>\n";
 print "</td></tr>\n";
 
@@ -65,7 +66,7 @@ print "<tr><td>\n";
 
 #table for image
 print "<table summary=\"\">\n";
-print "<tr><td>\n<b><u>Display Image</u></b>\n</td></tr>\n";
+print "<tr><td>\n<b><u>顯示影像 (Display Image)</u></b>\n</td></tr>\n";
 
   print "<tr><td>\n<br />";
 
@@ -75,25 +76,25 @@ print "<tr><td>\n<b><u>Display Image</u></b>\n</td></tr>\n";
   my $ext = $3;
 
   if ($ext eq "psd") {
-    print "<img src=\"/documents/img/linux_penguin_display.jpg\" align=\"middle\" alt=\"UNAVAILABLE\" />";
+    print "<img src=\"/documents/img/linux_penguin_display.jpg\" align=\"middle\" alt=\"暫無影像 (UNAVAILABLE)\" />";
   }
   elsif (!$filepath) {
-    print "<img src=\"/documents/img/linux_penguin_display.jpg\" align=\"middle\" alt=\"=(\" />";
+    print "<img src=\"/documents/img/linux_penguin_display.jpg\" align=\"middle\" alt=\"暫無影像 (UNAVAILABLE)\" />";
   }
   else {
-    print "<img src=\"$gen_image_dir/displays/" . $no_ext . "_display.png\"" ." align=\"middle\" alt=\"=(\" />";
+    print "<img src=\"$gen_image_dir/displays/" . $no_ext . "_display.png\"" ." align=\"middle\" alt=\"暫無影像 (UNAVAILABLE)\" />";
   }
 
   #zipped copy for download
   print "<br /><br />\n";
-  print "<center><b>Note</b>: this is not the original image;<br />";
+  print "<center><b>說明 (Note)</b>: 此非原始影像；<br />";
   if (system ("ls " . $gen_image_dir . "zips/" . $filepath . ".gz") == 0) {
     print "<a href=\"$gen_image_dir/zips/" .$filepath . ".gz\">";
-    print "download";
-    print "</a> the zipped copy for the orginal image.";
+    print "下載 (Download)";
+    print "</a> 原始影像壓縮檔 (the zipped copy for the original image)。";
   }
   else {
-    print "A downloadable copy is not available at this time.";
+    print "目前暫無可供下載的檔案 (A downloadable copy is not available at this time)。";
   }
   print "</center>\n";
   print "</td></tr>\n";
@@ -105,7 +106,7 @@ print "</td>\n";
 print <<EOF
 <td valign="top">
 <table summary="" width="100%" cellpadding="0" cellspacing="0" border="0">
-<tr><td align="center"><b><u>All Data For Image</u></b></td></tr>
+<tr><td align="center"><b><u>此影像的所有數據 (All Data For Image)</u></b></td></tr>
 
 <tr><td>
 <img src="/documents/img/dot_clear.gif" alt="" width="220" height="1" />
@@ -115,9 +116,9 @@ print <<EOF
 
 <table summary="" border="1" width="100%">
 <tr>
-<td width="33%"><center><b>PROPERTY</b></center></td>
-<td width="33%"><center><b>SAMPLE</b></center></td>
-<td width="33%"><center><b>VALUE</b></center></td>
+<td width="33%"><center><b>性狀/屬性 (PROPERTY)</b></center></td>
+<td width="33%"><center><b>樣本 (SAMPLE)</b></center></td>
+<td width="33%"><center><b>數值 (VALUE)</b></center></td>
 </tr>
 EOF
 ;
@@ -153,7 +154,7 @@ my %dp_value_by_prop_and_sample_name = CXGN::DB::PhenoPopulation::get_dp_info_fr
 	print "<td><center>$dp_value</center></td>\n";
       }
       else {
-	print "<td><center>Not Available</center></td>\n";
+	print "<td><center>暫無資料 (Not Available)</center></td>\n";
       }
 
       print "</tr>\n";
@@ -179,7 +180,7 @@ EOF
 #no image_id specified, something wrong with the prev link or somebody playing with the link?
 else {
   print "<tr><td>";
-  print "ERROR:  No image has been specified";
+  print "錯誤：未指定影像 (ERROR: No image has been specified)";
   print "</td></tr>";
 }
 

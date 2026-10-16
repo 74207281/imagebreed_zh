@@ -1,15 +1,11 @@
-<h3>Importing CSS</h3>
+<h3>匯入 CSS(Importing CSS)</h3>
 
 <p>
-  To import CSS one should use the <code>/util/import_css.mas</code>
-  mason component instead of a <code>&lt;link&gt;</code> element. This will
-  ensure that a link is added to the <code>&lt;head&gt;</code>
-  instead of being part of the <code>&lt;body&gt;</code>. One provides this
-  mason componant with a list of strings which are one of the following:
+  若要匯入 CSS，應使用 <code>/util/import_css.mas</code> Mason 元件，而非 <code>&lt;link&gt;</code> 元素。這可確保連結被加入至 <code>&lt;head&gt;</code> 中，而非 <code>&lt;body&gt;</code> 的一部分(To import CSS one should use the /util/import_css.mas mason component instead of a &lt;link&gt; element. This will ensure that a link is added to the &lt;head&gt; instead of being part of the &lt;body&gt;)。此 Mason 元件接受字串列表，字串須為下列之一(One provides this mason component with a list of strings which are one of the following)：
   <ul>
-    <li>The relative path to the CSS file from the /static/css folder.</li>
-    <li>The absolute site path to the CSS file.</li>
-    <li>A URL starting with the scheme name (i.e. 'http://...').</li>
+    <li>從 /static/css 資料夾出發的 CSS 檔案相對路徑(The relative path to the CSS file from the /static/css folder.)。</li>
+    <li>指向 CSS 檔案的絕對站台路徑(The absolute site path to the CSS file.)。</li>
+    <li>以通訊協定名稱開頭的 URL（例如 'http://...'）(A URL starting with the scheme name (i.e. 'http://...')).</li>
   </ul>
     <pre><%text><& /util/import_css.mas, paths => [
     'bootstrap/v1.css',
@@ -20,22 +16,17 @@
 
 <hr>
 
-<h3>Importing JavaScript</h3>
+<h3>匯入 JavaScript(Importing JavaScript)</h3>
 
 <p>
-  To import JavaScript one should use the <code>/util/import_javascript.mas</code>
-  mason component. This will ensure that the script is loaded in the
-  <code>&lt;head&gt;</code> instead of being part of the
-  <code>&lt;body&gt;</code>. One provides this mason componant with a list of
-  strings which are the path to the JavaScript file with slashes replaced by
-  periods (e.g. <code>s/\/\./g</code>) and the file extension removed.
+  若要匯入 JavaScript，應使用 <code>/util/import_javascript.mas</code> Mason 元件。這可確保指令碼載入至 <code>&lt;head&gt;</code> 中，而非 <code>&lt;body&gt;</code> 的一部分(To import JavaScript one should use the /util/import_javascript.mas mason component. This will ensure that the script is loaded in the &lt;head&gt; instead of being part of the &lt;body&gt;)。此 Mason 元件接受字串列表，內容為將斜線替換為點（例如 <code>s/\/\./g</code>）並移除副檔名後的 JavaScript 檔案路徑(One provides this mason component with a list of strings which are the path to the JavaScript file with slashes replaced by periods and the file extension removed)。
   <pre><%text><& /util/import_javascript.mas, classes => [qw[ CXGN.Effects MochiKit.DOM ]] &></%text></pre>
 </p>
 
 <hr>
 
-<h3>Info Sections</h3>
-<p>Source:</p>
+<h3>資訊區塊(Info Sections)</h3>
+<p>原始碼(Source)：</p>
 <pre><%text>
 &lt;&| /page/info_section.mas, id=&gt;'Example_Info_Section',
     title =&gt; 'Example Info Section', subtitle =&gt; 'This is a subtitle',
@@ -46,9 +37,9 @@
 &lt;/&&gt;
 </%text></pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <&| /page/info_section.mas, id=>'Example_Info_Section',
-    title => 'Example Info Section', subtitle => 'This is a subtitle',
+    title => '範例資訊區塊(Example Info Section)', subtitle => '這是一段副標題(This is a subtitle)',
     collapsible=>1, collapsed=>0 &>
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -57,8 +48,8 @@
 
 <hr>
 
-<h3>List Select Menus</h3>
-<p>Source:</p>
+<h3>清單選取選單(List Select Menus)</h3>
+<p>原始碼(Source)：</p>
 <pre>
   &lt;& /util/import_javascript.mas, classes => ['CXGN.List'] &&gt;
   &lt;div id="select_div_id"&gt;&lt;/div&gt;
@@ -69,7 +60,7 @@
   &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <div id="select_div_id"></div>
 <script type="text/javascript">
   var lo = new CXGN.List();
@@ -78,8 +69,8 @@
 </script>
 <hr>
 
-<h3>HTML Selects (get_select_box)</h3>
-<p>Source:</p>
+<h3>HTML 下拉選單(HTML Selects (get_select_box))</h3>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;& /util/import_javascript.mas, classes => ['CXGN.BreedersToolbox.HTMLSelect03152022'] &&gt;
 &lt;div id="htmlselectexample"&gt;&lt;/div&gt;
@@ -88,7 +79,7 @@
 &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <div id="htmlselectexample"></div>
 <script type="text/javascript">
     get_select_box("trials", "htmlselectexample")
@@ -96,8 +87,8 @@
 
 <hr>
 
-<h3>HTML Muliple Selects (get_select_box has many options e.g. search for trials in breeding_program_name)</h3>
-<p>Source:</p>
+<h3>HTML 多選下拉選單(HTML Multiple Selects (get_select_box))</h3>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;& /util/import_javascript.mas, classes => ['CXGN.BreedersToolbox.HTMLSelect03152022'] &&gt;
 &lt;div id="htmlselectmultipleexample"&gt;&lt;/div&gt;
@@ -106,7 +97,7 @@
 &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <div id="htmlselectmultipleexample"></div>
 <script type="text/javascript">
     get_select_box("trials", "htmlselectmultipleexample", {'multiple':1, 'size':10, 'breeding_program_name':'test'})
@@ -114,8 +105,8 @@
 
 <hr>
 
-<h3>Add to List Menu</h3>
-<p>Source:</p>
+<h3>加入至清單選單(Add to List Menu)</h3>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;div id="styleguide_add_to_list_menu"&gt;&lt;/div&gt;
 &lt;div id="styleguide_add_to_list_items" style="display:none"&gt;item1
@@ -129,7 +120,7 @@
 &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <div id="styleguide_add_to_list_menu"></div>
 <div id="styleguide_add_to_list_items" style="display:none">item1
     item2
@@ -143,8 +134,8 @@
 
 <hr>
 
-<h3>jQueryUI autocomplete</h3>
-<p>Source:</p>
+<h3>jQueryUI 自動完成(jQueryUI autocomplete)</h3>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;input type="text" class="form-control" id="popname" value="" placeholder="Populations autocomplete..."&gt;
 &lt;script type="text/javascript"&gt;
@@ -154,7 +145,7 @@
 &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <input type="text" class="form-control" id="popname" value="" placeholder="Populations autocomplete...">
 <script type="text/javascript">
   jQuery('#popname').autocomplete({
@@ -164,9 +155,9 @@
 
 <hr>
 
-<h3>2 Column Detail Page Section</h3>
-<p>This section is used from trial detail page and stock detail page, but ideally it would be used on all detail pages. The info_section_id specifies what to show in the main section. Buttons can be passed into the buttons_html.</p>
-<p>Source:</p>
+<h3>2 欄詳細資料頁面區塊(2 Column Detail Page Section)</h3>
+<p>此區塊用於試驗詳細資料頁面與種質詳細資料頁面，理想情況下可用於所有詳細資料頁面。info_section_id 指定主要區塊中顯示的內容。按鈕可傳入 buttons_html(This section is used from trial detail page and stock detail page, but ideally it would be used on all detail pages. The info_section_id specifies what to show in the main section. Buttons can be passed into the buttons_html.)。</p>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;& /page/detail_page_2_col_section.mas,
 info_section_title =&gt; "&lt;h4 style='display:inline'&gt;My Info Section&lt;/h4&gt;",
@@ -177,13 +168,13 @@ buttons_html =&gt; "&lt;button class='btn btn-sm btn-primary' style='margin:3px'
 &&gt;
 </pre>
 
-<p>Creates:</p>
-<& /page/detail_page_2_col_section.mas, info_section_title => "<h4 style='display:inline'>My Info Section</h4>", info_section_subtitle => 'View my info.', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "", buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='my_example_button'>Example Button</button>" &>
+<p>產生結果(Creates)：</p>
+<& /page/detail_page_2_col_section.mas, info_section_title => "<h4 style='display:inline'>我的資訊區塊(My Info Section)</h4>", info_section_subtitle => '檢視我的資訊(View my info.)', icon_class => "glyphicon glyphicon-equalizer", info_section_id => "", buttons_html => "<button class='btn btn-sm btn-primary' style='margin:3px' id='my_example_button'>範例按鈕(Example Button)</button>" &>
 
 <hr>
 
-<h3>3 Column Detail Page Section</h3>
-<p>Source:</p>
+<h3>3 欄詳細資料頁面區塊(3 Column Detail Page Section)</h3>
+<p>原始碼(Source)：</p>
 <pre>
 &lt;& /page/detail_page_3_col_section.mas,
 icon_class =&gt; "glyphicon glyphicon-qrcode",
@@ -192,23 +183,23 @@ button_id =&gt; "example_button_link"
 &&gt;
 </pre>
 
-<p>Creates:</p>
-<& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-qrcode", title => "Example title.", button_id => "example_button_link" &>
+<p>產生結果(Creates)：</p>
+<& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-qrcode", title => "範例標題(Example title.)", button_id => "example_button_link" &>
 
 <hr>
 
-<h3>An Example Workflow Explaining Workflows</h3>
+<h3>說明工作流程的範例工作流程(An Example Workflow Explaining Workflows)</h3>
 
 <&| /util/workflow.mas , id=> "my_workflow"&>
 
   <&| /util/workflow.mas:step, title=>"workflow.mas" &>
-    <p>Add a workflow using the <code>/util/workflow.mas</code> mason component</p>
+    <p>使用 <code>/util/workflow.mas</code> Mason 元件新增工作流程(Add a workflow using the /util/workflow.mas mason component)</p>
     <p><pre><%text>&lt;&amp;| /util/workflow.mas, id=> "my_workflow" &amp;&gt;...&lt;/&amp;&gt;</%text></pre></p>
-    <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">Next</button>
+    <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">下一步(Next)</button>
   </&>
 
-  <&| /util/workflow.mas:step, title=>"Adding Steps" &>
-    <p>Add steps to the workflow using the <code>/util/workflow.mas:step</code> mason method.</p>
+  <&| /util/workflow.mas:step, title=>"新增步驟(Adding Steps)" &>
+    <p>使用 <code>/util/workflow.mas:step</code> Mason 方法新增步驟至工作流程(Add steps to the workflow using the /util/workflow.mas:step mason method)。</p>
     <p>
 <pre><%text>&lt;&amp;| /util/workflow.mas, id=&gt; "my_workflow" &amp;&gt;
     &lt;&amp;| /util/workflow.mas:step, title=&gt; "Step A" &amp;&gt;...&lt;/&amp;&gt;
@@ -216,14 +207,12 @@ button_id =&gt; "example_button_link"
     ...
 &lt;/&amp;&gt;</%text></pre>
     </p>
-    <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">Next</button>
+    <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">下一步(Next)</button>
   </&>
 
-  <&| /util/workflow.mas:step, title=>"Completing Steps" &>
+  <&| /util/workflow.mas:step, title=>"完成步驟(Completing Steps)" &>
   <p>
-    Use the <code>Workflow.complete(Element)</code> JavaScript function to
-    complete a step. <code>Element</code> should be any DOM element within the
-    step you would like to complete.
+    使用 <code>Workflow.complete(Element)</code> JavaScript 函式來完成步驟。<code>Element</code> 應為您欲完成步驟內的任何 DOM 元素(Use the Workflow.complete(Element) JavaScript function to complete a step. Element should be any DOM element within the step you would like to complete)。
   </p>
   <p>
 <pre><%text>&lt;&amp;| /util/workflow.mas, id=&gt; "my_workflow"&amp;&gt;
@@ -234,14 +223,12 @@ button_id =&gt; "example_button_link"
   ...
 &lt;/&amp;&gt;</%text></pre>
   </p>
-  <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">Next</button>
+  <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">下一步(Next)</button>
   </&>
 
-  <&| /util/workflow.mas:step, title=>"Skipping Steps" &>
+  <&| /util/workflow.mas:step, title=>"略過步驟(Skipping Steps)" &>
   <p>
-    Skipping works like completing but marks the step as incomplete. Use
-    <code>Workflow.skip(Element)</code> just like you would
-    <code>Workflow.complete(Element)</code>.
+    略過步驟類似於完成步驟，但會將步驟標記為未完成。使用 <code>Workflow.skip(Element)</code>，就像使用 <code>Workflow.complete(Element)</code> 一樣(Skipping works like completing but marks the step as incomplete. Use Workflow.skip(Element) just like you would Workflow.complete(Element))。
   </p>
   <p>
 <pre><%text>&lt;&amp;| /util/workflow.mas, id=&gt; "my_workflow"&amp;&gt;
@@ -252,14 +239,12 @@ button_id =&gt; "example_button_link"
   ...
 &lt;/&amp;&gt;</%text></pre>
   </p>
-  <button type="button" class="btn btn-default" onclick="Workflow.skip(this);">Skip this Step</button>
+  <button type="button" class="btn btn-default" onclick="Workflow.skip(this);">略過此步驟(Skip this Step)</button>
   </&>
 
-  <&| /util/workflow.mas:step, title=>"Pending Steps" &>
+  <&| /util/workflow.mas:step, title=>"等待中步驟(Pending Steps)" &>
   <p>
-    Sometimes a step needs time to complete, such as uploads. You can mark a
-    step as pending using <code>Workflow.pending(Element)</code>. You can later
-    fully complete the step using <code>Workflow.complete(Element)</code>.
+    有時步驟需要時間才能完成，例如上傳。您可以使用 <code>Workflow.pending(Element)</code> 將步驟標記為等待中。稍後可以使用 <code>Workflow.complete(Element)</code> 完全完成該步驟(Sometimes a step needs time to complete, such as uploads. You can mark a step as pending using Workflow.pending(Element). You can later fully complete the step using Workflow.complete(Element))。
   </p>
   <p>
 <pre><%text>&lt;&amp;| /util/workflow.mas, id=&gt; "my_workflow"&amp;&gt;
@@ -271,16 +256,12 @@ button_id =&gt; "example_button_link"
   ...
 &lt;/&amp;&gt;</%text></pre>
   </p>
-  <button id="to_complete" type="button" class="btn btn-primary" onclick="Workflow.pending(this);">Wait and Continue</button>
+  <button id="to_complete" type="button" class="btn btn-primary" onclick="Workflow.pending(this);">等待並繼續(Wait and Continue)</button>
   </&>
 
-  <&| /util/workflow.mas:step, title=>"Endscreens" &>
+  <&| /util/workflow.mas:step, title=>"結束畫面(Endscreens)" &>
   <p>
-    After the final step is completed, an endscreen will be shown. To set the
-    content of the endscreen, use the <code>/util/workflow.mas:complete</code>
-    mason method. You can also optionally set a special endscreen which is shown
-    instead while there are pending steps using
-    <code>/util/workflow.mas:pending</code>.
+    在完成最後一步後，將顯示結束畫面。若要設定結束畫面的內容，請使用 <code>/util/workflow.mas:complete</code> Mason 方法。您也可以選擇使用 <code>/util/workflow.mas:pending</code> 設定在尚有等待中步驟時顯示的特殊結束畫面(After the final step is completed, an endscreen will be shown. To set the content of the endscreen, use the /util/workflow.mas:complete mason method. You can also optionally set a special endscreen which is shown instead while there are pending steps using /util/workflow.mas:pending)。
   </p>
   <p>
 <pre><%text>&lt;&amp;| /util/workflow.mas, id=&gt; "my_workflow"&amp;&gt;
@@ -289,25 +270,21 @@ button_id =&gt; "example_button_link"
   &lt;&amp;| /util/workflow.mas:pending &amp;&gt; ... &lt;/&amp;&gt;
 &lt;/&amp;&gt;</%text></pre>
   </p>
-  <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">Go to endscreen</button>
+  <button type="button" class="btn btn-default" onclick="Workflow.complete(this);">前往結束畫面(Go to endscreen)</button>
   </&>
 
   <&| /util/workflow.mas:pending &>
-    <h2>There is still a pending step. Complete it to see the final endscreen.</h2>
-    <button type="button" class="btn btn-default" onclick="Workflow.complete(document.querySelector('#to_complete'),false);">Complete Pending Step</button>
+    <h2>仍有等待中的步驟。請完成它以檢視最終結束畫面。(There is still a pending step. Complete it to see the final endscreen.)</h2>
+    <button type="button" class="btn btn-default" onclick="Workflow.complete(document.querySelector('#to_complete'),false);">完成等待中步驟(Complete Pending Step)</button>
   </&>
   <&| /util/workflow.mas:complete &>
-    <h1>Congratulations, you've made it through the workflow!</h1>
-    <h4>Here are some other tips and tricks:</h4>
-    <p>To set the currently visible step of the workflow use</p>
+    <h1>恭喜，您已完成此工作流程！(Congratulations, you've made it through the workflow!)</h1>
+    <h4>以下是一些其他提示與訣竅(Here are some other tips and tricks)：</h4>
+    <p>若要設定工作流程目前可見的步驟，請使用(To set the currently visible step of the workflow use)</p>
     <pre>var wf = document.querySelector("#my_workflow");
 Workflow.focus(wf,step_index);</pre>
     <p>
-      By default, <code>Workflow.complete(...)</code>,
-      <code>Workflow.skip(...)</code>, and <code>Workflow.pending(...)</code>
-      also change the focus to the next step. Sometimes, you need to set a step
-      to complete without changing the focus. To do this, pass
-      <code>false</code> as the second argument.
+      預設情況下，<code>Workflow.complete(...)</code>、<code>Workflow.skip(...)</code> 與 <code>Workflow.pending(...)</code> 也會將焦點切換至下一步。有時您需要在不更改焦點的情況下將步驟設定為完成。若要這樣做，請將 <code>false</code> 作為第二個引數傳入(By default, Workflow.complete(...), Workflow.skip(...), and Workflow.pending(...) also change the focus to the next step. Sometimes, you need to set a step to complete without changing the focus. To do this, pass false as the second argument)。
     </p>
     <pre>Workflow.complete(Element,false);
 Workflow.skip(Element,false);
@@ -406,23 +383,23 @@ to create:
     &lt;/script&gt;
 </pre>
 
-<p>Creates:</p>
+<p>產生結果(Creates)：</p>
 <div class="well">
 <table id="styleguide_trial_search_results" width="100%" class="table table-hover table-striped">
 <thead>
   <tr>
-    <th>Select</th>
-    <th>Trial name</th>
-    <th>Description</th>
-    <th>Breeding program</th>
-    <th>Folder</th>
-    <th>Year</th>
-    <th>Location</th>
-    <th>Trial type</th>
-    <th>Design</th>
-    <th>Planting Date</th>
-    <th>Harvest Date</th>
-    <th>Download</th>
+    <th>選取(Select)</th>
+    <th>試驗名稱(Trial name)</th>
+    <th>描述(Description)</th>
+    <th>育種計畫(Breeding program)</th>
+    <th>資料夾(Folder)</th>
+    <th>年份(Year)</th>
+    <th>地點(Location)</th>
+    <th>試驗類型(Trial type)</th>
+    <th>設計(Design)</th>
+    <th>種植日期(Planting Date)</th>
+    <th>收穫日期(Harvest Date)</th>
+    <th>下載(Download)</th>
 </tr>
 </thead>
 </table>
@@ -440,11 +417,10 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
 
 <hr>
 
-<h3>Use of Symbols</h3>
+<h3>符號使用規範(Use of Symbols)</h3>
 
 <p>
-  Below is a table with current usages of symbols in the database.
-  Please add to this tale when you choose to use a new symbol.
+  下表為資料庫中目前符號的使用情況。當您選擇使用新符號時，請將其新增至此表(Below is a table with current usages of symbols in the database. Please add to this table when you choose to use a new symbol)。
 </p>
 <style media="screen">
   .symbol-table>tbody>tr>td{
@@ -456,14 +432,14 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
 </style>
 <table class="table symbol-table">
   <tr>
-    <th>Symbol</th>
-    <th>Usages and contexts</th>
+    <th>符號(Symbol)</th>
+    <th>用途與情境(Usages and contexts)</th>
   </tr>
   <tr>
     <td><span class="glyphicon glyphicon-dashboard"></span></td>
     <td>
       <ul>
-        <li>Trial Details Top Section[Trial Detail]</li>
+        <li>試驗詳細資料頂部區塊(Trial Details Top Section)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -471,8 +447,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-align-left"></span></td>
     <td>
       <ul>
-        <li>JBrowse[Trial Detail]</li>
-        <li>JBrowse[Stock Detail]</li>
+        <li>JBrowse[試驗詳細資料(Trial Detail)]</li>
+        <li>JBrowse[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -480,8 +456,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-book"></span></td>
     <td>
       <ul>
-        <li>Literature Annotation[Stock Detail]</li>
-        <li>Upload Phenotype Data[Homepage Help]</li>
+        <li>文獻註解(Literature Annotation)[種質詳細資料(Stock Detail)]</li>
+        <li>上傳表型資料(Upload Phenotype Data)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -489,10 +465,10 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-briefcase"></span></td>
     <td>
       <ul>
-        <li>Breeding Program Symbol[Manage Trials]</li>
-        <li>Breeding Program Symbol[Manage Crosses]</li>
-        <li>Breeding Program Symbol[Manage Genotyping Plates]</li>
-        <li>Breeding Program Symbol[Folder Detail]</li>
+        <li>育種計畫符號(Breeding Program Symbol)[管理試驗(Manage Trials)]</li>
+        <li>育種計畫符號(Breeding Program Symbol)[管理雜交(Manage Crosses)]</li>
+        <li>育種計畫符號(Breeding Program Symbol)[管理基因型測定孔盤(Manage Genotyping Plates)]</li>
+        <li>育種計畫符號(Breeding Program Symbol)[資料夾詳細資料(Folder Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -500,10 +476,10 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-folder-open"></span></td>
     <td>
       <ul>
-        <li>Folder Symbol[Manage Trials]</li>
-        <li>Folder Symbol[Manage Crosses]</li>
-        <li>Folder Symbol[Manage Genotyping Plates]</li>
-        <li>Folder Symbol[Folder Detail]</li>
+        <li>資料夾符號(Folder Symbol)[管理試驗(Manage Trials)]</li>
+        <li>資料夾符號(Folder Symbol)[管理雜交(Manage Crosses)]</li>
+        <li>資料夾符號(Folder Symbol)[管理基因型測定孔盤(Manage Genotyping Plates)]</li>
+        <li>資料夾符號(Folder Symbol)[資料夾詳細資料(Folder Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -511,7 +487,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-camera"></span></td>
     <td>
       <ul>
-        <li>Images[Stock Detail]</li>
+        <li>影像(Images)[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -519,7 +495,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-transfer"></span></td>
     <td>
       <ul>
-        <li>Data Transfer[Manage ODK]</li>
+        <li>資料傳輸(Data Transfer)[管理 ODK(Manage ODK)]</li>
       </ul>
     </td>
   </tr>
@@ -527,7 +503,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-cloud"></span></td>
     <td>
       <ul>
-        <li>Weather Data[Trial Detail]</li>
+        <li>氣象資料(Weather Data)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -535,8 +511,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-equalizer"></span></td>
     <td>
       <ul>
-        <li>Phenotypes Summary Statistics[Trial Detail]</li>
-        <li>Traits assayed[Stock Detail]</li>
+        <li>表型摘要統計(Phenotypes Summary Statistics)[試驗詳細資料(Trial Detail)]</li>
+        <li>測定性狀(Traits assayed)[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -544,7 +520,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-inbox"></span></td>
     <td>
       <ul>
-        <li>Data Agreement[Trial Detail]</li>
+        <li>資料協議(Data Agreement)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -552,7 +528,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-info-sign"></span></td>
     <td>
       <ul>
-        <li>Additional Information[Stock Detail]</li>
+        <li>其他資訊(Additional Information)[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -560,10 +536,10 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-leaf"></span></td>
     <td>
       <ul>
-        <li>Experiment Usage[Stock Detail]</li>
-        <li>Trial Symbol[Manage Trials]</li>
-        <li>Trial Symbol[Folder Detail]</li>
-        <li>Field Trial Section[Manage Tissue Samples]</li>
+        <li>實驗使用情況(Experiment Usage)[種質詳細資料(Stock Detail)]</li>
+        <li>試驗符號(Trial Symbol)[管理試驗(Manage Trials)]</li>
+        <li>試驗符號(Trial Symbol)[資料夾詳細資料(Folder Detail)]</li>
+        <li>田間試驗區塊(Field Trial Section)[管理組織樣品(Manage Tissue Samples)]</li>
       </ul>
     </td>
   </tr>
@@ -571,7 +547,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-link"></span></td>
     <td>
       <ul>
-        <li>Experiment Linkage[Trial Detail]</li>
+        <li>實驗關聯(Experiment Linkage)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -579,8 +555,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-list-alt"></span></td>
     <td>
       <ul>
-        <li>Experiment Design[Trial Detail]</li>
-        <li>Catalog Seed Inventory[Homepage Help]</li>
+        <li>試驗設計(Experiment Design)[試驗詳細資料(Trial Detail)]</li>
+        <li>種子庫存目錄(Catalog Seed Inventory)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -588,7 +564,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-flash"></span></td>
     <td>
       <ul>
-        <li>Design New Trial[Homepage Help]</li>
+        <li>設計新試驗(Design New Trial)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -596,8 +572,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-cloud-upload"></span></td>
     <td>
       <ul>
-        <li>Upload Data Files[Trial Detail]</li>
-        <li>Upload Trial[Homepage Help]</li>
+        <li>上傳資料檔案(Upload Data Files)[試驗詳細資料(Trial Detail)]</li>
+        <li>上傳試驗(Upload Trial)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -605,7 +581,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-floppy-save"></span></td>
     <td>
       <ul>
-        <li>Compute New Phenotypes[Trial Detail]</li>
+        <li>計算新表型(Compute New Phenotypes)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -613,8 +589,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-pencil"></span></td>
     <td>
       <ul>
-        <li>Record Phenotypes[Trial Detail]</li>
-        <li>Comments[Stock Detail]</li>
+        <li>記錄表型(Record Phenotypes)[試驗詳細資料(Trial Detail)]</li>
+        <li>備註(Comments)[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -622,7 +598,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-qrcode"></span></td>
     <td>
       <ul>
-        <li>Barcode[Trial Detail]</li>
+        <li>條碼(Barcode)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -630,8 +606,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-random"></span></td>
     <td>
       <ul>
-        <li>Pedigree[Stock Detail]</li>
-        <li>Upload Crosses[Homepage Help]</li>
+        <li>系譜(Pedigree)[種質詳細資料(Stock Detail)]</li>
+        <li>上傳雜交(Upload Crosses)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -639,7 +615,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-flag"></span></td>
     <td>
       <ul>
-        <li>Plan Tissue Sampling[Homepage Help]</li>
+        <li>規劃組織採樣(Plan Tissue Sampling)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -647,7 +623,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-tags"></span></td>
     <td>
       <ul>
-        <li>Print Barcode Labels[Homepage Help]</li>
+        <li>列印條碼標籤(Print Barcode Labels)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -655,8 +631,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-map-marker"></span></td>
     <td>
       <ul>
-        <li>Genotype Marker Data[Stock Detail]</li>
-        <li>Upload VCF Genotype Data[Homepage Help]</li>
+        <li>基因型標記資料(Genotype Marker Data)[種質詳細資料(Stock Detail)]</li>
+        <li>上傳 VCF 基因型資料(Upload VCF Genotype Data)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -664,7 +640,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-retweet"></span></td>
     <td>
       <ul>
-        <li>Related Stocks[Stock Detail]</li>
+        <li>相關種質(Related Stocks)[種質詳細資料(Stock Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -672,8 +648,8 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-grain"></span></td>
     <td>
       <ul>
-        <li>Crosses Symbol[Manage Crosses]</li>
-        <li>Crosses Symbol[Folder Detail]</li>
+        <li>雜交符號(Crosses Symbol)[管理雜交(Manage Crosses)]</li>
+        <li>雜交符號(Crosses Symbol)[資料夾詳細資料(Folder Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -681,7 +657,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-signal"></span></td>
     <td>
       <ul>
-        <li>Analysis[Trial Detail]</li>
+        <li>分析(Analysis)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>
@@ -689,11 +665,11 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-th"></span></td>
     <td>
       <ul>
-        <li>Field Layout and Heatmap[Trial Detail]</li>
-        <li>Add Genotyping Plate (96 or 384 well plate)[Homepage Help]</li>
-        <li>Genotyping Plate Symbol(96 or 384 well plate)[Manage Genotyping Plates]</li>
-        <li>Genotyping Plate Symbol(96 or 384 well plate)[Folder Detail]</li>
-        <li>Genotyping Plates Section[Manage Tissue Samples]</li>
+        <li>田間配置與熱圖(Field Layout and Heatmap)[試驗詳細資料(Trial Detail)]</li>
+        <li>新增基因型測定孔盤 (96 或 384 孔盤)(Add Genotyping Plate (96 or 384 well plate))[首頁說明(Homepage Help)]</li>
+        <li>基因型測定孔盤符號 (96 或 384 孔盤)(Genotyping Plate Symbol(96 or 384 well plate))[管理基因型測定孔盤(Manage Genotyping Plates)]</li>
+        <li>基因型測定孔盤符號 (96 或 384 孔盤)(Genotyping Plate Symbol(96 or 384 well plate))[資料夾詳細資料(Folder Detail)]</li>
+        <li>基因型測定孔盤區塊(Genotyping Plates Section)[管理組織樣品(Manage Tissue Samples)]</li>
       </ul>
     </td>
   </tr>
@@ -701,7 +677,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-blackboard"></span></td>
     <td>
       <ul>
-        <li>Analyze Phenotypes[Homepage Help]</li>
+        <li>分析表型(Analyze Phenotypes)[首頁說明(Homepage Help)]</li>
       </ul>
     </td>
   </tr>
@@ -709,7 +685,7 @@ var styleguide_trial_table = jQuery('#styleguide_trial_search_results').DataTabl
     <td><span class="glyphicon glyphicon-trash"></span></td>
     <td>
       <ul>
-        <li>Deletion[Trial Detail]</li>
+        <li>刪除(Deletion)[試驗詳細資料(Trial Detail)]</li>
       </ul>
     </td>
   </tr>

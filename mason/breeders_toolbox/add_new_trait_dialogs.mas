@@ -6,95 +6,95 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addNewObservationVariableDialog">Add New Observation Variable</h4>
+                <h4 class="modal-title" id="addNewObservationVariableDialog">新增觀測變數(Add New Observation Variable)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "add_new_trait_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"Need a new observation variable?" &>
+                        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                            <& /page/page_title.mas, title=>"需要新的觀測變數嗎？" &>
                             <ul>
-                                <li>Please be sure the observation variable does not currently exist in the database using the trait search.</li>
-                                <li>Having many observation variables that are in fact recording the same thing is dangerous and can cause the database data to become fragmented.</li>
-                                <li>An observation variable is composed of a trait for the attribute being observed, a method describing how the attribute was measured, and a scale indicating the units of the observation.</li>
-                                <li>Having descriptive observation variables is critical for downstream analysis.</li>
+                                <li>請先使用性狀搜尋確認資料庫中目前不存在該觀測變數。</li>
+                                <li>若存在多個實際上紀錄相同事物的觀測變數是危險的，可能導致資料庫資料破碎化。</li>
+                                <li>觀測變數由代表被觀測屬性的性狀(trait)、描述測量屬性方式的方法(method)以及指示觀測單位的尺度(scale)所組成。</li>
+                                <li>具備描述詳盡的觀測變數對於下游分析至關重要。</li>
                             </ul>
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">Need a new ontology? Click here first.</button>
+                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">需要新本體論嗎？請先點擊此處(Need a new ontology? Click here first.)</button>
                             </center>
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "Observation Variable" &>
-                            <& /page/page_title.mas, title=>"Define your observation variable" &>
+                        <&| /util/workflow.mas:step, title=> "觀測變數(Observation Variable)" &>
+                            <& /page/page_title.mas, title=>"定義您的觀測變數" &>
 
-                            <p>An observation variable is composed of a trait for the attribute being observed, a method describing how the attribute was measured, and a scale indicating the units of the observation.</p>
+                            <p>觀測變數由代表被觀測屬性的性狀(trait)、描述測量屬性方式的方法(method)以及指示觀測單位的尺度(scale)所組成。</p>
                             <hr>
 
                             <center>
-                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">Need a new ontology? Click here first.</button>
+                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">需要新本體論嗎？請先點擊此處(Need a new ontology? Click here first.)</button>
                             </center>
                             <br/><br/>
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Observation Variable Ontology Name: </label>
+                                    <label class="col-sm-3 control-label">觀測變數本體論名稱：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_observation_variable_ontology_select_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Observation Variable Name: </label>
+                                    <label class="col-sm-3 control-label">新觀測變數名稱：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_observation_variable_name" name="add_new_observation_variable_name" type="text" placeholder="e.g. total mass of fruit harvest from a plant using MachineX in kilograms"/>
+                                        <input class="form-control" id="add_new_observation_variable_name" name="add_new_observation_variable_name" type="text" placeholder="例如：使用 MachineX 測量單株收穫果實總重（公斤）"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Observation Variable Definition: </label>
+                                    <label class="col-sm-3 control-label">新觀測變數定義：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_observation_variable_definition" name="add_new_observation_variable_definition" type="text" placeholder="e.g. total mass of fruit harvest from a plant using MachineX in kilograms"/>
+                                        <input class="form-control" id="add_new_observation_variable_definition" name="add_new_observation_variable_definition" type="text" placeholder="例如：使用 MachineX 測量單株收穫果實總重（公斤）"/>
                                     </div>
                                 </div>
                             </form>
                             <br/>
 
                             <center>
-                                <button class="btn btn-primary" id="add_new_trait_observation_variable_step">Go to Next Step</button>
+                                <button class="btn btn-primary" id="add_new_trait_observation_variable_step">前往下一步(Go to Next Step)</button>
                             </center>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Trait" &>
-                            <& /page/page_title.mas, title=>"Define your trait" &>
+                        <&| /util/workflow.mas:step, title=> "性狀(Trait)" &>
+                            <& /page/page_title.mas, title=>"定義您的性狀" &>
 
                             <ul>
-                                <li>A trait defines the attribute being measured. It is one component of an observation variable; the others are a method and a scale.</li>
-                                <li>Here you can select a trait that already exists in an ontology in the database or you can add a new trait into an ontology.</li>
+                                <li>性狀定義了所測量的屬性。它是觀測變數的一個組成部分；其他組成部分為方法和尺度。</li>
+                                <li>在此您可以選擇資料庫本體論中已存在的性狀，也可以向本體論新增新性狀。</li>
                             </ul>
                             <hr>
 
                             <center>
-                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">Need a new ontology? Click here first.</button>
+                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">需要新本體論嗎？請先點擊此處(Need a new ontology? Click here first.)</button>
                             </center>
                             <br/><br/>
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Trait Ontology Name: </label>
+                                    <label class="col-sm-3 control-label">性狀本體論名稱：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_ontology_select_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Existing Traits in Selected Ontology: </label>
+                                    <label class="col-sm-3 control-label">所選本體論中既有性狀：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_existing_trait_select_div">
                                         </div>
@@ -103,47 +103,47 @@
                                 <hr>
 
                                 <div class="well">
-                                    <h3>If the trait does not exist in the ontology you selected above, you can add a new trait into the ontology here.</h3>
+                                    <h3>若您上方所選的本體論中不存在該性狀，您可以在此向該本體論新增新性狀。</h3>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Trait Name: </label>
+                                    <label class="col-sm-3 control-label">新性狀名稱：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_name" name="add_new_trait_name" type="text" placeholder="e.g. harvested fruit mass per plant"/>
+                                        <input class="form-control" id="add_new_trait_name" name="add_new_trait_name" type="text" placeholder="例如：單株收穫果實重量"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Trait Definition: </label>
+                                    <label class="col-sm-3 control-label">新性狀定義：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_definition" name="add_new_trait_definition" type="text" placeholder="e.g. the total mass of fruit harvested from a plant"/>
+                                        <input class="form-control" id="add_new_trait_definition" name="add_new_trait_definition" type="text" placeholder="例如：單株所收穫果實的總重量"/>
                                     </div>
                                 </div>
                             </form>
 
                             <center>
-                                <button class="btn btn-primary" id="add_new_trait_trait_step">Go to Next Step</button>
+                                <button class="btn btn-primary" id="add_new_trait_trait_step">前往下一步(Go to Next Step)</button>
                             </center>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Method" &>
-                            <p>A method defines the how it was measured measured. It is one component of an observation variable; the others are a trait and a scale.</p>
+                        <&| /util/workflow.mas:step, title=> "方法(Method)" &>
+                            <p>方法定義了屬性的測量方式。它是觀測變數的一個組成部分；其他組成部分為性狀和尺度。</p>
                             <hr>
 
                             <center>
-                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">Need a new ontology? Click here first.</button>
+                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">需要新本體論嗎？請先點擊此處(Need a new ontology? Click here first.)</button>
                             </center>
                             <br/><br/>
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Method Ontology Name: </label>
+                                    <label class="col-sm-3 control-label">方法本體論名稱：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_method_ontology_select_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Existing Methods in Selected Ontology: </label>
+                                    <label class="col-sm-3 control-label">所選本體論中既有方法：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_existing_method_select_div">
                                         </div>
@@ -152,46 +152,46 @@
                                 <hr>
 
                                 <div class="well">
-                                    <h3>If the method does not exist in the ontology you selected above, you can add a new method into the ontology here.</h3>
+                                    <h3>若您上方所選的本體論中不存在該方法，您可以在此向該本體論新增新方法。</h3>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Method Name: </label>
+                                    <label class="col-sm-3 control-label">新方法名稱：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_method_name" name="add_new_trait_method_name" type="text" placeholder="e.g. BrandA Mass Balance 0.001g Accuracy"/>
+                                        <input class="form-control" id="add_new_trait_method_name" name="add_new_trait_method_name" type="text" placeholder="例如：BrandA 天平精準度 0.001g"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Method Definition: </label>
+                                    <label class="col-sm-3 control-label">新方法定義：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_method_definition" name="add_new_trait_method_definition" type="text" placeholder="e.g. BrandA MachineX Mass Balance 0.001g Accuracy"/>
+                                        <input class="form-control" id="add_new_trait_method_definition" name="add_new_trait_method_definition" type="text" placeholder="例如：BrandA MachineX 天平精準度 0.001g"/>
                                     </div>
                                 </div>
                             </form>
 
                             <center>
-                                <button type="button" class="btn btn-primary" id="add_new_trait_method_step">Go to Next Step</button>
+                                <button type="button" class="btn btn-primary" id="add_new_trait_method_step">前往下一步(Go to Next Step)</button>
                             </center>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Scale" &>
-                            <& /page/page_title.mas, title=>"Define your scale" &>
+                        <&| /util/workflow.mas:step, title=> "尺度(Scale)" &>
+                            <& /page/page_title.mas, title=>"定義您的尺度" &>
 
                             <center>
-                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">Need a new ontology? Click here first.</button>
+                                <button class="btn btn-primary" name="add_new_observation_variable_ontology_add_button">需要新本體論嗎？請先點擊此處(Need a new ontology? Click here first.)</button>
                             </center>
                             <br/><br/>
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Scale Ontology Name: </label>
+                                    <label class="col-sm-3 control-label">尺度本體論名稱：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_scale_ontology_select_div">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Existing Scales in Selected Ontology: </label>
+                                    <label class="col-sm-3 control-label">所選本體論中既有尺度：</label>
                                     <div class="col-sm-9">
                                         <div id="add_new_trait_existing_scale_select_div">
                                         </div>
@@ -200,71 +200,71 @@
                                 <hr>
 
                                 <div class="well">
-                                    <h3>If the scale does not exist in the ontology you selected above, you can add a new scale into the ontology here.</h3>
+                                    <h3>若您上方所選的本體論中不存在該尺度，您可以在此向該本體論新增新尺度。</h3>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Name: </label>
+                                    <label class="col-sm-3 control-label">新尺度名稱：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_name" name="add_new_trait_scale_name" type="text" placeholder="e.g. mass in kilograms"/>
+                                        <input class="form-control" id="add_new_trait_scale_name" name="add_new_trait_scale_name" type="text" placeholder="例如：質量（公斤）"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Definition: </label>
+                                    <label class="col-sm-3 control-label">新尺度定義：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_definition" name="add_new_trait_scale_definition" type="text" placeholder="e.g. the mass in kilograms"/>
+                                        <input class="form-control" id="add_new_trait_scale_definition" name="add_new_trait_scale_definition" type="text" placeholder="例如：以公斤為單位的質量"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Format: </label>
+                                    <label class="col-sm-3 control-label">新尺度格式：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="add_new_trait_scale_format" name="add_new_trait_scale_format" >
-                                            <option value="">Select One</option>
-                                            <option value="qualitative">qualitative</option>
-                                            <option value="quantitative">quantitative</option>
+                                            <option value="">請選擇一項</option>
+                                            <option value="qualitative">質性 (qualitative)</option>
+                                            <option value="quantitative">量化 (quantitative)</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Minimum: </label>
+                                    <label class="col-sm-3 control-label">新尺度最小值：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_minimum" name="add_new_trait_scale_minimum" type="text" placeholder="e.g. 1"/>
+                                        <input class="form-control" id="add_new_trait_scale_minimum" name="add_new_trait_scale_minimum" type="text" placeholder="例如：1"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Maximum: </label>
+                                    <label class="col-sm-3 control-label">新尺度最大值：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_maximum" name="add_new_trait_scale_maximum" type="text" placeholder="e.g. 10000"/>
+                                        <input class="form-control" id="add_new_trait_scale_maximum" name="add_new_trait_scale_maximum" type="text" placeholder="例如：10000"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Categories ('/' separated): </label>
+                                    <label class="col-sm-3 control-label">新尺度類別（以 '/' 分隔）：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_categories" name="add_new_trait_scale_categories" type="text" placeholder="e.g. 1/3/5/7"/>
+                                        <input class="form-control" id="add_new_trait_scale_categories" name="add_new_trait_scale_categories" type="text" placeholder="例如：1/3/5/7"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Scale Default Value: </label>
+                                    <label class="col-sm-3 control-label">新尺度預設值：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_trait_scale_default" name="add_new_trait_scale_default" type="text" placeholder="e.g. 5"/>
+                                        <input class="form-control" id="add_new_trait_scale_default" name="add_new_trait_scale_default" type="text" placeholder="例如：5"/>
                                     </div>
                                 </div>
                             </form>
 
                             <center>
-                                <button type="button" class="btn btn-primary" id="add_new_trait_scale_step">Go to Next Step</button>
+                                <button type="button" class="btn btn-primary" id="add_new_trait_scale_step">前往下一步(Go to Next Step)</button>
                             </center>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Confirm" &>
-                            <& /page/page_title.mas, title=>"Confirm you are creating this observation variable in the database" &>
+                        <&| /util/workflow.mas:step, title=> "確認(Confirm)" &>
+                            <& /page/page_title.mas, title=>"確認要在資料庫中建立此觀測變數" &>
 
                             <center>
-                                <button class="btn btn-primary" id="add_new_trait_submit_button">Submit</button>
+                                <button class="btn btn-primary" id="add_new_trait_submit_button">送出(Submit)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your observation variable is now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的觀測變數現已收錄於資料庫中" &>
 
                             <div id="add_new_trait_added_observation_variable_div">
                             </div>
@@ -275,7 +275,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -286,54 +286,54 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addNewObservationVariableOntologyDialog">Add New Ontology</h4>
+                <h4 class="modal-title" id="addNewObservationVariableOntologyDialog">新增本體論(Add New Ontology)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "add_new_ontology_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"Start a new ontology" &>
+                        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                            <& /page/page_title.mas, title=>"開始建立新本體論" &>
                             <ul>
-                                <li>In this workflow you can add a new ontology to the database. Once an ontology is added, you can add terms into it from the add observation variables workflow.</li>
-                                <li>Ontologies are tagged as being either for traits, methods, or scales</li>
+                                <li>在此工作流程中，您可以向資料庫新增新的本體論。新增本體論後，您可以從「新增觀測變數」工作流程中向其新增詞彙。</li>
+                                <li>本體論會被標記為性狀、方法或尺度專用</li>
                             </ul>
 
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
-                        <&| /util/workflow.mas:step, title=> "Ontology" &>
-                            <& /page/page_title.mas, title=>"Define your ontology" &>
+                        <&| /util/workflow.mas:step, title=> "本體論(Ontology)" &>
+                            <& /page/page_title.mas, title=>"定義您的本體論" &>
 
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Ontology Name: </label>
+                                    <label class="col-sm-3 control-label">新本體論名稱：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_observation_variable_ontology_name" name="add_new_observation_variable_ontology_name" type="text" placeholder="e.g. MyBreedingProgram Grape Ontology"/>
+                                        <input class="form-control" id="add_new_observation_variable_ontology_name" name="add_new_observation_variable_ontology_name" type="text" placeholder="例如：MyBreedingProgram 葡萄本體論"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Ontology Definition: </label>
+                                    <label class="col-sm-3 control-label">新本體論定義：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_observation_variable_ontology_definition" name="add_new_observation_variable_ontology_definition" type="text" placeholder="e.g. description of the ontology"/>
+                                        <input class="form-control" id="add_new_observation_variable_ontology_definition" name="add_new_observation_variable_ontology_definition" type="text" placeholder="例如：本體論的描述說明"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">New Ontology Database Identifier: </label>
+                                    <label class="col-sm-3 control-label">新本體論資料庫識別碼：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" id="add_new_observation_variable_ontology_db_name" name="add_new_observation_variable_ontology_db_name" type="text" placeholder="a unique identifier for the terms in the ontology e.g. CO322"/>
+                                        <input class="form-control" id="add_new_observation_variable_ontology_db_name" name="add_new_observation_variable_ontology_db_name" type="text" placeholder="本體論中詞彙的唯一識別碼，例如 CO322"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Ontology Type: </label>
+                                    <label class="col-sm-3 control-label">本體論類型：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="add_new_observation_variable_ontology_type" name="add_new_observation_variable_ontology_type"/>
-                                            <option value="trait_ontology">Trait or Observation Variable</option>
-                                            <option value="method_ontology">Method</option>
-                                            <option value="unit_ontology">Scale</option>
+                                            <option value="trait_ontology">性狀或觀測變數 (Trait or Observation Variable)</option>
+                                            <option value="method_ontology">方法 (Method)</option>
+                                            <option value="unit_ontology">尺度 (Scale)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -341,12 +341,12 @@
                             <br/>
 
                             <center>
-                                <button class="btn btn-primary" id="add_new_trait_observation_variable_ontology_step">Store Ontology</button>
+                                <button class="btn btn-primary" id="add_new_trait_observation_variable_ontology_step">儲存本體論(Store Ontology)</button>
                             </center>
 
                         </&>
                         <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your ontology is now in the database. Add new terms into it from the add observation variable workflow." &>
+                            <& /page/page_title.mas, title=>"完成！您的本體論現已存入資料庫。請從「新增觀測變數」工作流程向其新增詞彙。" &>
                         </&>
 
                     </&><!-- End of workflow -->
@@ -354,7 +354,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -387,11 +387,11 @@ jQuery(document).ready(function() {
     var add_new_trait_new_observation_variable_definition;
     jQuery('#add_new_trait_observation_variable_step').click(function() {
         if (jQuery('#add_new_observation_variable_name').val() == '') {
-            alert('Please give a new observation variable name!');
+            alert('請提供新觀測變數名稱！');
             return false;
         }
         if (jQuery('#add_new_observation_variable_definition').val() == '') {
-            alert('Please give a new observation variable definition!');
+            alert('請提供新觀測變數定義！');
             return false;
         }
         var selected = [];
@@ -399,9 +399,9 @@ jQuery(document).ready(function() {
             selected.push(jQuery(this).val());
         });
         if (selected.length < 1) {
-            alert('Please select one observation variable ontology!');
+            alert('請選擇一個觀測變數本體論！');
         } else if (selected.length > 1) {
-            alert('Only select one observation variable ontology!');
+            alert('請僅選擇一個觀測變數本體論！');
         } else {
             add_new_trait_new_observation_variable_name = jQuery('#add_new_observation_variable_name').val();
             add_new_trait_new_observation_variable_definition = jQuery('#add_new_observation_variable_definition').val();
@@ -419,7 +419,7 @@ jQuery(document).ready(function() {
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1) {
-            alert('Only select one trait ontology!');
+            alert('請僅選擇一個性狀本體論！');
         } else {
             add_new_trait_new_trait_db_id = selected[0];
             get_select_box('all_ontology_terms', 'add_new_trait_existing_trait_select_div', { 'selectbox_name':'add_new_trait_existing_trait_select',    'selectbox_id':'add_new_trait_existing_trait_select', 'empty':1, 'db_id':selected[0], 'exclude_top_term':1 });
@@ -433,7 +433,7 @@ jQuery(document).ready(function() {
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1) {
-            alert('Only select one method ontology!');
+            alert('請僅選擇一個方法本體論！');
         } else {
             add_new_trait_new_method_db_id = selected[0];
             get_select_box('all_ontology_terms', 'add_new_trait_existing_method_select_div', { 'selectbox_name':'add_new_trait_existing_method_select',    'selectbox_id':'add_new_trait_existing_method_select', 'empty':1, 'db_id':selected[0], 'exclude_top_term':1 });
@@ -447,7 +447,7 @@ jQuery(document).ready(function() {
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1) {
-            alert('Only select one scale ontology!');
+            alert('請僅選擇一個尺度本體論！');
         } else {
             add_new_trait_new_scale_db_id = selected[0];
             get_select_box('all_ontology_terms', 'add_new_trait_existing_scale_select_div', { 'selectbox_name':'add_new_trait_existing_scale_select',    'selectbox_id':'add_new_trait_existing_scale_select', 'empty':1, 'db_id':selected[0], 'exclude_top_term':1 });
@@ -463,11 +463,11 @@ jQuery(document).ready(function() {
             add_new_trait_selected_trait_val = '';
         }
         if (add_new_trait_selected_trait_val == '' && jQuery('#add_new_trait_name').val() == '') {
-            alert('Please select an existing trait or give a new trait name!');
+            alert('請選擇既有性狀或提供新性狀名稱！');
             return false;
         }
         if (add_new_trait_selected_trait_val != '' && jQuery('#add_new_trait_name').val() != '') {
-            alert('Please select an existing trait or give a new trait name, and not both!');
+            alert('請選擇既有性狀或提供新性狀名稱，請勿兩者皆填！');
             return false;
         }
         var selected = [];
@@ -479,19 +479,19 @@ jQuery(document).ready(function() {
             }
         });
         if (selected.length < 1) {
-            alert('Please select one trait ontology!');
+            alert('請選擇一個性狀本體論！');
         } else if (selected.length > 1) {
-            alert('Only select one trait ontology!');
+            alert('請僅選擇一個性狀本體論！');
         } else {
             if (add_new_trait_selected_trait_val == '') {
                 if (selected_protected == 1) {
-                    alert('Please do not add new terms to protected ontologies!');
+                    alert('請勿向受保護的本體論新增新詞彙！');
                 }
                 else if (jQuery('#add_new_trait_name').val() == ''){
-                    alert('Please give a new trait name!');
+                    alert('請提供新性狀名稱！');
                 }
                 else if (jQuery('#add_new_trait_definition').val() == ''){
-                    alert('Please give a new trait definition!');
+                    alert('請提供新性狀定義！');
                 }
                 else {
                     add_new_trait_new_trait_name = jQuery('#add_new_trait_name').val();
@@ -517,11 +517,11 @@ jQuery(document).ready(function() {
             add_new_trait_selected_method_val = '';
         }
         if (add_new_trait_selected_method_val == '' && jQuery('#add_new_trait_method_name').val() == '') {
-            alert('Please select an existing method or give a new method name!');
+            alert('請選擇既有方法或提供新方法名稱！');
             return false;
         }
         if (add_new_trait_selected_method_val != '' && jQuery('#add_new_trait_method_name').val() != '') {
-            alert('Please select an existing method or give a new method name, and not both!');
+            alert('請選擇既有方法或提供新方法名稱，請勿兩者皆填！');
             return false;
         }
         var selected = [];
@@ -533,19 +533,19 @@ jQuery(document).ready(function() {
             }
         });
         if (selected.length < 1) {
-            alert('Please select one method ontology!');
+            alert('請選擇一個方法本體論！');
         } else if (selected.length > 1) {
-            alert('Only select one method ontology!');
+            alert('請僅選擇一個方法本體論！');
         } else {
             if (add_new_trait_selected_method_val == '') {
                 if (selected_protected == 1) {
-                    alert('Please do not add new terms to protected ontologies!');
+                    alert('請勿向受保護的本體論新增新詞彙！');
                 }
                 else if (jQuery('#add_new_trait_method_name').val() == ''){
-                    alert('Please give a new method name!');
+                    alert('請提供新方法名稱！');
                 }
                 else if (jQuery('#add_new_trait_method_definition').val() == ''){
-                    alert('Please give a new method definition!');
+                    alert('請提供新方法定義！');
                 }
                 else {
                     add_new_trait_new_method_name = jQuery('#add_new_trait_method_name').val();
@@ -576,11 +576,11 @@ jQuery(document).ready(function() {
             add_new_trait_selected_scale_val = '';
         }
         if (add_new_trait_selected_scale_val == '' && jQuery('#add_new_trait_scale_name').val() == '') {
-            alert('Please select an existing scale or give a new scale name!');
+            alert('請選擇既有尺度或提供新尺度名稱！');
             return false;
         }
         if (add_new_trait_selected_scale_val != '' && jQuery('#add_new_trait_scale_name').val() != '') {
-            alert('Please select an existing scale or give a new scale name, and not both!');
+            alert('請選擇既有尺度或提供新尺度名稱，請勿兩者皆填！');
             return false;
         }
         var selected = [];
@@ -592,28 +592,28 @@ jQuery(document).ready(function() {
             }
         });
         if (selected.length < 1) {
-            alert('Please select one scale ontology!');
+            alert('請選擇一個尺度本體論！');
         } else if (selected.length > 1) {
-            alert('Only select one scale ontology!');
+            alert('請僅選擇一個尺度本體論！');
         } else {
             if (add_new_trait_selected_scale_val == '') {
                 if (selected_protected == 1) {
-                    alert('Please do not add new terms to protected ontologies!');
+                    alert('請勿向受保護的本體論新增新詞彙！');
                 }
                 else if (jQuery('#add_new_trait_scale_name').val() == ''){
-                    alert('Please give a new scale name!');
+                    alert('請提供新尺度名稱！');
                 }
                 else if (jQuery('#add_new_trait_scale_definition').val() == ''){
-                    alert('Please give a new scale definition!');
+                    alert('請提供新尺度定義！');
                 }
                 else if (jQuery('#add_new_trait_scale_format').val() == ''){
-                    alert('Please give a new scale format!');
+                    alert('請提供新尺度格式！');
                 }
                 else if (jQuery('#add_new_trait_scale_minimum').val() == ''){
-                    alert('Please give a new scale minimum!');
+                    alert('請提供新尺度最小值！');
                 }
                 else if (jQuery('#add_new_trait_scale_maximum').val() == ''){
-                    alert('Please give a new scale maximum!');
+                    alert('請提供新尺度最大值！');
                 }
                 else {
                     add_new_trait_new_scale_name = jQuery('#add_new_trait_scale_name').val();
@@ -682,7 +682,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error saving observation variable.");
+                alert("儲存觀測變數時發生錯誤。");
             }
         });
     });
@@ -717,7 +717,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert("Error saving ontology.");
+                alert("儲存本體論時發生錯誤。");
             }
         });
     });

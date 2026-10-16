@@ -1,7 +1,7 @@
 
-<& /page/page_title.mas, title=>"SSR Marker Help" &>    
+<& /page/page_title.mas, title=>"SSR 標記說明(SSR Marker Help)" &>    
 
-    <p>While microsatellites or simple sequence repeats (SSRs)
+    <p>微衛星或簡單重複序列(SSR)通常出現在基因組的非編碼區，但也可出現在 EST 的 3' 或 5' UTR，甚至出現在編碼區中（通常是三核苷酸重複）。因此，2001年5月利用密蘇里州聖路易斯 Genomics Edge Technologies, Inc 所開發之分析工具，對 SGN 所收錄之番茄與馬鈴薯 EST 序列進行了微衛星序列模體篩選。其目的是鑑定可能用於番茄遺傳與育種研究之多型性分子標記 SSR。搜尋參數涵蓋重複區塊大於 20 bp 的所有可能之 2 bp 至 6 bp 重複模體。搜尋演算法允許不完全重複以及複合重複。(While microsatellites or simple sequence repeats (SSRs)
     normally occur in non-coding regions of the genome, they can
     also occur in either 3' or 5' UTRs of ESTs or even in coding
     regions (usually triplet repeats). For this reason, the tomato
@@ -13,22 +13,22 @@
     tomato. The search parameters were for all possible repeat
     motifs 2 bp to 6 bp with repeat blocks &gt; 20 bp. The search
     algorithms allowed for imperfect repeats as well as complex
-    repeats.</p>
+    repeats.)</p>
 
-    <p>For those wishing to test SSRs for mapping/polymorphism
+    <p>對於希望測試 SSR 以進行基因圖譜繪製/多型性研究的使用者，建議（根據經驗測試）從以下條件開始：(For those wishing to test SSRs for mapping/polymorphism
     studies, it is recommended (based on empirical testing) to start
-    with:<br /></p>
+    with:)<br /></p>
 
     <ul>
-      <li>dinucleotides &gt; 12 repeats</li>
+      <li>雙核苷酸 &gt; 12 次重複(dinucleotides &gt; 12 repeats)</li>
 
-      <li>trinucleotide &gt; 8 repeats</li>
+      <li>三核苷酸 &gt; 8 次重複(trinucleotide &gt; 8 repeats)</li>
 
-      <li>tetra to hexonuclotides &gt; 6 repeats</li>
+      <li>四至六核苷酸 &gt; 6 次重複(tetra to hexonuclotides &gt; 6 repeats)</li>
     </ul>
     <p>
-    <a href="/search/markers/markersearch.pl?searchtype=startswith&amp;name=&amp;submit=search&amp;mapped=on&amp;confidence=0&amp;offsetstart=&amp;offsetend=&amp;chromosomes=all&amp;species=all&amp;maps=all&amp;types=SSR&amp;techniques=all">See all SSR markers in marker search results</a><br />
-    <a href="/documents/markers/microsat_list.txt">Old text version SSR list</a>
+    <a href="/search/markers/markersearch.pl?searchtype=startswith&amp;name=&amp;submit=search&amp;mapped=on&amp;confidence=0&amp;offsetstart=&amp;offsetend=&amp;chromosomes=all&amp;species=all&amp;maps=all&amp;types=SSR&amp;techniques=all">在標記搜尋結果中查看所有 SSR 標記(See all SSR markers in marker search results)</a><br />
+    <a href="/documents/markers/microsat_list.txt">舊版純文字 SSR 清單(Old text version SSR list)</a>
     </p>
     
   </center>

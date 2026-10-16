@@ -9,17 +9,17 @@ $trial_name => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="setPhenotypesFullyUploadedDialog"><% $trial_name %> Phenotypes Fully Uploaded</h4>
+                <h4 class="modal-title" id="setPhenotypesFullyUploadedDialog"><% $trial_name %> 表型已完全上傳(<% $trial_name %> Phenotypes Fully Uploaded)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-6 control-label">Phenotypes Fully Uploaded?: </label>
+                            <label class="col-sm-6 control-label">表型是否已完全上傳？：</label>
                             <div class="col-sm-6" >
                                 <select class="form-control" id="trial_set_phenotypes_fully_loaded_select">
-                                    <option value="1">Yes</option>
-                                    <option value="0">No</option>
+                                    <option value="1">是</option>
+                                    <option value="0">否</option>
                                 </select>
                             </div>
                         </div>
@@ -27,8 +27,8 @@ $trial_name => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_trial_set_phenotypes_fully_loaded_modal" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="trial_set_phenotypes_fully_loaded_submit" id="trial_set_phenotypes_fully_loaded_submit" >Save</button>
+                <button id="close_trial_set_phenotypes_fully_loaded_modal" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="trial_set_phenotypes_fully_loaded_submit" id="trial_set_phenotypes_fully_loaded_submit" >儲存(Save)</button>
             </div>
         </div>
     </div>
@@ -54,12 +54,12 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 else {
-                    alert('Successfully saved');
+                    alert('成功儲存');
                     location.reload();
                 }
             },
             error: function(response) {
-                alert('An error occurred trying to set phenotypes fully uploaded.');
+                alert('嘗試設定表型完全上傳時發生錯誤。');
             }
         });
     });

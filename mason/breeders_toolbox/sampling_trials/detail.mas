@@ -42,7 +42,7 @@ $identifier_prefix => 'SGN'
 
 <br/>
 
-<& /page/page_title.mas, title=>"Sampling trial detail for ".$trial_name &>
+<& /page/page_title.mas, title=>"取樣試驗詳細資訊(Sampling Trial Detail) - ".$trial_name &>
 
 <div class="well">
     <div class="row">
@@ -52,13 +52,13 @@ $identifier_prefix => 'SGN'
                 <div class="panel-body">
                     <table class="table table-bordered table-hover">
                     <tbody>
-                    <tr><td><b>Breeding Program</b></td><td><% $breeding_program_name %></td></tr>
+                    <tr><td><b>育種計畫(Breeding Program)</b></td><td><% $breeding_program_name %></td></tr>
                     </tbody>
                     </table>
                 </div>
             </div>
 
-            <a class='btn btn-default' href='/breeders/trial/<% $trial_id %>/download/layout?format=csv&dataLevel=samplingtrial'>Download Layout</a>
+            <a class='btn btn-default' href='/breeders/trial/<% $trial_id %>/download/layout?format=csv&dataLevel=samplingtrial'>下載配置(Download Layout)</a>
 
         </div>
 

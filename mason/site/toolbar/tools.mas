@@ -1,41 +1,41 @@
-<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" >Tools</a>
+<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" >工具(Tools)</a>
 <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tools<span class="caret"></span></a> -->
   <ul class="dropdown-menu">
-    <li class="dropdown-header">Sequence Analysis</li>
+    <li class="dropdown-header">序列分析(Sequence Analysis)</li>
     <li><a href="/tools/blast/">BLAST</a></li>
     <li><a href="http://vigs.solgenomics.net/">VIGS Tool</a></li>
-    <li><a href="/tools/align_viewer/">Alignment Analyzer</a></li>
-    <li><a href="/tools/tree_browser/">Tree Browser</a></li>
-    <li><a href="/tools/motifs_finder/">Motif Finder</a></li>
+    <li><a href="/tools/align_viewer/">序列比對分析器(Alignment Analyzer)</a></li>
+    <li><a href="/tools/tree_browser/">親緣樹瀏覽器(Tree Browser)</a></li>
+    <li><a href="/tools/motifs_finder/">基序尋找器(Motif Finder)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Mapping</li>
-    <li><a href="/jbrowse/">Genome Browser (Jbrowse)</a></li>
-    <li><a href="/cview/view_chromosome.pl?show_offsets=1&amp;show_ruler=1&amp;show_offsets=1">Comparative Map Viewer</a></li>
-    <li><a href="/tools/caps_designer/caps_input.pl">CAPS Designer</a></li>
-    <li><a href="/search/phenotypes/qtl">solQTL: QTL Mapping</a></li>
+    <li class="dropdown-header">圖譜定位(Mapping)</li>
+    <li><a href="/jbrowse/">基因組瀏覽器(Genome Browser (Jbrowse))</a></li>
+    <li><a href="/cview/view_chromosome.pl?show_offsets=1&amp;show_ruler=1&amp;show_offsets=1">比較圖譜檢視器(Comparative Map Viewer)</a></li>
+    <li><a href="/tools/caps_designer/caps_input.pl">CAPS 標記設計器(CAPS Designer)</a></li>
+    <li><a href="/search/phenotypes/qtl">solQTL：QTL 定位(solQTL: QTL Mapping)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Molecular Biology</li>
-    <li><a href="/tools/in_silico_pcr">In Silico PCR</a></li>
-    <li><a href="http://tea.solgenomics.net/">Tomato Expression Atlas (TEA)</a></li>    
-    <li><a href="http://ted.bti.cornell.edu/">Tomato Expression Database (TED)</a></li>
+    <li class="dropdown-header">分子生物學(Molecular Biology)</li>
+    <li><a href="/tools/in_silico_pcr">電腦模擬 PCR(In Silico PCR)</a></li>
+    <li><a href="http://tea.solgenomics.net/">番茄表現圖譜(Tomato Expression Atlas (TEA))</a></li>    
+    <li><a href="http://ted.bti.cornell.edu/">番茄表現資料庫(Tomato Expression Database (TED))</a></li>
 
     <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Systems Biology</li>
-    <li><a href="/tools/solcyc/">SolCyc Biochemical Pathways</a></li>
-    <li><a href="/tools/interactomics">Coffee Interactomic Data</a></li>
-    <li><a href="/tools/onto/">SGN Ontology Browser</a></li>
+    <li class="dropdown-header">系統生物學(Systems Biology)</li>
+    <li><a href="/tools/solcyc/">SolCyc 生化途徑(SolCyc Biochemical Pathways)</a></li>
+    <li><a href="/tools/interactomics">咖啡交互作用體數據(Coffee Interactomic Data)</a></li>
+    <li><a href="/tools/onto/">SGN 本體瀏覽器(SGN Ontology Browser)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Breeder Tools</li>
-    <li><a href="/breeders/home">Breeders Toolbox</a></li>
+    <li class="dropdown-header">育種工具(Breeder Tools)</li>
+    <li><a href="/breeders/home">育種者工具箱(Breeders Toolbox)</a></li>
 
     <li role="separator" class="divider"></li>
-    <li class="dropdown-header">Bulk Query</li>
-    <li><a href="/tools/bulk?mode=ftp">FTP Site</a></li>
-    <li><a href="/tools/bulk?mode=genes">Download Gene Sequences</a></li>
-    <li><a href="/tools/bulk">Clones, Arrays, Unigenes and BACs</a></li>
-    <li><a href="/tools/bulk?mode=converter">Unigene Converter</a></li>
+    <li class="dropdown-header">批次查詢(Bulk Query)</li>
+    <li><a href="/tools/bulk?mode=ftp">FTP 站點(FTP Site)</a></li>
+    <li><a href="/tools/bulk?mode=genes">下載基因序列(Download Gene Sequences)</a></li>
+    <li><a href="/tools/bulk">選殖株、晶片、Unigene 與 BAC(Clones, Arrays, Unigenes and BACs)</a></li>
+    <li><a href="/tools/bulk?mode=converter">Unigene 轉換器(Unigene Converter)</a></li>
   </ul>
 </li>

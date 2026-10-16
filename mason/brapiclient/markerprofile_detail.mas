@@ -3,9 +3,9 @@
 
 <div id="brapi_home_markerprofile_detail_div">
 
-    <h4>MarkerProfile Details</h4>
-    <input name="brapi_home_markerprofiledbid" id="brapi_home_markerprofiledbid" class="form-control" type="text" placeholder="MarkerProfileDbId e.g. 1622" value="1622"/>
-    <button class="btn btn-primary" name="brapi_home_markerprofiledbid_submit" id="brapi_home_markerprofiledbid_submit">Get Details</button>
+    <h4>標記特徵詳細資訊(MarkerProfile Details)</h4>
+    <input name="brapi_home_markerprofiledbid" id="brapi_home_markerprofiledbid" class="form-control" type="text" placeholder="標記特徵資料庫 ID 如 1622(MarkerProfileDbId e.g. 1622)" value="1622"/>
+    <button class="btn btn-primary" name="brapi_home_markerprofiledbid_submit" id="brapi_home_markerprofiledbid_submit">獲取詳細資訊(Get Details)</button>
     <br/><br/>
     <div id="brapi_markerprofile_detail_div">
     </div>
@@ -24,7 +24,7 @@ jQuery(document).ready(function() {
           'method': 'GET',
           'success': function(response) {
             console.log(response);
-            var html = '<table class="table table-bordered"><thead><tr><th>GermplasmDbId</th><th>UniqueDisplayName</th><th>ExtractDbId</th><th>MarkerProfileDbId</th><th>AnalysisMethod</th></tr><tbody><tr><td>'+response.result.germplasmDbId+'</td><td>'+response.result.uniqueDisplayName+'</td><td>'+response.result.extractDbId+'</td><td>'+response.result.markerprofileDbId+'</td><td>'+response.result.analysisMethod+'</td></tr></tbody></table>';
+            var html = '<table class="table table-bordered"><thead><tr><th>種原資料庫 ID(GermplasmDbId)</th><th>唯一顯示名稱(UniqueDisplayName)</th><th>萃取物資料庫 ID(ExtractDbId)</th><th>標記特徵資料庫 ID(MarkerProfileDbId)</th><th>分析方法(AnalysisMethod)</th></tr><tbody><tr><td>'+response.result.germplasmDbId+'</td><td>'+response.result.uniqueDisplayName+'</td><td>'+response.result.extractDbId+'</td><td>'+response.result.markerprofileDbId+'</td><td>'+response.result.analysisMethod+'</td></tr></tbody></table>';
             jQuery('#brapi_markerprofile_detail_div').empty().html(html);
             
             var data = [];
@@ -37,7 +37,7 @@ jQuery(document).ready(function() {
 
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
     });

@@ -6,16 +6,16 @@
         <div class="panel-body">
 
             <div class="well well-sm">
-                <p>If a previous imaging event on this field experiment has already completed the standard process and has ground control points (GCPs) defined, then that imaging event can be used to automate the rest of the standard process on this new imaging event.</p>
+                <p>如果此田間試驗中先前的成像事件已完成標準流程並定義了地面控制點 (GCP)，則該成像事件可用於自動化此新成像事件的其餘標準流程。</p>
             </div>
 
             <div class="form-horizontal">
                 <div class="form-group form-group-sm">
-                    <label class="col-sm-6 control-label">Has a previous imaging event on this field trial completed the standard process and also has GCPs defined already?: </label>
+                    <label class="col-sm-6 control-label">此田間試驗中先前的成像事件是否已完成標準流程並已定義 GCP？：</label>
                     <div class="col-sm-6">
                         <select class="form-control" id="manage_drone_imagery_standard_process_interative_ground_control_points_option">
-                            <option value="No">No</option>
-                            <option value="Yes">Yes</option>
+                            <option value="No">否</option>
+                            <option value="Yes">是</option>
                         </select>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="form-group form-group-sm">
-                                <label class="col-sm-6 control-label">Select the aerial imaging event to use as a template: </label>
+                                <label class="col-sm-6 control-label">選取要用作範本的空中成像事件：</label>
                                 <div class="col-sm-6">
                                     <div id="manage_drone_imagery_standard_process_interactive_ground_control_points_select"></div>
                                 </div>
@@ -36,10 +36,10 @@
 
                             <div class="well well-sm">
                                 <ul>
-                                    <li>Click on the ground control points (GCPs) in the image below and save them.</li>
-                                    <li>Please click and save at least three points. The names of the GCPs MUST be consistent across imaging events!</li>
-                                    <li>For best results, use ground control points at the far four corners of the field.</li>
-                                    <li>You can zoom out on your browser (Cntrl + -).</li>
+                                    <li>在下方影像中點選地面控制點 (GCP) 並予以儲存。</li>
+                                    <li>請點選並儲存至少三個點。GCP 的名稱在各個成像事件之間必須保持一致！</li>
+                                    <li>為了獲得最佳效果，請使用田區四個遠角的地面控制點。</li>
+                                    <li>您可以在瀏覽器中縮小檢視畫面 (Ctrl + -)。</li>
                                 </ul>
                             </div>
 
@@ -48,8 +48,8 @@
 
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_ground_control_points_step">Draw Computed Plot Polygons</button>
-                                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_ground_control_points_step_confirm">Confirm and Save</button>
+                                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_ground_control_points_step">繪製計算的小區多邊形(Draw Computed Plot Polygons)</button>
+                                <button class="btn btn-primary" id="manage_drone_imagery_standard_process_interactive_ground_control_points_step_confirm">確認並儲存(Confirm and Save)</button>
                                 </center>
                             </div>
 

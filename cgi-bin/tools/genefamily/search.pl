@@ -1,6 +1,7 @@
 use CatalystX::GlobalContext qw( $c );
 use strict;
 use warnings;
+use utf8;
 use CGI ();
 use CXGN::DB::Connection;
 use CXGN::People::Person;
@@ -15,7 +16,7 @@ my $person       = CXGN::People::Person->new($dbh, $sp_person_id);
 
 unless( $person->has_role('genefamily_editor') || $person->has_role('curator')) {
     $c->throw(
-        message  => 'Please log in as the correct user to access the gene families',
+        message  => '請以正確的使用者身分登入以存取基因家族 (Please log in as the correct user to access the gene families)',
         is_error => 0,
        );
 }

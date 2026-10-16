@@ -14,11 +14,11 @@ Titima Tantikanjana <tt15@cornell.edu>
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables','CXGN.BreedersToolbox.MarkerSet03152022'] &>
 
-<& /page/page_title.mas, title=>'Manage Markersets' &>
+<& /page/page_title.mas, title=>'管理標記集(Manage Markersets)' &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>Your Markersets</h4>", info_section_subtitle => 'View your markerset info', buttons_html => '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_new_markerset_button">Add New Markerset</button><button class="btn btn-sm btn-primary" style="margin:3px" id="add_marker_dosage_button">Add Markers to Markerset</button>', icon_class => "glyphicon glyphicon-list-alt", info_section_id => "marker_set_summary_section" &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, info_section_title => "<h4 style='display:inline'>您的標記集(Your Markersets)</h4>", info_section_subtitle => '檢視您的標記集資訊', buttons_html => '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_new_markerset_button">新增標記集(Add New Markerset)</button><button class="btn btn-sm btn-primary" style="margin:3px" id="add_marker_dosage_button">新增標記至標記集(Add Markers to Markerset)</button>', icon_class => "glyphicon glyphicon-list-alt", info_section_id => "marker_set_summary_section" &>
 
-<& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-search", title => "Using markerset to search for accessions with specific genotype.", button_id => "accession_search_link" &>
+<& /page/detail_page_3_col_section.mas, icon_class => "glyphicon glyphicon-search", title => "使用標記集搜尋具特定基因型的品系(Using markerset to search for accessions with specific genotype.)", button_id => "accession_search_link", button_text => "前往(Go)" &>
 
 
 <div class="modal fade" id="add_markerset_dialog" name="add_markerset_dialog" tabindex="-1" role="dialog" aria-labelledby="addMarkerSetDialog">
@@ -26,7 +26,7 @@ Titima Tantikanjana <tt15@cornell.edu>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addMarkerSetDialog">Add New Markerset</h4>
+                <h4 class="modal-title" id="addMarkerSetDialog">新增標記集(Add New Markerset)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -38,15 +38,15 @@ Titima Tantikanjana <tt15@cornell.edu>
                                 <div class="col-sm-11">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Markerset Name:</label>
+                                            <label class="control-label col-sm-4">標記集名稱：</label>
                                                 <div class="col-sm-8" >
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="new_marker_set" placeholder="Enter markerset name">
+                                                        <input type="text" class="form-control" id="new_marker_set" placeholder="輸入標記集名稱">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Genotyping protocol:</label>
+                                            <label class="control-label col-sm-4">基因型分析協定：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <select class="form-control" id="selected_protocol">
@@ -55,23 +55,23 @@ Titima Tantikanjana <tt15@cornell.edu>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Data type:</label>
+                                            <label class="control-label col-sm-4">資料類型：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <select class="form-control" id="genotyping_data_type">
-                                                        <option value="">Select genotyping data type</option>
+                                                        <option value="">選取基因型分析資料類型</option>
                                                         <option value="SNP">SNP</option>
-                                                        <option value="Dosage">Dosage</option>
-                                                        <option value="Download">Download</option>
+                                                        <option value="Dosage">劑量(Dosage)</option>
+                                                        <option value="Download">下載(Download)</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Description:</label>
+                                            <label class="control-label col-sm-4">描述：</label>
                                                 <div class="col-sm-8" >
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="marker_set_desc" placeholder="Enter description">
+                                                        <input type="text" class="form-control" id="marker_set_desc" placeholder="輸入描述">
                                                     </div>
                                                 </div>
                                         </div>
@@ -83,8 +83,8 @@ Titima Tantikanjana <tt15@cornell.edu>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="save_marker_set" id="save_marker_set">Add Markerset</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="save_marker_set" id="save_marker_set">新增標記集(Add Markerset)</button>
             </div>
         </div>
     </div>
@@ -95,7 +95,7 @@ Titima Tantikanjana <tt15@cornell.edu>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addMarkerDosageDialog">Add Markers to Markerset</h4>
+                <h4 class="modal-title" id="addMarkerDosageDialog">新增標記至標記集(Add Markers to Markerset)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -107,7 +107,7 @@ Titima Tantikanjana <tt15@cornell.edu>
                                 <div class="col-sm-11">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Markerset Name:</label>
+                                            <label class="control-label col-sm-4">標記集名稱：</label>
                                             <div class="col-sm-8">
                                                 <div class="input-group">
                                                     <select class="form-control" id="selected_marker_set1">
@@ -117,27 +117,27 @@ Titima Tantikanjana <tt15@cornell.edu>
                                         </div>
                                         <div id = "markerset_download_section" style="display:none">
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">Marker Name(s):</label>
+                                                <label class="control-label col-sm-4">標記名稱：</label>
                                                 <div class="col-sm-8">
-                                                    <textarea class="form-control" id="marker_name_download" placeholder="To add more than one marker, separate marker names using a new line."></textarea>
+                                                    <textarea class="form-control" id="marker_name_download" placeholder="若要新增多個標記，請以換行分隔標記名稱。"></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                         <div id = "markerset_dosage_section" style="display:none">
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">Marker Name:</label>
+                                                <label class="control-label col-sm-4">標記名稱：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="marker_name_dosage" placeholder="Enter marker name">
+                                                        <input type="text" class="form-control" id="marker_name_dosage" placeholder="輸入標記名稱">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">Allele Dosage:</label>
+                                                <label class="control-label col-sm-4">等位基因劑量(Allele Dosage)：</label>
                                                 <div class="col-sm-8" >
                                                     <div class="input-group">
                                                         <select class="form-control" id="allele_dosage">
-                                                            <option value="">Select Allele Dosage</option>
+                                                            <option value="">選取等位基因劑量</option>
                                                             <option value="0">0</option>
                                                             <option value="1">1</option>
                                                             <option value="2">2</option>
@@ -148,26 +148,26 @@ Titima Tantikanjana <tt15@cornell.edu>
                                         </div>
                                         <div id = "markerset_snp_section" style="display:none">
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">Marker Name:</label>
+                                                <label class="control-label col-sm-4">標記名稱：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="marker_name_snp" placeholder="Enter marker name">
+                                                        <input type="text" class="form-control" id="marker_name_snp" placeholder="輸入標記名稱">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label col-sm-4">Specify Alleles:</label>
+                                                <label class="control-label col-sm-4">指定等位基因：</label>
                                                 <div class="col-sm-4" >
                                                     <div class="input-group">
                                                         <select class="form-control" id="allele_1">
-                                                            <option value="">Select Allele 1</option>
+                                                            <option value="">選取等位基因 1</option>
                                                             <option value="A">A</option>
                                                             <option value="C">C</option>
                                                             <option value="G">G</option>
                                                             <option value="T">T</option>
                                                         </select>
                                                         <select class="form-control" id="allele_2">
-                                                            <option value="">Select Allele 2</option>
+                                                            <option value="">選取等位基因 2</option>
                                                             <option value="A">A</option>
                                                             <option value="C">C</option>
                                                             <option value="G">G</option>
@@ -185,8 +185,8 @@ Titima Tantikanjana <tt15@cornell.edu>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="add_marker" id="add_marker">Add Marker</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="add_marker" id="add_marker">新增標記(Add Marker)</button>
             </div>
         </div>
     </div>
@@ -197,7 +197,7 @@ Titima Tantikanjana <tt15@cornell.edu>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addVcfParametersDialog">Add VCF Parameters in Markerset</h4>
+                <h4 class="modal-title" id="addVcfParametersDialog">在標記集中新增 VCF 參數(Add VCF Parameters in Markerset)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -209,7 +209,7 @@ Titima Tantikanjana <tt15@cornell.edu>
                                 <div class="col-sm-11">
                                     <div class="form-horizontal">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Markerset Name:</label>
+                                            <label class="control-label col-sm-4">標記集名稱：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
                                                         <select class="form-control" id="selected_marker_set2">
@@ -218,43 +218,43 @@ Titima Tantikanjana <tt15@cornell.edu>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Chromosome:</label>
+                                            <label class="control-label col-sm-4">染色體：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="chromosome_number" placeholder="Enter chromosome no.">
+                                                        <input type="text" class="form-control" id="chromosome_number" placeholder="輸入染色體編號">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Start Position:</label>
+                                            <label class="control-label col-sm-4">起始位置：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="start_position" placeholder="Enter an integer value">
+                                                        <input type="text" class="form-control" id="start_position" placeholder="輸入整數值">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">End Position:</label>
+                                            <label class="control-label col-sm-4">結束位置：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="end_position" placeholder="Enter an integer value">
+                                                        <input type="text" class="form-control" id="end_position" placeholder="輸入整數值">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Marker Name:</label>
+                                            <label class="control-label col-sm-4">標記名稱：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="marker_name2" placeholder="Enter marker name">
+                                                        <input type="text" class="form-control" id="marker_name2" placeholder="輸入標記名稱">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">SNP alleles:</label>
+                                            <label class="control-label col-sm-4">SNP 等位基因：</label>
                                                 <div class="col-sm-8" >
                                                     <div class="input-group">
                                                         <select class="form-control" id="snp_allele">
-                                                            <option value="">Select SNP Alleles</option>
+                                                            <option value="">選取 SNP 等位基因</option>
                                                             <option value="AA">AA</option>
                                                             <option value="TT">TT</option>
                                                             <option value="GG">GG</option>
@@ -270,19 +270,19 @@ Titima Tantikanjana <tt15@cornell.edu>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">Quality (greater than):</label>
+                                            <label class="control-label col-sm-4">品質 (大於)：</label>
                                                 <div class="col-sm-8">
                                                     <div class="input-group">
-                                                        <input type="text" class="form-control" id="quality" placeholder="Enter an integer value">
+                                                        <input type="text" class="form-control" id="quality" placeholder="輸入整數值">
                                                     </div>
                                                 </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-4">FILTER:</label>
+                                            <label class="control-label col-sm-4">篩選(FILTER)：</label>
                                                 <div class="col-sm-8" >
                                                     <div class="input-group">
                                                         <select class="form-control" id="filter_status">
-                                                            <option value="">Select filter status</option>
+                                                            <option value="">選取篩選狀態</option>
                                                             <option value="PASS">PASS</option>
                                                         </select>
                                                     </div>
@@ -296,8 +296,8 @@ Titima Tantikanjana <tt15@cornell.edu>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="add_parameters" id="add_parameters">Add Filtering Parameters</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="add_parameters" id="add_parameters">新增篩選參數(Add Filtering Parameters)</button>
             </div>
         </div>
     </div>
@@ -309,7 +309,7 @@ Titima Tantikanjana <tt15@cornell.edu>
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="markersetDetailDialog">Markerset detail</h4>
+                <h4 class="modal-title" id="markersetDetailDialog">標記集詳細資訊(Markerset Detail)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -322,7 +322,7 @@ Titima Tantikanjana <tt15@cornell.edu>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

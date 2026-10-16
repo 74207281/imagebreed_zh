@@ -7,6 +7,7 @@
 ######################################################################
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/blue_section_html info_section_html page_title_html columnar_table_html/;
@@ -16,7 +17,7 @@ use CXGN::Searches::GemTemplate;
 my $page=CXGN::Page->new("Expression search results by template", "Aure");
 $page->header();
 
-print page_title_html('Expression search results by template');
+print page_title_html('依模板搜尋表現量結果 (Expression search results by template)');
 
 #create the search and query objects
 my $search = CXGN::Searches::GemTemplate->new();
@@ -47,7 +48,7 @@ if(%params)
 	<div id="searchresults">
 EOH
 
-	$results_html .= columnar_table_html(headings => ['Template_name', 'Platform'], 
+	$results_html .= columnar_table_html(headings => ['模板名稱 (Template name)', '平台 (Platform)'], 
 		         data => \@results, __alt_freq => 2);
 
 	$results_html .= <<EOH;
@@ -57,13 +58,13 @@ EOH
 
 	if(@results)
 	{
-		print blue_section_html('Results', , sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results(), $result->time), $results_html);
+		print blue_section_html('搜尋結果 (Results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results(), $result->time), $results_html);
 	}
 	else
 	{
-		print '<span class=""><h4>No matches found</h4></span>';
+		print '<span class=""><h4>未找到相符結果 (No matches found)</h4></span>';
 	}
-	print info_section_html(title => 'Search again', contents =>CXGN::Search::CannedForms::expr_template_search_form($page, $query));
+	print info_section_html(title => '重新搜尋 (Search again)', contents =>CXGN::Search::CannedForms::expr_template_search_form($page, $query));
 }
 
 $page->footer();

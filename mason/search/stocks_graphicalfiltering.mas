@@ -5,14 +5,14 @@
 
 <& /util/import_javascript.mas, classes => [ 'd3.d3v4Min', 'brapi.BrAPI', 'brapi.GraphicalFilter' ] &>
 
-<&| /page/info_section.mas, id=>"stock_search_graphical_filter", title => 'Graphical Filter Accessions By Traits (Includes all Search Criteria From Above Search Form)', collapsible=>1, collapsed=>1&>
+<&| /page/info_section.mas, id=>"stock_search_graphical_filter", title => '依性狀圖形化篩選種原 (包含上方搜尋表單的所有搜尋條件)(Graphical Filter Accessions By Traits)', collapsible=>1, collapsed=>1&>
 
 <div class="well well-sm">
 
 <div class="panel panel-default">
     <div class="panel-body">
         <div id="stock_search_graphical_filter_div" style="margin:1em">
-        [LOADING...]
+        [載入中... (LOADING...)]
         </div>
     </div>
 </div>
@@ -30,7 +30,7 @@
 
 <br/>
 
-<&| /page/info_section.mas, title => 'Copy Filtered Accessions to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Copy the accession names in table to a new or exisiting list</i>'&>
+<&| /page/info_section.mas, title => '複製篩選後的種原至清單(Copy Filtered Accessions to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將表格中的種原名稱複製到新清單或現有清單中</i>'&>
 <div style="text-align:right" id="graphical_filter_results_to_list_menu"></div>
 <div id="graphical_filter_result_names" style="display: none;"></div>
 </&>
@@ -52,7 +52,7 @@ function loadBrAPIData(server,parameters,success){
       var require_login = "<%  $c->get_conf('brapi_require_login') %>";
       if (require_login === '1'){
           auth_token = "<%  CXGN::Login->new($c->dbc->dbh)->get_login_cookie() %>";
-          if (!auth_token){ alert("Login required to display graphical filtering"); }
+          if (!auth_token){ alert("需要登入才能顯示圖形化篩選。(Login required to display graphical filtering)"); }
       }
 
     var data = {

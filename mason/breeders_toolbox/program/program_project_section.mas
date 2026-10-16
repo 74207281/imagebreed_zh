@@ -6,23 +6,23 @@ $program_id
     <div class="panel panel-default">
         <div class="panel-body">
             <td>
-                <a href="/breeders/trials"><p>Go To Manage Trials</p></a>
+                <a href="/breeders/trials"><p>前往管理試驗(Go To Manage Trials)</p></a>
             </td>
             <td>
-                <a href="/breeders/genotyping"><p>Go To Manage Genotyping Plates</p></a>
+                <a href="/breeders/genotyping"><p>前往管理基因分型微孔盤(Go To Manage Genotyping Plates)</p></a>
             </td>
             <td>
-                <a href="/breeders/crosses"><p>Go To Manage Crosses</p></a>
+                <a href="/breeders/crosses"><p>前往管理雜交(Go To Manage Crosses)</p></a>
             </td>
         </div>
     </div>
-    <&| /page/info_section.mas, id=>"program_trials", title => "Field Trials", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
+    <&| /page/info_section.mas, id=>"program_trials", title => "田間試驗(Field Trials)", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
         <& /breeders_toolbox/program/trials.mas, program_id => $program_id &>
     </&>
-    <&| /page/info_section.mas, id=>"program_genotyping_plates", title => "Genotyping Plates", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
+    <&| /page/info_section.mas, id=>"program_genotyping_plates", title => "基因分型微孔盤(Genotyping Plates)", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
         <& /breeders_toolbox/program/program_genotyping_plates.mas, program_id => $program_id &>
     </&>
-    <&| /page/info_section.mas, id=>"program_crossing_experiments", title => "Crossing Experiments", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
+    <&| /page/info_section.mas, id=>"program_crossing_experiments", title => "雜交實驗(Crossing Experiments)", is_subsection => 1, collapsible=>1, collapsed=>1, hide_if_empty=>1 &>
         <& /breeders_toolbox/program/program_crossing_experiments.mas, program_id => $program_id &>
     </&>
 </div>

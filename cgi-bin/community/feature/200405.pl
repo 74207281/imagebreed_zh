@@ -1,16 +1,17 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200405.html','html2pl converter');
-$page->header('The Choi Lab');
+$page->header('韓國生命工學研究院植物基因體學實驗室 - Choi 實驗室 (Plant Genomics Lab at KRIBB - The Choi Lab)');
 print<<END_HEREDOC;
 
   <center>
-    <h1>Plant Genomics Lab. at KRIBB</h1><img src="/static_content/community/feature/200405-1.jpg"
+    <h1>韓國生命工學研究院植物基因體學實驗室 (Plant Genomics Lab. at KRIBB)</h1><img src="/static_content/community/feature/200405-1.jpg"
     width="720" height="540" border="0" alt=
     "Members of the Choi Lab" />
   </center>
 
-  <h2>Research Highlight</h2>
+  <h2>研究重點 (Research Highlights)</h2>
 
   <p>Our main interest is the application of functional genomics
   tools to understand plant defense mechanism at the molecular
@@ -64,7 +65,7 @@ print<<END_HEREDOC;
   distinctive photo-bleaching phenotype was shown after 21 days
   after inoculation.</p>
 
-  <h2>Contact</h2>
+  <h2>聯絡資訊 (Contact)</h2>
 
   <p><strong>Dr. Doil Choi</strong><br />
   Plant Genomics Laboratory,<br />

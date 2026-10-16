@@ -20,9 +20,9 @@ Displays a page with a table of all the analytics run by the currently logged in
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ], entries => [] &>
 
-<& /page/page_title.mas, title => "Your Analytics Protocols" &>
+<& /page/page_title.mas, title => "您的分析實驗方案(Your Analytics Protocols)" &>
 
-<button class='btn btn-default' style='margin:3px;float:right' id='drone_imagery_analytics_merge_results_link'>Merge Analytics Results</button><button class='btn btn-success' style='margin:3px;float:right' id='drone_imagery_analytics_link'>Run Drone Imagery Analytics</button><br />
+<button class='btn btn-default' style='margin:3px;float:right' id='drone_imagery_analytics_merge_results_link'>合併分析結果(Merge Analytics Results)</button><button class='btn btn-success' style='margin:3px;float:right' id='drone_imagery_analytics_link'>執行無人機影像分析(Run Drone Imagery Analytics)</button><br />
 <hr>
 
 <& /breeders_toolbox/drone_imagery/drone_imagery_analytics.mas &>
@@ -32,10 +32,10 @@ Displays a page with a table of all the analytics run by the currently logged in
     <table class="table table-bordered table-hover" id="analytics_protocols_by_user_table">
         <thead>
             <tr>
-                <th>Analytics Protocol Name</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Create Date</th>
+                <th>分析實驗方案名稱(Analytics Protocol Name)</th>
+                <th>描述(Description)</th>
+                <th>類型(Type)</th>
+                <th>建立日期(Create Date)</th>
             </tr>
         </thead>
         <tbody>

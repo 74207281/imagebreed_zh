@@ -18,8 +18,8 @@
 <& /feature/page_title.mas, feature => $feature &>
 
 <&| /page/info_section.mas,
-    title       => 'Gene',
-    subtitle    => $feature->is_obsolete ? 'WARNING: This feature is obsolete, new data is available.' : '',
+    title       => '基因(Gene)',
+    subtitle    => $feature->is_obsolete ? '警告：此特徵已廢棄，有新資料可用。(WARNING: This feature is obsolete, new data is available.)' : '',
     collapsible => 1,
 &>
   <& /feature/feature_data.mas,
@@ -35,7 +35,7 @@
 </&>
 
 <&| /page/info_section.mas,
-   title       => 'Genome Viewer',
+   title       => '基因組檢視器(Genome Viewer)',
    collapsible => 1,
 &>
 
@@ -45,7 +45,7 @@
 
 
 <&| /page/info_section.mas,
-   title       => 'Related features',
+   title       => '相關特徵(Related features)',
    collapsible => 1,
 &>
   <& /feature/related_features.mas,
@@ -58,9 +58,9 @@
 
 
 <&| /page/info_section.mas,
-        title       => 'Genomic sequence',
-        subtitle    => 'unprocessed genomic sequence region underlying this gene',
-        empty_message => 'Not available',
+        title       => '基因組序列(Genomic sequence)',
+        subtitle    => '此基因下方的未處理基因組序列區域(unprocessed genomic sequence region underlying this gene)',
+        empty_message => '不可用(Not available)',
         collapsible => 1,
         collapsed   => 1,
 &>
@@ -80,8 +80,8 @@
   &>
 
     <&| /page/info_section.mas,
-       title => 'Ontology terms',
-       subtitle => 'terms associated with this mRNA',
+       title => '本體術語(Ontology terms)',
+       subtitle => '與此 mRNA 相關的術語(terms associated with this mRNA)',
        collapsible => 1,
        is_subsection => 1,
     &>
@@ -95,10 +95,10 @@
 %   my ( $mrna_sequence, $cds_sequence, $protein_sequence ) = @{(mrna_cds_protein_sequence( $mrna ))[0] || [] };
 
     <&| /page/info_section.mas,
-            title         => 'cDNA sequence',
+            title         => 'cDNA 序列(cDNA sequence)',
             is_subsection => 1,
-            subtitle      => 'spliced cDNA sequence, including UTRs',
-            empty_message => 'Not available',
+            subtitle      => '剪接後的 cDNA 序列，包括 UTR(spliced cDNA sequence, including UTRs)',
+            empty_message => '不可用(Not available)',
             collapsible   => 1,
             collapsed     => 1,
     &>
@@ -123,10 +123,10 @@
     </&>
 
     <&| /page/info_section.mas,
-            title         => 'Protein sequence',
+            title         => '蛋白質序列(Protein sequence)',
             is_subsection => 1,
-            subtitle      => 'translated polypeptide sequence',
-            empty_message => 'Not available',
+            subtitle      => '轉譯後的多肽序列(translated polypeptide sequence)',
+            empty_message => '不可用(Not available)',
             collapsible   => 1,
             collapsed     => 1,
     &>
@@ -153,7 +153,7 @@
     </&>
 
     <&| /page/info_section.mas,
-        title         => 'Related features',
+        title         => '相關特徵(Related features)',
         is_subsection => 1,
         collapsible   => 1,
      &>
@@ -169,7 +169,7 @@
 % }
 
 <&| /page/info_section.mas,
-     title       => 'Related views',
+     title       => '相關檢視(Related views)',
      collapsible => 1,
  &>
      <& /sitefeatures/mixed/xref_set/link.mas,

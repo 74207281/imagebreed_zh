@@ -12,7 +12,7 @@ if ($user && $user->check_roles("curator")) {
 </%perl>
 
 <br/>
-<& /page/page_title.mas, title=>"Manage Breeding Programs" &>
+<& /page/page_title.mas, title=>"管理育種計畫(Manage Breeding Programs)" &>
 
 <div class="container-fluid">
 
@@ -21,8 +21,8 @@ if ($user && $user->check_roles("curator")) {
     <tr>
 
     <%perl>
-      if ($curator_flag) { print "<th>Name</th><th>Info</th><th>Company</th><th>Edit</th><th>Delete</th>"; }
-        else { print "<th>Name</th><th>Info</th><th>Company</th>"; }
+      if ($curator_flag) { print "<th>名稱(Name)</th><th>資訊(Info)</th><th>公司/機構(Company)</th><th>編輯(Edit)</th><th>刪除(Delete)</th>"; }
+        else { print "<th>名稱(Name)</th><th>資訊(Info)</th><th>公司/機構(Company)</th>"; }
     </%perl>
 
     </tr>
@@ -36,8 +36,8 @@ if ($user && $user->check_roles("curator")) {
         print "<td><a href=\"/company/$bp->[3]\" >$bp->[4]</a></td>";
 
         if ($curator_flag) {
-            print "<td><a title=\"edit this breeding program\" id=\"edit_breeding_program_link\_".$bp->[1]."\" href=\"javascript:edit_breeding_program($bp->[0],'$bp->[1]','$bp->[2]')\" ><span class=\"glyphicon glyphicon-pencil\"></span></a></td>";
-            print "<td><a title=\"delete this breeding program\" id=\"delete_breeding_program_link\_".$bp->[1]."\" href=\"javascript:delete_breeding_program($bp->[0],'$bp->[1]')\" ><font color=\"red\">X</font></a></td></tr>";
+            print "<td><a title=\"編輯此育種計畫\" id=\"edit_breeding_program_link\_".$bp->[1]."\" href=\"javascript:edit_breeding_program($bp->[0],'$bp->[1]','$bp->[2]')\" ><span class=\"glyphicon glyphicon-pencil\"></span></a></td>";
+            print "<td><a title=\"刪除此育種計畫\" id=\"delete_breeding_program_link\_".$bp->[1]."\" href=\"javascript:delete_breeding_program($bp->[0],'$bp->[1]')\" ><font color=\"red\">X</font></a></td></tr>";
         } else {
             print "</tr>";
         }
@@ -48,7 +48,7 @@ if ($user && $user->check_roles("curator")) {
 </table>
 
 <br/>
-<button type="button" class="btn btn-primary" name="new_breeding_program_link" id="new_breeding_program_link">Add New Program</button>
+<button type="button" class="btn btn-primary" name="new_breeding_program_link" id="new_breeding_program_link">新增育種計畫(Add New Program)</button>
 
 </div>
 
@@ -59,26 +59,26 @@ if ($user && $user->check_roles("curator")) {
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addBreedingProgramDialog">Store Breeding Program Details</h4>
+                <h4 class="modal-title" id="addBreedingProgramDialog">儲存育種計畫詳細資訊(Store Breeding Program Details)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" name="store_breeding_program_form" id="store_breeding_program_form">
                         <div class="form-group" id="store_breeding_program_id" style="display: none"></div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Name: </label>
+                            <label class="col-sm-2 control-label">名稱： </label>
                             <div class="col-sm-10">
                                 <input class="form-control" name="store_breeding_program_name" id="store_breeding_program_name" type="text" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Description: </label>
+                            <label class="col-sm-2 control-label">描述： </label>
                             <div class="col-sm-10">
                                 <input class="form-control" name="store_breeding_program_desc" id="store_breeding_program_desc" type="text" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Company: </label>
+                            <label class="col-sm-2 control-label">公司/機構： </label>
                             <div class="col-sm-10">
                                 <div id="new_breeding_program_company_div"></div>
                             </div>
@@ -87,8 +87,8 @@ if ($user && $user->check_roles("curator")) {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="store_breeding_program_submit" id="store_breeding_program_submit">Store Breeding Program Details</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="store_breeding_program_submit" id="store_breeding_program_submit">儲存育種計畫詳細資訊(Store Breeding Program Details)</button>
             </div>
         </div>
     </div>
@@ -118,11 +118,11 @@ jQuery(document).ready(function() {
         name = name.trim();
         var company_id = jQuery('#new_breeding_program_company_id').val();
         if ( (name === '') || (desc === '')) {
-            alert("Please enter a name and a description.");
+            alert("請輸入名稱和描述。");
             return;
         }
         if (company_id == '') {
-            alert('Please select a company! Make sure you belong to atleast one company!');
+            alert('請選擇公司/機構！請確認您至少屬於一家公司/機構！');
             return;
         }
         jQuery.ajax({
@@ -133,7 +133,7 @@ jQuery(document).ready(function() {
                 jQuery('#working_modal').modal("show")
             },
             error: function(response) {
-                alert("An error occurred."+ response.responseText);
+                alert("發生錯誤。" + response.responseText);
                 jQuery('#working_modal').modal("hide");
             },
             success: function(response) {
@@ -160,11 +160,11 @@ function edit_breeding_program(program_id, program_name, program_description) {
 
 
 function delete_breeding_program(program_id, program_name) {
-   if (confirm("Delete breeding program "+program_name+"? The associated trials will not be deleted, but be listed under 'Other'")) {
+   if (confirm("確定要刪除育種計畫 "+program_name+" 嗎？關聯的試驗不會被刪除，但會列在「其他」下方")) {
       jQuery.ajax( {
         url: '/breeders/program/delete/'+program_id,
         error: function(response) {
-        alert("An error occurred.");
+        alert("發生錯誤。");
       },
       success: function(response) {
         if (response.error) {

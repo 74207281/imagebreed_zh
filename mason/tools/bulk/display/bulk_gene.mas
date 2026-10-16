@@ -5,14 +5,14 @@
 <% $bulk_js_menu %>
 <form name="bulk_gene" action="/bulk/gene/submit/" method="post" enctype="multipart/form-data">
 <table summary="" cellpadding="10" width="100%"><tr><td valign="top" bgcolor="#EEEEEE" width="320">
-Enter a list of gene identifier or upload a file containing one identifer separated by whitespace (returns, spaces or tabs):<br />
+輸入基因識別碼列表，或上傳以空格/換行/製表符分隔的識別碼檔案(Enter a list of gene identifiers or upload a file containing identifiers separated by whitespace)：<br />
 <table summary="" width="100%" cellpadding="0"><tr><td>
 <textarea name="ids" rows="10" cols="30">
 <% $prefill_ids |h %>
 </textarea>
 </td>
 <td>
-<i>Example:</i>
+<i>範例(Example)：</i>
 <pre style="border: 1px solid gray; padding: 5px">
 Solyc01g005080.2
 AT1G56650.1
@@ -23,20 +23,20 @@ Os02g0289500
 <br />
 <br />
 
-And/or upload list file: <br /><input type="file" name="gene_file" />
+及/或上傳識別碼列表檔案(And/or upload list file)：<br /><input type="file" name="gene_file" />
 <br />
 <br />
 
 </td>
 <td valign="top" bgcolor="#EEEEEE" width="320">
 
-<b>Download gene information</b>:<br />
+<b>下載基因資訊(Download gene information)</b>：<br />
 <div style="padding-left: 1em">
-    <input type="radio" name="gene_type" value="cdna" checked="checked" />cDNA sequence <br />
-    <input type="radio" name="gene_type" value="cds" checked="unchecked" />CDS sequence <br />
-    <input type="radio" name="gene_type" value="protein" checked="unchecked" />Protein sequence <br />
+    <input type="radio" name="gene_type" value="cdna" checked="checked" />cDNA 序列(cDNA sequence) <br />
+    <input type="radio" name="gene_type" value="cds" checked="unchecked" />CDS 序列(CDS sequence) <br />
+    <input type="radio" name="gene_type" value="protein" checked="unchecked" />蛋白質序列(Protein sequence) <br />
 </div>
 </td></tr></table>
 
-<input type="submit" value="Submit" /><br />
+<input type="submit" value="送出(Submit)" /><br />
 </form>

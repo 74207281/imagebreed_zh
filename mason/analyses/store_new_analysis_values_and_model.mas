@@ -174,31 +174,31 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="genericStoreAnalysisDialog">Save Analysis Results</h4>
+                <h4 class="modal-title" id="genericStoreAnalysisDialog">儲存分析結果(Save Analysis Results)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <&| /util/workflow.mas, id=> "generic_save_analysis_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"This workflow will guide you through storing a new analysis and the results, and saving model weights" &>
-                            <p>An analysis is stored independently; however, it maintains associations to the results for the accessions and traits involved. In the case where a model is being trained for predictions e.g. genomic selection or CNN image predictions, those trained model weights can be saved.</p>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"此工作流程將引導您儲存新分析與其結果，並儲存模型權重(This workflow will guide you through storing a new analysis and the results, and saving model weights)" &>
+                            <p>分析是獨立儲存的；然而，它會保留與相關品系及性狀結果的關聯。當訓練模型用於預測時（例如基因組選擇或 CNN 影像預測），可以儲存這些訓練好的模型權重。(An analysis is stored independently; however, it maintains associations to the results for the accessions and traits involved. In the case where a model is being trained for predictions e.g. genomic selection or CNN image predictions, those trained model weights can be saved.)</p>
                             <br/><br/>
                             <center>
-                            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                            <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Analysis Info" &>
-                            <& /page/page_title.mas, title=>"Save analysis results" &>
+                        <&| /util/workflow.mas:step, title=> "分析資訊(Analysis Info)" &>
+                            <& /page/page_title.mas, title=>"儲存分析結果(Save analysis results)" &>
 
-                            <p>This is an optional step and is only available when there are actual results to save. Please move on to saving the model weights if there are no results to save.</p>
+                            <p>這是可選步驟，僅在有實際結果要儲存時可用。如果沒有要儲存的結果，請繼續儲存模型權重。(This is an optional step and is only available when there are actual results to save. Please move on to saving the model weights if there are no results to save.)</p>
 
                             <form class="form-horizontal">
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Do you want to save the analysis results?: </label>
+                                    <label class="col-sm-3 control-label">您想要儲存分析結果嗎？(Do you want to save the analysis results?): </label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="generic_save_analysis_analysis_to_save" name="generic_save_analysis_analysis_to_save" >
-                                            <option value="no">No</option>
-                                            <option value="yes">Yes</option>
+                                            <option value="no">否(No)</option>
+                                            <option value="yes">是(Yes)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -206,31 +206,31 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
                             <hr>
 
                             <center>
-                            <button class="btn btn-primary" id="generic_save_analysis_next">Go to Next Step</button>
+                            <button class="btn btn-primary" id="generic_save_analysis_next">前往下一步(Go to Next Step)</button>
                             </center>
                             <br/><br/>
 
                             <form class="form-horizontal" id="generic_save_analysis_analysis_form" style="display:none">
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Name (must be unique): </label>
+                                    <label class="col-sm-3 control-label">分析名稱（必須唯一）(Analysis Name (must be unique)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_analysis_name" name="generic_save_analysis_analysis_name" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Description: </label>
+                                    <label class="col-sm-3 control-label">分析描述(Analysis Description): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_analysis_description" name="generic_save_analysis_analysis_description" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫(Breeding Program): </label>
                                     <div class="col-sm-9">
                                         <div id="generic_save_analysis_breeding_program_div"></div>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Year: </label>
+                                    <label class="col-sm-3 control-label">年份(Year): </label>
                                     <div class="col-sm-9">
                                         <div id="generic_save_analysis_analysis_year_div"></div>
                                     </div>
@@ -238,75 +238,75 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
                                 <hr>
 
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Protocol: </label>
+                                    <label class="col-sm-3 control-label">實驗方案(Protocol): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_protocol" name="generic_save_analysis_protocol" type="text" placeholder="e.g. lmer(grain_yield ~ replicate + 1|germplasmName)" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Dataset ID: </label>
+                                    <label class="col-sm-3 control-label">資料集 ID(Dataset ID): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_dataset_id" name="generic_save_analysis_dataset_id" type="number" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Accession Names: </label>
+                                    <label class="col-sm-3 control-label">品系/材料名稱(Accession Names): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_accession_names" name="generic_save_analysis_accession_names" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Trait Names: </label>
+                                    <label class="col-sm-3 control-label">性狀名稱(Trait Names): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_trait_names" name="generic_save_analysis_trait_names" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Statistical Ontology Term: </label>
+                                    <label class="col-sm-3 control-label">統計本體詞彙(Statistical Ontology Term): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_statistical_ontology_term" name="generic_save_analysis_statistical_ontology_term" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Design (If left blank, design will be created using above accession names): </label>
+                                    <label class="col-sm-3 control-label">分析試驗設計（若留空，將使用上述品系/材料名稱建立設計）(Analysis Design (If left blank, design will be created using above accession names)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_design" name="generic_save_analysis_design" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Result Values: </label>
+                                    <label class="col-sm-3 control-label">分析結果數值(Analysis Result Values): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_result_values" name="generic_save_analysis_result_values" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Result Values Type: </label>
+                                    <label class="col-sm-3 control-label">分析結果數值類型(Analysis Result Values Type): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_result_values_type" name="generic_save_analysis_result_values_type" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Analysis Result Summary Values: </label>
+                                    <label class="col-sm-3 control-label">分析結果摘要數值(Analysis Result Summary Values): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_result_summary_values" name="generic_save_analysis_result_summary_values" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Compose Trait Info With Time Term(optional): </label>
+                                    <label class="col-sm-3 control-label">以時間詞彙組合性狀資訊（選填）(Compose Trait Info With Time Term(optional)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_result_compose_trait_info" name="generic_save_analysis_result_compose_trait_info" type="text" disabled/>
                                     </div>
                                 </div>
                             </form>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Model Info" &>
-                            <& /page/page_title.mas, title=>"Save model information" &>
+                        <&| /util/workflow.mas:step, title=> "模型資訊(Model Info)" &>
+                            <& /page/page_title.mas, title=>"儲存模型資訊(Save model information)" &>
 
-                            <p>This step may be pre-populated if you are using a model that is already saved in the database. If there is no input enabled, move to the next step.</p>
+                            <p>若您使用的是已儲存在資料庫中的模型，此步驟可能會預先填入。如果沒有啟用的輸入欄位，請前往下一步。(This step may be pre-populated if you are using a model that is already saved in the database. If there is no input enabled, move to the next step.)</p>
 
                             <div class="form-horizontal" id="generic_save_analysis_model_select_form">
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Select a Model (If Not A New Model): </label>
+                                    <label class="col-sm-3 control-label">選擇模型（若非新模型）(Select a Model (If Not A New Model)): </label>
                                     <div class="col-sm-9">
                                         <div id="save_new_analysis_model_select_div"></div>
                                     </div>
@@ -317,95 +317,95 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
 
                             <form class="form-horizontal" id="generic_save_analysis_model_form">
                                 <div class="form-group form-group-sm" id="generic_save_analysis_model_name_div">
-                                    <label class="col-sm-3 control-label">New Model Name (must be unique): </label>
+                                    <label class="col-sm-3 control-label">新模型名稱（必須唯一）(New Model Name (must be unique)): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_name" name="generic_save_analysis_model_name" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="generic_save_analysis_model_description_div">
-                                    <label class="col-sm-3 control-label">New Model Description: </label>
+                                    <label class="col-sm-3 control-label">新模型描述(New Model Description): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_description" name="generic_save_analysis_model_description" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm" id="generic_save_analysis_model_is_public_div">
-                                    <label class="col-sm-3 control-label">New Model Is Public: </label>
+                                    <label class="col-sm-3 control-label">新模型是否公開(New Model Is Public): </label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="generic_save_analysis_model_is_public" name="generic_save_analysis_model_is_public" >
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
+                                            <option value="yes">是(Yes)</option>
+                                            <option value="no">否(No)</option>
                                         </select>
                                     </div>
                                 </div>
 
                                 <hr>
                                 <center>
-                                <button class="btn btn-primary" id="generic_save_analysis_submit_button" onclick="return false;">Save Analysis Results And/Or Model</button>
+                                <button class="btn btn-primary" id="generic_save_analysis_submit_button" onclick="return false;">儲存分析結果及/或模型(Save Analysis Results And/Or Model)</button>
                                 </center>
                                 <br/><br/>
 
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Model ID: </label>
+                                    <label class="col-sm-3 control-label">模型 ID(Model ID): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_id" name="generic_save_analysis_model_id" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Model Language: </label>
+                                    <label class="col-sm-3 control-label">模型語言(Model Language): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_language" name="generic_save_analysis_model_language" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Model Type: </label>
+                                    <label class="col-sm-3 control-label">模型類型(Model Type): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_type" name="generic_save_analysis_model_type" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Model Properties: </label>
+                                    <label class="col-sm-3 control-label">模型屬性(Model Properties): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_properties" name="generic_save_analysis_model_properties" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Application Name: </label>
+                                    <label class="col-sm-3 control-label">應用程式名稱(Application Name): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_application_name" name="generic_save_analysis_model_application_name" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Application Version: </label>
+                                    <label class="col-sm-3 control-label">應用程式版本(Application Version): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_application_version" name="generic_save_analysis_model_application_version" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Model File To Archive: </label>
+                                    <label class="col-sm-3 control-label">要存檔的模型檔案(Model File To Archive): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_file" name="generic_save_analysis_model_file" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Archive Model File Type: </label>
+                                    <label class="col-sm-3 control-label">存檔模型檔案類型(Archive Model File Type): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_archived_model_file_type" name="generic_save_analysis_model_archive_model_file_type" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Training Data File To Archive: </label>
+                                    <label class="col-sm-3 control-label">要存檔的訓練資料檔案(Training Data File To Archive): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_training_data_file" name="generic_save_analysis_model_training_data_file" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Archive Training Data File Type: </label>
+                                    <label class="col-sm-3 control-label">存檔訓練資料檔案類型(Archive Training Data File Type): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_archived_training_data_file_type" name="generic_save_analysis_model_archived_training_data_file_type" type="text" disabled/>
                                     </div>
                                 </div>
                                 <div class="form-group form-group-sm">
-                                    <label class="col-sm-3 control-label">Auxiliary Files to Archive: </label>
+                                    <label class="col-sm-3 control-label">要存檔的輔助檔案(Auxiliary Files to Archive): </label>
                                     <div class="col-sm-9">
                                         <input class="form-control" id="generic_save_analysis_model_auxiliary_files" name="generic_save_analysis_model_auxiliary_files" type="text" disabled/>
                                     </div>
@@ -413,8 +413,8 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
                             </form>
 
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Saved" &>
-                            <& /page/page_title.mas, title=>"Saved successfully" &>
+                        <&| /util/workflow.mas:step, title=> "已儲存(Saved)" &>
+                            <& /page/page_title.mas, title=>"儲存成功(Saved successfully)" &>
 
                             <div id="generic_save_analysis_response_div"></div>
                         </&>
@@ -422,7 +422,7 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -433,31 +433,31 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="genericStoreAnalysisTemplateDialog">Save Analysis Results</h4>
+                <h4 class="modal-title" id="genericStoreAnalysisTemplateDialog">儲存分析結果(Save Analysis Results)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" id="generic_save_analysis_template_analysis_form">
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Analysis Name Template (must be unique): </label>
+                            <label class="col-sm-3 control-label">分析名稱範本（必須唯一）(Analysis Name Template (must be unique)): </label>
                             <div class="col-sm-9">
                                 <input class="form-control" id="generic_save_analysis_template_analysis_name" name="generic_save_analysis_template_analysis_name" type="text" />
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Analysis Description: </label>
+                            <label class="col-sm-3 control-label">分析描述(Analysis Description): </label>
                             <div class="col-sm-9">
                                 <input class="form-control" id="generic_save_analysis_template_analysis_description" name="generic_save_analysis_template_analysis_description" type="text" />
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Breeding Program: </label>
+                            <label class="col-sm-3 control-label">育種計畫(Breeding Program): </label>
                             <div class="col-sm-9">
                                 <div id="generic_save_analysis_template_breeding_program_div"></div>
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Year: </label>
+                            <label class="col-sm-3 control-label">年份(Year): </label>
                             <div class="col-sm-9">
                                 <div id="generic_save_analysis_template_analysis_year_div"></div>
                             </div>
@@ -468,13 +468,13 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="generic_save_analysis_template_submit_button" onclick="return false;">Save Analysis Results And Model</button>
+                    <button class="btn btn-primary" id="generic_save_analysis_template_submit_button" onclick="return false;">儲存分析結果與模型(Save Analysis Results And Model)</button>
                     </center>
                     <br/><br/>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -543,88 +543,88 @@ jQuery(document).ready(function() {
 
         if (generic_save_analysis_analysis_to_save_boolean == 'yes') {
             if (generic_save_analysis_analysis_name == '') {
-                alert('Please give an analysis name');
+                alert('請提供分析名稱(Please give an analysis name)');
                 return false;
             }
             if (generic_save_analysis_analysis_description == '') {
-                alert('Please give an analysis description');
+                alert('請提供分析描述(Please give an analysis description)');
                 return false;
             }
             if (generic_save_analysis_analysis_year == '') {
-                alert('Please give an analysis year');
+                alert('請提供分析年份(Please give an analysis year)');
                 return false;
             }
             if (generic_save_analysis_breeding_program_id == '') {
-                alert('Please give a breeding program');
+                alert('請提供育種計畫(Please give a breeding program)');
                 return false;
             }
             if (generic_save_analysis_protocol == '') {
-                alert('Please give an analysis protocol e.g. lmer(grain_yield ~ replicate + 1|germplasmName)');
+                alert('請提供分析協定，例如 lmer(grain_yield ~ replicate + 1|germplasmName)(Please give an analysis protocol e.g. lmer(grain_yield ~ replicate + 1|germplasmName))');
                 return false;
             }
             if (generic_save_analysis_accession_names == '') {
-                alert('Please give analysis accession names');
+                alert('請提供分析品系/材料名稱(Please give analysis accession names)');
                 return false;
             }
             if (generic_save_analysis_trait_names == '') {
-                alert('Please give analysis trait names');
+                alert('請提供分析性狀名稱(Please give analysis trait names)');
                 return false;
             }
             if (generic_save_analysis_statistical_ontology_term == '') {
-                alert('Please give a statistical ontology term');
+                alert('請提供統計本體詞彙(Please give a statistical ontology term)');
                 return false;
             }
             if (generic_save_analysis_result_values == '') {
-                alert('Please give analysis result values');
+                alert('請提供分析結果數值(Please give analysis result values)');
                 return false;
             }
             if (generic_save_analysis_result_values_type == '') {
-                alert('Please give analysis result values type');
+                alert('請提供分析結果數值類型(Please give analysis result values type)');
                 return false;
             }
             if (generic_save_analysis_result_summary_values == '') {
-                alert('Please give analysis result summary info');
+                alert('請提供分析結果摘要資訊(Please give analysis result summary info)');
                 return false;
             }
         }
         if ( (generic_save_analysis_model_id != '' || generic_save_analysis_select_model_id != '') && generic_save_analysis_model_name != '') {
-            alert('If Model ID is given, then you should not give a new model name!');
+            alert('若已提供模型 ID，則不應提供新模型名稱！(If Model ID is given, then you should not give a new model name!)');
             return false;
         }
         if ( (generic_save_analysis_model_id != '' || generic_save_analysis_select_model_id != '') && generic_save_analysis_model_description != '') {
-            alert('If Model ID is given, then you should not give a new model description!');
+            alert('若已提供模型 ID，則不應提供新模型描述！(If Model ID is given, then you should not give a new model description!)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_name == '') {
-            alert('Please give a model name');
+            alert('請提供模型名稱(Please give a model name)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_description == '') {
-            alert('Please give a model description');
+            alert('請提供模型描述(Please give a model description)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_is_public == '') {
-            alert('Please tell if a model is public');
+            alert('請指定模型是否公開(Please tell if a model is public)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_language == '') {
-            alert('Please give a model language');
+            alert('請提供模型語言(Please give a model language)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_type == '') {
-            alert('Please give a model type');
+            alert('請提供模型類型(Please give a model type)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_properties == '') {
-            alert('Please give a model properties JSON object');
+            alert('請提供模型屬性 JSON 物件(Please give a model properties JSON object)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_application_name == '') {
-            alert('Please give a model application name');
+            alert('請提供模型應用程式名稱(Please give a model application name)');
             return false;
         }
         if ( (generic_save_analysis_model_id == '' && generic_save_analysis_select_model_id == '') && generic_save_analysis_model_application_version == '') {
-            alert('Please give a model application version');
+            alert('請提供模型應用程式版本(Please give a model application version)');
             return false;
         }
 
@@ -677,13 +677,13 @@ jQuery(document).ready(function() {
                     alert(response.error);
                 }
                 if (response.success) {
-                    alert('Analysis and/or model saved!');
+                    alert('分析及/或模型已儲存！(Analysis and/or model saved!)');
                     var html = '<center>';
                     if (response.analysis_id) {
-                        html = html + '<p>Go to saved <a href="/analyses/'+response.analysis_id+'" target=_blank >analysis</a></p>';
+                        html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses/'+response.analysis_id+'" target=_blank >分析(analysis)</a></p>';
                     }
                     if (response.model_id) {
-                        html = html + '<p>Go to saved <a href="/analyses_model/'+response.model_id+'" target=_blank >model</a></p>';
+                        html = html + '<p>前往已儲存的(Go to saved) <a href="/analyses_model/'+response.model_id+'" target=_blank >模型(model)</a></p>';
                     }
                     html = html + '</center>';
                     jQuery('#generic_save_analysis_response_div').html(html);
@@ -694,7 +694,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('Error saving analysis!');
+                alert('儲存分析時發生錯誤！(Error saving analysis!)');
             }
         });
     });

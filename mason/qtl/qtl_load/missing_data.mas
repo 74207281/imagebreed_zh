@@ -27,7 +27,7 @@ my ( $messages, $count );
 if ( @{$missing_data} ) 
 {
        
-$messages .= "Data for the following field(s) is missing: <br /><br />";
+$messages .= "缺少以下欄位的資料(Data for the following field(s) is missing): <br /><br />";
 my $count = 1;
 foreach my $e (@{$missing_data}) {
 
@@ -36,12 +36,12 @@ $count++;
 }
 
 $messages .= qq | <p><a href="javascript:history.go(-1)">
-   Please go back and fill in the missing information.</a> </p>|;
+   請返回並填寫遺漏的資訊(Please go back and fill in the missing information)。</a> </p>|;
 }
 
 </%perl>
 
-<& /page/page_title.mas, title => "Missing Data:" &>
+<& /page/page_title.mas, title => "缺少資料(Missing Data):" &>
 <&| /page/info_section.mas, title => ' ', 
   subtitle => $guide &>
  <% $messages %>  

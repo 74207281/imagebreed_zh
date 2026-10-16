@@ -8,10 +8,10 @@ $trial_id
     <div class="row">
         <div class="col-sm-6">
             <div class="well">
-                <h4>Derive Trait Phenotypes</h4>
+                <h4>推導性狀表型(Derive Trait Phenotypes)</h4>
                 <div class="row">
                     <div class="col-sm-4">
-                        <a id="compute_derived_trait_link"><button class="button" type="button" id="derived_button" value="Create_Trait" >Derive Trait</button></a>
+                        <a id="compute_derived_trait_link"><button class="button" type="button" id="derived_button" value="Create_Trait" >推導性狀(Derive Trait)</button></a>
                     </div>
                     <div class="col-sm-8">
                         <p><b>P <sub>Calculated</sub></b> = <i>f</i> ( <b>P <sub>Trait1</sub></b> , <b>P <sub>Trait2</sub></b> )</p>
@@ -21,10 +21,10 @@ $trial_id
         </div>
         <div class="col-sm-6">
             <div class="well">
-                <h4>Calculate Plot Phenotypes from Plant Phenotypes</h4>
+                <h4>從植株表型計算小區表型(Calculate Plot Phenotypes from Plant Phenotypes)</h4>
                 <div class="row">
                     <div class="col-sm-4">
-                        <a id="generate_plot_pheno_link"><button class="button" type="button" >Calculate</button></a>
+                        <a id="generate_plot_pheno_link"><button class="button" type="button" >計算(Calculate)</button></a>
                     </div>
                     <div class="col-sm-8">
                         <p><b>P <sub>Plot</sub></b> = <i>average</i> ( <b>P <sub>Plants</sub></b> )</p>
@@ -34,19 +34,19 @@ $trial_id
         </div>
     </div>
 
-<div id="compute_derived_trait_dialog" title="Compute Derived Traits" style="display:none;">
+<div id="compute_derived_trait_dialog" title="計算推導性狀(Compute Derived Traits)" style="display:none;">
   	<div id="trait_list_dc" name="trait_list">
-    		<label id="trait_list_label_dc" for="trait_list_list_select" style="display: inline-block; width: 300px;">Please select trait to compute: <br />
+    		<label id="trait_list_label_dc" for="trait_list_list_select" style="display: inline-block; width: 300px;">請選擇要計算的性狀：<br />
   			<select id="derived_trait_select"></select>
     		</label> 
     			
   	</div>
 </div>
 
-<div id="derived_trait_saved_dialog_message" title="Computation of Derived Traits" style="display:none;">
+<div id="derived_trait_saved_dialog_message" title="推導性狀計算(Computation of Derived Traits)" style="display:none;">
   	<p>
     		<span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-    		The trait was created and saved successfully
+    		性狀已成功建立並儲存
   	</p>
 </div>
 
@@ -55,7 +55,7 @@ $trial_id
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="generatePlotPhenoDialog">Generate Plot Phenotypes from Plant Phenotypes</h4>
+        <h4 class="modal-title" id="generatePlotPhenoDialog">從植株表型產生小區表型(Generate Plot Phenotypes from Plant Phenotypes)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -65,40 +65,40 @@ $trial_id
                     <form class="form-horizontal" role="form" method="post" id="generate_plot_pheno_dialog_form" name="generate_plot_pheno_dialog_form">
 
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Trait: </label>
+                            <label class="col-sm-3 control-label">性狀：</label>
                             <div class="col-sm-9" >
                                 <div id="generate_plot_pheno_trait_select_dropdown">
-                                    [No Plants Phenotyped]
+                                    [無植株表型資料]
                                     <!--ajax populated -->
                                 </div>
                             </div>
                         </div>
                         <hr>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Method: </label>
+                            <label class="col-sm-3 control-label">方法：</label>
                             <div class="col-sm-9" >
                                 <select id="generate_plot_pheno_method_select" class="form-control">
-                                    <option value="arithmetic_mean">Arithmetic Mean</option>
-                                    <option value="mode">Mode</option>
-                                    <option value="maximum">Maximum</option>
-                                    <option value="minimum">Minimum</option>
-                                    <option value="median">Median</option>
+                                    <option value="arithmetic_mean">算術平均數 (Arithmetic Mean)</option>
+                                    <option value="mode">眾數 (Mode)</option>
+                                    <option value="maximum">最大值 (Maximum)</option>
+                                    <option value="minimum">最小值 (Minimum)</option>
+                                    <option value="median">中位數 (Median)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Rounding: </label>
+                            <label class="col-sm-3 control-label">四捨五入：</label>
                             <div class="col-sm-9" >
                                 <select id="generate_plot_pheno_rounding_select" class="form-control">
-                                    <option value="no_rounding">No rounding</option>
-                                    <option value="round">Round to nearest integer</option>
-                                    <option value="round_up">Always round up to nearest integer</option>
-                                    <option value="round_down">Always round down to nearest integer</option>
+                                    <option value="no_rounding">不四捨五入</option>
+                                    <option value="round">四捨五入至最近整數</option>
+                                    <option value="round_up">無條件進位至最近整數</option>
+                                    <option value="round_down">無條件捨去至最近整數</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Overwrite Previous Plot Values for this Trait: </label>
+                            <label class="col-sm-3 control-label">覆蓋此性狀先前的小區數值：</label>
                             <div class="col-sm-9" >
                                 <input type='checkbox' id="generate_plot_pheno_overwrite" name="generate_plot_pheno_overwrite"/>
                             </div>
@@ -117,9 +117,9 @@ $trial_id
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="generate_plot_pheno_calc_submit" id="generate_plot_pheno_calc_submit" title="Calculate">View Calculation (Does Not Save)</button>
-        <button disabled type="button" class="btn btn-primary" name="generate_plot_pheno_save" id="generate_plot_pheno_save" title="">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="generate_plot_pheno_calc_submit" id="generate_plot_pheno_calc_submit" title="計算(Calculate)">檢視計算（不儲存）(View Calculation (Does Not Save))</button>
+        <button disabled type="button" class="btn btn-primary" name="generate_plot_pheno_save" id="generate_plot_pheno_save" title="儲存(Save)">儲存(Save)</button>
       </div>
     </div>
   </div>
@@ -145,7 +145,7 @@ jQuery(document).ready(function () {
                 jQuery("#working_modal").modal("hide");
                 if (response.traits_assayed[0][0]) {
                     var traits_assayed_html = "<select class='form-control' id='generate_plot_pheno_trait_select' onchange='generate_plot_pheno_trait_change(this.value)'>";
-                    traits_assayed_html = traits_assayed_html + '<option value="all">All</option>';
+                    traits_assayed_html = traits_assayed_html + '<option value="all">全部</option>';
                     for (i=0; i<response.traits_assayed[0].length; i++) {
                         traits_assayed_html = traits_assayed_html + "<option value="+ encodeURI(response.traits_assayed[0][i][1]) + " >" + response.traits_assayed[0][i][1] + "</option>";
                     }
@@ -153,7 +153,7 @@ jQuery(document).ready(function () {
 
                     jQuery("#generate_plot_pheno_trait_select_dropdown").html(traits_assayed_html);
 
-                    jQuery('#generate_plot_pheno_trait_select_definition').html("<a href='/cvterm/"+response.traits_assayed[0][0][0]+"/view'>Definition</a>");
+                    jQuery('#generate_plot_pheno_trait_select_definition').html("<a href='/cvterm/"+response.traits_assayed[0][0][0]+"/view'>定義(Definition)</a>");
                 }
             }
         });
@@ -177,7 +177,7 @@ jQuery(document).ready(function () {
             },
             success: function(response){
                 //console.log(response);
-                var html = '<hr><h5>Trait: '+response.trait_name+'</h5><h5>Method: '+response.method+'</h5><h5>Rounding: '+response.rounding+'</h5><table class="table table-hover"><thead><tr><th>Plot</th><th>Plant Values</th><th>Calculation Output</th><th>Value to Store</th><th>Notes</th></tr></thead><tbody>';
+                var html = '<hr><h5>性狀：'+response.trait_name+'</h5><h5>方法：'+response.method+'</h5><h5>四捨五入：'+response.rounding+'</h5><table class="table table-hover"><thead><tr><th>小區(Plot)</th><th>植株數值(Plant Values)</th><th>計算輸出(Calculation Output)</th><th>儲存數值(Value to Store)</th><th>備註(Notes)</th></tr></thead><tbody>';
                 for (var k=0; k<response.info.length; k++) {
                     for (var i=0; i<response.info[k].length; i++) {
                         html = html + '<tr><td>'+response.info[k][i].plot_name+'</td><td>'+response.info[k][i].plant_values+'</td><td>'+response.info[k][i].output+'</td><td>'+response.info[k][i].value_to_store+'</td>';
@@ -229,7 +229,7 @@ jQuery(document).ready(function () {
 });
 
 function generate_plot_pheno_trait_change(trait_id) {
-    jQuery('#generate_plot_pheno_trait_select_definition').html("<a href='/cvterm/"+trait_id+"/view'>Definition</a>");
+    jQuery('#generate_plot_pheno_trait_select_definition').html("<a href='/cvterm/"+trait_id+"/view'>定義(Definition)</a>");
 }
 
 </script>

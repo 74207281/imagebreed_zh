@@ -8,11 +8,11 @@ $stock_id
 <table class="table table-hover table-bordered" id="traitlist_summary_data" >
 <thead>
   <tr>
-    <th>Trait ID</th>
-    <th>Trait name</th>
-    <th>Average Value</th>
-    <th>Standard deviation</th>
-    <th>Count</th>
+    <th>性狀 ID(Trait ID)</th>
+    <th>性狀名稱(Trait Name)</th>
+    <th>平均值(Average Value)</th>
+    <th>標準差(Standard Deviation)</th>
+    <th>計數(Count)</th>
   </tr>
 </thead>
 

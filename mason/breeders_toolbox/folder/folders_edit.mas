@@ -9,26 +9,26 @@ $folder_tree_refresh_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="editFoldersDialog">Edit Selected Folder(s)</h4>
+        <h4 class="modal-title" id="editFoldersDialog">編輯選取的資料夾(Edit Selected Folder(s))</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 	       <form class="form-horizontal" role="form" method="post" id="edit_folders_category_dialog_form" name="edit_folders_category_dialog_form">
 	        <div class="form-group">
-      	      <label class="col-sm-3 control-label">Folder(s) for Trials:</label>
+      	      <label class="col-sm-3 control-label">試驗資料夾：</label>
       	      <div class="col-sm-9" >
                 <input name="edit_folders_for_trials" id="edit_folders_for_trials" type="checkbox"/>
               </div>
 	        </div>
             <div class="form-group">
-      	      <label class="col-sm-3 control-label">Folder(s) for Crosses:</label>
+      	      <label class="col-sm-3 control-label">雜交資料夾：</label>
       	      <div class="col-sm-9" >
                 <input name="edit_folders_for_crosses" id="edit_folders_for_crosses" type="checkbox"/>
               </div>
 	        </div>
             <div class="form-group">
-      	      <label class="col-sm-3 control-label">Folder(s) for Genotyping Plates:</label>
+      	      <label class="col-sm-3 control-label">基因分型盤資料夾：</label>
       	      <div class="col-sm-9" >
                 <input name="edit_folders_for_genotyping_trials" id="edit_folders_for_genotyping_trials" type="checkbox"/>
               </div>
@@ -38,8 +38,8 @@ $folder_tree_refresh_name
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="edit_folders_categories_cancel_button" id="edit_folders_categories_cancel_button" data-dismiss="modal">Close</button>
-	      <button type="button" class="btn btn-primary" name="edit_folders_categories_save_button" id="edit_folders_categories_save_button" title="Save">Save</button>
+        <button type="button" class="btn btn-default" name="edit_folders_categories_cancel_button" id="edit_folders_categories_cancel_button" data-dismiss="modal">關閉(Close)</button>
+	      <button type="button" class="btn btn-primary" name="edit_folders_categories_save_button" id="edit_folders_categories_save_button" title="儲存(Save)">儲存(Save)</button>
       </div>
     </div>
   </div>
@@ -87,9 +87,9 @@ function save_folders_categories() {
         });
     }
     if (error == 1){
-        alert('Error setting folder categories!');
+        alert('設定資料夾類別時發生錯誤！');
     } else {
-        if(confirm('Categories set for folder(s)! Refresh <% $folder_tree_type %> Tree?')){
+        if(confirm('資料夾類別設定成功！是否重新整理 <% $folder_tree_type %> 樹狀圖？')){
             jQuery("[name='<% $folder_tree_refresh_name %>']").trigger("click");
         }
     }

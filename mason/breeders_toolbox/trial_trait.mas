@@ -28,15 +28,15 @@ $trait_name = ucfirst($trait_name);
 </%perl>
 
 <& /page/page_title.mas, 
-   title => "$trait_name in $trial_name"
+   title => "$trial_name 中的 $trait_name 性狀($trait_name in $trial_name)"
 &>
 
 <&| /page/info_section.mas,
-   title => "Trait phenotype data frequency distribution from $trial_name"
+   title => "$trial_name 中的性狀表型資料頻率分佈(Trait phenotype data frequency distribution from $trial_name)"
 &>
  
   <div id="histogram_message"  style="font-weight:bold;text-align:center;color:#A7C942">
-    <p>Loading frequency distribution graph...</p>
+    <p>正在載入頻率分佈圖...</p>
   </div>
 
  

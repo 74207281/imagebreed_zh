@@ -8,36 +8,36 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addDatacollectorPhenotypeDialog">Upload Data Collector File</h4>
+        <h4 class="modal-title" id="addDatacollectorPhenotypeDialog">上傳資料收集器檔案(Upload Data Collector File)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <&| /page/explanation.mas, title=>'Template Information' &>
+            <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                 <p>
-                <b>File format information</b>
+                <b>檔案格式資訊</b>
                 <br>
-                <a id="phenotype_upload_datacollector_format_info">Datacollector Format</a>
+                <a id="phenotype_upload_datacollector_format_info">資料收集器格式</a>
                 </p>
             </&>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_datacollector_phenotype_file_form" name="upload_datacollector_phenotype_file_form">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Timestamps Included: </label>
+                    <label class="col-sm-3 control-label">包含時間戳記：</label>
                     <div class="col-sm-9" >
                         <input type="checkbox" id="upload_datacollector_phenotype_timestamp_checkbox" name="upload_datacollector_phenotype_timestamp_checkbox" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Data Level: </label>
+                    <label class="col-sm-3 control-label">資料層級：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="upload_phenotype_datacollector_data_level">
-                            <option value="plots">Plots</option>
+                            <option value="plots">小區</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Data Collector File: </label>
+                    <label class="col-sm-3 control-label">資料收集器檔案：</label>
                     <div class="col-sm-9" >
                         <input type="file" id="upload_datacollector_phenotype_file_input" name="upload_datacollector_phenotype_file_input" encoding="multipart/form-data" />
                     </div>
@@ -50,9 +50,9 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-info" name="upload_datacollector_phenotype_submit_verify" id="upload_datacollector_phenotype_submit_verify">Verify</button>
-        <button disabled type="button" class="btn btn-primary" name="upload_datacollector_phenotype_submit_store" id="upload_datacollector_phenotype_submit_store" title="First Verify Your File">Store</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-info" name="upload_datacollector_phenotype_submit_verify" id="upload_datacollector_phenotype_submit_verify">驗證(Verify)</button>
+        <button disabled type="button" class="btn btn-primary" name="upload_datacollector_phenotype_submit_store" id="upload_datacollector_phenotype_submit_store" title="請先驗證您的檔案">儲存(Store)</button>
       </div>
 
     </div>
@@ -65,16 +65,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="datacollectorUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="datacollectorUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <h4>Must be in .xls or .xlsx excel file format</h4>
-            <p>(tab-delimited text formats are NOT supported)</p>
+            <h4>必須以 .xls 或 .xlsx Excel 檔案格式上傳</h4>
+            <p>（不支援 Tab 分隔文字格式）</p>
             <hr>
-            <h4>"Field Book" Sheet Header: (8th Sheet in Workbook)</h4>
-            <p>The first row (header) should contain the following:</p>
+            <h4>"Field Book" 工作表表頭：（活頁簿中的第 8 個工作表）</h4>
+            <p>第一列（表頭）應包含以下內容：</p>
 
             <table class="table table-hover table-bordered">
                 <body>
@@ -90,25 +90,25 @@
                 </body>
             </table>
 
-            <h4>Required fields:</h4>
+            <h4>必填欄位：</h4>
             <ul>
-                <li>plot_name (must exist in the database)</li>
-                <li>trait name|trait id (must exist in the trait ontology)</li>
+                <li>plot_name（必須存在於資料庫中）</li>
+                <li>trait name|trait id（必須存在於性狀本體論中）</li>
             </ul>
 
-            <h4>Notes</h4>
+            <h4>注意事項：</h4>
             <ul>
-                <li>For <i>"sprouting proportion"</i> in cassava, <i>"trait name|trait id"</i><br> should be written as <i>"sprouting proportion|CO_334:0000008"</i>.</li>
-                <li>If trait file was not generated from the database, </br> consult the <i>Trait Ontology</i> to ensure you have the correct trait id.</li>
-                <li>Two or more traits can be uploaded at the same time.</li>
+                <li>對於樹薯中的 <i>"sprouting proportion"</i>，<i>"性狀名稱|性狀編號"</i><br>應寫為 <i>"sprouting proportion|CO_334:0000008"</i>。</li>
+                <li>若性狀檔案並非從資料庫產生，</br>請查閱<i>性狀本體論（Trait Ontology）</i>以確保您擁有正確的性狀編號。</li>
+                <li>可同時上傳兩個或多個性狀。</li>
             </ul>
 
-            <h4>Timestamps:</h4>
+            <h4>時間戳記(Timestamps)：</h4>
             <ul>
-                <li>To include timestamp information for your measurements, click the checkbox "Includes Timestamps".</li>
-                <li>For timestamps, values should be recorded as <i>"Value,Timestamp"</i>.<br/>For no timestamps, values should be recorded as <i>"Value"</i>.</li>
-                <li>Timestamp format must be YYYY-MM-DD HH:MM:SS-0000 or YYYY-MM-DD HH:MM:SS+0000</li><br/>
-                <li>Example with timestamps: <br/><br/>
+                <li>若要在測量值中包含時間戳記資訊，請勾選「包含時間戳記」核取方塊。</li>
+                <li>對於時間戳記，數值應記錄為 <i>"數值,時間戳記"</i>。<br/>若無時間戳記，數值應記錄為 <i>"數值"</i>。</li>
+                <li>時間戳記格式必須為 YYYY-MM-DD HH:MM:SS-0000 或 YYYY-MM-DD HH:MM:SS+0000</li><br/>
+                <li>包含時間戳記範例：<br/><br/>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -134,7 +134,7 @@
                     </tbody>
                 </table>
                 </li>
-                <li>Example without timestamps: <br/><br/>
+                <li>無時間戳記範例：<br/><br/>
                 <table class="table table-hover table-bordered">
                     <thead>
                         <tr>
@@ -165,7 +165,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>

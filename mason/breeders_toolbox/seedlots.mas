@@ -10,30 +10,30 @@ $crossing_trials
 $user_role => undef
 </%args>
 
-<& /page/page_title.mas, title=>"Available Seedlots" &>
+<& /page/page_title.mas, title=>"可用種子批次(Available Seedlots)" &>
 
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form', 'CXGN.BreedersToolbox.Accessions03152022', 'CXGN.BreedersToolbox.UploadPedigrees03152022', 'CXGN.BreedersToolbox.Crosses03152022' ] &>
 
-<&| /page/info_section.mas, title=>"About Seedlots",  collapsible => 1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>"關於種子批次(About Seedlots)",  collapsible => 1, collapsed=>1 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
-                <b><p>What are seedlots?</p></b>
+                <b><p>什麼是種子批次？</p></b>
                 <ul>
-                <li>Seedlots represent physical seed in packets.</li>
-                <li>This seed can be from crosses or for named accessions.</li>
-                <li>Seedlots can have a specific location, box, weight(g), and count.</li>
-                <li>Seed can be transferred into and out of a seedlot. Such as from a seedlot into a plot.</li>
-                <li>Seedlots can belong to breeding programs and organizations.</li>
+                <li>種子批次代表封裝於紙袋或容器中的實體種子。</li>
+                <li>這些種子可來自雜交組合或具名種原。</li>
+                <li>種子批次可包含特定地點、箱號、重量（克）和數量。</li>
+                <li>種子可以移入或移出種子批次，例如從種子批次移入小區。</li>
+                <li>種子批次可屬於育種計畫和機構。</li>
                 </ul>
 
-                <b><p>How do I inventory my seed?</p></b>
+                <b><p>如何盤點我的種子？</p></b>
                 <ul>
-                <li>1) Make sure your seedlots are in the database. Use "Add New Seedlot" to add a single seedlot or "Upload New Seedlots" to add many.</li>
-                <li>2) Make sure your seedlots are barcoded. You can print these barcodes from the database.</li>
-                <li>3) Use the "Inventory" Android Application to scan seedlot barcodes and record weight. Then click "Upload Inventory" on the Manage Seedlots page to upload this info into the database. If you do not want to use the Inventory Android Application you can create your own CSV file and upload that.</li>
-                <li><b>For more info about the "Seed Inventory" Android Application go to <a href="https://play.google.com/store/apps/details?id=org.wheatgenetics.inventory/">Inventory</a>.</b></li>
-                <li>It is also possible to manually enter a transaction by going to the seedlot detail page and clicking "Add New Transaction".</li>
+                <li>1) 確保您的種子批次已在資料庫中。使用「新增種子批次」新增單一種子批次，或使用「上傳種子批次」批量新增。</li>
+                <li>2) 確保您的種子批次已印製條碼。您可以從資料庫列印這些條碼。</li>
+                <li>3) 使用「Inventory」Android 應用程式掃描種子批次條碼並記錄重量。然後在管理種子批次頁面上點擊「上傳盤點」將此資訊上傳到資料庫中。如果您不想使用 Inventory Android 應用程式，也可以自行建立 CSV 檔案並上傳。</li>
+                <li><b>有關「Seed Inventory」Android 應用程式的更多資訊，請造訪 <a href="https://play.google.com/store/apps/details?id=org.wheatgenetics.inventory/">Inventory</a>。</b></li>
+                <li>也可以透過前往種子批次詳細資訊頁面並點擊「新增交易」手動輸入交易記錄。</li>
                 </ul>
             </div>
         </div>
@@ -42,10 +42,10 @@ $user_role => undef
 
 <%perl>
     my $seedlot_subtitle = !!$c->user()
-        ? '<div class="btn-group"><button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Create Seedlot(s)&nbsp;<span class="caret"></span></button><ul class="dropdown-menu"><li><a href="#" name="add_seedlot_button">Add New Seedlot</a></li><li><a href="#" name="seedlot_bulk_upload">Upload Seedlots</a></li><li><a href="#" name="create_seedlots_trial_button">Create Seedlots from Trial</a></li></ul></div> <button class="btn btn-sm btn-primary" style="margin:3px" name="seedlot_upload_inventory">Upload Inventory</button>'
-        : "Login to add or upload seedlots";
+        ? '<div class="btn-group"><button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">建立種子批次(Create Seedlot(s))&nbsp;<span class="caret"></span></button><ul class="dropdown-menu"><li><a href="#" name="add_seedlot_button">新增種子批次(Add New Seedlot)</a></li><li><a href="#" name="seedlot_bulk_upload">上傳種子批次(Upload Seedlots)</a></li><li><a href="#" name="create_seedlots_trial_button">從試驗建立種子批次(Create Seedlots from Trial)</a></li></ul></div> <button class="btn btn-sm btn-primary" style="margin:3px" name="seedlot_upload_inventory">上傳盤點(Upload Inventory)</button>'
+        : "請登入以新增或上傳種子批次";
 </%perl>
-<&| /page/info_section.mas, title=>"Seedlots",  collapsible => 1, subtitle => $seedlot_subtitle &>
+<&| /page/info_section.mas, title=>"種子批次(Seedlots)",  collapsible => 1, subtitle => $seedlot_subtitle &>
 
 <br/>
 
@@ -53,68 +53,68 @@ $user_role => undef
     <div class="panel panel-default">
         <div class="panel-body">
 
-<&| /page/info_section.mas, title=>"Search Seedlots",  collapsible => 1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>"搜尋種子批次(Search Seedlots)",  collapsible => 1, collapsed=>0 &>
 
 <div class="well well-sm">
     <form class="form-horizontal" id="search_seedlot_form" name="search_seedlot_form">
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Seedlot Name: </label>
+            <label class="col-sm-3 control-label">種子批次名稱：</label>
             <div class="col-sm-9" >
                 <input class="form-control" id="search_seedlot_form_seedlot_name" type="text" />
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Company: </label>
+            <label class="col-sm-3 control-label">公司：</label>
             <div class="col-sm-9" >
                 <div id="select_seedlot_private_company_div"></div>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Breeding Program: </label>
+            <label class="col-sm-3 control-label">育種計畫：</label>
             <div class="col-sm-9" >
                 <div id="select_seedlot_breeding_program_div"></div>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Location: </label>
+            <label class="col-sm-3 control-label">地點：</label>
             <div class="col-sm-9" >
                 <div id="select_seedlot_location_div"></div>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Contents (Accession Uniquename): </label>
+            <label class="col-sm-3 control-label">內容（種原唯一名稱）：</label>
             <div class="col-sm-7" >
                 <input class="form-control" id="search_seedlot_form_contents_accession" type="text" />
             </div>
             <div class="col-sm-2 form-check form-check-inline align-bottom">
               <input class="form-check-input" type="checkbox" id="exact_accession" value="1">
-              <label class="form-check-label" for="exact_accession">exact match</label>
+              <label class="form-check-label" for="exact_accession">精確比對</label>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Contents (Cross Unique ID): </label>
+            <label class="col-sm-3 control-label">內容（雜交唯一識別碼）：</label>
             <div class="col-sm-7" >
                 <input class="form-control" id="search_seedlot_form_contents_cross" type="text" />
             </div>
             <div class="col-sm-2 form-check form-check-inline align-bottom">
               <input class="form-check-input" type="checkbox" id="exact_cross" value="1">
-              <label class="form-check-label" for="exact_cross">exact match</label>
+              <label class="form-check-label" for="exact_cross">精確比對</label>
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Box Name: </label>
+            <label class="col-sm-3 control-label">箱號名稱：</label>
             <div class="col-sm-9" >
                 <input class="form-control" id="search_seedlot_form_box_name" type="text" />
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Minimum Count: </label>
+            <label class="col-sm-3 control-label">最少數量：</label>
             <div class="col-sm-9" >
                 <input class="form-control" id="search_seedlot_form_minimum_count" type="number" />
             </div>
         </div>
         <div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Minimum Weight (g): </label>
+            <label class="col-sm-3 control-label">最少重量 (克)：</label>
             <div class="col-sm-9" >
                 <input class="form-control" id="search_seedlot_form_minimum_weight" type="number" />
             </div>
@@ -128,7 +128,7 @@ $user_role => undef
         </div  -->
 
 	<div class="form-group form-group-sm">
-            <label class="col-sm-3 control-label">Quality: </label>
+            <label class="col-sm-3 control-label">品質：</label>
             <div class="col-sm-9" >
                 <input class="form-control" id="search_seedlot_form_quality" type="text" />
             </div>
@@ -136,7 +136,7 @@ $user_role => undef
 
     </form>
     <center>
-    <button class="btn btn-primary" id="submit_seedlot_search" />Search</button>
+    <button class="btn btn-primary" id="submit_seedlot_search" />搜尋(Search)</button>
     </center>
 </div>
 </&>
@@ -208,22 +208,22 @@ jQuery(document).ready(function(){
                 }
         },
         columns: [
-            { title: "Seedlot Name", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/seedlot/"+row.seedlot_stock_id+"'>"+row.seedlot_stock_uniquename+"</a>"; } },
-            { title: "Company", "data": null, "render": function ( data, type, row ) { return "<a href='/company/"+row.private_company_id+"'>"+row.private_company_name+"</a>"; } },
-            { title: "Breeding Program", "data": "breeding_program_name" },
-            { title: "Contents", "data": "contents_html" },
-            { title: "Location", "data": "location" },
-            { title: "Count", "data": "count" },
-            { title: "Weight (g)", "data": "weight_gram" },
-            { title: "Submitters", "data": "owners_string" },
-            { title: "Organization", "data": "organization" },
-            { title: "Box", "data": "box" },
-            { title: "Quality", "data": "seedlot_quality" },
-            { title: "Delete", "data": "null", "render": function ( data, type, row ) { return "<a onclick='removeSeedlot("+row.seedlot_stock_id+")' >X</a>"; } },
+            { title: "種子批次名稱(Seedlot Name)", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/seedlot/"+row.seedlot_stock_id+"'>"+row.seedlot_stock_uniquename+"</a>"; } },
+            { title: "公司(Company)", "data": null, "render": function ( data, type, row ) { return "<a href='/company/"+row.private_company_id+"'>"+row.private_company_name+"</a>"; } },
+            { title: "育種計畫(Breeding Program)", "data": "breeding_program_name" },
+            { title: "內容(Contents)", "data": "contents_html" },
+            { title: "地點(Location)", "data": "location" },
+            { title: "數量(Count)", "data": "count" },
+            { title: "重量 (克)(Weight (g))", "data": "weight_gram" },
+            { title: "提交者(Submitters)", "data": "owners_string" },
+            { title: "機構(Organization)", "data": "organization" },
+            { title: "箱號(Box)", "data": "box" },
+            { title: "品質(Quality)", "data": "seedlot_quality" },
+            { title: "刪除(Delete)", "data": "null", "render": function ( data, type, row ) { return "<a onclick='removeSeedlot("+row.seedlot_stock_id+")' >X</a>"; } },
         ],
         "fnInitComplete": function(oSettings, json) {
             if (!isLoggedIn()) {
-                jQuery('#available_seedlots_add_to_list').html("<div class='well well-sm'><h4>Please login to use lists!</h4></div>");
+                jQuery('#available_seedlots_add_to_list').html("<div class='well well-sm'><h4>請登入以使用清單！</h4></div>");
             } else {
                 var html = "";
                 for(var i=0; i<json.data.length; i++){
@@ -253,7 +253,7 @@ jQuery(document).ready(function(){
 });
 
 function removeSeedlot(seedlot_stock_id){
-    if (confirm("Are you sure you want to delete this seedlot?")){
+    if (confirm("您確定要刪除此種子批次嗎？")){
         jQuery.ajax({
             url: '/ajax/breeders/seedlot/'+seedlot_stock_id+'/delete',
             beforeSend: function(){
@@ -262,7 +262,7 @@ function removeSeedlot(seedlot_stock_id){
             success: function(response) {
                 jQuery('#working_modal').modal('hide');
                 if (response.success == 1) {
-                    alert("The seedlot has been deleted.");
+                    alert("該種子批次已刪除。");
                     location.reload();
                 }
                 if (response.error) {
@@ -271,7 +271,7 @@ function removeSeedlot(seedlot_stock_id){
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred deleting seed lot');
+                alert('刪除種子批次時發生錯誤');
             }
         });
     }

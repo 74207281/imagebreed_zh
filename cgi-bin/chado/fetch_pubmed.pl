@@ -1,5 +1,6 @@
 
 use strict;
+use utf8;
 
 
 use CXGN::Page;
@@ -15,7 +16,7 @@ use CXGN::DB::Connection;
 
 use base qw / CXGN::DB::ModifiableI /;
 
-my $page=CXGN::Page->new("Fetch PubMed","Naama");
+my $page=CXGN::Page->new("擷取 PubMed 文獻 (Fetch PubMed)","Naama");
 my $dbh = CXGN::DB::Connection->new();
 
 my $logged_in_person_id=CXGN::Login->new($dbh)->verify_session();
@@ -42,18 +43,18 @@ if($logged_in_user_type eq 'curator') {
             
             <table width=80% align=center>
             <tr><td>
-            <p>Could not feth pubmed ids  for the following reasons</p>
+            <p>無法擷取 PubMed ID，原因如下 (Could not fetch pubmed ids for the following reasons)：</p>
             <ul>
             $fail_str
             </ul>
-            <p>Please use your browser\'s back button to try again.</p>
+            <p>請使用瀏覽器的返回鍵重試 (Please use your browser's back button to try again)。</p>
             </td></tr>
             <tr><td><br /></td></tr>
             </table>
 END_HTML
         }
         else {
-	    print qq | <br/><b> Fetched the following  publications from PubMed</b> | ;
+	    print qq | <br/><b> 已從 PubMed 擷取以下文獻 (Fetched the following publications from PubMed)：</b> | ;
 	    my $pubmed_string;
 	    my $count=0;
 	    foreach my $pubmed (@pubmeds) { 
@@ -74,24 +75,24 @@ END_HTML
 	    }
 	    print <<END_HTML;
 	    <form method="post" action="">
-		<input type="submit" name="action" value="Confirm store">
+		<input type="submit" name="action" value="確認儲存 (Confirm store)">
 		<input type = "hidden" name="curator_id" value=$curator_id>
 		<input type = "hidden" name="publications" value=$pubmed_string>
 		</form><br>
-		<a href="javascript:history.back(1)">Go back without storing the publications</a> 
+		<a href="javascript:history.back(1)">返回且不儲存文獻 (Go back without storing the publications)</a> 
 END_HTML
 
 	}
 	
-    }elsif ($action eq 'Confirm store') {
+    }elsif ($action =~ /Confirm store/i) {
 
 	my $ids = $args{publications};
 	my $curator_id = $args{curator_id} ;
 	
 	my @pubmeds  = split (/\|/, $ids);
 	my $count=0;
-	print qq | <br/><b> stored the following  publications from PubMed</b><br /> | ;
-	print qq| (assigned to curator $curator_id) | ; 
+	print qq | <br/><b> 已儲存以下來自 PubMed 的文獻 (Stored the following publications from PubMed)</b><br /> | ;
+	print qq| (指派給策展人 (assigned to curator) $curator_id) | ; 
 	#chop $ids;
 	foreach my $pubmed (@pubmeds) { 
 		#$pubmed =~ s/ +//g; 
@@ -121,12 +122,12 @@ END_HTML
 		    </table>
 END_HTML
 	    }
-	print qq | <a href="/chado/fetch_pubmed.pl">Go back to fetch  publications page </a ><br />|; 
-	print qq| <a href= "/search/pub_search.pl?w9b3_status=pending">See publications pending curation</a><br />|;
+	print qq | <a href="/chado/fetch_pubmed.pl">返回擷取文獻頁面 (Go back to fetch publications page)</a><br />|; 
+	print qq| <a href= "/search/pub_search.pl?w9b3_status=pending">檢視待策展文獻 (See publications pending curation)</a><br />|;
     } else {
 	my @curators= CXGN::People::Person::get_curators($dbh);
 	my %names = map {$_ => CXGN::People::Person->new($dbh, $_)->get_first_name() }  @curators;
-	my $curator_options=qq|<option value="">--Assign publications to curator--</option>|;
+	my $curator_options=qq|<option value="">-- 指派文獻給策展人 (Assign publications to curator) --</option>|;
 	for my $curator_id (keys %names) {
 	    my $curator= $names{$curator_id};
 	    $curator_options .=qq|<option value="$curator_id">$curator</option>|;
@@ -136,12 +137,12 @@ END_HTML
 	<br/>
         <form method="post" action="fetch_pubmed.pl">
         <table cellpadding="2" cellspacing="2">
-        <th colspan="2">Curators may use this form to bulk fetch publications from PubMed.<br />&nbsp;</th>
+        <th colspan="2">策展人可使用此表單批次從 PubMed 擷取文獻 (Curators may use this form to bulk fetch publications from PubMed)。<br />&nbsp;</th>
 	<tr><td><textarea id="" cols="20" rows="10" name="pubmed_ids" value ="Insert a list of  PubMed IDs"></textarea></td>
 	<td>
 	<select id="curator_id" name="curator_id"> $curator_options </select>
 	</td></tr>
-        <tr><td><input type="submit" name="fetch_pubmeds" value="Store"><input type="reset" value="Reset form" /></td></tr>
+        <tr><td><input type="submit" name="fetch_pubmeds" value="儲存 (Store)"><input type="reset" value="重設表單 (Reset form)" /></td></tr>
         </table>
         <br />
     

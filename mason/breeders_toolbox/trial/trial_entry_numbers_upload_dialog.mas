@@ -9,14 +9,14 @@ $trial_name => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadTrialEntryNumbersDialog">Upload Trial Entry Numbers</h4>
+        <h4 class="modal-title" id="uploadTrialEntryNumbersDialog">上傳試驗品系編號(Upload Trial Entry Numbers)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <b>Trial Entry Numbers may be uploaded in an Excel file (.xls or .xlsx)</b><br>
+          <b>試驗品系編號可以透過 Excel 檔案（.xls 或 .xlsx）上傳</b><br>
           <br><br>
-          <b>Header:</b><br>
-          The first row (header) must contain the following:
+          <b>標頭：</b><br>
+          第一行（標頭）必須包含以下內容：
           <br>
           <table class="table table-bordered table-hover">
             <tbody>
@@ -27,16 +27,16 @@ $trial_name => undef
               </tr>
             </tbody>
           </table>
-          <b>Column Definitions:</b><br>
-          <b>accession_name:</b> (required) the unique name of the Accession record, must exist in the database<br>
-          <b>trial_names:</b> (required) the name(s) of the Trials to assign entry numbers in (can include more than one comma-separated Trial name)<br>
-          <b>entry_number:</b> The entry number to assign to the Accession in all of the specified Trial(s).  The entry number should be unique in this set of Trial(s).<br>
+          <b>欄位定義：</b><br>
+          <b>accession_name：</b>（必填）種原記錄的唯一名稱，必須存在於資料庫中<br>
+          <b>trial_names：</b>（必填）要分配品系編號的試驗名稱（可包含多個以逗號分隔的試驗名稱）<br>
+          <b>entry_number：</b>在所有指定試驗中分配給種原的品系編號。在此組試驗中品系編號應為唯一。<br>
           <br>
           <form method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_entry_numbers_form" name="upload_entry_numbers_form">
-            <label for="upload_entry_numbers_file" style="display: inline-block;">Entry Numbers File:</label>
+            <label for="upload_entry_numbers_file" style="display: inline-block;">品系編號檔案：</label>
             <input class="form-control" type="file" name="upload_entry_numbers_file" id="upload_entry_numbers_file" encoding="multipart/form-data" />
             <input id="upload_entry_numbers_ignore_warnings_cb" name="upload_entry_numbers_ignore_warnings_cb" type="checkbox" value="">
-            <label for="upload_entry_numbers_ignore_warnings_cb"> Ignore Warnings - check to upload even if there are warnings with the file</label><br>
+            <label for="upload_entry_numbers_ignore_warnings_cb"> 忽略警告 - 勾選此項即使檔案有警告也強制上傳</label><br>
           </form>
 
           <br /><br />
@@ -47,8 +47,8 @@ $trial_name => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	      <button type="button" class="btn btn-primary" name="upload_entry_numbers_submit" id="upload_entry_numbers_submit">Upload</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	      <button type="button" class="btn btn-primary" name="upload_entry_numbers_submit" id="upload_entry_numbers_submit">上傳(Upload)</button>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@ jQuery(document).ready(function() {
   jQuery('#upload_entry_numbers_submit').click( function() {
     var uploadFile = jQuery("#upload_entry_numbers_file").val();
     if (uploadFile === '') {
-      alert("Please select a file");
+      alert("請選取檔案");
       return;
     }
 
@@ -92,14 +92,14 @@ jQuery(document).ready(function() {
             addWarnings(response.warning);
           }
           if ( response.success === 1) {
-            addSuccess("Trial entry numbers stored!");
+            addSuccess("試驗品系編號已儲存！");
           }
         }
       },
       error: function() {
         jQuery('#working_modal').modal("hide");
         jQuery("#upload_entry_numbers_file").val("");
-        alert("ERROR: Could not upload and process file due to server error!");
+        alert("錯誤：由於伺服器錯誤，無法上傳並處理檔案！");
       }
     });
   });

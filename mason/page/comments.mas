@@ -59,10 +59,10 @@ if ($object_id!~/^\d+$/) { return; }
     # object_id would be the marker_id or the clone_id
 
     my $placeholder = info_section_html(
-        title=>"User comments",
+        title=>"使用者評論(User comments)",
         contents=>qq{<!-- check for comments only shows up when AJAX is not enabled
      (old browsers, buggy ajax) -->
-Please wait, checking for comments.  (If comments do not show up, access them <a href="/forum/return_comments.pl?type=$object_type&amp;id=$object_id">here</a>)}
+請稍候，正在檢查評論。（如果未顯示評論，請點擊<a href="/forum/return_comments.pl?type=$object_type&amp;id=$object_id">此處(here)</a>查看）(Please wait, checking for comments. (If comments do not show up, access them <a href="/forum/return_comments.pl?type=$object_type&amp;id=$object_id">here</a>))}
     );
 
 my $encoded_referer = $urlencode{ $referer || '' };

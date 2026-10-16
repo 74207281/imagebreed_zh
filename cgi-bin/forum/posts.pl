@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::DB::Connection;
 use CXGN::Page;
@@ -31,7 +32,7 @@ Lukas Mueller (lam87@cornell.edu)
 
 
 
-my $page = CXGN::Page->new( "SGN Forum Main", "Lukas");
+my $page = CXGN::Page->new( "SGN 論壇 (SGN Forum Main)", "Lukas");
 
 my $dbh = CXGN::DB::Connection->new();
 my $sp_person_id = CXGN::Login->new($dbh)->has_session();
@@ -48,7 +49,7 @@ if ($sp_person_id) {
 #
 if (!$topic_id) { 
     $page->header();
-    print "<p>No topic was specified. Please go back and try another topic.\n</p>";
+    print "<p>未指定主題。請返回並嘗試其他主題 (No topic was specified. Please go back and try another topic)。\n</p>";
     $page->footer();
     exit(0);
 }
@@ -58,7 +59,7 @@ if (!$topic_id) {
 my $topic = CXGN::People::Forum::Topic->new($dbh, $topic_id);
 if ($topic->get_topic_name() eq "") { 
     $page->header();
-    print "<p>The topic you are refering to does not exist or no longer exists. Please <a href=\"topics.pl\">go back</a> and try again!<br /><br />\n"; 
+    print "<p>您查詢的主題不存在或已不再存在。請 <a href=\"topics.pl\">返回重試 (go back and try again)</a>！<br /><br />\n"; 
     $page->footer();
     exit(0);
 }
@@ -73,15 +74,15 @@ my $s = posts_list($dbh, $sp_person_id, $topic_id, $page);
 #
 $page->header();
 
-print page_title_html("Forum Topic: ".$topic->get_topic_name()."\n");
-my $topic_started_by = "<br />This topic was started by <b><a href=\"/solpeople/personal-info.pl?sp_person_id=".
+print page_title_html("論壇主題 (Forum Topic): ".$topic->get_topic_name()."\n");
+my $topic_started_by = "<br />此主題發起人 (Started by): <b><a href=\"/solpeople/personal-info.pl?sp_person_id=".
     ($topic_start_person->get_sp_person_id)."\">".
-    ($topic_start_person->get_first_name()." ".$topic_start_person->get_last_name())."</a></b>.\n";
+    ($topic_start_person->get_first_name()." ".$topic_start_person->get_last_name())."</a></b>。\n";
 
 my $topic_name = $topic->get_topic_name();
 my $topic_description = $topic->get_topic_description();
 my $forum_toolbar = forum_toolbar($topic_id, $sp_person_id);
-if (!$topic_description) { $topic_description = "(topic description not available)"; }
+if (!$topic_description) { $topic_description = "(無主題描述 / topic description not available)"; }
 
 
 print qq { <div class="container-fluid"><div class="row">$forum_toolbar<br/><br/>  };
@@ -105,7 +106,7 @@ sub posts_list {
     $s .= qq { };
     
     if (!@posts) { 
-	$s .= "<br/>No user comments.<br/>";
+	$s .= "<br/>尚無使用者評論 (No user comments)。<br/>";
     }
     
     foreach my $p (@posts) { 
@@ -130,10 +131,10 @@ sub posts_list {
 	my $refering_url = $page->{request}->uri()."?".$page->{request}->args();
 	my $encoded_url = URI::Escape::uri_escape($refering_url);
 	if (($sp_person_id && ($post_person_id == $sp_person_id)) || $user->get_user_type() eq "curator") { 
-	    $remove_link = "<a href=\"forum_post_delete.pl?post_id=".($p->get_forum_post_id())."&amp;refering_page=$encoded_url\">Delete</a>\n"; 
+	    $remove_link = "<a href=\"forum_post_delete.pl?post_id=".($p->get_forum_post_id())."&amp;refering_page=$encoded_url\">刪除 (Delete)</a>\n"; 
 	}
 	
-	$s .= qq { <div class="panel panel-default"><div class="panel-heading"><div class="row"><div class="col-sm-10">Posted by <b><a href="/solpeople/personal-info.pl?sp_person_id=$post_sp_person_id">$post_name</a>$user_type</b> on $post_date </div><div class="col-sm-2">$remove_link</div></div></div> };
+	$s .= qq { <div class="panel panel-default"><div class="panel-heading"><div class="row"><div class="col-sm-10">由 <b><a href="/solpeople/personal-info.pl?sp_person_id=$post_sp_person_id">$post_name</a>$user_type</b> 發布於 $post_date (Posted by) </div><div class="col-sm-2">$remove_link</div></div></div> };
 	$s .= qq { <div class="panel-body">$post_text</div></div> };
     }
     $s .= "";
@@ -154,14 +155,14 @@ sub old_posts_list {
     my @parent_ids = ();
 
     unless( @posts ) {
-        return "Currently there are no posts under this topic. Please use the Add Posting link to add a post. Please note that you have to be logged in to post. [<a href=\"login.pl\">Login</a>]<br /><br />";
+        return "目前此主題下尚無貼文。請使用「新增貼文」連結新增貼文。請注意，您必須登入才能發布。[<a href=\"login.pl\">登入 (Login)</a>]<br /><br /> (Currently there are no posts under this topic. Please use the Add Posting link to add a post.)";
     }
 
     my $s = "<table border=\"0\" cellpadding=\"2\" cellspacing=\"2\">";
 
     foreach my $p (@posts) { 
 	my $subject   = $p->get_subject();
-	if (!$subject) { $subject = "[No subject]"; }
+	if (!$subject) { $subject = "[無主旨 / No subject]"; }
 	my $post_text = $p->get_post_text();
 
 	my $person_id = $p->get_person_id();
@@ -194,12 +195,12 @@ sub old_posts_list {
 	    $indent_chars .="&rarr;";
 	}
 
-	my $respond_link = "Respond";
+	my $respond_link = "回覆 (Respond)";
 	if ($person_id) {
-	    $respond_link = "<a href=\"add_post.pl?parent_post_id=$forum_post_id&amp;topic_id=$topic_id\">Respond</a>"; 
+	    $respond_link = "<a href=\"add_post.pl?parent_post_id=$forum_post_id&amp;topic_id=$topic_id\">回覆 (Respond)</a>"; 
 	}
         #my $post_level = $p -> get_post_level();
-	$s .= "<tr><td colspan=\"4\" class=\"bgcolorselected\">From: <b>$name</b> </td><td colspan=3 class=\"bgcolorselected\" align=\"right\">Posted: $post_time</td></tr>\n";
+	$s .= "<tr><td colspan=\"4\" class=\"bgcolorselected\">來自 (From): <b>$name</b> </td><td colspan=3 class=\"bgcolorselected\" align=\"right\">發布時間 (Posted): $post_time</td></tr>\n";
 	$s .= "<tr><td><table cellpadding=\"5\"><tr><td width=\"$indent_pixels\">$indent_chars</td><td><b>$subject</b></td></tr></table></td><td colspan=\"4\" wrap=\"wrap\">$post_text</td></tr>";
 	$s .="<tr><td colspan=\"7\" align=\"right\">$respond_link</td></tr>";
 	$s .= "<tr><td><img src=\"/img/dot_clear.png\" height=\"2\" /></td><td colspan=\"5\"><img src=\"/img/dot_clear.png\" height=\"2\" /></td></tr>";
@@ -212,9 +213,9 @@ sub old_posts_list {
 sub forum_toolbar {
     my $topic_id=shift;
     my $person_id = shift; # not used... always display link, will go to login page if not logged in
-    my $s = "<a href=\"topics.pl\">View topics list</a> | \n";
+    my $s = "<a href=\"topics.pl\">檢視主題列表 (View topics list)</a> | \n";
 
-    $s .= "<a href=\"add_post.pl?topic_id=$topic_id\">Add post</a>";
+    $s .= "<a href=\"add_post.pl?topic_id=$topic_id\">新增貼文 (Add post)</a>";
     $s .= "\n";
     return $s;
 }

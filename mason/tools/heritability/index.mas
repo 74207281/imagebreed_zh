@@ -19,18 +19,18 @@
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
 
-<& /page/page_title.mas, title=>"Heritability" &>
+<& /page/page_title.mas, title=>"遺傳率(Heritability)" &>
 
 
-<&| /page/info_section.mas, id=>"input_dataset_section", title=>"Select Input Data", collapsible=>1, collapsed=>0, subtitle=>'<a class="btn btn-link pull-right" href="/help/solgwas" target="_blank">Help <span class="glyphicon glyphicon-question-sign"></span></a>' &>
+<&| /page/info_section.mas, id=>"input_dataset_section", title=>"選擇輸入資料(Select Input Data)", collapsible=>1, collapsed=>0, subtitle=>'<a class="btn btn-link pull-right" href="/help/solgwas" target="_blank">說明(Help) <span class="glyphicon glyphicon-question-sign"></span></a>' &>
   <input type="hidden" name="outformat" value="0" />
 
 
   <div class="form-group form-inline">
-    <label for="dataset_select">Available Datasets: </label><div id="dataset_select"></div>
+    <label for="dataset_select">可用資料集(Available Datasets)：</label><div id="dataset_select"></div>
     <br>
 
-    <button class="btn btn-primary" id="selectDataset" type="submit" name="selectDataset" value="selectDataset">Select Dataset</button>
+    <button class="btn btn-primary" id="selectDataset" type="submit" name="selectDataset" value="selectDataset">選擇資料集(Select Dataset)</button>
     <br>
     <br>
 
@@ -38,9 +38,9 @@
 
 
       <div class="form-group form-inline">
-        <label class="blast_select_label" for="pheno_select">Available&nbspTraits:&nbsp; </label>
+        <label class="blast_select_label" for="pheno_select">可用性狀(Available Traits)：&nbsp; </label>
       <& /page/html_select.mas, name=>'pheno_select', id=>'pheno_select', params=>"class\=\"form-control input-sm blast_select_box\"", choices=>"" &>
-      <button class="btn btn-primary" id="preview_trait_histogram_btn" type="submit" name="preview_trait_histogram_btn" value="preview_trait_histogram_btn">View Trait Histogram</button>
+      <button class="btn btn-primary" id="preview_trait_histogram_btn" type="submit" name="preview_trait_histogram_btn" value="preview_trait_histogram_btn">檢視性狀直方圖(View Trait Histogram)</button>
       <br>
       <br>
       <br>
@@ -67,7 +67,7 @@
         </div>
 
             <div style="text-align: center">
-              <button class="btn btn-primary" id="runH2" type="submit" name="runH2" value="runH2">Run Heritability</button>
+              <button class="btn btn-primary" id="runH2" type="submit" name="runH2" value="runH2">執行遺傳率分析(Run Heritability)</button>
             </div>
             <br />
 
@@ -83,14 +83,14 @@
 
 
 
-<&| /page/info_section.mas, title=>"Output", collapsible=>1, collapsed=>0, subtitle=>'<a id="download_table" class="download_tag" target="_blank" href="javascript:download_table();" title="Download results in tabular format">Table&#8675;</a>&nbsp;&nbsp;<a id="download_basic" class="download_tag" target="_blank" href="javascript:download();" title="Download results in basic format">Basic&#8675;</a>' &>
+<&| /page/info_section.mas, title=>"輸出(Output)", collapsible=>1, collapsed=>0, subtitle=>'<a id="download_table" class="download_tag" target="_blank" href="javascript:download_table();" title="下載表格格式結果(Download results in tabular format)">表格(Table)&#8675;</a>&nbsp;&nbsp;<a id="download_basic" class="download_tag" target="_blank" href="javascript:download();" title="下載基本格式結果(Download results in basic format)">基本(Basic)&#8675;</a>' &>
 
 
 
   <center>
     <div id="sgn_blast_graph" style="display:none">
         <div id="myCanvas">
-          Your browser does not support the HTML5 canvas
+          您的瀏覽器不支援 HTML5 canvas(Your browser does not support the HTML5 canvas)
         </div>
     </div>
   </center>
@@ -118,7 +118,7 @@ jQuery(document).ready(function() {
     get_select_box("datasets", "dataset_select", {"checkbox_name":"dataset_select_checkbox"});
   }
   else {
-    alert('You must be logged in to use Heritability');
+    alert('您必須登入才能使用遺傳率分析(You must be logged in to use Heritability)');
   }
   $('#pheno_select').attr("disabled",true).html('');
   jQuery('#dataset_select').click(function() {
@@ -150,7 +150,7 @@ jQuery(document).ready(function() {
 
       },
       error: function(response) {
-        alert("An error occurred, the service may temporarily be unavailable, ponto 1");
+        alert("發生錯誤，服務可能暫時無法使用(An error occurred, the service may temporarily be unavailable)");
       }
     });
   });
@@ -158,7 +158,7 @@ jQuery(document).ready(function() {
 
   jQuery('#preview_trait_histogram_btn').on('click', function() {
     if (!jQuery('#pheno_select').val()) {
-      alert("Please select a dataset and trait.")
+      alert("請選擇資料集與性狀。(Please select a dataset and trait.)")
     } else {
       //alert("Inside trait preview");
       var tempfile = jQuery('#tempfile').html();
@@ -203,7 +203,7 @@ jQuery(document).ready(function() {
 
   jQuery('#runH2').click( function () {
     if (!jQuery('#pheno_select').val()) {
-      alert("Please select a dataset and trait.")
+      alert("請選擇資料集與性狀。(Please select a dataset and trait.)")
       $('#heritability_output').empty();
     } else {
       $('#heritability_output').empty();
@@ -247,10 +247,10 @@ function get_dataset_id() {
           selected_datasets.push(jQuery(this).val());
       });
       if (selected_datasets.length < 1){
-          alert('Please select at least one dataset!');
+          alert('請至少選擇一個資料集！(Please select at least one dataset!)');
           return false;
       } else if (selected_datasets.length > 1){
-          alert('Please select only one dataset!');
+          alert('請僅選擇一個資料集！(Please select only one dataset!)');
           return false;
       } else {
     var dataset_id=selected_datasets[0];

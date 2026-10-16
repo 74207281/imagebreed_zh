@@ -1,10 +1,11 @@
 #!/usr/bin/perl -w
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::Connection;
 
 our %builds;
-our $page = CXGN::Page->new( "SGN Unigene Build Summary", "Koni");
+our $page = CXGN::Page->new( "SGN Unigene 組裝摘要 (SGN Unigene Build Summary)", "Koni");
 
 my $dbh = CXGN::DB::Connection->new();
 my $buildq = $dbh->prepare("SELECT unigene_build_id, groups.comment, build_date from unigene_build LEFT JOIN groups ON (groups.group_id=unigene_build.organism_group_id) where status=?");
@@ -40,10 +41,10 @@ $page->header();
 
 print <<EOF;
 
-<h3>Unigene Build Statistics</h3>
-Summary of all current unigene builds available on SGN. Unigene builds are updated periodically as new data becomes available or new advances are made in assembly technology or strategy. For information on each build series, click the links below.
+<h3>Unigene 組裝統計資訊 (Unigene Build Statistics)</h3>
+SGN 目前可用的所有 unigene 組裝版本摘要。隨著新數據產出或組裝技術/策略進展，unigene 組裝將定期更新。有關各組裝系列的詳細資訊，請點擊下方連結。
 
-<font color="gray">Note: Content describing each build series is under development as each build series is updated with our latest assembly strategy. Links will be added as each build is updated.</font>
+<font color="gray">說明：各組裝系列的描述內容正隨最新組裝策略同步更新中。各組裝版本更新後將陸續加入連結。</font>
 
 <table summary="" cellspacing="0" cellpadding="0" border="0" align="center" width="60%">
 
@@ -52,11 +53,11 @@ EOF
 foreach my $build_name ( sort { $builds{$b}->{build_date} cmp $builds{$a}->{build_date} } keys %builds ) {
 
   print <<EOF;
-  <tr><td colspan="2"><b>$build_name</b></td><td>Date: $builds{$build_name}->{build_date}</td></tr>
-  <tr><td colspan="3">$builds{$build_name}->{nr_inputs} ESTs assembled into $builds{$build_name}->{unigenes} unigenes</td></tr>
-  <tr><td>Clusters: $builds{$build_name}->{clusters}</td>
-      <td>Contigs: $builds{$build_name}->{contigs}</td>
-      <td>Singlets: $builds{$build_name}->{singlets}</td></tr>
+  <tr><td colspan="2"><b>$build_name</b></td><td>日期 (Date): $builds{$build_name}->{build_date}</td></tr>
+  <tr><td colspan="3">$builds{$build_name}->{nr_inputs} 條 EST 組裝成 $builds{$build_name}->{unigenes} 個 unigenes</td></tr>
+  <tr><td>叢集 (Clusters): $builds{$build_name}->{clusters}</td>
+      <td>重疊群 (Contigs): $builds{$build_name}->{contigs}</td>
+      <td>單條序列 (Singlets): $builds{$build_name}->{singlets}</td></tr>
   <tr><td colspan="3"><br /></td></tr>
 
 EOF

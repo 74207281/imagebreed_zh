@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use File::Spec;
@@ -20,7 +21,7 @@ my $bw_query_id = $cgi->param('query');
 
 my $dbh = CXGN::DB::Connection->new();
 
-$c->throw( message => "No query chosen.", is_error => 0 ) unless $bw_query_id;
+$c->throw( message => "未選擇任何查詢。(No query chosen.)", is_error => 0 ) unless $bw_query_id;
 
 my $select = "SELECT sequence, program, database, matrix, evalue, num_results "
     . "FROM blastwatch_queries where blastwatch_queries_id = ?";
@@ -31,7 +32,7 @@ $sth->finish;
 
 my $results = CXGN::BlastWatch::get_results($dbh,$bw_query_id);
 
-if (!$results) { &user_error("Invalid query.") }
+if (!$results) { &user_error($page, "無效的查詢。(Invalid query.)") }
 
 website($page, $results,@v);
 
@@ -48,22 +49,22 @@ sub website {
 	substr($sequence, $i, 0) = " ";
     }
     
-    $page->header('BLAST Watch Results','BLAST Watch Results');
+    $page->header('BLAST 監控結果 (BLAST Watch Results)','BLAST 監控結果 (BLAST Watch Results)');
     
     print <<EOF;
 
-<p><strong>Query sequence:</strong><br/>
+<p><strong>查詢序列 (Query sequence):</strong><br/>
 $sequence</p>
 
-<p><strong>Program:</strong> $program</p>
+<p><strong>程式 (Program):</strong> $program</p>
 
-<p><strong>Database:</strong> $database</p>
+<p><strong>資料庫 (Database):</strong> $database</p>
 
-<p><strong>Substitution Matrix:</strong> $matrix</p>
+<p><strong>替代矩陣 (Substitution Matrix):</strong> $matrix</p>
 
-<p><strong>Expect (e-value) Threshold:</strong> $evalue</p>
+<p><strong>預期值門檻 (Expect / e-value Threshold):</strong> $evalue</p>
 
-<strong>Results:</strong>
+<strong>比對結果 (Results):</strong>
 
 EOF
 
@@ -71,12 +72,13 @@ if ($results ne "No results found.") {
     print <<TEXT;
     
     <table summary="" width="90%">
-	<td><strong>Query</strong></td>
-	<td><strong>Hit</strong></td>
-	<td><strong>Start</strong></td>
-	<td><strong>End</strong></td>
-	<td><strong>E-value</strong></td>
-	<td><strong>Score</strong></td>
+	<tr>
+	<td><strong>查詢 (Query)</strong></td>
+	<td><strong>比對目標 (Hit)</strong></td>
+	<td><strong>起始 (Start)</strong></td>
+	<td><strong>結束 (End)</strong></td>
+	<td><strong>預期值 (E-value)</strong></td>
+	<td><strong>分數 (Score)</strong></td>
 	<td></td>
 	</tr>
 	$results
@@ -85,7 +87,7 @@ if ($results ne "No results found.") {
 TEXT
 }
 
-    else { print $results }
+    else { print "<p>未找到任何比對結果。(No results found.)</p>"; }
 
     $page->footer();
     
@@ -97,7 +99,7 @@ sub user_error {
     $page->header();
     
     print <<EOF;
-    <h4>SGN BLAST Watch Error</h4>
+    <h4>SGN BLAST 監控錯誤 (SGN BLAST Watch Error)</h4>
 	<p>$reason</p>
 EOF
 

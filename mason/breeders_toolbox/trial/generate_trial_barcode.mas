@@ -14,14 +14,14 @@ $trial_stock_type => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="generateTrialBarcodeDialog">Generate Stock Barcode</h4>
+                <h4 class="modal-title" id="generateTrialBarcodeDialog">產生品系條碼(Generate Stock Barcode)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p id = "barcode_dialog_subtitle2">
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
                     </p>
-                    OR   <button type="button" class="btn btn-primary" name="custom_barcode_trial_link" id="custom_barcode_trial_link">Design Custom Barcode</button>   ON LABEL DESIGNER PAGE!
+                    或在標籤設計工具頁面 <button type="button" class="btn btn-primary" name="custom_barcode_trial_link" id="custom_barcode_trial_link">設計自訂條碼(Design Custom Barcode)</button>！
                     <center>
                         <div class="well">
                             <& /util/barcode.mas, identifier => "$identifier", trial_id=> "$trial_id", trial_name=> "$trial_name", format=>"trial_qrcode"  &>
@@ -37,24 +37,24 @@ $trial_stock_type => undef
                             <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="/barcode/stock/download/pdf" >
 
                              <div class="form-group form-group-sm" >
-                               <label class="col-sm-4 control-label">List of Stock Names: </label>
+                               <label class="col-sm-4 control-label">品系名稱清單：</label>
                                <div class="col-sm-8" id="trial_accessions">
                                </div>
                              </div>
 
                              <div class="form-group form-group-sm">
-                              <label class="col-sm-4 control-label">Barcode Type: </label>
+                              <label class="col-sm-4 control-label">條碼類型：</label>
                               <div class="col-sm-8">
                                   <select class="form-control" id="select_barcode_type" name="select_barcode_type">
-                                    <option value="2D">2D Barcode</option>
-                                    <option value="1D">1D Barcode</option>
+                                    <option value="2D">二維條碼 (2D Barcode)</option>
+                                    <option value="1D">一維條碼 (1D Barcode)</option>
                                   </select>
                               </div>
                              </div>
 
                                <div id="2D_fieldbook_option" >
                                <div class="form-group form-group-sm" >
-                                 <label class="col-sm-4 control-label">Enable 2D Barcode For FieldBook: </label>
+                                 <label class="col-sm-4 control-label">為田間手冊啟用二維條碼：</label>
                                  <div class="col-sm-8">
                                    <input type="checkbox" id="enable_fieldbook_2d_barcode" name="enable_fieldbook_2d_barcode" value="enable_fieldbook_2d_barcode" checked/>
                                  </div>
@@ -174,11 +174,11 @@ $trial_stock_type => undef
                                </script>
 
                                <div class="form-group form-group-sm">
-                                 <label class="col-sm-4 control-label">Printing Format (Optional): </label>
+                                 <label class="col-sm-4 control-label">列印格式（選填）：</label>
                                  <div class="col-sm-8">
                                      <select class="form-control" id="select_print_format" name="select_print_format">
                                        <!--<option selected disabled>select printing format</option>-->
-                                       <option value="">select printing format</option>
+                                       <option value="">選擇列印格式</option>
                                        <option value="CASS">CASS printing format</option>
                                        <option value="MUSA">MUSA printing format</option>
                                        <option value="32A4">32 label Size Sticker Paper</option>
@@ -193,7 +193,7 @@ $trial_stock_type => undef
                                </div>
 
                                 <div class="form-group form-group-sm" style="display: none">
-                                  <label class="col-sm-4 control-label">Print Duplicate Labels Per Row: </label>
+                                  <label class="col-sm-4 control-label">每列列印重複標籤：</label>
                                   <div class="col-sm-8">
                                     <input type="checkbox" name="duplicate_labels_per_row" checked="1" disabled="1" />
                                   </div>
@@ -224,8 +224,8 @@ $trial_stock_type => undef
             </div>
             <div class="modal-footer">
 
-                <button class="btn btn-primary type="submit" type="submit" value="Download Barcodes">Download Barcodes</button>
-                <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit" value="下載條碼(Download Barcodes)">下載條碼(Download Barcodes)</button>
+                <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
             </div>
         </form>
@@ -239,7 +239,7 @@ $trial_stock_type => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="generateTrialBarcodeButtonDialog">Generate Stock Barcode</h4>
+                <h4 class="modal-title" id="generateTrialBarcodeButtonDialog">產生品系條碼(Generate Stock Barcode)</h4>
             </div>
             <div class="modal-body">
             <div class="container-fluid">
@@ -251,17 +251,17 @@ $trial_stock_type => undef
                     <& /util/barcode.mas, identifier => "$identifier", trial_id=> "$trial_id", trial_name=> "$trial_name", format=>"trial_qrcode"  &>
                     </div>
                 <p>
-                    <button type="button" class="btn btn-primary" name="trial_plot_barcode" id="trial_plot_barcode">Plot Barcodes</button>
-                    <button type="button" class="btn btn-primary" name="trial_plant_barcode" id="trial_plant_barcode">Plant Barcodes</button>
+                    <button type="button" class="btn btn-primary" name="trial_plot_barcode" id="trial_plot_barcode">小區條碼(Plot Barcodes)</button>
+                    <button type="button" class="btn btn-primary" name="trial_plant_barcode" id="trial_plant_barcode">植株條碼(Plant Barcodes)</button>
                     <button type="button" class="btn btn-primary" name="trial_stock_barcode" id="trial_stock_barcode"></button>
-                    <button type="button" class="btn btn-primary" name="custom_barcode" id="custom_barcode">Custom Barcodes</button>
+                    <button type="button" class="btn btn-primary" name="custom_barcode" id="custom_barcode">自訂條碼(Custom Barcodes)</button>
                 </p>
 
                       </center>
               </div>
           </div>
           <div class="modal-footer">
-              <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
           </div>
       </div>
@@ -274,36 +274,36 @@ $trial_stock_type => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="generateCrossingTrialBarcodeButtonDialog">Generate Barcode</h4>
+                <h4 class="modal-title" id="generateCrossingTrialBarcodeButtonDialog">產生條碼(Generate Barcode)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        Generate barcodes for cross unique ids, female parents and male parents in this crossing experiment.
+                        為此雜交實驗中雜交唯一識別碼、母本與父本產生條碼。
                     </p>
                     <center>
                         <div class="well">
                             <& /util/barcode.mas, identifier => "$identifier", trial_id=> "$trial_id", trial_name=> "$trial_name", format=>"trial_qrcode"  &>
                         </div>
                         <p>
-                            <button type="button" class="btn btn-primary" name="cross_barcodes" id="cross_barcodes">Cross Unique ID Barcodes</button>
+                            <button type="button" class="btn btn-primary" name="cross_barcodes" id="cross_barcodes">雜交唯一識別碼條碼(Cross Unique ID Barcodes)</button>
                         </p>
                         <p>
-                            <button type="button" class="btn btn-primary" name="female_accession_barcodes" id="female_accession_barcodes">Female Accession Barcodes</button>
-                            <button type="button" class="btn btn-primary" name="female_plot_barcodes" id="female_plot_barcodes">Female Plot Barcodes</button>
-                            <button type="button" class="btn btn-primary" name="female_plant_barcodes" id="female_plant_barcodes">Female Plant Barcodes</button>
+                            <button type="button" class="btn btn-primary" name="female_accession_barcodes" id="female_accession_barcodes">母本種原條碼(Female Accession Barcodes)</button>
+                            <button type="button" class="btn btn-primary" name="female_plot_barcodes" id="female_plot_barcodes">母本小區條碼(Female Plot Barcodes)</button>
+                            <button type="button" class="btn btn-primary" name="female_plant_barcodes" id="female_plant_barcodes">母本植株條碼(Female Plant Barcodes)</button>
                         </p>
                         <p>
-                            <button type="button" class="btn btn-primary" name="male_accession_barcodes" id="male_accession_barcodes">Male Accession Barcodes</button>
-                            <button type="button" class="btn btn-primary" name="male_plot_barcodes" id="male_plot_barcodes">Male Plot Barcodes</button>
-                            <button type="button" class="btn btn-primary" name="male_plant_barcodes" id="male_plant_barcodes">Male Plant Barcodes</button>
+                            <button type="button" class="btn btn-primary" name="male_accession_barcodes" id="male_accession_barcodes">父本種原條碼(Male Accession Barcodes)</button>
+                            <button type="button" class="btn btn-primary" name="male_plot_barcodes" id="male_plot_barcodes">父本小區條碼(Male Plot Barcodes)</button>
+                            <button type="button" class="btn btn-primary" name="male_plant_barcodes" id="male_plant_barcodes">父本植株條碼(Male Plant Barcodes)</button>
                         </p>
                     </center>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="trial_barcode_dialog_ok_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -321,14 +321,14 @@ jQuery(document).ready(function () {
     var barcode_button_label = '';
 
     if (trial_stock_type == 'family_name') {
-        dialog_subtitle = 'Generate barcodes for plots, plants and family names used in this trial.';
-        barcode_button_label = 'Family Name Barcodes';
+        dialog_subtitle = '為此試驗中使用的小區、植株與家族名稱產生條碼。';
+        barcode_button_label = '家族名稱條碼(Family Name Barcodes)';
     } else if (trial_stock_type == 'cross') {
-        dialog_subtitle = 'Generate barcodes for plots, plants and cross unique ids used in this trial.';
-        barcode_button_label = 'Cross Unique ID Barcodes';
+        dialog_subtitle = '為此試驗中使用的小區、植株與雜交唯一識別碼產生條碼。';
+        barcode_button_label = '雜交唯一識別碼條碼(Cross Unique ID Barcodes)';
     } else {
-        dialog_subtitle = 'Generate barcodes for plots, plants and accessions used in this trial.';
-        barcode_button_label = 'Accession Barcodes';
+        dialog_subtitle = '為此試驗中使用的小區、植株與種原產生條碼。';
+        barcode_button_label = '種原條碼(Accession Barcodes)';
     }
 
     jQuery('#barcode_dialog_subtitle').text(dialog_subtitle);
@@ -338,11 +338,11 @@ jQuery(document).ready(function () {
     jQuery('#trial_stock_barcode').click(function() {
 
         if (trial_stock_type == 'family_name') {
-            jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for family names used in this trial');
+            jQuery('#barcode_dialog_subtitle2').text('為此試驗中使用的家族名稱產生條碼');
         } else if (trial_stock_type == 'cross') {
-            jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for Cross unique ids used in this trial');
+            jQuery('#barcode_dialog_subtitle2').text('為此試驗中使用的雜交唯一識別碼產生條碼');
         } else {
-            jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for accessions used in this trial');
+            jQuery('#barcode_dialog_subtitle2').text('為此試驗中使用的種原產生條碼');
         }
 
     	jQuery.ajax ( {
@@ -358,14 +358,14 @@ jQuery(document).ready(function () {
         		jQuery('#trial_accessions').html(trial_accessions_html);
             },
             error: function(response){
-        		      alert("Error retrieving accessions.");
+        		      alert("檢索種原時發生錯誤。");
             }
         });
     });
 
     jQuery('#trial_plot_barcode').click(function() {
 
-        jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for plots used in this trial');
+        jQuery('#barcode_dialog_subtitle2').text('為此試驗中小區產生條碼');
 
         jQuery.ajax ( {
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/plots',
@@ -380,21 +380,21 @@ jQuery(document).ready(function () {
                 jQuery('#trial_accessions').html(trial_plots_html);
             },
             error: function(response){
-                alert("Error retrieving plots.");
+                alert("檢索小區時發生錯誤。");
             }
         });
     });
 
     jQuery('#trial_plant_barcode').click(function() {
 
-        jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for plants used in this trial');
+        jQuery('#barcode_dialog_subtitle2').text('為此試驗中植株產生條碼');
 
         jQuery.ajax ( {
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/plants',
 
             success: function(response){
                 if (response.plants == '') {
-                    alert("Trial has no plant entries.");
+                    alert("此試驗沒有植株項目。");
                 }
                 var trial_plants_html = '<textarea class="form-control" id="stock_names" name="stock_names" >';
                 for (i=0; i<response.plants[0].length; i++) {
@@ -405,7 +405,7 @@ jQuery(document).ready(function () {
                 jQuery('#trial_accessions').html(trial_plants_html);
             },
             error: function(response){
-                alert("Error retrieving plants.");
+                alert("檢索植株時發生錯誤。");
             }
 
         });
@@ -419,7 +419,7 @@ jQuery(document).ready(function () {
     jQuery('#cross_barcodes').click(function() {
         jQuery('#generate_crossing_experiment_barcode_dialog').modal("hide");
         jQuery('#generate_trial_barcode_dialog').modal("show");
-        jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for cross unique ids');
+        jQuery('#barcode_dialog_subtitle2').text('為雜交唯一識別碼產生條碼');
         jQuery.ajax ( {
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/get_crosses',
 
@@ -436,7 +436,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving crosses.");
+                alert("檢索雜交時發生錯誤。");
             }
         });
     });
@@ -445,7 +445,7 @@ jQuery(document).ready(function () {
     jQuery('#female_accession_barcodes').click(function() {
         jQuery('#generate_crossing_experiment_barcode_dialog').modal("hide");
         jQuery('#generate_trial_barcode_dialog').modal("show");
-        jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for female accessions');
+        jQuery('#barcode_dialog_subtitle2').text('為母本種原產生條碼');
 
         jQuery.ajax ( {
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/get_female_accessions',
@@ -463,7 +463,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving female accessions.");
+                alert("檢索母本種原時發生錯誤。");
             }
         });
     });
@@ -472,7 +472,7 @@ jQuery(document).ready(function () {
     jQuery('#male_accession_barcodes').click(function() {
         jQuery('#generate_crossing_experiment_barcode_dialog').modal("hide");
         jQuery('#generate_trial_barcode_dialog').modal("show");
-        jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for male accessions');
+        jQuery('#barcode_dialog_subtitle2').text('為父本種原產生條碼');
 
         jQuery.ajax ( {
             url : '/ajax/breeders/trial/'+<% $trial_id %>+'/get_male_accessions',
@@ -490,7 +490,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving male accessions.");
+                alert("檢索父本種原時發生錯誤。");
             }
         });
     });
@@ -504,10 +504,10 @@ jQuery(document).ready(function () {
 
             success: function(response){
                 if (response.female_plots == '') {
-                    alert("This crossing experiment has no female plot entry.");
+                    alert("此雜交實驗沒有母本小區項目。");
                 } else {
                     jQuery('#generate_trial_barcode_dialog').modal("show");
-                    jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for female plots');
+                    jQuery('#barcode_dialog_subtitle2').text('為母本小區產生條碼');
                 }
                 var female_plots_html = '<textarea class="form-control" id="stock_names" name="stock_names" >';
 
@@ -521,7 +521,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving female plots.");
+                alert("檢索母本小區時發生錯誤。");
             }
         });
     });
@@ -535,10 +535,10 @@ jQuery(document).ready(function () {
 
             success: function(response){
                 if (response.male_plots == '') {
-                    alert("This crossing experiment has no male plot entry.");
+                    alert("此雜交實驗沒有父本小區項目。");
                 } else {
                     jQuery('#generate_trial_barcode_dialog').modal("show");
-                    jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for male plots');
+                    jQuery('#barcode_dialog_subtitle2').text('為父本小區產生條碼');
                 }
                 var male_plots_html = '<textarea class="form-control" id="stock_names" name="stock_names" >';
 
@@ -552,7 +552,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving male plots.");
+                alert("檢索父本小區時發生錯誤。");
             }
         });
     });
@@ -566,10 +566,10 @@ jQuery(document).ready(function () {
 
             success: function(response){
                 if (response.female_plants == '') {
-                    alert("This crossing experiment has no female plant entry.");
+                    alert("此雜交實驗沒有母本植株項目。");
                 } else {
                     jQuery('#generate_trial_barcode_dialog').modal("show");
-                    jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for female plants');
+                    jQuery('#barcode_dialog_subtitle2').text('為母本植株產生條碼');
                 }
                 var female_plants_html = '<textarea class="form-control" id="stock_names" name="stock_names" >';
 
@@ -583,7 +583,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving female plants.");
+                alert("檢索母本植株時發生錯誤。");
             }
         });
     });
@@ -597,10 +597,10 @@ jQuery(document).ready(function () {
 
             success: function(response){
                 if (response.male_plants == '') {
-                    alert("This crossing experiment has no male plant entry.");
+                    alert("此雜交實驗沒有父本植株項目。");
                 } else {
                     jQuery('#generate_trial_barcode_dialog').modal("show");
-                    jQuery('#barcode_dialog_subtitle2').text('Generate barcodes for male plants');
+                    jQuery('#barcode_dialog_subtitle2').text('為父本植株產生條碼');
                 }
                 var male_plants_html = '<textarea class="form-control" id="stock_names" name="stock_names" >';
 
@@ -614,7 +614,7 @@ jQuery(document).ready(function () {
 
             },
             error: function(response){
-                alert("Error retrieving male plants.");
+                alert("檢索父本植株時發生錯誤。");
             }
         });
     });

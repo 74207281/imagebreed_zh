@@ -9,7 +9,7 @@ $timestamp
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="guidedHelpSeedlotInventoryDialog">Workflow for seedlot inventory</h4>
+                <h4 class="modal-title" id="guidedHelpSeedlotInventoryDialog">種子批庫存工作流程(Workflow for seedlot inventory)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -21,10 +21,10 @@ $timestamp
                                         <span style="font-size:2.5em;" class="glyphicon glyphicon-plus"></span>
                                     </div>
                                     <div class="col-sm-7">
-                                        <h4>I have new seedlots that need to be added into the database.</h4>
+                                        <h4>我有新種子批需要新增至資料庫中。(I have new seedlots that need to be added into the database.)</h4>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button name="seedlot_bulk_upload" class="btn btn-primary btn-sm">Go</button>
+                                        <button name="seedlot_bulk_upload" class="btn btn-primary btn-sm">前往(Go)</button>
                                     </div>
                                 </div>
                             </div>
@@ -36,10 +36,10 @@ $timestamp
                                         <span style="font-size:2.5em;" class="glyphicon glyphicon-scale"></span>
                                     </div>
                                     <div class="col-sm-7">
-                                        <h4>I conducted an inventory (in weight(g)) and want to update the database to reflect the current state of the inventory.</h4>
+                                        <h4>我進行了庫存盤點（以重量(g)計算），並希望更新資料庫以反映目前的庫存狀態。(I conducted an inventory (in weight(g)) and want to update the database to reflect the current state of the inventory.)</h4>
                                     </div>
                                     <div class="col-sm-2">
-                                        <button name="seedlot_upload_inventory" class="btn btn-primary btn-sm">Go</button>
+                                        <button name="seedlot_upload_inventory" class="btn btn-primary btn-sm">前往(Go)</button>
                                     </div>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@ $timestamp
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_guided_help_seedlot_inventory_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_guided_help_seedlot_inventory_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

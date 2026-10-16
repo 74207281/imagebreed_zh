@@ -30,28 +30,28 @@ my $err_string;
 
 my $warning_string = join "<br />" , @warnings;
 if (!@errors) {
-    $err_string = "No errors found! Click the Confirm upload button to proceed";
+    $err_string = "未發現任何錯誤！請點擊［確認上傳］按鈕以繼續。(No errors found! Click the Confirm upload button to proceed)";
 } else {
-    $err_string .= "The following errors were found. Please correct and try again. <a href=\"mailto:$feedback_email\">Contact us</a> for assistance : <br />";
+    $err_string .= "發現下列錯誤。請修正後重試。如需協助請<a href=\"mailto:$feedback_email\">聯絡我們</a>：<br />";
     $err_string .= join "<br />" , @errors;
-    $err_string .= "<h4>Cannot continue with uploading.</h4>";
-    $err_string .= qq|<a href="javascript:history.back()">Go back to upload page</a>|;
+    $err_string .= "<h4>無法繼續上傳。(Cannot continue with uploading.)</h4>";
+    $err_string .= qq|<a href="javascript:history.back()">返回上傳頁面(Go back to upload page)</a>|;
 }
 
 </%perl>
 
-<& /page/page_title.mas, title => "Confirm barcode data upload" &>
-<&| /page/info_section.mas, title => "Confirm upload" &>
+<& /page/page_title.mas, title => "確認條碼資料上傳(Confirm barcode data upload)" &>
+<&| /page/info_section.mas, title => "確認上傳(Confirm upload)" &>
  <form action="/barcode/stock/store" method="POST" >
-   <h4>Warnings</h4><div> <% $warning_string %> </div>
+   <h4>警告(Warnings)</h4><div> <% $warning_string %> </div>
    <br />
-   <h4>Errors</h4><div> <% $err_string %> </div>
+   <h4>錯誤(Errors)</h4><div> <% $err_string %> </div>
    <br />
    <input type="hidden" name="type" value="confirm">
    <input type="hidden" name="tempfile" value="<% $tempfile %>">
 
 %if (!@errors) {
-   <input type = "submit" value = "Confirm upload">
+   <input type = "submit" value = "確認上傳(Confirm upload)">
 %}
  </form>
 </&>

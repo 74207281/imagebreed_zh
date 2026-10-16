@@ -1,64 +1,48 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('progress.html','html2pl converter');
-$page->header('TOMATO EST PROGRESS REPORTS');
+$page->header('番茄 EST 進度報告 (Tomato EST Progress Reports)');
 print<<END_HEREDOC;
 
-  <h2>Progress Meetings</h2>
+  <h2>進度會議 (Progress Meetings)</h2>
 
-  <p>Figures as presented by the Tomato Genome Project group during
-  the <a href="/documents/help/about/tomato_project/NSF.Figures.pdf">first
-  progress meeting</a> for the Tomato Genome Project on March 6,
-  2000 and the <a href=
-  "/documents/help/about/tomato_project/NSF.genomics.II.pdf">second progress
-  meeting</a> on June 5, 2000 are available as pdf files. These
-  files summarize the progress both in development of microarray
-  technologies for tomato and the discovery of synteny between
-  Arabidopsis and tomato. To view these pdf files you will need
-  <a href=
-  "http://www.adobe.com/products/acrobat/readstep2.html">Adobe's
-  Acrobat Reader</a>.</p>
+  <p>番茄基因組計畫小組在 2000 年 3 月 6 日番茄基因組計畫<a href="/documents/help/about/tomato_project/NSF.Figures.pdf">第一次進度會議</a>和 2000 年 6 月 5 日<a href="/documents/help/about/tomato_project/NSF.genomics.II.pdf">第二次進度會議</a>上展示的圖表均以 PDF 文件形式提供。這些文件總結了番茄微陣列技術開發以及擬南芥與番茄之間同線性發現的進展。<br />
+  (Figures as presented by the Tomato Genome Project group during the first progress meeting on March 6, 2000 and the second progress meeting on June 5, 2000 are available as pdf files.)</p>
 
   <hr />
 
-  <h2>Progress of EST Sequencing</h2>
+  <h2>EST 定序進度 (Progress of EST Sequencing)</h2>
 
-  <p>Last updated 06/19/00</p>
+  <p>最後更新日期 (Last updated): 2000-06-19</p>
 
-  <p>The following table outlines the cDNA libraries that have been
-  sent to TIGR for sequencing and the number of successfully
-  sequenced ESTs produced from each to date. Libraries with a
-  sequencing status of "on hold" have been constructed, but
-  sequencing has been detained for one of a number of reasons.
-  "Completed" libraries have reached a predetermined target number
-  of successful sequences, while "sequencing" libraries are
-  currently working toward a predetermined goal.</p>
+  <p>下表概述了已發送至 TIGR 進行定序的 cDNA 基因庫，以及迄今為止每個基因庫成功定序的 EST 數量。(The following table outlines the cDNA libraries that have been sent to TIGR for sequencing and the number of successfully sequenced ESTs produced from each to date.)</p>
 
   <table summary="" align="center" border="1" width="90\%"
   cellpadding="5" cellspacing="2">
     <tr>
       <td align="center" valign="middle">
-        <h3><strong>Library Tissue</strong></h3>
+        <h3><strong>基因庫組織<br />(Library Tissue)</strong></h3>
       </td>
 
       <td align="center" valign="middle">
-        <h3><strong>Species</strong></h3>
+        <h3><strong>物種<br />(Species)</strong></h3>
       </td>
 
       <td align="center" valign="middle">
-        <h3><strong>Cornell ID</strong></h3>
+        <h3><strong>康乃爾代號<br />(Cornell ID)</strong></h3>
       </td>
 
       <td align="center" valign="middle">
-        <h3><strong>TIGR ID</strong></h3>
+        <h3><strong>TIGR 代號<br />(TIGR ID)</strong></h3>
       </td>
 
       <td align="center" valign="middle">
-        <h3><strong>Number of Successfully Sequenced ESTs</strong></h3>
+        <h3><strong>成功定序 EST 數量<br />(Number of Successfully Sequenced ESTs)</strong></h3>
       </td>
 
       <td align="center" valign="middle">
-        <h3><strong>Sequencing Status</strong></h3>
+        <h3><strong>定序狀態<br />(Sequencing Status)</strong></h3>
       </td>
     </tr>
 

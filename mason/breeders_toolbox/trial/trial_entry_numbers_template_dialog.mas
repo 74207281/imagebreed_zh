@@ -9,7 +9,7 @@ $trial_name => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="setEntryNumbersDialog">Generate Entry Numbers Template</h4>
+        <h4 class="modal-title" id="setEntryNumbersDialog">產生品系編號範本(Generate Entry Numbers Template)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -17,24 +17,24 @@ $trial_name => undef
           <&| /util/workflow.mas, id=> "set_entry_numbers_workflow" &>
             
             <!-- Step 1: Intro -->
-            <&| /util/workflow.mas:step, title=> "Intro" &>
-              <& /page/page_title.mas, title=>"Generate Entry Numbers Template" &>
+            <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+              <& /page/page_title.mas, title=>"產生品系編號範本(Generate Entry Numbers Template)" &>
               <div class="well">
-                  <p>This workflow will generate an Excel spreadsheet which can be used to upload entry numbers (numbers assigned to acccessions in a set of trials).  In the first step, select one or more trials you want to assign accession entry numbers.  Then, download the Excel template containing the selected trials' accessions.  Once you have the entry numbers filled in, use the <strong>Upload Template</strong> function to upload the accession numbers to the database.</p>
+                  <p>此工作流程將產生一個 Excel 試算表，可用於上傳品系編號（分配給一組試驗中種原的編號）。在第一步中，選取您要分配種原品系編號的一個或多個試驗。接著，下載包含所選試驗種原的 Excel 範本。填寫好品系編號後，使用<strong>上傳範本</strong>功能將種原編號上傳至資料庫。</p>
               </div>
 
               <div class="center">
-                <button class="btn btn-primary" id="set_entry_numbers_intro_step">Start</button>
+                <button class="btn btn-primary" id="set_entry_numbers_intro_step">開始(Start)</button>
               </div>
             </&>
             <!-- End Intro -->
 
             <!-- Step 2: Select Trials -->
-            <&| /util/workflow.mas:step, title=> "Select Trials" &>
-              <& /page/page_title.mas, title=>"Select Trial(s) to assign Entry Numbers" &>
+            <&| /util/workflow.mas:step, title=> "選取試驗(Select Trials)" &>
+              <& /page/page_title.mas, title=>"選取要分配品系編號的試驗(Select Trial(s) to assign Entry Numbers)" &>
               <p>
-                <strong>Select Trial(s):</strong> 
-                Select one or more individual Trials or a List of Trials to assign entry numbers.
+                <strong>選取試驗：</strong> 
+                選取一個或多個個別試驗，或試驗列表以分配品系編號。
               </p>
 
 % if ( $trial_id && $trial_name ) {
@@ -46,7 +46,7 @@ $trial_name => undef
                     </select>
                   </div>
                   <div class="col-md-4">
-                    <button id="set_entry_numbers_selection_change" class="btn btn-primary btn-block">Change Trial Selections</button>
+                    <button id="set_entry_numbers_selection_change" class="btn btn-primary btn-block">變更試驗選擇(Change Trial Selections)</button>
                   </div>
                 </div>
               </div>
@@ -57,27 +57,24 @@ $trial_name => undef
               <br /><br />
 
               <div class="center">
-                <button class="btn btn-primary" id="set_entry_numbers_select_trials_step">Go to Next Step</button>
+                <button class="btn btn-primary" id="set_entry_numbers_select_trials_step">前往下一步(Go to Next Step)</button>
               </div>
             </&>
             <!-- End Select Trials -->
 
             <!-- Step 2: Generate Template -->
-            <&| /util/workflow.mas:step, title=> "Download Template" &>
-              <& /page/page_title.mas, title=>"Download Entry Number Template" &>
+            <&| /util/workflow.mas:step, title=> "下載範本(Download Template)" &>
+              <& /page/page_title.mas, title=>"下載品系編號範本(Download Entry Number Template)" &>
               <div id="set_entry_numbers_template_loading" style="max-width: 250px; margin: 50px auto; text-align: center;">
-                <p>Generating Template...</p>
+                <p>正在產生範本...</p>
               </div>
 
               <div id="set_entry_numbers_template">
                 <div class="well">
-                  <p style="margin: 0">Download the generated template and fill in the <strong>entry_number</strong> column for each Accession 
-                  you want to assign an entry number to.  An entry number is not required for each Accession, but each entry number 
-                  should be unique for this set of Trial(s).  Once you have filled out the template, you can upload it to the database 
-                  using the <strong>Upload Template</strong> function.</p>
+                  <p style="margin: 0">下載產生的範本，並為每個要分配品系編號的種原填寫 <strong>entry_number</strong> 欄位。並非每個種原都必須有品系編號，但每個品系編號在此組試驗中應該是唯一的。填寫完範本後，您可以使用<strong>上傳範本</strong>功能將其上傳至資料庫。</p>
                 </div>
                 <div style="max-width: 250px; margin: 50px auto; text-align: center">
-                  <button class="btn btn-primary" id="set_entry_numbers_template_download">Download Template</button>
+                  <button class="btn btn-primary" id="set_entry_numbers_template_download">下載範本(Download Template)</button>
                 </div>
               </div>
             </&>
@@ -89,7 +86,7 @@ $trial_name => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="set_entry_numbers_cancel_button" id="set_entry_numbers_cancel_button" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" name="set_entry_numbers_cancel_button" id="set_entry_numbers_cancel_button" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -160,7 +157,7 @@ $trial_name => undef
     
     // Verify at least one trial is selected
     if ( trials.length === 0 ) {
-      return alert("Please select at least one Trial");
+      return alert("請至少選取一個試驗");
     }
 
     // Generate the Upload Template
@@ -195,12 +192,12 @@ $trial_name => undef
       }
       else {
         console.log(resp);
-        alert("ERROR: Could not generate upload template!");
+        alert("錯誤：無法產生上傳範本！");
       }
     })
     .fail(function() {
       jQuery("#set_entry_numbers_template_loading").hide();
-      alert("ERROR: Could not generate upload template!");
+      alert("錯誤：無法產生上傳範本！");
     });
   }
 </script>

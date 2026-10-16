@@ -1,6 +1,7 @@
 use CatalystX::GlobalContext qw( $c );
 use strict;
 use warnings; #FATAL => 'all';
+use utf8;
 use CXGN::Page;
 use POSIX;
 
@@ -68,7 +69,7 @@ my %arg_handlers =
              $seq_count++ if $s->length;
              validate_seq( $s, $params{program} );
              $s->length or $c->throw(
-                 message  => 'Sequence '.encode_entities('"'.$s->id.'"').' is empty, this is not allowed by BLAST.',
+                 message  => '序列 '.encode_entities('"'.$s->id.'"').' 為空，BLAST 不允許空序列。(Sequence is empty, this is not allowed by BLAST.)',
                  is_error => 0, 
                );
          }
@@ -85,7 +86,7 @@ my %arg_handlers =
                    );
      };
 
-     $seq_count >= 1 or $c->throw( message => 'no sequence submitted, cannot run BLAST',
+     $seq_count >= 1 or $c->throw( message => '未提交任何序列，無法執行 BLAST。(No sequence submitted, cannot run BLAST)',
                                    is_error => 0,
                                    developer_message => Data::Dumper::Dumper({
                                        '$seq_count' => $seq_count,
@@ -100,7 +101,7 @@ my %arg_handlers =
    sub {
        my $m = $params{matrix};
        $m =~ /^(BLOSUM|PAM)\d\d$/
-           or $c->throw( is_error => 0, message => "invalid matrix '$m'" );
+           or $c->throw( is_error => 0, message => "無效的矩陣 '$m' (invalid matrix)" );
        return -M => $m;
    },
 
@@ -176,8 +177,7 @@ if($params{interface_type} eq 'simple' && $seq_count > 1) {
 
   $c->throw( is_error => 0,
              message  => <<EOM,
-The Simple BLAST interface is limited to one query sequence.  Please
-use the Advanced BLAST for multiple query sequences.
+簡易 BLAST 介面僅限單一查詢序列。若要查詢多條序列，請使用進階 BLAST 介面。(The Simple BLAST interface is limited to one query sequence. Please use the Advanced BLAST for multiple query sequences.)
 EOM
             );
 
@@ -247,7 +247,7 @@ sub validate_seq {
                      );
     $s->seq =~ $val_pat
         and $c->throw(
-            message => encode_entities('Sequence "'.$s->id.qq|" contains invalid $alphabet characters "$1"| ),
+            message => encode_entities('序列 "'.$s->id.qq|" 包含無效的 $alphabet 字元 "$1" (Sequence contains invalid characters)| ),
             is_error => 0,
            );
 

@@ -11,17 +11,17 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group form-group-sm">
-                                <label class="col-sm-6 control-label">Number of Rows: </label>
+                                <label class="col-sm-6 control-label">列數：</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="drone_imagery_standard_process_plot_polygons_num_rows" name="drone_imagery_standard_process_plot_polygons_num_rows" type="number" placeholder="Number of rows in image section" />
+                                    <input class="form-control" id="drone_imagery_standard_process_plot_polygons_num_rows" name="drone_imagery_standard_process_plot_polygons_num_rows" type="number" placeholder="影像區段中的列數" />
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-sm">
-                                <label class="col-sm-6 control-label">Number of Columns: </label>
+                                <label class="col-sm-6 control-label">行數：</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" id="drone_imagery_standard_process_plot_polygons_num_cols" name="drone_imagery_standard_process_plot_polygons_num_cols" type="number" placeholder="Number of columns in image section"/>
+                                    <input class="form-control" id="drone_imagery_standard_process_plot_polygons_num_cols" name="drone_imagery_standard_process_plot_polygons_num_cols" type="number" placeholder="影像區段中的行數"/>
                                 </div>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group form-group-sm">
-                                <label class="col-sm-6 control-label">Plot-polygon Margins Top/Bottom (%): </label>
+                                <label class="col-sm-6 control-label">小區多邊形頂部／底部邊界 (%)：</label>
                                 <div class="col-sm-6">
                                     <input class="form-control" id="drone_imagery_standard_process_plot_polygons_margin_top_bottom" name="drone_imagery_standard_process_plot_polygons_margin_top_bottom" type="number" value=0 />
                                 </div>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-sm">
-                                <label class="col-sm-6 control-label">Plot-polygon Margins Left/Right (%): </label>
+                                <label class="col-sm-6 control-label">小區多邊形左側／右側邊界 (%)：</label>
                                 <div class="col-sm-6">
                                     <input class="form-control" id="drone_imagery_standard_process_plot_polygons_margin_left_right" name="drone_imagery_standard_process_plot_polygons_margin_left_right" type="number" value=0 />
                                 </div>
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                 </form>
-                <button class="btn btn btn-primary" id="drone_imagery_standard_process_plot_polygons_rectangles_start">Click Here To Start Templating. Create As Many Templates As Needed.</button>
+                <button class="btn btn btn-primary" id="drone_imagery_standard_process_plot_polygons_rectangles_start">點擊此處開始建立範本(Click Here To Start Templating) (如有需要可建立多個範本)</button>
             </div>
     <!--
         </div>

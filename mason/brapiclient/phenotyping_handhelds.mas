@@ -3,11 +3,11 @@
 
 <& /util/import_javascript.mas, classes => [ 'brapi.Table' ] &>
 
-<& /page/page_title.mas, title=>"Phenotyping Handhelds" &>
+<& /page/page_title.mas, title=>"手持表型測量設備(Phenotyping Handhelds)" &>
 
-<h4>Database Select</h4>
+<h4>選擇資料庫(Database Select)</h4>
 <select name="brapi_phenotyping_handhelds_url_select" id="brapi_phenotyping_handhelds_url_select" class="form-control" />
-    <option value="">local</option>
+    <option value="">本地(local)</option>
     <option value="https://cassbase.org">cassbase.org</option>
     <option value="https://cassavabase.org">cassavabase.org</option>
     <option value="https://musabase.org">musabase.org</option>
@@ -22,7 +22,7 @@
 
 <div id="brapi_phenotyping_handhelds_layout_div" class="well">
 
-    <h3>Get Trial Layout(s)</h3>
+    <h3>獲取試驗配置(Get Trial Layout(s))</h3>
 
     <select name="brapi_phenotyping_handhelds_layout_format" id="brapi_phenotyping_handhelds_layout_format" class="form-control" />
         <option value="json">JSON</option>
@@ -41,7 +41,7 @@
 
 <div id="brapi_phenotyping_handhelds_traits_div" class="well">
 
-    <h3>Get Observation Variables</h3>
+    <h3>獲取觀測變數(Get Observation Variables)</h3>
 
     <div id="brapi_phenotyping_handhelds_traits_div">
     </div>
@@ -53,13 +53,13 @@
 
 <div id="brapi_phenotyping_handhelds_upload_div" class="well">
 
-    <h3>Upload Phenotypes Using POST brapi/v1/studies/studyId/observationunits?observationLevel=observationLevel</h3>
+    <h3>使用 POST brapi/v1/studies/studyId/observationunits?observationLevel=observationLevel 上傳表型(Upload Phenotypes Using POST brapi/v1/studies/studyId/observationunits?observationLevel=observationLevel)</h3>
 
-    <h4>Not yet implemented</h4>
+    <h4>尚未實作(Not yet implemented)</h4>
 
-    <h3>Upload Phenotypes Using POST brapi/v1/studies/studyId/table</h3>
+    <h3>使用 POST brapi/v1/studies/studyId/table 上傳表型(Upload Phenotypes Using POST brapi/v1/studies/studyId/table)</h3>
 
-    <h4>Not yet implemented</h4>
+    <h4>尚未實作(Not yet implemented)</h4>
 
 </div>
 
@@ -99,7 +99,7 @@ jQuery(document).ready(function() {
                 'success': function(response) {
                     //console.log(response);
                     if (response.metadata.datafiles.length > 0){
-                        var html = "<h4>Download Layout File(s) From Here: <br/>";
+                        var html = "<h4>從此處下載配置檔案(Download Layout File(s) From Here): <br/>";
                         for (var j=0; j<response.metadata.datafiles.length; j++){
                             html = html + "<a href='"+response.metadata.datafiles[j]+"'>"+response.metadata.datafiles[j]+"</a><br/>";
                         }
@@ -111,7 +111,7 @@ jQuery(document).ready(function() {
                 },
                 error: function(response) {
                     jQuery('#working_modal').modal('hide');
-                    alert('An error occurred');
+                    alert('發生錯誤(An error occurred)');
                 }
             });
         }
@@ -133,7 +133,7 @@ function brapi_phenotyping_handhelds_get_studies(url) {
         },
         error: function(response) {
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
         }
     });
 }
@@ -152,7 +152,7 @@ function brapi_phenotyping_handhelds_get_traits(url) {
         },
         error: function(response) {
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
         }
     });
 }

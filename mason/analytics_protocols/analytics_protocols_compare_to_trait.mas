@@ -7,91 +7,91 @@ $analytics_protocol_id
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="analyticsCompareResultstoTraitDialog">Compare Analytics Results to Trait</h4>
+        <h4 class="modal-title" id="analyticsCompareResultstoTraitDialog">比較分析結果與性狀(Compare Analytics Results to Trait)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "analytics_compare_results_to_trait_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Trial" &>
-                    <& /page/page_title.mas, title=>"Select Trial to Compare With" &>
+                <&| /util/workflow.mas:step, title=> "試驗(Trial)" &>
+                    <& /page/page_title.mas, title=>"選擇要比較的試驗(Select Trial to Compare With)" &>
 
-                    <div id="analytics_compare_results_to_trait_trial_select_div">Loading...</div>
+                    <div id="analytics_compare_results_to_trait_trial_select_div">載入中...(Loading...)</div>
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_trial_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_trial_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Trait" &>
-                    <& /page/page_title.mas, title=>"Select Trait to Compare With" &>
+                <&| /util/workflow.mas:step, title=> "性狀(Trait)" &>
+                    <& /page/page_title.mas, title=>"選擇要比較的性狀(Select Trait to Compare With)" &>
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Trait to Spatial Correct and Plot: </label>
+                            <label class="col-sm-2 control-label">要進行空間校正與繪圖的性狀(Trait to Spatial Correct and Plot): </label>
                             <div class="col-sm-6" >
-                                <div id="analytics_compare_results_to_trait_trait_select_div">Loading...</div>
+                                <div id="analytics_compare_results_to_trait_trait_select_div">載入中...(Loading...)</div>
                             </div>
                             <div class="col-sm-4" >
                                 <div class="well well-sm">
-                                    <button class="btn btn-default btn-sm" id="analytics_compare_results_to_trait_analysis_test_ar1_models">Test Models</button>
+                                    <button class="btn btn-default btn-sm" id="analytics_compare_results_to_trait_analysis_test_ar1_models">測試模型(Test Models)</button>
                                     <br/><br/>
                                     <select class="form-control form-control-sm" id="analytics_compare_results_to_trait_analysis_test_ar1_models_default_tol">
-                                        <option value="pre_both">Predefined Tol (2Dspl and AR(1))</option>
-                                        <option value="default_both">Default Tol (2Dspl and AR(1))</option>
-                                        <option value="pre_2dspl_def_ar1">Predefined Tol 2Dspl, Default Tol AR(1)</option>
-                                        <option value="pre_ar1_def_2dspl">Predefined Tol AR(1), Default Tol 2Dspl</option>
-                                        <option value="large_tol">Large Tol</option>
+                                        <option value="pre_both">預定義容差（2Dspl 與 AR(1)）(Predefined Tol (2Dspl and AR(1)))</option>
+                                        <option value="default_both">預設容差（2Dspl 與 AR(1)）(Default Tol (2Dspl and AR(1)))</option>
+                                        <option value="pre_2dspl_def_ar1">預定義容差 2Dspl，預設容差 AR(1)(Predefined Tol 2Dspl, Default Tol AR(1))</option>
+                                        <option value="pre_ar1_def_2dspl">預定義容差 AR(1)，預設容差 2Dspl(Predefined Tol AR(1), Default Tol 2Dspl)</option>
+                                        <option value="large_tol">大容差(Large Tol)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Trait(s) to Plot Alongside: </label>
+                            <label class="col-sm-2 control-label">一併繪製的性狀(Trait(s) to Plot Alongside): </label>
                             <div class="col-sm-10" >
-                                <div id="analytics_compare_results_to_trait_trait_secondary_select_div">Loading...</div>
+                                <div id="analytics_compare_results_to_trait_trait_secondary_select_div">載入中...(Loading...)</div>
                             </div>
                         </div>
                     </div>
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_trait_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_trait_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Analysis" &>
-                    <& /page/page_title.mas, title=>"Select Analysis to Run" &>
+                <&| /util/workflow.mas:step, title=> "分析(Analysis)" &>
+                    <& /page/page_title.mas, title=>"選擇要執行的分析(Select Analysis to Run)" &>
 
                     <div class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Analyses: </label>
+                            <label class="col-sm-3 control-label">分析(Analyses): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="analytics_compare_results_to_trait_analysis_select">
-                                    <option value="2dspl">2D-Spline on Trait</option>
-                                    <option value="2dspl_ar1">2D-Spline and AR1xAR1 on Trait</option>
-                                    <option value="2dspl_ar1_wCol">2D-Spline and AR1xAR1 + Column on Trait</option>
-                                    <option value="2dspl_ar1_wRow">2D-Spline and AR1xAR1 + Row on Trait</option>
-                                    <option value="2dspl_ar1_wRowCol">2D-Spline and AR1xAR1 + Column + Row on Trait</option>
-                                    <option value="2dspl_ar1_wRowPlusCol">2D-Spline and AR1(Row) + Column Trait</option>
-                                    <option value="2dspl_ar1_wColPlusRow">2D-Spline and AR1(Column) + Row Trait</option>
-                                    <option value="2dspl_asremlFA">2D-Spline and Factor Analytic</option>
+                                    <option value="2dspl">性狀 2D 樣條(2D-Spline on Trait)</option>
+                                    <option value="2dspl_ar1">性狀 2D 樣條與 AR1xAR1(2D-Spline and AR1xAR1 on Trait)</option>
+                                    <option value="2dspl_ar1_wCol">性狀 2D 樣條與 AR1xAR1 + 行(2D-Spline and AR1xAR1 + Column on Trait)</option>
+                                    <option value="2dspl_ar1_wRow">性狀 2D 樣條與 AR1xAR1 + 列(2D-Spline and AR1xAR1 + Row on Trait)</option>
+                                    <option value="2dspl_ar1_wRowCol">性狀 2D 樣條與 AR1xAR1 + 行 + 列(2D-Spline and AR1xAR1 + Column + Row on Trait)</option>
+                                    <option value="2dspl_ar1_wRowPlusCol">性狀 2D 樣條與 AR1(列) + 行(2D-Spline and AR1(Row) + Column Trait)</option>
+                                    <option value="2dspl_ar1_wColPlusRow">性狀 2D 樣條與 AR1(行) + 列(2D-Spline and AR1(Column) + Row Trait)</option>
+                                    <option value="2dspl_asremlFA">2D 樣條與因素分析(2D-Spline and Factor Analytic)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Tolerance: </label>
+                            <label class="col-sm-3 control-label">容差(Tolerance): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="analytics_compare_results_to_trait_analysis_select_default_tol">
-                                    <option value="pre_both">Predefined Tol (2Dspl and AR(1))</option>
-                                    <option value="default_both">Default Tol (2Dspl and AR(1))</option>
-                                    <option value="pre_2dspl_def_ar1">Predefined Tol 2Dspl, Default Tol AR(1)</option>
-                                    <option value="pre_ar1_def_2dspl">Predefined Tol AR(1), Default Tol 2Dspl</option>
-                                    <option value="large_tol">Large Tol</option>
+                                    <option value="pre_both">預定義容差（2Dspl 與 AR(1)）(Predefined Tol (2Dspl and AR(1)))</option>
+                                    <option value="default_both">預設容差（2Dspl 與 AR(1)）(Default Tol (2Dspl and AR(1)))</option>
+                                    <option value="pre_2dspl_def_ar1">預定義容差 2Dspl，預設容差 AR(1)(Predefined Tol 2Dspl, Default Tol AR(1))</option>
+                                    <option value="pre_ar1_def_2dspl">預定義容差 AR(1)，預設容差 2Dspl(Predefined Tol AR(1), Default Tol 2Dspl)</option>
+                                    <option value="large_tol">大容差(Large Tol)</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Correlation Plot Label Size: </label>
+                            <label class="col-sm-3 control-label">相關性圖標籤大小(Correlation Plot Label Size): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="analytics_compare_results_to_trait_analysis_correlation_plot_label_size">
                                     <option value="3">3</option>
@@ -103,7 +103,7 @@ $analytics_protocol_id
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="col-sm-3 control-label">Correlation Plot Label Decimal Digits: </label>
+                            <label class="col-sm-3 control-label">相關性圖標籤小數位數(Correlation Plot Label Decimal Digits): </label>
                             <div class="col-sm-9" >
                                 <select class="form-control" id="analytics_compare_results_to_trait_analysis_correlation_plot_label_digits">
                                     <option value="1">1</option>
@@ -115,11 +115,11 @@ $analytics_protocol_id
 
                     <hr>
                     <center>
-                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_analysis_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="analytics_compare_results_to_trait_analysis_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Results" &>
-                    <& /page/page_title.mas, title=>"Results" &>
+                <&| /util/workflow.mas:step, title=> "結果(Results)" &>
+                    <& /page/page_title.mas, title=>"結果(Results)" &>
 
                     <div id ="analytics_compare_results_to_trait_results_div">
                     </div>
@@ -130,7 +130,7 @@ $analytics_protocol_id
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -141,7 +141,7 @@ $analytics_protocol_id
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="analyticsCompareResultstoTraitAR1TestsDialog">Spatial Model Tests</h4>
+        <h4 class="modal-title" id="analyticsCompareResultstoTraitAR1TestsDialog">空間模型測試(Spatial Model Tests)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -150,7 +150,7 @@ $analytics_protocol_id
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -175,7 +175,7 @@ jQuery(document).ready(function() {
         manage_drone_imagery_analytics_compare_results_trial_id = jQuery('#analytics_compare_results_to_trait_trial_id').val();
 
         if (manage_drone_imagery_analytics_compare_results_trial_id == '') {
-            alert('Please select a trial!');
+            alert('請選擇試驗！(Please select a trial!)');
             return false;
         }
         else {
@@ -196,7 +196,7 @@ jQuery(document).ready(function() {
         }
 
         if (manage_drone_imagery_analytics_compare_results_trait_id == '') {
-            alert('Please select a trait!');
+            alert('請選擇性狀！(Please select a trait!)');
             return false;
         }
 
@@ -208,7 +208,7 @@ jQuery(document).ready(function() {
         manage_drone_imagery_analytics_compare_results_trait_id = jQuery('#analytics_compare_results_to_trait_trait_select').val();
 
         if (manage_drone_imagery_analytics_compare_results_trait_id == '') {
-            alert('Please select a trait!');
+            alert('請選擇性狀！(Please select a trait!)');
             return false;
         }
 
@@ -247,7 +247,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error testing AR(1) and 2Dspl models!')
+                alert('測試 AR(1) 與 2Dspl 模型時發生錯誤！(Error testing AR(1) and 2Dspl models!)');
             }
         });
     });
@@ -282,9 +282,9 @@ jQuery(document).ready(function() {
 
                 var result_blups_all = response.result_blups_all;
 
-                var html = '<p>Genotypic Effects For Selected Trait: <a href="'+response.germplasm_trait_gen_file+'" target="_blank">Download</a></p>';
+                var html = '<p>所選性狀的基因型效應(Genotypic Effects For Selected Trait): <a href="'+response.germplasm_trait_gen_file+'" target="_blank">下載(Download)</a></p>';
 
-                html = html + '<h2>Model Iterations</h2>';
+                html = html + '<h2>模型迭代(Model Iterations)</h2>';
                 for(var i=0; i<result_blups_all.length; i++) {
                     html = html + '<button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target="#analytics_protocol_compare_to_trait_model_it'+i+'">('+i+')&nbsp;&nbsp;&nbsp;'+result_blups_all[i]["model_name"]+': '+result_blups_all[i]["result_type"]+'</button>';
                     html = html + '<div id="analytics_protocol_compare_to_trait_model_it'+i+'" class="collapse"><div class="well well-sm">';
@@ -322,12 +322,12 @@ jQuery(document).ready(function() {
                             html = html + '</tr>';
                         }
                         html = html + '</tbody></table>';
-                        html = html + '<table class="table table-hover table-bordered"><thead><tr><th>Phenotype</th><th>Heritability</th></tr></thead><tbody>';
+                        html = html + '<table class="table table-hover table-bordered"><thead><tr><th>表型(Phenotype)</th><th>遺傳力(Heritability)</th></tr></thead><tbody>';
                         for(var j=0; j<result_blups_all[i].plots_h_results.length; j++) {
                             html = html + '<tr><td>'+result_blups_all[i].plots_h_results[j][0]+'</td><td>'+result_blups_all[i].plots_h_results[j][1]+'</td></tr>';
                         }
                         html = html + '</tbody></table>';
-                        html = html + '<table class="table table-hover table-bordered"><thead><tr><th>Model</th><th>Heritability (h^2)</th><th>Env (e^2)</th><th>GenVarComp</th><th>EnvVarComp</th><th>ResVarComp</th><th>SSE</th><th>r2</th><th>cor(g1,g2)</th><th>Fixed Effect Anova</th></tr></thead><tbody>';
+                        html = html + '<table class="table table-hover table-bordered"><thead><tr><th>模型(Model)</th><th>遺傳力 (h^2)(Heritability (h^2))</th><th>環境 (e^2)(Env (e^2))</th><th>基因變異成分(GenVarComp)</th><th>環境變異成分(EnvVarComp)</th><th>殘差變異成分(ResVarComp)</th><th>SSE</th><th>r2</th><th>cor(g1,g2)</th><th>固定效應變異數分析(Fixed Effect Anova)</th></tr></thead><tbody>';
                         html = html + '<tr><td>Trait ~ GRM</td><td>'+result_blups_all[i].varcomp_h_grm[0][1]+'+-'+result_blups_all[i].varcomp_h_grm[0][2]+'</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm[0][1]+'+-'+result_blups_all[i].varcomp_original_grm[0][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm[0][4]+')</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm[1][1]+'+-'+result_blups_all[i].varcomp_original_grm[1][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm[1][4]+')</td><td>'+result_blups_all[i].fits_grm[0][1]+'</td><td>'+result_blups_all[i].fits_grm[0][2]+'</td><td>'+result_blups_all[i].gcorr_grm+'</td><td>NA</td></tr>';
                         html = html + '<tr><td>Trait ~ GRM + Fixed Effect Avg</td><td>'+result_blups_all[i].varcomp_h_grm_fixed_effect[0][1]+'+-'+result_blups_all[i].varcomp_h_grm_fixed_effect[0][2]+'</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm_fixed_effect[0][1]+'+-'+result_blups_all[i].varcomp_original_grm_fixed_effect[0][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm_fixed_effect[0][4]+')</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm_fixed_effect[1][1]+'+-'+result_blups_all[i].varcomp_original_grm_fixed_effect[1][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm_fixed_effect[1][4]+')</td><td>'+result_blups_all[i].fits_grm_fixed_effect[0][1]+'</td><td>'+result_blups_all[i].fits_grm_fixed_effect[0][2]+'</td><td>'+result_blups_all[i].gcorr_favg+'</td><td>'+result_blups_all[i].f_anova_grm_fixed_effect[1][1]+'['+result_blups_all[i].f_anova_grm_fixed_effect[1][3]+']['+result_blups_all[i].f_anova_grm_fixed_effect[1][4]+']</td></tr>';
                         html = html + '<tr><td>Trait ~ GRM + Fixed Effect Continuous Avg</td><td>'+result_blups_all[i].varcomp_h_grm_fixed_effects_cont[0][1]+'+-'+result_blups_all[i].varcomp_h_grm_fixed_effects_cont[0][2]+'</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[0][1]+'+-'+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[0][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[0][4]+')</td><td>NA</td><td>'+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[1][1]+'+-'+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[1][2]+'&nbsp;('+result_blups_all[i].varcomp_original_grm_fixed_effects_cont[1][4]+')</td><td>'+result_blups_all[i].fits_grm_fixed_effects_cont[0][1]+'</td><td>'+result_blups_all[i].fits_grm_fixed_effects_cont[0][2]+'</td><td>'+result_blups_all[i].gcorr_havg+'</td><td>'+result_blups_all[i].f_anova_grm_fixed_effects_cont[1][1]+'['+result_blups_all[i].f_anova_grm_fixed_effects_cont[1][3]+']['+result_blups_all[i].f_anova_grm_fixed_effects_cont[1][4]+']</td></tr>';
@@ -364,15 +364,15 @@ jQuery(document).ready(function() {
                         }
 
                         html = html + '</tbody></table>';
-                        html = html + '<h2>Analytics Effects Heatmaps</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_plot"]+'"><hr>';
-                        html = html + '<h2>Trait Corrected Heatmaps</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_plot"]+'">';
-                        html = html + '<h2>Trait Spatial Effects Heatmaps</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_effects_plot"]+'">';
-                        html = html + '<h2>Selected Secondary Traits Heatmaps</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_secondary_plot"]+'">';
-                        html = html + '<h2>Analytics Effects Correlations</h2><br/><img src="'+result_blups_all[i]["plots_spatial_ggcorr_plot"]+'">';
-                        html = html + '<h2>Trait vs Analytics Effects</h2><br/><img src="'+result_blups_all[i]["plots_spatial_corr_plot"]+'">';
-                        html = html + '<h2>Analytics Effects PRM</h2><br/><img src="'+result_blups_all[i]["plots_spatial_effects_corr_plot"]+'">';
+                        html = html + '<h2>分析效應熱圖(Analytics Effects Heatmaps)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_plot"]+'"><hr>';
+                        html = html + '<h2>性狀校正熱圖(Trait Corrected Heatmaps)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_plot"]+'">';
+                        html = html + '<h2>性狀空間效應熱圖(Trait Spatial Effects Heatmaps)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_effects_plot"]+'">';
+                        html = html + '<h2>所選次要性狀熱圖(Selected Secondary Traits Heatmaps)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_heatmap_traits_secondary_plot"]+'">';
+                        html = html + '<h2>分析效應相關性(Analytics Effects Correlations)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_ggcorr_plot"]+'">';
+                        html = html + '<h2>性狀與分析效應(Trait vs Analytics Effects)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_corr_plot"]+'">';
+                        html = html + '<h2>分析效應 PRM(Analytics Effects PRM)</h2><br/><img src="'+result_blups_all[i]["plots_spatial_effects_corr_plot"]+'">';
                         //html = html + '<img src="'+result_blups_all[i]["plots_htp_corr_plot"]+'">';
-                        html = html + '<h2>Secondary Traits PRM</h2><br/><img src="'+result_blups_all[i]["plots_secondary_traits_corr_plot"]+'">';
+                        html = html + '<h2>次要性狀 PRM(Secondary Traits PRM)</h2><br/><img src="'+result_blups_all[i]["plots_secondary_traits_corr_plot"]+'">';
                     }
                     html = html + '</div></div><br/>';
                 }
@@ -477,7 +477,7 @@ jQuery(document).ready(function() {
             },
             error: function(response){
                 jQuery("#working_modal").modal("hide");
-                alert('Error comparing analytics protocol results to trait!')
+                alert('比較分析實驗方案結果與性狀時發生錯誤！(Error comparing analytics protocol results to trait!)');
             }
         });
 

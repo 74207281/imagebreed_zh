@@ -65,7 +65,7 @@ sub prop_select {
 </div>
 
 <div id="<% $div_name %>_add_dialog" >
-Add <% $prop_select %>
+新增(Add) <% $prop_select %>：
 <input id="<% $div_name %>_prop" />
 </div>
 
@@ -74,8 +74,8 @@ Add <% $prop_select %>
 jQuery(document).ready(function() {
 
   jQuery('#<% $div_name %>_add_dialog').dialog( {
-     title: 'Add property',
-     buttons: { 'Cancel': function() { jQuery('#<% $div_name %>_add_dialog').dialog("close"); }, 'Add': {text: 'Add', id: '<% $div_name %>_addProp_submit', click: function() { <% $div_name %>_addProp() } } },
+     title: '新增屬性(Add Property)',
+     buttons: { '取消(Cancel)': function() { jQuery('#<% $div_name %>_add_dialog').dialog("close"); }, '新增(Add)': {text: '新增(Add)', id: '<% $div_name %>_addProp_submit', click: function() { <% $div_name %>_addProp() } } },
      autoOpen: false,
      modal: true
   });
@@ -92,7 +92,7 @@ function <% $div_name %>_getProps() {
     url: '/stock/prop/get',
     data: { stock_id: <% $stock_id %> },
     success: function(response) { <% $div_name %>_renderProps(response);  },
-    error: function(response) { alert('an error occurred'); }
+    error: function(response) { alert('發生錯誤(An error occurred)'); }
   });
 }
 
@@ -147,7 +147,7 @@ function <% $div_name %>_addProp() {
   var prop_type = jQuery('#<% $div_name %>_select').val();
   var prop = jQuery('#<% $div_name %>_prop').val();
   prop = prop.trim();
-  if (prop === '') { alert("Please fill in the field."); return; }
+  if (prop === '') { alert("請填寫欄位。(Please fill in the field.)"); return; }
 
   jQuery.ajax( {
     type: 'POST',
@@ -158,15 +158,15 @@ function <% $div_name %>_addProp() {
     data: { 'stock_id' : <% $stock_id %>, 'prop' : prop, 'prop_type': prop_type },
     success: function(response) {
         jQuery('#working_modal').modal('hide');
-        if ("error" in response) { alert ('ERROR '+response.error); }
+        if ("error" in response) { alert ('錯誤(ERROR) '+response.error); }
         if ("message" in response) {
-            alert('Successfully added property: ' + prop + '. ('+response.message+')');
+            alert('成功新增屬性(Successfully added property)：' + prop + '。 ('+response.message+')');
             location.reload();
         }
     },
     error: function(response) {
         jQuery('#working_modal').modal('hide');
-        alert('an error occurred while storing the prop ' + response.error);
+        alert('儲存屬性時發生錯誤(An error occurred while storing the prop)：' + response.error);
     }
   });
 
@@ -176,7 +176,7 @@ function <% $div_name %>_addProp() {
 
 
 function <% $div_name %>_deleteProp(stockprop_value, stockprop_id) {
-    var yes = confirm('Delete stockprop '+stockprop_value+'?');
+    var yes = confirm('確定刪除材料屬性 '+stockprop_value+' 嗎？(Delete stockprop '+stockprop_value+'?)');
     if (yes) {
         jQuery.ajax( {
             method: 'GET',
@@ -189,7 +189,7 @@ function <% $div_name %>_deleteProp(stockprop_value, stockprop_id) {
             }
             if ('error'   in response) {  alert(response.error);   }
         },
-        error: function(response) { alert('An error occurred. Please try again later.'); }
+        error: function(response) { alert('發生錯誤，請稍後再試。(An error occurred. Please try again later.)'); }
         });
     }
     <% $div_name %>_getProps();

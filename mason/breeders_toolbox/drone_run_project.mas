@@ -49,18 +49,18 @@ $drone_run_date => undef
 
 <br/>
 
-<& /page/page_title.mas, title=>"Imaging Event Project: ".$trial_name &>
+<& /page/page_title.mas, title=>"影像事件專案(Imaging Event Project): ".$trial_name &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Imaging Event Details</h4>", info_section_subtitle => 'View basic information about the imaging event project.', buttons_html => '<button class="btn btn-primary btn-sm" id="edit_drone_run_details" style="margin:3px">Edit Imaging Event Details</button>', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "drone_run_project_details", trial_name => $trial_name, trial_description => $trial_description, identifier_prefix => $identifier_prefix, drone_run_date=>$drone_run_date &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 0, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>影像事件詳細資訊(Imaging Event Details)</h4>", info_section_subtitle => '檢視影像事件專案的基本資訊。', buttons_html => '<button class="btn btn-primary btn-sm" id="edit_drone_run_details" style="margin:3px">編輯影像事件詳細資訊(Edit Imaging Event Details)</button>', icon_class => "glyphicon glyphicon-dashboard", info_section_id => "drone_run_project_details", trial_name => $trial_name, trial_description => $trial_description, identifier_prefix => $identifier_prefix, drone_run_date=>$drone_run_date &>
 
-<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Report Files</h4>", info_section_subtitle => 'View report information about the orthomosaic stitching.', buttons_html => '', icon_class => "glyphicon glyphicon-folder-open", info_section_id => "drone_run_project_report_files" &>
+<& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>報告檔案(Report Files)</h4>", info_section_subtitle => '檢視正射影像拼接的報告資訊。', buttons_html => '', icon_class => "glyphicon glyphicon-folder-open", info_section_id => "drone_run_project_report_files" &>
 
-<!--& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>3D Point Cloud Visualization</h4>", info_section_subtitle => 'View 3D point cloud from ODM orthomosaic stitching.', buttons_html => '', icon_class => "glyphicon glyphicon-map-marker", info_section_id => "drone_run_project_point_cloud_3d" &-->
+<!--& /page/detail_page_2_col_section.mas, info_section_collapsed => 1, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>3D 點雲視覺化(3D Point Cloud Visualization)</h4>", info_section_subtitle => '檢視來自 ODM 正射影像拼接的 3D 點雲。', buttons_html => '', icon_class => "glyphicon glyphicon-map-marker", info_section_id => "drone_run_project_point_cloud_3d" &-->
 
-% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">Add/edit data agreement</button>';
-% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">Add/edit data agreement</button>'; }
+% my $data_agreement_link = '<button class="btn btn-sm btn-primary" disabled style="margin:3px">新增/編輯資料協議(Add/edit data agreement)</button>';
+% if ($user_can_modify) { $data_agreement_link = '<button class="btn btn-sm btn-primary" style="margin:3px" id="add_data_agreement">新增/編輯資料協議(Add/edit data agreement)</button>'; }
 
-<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>Data Agreement License</h4>", info_section_subtitle => 'View and edit the public data agreement on this experiment.', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
+<& /page/detail_page_2_col_section.mas, trial_id => $trial_id, info_section_title => "<h4 style='display:inline'>資料協議授權(Data Agreement License)</h4>", info_section_subtitle => '檢視並編輯此試驗的公開資料協議。', icon_class => "glyphicon glyphicon-inbox", info_section_id => "trial_data_agreement_section", buttons_html => $data_agreement_link &>
 
 <& /breeders_toolbox/add_data_agreement_dialogs.mas, trial_id => $trial_id &>
 
@@ -70,13 +70,13 @@ $drone_run_date => undef
     <div class="modal-content ui-front">
         <div class="modal-header text-center">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="droneRunDetailsEditDialog">Edit Imaging Event Details</h4>
+            <h4 class="modal-title" id="droneRunDetailsEditDialog">編輯影像事件詳細資訊(Edit Imaging Event Details)</h4>
         </div>
         <div class="modal-body" id="drone_run_details_edit_body">
             <div class="container-fluid">
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="edit_drone_run_name">Imaging Event Name: </label>
+                    <label class="col-sm-3 control-label" for="edit_drone_run_name">影像事件名稱: </label>
                     <div class="col-sm-8">
                       <div class="input-group">
                         <input class="form-control col-sm-8" id="edit_drone_run_name" title="name" type="text" value="<%$trial_name%>"/>
@@ -84,7 +84,7 @@ $drone_run_date => undef
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label" for="edit_trial_description">Description: </label>
+                    <label class="col-sm-3 control-label" for="edit_trial_description">描述: </label>
                     <div class="col-sm-8">
                       <div class="input-group">
                         <textarea class="form-control" id="edit_drone_run_description" title="description" rows="5" maxlength="250"><% $trial_description %></textarea>
@@ -95,8 +95,8 @@ $drone_run_date => undef
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_drone_run_details_cancel_button">Cancel</button>
-            <button type="button" class="btn btn-primary" id="save_drone_run_details">Save Changes</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_drone_run_details_cancel_button">取消(Cancel)</button>
+            <button type="button" class="btn btn-primary" id="save_drone_run_details">儲存變更(Save Changes)</button>
         </div>
     </div>
 </div>
@@ -127,12 +127,12 @@ jQuery(document).ready(function () {
           },
           success: function(response){
             if (response.success) {
-                alert('Details saved!');
+                alert('詳細資訊已儲存！');
             }
             location.reload();
           },
           error: function(response){
-              alert('Error saving details');
+              alert('儲存詳細資訊時發生錯誤');
           }
 
       });

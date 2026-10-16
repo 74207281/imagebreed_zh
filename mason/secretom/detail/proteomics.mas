@@ -1,17 +1,8 @@
-<& /page/page_title.mas, title => 'Tomato Comparative and Quantitative Proteomics' &>
+<& /page/page_title.mas, title => '番茄比較與定量蛋白質體學(Tomato Comparative and Quantitative Proteomics)' &>
 
 <div class="indented_content">
   <p>
-  Tomato has long served as model system for fleshy fruit development,
-  and is an excellent system to study cell wall proteins as it is
-  associated with dramatic changes in wall biology, including
-  enzyme-mediated cell wall polysaccharide degradation, apoplastic sugar
-  metabolism and extracellular defenses against microbial
-  pathogens. However, there are few published proteomic analyses of
-  ripening tomato fruit and most of those are based on extraction of
-  total proteins followed by 2-DE separation, and the wall proteome was
-  not the major target. Consequently, the protein extraction step was
-  not optimized for secreted proteins.
+  番茄長期以來一直是肉質果實發育的模型系統，並且是研究細胞壁蛋白質的極佳系統，因為它與細胞壁生物學的顯著變化相關，包括酵素介導的細胞壁多醣降解、質外體糖代謝以及針對微生物病原體的細胞外防禦。然而，關於成熟番茄果實已發表的蛋白質體分析很少，且其中大多數基於總蛋白提取隨後進行 2-DE 分離，壁蛋白質體並非主要目標。因此，蛋白質提取步驟並未針對分泌蛋白進行最佳化。(Tomato has long served as model system for fleshy fruit development, and is an excellent system to study cell wall proteins as it is associated with dramatic changes in wall biology, including enzyme-mediated cell wall polysaccharide degradation, apoplastic sugar metabolism and extracellular defenses against microbial pathogens. However, there are few published proteomic analyses of ripening tomato fruit and most of those are based on extraction of total proteins followed by 2-DE separation, and the wall proteome was not the major target. Consequently, the protein extraction step was not optimized for secreted proteins.)
   </p>
 
 
@@ -20,65 +11,32 @@
     <img src="/documents/img/secretom/tomato_P_infestans_full.jpg" />
 
     <p>
-    Tomato leaves infected by <span class="species_binomial">P. infestans</span>.
+    受<span class="species_binomial">致病疫黴(P. infestans)</span>感染的番茄葉片。(Tomato leaves infected by <span class="species_binomial">P. infestans</span>.)
     </p>
 
   </div>
 
   <p>
-  Similarly, defense responses against pathogens are also fundamentally
-  associated with changes in the expression of secreted apoplastic
-  proteins, but there have been few systematic studies at the proteome
-  level.
+  同樣地，針對病原體的防禦反應也從根本上與質外體分泌蛋白的表現變化相關，但蛋白質體層面的系統研究卻很少。(Similarly, defense responses against pathogens are also fundamentally associated with changes in the expression of secreted apoplastic proteins, but there have been few systematic studies at the proteome level.)
   </p>
 
   <p>
-    We have been developing methods to obtain sample materials highly
-    enriched in apoplast/cell wall proteins, including vacuum
-    dehydration, centrifugal dehydration and several methods that
-    involve the centrifugal isolation of the cell wall followed by
-    sequential extraction with solutions of increasing ionic
-    strength. Taken together, the goal is to create a more comprehensive
-    catalog of the tomato cell wall proteome, focusing on fruit and
-    leaves at various stages of infection by the oomycete Phytophthora
-    infestans. This will include both protein identification and
-    quantitative data, to gain insights into the dynamic properties of
-    the tomato secretome. Additionally we have been profiling "total
-    proteomes"; and screening the resulting protein populations for those
-    known to be localized in the cell wall with a predicted secretory
-    signal peptide, or that are <a href="/secretom/detail/glycoproteome">glycosylated</a>.
+    我們一直在開發高度富集質外體／細胞壁蛋白樣品材料的方法，包括真空脫水、離心脫水以及涉及離心分離細胞壁隨後用增加離子強度的溶液進行連續提取的幾種方法。綜上所述，我們的目標是建立一個更全面的番茄細胞壁蛋白質體目錄，重點關注果實和卵菌致病疫黴(Phytophthora infestans)感染各階段的葉片。這將包括蛋白質鑑定和定量數據，以深入了解番茄分泌組的動態特性。此外，我們一直在分析「總蛋白質體」；並篩選所得的蛋白質族群，找出已知定位在細胞壁中且具有預測分泌訊息胜肽，或具有<a href="/secretom/detail/glycoproteome">糖基化(glycosylated)</a>的蛋白質。(We have been developing methods to obtain sample materials highly enriched in apoplast/cell wall proteins, including vacuum dehydration, centrifugal dehydration and several methods that involve the centrifugal isolation of the cell wall followed by sequential extraction with solutions of increasing ionic strength. Taken together, the goal is to create a more comprehensive catalog of the tomato cell wall proteome, focusing on fruit and leaves at various stages of infection by the oomycete Phytophthora infestans. This will include both protein identification and quantitative data, to gain insights into the dynamic properties of the tomato secretome. Additionally we have been profiling "total proteomes"; and screening the resulting protein populations for those known to be localized in the cell wall with a predicted secretory signal peptide, or that are <a href="/secretom/detail/glycoproteome">glycosylated</a>.)
   </p>
 
   <p>
-    We have been applying several approaches for comparative proteomic
-    analysis, including Difference Gel Electrophoresis (DIGE), isobaric
-    Tag Relative Absolute Protein Quantitation (iTRAQ), exponentially
-    modified protein abundance index (emPAI) and MSE. The latter two
-    approaches were found to provide accurate relative quantitation data
-    on par with that provided by iTRAQ at significantly reduced cost,
-    but without the ability to multiplex. They have been integrated into
-    our work flow and are used where appropriate. We have also developed
-    a high/low pH reverse phase-reverse phase (RP-RP) separation
-    protocol to fractionate peptides prior to MS analysis. This new
-    approach complements the traditional strong cation exchange (SCX) RP
-    strategy and the Offgel peptide IEF fractionation.
+    我們一直在應用幾種比較蛋白質體分析方法，包括差示凝膠電泳 (DIGE)、同量異序標籤相對和絕對定量 (iTRAQ)、指數修飾蛋白質豐度指數 (emPAI) 和 MSE。後兩種方法被發現能以顯著降低的成本提供與 iTRAQ 相當的準確相對定量數據，但缺乏多重分析能力。它們已被整合到我們的工作流程中，並在適當情況下使用。我們還開發了高／低 pH 反相-反相 (RP-RP) 分離方案，以便在 MS 分析之前對胜肽進行分級。這種新方法補充了傳統的強陽離子交換 (SCX) RP 策略和 Offgel 胜肽 IEF 分級分離。(We have been applying several approaches for comparative proteomic analysis, including Difference Gel Electrophoresis (DIGE), isobaric Tag Relative Absolute Protein Quantitation (iTRAQ), exponentially modified protein abundance index (emPAI) and MSE. The latter two approaches were found to provide accurate relative quantitation data on par with that provided by iTRAQ at significantly reduced cost, but without the ability to multiplex. They have been integrated into our work flow and are used where appropriate. We have also developed a high/low pH reverse phase-reverse phase (RP-RP) separation protocol to fractionate peptides prior to MS analysis. This new approach complements the traditional strong cation exchange (SCX) RP strategy and the Offgel peptide IEF fractionation.)
   </p>
 
 </div>
 
 <&| /secretom/section_templates/objectives.mas, is_subsection => 1 &>
-    Qualitative and quantitative characterization of the tomato
-    proteome, focusing principally on tomato fruit development and
-    ripening, and tomato leaves at different stages of infection by
-    P. infestans.  Additional targets include proteins that are
-    regulated by abiotic stresses.
+    番茄蛋白質體的定性與定量表徵，主要聚焦於番茄果實發育與成熟，以及受致病疫黴感染不同階段的番茄葉片。其他目標包括受非生物脅迫調節的蛋白質。(Qualitative and quantitative characterization of the tomato proteome, focusing principally on tomato fruit development and ripening, and tomato leaves at different stages of infection by P. infestans. Additional targets include proteins that are regulated by abiotic stresses.)
 
-    Compare the data with equivalent transcriptome and metabolome data.
-    Screen for the presence of phosphorylated secreted proteins and
-    small peptides.
+    將該數據與對應的轉錄組和代謝組數據進行比對。篩選磷酸化分泌蛋白和小胜肽的存在。(Compare the data with equivalent transcriptome and metabolome data. Screen for the presence of phosphorylated secreted proteins and small peptides.)
 </&>
 
-<h1>Comparative proteomic analysis of the tomato-<span class="species_binomial">P. infestans</span> pathosystem</h1>
+<h1>番茄-<span class="species_binomial">致病疫黴</span>病理系統之比較蛋白質體分析(Comparative proteomic analysis of the tomato-<span class="species_binomial">P. infestans</span> pathosystem)</h1>
 
 <div class="indented_content">
   <div style="width: 450px; float: right; margin: 0 0 30px 20px" class="captioned_image caption_left">
@@ -86,22 +44,19 @@
         <img src="/documents/img/secretom/infestans_DIGE_300.jpg" />
 
         <p style="text-align: left">
-        DIGE gel of proteins from <span class="species_binomial">P. infestans</span> infected tomato leaves.
+        來自受<span class="species_binomial">致病疫黴(P. infestans)</span>感染番茄葉片之蛋白質的 DIGE 凝膠。(DIGE gel of proteins from <span class="species_binomial">P. infestans</span> infected tomato leaves.)
         </p>
 
   </div>
 
   <p>
-  We are characterizing the dynamics of host-pathogen secretomes in
-  leaves during infection by the oomycete P. infestans, during distinct
-  phases of hemibiotrophic infection, using both DIGE and iTRAQ
-  supported with 454-generated transcript profiling.
+  我們正在使用 DIGE 和 iTRAQ 並輔以 454 產生的轉錄分析，表徵卵菌致病疫黴(P. infestans)感染期間（在半活體營養感染的不同階段）葉片中寄主-病原體分泌組的動態。(We are characterizing the dynamics of host-pathogen secretomes in leaves during infection by the oomycete P. infestans, during distinct phases of hemibiotrophic infection, using both DIGE and iTRAQ supported with 454-generated transcript profiling.)
   </p>
 
 
 </div>
 
-<h1>Comparative proteomic analysis of tomato fruit ripening</h1>
+<h1>番茄果實成熟之比較蛋白質體分析(Comparative proteomic analysis of tomato fruit ripening)</h1>
 
 <div class="indented_content">
 
@@ -115,22 +70,13 @@
           </table>
 
           <p>
-          Wild type ripe tomato fruit (left), and equivalent stage fruit
-          from the nor (middle) and rin (right) mutants.
+          野生型成熟番茄果實（左），以及來自 nor（中）和 rin（右）突變體的同等階段果實。(Wild type ripe tomato fruit (left), and equivalent stage fruit from the nor (middle) and rin (right) mutants.)
           </p>
 
   </div>  
 
   <p>
-  We are profiling the cell wall proteome of ripening tomato fruit,
-  contrasting those of wild type (cv. Ailsa Craig) and several
-  ripening impaired mutants: ripening inhibitor (rin), non-ripening
-  (Nor) and never ripe (Nr). While the genes responsible for all these
-  mutations have been cloned, and important progress has been made in
-  elucidating their respective signaling pathways, numerous aspects
-  remain poorly understood and the degree of regulatory complexity and
-  the multiplicity of underlying molecular mechanisms have far
-  exceeded expectations.
+  我們正在分析成熟番茄果實的細胞壁蛋白質體，對比野生型（品種 Ailsa Craig）和數個成熟受損突變體：ripening inhibitor (rin)、non-ripening (Nor) 和 never ripe (Nr)。雖然導致所有這些突變的基因都已被複製，並且在闡明它們各自的訊息傳遞途徑方面取得了重要進展，但仍有許多方面知之甚少，調節複雜程度和底層分子機制的多樣性遠遠超出了預期。(We are profiling the cell wall proteome of ripening tomato fruit, contrasting those of wild type (cv. Ailsa Craig) and several ripening impaired mutants: ripening inhibitor (rin), non-ripening (Nor) and never ripe (Nr). While the genes responsible for all these mutations have been cloned, and important progress has been made in elucidating their respective signaling pathways, numerous aspects remain poorly understood and the degree of regulatory complexity and the multiplicity of underlying molecular mechanisms have far exceeded expectations.)
   </p>
 
 </div>
@@ -143,7 +89,7 @@
 - text: "Tomato (cv. Rio Grande) leaves infected with Phytophthora infestans (isolate US970001): DIGE data"
 - text: "Tomato (cv. Grande) leaves infected with Phytophthora infestans (isolate US970001): iTRAQ data"
 % }
-- text: "Browse more files via FTP"
+- text: "透過 FTP 瀏覽更多檔案(Browse more files via FTP)"
   ref: ftp://ftp.solgenomics.net/secretom/Tomato_comparative_quantitative_proteomics/
 </&>
 

@@ -2,30 +2,30 @@
 
 
 <& '/util/import_javascript.mas', classes => [ 'jquery', 'jqueryui', 'popup', 'd3.d3Min.js', 'tools.LabelDesigner08302022', 'CXGN.BreederSearch03152022', 'bootstrap-select_min'] &>
-<& /page/page_title.mas, title=>"Label Designer" &>
+<& /page/page_title.mas, title=>"標籤設計工具(Label Designer)" &>
 
 <&| /util/workflow.mas , id=> "label_designer_workflow"&>
 
-    <&| /util/workflow.mas:step, title=>"Intro and Data Source" &>
+    <&| /util/workflow.mas:step, title=>"介紹與資料來源(Intro and Data Source)" &>
         <& /tools/label_designer/select_datasource.mas &>
         <br/><br/>
         <div class="col-md-12 text-center">
-            <button id="select_datasource_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>Next</button>
+            <button id="select_datasource_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>下一步(Next)</button>
         </div>
     </&>
-    <&| /util/workflow.mas:step, title=>"Set Page and Label Size" &>
+    <&| /util/workflow.mas:step, title=>"設定頁面與標籤尺寸(Set Page and Label Size)" &>
         <& /tools/label_designer/select_layout.mas &>
         <div class="col-md-12 text-center">
-            <button id="select_layout_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>Next</button>
+            <button id="select_layout_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>下一步(Next)</button>
         </div>
     </&>
-    <&| /util/workflow.mas:step, title=>"Design Your Label" &>
+    <&| /util/workflow.mas:step, title=>"設計您的標籤(Design Your Label)" &>
         <& /tools/label_designer/design_label.mas &>
         <div class="col-md-12 text-center">
-            <button id="design_label_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>Next</button>
+            <button id="design_label_button" class="btn btn-primary" type="button" class="btn btn-default" onclick="Workflow.complete(this);" disabled>下一步(Next)</button>
         </div>
     </&>
-    <&| /util/workflow.mas:step, title=>"More Options, Save, And Download" &>
+    <&| /util/workflow.mas:step, title=>"更多選項、儲存與下載(More Options, Save, And Download)" &>
         <& /tools/label_designer/save_and_download.mas &>
       </&>
 </&>

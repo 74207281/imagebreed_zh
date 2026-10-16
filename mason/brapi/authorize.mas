@@ -6,7 +6,7 @@
     $database_name
 </%args>
 
-<& /page/page_title.mas, title=>"BrAPI Client Authorization" &>
+<& /page/page_title.mas, title=>"BrAPI 用戶端授權(BrAPI Client Authorization)" &>
 
 <!-- <div class="row">
     <div class="col-lg-12">
@@ -18,8 +18,8 @@
 </div> -->
 
 <div class="row center">
-    <p>Hello <b><% $user_name %></b>!</p>
-    <p><b><% $client_id %></b> would like to access <b><% $database_name %></b> through your account. Use the buttons below to authorize or deny this request.</p><br>
-    <button class="btn btn-success" onclick="window.location.replace('<% $authorize_url %>')">Authorize Access</button>
-    <button class="btn btn-danger" onclick="window.location.replace('<% $deny_url %>')">Deny Access</button>
+    <p>您好(Hello) <b><% $user_name %></b>！</p>
+    <p><b><% $client_id %></b> 想要透過您的帳號存取 <b><% $database_name %></b>。請使用下方按鈕以授權或拒絕此請求。(<b><% $client_id %></b> would like to access <b><% $database_name %></b> through your account. Use the buttons below to authorize or deny this request.)</p><br>
+    <button class="btn btn-success" onclick="window.location.replace('<% $authorize_url %>')">授權存取(Authorize Access)</button>
+    <button class="btn btn-danger" onclick="window.location.replace('<% $deny_url %>')">拒絕存取(Deny Access)</button>
 </div>

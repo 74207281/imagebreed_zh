@@ -1,6 +1,7 @@
 #!/usr/bin/perl -w
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::Connection;
 
@@ -66,26 +67,26 @@ while (my ($ssr_id, $marker_id, $ssr_name, $est_trace, $start_primer, $end_prime
 		    "</td><td align='center'>" . join("<br />", @repeat_numbers) .
 			"</td><td><b>fwd (5'->3'):</b> " . ($start_primer || "unknown") . "<br /><b>rev (5'->3'):</b> " . ($end_primer || "unknown") .
 			    "</td><td align='center'>" . ($pcr_length || "unknown") .
-				"</td><td>low: " . $ann_low . "<br />high: " . $ann_high .
-				    "</td><td align='center'>" . ($mapped ? "mapped" : "not mapped") . "</td></tr>\n";
+				"</td><td>低 (low): " . $ann_low . "<br />高 (high): " . $ann_high .
+				    "</td><td align='center'>" . ($mapped ? "已定位 (mapped)" : "未定位 (not mapped)") . "</td></tr>\n";
     
 }
 $locs_sth->finish;
 $repeats_sth->finish;
  
 # Print the page.
-$page->header( "SSR Markers" );
+$page->header( "SSR 標記 (SSR Markers)" );
 
 print "<table summary=\"\" border=\"2\" width=\"710\" align=\"center\">\n";
-print "<tr>\n<td width=\"60\"><b>SSR name</b></td>\n";
-print "<td width=\"60\" align=\"center\"><b>EST trace</b></td>\n";
-print "<td width=\"100\" align=\"center\"><b>Unigene BLAST matches</b></td>\n";
-print "<td width=\"120\" align=\"center\"><b>Repeat motifs</b></td>\n";
-print "<td width=\"35\" align=\"center\"><b>Repeat number</b></td>\n";
-print "<td width=\"50\" align=\"center\"><b>PCR primers</b></td>\n";
-print "<td width=\"35\" align=\"center\"><b>PCR product length</b></td>\n";
-print "<td width=\"50\" align=\"center\"><b>Annealing temperature</b></td>\n";
-print "<td width=\"50\" align=\"center\"><b>Mapped</b></td>\n</tr>\n";
+print "<tr>\n<td width=\"60\"><b>SSR 名稱 (SSR name)</b></td>\n";
+print "<td width=\"60\" align=\"center\"><b>EST 讀序 (EST trace)</b></td>\n";
+print "<td width=\"100\" align=\"center\"><b>單一基因 BLAST 比對<br />(Unigene matches)</b></td>\n";
+print "<td width=\"120\" align=\"center\"><b>重複模序 (Repeat motifs)</b></td>\n";
+print "<td width=\"35\" align=\"center\"><b>重複次數 (Repeat number)</b></td>\n";
+print "<td width=\"50\" align=\"center\"><b>PCR 引子 (PCR primers)</b></td>\n";
+print "<td width=\"35\" align=\"center\"><b>PCR 產物長度<br />(PCR length)</b></td>\n";
+print "<td width=\"50\" align=\"center\"><b>黏性溫度 (Annealing temp)</b></td>\n";
+print "<td width=\"50\" align=\"center\"><b>已定位 (Mapped)</b></td>\n</tr>\n";
 
 print @ssr_list;
 
@@ -104,13 +105,13 @@ sub local_abort {
 
     my ($errstrn) = @_;
     if (not $errstrn) {
-	$errstrn = "Error reading SSR data"; 
+	$errstrn = "讀取 SSR 數據時發生錯誤 (Error reading SSR data)"; 
     }
-    $page->header( "Error reading SSR data." ,"Error reading SSR data." );
+    $page->header( "讀取 SSR 數據時發生錯誤 (Error reading SSR data)" ,"讀取 SSR 數據時發生錯誤 (Error reading SSR data)" );
     if ($errstrn) {
 	print "$errstrn\n";
     } else {
-	print "<I>There has been an error generating data.<br />Please email Robert Ahrens at <a href='mailto:ra97\@cornell.edu'>ra97\@cornell.edu</a> to let him know you are experiencing difficulties.</I>";
+	print "<I>生成數據時發生錯誤。<br />請寄送電子郵件通知系統管理員。</I>";
     }
     $page->footer();
     exit;

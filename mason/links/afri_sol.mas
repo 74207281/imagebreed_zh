@@ -2,27 +2,27 @@
 <& /util/import_javascript.mas, classes => ["Prototype", "jquery", "thickbox"] &>
 
 <br />
-<& /page/page_title.mas, title=>"Afri-SOL: A new network of researchers working on African solanaceous plants" &>
+<& /page/page_title.mas, title => "Afri-SOL：從事非洲茄科植物研究的研究人員新網絡(Afri-SOL: A new network of researchers working on African solanaceous plants)" &>
 <div class="indentedcontent">
-African nightshades are increasingly playing an important role in meeting the nutritional and health needs of many households in Africa and elsewhere. Breeders also continue to look for novel traits from wild plants of the Solanaceae family that are native to the African continent. To enhance utilization of the African solanaceous plants, a network of scientists, Afri-SOL, has been created. While other regional Solanaceae networks have been formed elsewhere, no similar network exists within Africa with the result that most African solanaceous crops are poorly known and generally, underutilized.  <br />
+非洲茄科植物在滿足非洲及其他地區許多家庭的營養與健康需求方面發揮著越來越重要的作用。育種家也持續從原產於非洲大陸的野生茄科植物中尋找新穎性狀。為了提高非洲茄科植物的利用率，成立了名為 Afri-SOL 的科學家網絡。雖然其他地區已經形成了區域性茄科網絡，但非洲內部尚無類似網絡，導致大多數非洲茄科作物鮮為人知，且普遍未被充分利用。(African nightshades are increasingly playing an important role in meeting the nutritional and health needs of many households in Africa and elsewhere. Breeders also continue to look for novel traits from wild plants of the Solanaceae family that are native to the African continent. To enhance utilization of the African solanaceous plants, a network of scientists, Afri-SOL, has been created. While other regional Solanaceae networks have been formed elsewhere, no similar network exists within Africa with the result that most African solanaceous crops are poorly known and generally, underutilized.)  <br />
 <br />
-Afri-SOL network therefore aims to do the following:
+因此，Afri-SOL 網絡的目標如下：(Afri-SOL network therefore aims to do the following:)
 <ul>
-<li>Promote the benefits of solanaceous crops grown in Africa</li>
-<li>Develop research tools for the improvement of beneficial African solanaceous crops</li>
-<li>Facilitate technology dissemination for the improvement of solanaceous crops in Africa</li>
-<li>Seek joint funding from various institutions geared towards the improvement of solanaceous crops in Africa</li>
-<li>Collate information on geographic distribution of solanaceous species within Africa and their uses</li>
-<li>Utilize information available from various solanaceous networks to enhance improvement of underutilized solanaceous crops</li>
-<li>Enhance sharing of information and germplasm among researchers</li>
+<li>推廣非洲種植茄科作物的效益(Promote the benefits of solanaceous crops grown in Africa)</li>
+<li>開發改良有益非洲茄科作物的研究工具(Develop research tools for the improvement of beneficial African solanaceous crops)</li>
+<li>促進非洲茄科作物改良技術的傳播(Facilitate technology dissemination for the improvement of solanaceous crops in Africa)</li>
+<li>向各機構尋求共同資助，以致力於非洲茄科作物的改良(Seek joint funding from various institutions geared towards the improvement of solanaceous crops in Africa)</li>
+<li>整理非洲境內茄科物種的地理分佈及其用途的資訊(Collate information on geographic distribution of solanaceous species within Africa and their uses)</li>
+<li>利用來自各種茄科網絡的可用資訊，加強未充分利用之茄科作物的改良(Utilize information available from various solanaceous networks to enhance improvement of underutilized solanaceous crops)</li>
+<li>加強研究人員之間資訊與種原的共享(Enhance sharing of information and germplasm among researchers)</li>
 </ul>
-The network is open to all researchers based in Africa and working on solanaceous plants, or scientists based elsewhere with an interest in African solanaceous plants. Afri-SOL will strive to enhance better exchange of ideas, enhance access to information and publications, and find potential collaboration partners.
+該網絡對常駐非洲且從事茄科植物研究的所有研究人員，或對非洲茄科植物感興趣的其他地區科學家開放。Afri-SOL 將致力於促進更深入的思想交流、提升獲取資訊與出版物的機會，並尋找潛在的合作夥伴。(The network is open to all researchers based in Africa and working on solanaceous plants, or scientists based elsewhere with an interest in African solanaceous plants. Afri-SOL will strive to enhance better exchange of ideas, enhance access to information and publications, and find potential collaboration partners.)
 <br /><br />
-Afri-SOL members welcome any suggestions from other Sol communities. 
+Afri-SOL 成員歡迎來自其他茄科社群的任何建議。(Afri-SOL members welcome any suggestions from other Sol communities.) 
 </div>
 
-<&| /page/info_section.mas, title=>"Contact Information" &>
-For more information, contact:<br /><br />
+<&| /page/info_section.mas, title => "聯絡資訊(Contact Information)" &>
+欲了解更多資訊，請聯絡：(For more information, contact:)<br /><br />
 Damaris Achieng Odeny (PhD),<br />
 Agricultural Research Council, <br />
 Biotechnology Platform,<br />
@@ -34,6 +34,6 @@ Fax: +27 125654667<br />
 dodeny@arc.agric.za<br />
 </&>
 
-<&| /page/info_section.mas, title=>"Images of <a href=\"/organism/23894/view/\">Solanum retroflexum</a>, an African Solanaceae species" &>
+<&| /page/info_section.mas, title => "非洲茄科物種 <a href=\"/organism/23894/view/\">木龍葵 (Solanum retroflexum)</a> 的圖片(Images of Solanum retroflexum, an African Solanaceae species)" &>
 <& /image/print_images.mas, images=>[ [29059, 'organism'] ,[29060, 'organism'], [29061, 'organism'] ] &>
 </&>

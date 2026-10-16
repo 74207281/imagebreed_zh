@@ -1,8 +1,7 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ],  &>
 
-<p>View sequence metadata protocols associated with each sequence metadata data type.  Click the name of the sequence
-metadata protocol to query data from that protocol.</p>
+<p>檢視與各序列元資料類型關聯的實驗方案。點擊序列元資料實驗方案名稱即可查詢該方案的資料(View sequence metadata protocols associated with each sequence metadata data type. Click the name of the sequence metadata protocol to query data from that protocol)。</p>
 
 <div id="sequence_metadata_protocol_types"></div>
 
@@ -51,11 +50,11 @@ function get_types(callback) {
                 if ( callback ) return callback();
             }
             else {
-                alert("ERROR: Could not load types!");
+                alert("錯誤：無法載入類型！(ERROR: Could not load types!)");
             }
         },
         error: function() {
-            alert("ERROR: Could not load types");
+            alert("錯誤：無法載入類型(ERROR: Could not load types)");
         }
     });
 }

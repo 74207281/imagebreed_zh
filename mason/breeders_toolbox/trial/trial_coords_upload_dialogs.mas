@@ -8,21 +8,21 @@ $trial_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadTrialCoordDialog">Upload Coordinates to <% $trial_name %></h4>
+        <h4 class="modal-title" id="uploadTrialCoordDialog">上傳座標至 <% $trial_name %>(Upload Coordinates to <% $trial_name %>)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
-            <&| /page/explanation.mas, title=>'Template information' &>
+            <&| /page/explanation.mas, title=>'範本資訊(Template information)' &>
                 <p>
-                    <b>File format information</b>
+                    <b>檔案格式資訊</b>
                     <br>
-                    <a id="trial_coordinates_upload_spreadsheet_format_info">Spreadsheet format</a>
+                    <a id="trial_coordinates_upload_spreadsheet_format_info">試算表格式</a>
                 </p>
             </&>
 
             <form method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_trial_coordinates_form" name="upload_trial_coordinates_form">
-                <label for="trial_coordinates_uploaded_file" style="display: inline-block; width: 100px;">Upload trial coordinates file:</label>
+                <label for="trial_coordinates_uploaded_file" style="display: inline-block; width: 100px;">上傳試驗座標檔案：</label>
                 <input type="file" name="trial_coordinates_uploaded_file" id="trial_coordinates_uploaded_file" encoding="multipart/form-data" />
                 <input type="hidden" name="trial_coordinates_upload_trial_id" id="trial_coordinates_upload_trial_id" value="<% $trial_id %>" />
             </form>
@@ -30,8 +30,8 @@ $trial_name
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="upload_trial_coords_cancel_button" id="upload_trial_coords_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="upload_trial_coords_ok_button" id="upload_trial_coords_ok_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="upload_trial_coords_cancel_button" id="upload_trial_coords_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="upload_trial_coords_ok_button" id="upload_trial_coords_ok_button" title="送出(Submit)">送出(Submit)</button>
       </div>
     </div>
   </div>
@@ -43,7 +43,7 @@ $trial_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadTrialCoordErrorDialog">Upload Coordinates Error</h4>
+        <h4 class="modal-title" id="uploadTrialCoordErrorDialog">上傳座標錯誤(Upload Coordinates Error)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -53,7 +53,7 @@ $trial_name
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="upload_trial_coord_error_display_cancel" id="upload_trial_coords_cancel_button" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" name="upload_trial_coord_error_display_cancel" id="upload_trial_coords_cancel_button" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -64,15 +64,15 @@ $trial_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadTrialCoordSuccessDialog">Upload Coordinates Uploaded Sucessfully</h4>
+        <h4 class="modal-title" id="uploadTrialCoordSuccessDialog">座標上傳成功(Coordinates Uploaded Successfully)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <h3>The trial coord upload finished with no errors.</h3>
+            <h3>試驗座標上傳完成，沒有任何錯誤。</h3>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="trial_coord_upload_success_dialog_message_cancel" id="trial_coord_upload_success_dialog_message_cancel" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" name="trial_coord_upload_success_dialog_message_cancel" id="trial_coord_upload_success_dialog_message_cancel" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -83,22 +83,22 @@ $trial_name
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadTrialCoordHelpDialog">Upload Coordinates Help</h4>
+        <h4 class="modal-title" id="uploadTrialCoordHelpDialog">上傳座標說明(Upload Coordinates Help)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 <b>
-trial coordinates may be uploaded in tab-delimited text file format
+試驗座標可以 Tab 分隔文字檔格式上傳
 </b>
 <br>
-(.xls or .xlsx formats are NOT supported)
+（不支援 .xls 或 .xlsx 格式）
 <br><br>
 <b>
-  Header:
+  表頭：
 </b>
 <br>
-The first row (header) should contain the following:
+第一行（表頭）應包含以下內容：
 <br>
 
 <table class="table table-bordered" cellspacing="1" cellpadding="2" border="1">
@@ -111,25 +111,25 @@ The first row (header) should contain the following:
 
 <br>
 
-<h4>Required fields:</h4>
+<h4>必填欄位：</h4>
 <ul>
-<li>plot_name (must exist in the database for this trial)</li>
-<li>row_number (needed for the display of physical layout)</li>
-<li>col_number (needed for the display of physical layout)</li>
+<li>plot_name（必須存在於此試驗的資料庫中）</li>
+<li>row_number（顯示實體配置所需）</li>
+<li>col_number（顯示實體配置所需）</li>
 </ul>
 
 
-<h4>Notes</h4>
+<h4>注意事項</h4>
 <ul>
-<li>Field plots will be displayed in the physical trial layout based on the coordinates you provided in the row and column number.</li>
-<li>Physical trial layout will capture serpentine, zigzag and any other planting format use.</li>
+<li>田間小區將根據您在行號和列號中提供的座標顯示在實體試驗配置中。</li>
+<li>實體試驗配置將呈現蛇形、鋸齒形及任何其他使用的種植格式。</li>
 </ul>
 
 
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="trial_coord_upload_spreadsheet_info_dialog_close" id="trial_coord_upload_spreadsheet_info_dialog_close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" name="trial_coord_upload_spreadsheet_info_dialog_close" id="trial_coord_upload_spreadsheet_info_dialog_close" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>

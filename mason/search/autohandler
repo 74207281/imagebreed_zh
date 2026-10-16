@@ -21,22 +21,22 @@ Lukas Mueller &st;lam87@cornell.edu&gt;. Based on Perl code by Rob Buels.
 
 </%doc>
 
-<& /page/page_title.mas, title => 'Search' &>
+<& /page/page_title.mas, title => '搜尋(Search)' &>
 
 <& /page/mode_buttons.mas, buttons => [
 
-    ['/breeders/search', 'Wizard' ],
-    ['/search/phenotypes/stock','Accessions and plots'],
-    ['/search/organisms','Organisms'],
-    ['/search/cross','Progenies, Parents, Crosses'],
-    ['/search/trials', 'Field Trials' ],
-    ['/search/genotyping_trials', 'Genotyping Plates' ],
-    ['/search/genotyping_data_projects', 'Genotyping Data Projects' ],
-    ['/search/genotyping_protocols', 'Genotyping Protocols' ],
-    ['/search/traits', 'Traits' ],
-    #['/search/markers','Markers'],
-    ['/search/images','Images'],
-    ['/search/people', 'People' ],
+    ['/breeders/search', '精靈(Wizard)' ],
+    ['/search/phenotypes/stock','種原與小區(Accessions and plots)'],
+    ['/search/organisms','生物體(Organisms)'],
+    ['/search/cross','後代、親本、雜交組合(Progenies, Parents, Crosses)'],
+    ['/search/trials', '田間試驗(Field Trials)' ],
+    ['/search/genotyping_trials', '基因分型微量盤(Genotyping Plates)' ],
+    ['/search/genotyping_data_projects', '基因分型資料專案(Genotyping Data Projects)' ],
+    ['/search/genotyping_protocols', '基因分型協定(Genotyping Protocols)' ],
+    ['/search/traits', '性狀(Traits)' ],
+    #['/search/markers','標記(Markers)'],
+    ['/search/images','影像(Images)'],
+    ['/search/people', '人員(People)' ],
 
    ]
 &>

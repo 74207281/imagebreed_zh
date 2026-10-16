@@ -14,9 +14,9 @@ my $dt = DateTime->from_epoch( epoch=>time );
 my $date = join "/", ($dt->year, $dt->month, $dt->day);
 </%perl>
 
-<& /page/page_title.mas, title=>"Barcode Tools" &>
+<& /page/page_title.mas, title=>"條碼工具(Barcode Tools)" &>
 
-<&| /page/info_section.mas, title=>'Generate Barcode', collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, title=>'生成條碼(Generate Barcode)', collapsible=>1, collapsed=>1 &>
 
 <div class="well well-sm">
 <div class="row">
@@ -26,25 +26,25 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <form class="form-horizontal" role="form" action="/barcode/generate">
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Barcode Text: </label>
+    <label class="col-sm-2 control-label">條碼文字(Barcode Text)：</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" name="text" />
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Small: </label>
+    <label class="col-sm-2 control-label">小(Small)：</label>
     <div class="col-sm-10">
       <input type="radio" name="size" value="small" checked="1" />
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Large: </label>
+    <label class="col-sm-2 control-label">大(Large)：</label>
     <div class="col-sm-10">
       <input type="radio" name="size" value="large" />
     </div>
   </div>
 
-  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Generate barcode">Generate Barcode</button>
+  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Generate barcode">生成條碼(Generate Barcode)</button>
 </form>
 
 <br/>
@@ -57,7 +57,7 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 </&>
 
-<&| /page/info_section.mas, title=>'Download Stock Barcodes', collapsible=>1, collapsed=>0, subtitle=>'<button type="button" class="btn btn-primary" name="custom_barcode_link" id="custom_barcode_link">Design Custom Barcode</button>'&>
+<&| /page/info_section.mas, title=>'下載材料條碼(Download Stock Barcodes)', collapsible=>1, collapsed=>0, subtitle=>'<button type="button" class="btn btn-primary" name="custom_barcode_link" id="custom_barcode_link">設計自訂條碼(Design Custom Barcode)</button>'&>
 
 <div class="well well-sm">
 <div class="row">
@@ -67,13 +67,13 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="/barcode/stock/download/pdf" >
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Enter a List of Stock Names: </label>
+    <label class="col-sm-4 control-label">輸入材料名稱清單(Enter a List of Stock Names)：</label>
     <div class="col-sm-8">
       <textarea class="form-control" id="stock_names" name="stock_names" ></textarea>
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Paste From a List: </label>
+    <label class="col-sm-4 control-label">或從清單貼上(Or Paste From a List)：</label>
     <div class="col-sm-8">
       <div id="list_menu_location_1"></div>
 <script defer="defer">
@@ -192,18 +192,18 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
   </div>
 
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Barcode Type: </label>
+    <label class="col-sm-4 control-label">條碼類型(Barcode Type)：</label>
     <div class="col-sm-8">
         <select class="form-control" id="select_barcode_type" name="select_barcode_type">
-          <option value="2D">2D Barcode</option>
-          <option value="1D">1D Barcode</option>
+          <option value="2D">二維條碼(2D Barcode)</option>
+          <option value="1D">一維條碼(1D Barcode)</option>
         </select>
     </div>
   </div>
 
   <div id="2D_fieldbook_option" >
   <div class="form-group form-group-sm" >
-    <label class="col-sm-4 control-label">Enable 2D Barcode For FieldBook: </label>
+    <label class="col-sm-4 control-label">啟用適用於 FieldBook 的二維條碼(Enable 2D Barcode For FieldBook)：</label>
     <div class="col-sm-8">
       <input type="checkbox" id="enable_fieldbook_2d_barcode" name="enable_fieldbook_2d_barcode" value="enable_fieldbook_2d_barcode" checked/>
     </div>
@@ -211,32 +211,32 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
   </div>
 
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Printing Format (Optional): </label>
+    <label class="col-sm-4 control-label">列印格式（選填）(Printing Format (Optional))：</label>
     <div class="col-sm-8">
         <select class="form-control" id="select_print_format" name="select_print_format">
           <!--<option selected disabled>select printing format</option>-->
-          <option value="">select printing format</option>
-          <option value="CASS">CASS printing format</option>
-          <option value="MUSA">MUSA printing format</option>
-          <option value="32A4">32 label Size Sticker Paper</option>
-          <option value="32_unique">32 Unique label Size Sticker Paper</option>
-          <option value="20A4">20 label Size Sticker Paper</option>
-          <option value="NCSU">NCSU printing format</option>
-          <option value="IITA-3">IITA-3-barcode</option>
-          <option value="IITA-2">IITA-2-barcode</option>
-          <option value="crossing">CROSS</option>
+          <option value="">選取列印格式(select printing format)</option>
+          <option value="CASS">CASS 列印格式(CASS printing format)</option>
+          <option value="MUSA">MUSA 列印格式(MUSA printing format)</option>
+          <option value="32A4">32 張貼紙尺寸貼紙紙張(32 label Size Sticker Paper)</option>
+          <option value="32_unique">32 張唯一貼紙尺寸貼紙紙張(32 Unique label Size Sticker Paper)</option>
+          <option value="20A4">20 張貼紙尺寸貼紙紙張(20 label Size Sticker Paper)</option>
+          <option value="NCSU">NCSU 列印格式(NCSU printing format)</option>
+          <option value="IITA-3">IITA-3 條碼(IITA-3-barcode)</option>
+          <option value="IITA-2">IITA-2 條碼(IITA-2-barcode)</option>
+          <option value="crossing">雜交(CROSS)</option>
         </select>
     </div>
   </div>
 
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Upload <font size="3" color="#5bc0de">Tab-delimited Text File</font> With Stock Names: </label>
+    <label class="col-sm-4 control-label">或上傳包含材料名稱的<font size="3" color="#5bc0de">Tab 分隔文字檔</font>(Or Upload Tab-delimited Text File With Stock Names)：</label>
     <div class="col-sm-8">
       <input type="file" name="stock_names_file" />
     </div>
   </div>
   <div class="form-group form-group-sm" style="display: none">
-    <label class="col-sm-4 control-label">Print Duplicate Labels Per Row: </label>
+    <label class="col-sm-4 control-label">每行印製重複標籤(Print Duplicate Labels Per Row)：</label>
     <div class="col-sm-8">
       <input type="checkbox" name="duplicate_labels_per_row" checked="1" disabled="1" />
     </div>
@@ -256,8 +256,8 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
   <& /barcode/printer_settings.mas &>
 
-  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">Download Barcodes</button>
-  <button style="float:right" class="btn btn-default btn-sm" type="reset" >Clear</button>
+  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">下載條碼(Download Barcodes)</button>
+  <button style="float:right" class="btn btn-default btn-sm" type="reset" >清除(Clear)</button>
 </form>
 
 <br/>
@@ -274,7 +274,7 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <!-- phenotyping barcode -->
 
-<&| /page/info_section.mas, title=>'Download Plot Phenotyping Barcodes', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'下載小區表型條碼(Download Plot Phenotyping Barcodes)', collapsible=>1, collapsed=>0 &>
 
 <div class="well well-sm">
 <div class="row">
@@ -284,13 +284,13 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="/barcode/stock/download/plot_QRcode" >
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Enter a List of Stock Names: </label>
+    <label class="col-sm-4 control-label">輸入材料名稱清單(Enter a List of Stock Names)：</label>
     <div class="col-sm-8">
       <textarea class="form-control" id="stock_names_2" name="stock_names_2" ></textarea>
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Paste From a List: </label>
+    <label class="col-sm-4 control-label">或從清單貼上(Or Paste From a List)：</label>
     <div class="col-sm-8">
       <div id="list_menu_location_2"></div>
 <script defer="defer">
@@ -302,14 +302,14 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Upload <font size="3" color="#5bc0de">Tab-delimited Text File</font> With Stock Names: </label>
+    <label class="col-sm-4 control-label">或上傳包含材料名稱的<font size="3" color="#5bc0de">Tab 分隔文字檔</font>(Or Upload Tab-delimited Text File With Stock Names)：</label>
     <div class="col-sm-8">
       <input type="file" name="stock_names_file_2" />
     </div>
   </div>
 
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Add Text to Label, e.g. location: </label>
+    <label class="col-sm-4 control-label">新增文字至標籤，例如地點(Add Text to Label, e.g. location)：</label>
     <div class="col-sm-8">
         <input class="form-control" id="select_barcode_text" name="select_barcode_text"></input>
     </div>
@@ -324,8 +324,8 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 %#  <& /barcode/printer_settings.mas &> #%
 
-  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">Download Barcodes</button>
-  <button style="float:right" class="btn btn-default btn-sm" type="reset" >Clear</button>
+  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">下載條碼(Download Barcodes)</button>
+  <button style="float:right" class="btn btn-default btn-sm" type="reset" >清除(Clear)</button>
 </form>
 
 <br/>
@@ -342,7 +342,7 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <!-- Trial barcode -->
 
-<&| /page/info_section.mas, title=>'Download Trial Barcodes', collapsible=>1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>'下載試驗條碼(Download Trial Barcodes)', collapsible=>1, collapsed=>0 &>
 
 <div class="well well-sm">
 <div class="row">
@@ -352,13 +352,13 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="/barcode/trial/download/trial_QRcode" >
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Enter a List of Trial Names: </label>
+    <label class="col-sm-4 control-label">輸入試驗名稱清單(Enter a List of Trial Names)：</label>
     <div class="col-sm-8">
       <textarea class="form-control" id="trial_names_2" name="trial_names_2" ></textarea>
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Paste From a List: </label>
+    <label class="col-sm-4 control-label">或從清單貼上(Or Paste From a List)：</label>
     <div class="col-sm-8">
       <div id="list_menu_location_3"></div>
 <script defer="defer">
@@ -370,14 +370,14 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-4 control-label">Or Upload <font size="3" color="#5bc0de">Tab-delimited Text File</font> With Trial Names: </label>
+    <label class="col-sm-4 control-label">或上傳包含試驗名稱的<font size="3" color="#5bc0de">Tab 分隔文字檔</font>(Or Upload Tab-delimited Text File With Trial Names)：</label>
     <div class="col-sm-8">
       <input type="file" name="trial_names_file_2" />
     </div>
   </div>
 
-  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">Download Barcodes</button>
-  <button style="float:right" class="btn btn-default btn-sm" type="reset" >Clear</button>
+  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="Download Barcodes">下載條碼(Download Barcodes)</button>
+  <button style="float:right" class="btn btn-default btn-sm" type="reset" >清除(Clear)</button>
 </form>
 
 <br/>

@@ -1,13 +1,13 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('kjb_lab.html','html2pl converter');
-$page->header('Bradford Lab');
+$page->header('Bradford 實驗室 (Bradford Lab)');
 print<<END_HEREDOC;
 
   <div>
     <p dir="ltr" style="text-align: center"><span style=
-    "font-weight: bold"><span style="font-size: 14pt">The Bradford
-    Lab</span></span></p>
+    "font-weight: bold"><span style="font-size: 14pt">Bradford 實驗室 (The Bradford Lab)</span></span></p>
 
     <p dir="ltr" style="text-align: center"><img src=
     "/static_content/community/feature/kjb_lab_people.jpg" alt="" /></p>
@@ -53,10 +53,8 @@ print<<END_HEREDOC;
     sugar-sensing and metabolic regulation. Work in this area is
     continuing with the support of NSF and USDA-NRICGP grants.</p>
 
-    <p dir="ltr" style="text-align: left">For more information,
-    please visit the Dr. Bradford's <a href=
-    "http://www.plantsciences.ucdavis.edu/bradford/bradford.htm">website</a>
-    at UC Davis.</p>
+    <p dir="ltr" style="text-align: left">如需更多資訊，請造訪 Bradford 博士在加州大學戴維斯分校的 <a href=
+    "http://www.plantsciences.ucdavis.edu/bradford/bradford.htm">網站 (website)</a>。</p>
   </div>
 END_HEREDOC
 $page->footer();

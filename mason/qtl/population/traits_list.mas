@@ -19,11 +19,11 @@ $traits_list
 <&| /page/info_section.mas, 
   collapsible => 1, 
   collapsed   => 1, 
-  title       => "Analyze QTLs" 
+  title       => "分析 QTL(Analyze QTLs)" 
 &> 
 
 <& /page/columnar_table.mas,
-  headings     => ["Trait", "Min", "Max", "Ave", "No. of<br />Lines", "Analyze<br />QTL"], 
+  headings     => ["性狀(Trait)", "最小值(Min)", "最大值(Max)", "平均值(Ave)", "品系數量<br />(No. of Lines)", "分析 QTL<br />(Analyze QTL)"], 
   data         => $traits_list,
   __alt_freq   =>2,
   __alt_width  =>1,

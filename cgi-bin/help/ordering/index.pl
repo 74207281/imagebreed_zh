@@ -1,7 +1,9 @@
 use strict;
+use warnings;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('SGN: Ordering Clones');
+$page->header('SGN: 訂購選殖株 (Ordering Clones)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,31 +13,28 @@ print<<END_HEREDOC;
     border="0">
       <tr>
         <td>
-          <h4>Ordering Clones</h4>
+          <h4>訂購選殖株 (Ordering Clones)</h4>
 
           <div class="boxcontent">
             <dl>
-              <dt><strong>Tomato</strong></dt>
+              <dt><strong>番茄 (Tomato)</strong></dt>
 
-              <dd><a href=
-              "http://ted.bti.cornell.edu/cgi-bin/TFGD/order/home.cgi">Purchase tomato
-              EST or BAC clones</a> from <a href=
-              "http://ted.bti.cornell.edu/">TED BTI</a> at Cornell
-              University.</dd>
+              <dd>由康乃爾大學 <a href=
+              "http://ted.bti.cornell.edu/">TED BTI</a> <a href=
+              "http://ted.bti.cornell.edu/cgi-bin/TFGD/order/home.cgi">購買番茄 EST 或 BAC 選殖株 (Purchase tomato EST or BAC clones)</a>。</dd>
 
-              <dt><br /><strong>Potato</strong></dt>
+              <dt><br /><strong>馬鈴薯 (Potato)</strong></dt>
 
-              <dd><a href=
-              "http://www.genome.arizona.edu/orders/">Purchase
-              potato clones</a> from <a href=
+              <dd>由 <a href=
               "http://www.genome.arizona.edu/">Arizona Genome
-              Initiative</a>.</dd>
+              Initiative</a> <a href=
+              "http://www.genome.arizona.edu/orders/">購買馬鈴薯選殖株 (Purchase potato clones)</a>。</dd>
 
-              <dt><br /><strong>Pepper</strong></dt>
+              <dt><br /><strong>辣椒 (Pepper)</strong></dt>
 
-              <dd>For pepper clones, contact <a href=
+              <dd>如需辣椒選殖株，請聯絡韓國 KRIBB 的 <a href=
               "/solpeople/personal-info.pl?sp_person_id=87">
-              Doil Choi</a> at KRIBB Korea.</dd>
+              Doil Choi</a>。</dd>
             </dl>
           </div>
         </td>
@@ -45,3 +44,4 @@ print<<END_HEREDOC;
   </center>
 END_HEREDOC
 $page->footer();
+

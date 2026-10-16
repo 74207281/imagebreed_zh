@@ -1,7 +1,7 @@
 <& /page/mode_buttons.mas, buttons => [
-           ['/search/expression/template',   'Templates'   ],
-           ['/search/expression/experiment', 'Experiments' ],
-           ['/search/expression/platform',   'Platforms'   ],
+           ['/search/expression/template',   '模板(Templates)'   ],
+           ['/search/expression/experiment', '實驗(Experiments)' ],
+           ['/search/expression/platform',   '平台(Platforms)'   ],
        ],
 &>
 

@@ -81,14 +81,13 @@ $right_map_version_id=>undef
 $color_model=>undef
 </%args>
 
-<& /page/page_title.mas, title => 'Compare Entire Maps' &>
+<& /page/page_title.mas, title => '比較完整圖譜(Compare Entire Maps)' &>
 
 <div style="text-align: center">
    <div style="width: 40em; margin: 0 auto">
       <&| /page/explanation.mas &>
 
-      Select maps to compare using the control below, then
-      press the 'set' button to update the display.
+      使用下方的控制項選擇要比較的圖譜，然後按下「設定」按鈕以更新顯示(Select maps to compare using the control below, then press the 'set' button to update the display)。
 
       </&>
   </div>
@@ -153,7 +152,7 @@ my $select = $vm->get_select_toolbar();
 print qq|<div style="width: 60%; margin: 0 auto">$select</div>|;
 
 if (!$vm->get_maps()) { 
-  print "<br /><br /><center>Note: No maps are selected. Please select maps from the pull down menus above.</center>\n";
+  print "<br /><br /><center>注意：未選擇任何圖譜。請從上方的下拉式選單中選擇圖譜(Note: No maps are selected. Please select maps from the pull down menus above)。</center>\n";
 }
 
 print $vm->get_cache()->get_image_html();

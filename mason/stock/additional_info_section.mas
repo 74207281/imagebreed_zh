@@ -12,7 +12,7 @@ $is_owner
     <div class="panel panel-default">
         <div class="panel-body panel-body-sm">
 
-            <&| /page/info_section.mas, title => "Synonyms", is_subsection => 1 &>
+            <&| /page/info_section.mas, title => "同義名(Synonyms)", is_subsection => 1 &>
                 <& /stock/stockprops.mas,
                     stock_id    => $stock_id,
                     props      => $stockprops ,
@@ -29,7 +29,7 @@ $is_owner
 <div class="panel panel-default">
     <div class="panel-body panel-body-sm">
 
-        <&| /page/info_section.mas, title => "Additional information", is_subsection => 1 &>
+        <&| /page/info_section.mas, title => "額外資訊(Additional Information)", is_subsection => 1 &>
             <& /stock/stockprops.mas,
                 stock_id  =>$stock_id,
                 props      => $stockprops,
@@ -44,7 +44,7 @@ $is_owner
 
 <div class="panel panel-default">
     <div class="panel-body panel-body-sm">
-        <b>Stock editors: </b>
+        <b>材料編輯者(Stock Editors)：</b>
         <br/>
         <% $editor_link %>
     </div>

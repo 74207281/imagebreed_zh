@@ -139,48 +139,48 @@ pages.
 
 <div id="icon_nav">
 <ul>
-	<li class="MapsMarkers"><a href="/cview/" ><img src="/img/soliconmenu/MapsMarkers.png" title="Maps and Markers" /></a>
+	<li class="MapsMarkers"><a href="/cview/" ><img src="/img/soliconmenu/MapsMarkers.png" title="圖譜與分子標記(Maps and Markers)" /></a>
 
    		<ul>
         	  <div class="submenu MapsMarkersSubMenu">
-		    <li><a href="/cview/index.pl">Available maps</a></li>
-                    <li><a href="/cview/view_chromosome.pl?show_offsets=1&show_ruler=1&show_offsets=1">Comparative viewer</a></li>
-                    <li><a href="/search/direct_search.pl?search=markers">Search markers</a></li>
+		    <li><a href="/cview/index.pl">可用圖譜(Available maps)</a></li>
+                    <li><a href="/cview/view_chromosome.pl?show_offsets=1&show_ruler=1&show_offsets=1">比較檢視器(Comparative viewer)</a></li>
+                    <li><a href="/search/direct_search.pl?search=markers">搜尋分子標記(Search markers)</a></li>
 		    <li><a href="">&nbsp;</a></li>
-		    <li><a href="/cview/help/map_submission">Submit map information to SGN</a></li>
+		    <li><a href="/cview/help/map_submission">向 SGN 提交圖譜資訊(Submit map information to SGN)</a></li>
 		  </div>
 		</ul>
 	</li>
 
-	<li class="Genes"><a href="/search/direct_search.pl?search=loci" style="background: none"><img src="/img/soliconmenu/Genes.png" title="Genes" /></a>
+	<li class="Genes"><a href="/search/direct_search.pl?search=loci" style="background: none"><img src="/img/soliconmenu/Genes.png" title="基因(Genes)" /></a>
 	  <ul>
             <div class="submenu GenesSubMenu"  >
-              <li><a href="/search/direct_search.pl?search=loci">Search loci</a></li>
-              <li><a href="/search/direct_search.pl?search=unigene">Search unigenes</a></li>
-              <li><a href="/search/direct_search.pl?search=template">Expression</a></li>
-              <li><a href="/organism/Solanum_lycopersicum/genome">Search/browse tomato genome</a></li>
-	      <li><a href="/phenome/">Become an SGN locus editor</a></li>
+              <li><a href="/search/direct_search.pl?search=loci">搜尋基因座(Search loci)</a></li>
+              <li><a href="/search/direct_search.pl?search=unigene">搜尋 Unigene(Search unigenes)</a></li>
+              <li><a href="/search/direct_search.pl?search=template">基因表現(Expression)</a></li>
+              <li><a href="/organism/Solanum_lycopersicum/genome">搜尋/瀏覽番茄基因組(Search/browse tomato genome)</a></li>
+	      <li><a href="/phenome/">成為 SGN 基因座編輯者(Become an SGN locus editor)</a></li>
 	      </div>
 
 	  </ul>
 
 
 
-	<li class="Phenotypes"><a href="/search/direct_search.pl?search=phenotypes" style="background: none"><img src="/img/soliconmenu/Phenotypes.png" alt="Phenotypes and QTLs" title="Phenotypes and QTLs" /></a>
+	<li class="Phenotypes"><a href="/search/direct_search.pl?search=phenotypes" style="background: none"><img src="/img/soliconmenu/Phenotypes.png" alt="表型與 QTL(Phenotypes and QTLs)" title="表型與 QTL(Phenotypes and QTLs)" /></a>
 	  <ul>
 	    <div class="submenu PhenotypesSubMenu">
-              <li><a href="/search/direct_search.pl?search=phenotypes">Search phenotypes</a></li>
+              <li><a href="/search/direct_search.pl?search=phenotypes">搜尋表型(Search phenotypes)</a></li>
 
-              <li><a href="/qtl/">Analyze QTLs</a></li>
-              <li><a href="/tools/onto/">Ontology browser</a></li>
+              <li><a href="/qtl/">分析 QTL(Analyze QTLs)</a></li>
+              <li><a href="/tools/onto/">本體瀏覽器(Ontology browser)</a></li>
 	      <li><a href="">&nbsp;</a></li>
-	      <li><a href="/phenome/">Submit phenotype data</a></li>
+	      <li><a href="/phenome/">提交表型數據(Submit phenotype data)</a></li>
             </div>
           </ul>
 
 	</li>
 
-    <li class="BreedersToolBox"><a href="/breeders/"><img src="/img/soliconmenu/BreedersToolBox.png" alt="Breeders Toolbox" title="Click to access the Breeder's toolbox" /></a>
+    <li class="BreedersToolBox"><a href="/breeders/"><img src="/img/soliconmenu/BreedersToolBox.png" alt="育種者工具箱(Breeders Toolbox)" title="點擊存取育種者工具箱(Click to access the Breeder's toolbox)" /></a>
     	<!--
 		<ul>
             <div class="submenu BreedersToolBoxSubMenu">
@@ -192,18 +192,18 @@ pages.
         -->
 	</li>
 
-  <li class="GenomesSequences"><a href="/genomes"><img src="/img/soliconmenu/GenomesSequences.png" alt="Genomes and Sequences" title="Genomes and Sequences" /></a>
+  <li class="GenomesSequences"><a href="/genomes"><img src="/img/soliconmenu/GenomesSequences.png" alt="基因組與序列(Genomes and Sequences)" title="基因組與序列(Genomes and Sequences)" /></a>
     <ul>
       <div class="submenu GenomesSequencesSubMenu">
-        <li><a href="/organism/Solanum_lycopersicum/genome">Tomato Genome Project</a></li>
+        <li><a href="/organism/Solanum_lycopersicum/genome">番茄基因組計畫(Tomato Genome Project)</a></li>
         <!-- <li><a href="/organism/Solanum_lycopersicum/genome">Search/browse tomato genome</a></li> -->
-        <li><a href="/organism/Solanum_pimpinellifolium/genome"><i>Solanum pimpinellifolium</i> genome</a></li>
-        <li><a href="/organism/Nicotiana_benthamiana/genome"><i>Nicotiana benthamiana</i> genome</a></li>
+        <li><a href="/organism/Solanum_pimpinellifolium/genome"><i>Solanum pimpinellifolium</i> 基因組(genome)</a></li>
+        <li><a href="/organism/Nicotiana_benthamiana/genome"><i>Nicotiana benthamiana</i> 基因組(genome)</a></li>
       </div>
     </ul>
   </li>
 
-    <li class="Pathways"><a href="http://solcyc.solgenomics.net/"><img src="/img/soliconmenu/Pathways.png" alt="Pathways" title="Click to access SolCyc" /></a>
+    <li class="Pathways"><a href="http://solcyc.solgenomics.net/"><img src="/img/soliconmenu/Pathways.png" alt="生化途徑(Pathways)" title="點擊存取 SolCyc(Click to access SolCyc)" /></a>
     	<!--
 		<ul>
             <div class="submenu PathwaysSubMenu">

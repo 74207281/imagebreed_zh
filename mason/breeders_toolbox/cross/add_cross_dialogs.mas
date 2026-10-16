@@ -7,238 +7,238 @@ $locations
         <div class="modal-content ui-front">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="createNewCrosses">Add New Cross</h4>
+                <h4 class="modal-title" id="createNewCrosses">新增雜交(Add New Cross)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                     <&| /util/workflow.mas, id=> "add_cross_workflow" &>
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"What is a cross?" &>
+                        <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                            <& /page/page_title.mas, title=>"什麼是雜交？(What is a Cross?)" &>
 
                             <ul>
-                                <li>The Cross Tool can track any pollinations in a breeding program.</li>
-                                <li>Each cross has a globally unique cross id.</li>
-                                <li>Supported cross types are: biparental, self, open, backcross, sib, polycross, bulk, bulk_self, bulk_open, or doubled_haploid</li>
-                                <li>For an open pollinated cross, the cross can be defined as between female accession A and male population P1 (populations in the database are defined strictly as groups of accessions). If the male parent is not known, it can be left blank.</li>
-                                <li>For backcross cross type, cross unique id can be used as one of the parents.</li>
-                                <li>An individual cross can be linked to the specific female plot or plant, as well as to the specific male plot or plant.</li>
-                                <li>A cross can have other data associated to it, such as number of flowers, pollination date, etc.</li>
-                                <li>Seed produced by a cross can be managed using a seedlot.</li>
-                                <li>Progenies from a cross can become named accessions in the database.</li>
+                                <li>雜交工具可以追蹤育種計畫中的任何授粉。</li>
+                                <li>每個雜交都有一個全域唯一的雜交 ID。</li>
+                                <li>支援的雜交類型為：雙親 (biparental)、自交 (self)、開放授粉 (open)、回交 (backcross)、同胞交 (sib)、多系交配 (polycross)、混合 (bulk)、混合自交 (bulk_self)、混合開放 (bulk_open) 或單倍體加倍 (doubled_haploid)</li>
+                                <li>對於開放授粉雜交，雜交可以定義為母本種原 A 與父本族群 P1 之間（資料庫中的族群嚴格定義為種原群組）。如果父本未知，可以留空。</li>
+                                <li>對於回交類型，雜交唯一 ID 可以作為親本之一。</li>
+                                <li>單個雜交可以連結到特定的母本小區或植株，以及特定的父本小區或植株。</li>
+                                <li>雜交可以關聯其他資料，例如花朵數量、授粉日期等。</li>
+                                <li>雜交產生的種子可以使用種子批次進行管理。</li>
+                                <li>雜交的後代可以成為資料庫中已命名的種原。</li>
                             </ul>
 
                             <br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
-                        <&| /util/workflow.mas:step, title=> "Crossing Experiment" &>
-                            <& /page/page_title.mas, title=>"Select a crossing experiment" &>
+                        <&| /util/workflow.mas:step, title=> "雜交實驗(Crossing Experiment)" &>
+                            <& /page/page_title.mas, title=>"選擇雜交實驗(Select a Crossing Experiment)" &>
 
-                            <p>Crossing experiments are for grouping crosses together. The grouping is most often done for crosses derived from the same field trial, the same year, or for crosses that have the same breeding objective.</p>
+                            <p>雜交實驗用於將雜交分組在一起。分組通常針對來自同一個田間試驗、同一年份或具有相同育種目標的雜交進行。</p>
                             <center>
-                                <button class="btn btn-info" name="create_crossingtrial_link">If you need to create a crossing experiment, click here</button><br/><br/>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Once you have a crossing experiment, go to Next Step</button>
+                                <button class="btn btn-info" name="create_crossingtrial_link">若您需要建立雜交實驗，請點選此處(If you need to create a crossing experiment, click here)</button><br/><br/>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">當您已建立雜交實驗後，前往下一步(Once You Have a Crossing Experiment, Go to Next Step)</button>
                             </center>
 
                         </&>
 
                         <form class="form-horizontal" role="form" name="create_cross_form" id="create_cross_form">
 
-                            <&| /util/workflow.mas:step, title=> "Enter cross information" &>
-                                <& /page/page_title.mas, title=>"Enter basic information about the cross" &>
+                            <&| /util/workflow.mas:step, title=> "輸入雜交資訊(Enter Cross Information)" &>
+                                <& /page/page_title.mas, title=>"輸入雜交基本資訊(Enter Basic Information About the Cross)" &>
 
-                                <&| /page/explanation.mas, title=>'Cross Type information' &>
+                                <&| /page/explanation.mas, title=>'雜交類型資訊(Cross Type Information)' &>
                                     <p>
-                                        <b>Cross type information</b>
+                                        <b>雜交類型資訊</b>
                                         <br>
-                                        <a id="cross_type_info">Descriptions of cross types</a>
+                                        <a id="cross_type_info">雜交類型說明(Descriptions of Cross Types)</a>
                                     </p>
                                 </&>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Breeding Program: </label>
+                                    <label class="col-sm-3 control-label">育種計畫：</label>
                                     <div class="col-sm-9">
                                         <div id="add_cross_breeding_program_select_div" name="add_cross_breeding_program_select_div">
                                         </div>
                                     </div>
                                 </div><br/><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Crossing Experiment: </label>
+                                    <label class="col-sm-3 control-label">雜交實驗：</label>
                                     <div class="col-sm-9">
                                         <div id="add_cross_crossing_experiment_select_div" name="add_cross_crossing_experiment_select_div" >
                                         </div>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Cross Unique ID: </label>
+                                    <label class="col-sm-3 control-label">雜交唯一 ID：</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="text" id="cross_name" name="cross_name" />
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Cross Combination (optional): </label>
+                                    <label class="col-sm-3 control-label">雜交組合 (選填)：</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" id="dialog_cross_combination" name="dialog_cross_combination" placeholder="e.g. female_name/male_name"/>
+                                        <input class="form-control" type="text" id="dialog_cross_combination" name="dialog_cross_combination" placeholder="例如：female_name/male_name"/>
                                     </div>
                                 </div><br/><br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Cross Type: </label>
+                                    <label class="col-sm-3 control-label">雜交類型：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="cross_type">
-                                            <option value="">Select a cross type</option>
-                                            <option value="biparental">biparental</option>
-                                            <option value="self">self</option>
-                                            <option value="open">open pollinated</option>
-                                            <option value="backcross">backcross</option>
-                                            <option value="sib">sib</option>
-                                            <option value="bulk">bulk</option>
-                                            <option value="bulk_self">bulk selfed</option>
-                                            <option value="bulk_open">bulk and open pollinated</option>
-                                            <option value="doubled_haploid">doubled haploid</option>
-                                            <option value="polycross">polycross</option>
-                                            <option value="reciprocal">reciprocal</option>
-                                            <option value="multicross">multicross</option>
+                                            <option value="">選擇雜交類型</option>
+                                            <option value="biparental">雙親 (biparental)</option>
+                                            <option value="self">自交 (self)</option>
+                                            <option value="open">開放授粉 (open pollinated)</option>
+                                            <option value="backcross">回交 (backcross)</option>
+                                            <option value="sib">同胞交 (sib)</option>
+                                            <option value="bulk">混合 (bulk)</option>
+                                            <option value="bulk_self">混合自交 (bulk selfed)</option>
+                                            <option value="bulk_open">混合與開放授粉 (bulk and open pollinated)</option>
+                                            <option value="doubled_haploid">單倍體加倍 (doubled haploid)</option>
+                                            <option value="polycross">多系交配 (polycross)</option>
+                                            <option value="reciprocal">正反交 (reciprocal)</option>
+                                            <option value="multicross">多元雜交 (multicross)</option>
                                         </select>
                                     </div>
                                 </div>
                                 <br/><br/>
                                 <center>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Enter parentage information" &>
-                                <& /page/page_title.mas, title=>"Enter basic information about the cross" &>
+                            <&| /util/workflow.mas:step, title=> "輸入親本資訊(Enter Parentage Information)" &>
+                                <& /page/page_title.mas, title=>"輸入雜交基本資訊(Enter Basic Information About the Cross)" &>
 
                                 <div class="form-group" id="get_maternal_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Female Parent: </label>
+                                    <label class="col-sm-2 control-label">母本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="maternal_parent" type="text" name="maternal" placeholder="Enter female parent name" />
+                                        <input class="form-control" id="maternal_parent" type="text" name="maternal" placeholder="輸入母本名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_paternal_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Male Parent: </label>
+                                    <label class="col-sm-2 control-label">父本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="paternal_parent" type="text" name="paternal" placeholder="Enter male parent name"  />
+                                        <input class="form-control" id="paternal_parent" type="text" name="paternal" placeholder="輸入父本名稱"  />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_selfed_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Selfed Parent: </label>
+                                    <label class="col-sm-2 control-label">自交親本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="selfed_parent" type="text" name="selfed" placeholder="Enter parent name" />
+                                        <input class="form-control" id="selfed_parent" type="text" name="selfed" placeholder="輸入親本名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_open_maternal_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Female Parent: </label>
+                                    <label class="col-sm-2 control-label">母本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="open_maternal_parent" type="text" name="open maternal" placeholder="Enter female parent name" />
+                                        <input class="form-control" id="open_maternal_parent" type="text" name="open maternal" placeholder="輸入母本名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_open_paternal_population" style="display: none">
-                                    <div class="col-sm-2"><center><label class="control-label">Male Population: </label><i>(optional)</i></center></div>
+                                    <div class="col-sm-2"><center><label class="control-label">父本族群：</label><i>(選填)</i></center></div>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="open_paternal_population" type="text" name="open paternal" placeholder="Enter male population name" />
+                                        <input class="form-control" id="open_paternal_population" type="text" name="open paternal" placeholder="輸入父本族群名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_bulk_maternal_population" style="display: none">
-                                    <label class="col-sm-2 control-label">Female Population: </label>
+                                    <label class="col-sm-2 control-label">母本族群：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="bulk_maternal_population" type="text" name="bulk maternal" placeholder="Enter female population name" />
+                                        <input class="form-control" id="bulk_maternal_population" type="text" name="bulk maternal" placeholder="輸入母本族群名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_bulk_paternal_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Male Parent: </label>
+                                    <label class="col-sm-2 control-label">父本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="bulk_paternal_parent" type="text" name="bulk paternal" placeholder="Enter male parent name" />
+                                        <input class="form-control" id="bulk_paternal_parent" type="text" name="bulk paternal" placeholder="輸入父本名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_bulk_selfed_population" style="display: none">
-                                    <label class="col-sm-2 control-label">Selfed Population: </label>
+                                    <label class="col-sm-2 control-label">自交族群：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="bulk_selfed_population" type="text" name="bulk selfed" placeholder="Enter parent population name" />
+                                        <input class="form-control" id="bulk_selfed_population" type="text" name="bulk selfed" placeholder="輸入親本族群名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_bulk_open_maternal_population" style="display: none">
-                                    <label class="col-sm-2 control-label">Female Population: </label>
+                                    <label class="col-sm-2 control-label">母本族群：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="bulk_open_maternal_population" type="text" name="bulk open maternal" placeholder="Enter female population name" />
+                                        <input class="form-control" id="bulk_open_maternal_population" type="text" name="bulk open maternal" placeholder="輸入母本族群名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_bulk_open_paternal_population" style="display: none">
-                                    <div class="col-sm-2"><center><label class="control-label">Male Population: </label><i>(optional)</i></center></div>
+                                    <div class="col-sm-2"><center><label class="control-label">父本族群：</label><i>(選填)</i></center></div>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="bulk_open_paternal_population" type="text" name="bulk open paternal" placeholder="Enter male population name" />
+                                        <input class="form-control" id="bulk_open_paternal_population" type="text" name="bulk open paternal" placeholder="輸入父本族群名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="get_doubled_haploid_parent" style="display: none">
-                                    <label class="col-sm-2 control-label">Doubled Haploid Parent: </label>
+                                    <label class="col-sm-2 control-label">單倍體加倍親本：</label>
                                     <div class="col-sm-10">
-                                        <input class="form-control" id="doubled_haploid_parent" type="text" name="doubled haploid" placeholder="Enter parent name" />
+                                        <input class="form-control" id="doubled_haploid_parent" type="text" name="doubled haploid" placeholder="輸入親本名稱" />
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="polycross_accessions" style="display: none">
-                                    <label class="col-sm-2 control-label">Accessions to use in Polycross: </label>
+                                    <label class="col-sm-2 control-label">多系交配使用的種原：</label>
                                     <div class="col-sm-10">
                                         <div id="polycross_accession_list"></div>
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="reciprocal_accessions" style="display: none">
-                                    <label class="col-sm-2 control-label">Accessions to use in Reciprocal cross: </label>
+                                    <label class="col-sm-2 control-label">正反交使用的種原：</label>
                                     <div class="col-sm-10">
                                         <div id="reciprocal_accession_list"></div>
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="maternal_accessions" style="display: none">
-                                    <label class="col-sm-2 control-label">Multicross Female Parents: </label>
+                                    <label class="col-sm-2 control-label">多元雜交母本：</label>
                                     <div class="col-sm-10">
                                         <div id="maternal_accession_list"></div>
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="paternal_accessions" style="display: none">
-                                    <label class="col-sm-2 control-label">Multicross Male Parents: </label>
+                                    <label class="col-sm-2 control-label">多元雜交父本：</label>
                                     <div class="col-sm-10">
                                         <div id="paternal_accession_list"></div>
                                     </div><br/><br/>
                                 </div>
                                 <div class="form-group" id="exact_parents" style="display: none">
-                                    <& /page/page_title.mas, title=>"Optional: If you choose to record exact cross parents, you can do so." &>
+                                    <& /page/page_title.mas, title=>"選填：若您選擇記錄確切的雜交親本，可以在此記錄。(Optional: If you choose to record exact cross parents, you can do so.)" &>
 
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Field Trial: </label>
+                                        <label class="col-sm-2 control-label">田間試驗：</label>
                                         <div class="col-sm-10">
                                             <div class="input-group">
-                                                <input type ="text" class ="form-control" id ="field_trial" placeholder="Enter trial name">
+                                                <input type ="text" class ="form-control" id ="field_trial" placeholder="輸入試驗名稱">
                                                 <div class ="input-group-btn">
-                                                    <button class = "btn btn-info" id ="search_plots"></i>Search Plots</button>
+                                                    <button class = "btn btn-info" id ="search_plots"></i>搜尋小區(Search Plots)</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Female Plot: </label>
+                                        <label class="col-sm-2 control-label">母本小區：</label>
                                         <div class="col-sm-10">
                                             <select class="form-control" id="female_plot" name="female_plot">
-                                                <option value="">Enter trial name first</option>
+                                                <option value="">請先輸入試驗名稱</option>
                                             </select>
                                         </div>
                                     </div><br/><br/>
                                     <div class="form-group">
-                                        <label class="col-sm-2 control-label">Male Plot: </label>
+                                        <label class="col-sm-2 control-label">父本小區：</label>
                                         <div class="col-sm-10">
                                             <select class="form-control" id="male_plot" name="male_plot">
-                                                <option value="">Enter trial name first</option>
+                                                <option value="">請先輸入試驗名稱</option>
                                             </select>
                                         </div>
                                     </div><br/><br/>
                                 </div>
                                 <br>
                                 <center>
-                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                    <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Additional cross info" &>
-                                <& /page/page_title.mas, title=>"If you would like to add auto-generated progeny names for this cross, you can add it here" &>
-                                <h3>Optional:</h3>
+                            <&| /util/workflow.mas:step, title=> "附加雜交資訊(Additional Cross Info)" &>
+                                <& /page/page_title.mas, title=>"若您想為此雜交新增自動產生的後代名稱，可以在此新增(If you would like to add auto-generated progeny names for this cross, you can add it here)" &>
+                                <h3>選填：</h3>
                                 <table>
                                 <!--
                                     <tr>
@@ -311,7 +311,7 @@ $locations
                                     <tr>
                                         <td>
                                             <div class="form-group">
-                                                <label title="You may choose to create accessions for the progeny of the cross at this time." class="col-sm-9 control-label">Add New Accessions for Progeny: </label>
+                                                <label title="您可以在此時為雜交後代建立種原。" class="col-sm-9 control-label">為後代新增新品種/種原：</label>
                                                 <div class="col-sm-3">
                                                     <input id="create_progeny_checkbox" type="checkbox"/>
                                                 </div>
@@ -319,7 +319,7 @@ $locations
                                         </td>
                                         <td>
                                             <div class="form-group" id="create_progeny_number" style="display: none">
-                                                <label class="col-sm-6 control-label">Number of progeny: </label>
+                                                <label class="col-sm-6 control-label">後代數量：</label>
                                                 <div class="col-sm-6">
                                                     <input class="form-control" type="text" id="progeny_number" />
                                                 </div>
@@ -329,7 +329,7 @@ $locations
                                     <tr id="use_prefix_suffix" style = "display: none">
                                         <td>
                                             <div class="form-group">
-                                                <label class="col-sm-9 control-label">Use Prefix and/or Suffix: </label>
+                                                <label class="col-sm-9 control-label">使用前綴和/或後綴：</label>
                                                 <div class="col-sm-3">
                                                     <input id="use_prefix_suffix_checkbox" type="checkbox" checked/>
                                                 </div>
@@ -337,13 +337,13 @@ $locations
                                         </td>
                                         <td id="get_prefix_suffix" style="display: none">
                                             <div class="form-group" >
-                                                <label class="col-sm-6 control-label">Prefix: </label>
+                                                <label class="col-sm-6 control-label">前綴：</label>
                                                 <div class="col-sm-6">
                                                     <input class="form-control" id="prefix" name="prefix" value="P" size="5" />
                                                 </div>
                                             </div>
                                             <div class="form-group" >
-                                                <label class="col-sm-6 control-label">Suffix: </label>
+                                                <label class="col-sm-6 control-label">後綴：</label>
                                                 <div class="col-sm-6">
                                                     <input class="form-control" id="suffix" name="suffix" size="5" />
                                                 </div>
@@ -353,22 +353,22 @@ $locations
                                 </table>
                                 <br/>
                                 <center>
-                                    <button class="btn btn-primary" name="create_cross_submit" id="create_cross_submit" onclick="Workflow.complete(this, false);">Submit Cross</button>
+                                    <button class="btn btn-primary" name="create_cross_submit" id="create_cross_submit" onclick="Workflow.complete(this, false);">提交雜交(Submit Cross)</button>
                                 </center>
                             </&>
                         </form>
 
-                        <&| /util/workflow.mas:complete, title=> "Complete" &>
-                            <& /page/page_title.mas, title=>"Finished! Your cross is now in the database" &>
+                        <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                            <& /page/page_title.mas, title=>"完成！您的雜交現已儲存在資料庫中(Finished! Your cross is now in the database)" &>
                             <p>
                                 <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                The cross was added successfully
+                                雜交已成功新增
                             </p>
 
                             <ul>
-                                <li>You may want to proceed to the cross detail page for the cross you just created.</li>
-                                <li>You can print barcodes for the cross.</li>
-                                <li>You can add crossing information as it becomes available (e.g. number of seeds, progeny, etc).</li>
+                                <li>您可以前往剛剛建立的雜交的詳細資料頁面。</li>
+                                <li>您可以為雜交列印條碼。</li>
+                                <li>您可以在雜交資訊可用時隨時新增（例如種子數量、後代等）。</li>
                             </ul>
                             <br/>
                         </&>
@@ -376,7 +376,7 @@ $locations
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -387,36 +387,36 @@ $locations
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="crossTypeDialog">Template Information</h4>
+                <h4 class="modal-title" id="crossTypeDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <h2>
-                        Individual Crosses:
+                        個別雜交：
                     </h2>
 
-                    <p><b>biparental:</b> An individual plant pollinated by another individual plant.<p>
-                    <p><b>self:</b> A self pollinated individual plant.<p>
-                    <p><b>open pollinated:</b> An individual plant pollinated by a group of plants or open pollinated (pollen may be from a group with known or unknown members).<p>
-                    <p><b>backcross:</b> An individual plant pollinated by one of its parents.<p>
-                    <p><b>sib:</b> Mating between individuals that have at least one parent in common. Generally between two individuals within the same plot.<p>
-                    <p><b>bulk:</b> A group of plants (usually a related family) pollinated by an individual plant.<p>
-                    <p><b>bulk selfed:</b> A group of plants (usually a related family) that are self pollinated (each individual selfed, not combined pollen).<p>
-                    <p><b>bulk and open pollinated:</b> A group of plants (usually a related family) that are pollinated by another group of plants or open pollinated (pollen may be from a group with known or unknown members).<p>
-                    <p><b>doubled haploid:</b> Plants derived from doubling the chromosome number of haploid tissue.<p>
+                    <p><b>雙親 (biparental)：</b>單一植株由另一單一植株授粉。<p>
+                    <p><b>自交 (self)：</b>單一自花授粉植株。<p>
+                    <p><b>開放授粉 (open pollinated)：</b>單一植株由一組植株授粉或開放授粉（花粉可能來自已知或未知成員的群組）。<p>
+                    <p><b>回交 (backcross)：</b>單一植株由其親本之一授粉。<p>
+                    <p><b>同胞交 (sib)：</b>至少具有一個共同親本的個體之間的交配。通常在同一個小區內的兩個個體之間進行。<p>
+                    <p><b>混合 (bulk)：</b>一組植株（通常是相關家族）由單一植株授粉。<p>
+                    <p><b>混合自交 (bulk selfed)：</b>一組自花授粉的植株（通常是相關家族）（每個個體自交，非混合花粉）。<p>
+                    <p><b>混合與開放授粉 (bulk and open pollinated)：</b>一組植株（通常是相關家族）由另一組植株授粉或開放授粉（花粉可能來自已知或未知成員的群組）。<p>
+                    <p><b>單倍體加倍 (doubled haploid)：</b>由單倍體組織染色體加倍衍生的植株。<p>
                     <br>
 
                     <h2>
-                      Group of Crosses:
+                      群組雜交：
                     </h2>
 
-                    <p><b>polycross:</b> Creates a group of open pollinated crosses. Each accession in the selected list becomes the female parent in an open cross, and all the members of the list grouped together form the male parent.<p>
-                    <p><b>reciprocal:</b> Creates a group of biparental crosses. Starting with a list of accessions, all possible biparental cross combinations are made between them.<p>
-                    <p><b>multicross:</b> Creates a group of biparental crosses. Starting with a list of maternal accessions and a list of paternal accessions, direct crosses are made in order.<p>
+                    <p><b>多系交配 (polycross)：</b>建立一組開放授粉雜交。所選清單中的每個種原都會成為開放雜交中的母本，並且清單中的所有成員組合在一起形成父本。<p>
+                    <p><b>正反交 (reciprocal)：</b>建立一組雙親雜交。從種原清單開始，在它們之間進行所有可能的雙親雜交組合。<p>
+                    <p><b>多元雜交 (multicross)：</b>建立一組雙親雜交。從母本種原清單和父本種原清單開始，依序進行直接雜交。<p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -427,18 +427,18 @@ $locations
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="crossSavedDialog">Success</h4>
+        <h4 class="modal-title" id="crossSavedDialog">成功(Success)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 	    <p>
     	  <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-    	  The cross or crosses were saved successfully.
+    	  雜交已成功儲存。
   	  </p>
         </div>
       </div>
       <div class="modal-footer">
-        <button id="dismiss_cross_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id="dismiss_cross_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -487,7 +487,7 @@ jQuery(document).ready(function($) {
             console.log(html);
 
             if(i ==''){
-            alert("No female plot");
+            alert("無母本小區");
             return;
             }
 
@@ -495,7 +495,7 @@ jQuery(document).ready(function($) {
 
             },
             error:function(response){
-            alert("An error occurred getting female plots.");
+            alert("取得母本小區時發生錯誤。");
             }
         });
 
@@ -524,7 +524,7 @@ jQuery(document).ready(function($) {
             console.log(html);
 
             if(i ==''){
-            alert("No male plot");
+            alert("無父本小區");
             return;
             }
 

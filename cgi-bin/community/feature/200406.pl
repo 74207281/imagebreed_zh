@@ -1,11 +1,12 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200406.html','html2pl converter');
-$page->header('The Van Der Knaap Lab');
+$page->header('Van Der Knaap 實驗室 (The Van Der Knaap Lab)');
 print<<END_HEREDOC;
 
   <center>
-    <h1>The van der Knaap lab</h1>
+    <h1>Van Der Knaap 實驗室 (The Van Der Knaap Lab)</h1>
 
     <p class="footnote"><img src="/static_content/community/feature/200406-1.jpg" width="720" height=
     "540" border="0" alt="Members of the van der Knaap lab" /> From
@@ -64,7 +65,7 @@ print<<END_HEREDOC;
   <p><img src="/static_content/community/feature/200406-2.jpg" width="720" height="486" border="0"
   alt="circle fruit" /></p>
 
-  <h2>Contact Information</h2>
+  <h2>聯絡資訊 (Contact Information)</h2>
 
   <p>Esther van der Knaap<br />
   Department of Horticulture and Crop Science<br />

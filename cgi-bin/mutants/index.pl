@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('index.html','html2pl converter');
-$page->header('Sol Genomics Network');
+$page->header('SGN 突變株 (SGN Mutants)');
 print<<END_HEREDOC;
 
   
@@ -16,10 +17,10 @@ print<<END_HEREDOC;
 	  <div class="boxcontent">
 	  	    
 	    <div class="subheading">
-	    <u>SGN Mutants</u> 
+	    <u>SGN 突變株 (SGN Mutants)</u> 
 	    </div>
 	    <div class="boxsubcontent">
-            <a href="/mutants/mutants_main.pl">Mutants</a> - This page gives descriptions and links dealing with genes that make tomatoes, real time QTL, and TGRC.</div>
+            <a href="/mutants/mutants_main.pl">突變株 (Mutants)</a> - 此頁面提供建構番茄的基因 (Genes that make tomatoes)、即時 QTL (Real Time QTL) 及 TGRC 相關之描述與連結。</div>
               
           </div>
 </td>

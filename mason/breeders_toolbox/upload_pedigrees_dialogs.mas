@@ -6,19 +6,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadPedigreesValidateDialog">Results From Validation</h4>
+        <h4 class="modal-title" id="uploadPedigreesValidateDialog">驗證結果(Results From Validation)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <div class="well">To Overwrite Parents In the Case That An Accession Already Has Male or Female Parents <input type="checkbox" checked id="pedigree_upload_overwrite_pedigrees" /></div>
+            <div class="well">若種原已存在父本或母本時覆寫親本：<input type="checkbox" checked id="pedigree_upload_overwrite_pedigrees" /></div>
  	  <table class="table table-hover">
     	    <tbody></tbody>
   	  </table>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="upload_pedigrees_store" id="upload_pedigrees_store" data-dismiss="modal">Store</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="upload_pedigrees_store" id="upload_pedigrees_store" data-dismiss="modal">儲存(Store)</button>
       </div>
     </div>
   </div>
@@ -30,15 +30,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadPedigreesSuccessDialog">Upload Successful</h4>
+        <h4 class="modal-title" id="uploadPedigreesSuccessDialog">上傳成功(Upload Successful)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
- 	  <h2>The Pedigree Upload Finished With No Errors.</h2>
+ 	  <h2>譜系上傳已完成，無任何錯誤。</h2>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="pedigrees_upload_success_dismiss" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" id="pedigrees_upload_success_dismiss" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -50,27 +50,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadPedigreesDialog">Upload Pedigrees</h4>
+        <h4 class="modal-title" id="uploadPedigreesDialog">上傳譜系(Upload Pedigrees)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-    	  <&| /page/explanation.mas, title=>'Template Information' &>
+    	  <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
     	  <p>
-      	  <b>File format information</b>
+      	  <b>檔案格式資訊</b>
       	  <br>
-      	  <a id="pedigrees_upload_spreadsheet_format_info">Spreadsheet Format</a>
+      	  <a id="pedigrees_upload_spreadsheet_format_info">試算表格式(Spreadsheet Format)</a>
     	  </p>
   	  </&>
 
   	  <form method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_pedigrees_form" name="upload_pedigrees_form">
-    	    <label for="pedigrees_uploaded_file" style="display: inline-block; width: 100px;">Upload Pedigree File:</label>
+    	    <label for="pedigrees_uploaded_file" style="display: inline-block; width: 100px;">上傳譜系檔案：</label>
     	    <input type="file" name="pedigrees_uploaded_file" id="pedigrees_uploaded_file" encoding="multipart/form-data" />
-    	  </form>
+  	  </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	<button type="button" class="btn btn-primary" name="upload_pedigrees_dialog_submit" id="upload_pedigrees_dialog_submit">Validate</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	<button type="button" class="btn btn-primary" name="upload_pedigrees_dialog_submit" id="upload_pedigrees_dialog_submit">驗證(Validate)</button>
       </div>
     </div>
   </div>
@@ -81,65 +81,65 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="pedigreeUploadInfoDialog">Template Information</h4>
+        <h4 class="modal-title" id="pedigreeUploadInfoDialog">範本資訊(Template Information)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
- 	  <b>Pedigrees may be uploaded in tab-delimited text file format</b>
+ 	  <b>譜系可以 Tab 分隔的文字檔格式上傳</b>
 	  <br>
-	  <p>(.xls or .xlsx formats are <b>NOT</b> supported)</p>
+	  <p>（<b>不支援</b> .xls 或 .xlsx 格式）</p>
 	  <hr>
-	  <b>Header:</b>
+	  <b>表頭：</b>
 	  <br>
-	  <p>The first row (header) should contain the following:</p>
+	  <p>第一列（表頭）應包含以下內容：</p>
 
 	  <table class="table table-hover table-bordered">
   	  <body>
 	    <tr>
-    	      <td>progeny name</td>
-    	      <td>female parent accession</td>
+    	      <td>後裔名稱(progeny name)</td>
+    	      <td>母本種原(female parent accession)</td>
     	      <!--<td>male parent accession(s) (if more than one, separate using commas)</td>-->
-              <td>male parent accession</td>
-              <td>type</td>
+              <td>父本種原(male parent accession)</td>
+              <td>類型(type)</td>
 
   	    </tr>
 	  </body>
 	  </table>
 
-	  <h4>Required fields:</h4>
+	  <h4>必填欄位：</h4>
 	  <ul>
-        <li>progeny name (must exist in the database and can be accession uniquename or accession synonym)</li>
-        <li>female parent accession (must exist in the database)</li>
-        <li>type (biparental, self, open, backcross, sib, polycross, reselected)</li>
+        <li>後裔名稱（progeny name，必須存在於資料庫中，可以是種原唯一名稱或種原別名）</li>
+        <li>母本種原（female parent accession，必須存在於資料庫中）</li>
+        <li>類型（type：biparental, self, open, backcross, sib, polycross, reselected）</li>
             <ul class="a">
-                <li>cross type descriptions:</li>
+                <li>雜交類型說明：</li>
                 <ul class="b">
-                    <li>biparental: An individual plant pollinated by another individual plant.</li>
-                    <li>self: A self pollinated individual plant.</li>
-                    <li>open: An individual plant pollinated by a group of plants or open pollinated (pollen may be from a group with known or unknown members).</li>
-                    <li>backcross: An individual plant pollinated by one of its parents.</li>
-                    <li>sib: Mating between individuals that have at least one parent in common. Generally between two individuals within the same plot.</li>
-                    <li>polycross: Mating between individual female parent from a population and the corresponding male population.</li>
-                    <li>reselected: Selection of a new accession from an existing line (e.g. caused by a mutation).</li>
+                    <li>biparental：單一植株由另一單一植株授粉。</li>
+                    <li>self：自花授粉的單一植株。</li>
+                    <li>open：單一植株由一組植株授粉或開放授粉（花粉可能來自成員已知或未知的群體）。</li>
+                    <li>backcross：單一植株與其親本之一回交授粉。</li>
+                    <li>sib：至少具有一個共同親本的個體之間的交配。通常是在同一小區內的兩個個體之間。</li>
+                    <li>polycross：來自一個族群的單一母本個體與相應的父本族群之間的交配。</li>
+                    <li>reselected：從現有品系中選育出新種原（例如由突變引起）。</li>
                 </ul>
             </ul>
       </ul>
 
-	  <h4>Optional fields</h4>
+	  <h4>選填欄位</h4>
 	  <ul>
 	    <!--li>male parent accession (if provided, must exist in the database). Several potential male parents can be given separated by commas. A population entry will be generated in that case, with the listed male parents associated to the population.</li-->
-        <li>male parent accession (can be accession uniquename or accession synonym or population name).</li>
+        <li>父本種原（male parent accession，可以是種原唯一名稱、種原別名或族群名稱）。</li>
 	  </ul>
 
-	  <h4>Notes</h4>
+	  <h4>注意事項</h4>
 	  <ul>
-	    <li>Always specify the type of the cross (biparental, self, open, sib, backcross, polycross or reselected).</li>
-	    <li>If the type is open and no potential male parent is known, leave the male parent field empty
+	    <li>請務必指定雜交類型（biparental, self, open, sib, backcross, polycross 或 reselected）。</li>
+	    <li>如果類型為 open 且無已知的潛在父本，請將父本欄位留空。</li>
 	  </ul>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>

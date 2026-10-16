@@ -13,33 +13,33 @@ my $date = join "/", ($dt->year, $dt->month, $dt->day);
 
 <form class="form-horizontal" role="form" method="GET" action="/barcode/multitool">
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Operator: </label>
+    <label class="col-sm-2 control-label">操作人員(Operator)：</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="operator" name="operator" />
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Date: </label>
+    <label class="col-sm-2 control-label">日期(Date)：</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="date" name="date" value="<% $date %>" placeholder="Format: YYYY/MM/DD" />
+      <input type="text" class="form-control" id="date" name="date" value="<% $date %>" placeholder="格式：YYYY/MM/DD(Format: YYYY/MM/DD)" />
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Location: </label>
+    <label class="col-sm-2 control-label">地點(Location)：</label>
     <div class="col-sm-10">
       <& /page/html_select.mas, name=>'location', choices=>\@locations &>
-      <br/>[<a href="/breeders/locations">Add New Location</a>]
+      <br/>[<a href="/breeders/locations">新增地點(Add New Location)</a>]
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Project: </label>
+    <label class="col-sm-2 control-label">專案/試驗(Project)：</label>
     <div class="col-sm-10">
       <& /page/html_select.mas, name=>'project', choices=>\@projects &>
-      <br/>[<a href="/breeders/trials">Add New Project</a>]
+      <br/>[<a href="/breeders/trials">新增專案/試驗(Add New Project)</a>]
     </div>
   </div>
   <div class="form-group form-group-sm">
-    <label class="col-sm-2 control-label">Trait(s): </label>
+    <label class="col-sm-2 control-label">性狀(Trait(s))：</label>
     <div class="col-sm-10">
       <select multiple class="form-control" id="cvterms" name="cvterms">
 <%perl>
@@ -55,7 +55,7 @@ foreach my $t (@available_cvterms) {
 
     </div>
   </div>
-  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="generate form">Generate Form</button>
+  <button style="float:right" type="submit" class="btn btn-info btn-sm" type="submit" value="generate form">生成表單(Generate Form)</button>
 </form>
 
 <br/>

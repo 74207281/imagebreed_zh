@@ -13,23 +13,23 @@ Isaak Y Tecle (iyt2@cornell.edu)
 </%doc>
 
 <&| /page/info_section.mas, 
-   title      => "Step 4: Genotype dataset",
+   title      => "步驟 4：基因型資料集(Step 4: Genotype dataset)",
   collapsible => 1,
   collapsed   => 1
 &>
 
-The genotype dataset should be in a text file and in the following format. The plant names in the genotype dataset must be exactly the same as the ones submitted in the phenotype dataset file in the previous step.
+基因型資料集應為純文字檔案，並採用以下格式。基因型資料集中的植株名稱必須與前一步驟中表型資料集檔案中提交的名稱完全相同(The genotype dataset should be in a text file and in the following format. The plant names in the genotype dataset must be exactly the same as the ones submitted in the phenotype dataset file in the previous step)。
 <ul>
-  <li><strong>First row</strong>: first column refers to the label of the rows of lines. The rest of the columns are marker names.
+  <li><strong>第一列(First row)</strong>：第一欄為品系列的標籤。其餘欄位為標記名稱(first column refers to the label of the rows of lines. The rest of the columns are marker names)。
 </li>
 <li>
-<strong>Second row</strong>: first column is empty. The rest of the columns are chromosome names for the corresponding markers. 
+<strong>第二列(Second row)</strong>：第一欄為空。其餘欄位為對應標記的染色體名稱(first column is empty. The rest of the columns are chromosome names for the corresponding markers)。 
 </li>
 <li>
-<p><strong>Third row</strong>: first column is empty. The rest of the columns are marker positions in their respective chromosomes.
+<p><strong>第三列(Third row)</strong>：第一欄為空。其餘欄位為各標記在其各自染色體上的位置(first column is empty. The rest of the columns are marker positions in their respective chromosomes)。
 </li>
 <li>
-<p><strong>The rest of the rows</strong>: first column is the genotype name and the rest are the genotype values for each marker. 
+<p><strong>其餘各列(The rest of the rows)</strong>：第一欄為基因型名稱，其餘為每個標記的基因型數值(first column is the genotype name and the rest are the genotype values for each marker)。 
 </li></ul>
   
 <pre>

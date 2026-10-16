@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('ovary.html','html2pl converter');
-$page->header('Ovary Library');
+$page->header('子房基因庫 (Ovary Library)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,108 +12,108 @@ print<<END_HEREDOC;
       <tr>
         <td>
           <center>
-            <h2>Ovary Library</h2>
+            <h2>子房基因庫 (Ovary Library)</h2>
           </center>
 
           <table summary="" width="100\%" cellspacing="5">
             <tr valign="top">
-              <td width="20\%">Library:</td>
+              <td width="20\%">基因庫 (Library):</td>
 
               <td>cLED</td>
             </tr>
 
             <tr valign="top">
-              <td>TIGR ID:</td>
+              <td>TIGR 編號 (TIGR ID):</td>
 
               <td>TOV</td>
             </tr>
 
             <tr valign="top">
-              <td>Authors:</td>
+              <td>作者 (Authors):</td>
 
               <td>Alcala, Vrebalov, White, and Giovannoni</td>
             </tr>
 
             <tr valign="top">
-              <td>Date made:</td>
+              <td>製作日期 (Date made):</td>
 
               <td>11/98</td>
             </tr>
 
             <tr valign="top">
-              <td>Species:</td>
+              <td>物種 (Species):</td>
 
               <td><em>Lycopersicon esculentum</em></td>
             </tr>
 
             <tr valign="top">
-              <td>Accession:</td>
+              <td>品系/材料 (Accession):</td>
 
               <td>TA496</td>
             </tr>
 
             <tr valign="top">
-              <td>Tissue:</td>
+              <td>組織 (Tissue):</td>
 
               <td>carpel</td>
             </tr>
 
             <tr valign="top">
-              <td>Developmental stage:</td>
+              <td>發育階段 (Developmental stage):</td>
 
               <td>5 days pre-anthesis to 5 days post-anthesis</td>
             </tr>
 
             <tr valign="top">
-              <td>Vector:</td>
+              <td>載體 (Vector):</td>
 
               <td>pBluescript SK(+/-)</td>
             </tr>
 
             <tr valign="top">
-              <td>Host:</td>
+              <td>宿主 (Host):</td>
 
               <td>SOLR</td>
             </tr>
 
             <tr valign="top">
-              <td>Primary pfu:</td>
+              <td>初級 pfu (Primary pfu):</td>
 
               <td>1.0 x 10<small><sup>6</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Number mass excised:</td>
+              <td>大量切除數量 (Number mass excised):</td>
 
               <td>3.0 x 10<small><sup>5</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Average insert length:</td>
+              <td>平均插入片段長度 (Average insert length):</td>
 
               <td>1.5 Kb</td>
             </tr>
 
             <tr valign="top">
-              <td>Cloning sites:</td>
+              <td>選殖位點 (Cloning sites):</td>
 
               <td>5' EcoRI, 3' XhoI</td>
             </tr>
 
             <tr valign="top">
-              <td>Antibiotic:</td>
+              <td>抗生素 (Antibiotic):</td>
 
               <td>ampicillin</td>
             </tr>
 
             <tr valign="top">
-              <td>Primers:</td>
+              <td>引子 (Primers):</td>
 
               <td>M13F and M13R</td>
             </tr>
 
             <tr valign="top">
-              <td>Comments:</td>
+              <td>備註 (Comments):</td>
 
               <td>Construction of an early carpel (pre-anthesis
               through 5 days post-anthesis) cDNA library has been

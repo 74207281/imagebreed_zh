@@ -24,82 +24,82 @@ tr.shown td.details-control {
 
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-<& /page/page_title.mas, title=>"Image Analysis" &>
+<& /page/page_title.mas, title=>"影像分析(Image Analysis)" &>
 <hr>
 
 <div class="well well-sm">
     <center>
-    <h4>The Necrosis Image Analysis is explained in the paper here: <a href="https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/IPC3638.pdf">Necrosis Image Analysis</a>.</h4>
+    <h4>壞疽影像分析之論文說明請見此處：(The Necrosis Image Analysis is explained in the paper here:) <a href="https://csce.ucmss.com/cr/books/2018/LFS/CSREA2018/IPC3638.pdf">壞疽影像分析(Necrosis Image Analysis)</a>。</h4>
     </center>
 </div>
 
 <div class="well well-sm">
     <center>
-    <button class="btn btn-primary" id="upload_images_link">Upload New Images</button>
+    <button class="btn btn-primary" id="upload_images_link">上傳新影像(Upload New Images)</button>
     </center>
 </div>
 <& /breeders_toolbox/upload_images.mas &>
 <& /breeders_toolbox/trial/create_spreadsheet_dialog.mas &>
 
-<&| /page/info_section.mas, title=>"Image Search Criteria",  collapsible => 1, collapsed=>0, subtitle => "All images may not have names, descriptions, or tags associated with them."&>
+<&| /page/info_section.mas, title=>"影像搜尋條件(Image Search Criteria)",  collapsible => 1, collapsed=>0, subtitle => "並非所有影像都有關聯的名稱、描述或標籤。(All images may not have names, descriptions, or tags associated with them.)"&>
 
     <div id="image_search_form" class="well well-sm">
         <div class="form-horizontal" >
             <div class="form-group">
-                <label class="col-sm-3 control-label">Select a Field Trial: </label>
+                <label class="col-sm-3 control-label">選擇田間試驗(Select a Field Trial): </label>
                 <div class="col-sm-9" >
                     <div id ="image_analysis_trial_select">
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Image descriptors (name, description, or filename): </label>
+                <label class="col-sm-6 control-label">影像描述詞（名稱、描述或檔名）(Image descriptors (name, description, or filename)): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_description_filename_composite" name="image_description_filename_composite" placeholder="e.g. MyImageName" />
+                    <input class="form-control" type="text" id="image_description_filename_composite" name="image_description_filename_composite" placeholder="例如：MyImageName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Submitter: </label>
+                <label class="col-sm-6 control-label">提交者(Submitter): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_submitter" name="image_submitter" placeholder="e.g. JaneDoe" />
+                    <input class="form-control" type="text" id="image_submitter" name="image_submitter" placeholder="例如：JaneDoe" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Image tag: </label>
+                <label class="col-sm-6 control-label">影像標籤(Image tag): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_tag" name="image_tag" placeholder="e.g. ImageTagName" />
+                    <input class="form-control" type="text" id="image_tag" name="image_tag" placeholder="例如：ImageTagName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Associated stock: </label>
+                <label class="col-sm-6 control-label">關聯種原/材料(Associated stock): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_stock_uniquename" name="image_stock_uniquename" placeholder="e.g. FieldPlot100" />
+                    <input class="form-control" type="text" id="image_stock_uniquename" name="image_stock_uniquename" placeholder="例如：FieldPlot100" />
                 </div>
             </div>
         </div>
 
         <center>
-        <button class="btn btn-primary" id="image_search_submit" >Search</button>
+        <button class="btn btn-primary" id="image_search_submit" >搜尋(Search)</button>
         </center>
     </div>
 </&>
 
-<&| /page/info_section.mas, title=>"Image Search Results",  collapsible => 1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>"影像搜尋結果(Image Search Results)",  collapsible => 1, collapsed=>0 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
                 <table id="image_analysis_image_search_results" class="table table-hover table-striped">
                 <thead>
                   <tr>
-                    <th>Select</th>
-                    <th>Company</th>
-                    <th>Image Thumbnail</th>
-                    <th>Filename</th>
-                    <th>Description</th>
-                    <th>Submitter</th>
-                    <th>Associations</th>
-                    <th>Observations</th>
-                    <th>Tags</th>
+                    <th>選擇(Select)</th>
+                    <th>公司(Company)</th>
+                    <th>影像縮圖(Image Thumbnail)</th>
+                    <th>檔案名稱(Filename)</th>
+                    <th>描述(Description)</th>
+                    <th>提交者(Submitter)</th>
+                    <th>關聯(Associations)</th>
+                    <th>觀察值(Observations)</th>
+                    <th>標籤(Tags)</th>
                 </tr>
                 </thead>
                 </table>
@@ -108,26 +108,26 @@ tr.shown td.details-control {
     </div>
 </&>
 
-<&| /page/info_section.mas, title=>"Image Analysis", collapsible => 1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>"影像分析(Image Analysis)", collapsible => 1, collapsed=>0 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="form-group">
-                    <label class="col-sm-6 control-label">Image Analysis Service: </label>
+                    <label class="col-sm-6 control-label">影像分析服務(Image Analysis Service): </label>
                     <div class="col-sm-6" >
                         <select class="form-control" id="image_analysis_service_select" name="image_analysis_service_select">
-                            <option value="">Select An Analysis Service</option>
-                            <option value="necrosis">Necrosis(Makerere AIR Lab)</option>
-                            <option value="largest_contour_percent">Necrosis Largest Contour Mask Percent</option>
-                            <option value="count_contours">Count Contours</option>
-                            <option value="count_sift">SIFT Feature Count</option>
-                            <option value="whitefly_count">Whitefly Count (Makerere AIR Lab)</option>
+                            <option value="">選擇分析服務(Select An Analysis Service)</option>
+                            <option value="necrosis">壞疽分析 (Makerere AIR Lab) / Necrosis(Makerere AIR Lab)</option>
+                            <option value="largest_contour_percent">壞疽最大輪廓遮罩百分比(Necrosis Largest Contour Mask Percent)</option>
+                            <option value="count_contours">計算輪廓數量(Count Contours)</option>
+                            <option value="count_sift">SIFT 特徵計數(SIFT Feature Count)</option>
+                            <option value="whitefly_count">粉蝨計數 (Makerere AIR Lab) / Whitefly Count (Makerere AIR Lab)</option>
                         </select>
                     </div>
                 </div>
                 <br/>
                 <div class="form-group" id="image_analysis_trait_group" style="display: none;">
-                    <label class="col-sm-6 control-label">Trait to be Analyzed: </label>
+                    <label class="col-sm-6 control-label">待分析性狀(Trait to be Analyzed): </label>
                     <div class="col-sm-6" >
                         <select class="form-control" id="image_analysis_trait_select" name="image_analysis_service_select"></select>
                     </div>
@@ -136,7 +136,7 @@ tr.shown td.details-control {
 
                 <hr>
                 <center>
-                <button class="btn btn-primary" id="image_analysis_submit" disabled>Submit for Analysis</button>
+                <button class="btn btn-primary" id="image_analysis_submit" disabled>送出進行分析(Submit for Analysis)</button>
                 </center>
                 <hr>
                 <div id="image_analysis_result" style="display: none;">
@@ -144,15 +144,15 @@ tr.shown td.details-control {
                         <thead>
                            <tr>
                                <th></th>
-                               <th>Stock</th>
-                               <th>Trait</th>
-                               <th># Analyzed Images</th>
-                               <th>Mean Value</th>
+                               <th>材料/種原(Stock)</th>
+                               <th>性狀(Trait)</th>
+                               <th>已分析影像數量(# Analyzed Images)</th>
+                               <th>平均值(Mean Value)</th>
                            </tr>
                        </thead>
                     </table>
                     <hr>
-                    <center><button class="btn btn-primary" id="image_analysis_save_results">Save Results</button></center>
+                    <center><button class="btn btn-primary" id="image_analysis_save_results">儲存結果(Save Results)</button></center>
                 </div>
             </div>
         </div>
@@ -164,15 +164,15 @@ tr.shown td.details-control {
             <div class="panel-body">
                 <div class="form-group">
                     <div class="col-sm-9">
-                    <label class="col-sm-6 control-label">Image Analysis Usage </label>
+                    <label class="col-sm-6 control-label">影像分析使用情況(Image Analysis Usage) </label>
                     </div>
                     <div class="col-sm-3" >
-                        <label class="control-label">Date Range: </label>
+                        <label class="control-label">日期範圍(Date Range): </label>
                         <select class="form-control" id="usage_range_select" name="usage_range_select">
-                            <option value="all">All Dates</option>
-                            <option value="year">Latest Year</option>
-                            <option value="month">Latest Month</option>
-                            <option value="week">Latest Week</option>
+                            <option value="all">所有日期(All Dates)</option>
+                            <option value="year">最近一年(Latest Year)</option>
+                            <option value="month">最近一個月(Latest Month)</option>
+                            <option value="week">最近一週(Latest Week)</option>
                         </select>
                     </div>
                 </div>
@@ -187,7 +187,7 @@ tr.shown td.details-control {
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="saveResultModalTitle">Image Analysis Save Status</h5>
+            <h5 class="modal-title" id="saveResultModalTitle">影像分析儲存狀態(Image Analysis Save Status)</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -195,7 +195,7 @@ tr.shown td.details-control {
           <div class="modal-body" id="saveResultModalBody">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉(Close)</button>
           </div>
         </div>
       </div>
@@ -227,7 +227,7 @@ jQuery(document).ready(function(){
 
     jQuery('#image_search_submit').click(function(){
         if (jQuery('#html_image_analysis_trial_select').val() == '') {
-            alert("Please select a Field Trial first!");
+            alert("請先選擇田間試驗！(Please select a Field Trial first!)");
             return false;
         }
         _load_image_search_results();
@@ -250,7 +250,7 @@ jQuery(document).ready(function(){
 
     jQuery('#image_analysis_service_select').change(function() {
         var service = jQuery('#image_analysis_service_select').val();
-        jQuery('#image_analysis_trait_select').html('<option value="">Select A Trait</option>');
+        jQuery('#image_analysis_trait_select').html('<option value="">選擇性狀(Select A Trait)</option>');
         if (service) {
             jQuery('#working_modal').modal('show');
             // add crop and service specific trait options
@@ -314,7 +314,7 @@ jQuery(document).ready(function(){
         });
 
         if (selected_image_ids.length < 1) {
-            alert('Please select at least one image first!');
+            alert('請先選擇至少一張影像！(Please select at least one image first!)');
             return false;
         }
 
@@ -325,10 +325,10 @@ jQuery(document).ready(function(){
         var images_finished = 0;
         var current_progress = 0;
         progress_modal.modal('show');
-        jQuery('#progress_msg').text('Submitting images for analysis');
+        jQuery('#progress_msg').text('正在送出影像進行分析(Submitting images for analysis)...');
 
         var deferred_calls = selected_image_ids.map(function(image_id, index) {
-            jQuery('#progress_msg').text('Submitting image '+index+' out of '+image_total+' images');
+            jQuery('#progress_msg').text('正在送出第 '+index+' 張影像，共 '+image_total+' 張影像(Submitting image '+index+' out of '+image_total+' images)...');
             current_progress += (1 / image_total) * 10;
             progress_bar.css("width", current_progress + "%")
             .attr("aria-valuenow", current_progress)
@@ -346,7 +346,7 @@ jQuery(document).ready(function(){
                 success: function(response) {
                     images_finished++;
                     // console.log(response);
-                    jQuery('#progress_msg').text('Responses received for '+images_finished+' out of '+image_total+' images');
+                    jQuery('#progress_msg').text('已收到第 '+images_finished+' 張影像的回應，共 '+image_total+' 張影像(Responses received for '+images_finished+' out of '+image_total+' images)');
                     current_progress += (1 / image_total) * 90;
                     progress_bar.css("width", current_progress + "%")
                     .attr("aria-valuenow", current_progress)
@@ -354,7 +354,7 @@ jQuery(document).ready(function(){
                     response.results.map(function(item) {
                         if (item.result.error) {
                             progress_modal.find('.modal-footer').append(
-                                '<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>Error analyzing image number '+index+': '+item.result.error+'</li></ul>'
+                                '<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>分析第 '+index+' 號影像時發生錯誤(Error analyzing image number '+index+'): '+item.result.error+'</li></ul>'
                             );
                         }
                         else {
@@ -366,17 +366,17 @@ jQuery(document).ready(function(){
                 error: function(response) {
                     images_finished++;
                     // console.log(response);
-                    jQuery('#progress_msg').text('Finished analyzing '+images_finished+' out of '+image_total+' images');
+                    jQuery('#progress_msg').text('已完成 '+images_finished+' 張影像的分析，共 '+image_total+' 張影像(Finished analyzing '+images_finished+' out of '+image_total+' images)');
                     current_progress += (1 / image_total) * 90
                     progress_modal.find('.modal-footer').append(
-                        '<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>Error analyzing image number '+index+': '+response+'</li></ul>'
+                        '<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>分析第 '+index+' 號影像時發生錯誤(Error analyzing image number '+index+'): '+response+'</li></ul>'
                     );
                 }
             });
             return call;
         });
 
-        jQuery('#progress_msg').text('All '+image_total+' images submitted, waiting for responses.');
+        jQuery('#progress_msg').text('全部 '+image_total+' 張影像已送出，等待回應中(All '+image_total+' images submitted, waiting for responses)...');
 
         jQuery.when.apply(jQuery, deferred_calls).then(function() {
             // console.log("Results are:");
@@ -393,7 +393,7 @@ jQuery(document).ready(function(){
                         progress_bar.css("width", current_progress + "%")
                         .attr("aria-valuenow", current_progress)
                         .text(Math.round(current_progress) + "%");
-                        jQuery('#progress_msg').text('Building results table.');
+                        jQuery('#progress_msg').text('正在建立結果表格(Building results table)...');
                         jQuery('#image_analysis_result').show();
 
                         var table = jQuery('#image_analysis_result_table').DataTable( {
@@ -413,7 +413,7 @@ jQuery(document).ready(function(){
                                          return '<i class="fa fa-plus-square" aria-hidden="true"></i>';
                                      },
                                      width:"15px"
-                                },
+                                 },
                                 { "data": "observationUnitName" },
                                 { "data": "observationVariableName" },
                                 { "data": "numberAnalyzed" },
@@ -455,14 +455,14 @@ jQuery(document).ready(function(){
                         progress_modal.modal('hide');
                         console.log('Error: '+response);
                         // jQuery('#'+image_id).text('Error analyzing image number '+index+'. '+response);
-                        alert("An error occurred while displaying image analysis results.");
+                        alert("顯示影像分析結果時發生錯誤。(An error occurred while displaying image analysis results.)");
                     }
                 });
             }
             else {
                 progress_modal.find('.modal-footer').html('');
                 progress_modal.modal('hide');
-                alert("No usable results returned from the service, aborting analysis.");                 // alert("No usable results returned from the service, aborting analysis.");
+                alert("服務未返回可用的結果，中止分析。(No usable results returned from the service, aborting analysis.)");                 // alert("No usable results returned from the service, aborting analysis.");
             }
         });
     });
@@ -483,13 +483,13 @@ jQuery(document).ready(function(){
             success: function(response) {
                 // console.log(response);
                 jQuery('#working_modal').modal('hide');
-                jQuery('#saveResultModalBody').html('<ul class="list-group"><li class="list-group-item list-group-item-success"><span class="badge"><span class="glyphicon glyphicon-ok"></span></span>Analysis results saved successfully in the database.</li></ul>');
+                jQuery('#saveResultModalBody').html('<ul class="list-group"><li class="list-group-item list-group-item-success"><span class="badge"><span class="glyphicon glyphicon-ok"></span></span>分析結果已成功儲存至資料庫。(Analysis results saved successfully in the database.)</li></ul>');
                 jQuery('#saveResultModal').modal('show');
             },
             error: function(response) {
                 // console.log(response);
                 jQuery('#working_modal').modal('hide');
-                jQuery('#saveResultModalBody').html('<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>Error while trying to save the analysis results.</li></ul>');
+                jQuery('#saveResultModalBody').html('<ul class="list-group"><li class="list-group-item list-group-item-danger"><span class="badge"><span class="glyphicon glyphicon-remove"></span></span>嘗試儲存分析結果時發生錯誤。(Error while trying to save the analysis results.)</li></ul>');
                 jQuery('#saveResultModal').modal('show');
             }
         });
@@ -619,7 +619,7 @@ function _load_analysis_activity_graph(date_range) {
             .attr("x",0 - (height / 2))
             .attr("dy", "1em")
             .style("text-anchor", "middle")
-            .text("Number of Images Analyzed");
+            .text("已分析影像數量(Number of Images Analyzed)");
 
     });
 }
@@ -645,9 +645,9 @@ function format ( d ) {
 return `<table class="table">
             <thead>
                 <tr>
-                  <th scope="col">Image Name</th>
-                  <th scope="col">Analyzed Image</th>
-                  <th scope="col">Value</th>
+                  <th scope="col">影像名稱(Image Name)</th>
+                  <th scope="col">分析後影像(Analyzed Image)</th>
+                  <th scope="col">數值(Value)</th>
                 </tr>
              </thead>
              <tbody>` + detail_rows + `</tbody>

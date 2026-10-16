@@ -129,7 +129,7 @@ foreach my $method(sort keys %info ) {
                           ( (tooltipped_text(qq|<a href="/cvterm/$term_id/view">$term_name</a>|, $definition) )  , join(', ' , @qual_values ) ) ];
     }
   }
-     @ { $data{$method}{headings} } = ("$method" , "Average", "Min", "Max", "Lines/repeats");
+     @ { $data{$method}{headings} } = ("$method" , "平均(Average)", "最小值(Min)", "最大值(Max)", "品系/重複(Lines/repeats)");
      push @ { $data{$method}{headings} } , 'QTL(s)' if $has_qtl;
 }
 
@@ -163,7 +163,7 @@ foreach my $method(sort keys %info ) {
 % if(@qual_data) {
 
 <& /page/columnar_table.mas,
-  headings => ["Qualitative Trait", "Value"],
+  headings => ["質性性狀(Qualitative Trait)", "數值(Value)"],
     data     => \@qual_data ,
       __alt_freq   =>2,
       __alt_width  =>1,

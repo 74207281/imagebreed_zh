@@ -1,15 +1,15 @@
-<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" >About</a>
+<li class="dropdown"><a class="menu_click_dropdown dropdown-toggle" data-toggle="dropdown" >關於(About)</a>
 <!-- <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">About Us<span class="caret"></span></a> -->
   <ul class="dropdown-menu">
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact/form">Contact</a></li>
-    <li><a href="/help/index.pl">Cite Breedbase</a></li>
+    <li><a href="/about">關於(About)</a></li>
+    <li><a href="/contact/form">聯絡我們(Contact)</a></li>
+    <li><a href="/help/index.pl">引用 Breedbase(Cite Breedbase)</a></li>
     
     <li role="separator" class="divider"></li>
     
-    <li><a href="/help/index.pl">Help</a></li>
-    <li><a href="/help/faq.pl">FAQ</a></li>
-    <li><a href="/forum/topics.pl">Forum</a></li>
+    <li><a href="/help/index.pl">說明(Help)</a></li>
+    <li><a href="/help/faq.pl">常見問題(FAQ)</a></li>
+    <li><a href="/forum/topics.pl">論壇(Forum)</a></li>
     <!-- li><a href="ftp://ftp.breedbase.org/">FTP site</a></li -->
     
     <li role="separator" class="divider"></li>

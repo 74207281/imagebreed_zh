@@ -11,21 +11,18 @@
 
 </%args>
 
-<& /page/page_title.mas, title => 'Quick search for '.encode_entities( '"'.$quick_search_term.'"' ) &>
+<& /page/page_title.mas, title => '快速搜尋(Quick search)：'.encode_entities( '"'.$quick_search_term.'"' ) &>
 
 <div class="page_introduction">
-  Note: The quick search does not perform exactly the same queries as
-  full searches for the various data types.  If your desired result
-  does not appear, you may want to try again with one of the advanced
-  search tools in the "search" menu.
+  注意：快速搜尋執行的查詢與各類資料的完整搜尋不完全相同。如果未出現您期望的結果，您可以嘗試在「搜尋」選單中使用進階搜尋工具。
 </div>
 
-<&| /page/info_section.mas, title => 'Exact matches' &>
+<&| /page/info_section.mas, title => '精確比對(Exact matches)' &>
 
 <div class="well">
 
 % if( $show_times ) {
-  <div>Site xref search time: <% sprintf('%0.1f sec', $xrefs_time) %></div>
+  <div>網站交叉參照搜尋耗時：<% sprintf('%0.1f 秒', $xrefs_time) %></div>
 % }
 % if( @$xrefs ) {
   <& /sitefeatures/mixed/xref_set/link.mas, xrefs => $xrefs &>
@@ -34,7 +31,7 @@
 
   <div>
     <dl>
-      <dt>Identifiers - Breeding Data</dt>
+      <dt>識別碼 - 育種資料(Identifiers - Breeding Data)</dt>
       <dd>
 	<div style="float: left; width: 50%">
 	  <% $search{accessions} %>
@@ -48,7 +45,7 @@
 	</div>
 	<div style="clear: both;">&nbsp;</div>
       </dd>
-      <dt>Identifiers - Genomic Data</dt>
+      <dt>識別碼 - 基因體資料(Identifiers - Genomic Data)</dt>
       <dd >
 	<div style="float: left; width: 50%">
           <% $search{marker} %>
@@ -68,8 +65,8 @@
 </&>
 
 <&| /page/info_section.mas,
-    title => 'Fuzzy searches',
-    subtitle => 'click to view search results',
+    title => '模糊搜尋(Fuzzy searches)',
+    subtitle => '點擊檢視搜尋結果',
  &>
 
 <div class="well">
@@ -77,8 +74,8 @@
   <div>
     <dl>
     <dt>
-      <div style="float: left; width: 50%">Identifiers</div>
-      <div style="float: right; width: 50%">cDNA Libraries</div>
+      <div style="float: left; width: 50%">識別碼(Identifiers)</div>
+      <div style="float: right; width: 50%">cDNA 文庫(cDNA Libraries)</div>
     </dt>
     <dd>
       <div style="float: left; width: 50%">
@@ -99,8 +96,8 @@
   <div>
     <dl>
     <dt>
-      <div style="float: left; width: 50%">People (searching by name)</div>
-      <div style="float: right; width: 50%">Annotations</div>
+      <div style="float: left; width: 50%">人員（依姓名搜尋）(People (searching by name))</div>
+      <div style="float: right; width: 50%">註解資訊(Annotations)</div>
     </dt>
     <dd>
       <div style="float: left; width: 50%">
@@ -120,8 +117,8 @@
   <div>
     <dl>
     <dt>
-      <div style="float: left; width: 50%">Images</div>
-      <div style="float: right; width: 50%">Web Pages</div>
+      <div style="float: left; width: 50%">影像(Images)</div>
+      <div style="float: right; width: 50%">網頁(Web Pages)</div>
     </dt>
     <dd>
       <div style="float: left; width: 50%">

@@ -4,16 +4,16 @@
 
 
 
-<& /page/page_title.mas, title => "CytoScape Interactome Viewer" &>
+<& /page/page_title.mas, title => "CytoScape 互作組檢視器(CytoScape Interactome Viewer)" &>
 
 
-This is a CytoScape Java Web Start app designed to preload with the coffee interactome data.  In order to use this app, please click the Launch Cytoscape button below, which will download the configuration file and load the java app from your browser.  The application itself will not be installed on your computer, but you should get full Cytoscape functionality, and be able to view, process, edit, and save the network shown.
+這是一個設計用於預載入咖啡互作組數據的 CytoScape Java Web Start 應用程式。若要使用此應用程式，請點擊下方的「啟動 CytoScape」按鈕，這將下載設定檔並從瀏覽器載入 Java 應用程式。應用程式本身不會安裝在您的電腦上，但您將獲得完整的 Cytoscape 功能，並能夠檢視、處理、編輯和儲存顯示的網路。(This is a CytoScape Java Web Start app designed to preload with the coffee interactome data. In order to use this app, please click the Launch Cytoscape button below, which will download the configuration file and load the java app from your browser. The application itself will not be installed on your computer, but you should get full Cytoscape functionality, and be able to view, process, edit, and save the network shown.)
 
 
 
 <center><form method="get" action="/tools/interactomics/coffee.jnlp" >
 <input type="hidden" name="Network" value = "http://andrew.sgn.cornell.edu:3000/CytoScape/coffee.cys" />
-<input type="submit" value="Launch CytoScape" align = "center" /> 
+<input type="submit" value="啟動 CytoScape(Launch CytoScape)" align = "center" /> 
 </form></center>
 
 
@@ -24,18 +24,18 @@ This is a CytoScape Java Web Start app designed to preload with the coffee inter
 		<tr><td>
 
 		<div id="footer">
-		<b>Funding for Cytoscape is provided by a federal grant from the U.S.
+		<b>Cytoscape 的經費由美國國家衛生研究院 (NIH) 國家通用醫學科學研究所 (NIGMS) 聯邦補助款（案號 GM070743-01）以及美國國家科學基金會 (NSF) 提供。企業贊助由聯合利華 (Unilever PLC) 透過合約提供。(Funding for Cytoscape is provided by a federal grant from the U.S.
 		<a href="http://www.nigms.nih.gov">National Institute of General Medical Sciences (NIGMS)</a> of the
 		<a href="http://www.nih.gov">National Institutes of Health (NIH)</a> under award number GM070743-01 and
 		the U.S. <a href="http://www.nsf.gov">National Science Foundation (NSF) </a>.
 		Corporate funding is provided through a contract from
 		<a href="http://www.unilever.com">Unilever PLC</a>.
-		</b>
+		)</b>
 
 		<p>
 
 		<center>
-		<a href="http://cytoscape.org">Cytoscape home</a>
+		<a href="http://cytoscape.org">Cytoscape 首頁(Cytoscape home)</a>
 		|
 		<a href="http://www.systemsbiology.org">ISB</a>
 		|

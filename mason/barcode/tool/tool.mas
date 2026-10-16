@@ -19,9 +19,9 @@ my $hash = $urlencode{'#'};
 </%perl>
 
 <center>
-<h1>CASSAVABASE BARCODE TOOL</h1>
+<h1>CASSAVABASE 條碼工具(CASSAVABASE BARCODE TOOL)</h1>
 
-Tool version: <% $tool_version %>
+工具版本(Tool version)：<% $tool_version %>
 <br />
 <br />
 
@@ -35,7 +35,7 @@ Tool version: <% $tool_version %>
 % if ($cvterm_values eq "numeric") { 
 <center>
 <br />
-<div class="boxbgcolor7"><font size="3"><b>Note</b> Scan the main barcode below, then use the "keypad" to scan the digits to create the numeric value.<br /></font></div>
+<div class="boxbgcolor7"><font size="3"><b>注意(Note)</b> 請掃描下方的主條碼，然後使用「數字鍵盤」掃描數字以產生數值。<br /></font></div>
 <img src="/barcode/code128png/<% $cvterm %><% $hash %>/<% $cvterm_name %>" />
 <br />
 <br />
@@ -44,7 +44,7 @@ Tool version: <% $tool_version %>
 % else { 
 <table border="0">
 %   foreach my $v (@values) { 
-<tr><td style="vertical-align:middle"><font size="6">value = <% $v %></font></td><td><img src="/barcode/code128png/<% $cvterm %><% $hash %><% $v %>/<% $cvterm_name %>" /></td></tr>
+<tr><td style="vertical-align:middle"><font size="6">數值(value) = <% $v %></font></td><td><img src="/barcode/code128png/<% $cvterm %><% $hash %><% $v %>/<% $cvterm_name %>" /></td></tr>
 
 %   }
 % }

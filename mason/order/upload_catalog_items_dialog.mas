@@ -8,21 +8,21 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadCatalogItemsDialog">Upload Catalog Items </h4>
+                <h4 class="modal-title" id="uploadCatalogItemsDialog">上傳目錄品項(Upload Catalog Items)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <&| /page/explanation.mas, title=>'Template Information' &>
+                    <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                         <p>
-                            <b>File Format Information</b>
+                            <b>檔案格式資訊(File Format Information)</b>
                             <br>
-                            <a id="upload_catalog_items_format">Spreadsheet Format</a>
+                            <a id="upload_catalog_items_format">試算表格式(Spreadsheet Format)</a>
                             <br>
                         </p>
                     </&>
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_catalog_items_form" name="upload_catalog_items_form">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Upload File (.xls or .xlsx): </label>
+                            <label class="col-sm-3 control-label">上傳檔案 (.xls 或 .xlsx)：</label>
                                 <div class="col-sm-9">
                                     <input type="file" name="catalog_items_upload_file" id="catalog_items_upload_file" encoding="multipart/form-data" />
                                 </div>
@@ -31,8 +31,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" name="upload_catalog_items_submit" id="upload_catalog_items_submit">Upload File</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+                <button type="button" class="btn btn-primary" name="upload_catalog_items_submit" id="upload_catalog_items_submit">上傳檔案(Upload File)</button>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadCatalogItemsErrorDialog">Upload Catalog Items File Error</h4>
+                <h4 class="modal-title" id="uploadCatalogItemsErrorDialog">上傳目錄品項檔案錯誤(Upload Catalog Items File Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -53,7 +53,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -64,18 +64,18 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="catalogItemsSavedDialog">Success</h4>
+                <h4 class="modal-title" id="catalogItemsSavedDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The catalog items were saved successfully.
+                        目錄品項已成功儲存。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_catalog_items_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_catalog_items_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新整理(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -86,13 +86,13 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadCatalogItemsFormatDialog">Template Information</h4>
+                <h4 class="modal-title" id="uploadCatalogItemsFormatDialog">範本資訊(Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>Catalog Items may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>目錄品項可以透過 Excel 檔案（.xls 或 .xlsx）進行上傳(Catalog Items may be uploaded in an Excel file)</b>
                     <br>
-                    <b>Header:</b>
+                    <b>標題列(Header)：</b>
                     <br>
                     <table class="table table-bordered table-hover">
                         <tbody>
@@ -108,21 +108,21 @@
                             </tr>
                         </tbody>
                     </table>
-                    <b>Required columns:</b>
+                    <b>必填欄位(Required columns)：</b>
                     <ul>
-                        <li><b>item_name:</b>Item name must be in the database.</li>
-                        <li><b>type:</b>Must be one of the following (single item, set of items). This field can be customized, please contact us.</li>
-                        <li><b>category:</b>Must be one of the following (released variety, pathogen assay, control). This field can be customized, please contact us.</li>
-                        <li><b>description:</b>Please describe the key features of each item.</li>
-                        <li><b>material_source:</b>Must be one of the following (OrderingSystemTest, Sendusu). This field can be customized, please contact admin.</li>
-                        <li><b>breeding_program:</b>Breeding program must be in the database.</li>
-                        <li><b>availability:</b>Must be one of the following (in stock, out of stock, available in 3 months). This field can be customized, please contact us.</li>
-                        <li><b>contact_person_username:</b>Please indicate contact person of each item. Contact person username must be in the database</li>
+                        <li><b>item_name:</b>品項名稱必須已存在於資料庫中。</li>
+                        <li><b>type:</b>必須為以下之一（single item, set of items）。此欄位可自訂，請聯絡我們。</li>
+                        <li><b>category:</b>必須為以下之一（released variety, pathogen assay, control）。此欄位可自訂，請聯絡我們。</li>
+                        <li><b>description:</b>請描述每個品項的主要特徵。</li>
+                        <li><b>material_source:</b>必須為以下之一（OrderingSystemTest, Sendusu）。此欄位可自訂，請聯絡管理員。</li>
+                        <li><b>breeding_program:</b>育種計畫必須已存在於資料庫中。</li>
+                        <li><b>availability:</b>必須為以下之一（in stock, out of stock, available in 3 months）。此欄位可自訂，請聯絡我們。</li>
+                        <li><b>contact_person_username:</b>請指明每個品項的聯絡人。聯絡人使用者名稱必須已存在於資料庫中。</li>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -147,7 +147,7 @@ jQuery(document).ready( function() {
         var uploadFile = jQuery("#catalog_items_upload_file").val();
         jQuery('#upload_catalog_items_form').attr("action", "/ajax/catalog/upload_items");
         if (uploadFile === ''){
-            alert("Please select a file");
+            alert("請選取檔案(Please select a file)");
             return;
         }
         jQuery("#upload_catalog_items_form").submit();

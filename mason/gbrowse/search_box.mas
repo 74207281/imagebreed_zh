@@ -2,8 +2,8 @@
   $gb_root
 </%args>
 <%  CGI::start_form( -style => 'display: inline', -action => $gb_root )
-     .CGI::textfield( -name => 'name', -value => 'search (e.g. SGN-M7588 or lycopene cyclase)', -onfocus => "this.value = ''", -size => 50)
-     .CGI::submit('Search','Search')
+     .CGI::textfield( -name => 'name', -value => '搜尋 (例如 SGN-M7588 或 lycopene cyclase)(search (e.g. SGN-M7588 or lycopene cyclase))', -onfocus => "this.value = ''", -size => 50)
+     .CGI::submit('Search','搜尋(Search)')
     .CGI::end_form()
 %>
 <%once>

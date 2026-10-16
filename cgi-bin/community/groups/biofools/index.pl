@@ -1,6 +1,8 @@
+use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Tools::File;
-my $page = CXGN::Page->new("Biofools Group Page", "Chris Carpita");
+my $page = CXGN::Page->new("Biofools 群組頁面 (Biofools Group Page)", "Chris Carpita");
 
 my ($left_bound, $record_size) = 
 $page->get_arguments(
@@ -34,7 +36,7 @@ $page->header();
 
 print <<HTML;
 <center>
-<h2>Biofools Home Page</h2>
+<h2>Biofools 首頁 (Biofools Home Page)</h2>
 $wholebar
 <hr>
 $content
@@ -57,10 +59,10 @@ sub nav_bar {
 	my $first_lb = 1;
 
 	my $content = <<HTML;
-	<a href="?left_bound=$first_lb&record_size=$size">&lt;&lt; First</a>&nbsp;&nbsp;
-	<a href="?left_bound=$prev_lb&record_size=$size">&lt; Prev</a>&nbsp;&nbsp;
-	<a href="?left_bound=$next_lb&record_size=$size">Next &gt;</a>&nbsp;&nbsp;
-	<a href="?left_bound=$last_lb&record_size=$size">Last &gt;&gt;</a>
+	<a href="?left_bound=$first_lb&record_size=$size">&lt;&lt; 首頁 (First)</a>&nbsp;&nbsp;
+	<a href="?left_bound=$prev_lb&record_size=$size">&lt; 上一頁 (Prev)</a>&nbsp;&nbsp;
+	<a href="?left_bound=$next_lb&record_size=$size">下一頁 (Next) &gt;</a>&nbsp;&nbsp;
+	<a href="?left_bound=$last_lb&record_size=$size">末頁 (Last) &gt;&gt;</a>
 HTML
 	return $content;
 
@@ -69,5 +71,5 @@ HTML
 sub nav_info {
 	my ($lb, $size, $total) = @_;
 	my $last = $lb + $size - 1;
-	return "Records $lb - $last out of $total";
+	return "記錄 $lb - $last / 共 $total 筆 (Records $lb - $last out of $total)";
 }

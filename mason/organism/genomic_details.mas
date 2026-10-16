@@ -8,11 +8,11 @@ $maps => ''
 </%args>
 
 <& /page/info_table.mas, data=> [
-  Ploidy              => $ploidy,
-  'Genome size'       => $genome_size,
-  'Chromosome number' => $chromosome_number,
-  'Available loci'    => $loci,
-  'Available maps'    => $maps,
+  '倍性(Ploidy)'              => $ploidy,
+  '基因組大小(Genome size)'       => $genome_size,
+  '染色體數(Chromosome number)' => $chromosome_number,
+  '可用基因座(Available loci)'    => $loci,
+  '可用圖譜(Available maps)'    => $maps,
   
 ],
   border => 0,

@@ -32,60 +32,60 @@ $latest_trial_activity => undef
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Trial Name</b></td>
+                <td><b>試驗名稱</b></td>
                 <td>
                     <div id="trial_name">
 % if ($trial_name) {
 %   print "$trial_name";
 % } else {
-%   print "<span class='text-danger'>[No Trial Name]</span>";
+%   print "<span class='text-danger'>[無試驗名稱]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Breeding Program </b></td>
+                <td><b>育種計畫</b></td>
                 <td>
                     <span id="breeding_program">
 % if ($breeding_program_name) {
                     <a href="/breeders/program/<% $breeding_program_id %>"><% $breeding_program_name %></a>
 % }
 % else {
-%  print "<span class='text-danger'>[No Breeding Program]</span>";
+%  print "<span class='text-danger'>[無育種計畫]</span>";
 % }
                     </span>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Trial Location</b></td>
+                <td><b>試驗地點</b></td>
                 <td>
                     <div id="trial_location">
 % if ($location_name) {
 %  print "$location_name ( $country_name )";
 % } else {
-%  print "<span class='text-danger'>[No Location]</span>";
+%  print "<span class='text-danger'>[無地點]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Year</b></td>
+                <td><b>年份</b></td>
                 <td>
                     <div id="trial_year">
 % if ($year) {
 %  print "$year";
 % } else {
-%  print "<span class='text-danger'>[No Year]</span>";
+%  print "<span class='text-danger'>[無年份]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Stock Type Being Evaluated in This Trial</b></td>
+                <td><b>此試驗中評估的材料類型</b></td>
                 <td>
                     <div id="stock_type_in_trial">
 % if ($trial_stock_type) {
@@ -98,66 +98,66 @@ $latest_trial_activity => undef
             </tr>
 
             <tr>
-                <td><b>Trial Type</b></td>
+                <td><b>試驗類型</b></td>
                 <td>
                     <div id="trial_type">
 % if ($trial_type) {
 %  print "$trial_type";
 % } else {
-% print "<span class='text-danger'>[Type not set]</span>";
+% print "<span class='text-danger'>[未設定類型]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Planting Date</b></td>
+                <td><b>種植日期</b></td>
                 <td>
                     <div id="planting_date">
 % if ($planting_date) {
 <a href="/breeders/trial/<% $trial_id %>?currentDate=<% $planting_date %>" ><% $planting_date %></a>
 % } else {
-%  print "<span class='text-danger'>[No Planting Date]</span>";
+%  print "<span class='text-danger'>[無種植日期]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Harvest Date</b></td>
+                <td><b>收穫日期</b></td>
                 <td>
                     <div id="harvest_date">
 % if ($harvest_date) {
 <a href="/breeders/trial/<% $trial_id %>?currentDate=<% $harvest_date %>" ><% $harvest_date %></a>
 % } else {
-%  print "<span class='text-danger'>[No Harvest Date]</span>";
+%  print "<span class='text-danger'>[無收穫日期]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Description</b></td>
+            <tr><td><b>描述</b></td>
                 <td>
                     <div id="trial_description">
 % if ($trial_description) {
 %  print "$trial_description";
 % } else {
-%  print "<span class='text-danger'>[No Description]</span>";
+%  print "<span class='text-danger'>[無描述]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Folder</b></td>
+                <td><b>資料夾</b></td>
                 <td>
                     <span id="trial_folder_div"><a href="/folder/<% $folder_id %>"><% $folder_name %></a></span>
                     <br/><br/>
-                    <button class="btn btn-sm btn-default" style="margin:3px" id="new_folder_dialog_link">New Folder</button> <button class="btn btn-sm btn-default" style="margin:3px" id="open_folder_dialog_link">Change Folder</button>
+                    <button class="btn btn-sm btn-default" style="margin:3px" id="new_folder_dialog_link">新資料夾(New Folder)</button> <button class="btn btn-sm btn-default" style="margin:3px" id="open_folder_dialog_link">變更資料夾(Change Folder)</button>
                 </td>
             </tr>
 
-	    <tr><td><b>Created by</b></td>
+	    <tr><td><b>建立者</b></td>
                 <td>
                     <div id="trial_owner">
 % if ($trial_owner) {
@@ -170,7 +170,7 @@ $latest_trial_activity => undef
             </tr>
 
             <tr>
-                <td><b>Company Name </b></td>
+                <td><b>公司名稱</b></td>
                 <td>
                     <span id="copmany_name">
                         <a href="/company/<% $company_id %>"><% $company_name %></a>
@@ -179,7 +179,7 @@ $latest_trial_activity => undef
             </tr>
 
             <tr>
-                <td><b>Is Private to Company </b></td>
+                <td><b>是否對公司保密</b></td>
                 <td>
                     <span id="copmany_project_is_private">
                         <% $company_project_is_private %>
@@ -188,13 +188,13 @@ $latest_trial_activity => undef
             </tr>
 
             <tr>
-                <td><b>Latest Trial Activity</b></td>
+                <td><b>最新試驗活動</b></td>
                 <td>
                     <div id="latest_trial_activity">
 % if ($latest_trial_activity) {
 %  print "<span class='text-success'>$latest_trial_activity</span>";
 % } else {
-%  print "<span class='text-danger'>[No Record]</span>";
+%  print "<span class='text-danger'>[無記錄]</span>";
 % }
                     </div>
                 </td>
@@ -209,40 +209,40 @@ $latest_trial_activity => undef
         </div>
 
         <table class="table table-hover table-bordered">
-            <tr><td><b>Plot Width (m)</b></td>
+            <tr><td><b>小區寬度 (m)</b></td>
                 <td>
                     <div id="trial_description">
 % if ($plot_width) {
 %  print "$plot_width";
 % } else {
-%  print "<span class='text-default'>[No Plot Width]</span>";
+%  print "<span class='text-default'>[無小區寬度]</span>";
 % }
                     </div>
                 </td>
             </tr>
-            <tr><td><b>Plot Length (m)</b></td>
+            <tr><td><b>小區長度 (m)</b></td>
                 <td>
                     <div id="trial_description">
 % if ($plot_length) {
 %  print "$plot_length";
 % } else {
-%  print "<span class='text-default'>[No Plot Length]</span>";
+%  print "<span class='text-default'>[無小區長度]</span>";
 % }
                     </div>
                 </td>
             </tr>
-            <tr><td><b>Field Size (ha)</b></td>
+            <tr><td><b>田區大小 (ha)</b></td>
                 <td>
                     <div id="trial_description">
 % if ($field_size) {
 %  print "$field_size";
 % } else {
-%  print "<span class='text-default'>[No Field Size]</span>";
+%  print "<span class='text-default'>[無田區大小]</span>";
 % }
                     </div>
                 </td>
             </tr>
-            <tr><td><b>Trial Will Be Genotyped</b></td>
+            <tr><td><b>試驗將進行基因分型</b></td>
                 <td>
                     <div id="trial_description">
 % if ($field_trial_is_planned_to_be_genotyped) {
@@ -253,7 +253,7 @@ $latest_trial_activity => undef
                     </div>
                 </td>
             </tr>
-            <tr><td><b>Trial Will Be In Crosses</b></td>
+            <tr><td><b>試驗將用於雜交</b></td>
                 <td>
                     <div id="trial_description">
 % if ($field_trial_is_planned_to_cross) {

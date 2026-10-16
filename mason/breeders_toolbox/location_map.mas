@@ -4,7 +4,7 @@ $user_id => undef
 </%args>
 
 <& /util/import_javascript.mas, classes => ['leaflet', 'esri-leaflet', 'esri-leaflet-geocoder-debug', 'leaflet_extra-markers_min', 'jquery.dstk'] &>
-<center><p><i> Add a new location by clicking on the map. Or select an exisiting location to view details and options.</i></p></center>
+<center><p><i>點擊地圖以新增地點。或選取現有地點以檢視詳細資訊與選項。</i></p></center>
 <br>
 <div id="location_map" style="height: 540px;"></div>
 
@@ -13,26 +13,26 @@ $user_id => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="storeLocationDialog">Location Details</h4>
+        <h4 class="modal-title" id="storeLocationDialog">地點詳細資訊(Location Details)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 	  <form class="form-horizontal" role="form" name="store_location_form" id="store_location_form">
         <div class="form-group" id="location_id" style="display: none"></div>
 	    <div class="form-group">
-      	      <label class="col-sm-2 control-label">Name: </label>
+      	      <label class="col-sm-2 control-label">名稱: </label>
       	      <div class="col-sm-10">
 		<input class="form-control" name="location_name" id="location_name" type="text" />
               </div>
 	    </div>
         <div class="form-group">
-      	      <label class="col-sm-2 control-label">Abbreviation: </label>
+      	      <label class="col-sm-2 control-label">縮寫: </label>
       	      <div class="col-sm-10">
 		<input class="form-control" name="location_abbreviation" id="location_abbreviation" type="text" />
               </div>
 	    </div>
         <div class="form-group">
-      	      <label class="col-sm-2 control-label">Country: </label>
+      	      <label class="col-sm-2 control-label">國家: </label>
       	      <div class="col-sm-10">
                   <select class="form-control" id="location_country" name="location_country">
                     <option value=""></option>
@@ -261,7 +261,7 @@ $user_id => undef
                     <option value="TUN">TUN Tunisia </option>
                     <option value="TUR">TUR Turkey </option>
                     <option value="TUV">TUV Tuvalu </option>
-                    <option value="TWN">TWN Taiwan</option>
+                    <option value="TWN">TWN Taiwan, Province of China </option>
                     <option value="TZA">TZA Tanzania, United Republic of </option>
                     <option value="UGA">UGA Uganda </option>
                     <option value="UKR">UKR Ukraine </option>
@@ -286,60 +286,60 @@ $user_id => undef
               </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Company: </label>
+            <label class="col-sm-2 control-label">公司: </label>
             <div class="col-sm-10" id="company" name="company">
             </div>
         </div>
         <div class="form-group">
-      	      <label class="col-sm-2 control-label">Program: (One or More)</label>
+      	      <label class="col-sm-2 control-label">計畫: (一個或多個)</label>
       	      <div class="col-sm-10" id="breeding_program" name="breeding_program">
               </div>
 	    </div>
         <div class="form-group">
-      	      <label class="col-sm-2 control-label">Type: </label>
+      	      <label class="col-sm-2 control-label">類型: </label>
       	      <div class="col-sm-10">
                   <select class="form-control" id="location_type" name="location_type">
                       <option value=""></option>
-                      <option value="Farm">Farm</option>
-                      <option value="Field">Field</option>
-                      <option value="Greenhouse">Greenhouse</option>
-                      <option value="Screenhouse">Screenhouse</option>
-                      <option value="Lab">Lab</option>
-                      <option value="Storage">Storage</option>
-                      <option value="Other">Other</option>
+                      <option value="Farm">農場(Farm)</option>
+                      <option value="Field">田間(Field)</option>
+                      <option value="Greenhouse">溫室(Greenhouse)</option>
+                      <option value="Screenhouse">網室(Screenhouse)</option>
+                      <option value="Lab">實驗室(Lab)</option>
+                      <option value="Storage">倉庫(Storage)</option>
+                      <option value="Other">其他(Other)</option>
                   </select>
               </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Latitude: </label>
+            <label class="col-sm-2 control-label">緯度: </label>
             <div class="col-sm-10">
                 <input class="form-control" name="location_latitude" id="location_latitude" type="text" size="4"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Longitude: </label>
+            <label class="col-sm-2 control-label">經度: </label>
             <div class="col-sm-10">
                 <input class="form-control" name="location_longitude" id="location_longitude" type="text" size="4"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-2 control-label">Altitude (m): </label>
+            <label class="col-sm-2 control-label">海拔 (m): </label>
             <div class="col-sm-10">
                 <input class="form-control" name="location_altitude" id="location_altitude" type="text" size="4"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-6 control-label">Nearest CWA Weather Station ID: (<a href="https://hdps.cwa.gov.tw/static/state.html" target="_blank">Search Here</a>)</label>
+            <label class="col-sm-6 control-label">最近 CWA 氣象測站 ID: (<a href="https://hdps.cwa.gov.tw/static/state.html" target="_blank">在此搜尋</a>)</label>
             <div class="col-sm-6">
-                <input class="form-control" name="location_noaa_station_id" id="location_noaa_station_id" type="text" placeholder="e.g. 466920"/>
+                <input class="form-control" name="location_noaa_station_id" id="location_noaa_station_id" type="text" placeholder="例如：466920"/>
             </div>
         </div>
 	  </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="store_location_submit" id="store_location_submit">Store Location Details</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="store_location_submit" id="store_location_submit">儲存地點詳細資訊(Store Location Details)</button>
       </div>
     </div>
   </div>
@@ -387,7 +387,7 @@ jQuery(document).ready(function() {
         //console.log("Location name to store is "+name);
         //console.log("Location country name to store is "+country_name+" and country code is "+country_code);
 
-        if (name == '') { alert('A location name is required.');  return; }
+        if (name == '') { alert('地點名稱為必填項目。');  return; }
 
         jQuery.ajax({
             type: 'POST',
@@ -429,23 +429,23 @@ jQuery(document).ready(function() {
                             success: function(response) {
                                 console.log(response);
                                 if (response.records.Station[0].StationName) {
-                                    alert('Found CWA Weather Station from given StationID: '+response.records.Station[0].StationName);
+                                    alert('從指定的測站 ID 找到 CWA 氣象測站: '+response.records.Station[0].StationName);
                                 }
                                 else {
-                                    alert('Could not verify the NOAA StationID you provided, however, your details were still updated.');
+                                    alert('無法驗證您提供的 NOAA 測站 ID，但您的詳細資訊仍已更新。');
                                 }
                                 $('#store_location_dialog').modal("hide");
                                 location.reload();
                             },
                             error: function() {
-                                alert('The NOAA NCDC authorization token may not be valid! We could not verify your NOAA StationID. Please contact us!');
+                                alert('NOAA NCDC 授權權杖可能無效！我們無法驗證您的 NOAA 測站 ID。請與我們聯絡！');
                             }
                         });
                     }
                     alert(response.success);
                 }
             },
-            error: function() { alert('An error occurred while storing the location details. Please try again later.'); }
+            error: function() { alert('儲存地點詳細資訊時發生錯誤。請稍後再試。'); }
         });
    });
 });
@@ -465,9 +465,9 @@ function initialize_map (id, locationJSON, table) {
     });
 
     var baseMaps = {
-        "Street (Default)": streetmap,
-        "Topographical": topomap,
-        "Satellite": satellite
+        "街道 (預設)(Street (Default))": streetmap,
+        "地形圖(Topographical)": topomap,
+        "衛星圖(Satellite)": satellite
     };
 
     var location_layer = L.geoJSON(locationJSON, {
@@ -478,7 +478,7 @@ function initialize_map (id, locationJSON, table) {
     });
 
     var overlayMaps = {
-        "Locations": location_layer
+        "地點(Locations)": location_layer
     };
 
     var mymap = L.map( id, {
@@ -491,7 +491,7 @@ function initialize_map (id, locationJSON, table) {
 
             container.style.backgroundColor = 'white';
             container.style.cursor = "pointer";
-            container.title = 'Zoom to my location';
+            container.title = '縮放至我的位置';
             container.style.width = '30px';
             container.style.height = '30px';
 
@@ -520,7 +520,7 @@ function initialize_map (id, locationJSON, table) {
         popup
             .setLatLng(e.latlng)
             .setContent(
-                'Add a new location here?<br><center><a href="javascript:;" onclick="add_from_map(\''+e.latlng.lat+','+e.latlng.lng+'\')">Add Location</a></center>'
+                '在此新增地點？<br><center><a href="javascript:;" onclick="add_from_map(\''+e.latlng.lat+','+e.latlng.lng+'\')">新增地點</a></center>'
             )
             .openOn(mymap);
     }
@@ -563,7 +563,7 @@ function initialize_map (id, locationJSON, table) {
            onEachFeature: onEachFeature
         });
 
-        layerControl.addOverlay(location_layer, "Locations");
+        layerControl.addOverlay(location_layer, "地點(Locations)");
         location_layer.addTo(mymap);
         mymap.fitBounds(location_layer.getBounds());
     });
@@ -661,12 +661,18 @@ function style(feature) {
 function onEachFeature(feature, layer) {
         // var keys = ["Id","Name","Abbreviation","Country","Program","Type","Latitude","Longitude","Altitude","Trials"];
         var keys = ["Abbreviation","Program","Type","Trials"];
+        var key_labels = {
+            "Abbreviation": "縮寫(Abbreviation)",
+            "Program": "計畫(Program)",
+            "Type": "類型(Type)",
+            "Trials": "試驗(Trials)"
+        };
         var popupContent = '<table class="table table-sm"><caption style="text-align: center;"><font id="'+feature.properties.Id+'_name" size="3" color="black">'+feature.properties.Name+'</font></caption><tbody>';
         for (var i = 0; i < keys.length; i++) {
-            popupContent += '<tr><th>'+keys[i]+'</th><td>'+feature.properties[keys[i]]+'</td></tr>';
+            popupContent += '<tr><th>'+(key_labels[keys[i]] || keys[i])+'</th><td>'+feature.properties[keys[i]]+'</td></tr>';
         }
-        var options = '[<a href="javascript:;" onclick="edit_location('+feature.properties.Id+')">Edit</a>]&nbsp[<a href="javascript:;" onclick="delete_location('+feature.properties.Id+')">Delete</a>]';
-        popupContent += '<tr><th>Options</th><td>'+options+'</td></tr></tbody></table>';
+        var options = '[<a href="javascript:;" onclick="edit_location('+feature.properties.Id+')">編輯</a>]&nbsp[<a href="javascript:;" onclick="delete_location('+feature.properties.Id+')">刪除</a>]';
+        popupContent += '<tr><th>選項(Options)</th><td>'+options+'</td></tr></tbody></table>';
         layer.bindPopup(popupContent);
         layer.on('mouseover', function (e) {
             this.openPopup();
@@ -675,7 +681,7 @@ function onEachFeature(feature, layer) {
 
   function delete_location(id) {
     var name = $('#'+id+'_name').text();
-    var yes = confirm('Are you sure you want to delete location '+name+'? ');
+    var yes = confirm('您確定要刪除地點 '+name+' 嗎？');
 
     if (! yes) { return; }
 
@@ -690,7 +696,7 @@ function onEachFeature(feature, layer) {
                   }
                },
       error: function(response) {
-                 alert("An error occurred");
+                 alert("發生錯誤");
              }
       });
    }

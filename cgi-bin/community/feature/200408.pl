@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200408.html','html2pl converter');
 my $stylesheet=<<END_STYLESHEET;
@@ -27,14 +28,14 @@ my $stylesheet=<<END_STYLESHEET;
 </style>
 END_STYLESHEET
 
-$page->header('The Unit of Plant Biology', undef, $stylesheet);
+$page->header('植物生物學研究組 - 新魯汶 (The Unit of Plant Biology - Louvain-la-Neuve)', undef, $stylesheet);
 print<<END_HEREDOC;
 
   <center>
-    <h1>The Unit of Plant Biology - Louvain-la-Neuve</h1>
+    <h1>植物生物學研究組 - 新魯汶 (The Unit of Plant Biology - Louvain-la-Neuve)</h1>
   </center>
 
-  <h2>Research Focus</h2>
+  <h2>研究重點 (Research Focus)</h2>
 
   <p>The research interests of the Unit of Plant Biology are
   focused on two main topics: i) investigating a key developmental
@@ -156,7 +157,7 @@ print<<END_HEREDOC;
     press.</p>
   </div>
 
-  <h2>Contact</h2>
+  <h2>聯絡資訊 (Contact)</h2>
 
   <p>Jean-Marie Kinet - Stanley Lutts - Henri Batoko<br />
   Universit&eacute; catholique de Louvain<br />

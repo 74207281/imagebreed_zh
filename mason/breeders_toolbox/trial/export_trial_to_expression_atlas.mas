@@ -9,9 +9,9 @@ $main_production_site_url
 </%args>
 
 <div class="well">
-    <h3>Export to Expression Atlas</h3>
-    <button class="btn btn-primary" id="export_trial_to_expression_atlas" name="export_trial_to_expression_atlas">Export</button>
-    <a href="<% $expression_atlas_url %>/expression_viewer/input" target="_blank" class="btn btn-primary" >Go To Expression Atlas</a>
+    <h3>匯出至 Expression Atlas(Export to Expression Atlas)</h3>
+    <button class="btn btn-primary" id="export_trial_to_expression_atlas" name="export_trial_to_expression_atlas">匯出(Export)</button>
+    <a href="<% $expression_atlas_url %>/expression_viewer/input" target="_blank" class="btn btn-primary" >前往 Expression Atlas(Go To Expression Atlas)</a>
 </div>
 
 
@@ -20,58 +20,58 @@ $main_production_site_url
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="expressionAtlasExportDialog">Export <% $trial_name %> Phenotypes to Expression Atlas</h4>
+        <h4 class="modal-title" id="expressionAtlasExportDialog">匯出 <% $trial_name %> 表型至 Expression Atlas(Export Phenotypes to Expression Atlas)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <form class="form-horizontal" >
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Project Name: </label>
+                    <label class="col-sm-3 control-label">專案名稱：</label>
                     <div class="col-sm-9" >
                         <input type="text" class="form-control" id="expression_atlas_export_name" value="<% $trial_name %>" />
                     </div>
                 </div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Trial Name(s): </label>
+					<label class="col-sm-3 control-label">試驗名稱：</label>
 					<div class="col-sm-9" >
 						<div id="expression_atlas_trial_select_div">
 % if ($trial_id) {
 						<input type="text" class="form-control" value="<% $trial_id %>" disabled/>
 						<input type="hidden" id="expression_atlas_trial_id" name="expression_atlas_trial_id" value="<% $trial_id %>" />
 % } else {
-[Loading...]
+[載入中...]
 % }
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Trait Name(s): <br/><small>Select None for All</small></label>
+					<label class="col-sm-3 control-label">性狀名稱：<br/><small>不選擇即代表全部</small></label>
 					<div class="col-sm-9" >
 						<div id="expression_atlas_trait_select_div">
-							<p>First Select One or More Trials</p>
+							<p>請先選擇一個或多個試驗</p>
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="col-sm-3 control-label">Accession Name(s): <br/><small>Select None for All</small></label>
+					<label class="col-sm-3 control-label">種原名稱：<br/><small>不選擇即代表全部</small></label>
 					<div class="col-sm-9" >
 						<div id="expression_atlas_accession_select_div">
-							<p>First Select One or More Trials</p>
+							<p>請先選擇一個或多個試驗</p>
 						</div>
 					</div>
 				</div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Export Options: </label>
+                    <label class="col-sm-3 control-label">匯出選項：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="expression_atlas_export_type">
-                            <option value="6">3 Dimensions are: Traits, Row Number, Col Number</option>
+                            <option value="6">三維度：性狀 (Traits)、行號 (Row Number)、列號 (Col Number)</option>
 %  if ($site_project_name eq 'CassBase'){
-                            <option value="1">3 Dimensions are: Metabolites, Accessions + Plant Age + Sampling Time of Day, Tissues</option>
-                            <option value="2">2 Dimensions are: Metabolites + Tissues and Agronomic Traits, Accessions + Plant Age</option>
-                            <option value="3">2 Dimensions are: Metabolites + Tissues (Week 16) and Agronomic Traits (Week 16), Accessions</option>
-                            <option value="4">2 Dimensions are: Metabolites + Tissues (Week 16) and Agronomic Traits (Week 52), Accessions</option>
-                            <option value="5">2 Dimensions are: Metabolites + Tissues (Week 16) and Agronomic Traits (Week 52), Accessions (EXCLUDING TMEB419)</option>
+                            <option value="1">三維度：代謝物、種原 + 植株生長階段 + 取樣時間、組織</option>
+                            <option value="2">二維度：代謝物 + 組織與農藝性狀、種原 + 植株生長階段</option>
+                            <option value="3">二維度：代謝物 + 組織（第 16 週）與農藝性狀（第 16 週）、種原</option>
+                            <option value="4">二維度：代謝物 + 組織（第 16 週）與農藝性狀（第 52 週）、種原</option>
+                            <option value="5">二維度：代謝物 + 組織（第 16 週）與農藝性狀（第 52 週）、種原（不包含 TMEB419）</option>
 %  }
                         </select>
                     </div>
@@ -81,8 +81,8 @@ $main_production_site_url
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="expression_atlas_export_cancel_button" id="expression_atlas_export_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="expression_atlas_export_ok_button" id="expression_atlas_export_ok_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="expression_atlas_export_cancel_button" id="expression_atlas_export_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="expression_atlas_export_ok_button" id="expression_atlas_export_ok_button" title="送出(Submit)">送出(Submit)</button>
       </div>
     </div>
   </div>
@@ -102,7 +102,7 @@ $main_production_site_url
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -146,13 +146,13 @@ jQuery(document).ready(function() {
         var export_name = jQuery('#expression_atlas_export_name').val();
         var export_type = jQuery('#expression_atlas_export_type').val();
         if (export_name == '' || !export_name){
-            jQuery('#submit_export_to_expression_atlas_message').html("Project Name is required. This is the project name that will appear in the expression atlas.");
+            jQuery('#submit_export_to_expression_atlas_message').html("專案名稱為必填項。這將是在 Expression Atlas 中顯示的專案名稱。");
             jQuery('#submit_export_to_expression_atlas_modal').modal('show');
         } else if (export_type == '' || !export_type){
-            jQuery('#submit_export_to_expression_atlas_message').html("Export type is required.");
+            jQuery('#submit_export_to_expression_atlas_message').html("匯出類型為必填項。");
             jQuery('#submit_export_to_expression_atlas_modal').modal('show');
         } else if (combined_trial_ids.length < 1 || !combined_trial_ids){
-            jQuery('#submit_export_to_expression_atlas_message').html("Please select at least one trial.");
+            jQuery('#submit_export_to_expression_atlas_message').html("請至少選擇一個試驗。");
             jQuery('#submit_export_to_expression_atlas_modal').modal('show');
         } else {
 
@@ -164,12 +164,12 @@ jQuery(document).ready(function() {
                 },
                 success: function (response) {
                     jQuery('#working_modal').modal("hide");
-                    jQuery('#submit_export_to_expression_atlas_message').html("Succesfully exported trial to Expression Atlas!");
+                    jQuery('#submit_export_to_expression_atlas_message').html("試驗已成功匯出至 Expression Atlas！");
                     jQuery('#submit_export_to_expression_atlas_modal').modal('show');
                 },
                 error: function () {
                     jQuery('#working_modal').modal("hide");
-                    jQuery('#submit_export_to_expression_atlas_message').html('An error occurred exporting trial to Expression Atlas.');
+                    jQuery('#submit_export_to_expression_atlas_message').html('匯出試驗至 Expression Atlas 時發生錯誤。');
                     jQuery('#submit_export_to_expression_atlas_modal').modal('show');
                 }
             });

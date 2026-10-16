@@ -1,11 +1,12 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200403.html','html2pl converter');
-$page->header('The Kuhlemeier Lab');
+$page->header('Kuhlemeier 實驗室 (The Kuhlemeier Lab)');
 print<<END_HEREDOC;
 
   <center>
-    <h1>The Kuhlemeier Lab</h1>
+    <h1>Kuhlemeier 實驗室 (The Kuhlemeier Lab)</h1>
   </center>
 
   <p>Our long-term interest has been the regulation of phyllotaxis.

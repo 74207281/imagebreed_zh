@@ -6,10 +6,10 @@ $private_companies => []
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Create Date</th>
-            <th>Your Access</th>
+            <th>名稱(Name)</th>
+            <th>描述(Description)</th>
+            <th>建立日期(Create Date)</th>
+            <th>您的權限(Your Access)</th>
         </tr>
     </thead>
     <tbody>

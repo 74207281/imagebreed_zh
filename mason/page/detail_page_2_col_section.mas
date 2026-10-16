@@ -211,31 +211,31 @@ $company_members => []
                                     <div class="panel-body">
 
                                         <div class="well well-sm">
-                                            <h4>Save Analysis Results as Additional Phenotypes in this Field Trial.</h4>
+                                            <h4>將分析結果儲存為此田間試驗的額外表型。(Save Analysis Results as Additional Phenotypes in this Field Trial.)</h4>
                                             <ul>
-                                                <li>These new phenotypes can be used as additional covariates in downstream analysis.</li>
+                                                <li>這些新表型可用作下游分析中的額外協變量。(These new phenotypes can be used as additional covariates in downstream analysis.)</li>
                                             </ul>
                                         </div>
 
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Analysis Type</th>
-                                                    <th>Option</th>
+                                                    <th>分析類型(Analysis Type)</th>
+                                                    <th>選項(Option)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><p>2D-Spline Spatial Effects (Univariate or Multivariate). Spatial Effects use the row and column positions of plots to uncover interdepence in measurements, arising from soil heterogeneity and the environment.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_2dspl_workflow">Calculate Spatial Effects</button></td>
+                                                    <td><p>2D-樣條空間效應（單變量或多變量）。空間效應利用小區的行和列位置來揭示測量值中由土壤異質性和環境引起的相互依賴性。(2D-Spline Spatial Effects (Univariate or Multivariate). Spatial Effects use the row and column positions of plots to uncover interdepence in measurements, arising from soil heterogeneity and the environment.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_2dspl_workflow">計算空間效應(Calculate Spatial Effects)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Random Regression Permanent Environment (PE) Effects. PE Effects use the repeated nature of a trait, usually a high-throughput phenotype (HTP), to uncover persistent environmental effects, arising from soil heterogeneity and the environment.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_rr_workflow">Calculate PE Effects</button></td>
+                                                    <td><p>隨機回歸永久環境 (PE) 效應。PE 效應利用性狀的重複性質（通常是來自高通量表型 HTP）來揭示由土壤異質性和環境引起的持久環境效應。(Random Regression Permanent Environment (PE) Effects. PE Effects use the repeated nature of a trait, usually a high-throughput phenotype (HTP), to uncover persistent environmental effects, arising from soil heterogeneity and the environment.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_rr_workflow">計算 PE 效應(Calculate PE Effects)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Two-dimensional Numerical Derivatives. Numerical derivatives of a phenotype use the row and column positions of plots to estimate curvature of a measurement.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_numerical_derivative_workflow">Calculate Numerical Derivatives</button></td>
+                                                    <td><p>二維數值導數。表型的數值導數利用小區的行和列位置來估計測量值的曲率。(Two-dimensional Numerical Derivatives. Numerical derivatives of a phenotype use the row and column positions of plots to estimate curvature of a measurement.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_numerical_derivative_workflow">計算數值導數(Calculate Numerical Derivatives)</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -253,35 +253,35 @@ $company_members => []
                                     <div class="panel-body">
 
                                         <div class="well well-sm">
-                                            <h4>Plotting and Standalone Analysis Tools.</h4>
+                                            <h4>繪圖與獨立分析工具。(Plotting and Standalone Analysis Tools.)</h4>
                                             <ul>
-                                                <li>View statistics and create graphical plots.</li>
+                                                <li>查看統計數據並建立圖表。(View statistics and create graphical plots.)</li>
                                             </ul>
                                         </div>
 
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Analysis Type</th>
-                                                    <th>Option</th>
+                                                    <th>分析類型(Analysis Type)</th>
+                                                    <th>選項(Option)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><p>Correlations Between Phenotypes.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_correlation_workflow">Calculate Correlations</button></td>
+                                                    <td><p>表型間的相關性。(Correlations Between Phenotypes.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_correlation_workflow">計算相關性(Calculate Correlations)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Time-Series Plots for Accessions. Create line graph of phenotypes over time, generally this is only for high-throughput phenotypes (HTP) from aerial imagery.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_time_series_accessions_workflow">Create Time-Series Plots</button></td>
+                                                    <td><p>品系/種原的時間序列圖。繪製表型隨時間變化的折線圖，通常僅適用於來自航空圖像的高通量表型 (HTP)。(Time-Series Plots for Accessions. Create line graph of phenotypes over time, generally this is only for high-throughput phenotypes (HTP) from aerial imagery.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_time_series_accessions_workflow">建立時間序列圖(Create Time-Series Plots)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Rank Accessions on Phenotypes. Give weights to traits to rank accessions based on average phenotype.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_accession_rank_workflow">Rank Accessions</button></td>
+                                                    <td><p>根據表型對品系/種原進行排名。為性狀賦予權重，以根據平均表型對品系/種原進行排名。(Rank Accessions on Phenotypes. Give weights to traits to rank accessions based on average phenotype.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_accession_rank_workflow">品系/種原排名(Rank Accessions)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Genotypic Marker Composition. View distribution of genotypic markers and phenotypic measurements.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_genotype_comparison_workflow">Compute Genotypic Marker Composition</button></td>
+                                                    <td><p>基因型標記組成。檢視基因型標記與表型測量值的分布。(Genotypic Marker Composition. View distribution of genotypic markers and phenotypic measurements.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_genotype_comparison_workflow">計算基因型標記組成(Compute Genotypic Marker Composition)</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -373,7 +373,7 @@ $company_members => []
                                 <& /stock/sequencing_status.mas, stock_id => $stock_id &>
 % } #End stock requencing status section
 % if ($info_section_id eq 'stock_jbrowse_section'){
-                                <p id="jbrowse_check">[loading...]</p>
+                                <p id="jbrowse_check">[載入中...(loading...)]</p>
 % } #End stock_jbrowse_section
 % if ($info_section_id eq 'stock_comments_section'){
                                 <& /page/comments.mas, object_type=>'stock', object_id=>$stock_id, referer=>$referer &>
@@ -545,31 +545,31 @@ $company_members => []
                                     <div class="panel-body">
 
                                         <div class="well well-sm">
-                                            <h4>Save Analysis Results as Additional Phenotypes in this Field Trial.</h4>
+                                            <h4>將分析結果儲存為此田間試驗的額外表型。(Save Analysis Results as Additional Phenotypes in this Field Trial.)</h4>
                                             <ul>
-                                                <li>These new phenotypes can be used as additional covariates in downstream analysis.</li>
+                                                <li>這些新表型可用作下游分析中的額外協變量。(These new phenotypes can be used as additional covariates in downstream analysis.)</li>
                                             </ul>
                                         </div>
 
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Analysis Type</th>
-                                                    <th>Option</th>
+                                                    <th>分析類型(Analysis Type)</th>
+                                                    <th>選項(Option)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><p>2D-Spline Spatial Effects (Univariate or Multivariate). Spatial Effects use the row and column positions of plots to uncover interdepence in measurements, arising from soil heterogeneity and the environment.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_2dspl_workflow">Calculate Spatial Effects</button></td>
+                                                    <td><p>2D-樣條空間效應（單變量或多變量）。空間效應利用小區的行和列位置來揭示測量值中由土壤異質性和環境引起的相互依賴性。(2D-Spline Spatial Effects (Univariate or Multivariate). Spatial Effects use the row and column positions of plots to uncover interdepence in measurements, arising from soil heterogeneity and the environment.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_2dspl_workflow">計算空間效應(Calculate Spatial Effects)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Random Regression Permanent Environment (PE) Effects. PE Effects use the repeated nature of a trait, usually a high-throughput phenotype (HTP), to uncover persistent environmental effects, arising from soil heterogeneity and the environment.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_rr_workflow">Calculate PE Effects</button></td>
+                                                    <td><p>隨機回歸永久環境 (PE) 效應。PE 效應利用性狀的重複性質（通常是來自高通量表型 HTP）來揭示由土壤異質性和環境引起的持久環境效應。(Random Regression Permanent Environment (PE) Effects. PE Effects use the repeated nature of a trait, usually a high-throughput phenotype (HTP), to uncover persistent environmental effects, arising from soil heterogeneity and the environment.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_rr_workflow">計算 PE 效應(Calculate PE Effects)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Two-dimensional Numerical Derivatives. Numerical derivatives of a phenotype use the row and column positions of plots to estimate curvature of a measurement.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_numerical_derivative_workflow">Calculate Numerical Derivatives</button></td>
+                                                    <td><p>二維數值導數。表型的數值導數利用小區的行和列位置來估計測量值的曲率。(Two-dimensional Numerical Derivatives. Numerical derivatives of a phenotype use the row and column positions of plots to estimate curvature of a measurement.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_numerical_derivative_workflow">計算數值導數(Calculate Numerical Derivatives)</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -587,35 +587,35 @@ $company_members => []
                                     <div class="panel-body">
 
                                         <div class="well well-sm">
-                                            <h4>Plotting and Standalone Analysis Tools.</h4>
+                                            <h4>繪圖與獨立分析工具。(Plotting and Standalone Analysis Tools.)</h4>
                                             <ul>
-                                                <li>View statistics and create graphical plots.</li>
+                                                <li>查看統計數據並建立圖表。(View statistics and create graphical plots.)</li>
                                             </ul>
                                         </div>
 
                                         <table class="table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Analysis Type</th>
-                                                    <th>Option</th>
+                                                    <th>分析類型(Analysis Type)</th>
+                                                    <th>選項(Option)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><p>Correlations Between Phenotypes.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_correlation_workflow">Calculate Correlations</button></td>
+                                                    <td><p>表型間的相關性。(Correlations Between Phenotypes.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_correlation_workflow">計算相關性(Calculate Correlations)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Time-Series Plots for Accessions. Create line graph of phenotypes over time, generally this is only for high-throughput phenotypes (HTP) from aerial imagery.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_time_series_accessions_workflow">Create Time-Series Plots</button></td>
+                                                    <td><p>品系/種原的時間序列圖。繪製表型隨時間變化的折線圖，通常僅適用於來自航空圖像的高通量表型 (HTP)。(Time-Series Plots for Accessions. Create line graph of phenotypes over time, generally this is only for high-throughput phenotypes (HTP) from aerial imagery.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_time_series_accessions_workflow">建立時間序列圖(Create Time-Series Plots)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Rank Accessions on Phenotypes. Give weights to traits to rank accessions based on average phenotype.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_accession_rank_workflow">Rank Accessions</button></td>
+                                                    <td><p>根據表型對品系/種原進行排名。為性狀賦予權重，以根據平均表型對品系/種原進行排名。(Rank Accessions on Phenotypes. Give weights to traits to rank accessions based on average phenotype.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_accession_rank_workflow">品系/種原排名(Rank Accessions)</button></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><p>Genotypic Marker Composition. View distribution of genotypic markers and phenotypic measurements.</p></td>
-                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_genotype_comparison_workflow">Compute Genotypic Marker Composition</button></td>
+                                                    <td><p>基因型標記組成。檢視基因型標記與表型測量值的分布。(Genotypic Marker Composition. View distribution of genotypic markers and phenotypic measurements.)</p></td>
+                                                    <td><button class="btn btn-primary btn-sm" id="trial_detail_page_analysis_genotype_comparison_workflow">計算基因型標記組成(Compute Genotypic Marker Composition)</button></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -685,7 +685,7 @@ $company_members => []
 % } #End private_company_detail_page_members
 
 % if (!$info_section_id){
-                                <p>No section specified! Main content goes here!</p>
+                                <p>未指定區段！主要內容在此顯示！(No section specified! Main content goes here!)</p>
 % }
 
                             </div>

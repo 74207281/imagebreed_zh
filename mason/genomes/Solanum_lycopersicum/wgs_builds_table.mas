@@ -1,25 +1,25 @@
 <div style="margin: 1em 0">
   <% columnar_table_html(
           __align  => 'cllcc',
-          headings => [qw[ Release Date Description Annotation Download ]],
+          headings => [ '版本(Release)', '日期(Date)', '描述(Description)', '註釋(Annotation)', '下載(Download)' ],
           data     =>
              eval{ LoadFile( $build_description_file ) }
-               || [[('-')x2, '<span class="ghosted">release list temporarily unavailable</span>', ('-')x2]],
+               || [[('-')x2, '<span class="ghosted">版本清單暫時不可用(release list temporarily unavailable)</span>', ('-')x2]],
      )
   %>
 </div>
 
 <%perl>
   my $feedback_email = $c->get_conf('feedback_email');
-  print info_table_html( 'Assembly issues' => <<EOF );
-  <p>If in the course of your work you find errors or other issues with the tomato genome assemblies, please report them using one of the following links:</p>
+  print info_table_html( '組裝問題(Assembly issues)' => <<EOF );
+  <p>如果您在工作過程中發現番茄基因組組裝存在錯誤或其他問題，請使用以下連結之一進行回報：(If in the course of your work you find errors or other issues with the tomato genome assemblies, please report them using one of the following links:)</p>
 
   <ul>
     <li>
-      <a href="mailto:$feedback_email?subject=Tomato genome build issue">email SGN</a>
+      <a href="mailto:$feedback_email?subject=Tomato genome build issue">向 SGN 發送電子郵件(email SGN)</a>
     </li>
     <li>
-      <a href="https://ncbijira.ncbi.nlm.nih.gov/browse/TG">issue tracker at NCBI (registered curators only)</a>
+      <a href="https://ncbijira.ncbi.nlm.nih.gov/browse/TG">NCBI 問題追蹤器（僅限註冊策展人）(issue tracker at NCBI (registered curators only))</a>
     </li>
   </ul>
 EOF

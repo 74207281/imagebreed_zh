@@ -8,7 +8,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -19,8 +19,8 @@ id="upload_drone_imagery_form" name="upload_drone_imagery_form" action="/drone_i
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow" &>
                     <&|
-/util/workflow.mas:step, title=> "簡介" &>
-                        <& /page/page_title.mas, title=>"此流程將引導您將空拍影像上傳至資料庫" &>
+/util/workflow.mas:step, title=> "簡介(Intro)" &>
+                        <& /page/page_title.mas, title=>"此流程將引導您將空拍影像上傳至資料庫(This Workflow Will Guide You Through Uploading Aerial Imagery)" &>
                         <ul>
                             <li>您的田間試驗必須已存在於資料庫中，才能上傳影像。如果不存在，請前往 <a href="/breeders/trials">管理->田間試驗</a>。</li>
                             <li><b>關於原始影像擷取檔 (Raw Image Captures)</b>：如果您有尚未拼接成完整田間正射影像的原始空拍影像（.TIFF, .JPG, .PNG），應使用 Zip 壓縮檔 (.zip) 上傳。Zip 檔內請包含至少 25 張影像。OpenDroneMap 將用於拼接正射影像和數值地表模型 (DSM)。OpenDroneMap 適用於彩色 RGB 影像和 MicaSense 5 通道多光譜影像。</li>
@@ -34,18 +34,18 @@ id="upload_drone_imagery_form" name="upload_drone_imagery_form" action="/drone_i
                         <br/>
                         <center>
  
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">上傳單一拍攝批次</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">上傳單一拍攝批次(Upload A Single Imaging Event)</button>
                         <br/><br/>
-                        <button class="btn btn-default" id="upload_drone_imagery_bulk_button" >批次上傳拍攝批次</button>
+                        <button class="btn btn-default" id="upload_drone_imagery_bulk_button" >批次上傳拍攝批次(Bulk Upload Imaging Events)</button>
         
                         <br/><br/>
-                        <button class="btn btn-default" id="upload_drone_imagery_bulk_previous_button" >批次上傳已處理的拍攝批次（包含 GeoJSON 定義）</button>
+                        <button class="btn btn-default" id="upload_drone_imagery_bulk_previous_button" >批次上傳已處理的拍攝批次（包含 GeoJSON 定義）(Bulk Upload Processed Imaging Events With GeoJSON Definitions)</button>
                         </center>
                     </&>
  
                     <&|
-/util/workflow.mas:step, title=> "田間試驗" &>
-                        <& /page/page_title.mas, title=>"選擇您的田間試驗" &>
+/util/workflow.mas:step, title=> "田間試驗(Field Trial)" &>
+                        <& /page/page_title.mas, title=>"選擇您的田間試驗(Select Your Field Trial)" &>
 
                         <div class="form-group">
                             <label class="col-sm-3 control-label">公司：</label>
@@ -92,30 +92,30 @@ type="text" />
                         </div>
 
                         <center>
-                        <button class="btn btn-primary" id="upload_drone_image_field_trial_select_date_continue">下一步</button>
+                        <button class="btn btn-primary" id="upload_drone_image_field_trial_select_date_continue">下一步(Next Step)</button>
                         </center>
              
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "拍攝批次" &>
-                        <& /page/page_title.mas, title=>"建立新的拍攝批次" &>
+/util/workflow.mas:step, title=> "無人機航次(Drone Run)" &>
+                        <& /page/page_title.mas, title=>"建立新的拍攝批次(Create A New Drone Run)" &>
 
                         <table class="table table-bordered table-hover" id="drone_image_upload_drone_runs_table">
                             <thead>
          
                                 <tr>
-                                    <th>選擇</th>
-                                    <th>拍攝批次名稱</th>
+                                    <th>選取(Select)</th>
+                                    <th>無人機航次名稱(Drone Run Name)</th>
    
-                                    <th>拍攝批次類型</th>
-                                    <th>拍攝批次描述</th>
+                                    <th>無人機航次類型(Drone Run Type)</th>
+                                    <th>無人機航次描述(Drone Run Description)</th>
                            
-                                    <th>拍攝批次日期</th>
-                                    <th>拍攝批次 GDD</th>
-                                    <th>感測器</th>
+                                    <th>無人機航次日期(Drone Run Date)</th>
+                                    <th>無人機航次生長積溫(Drone Run GDD)</th>
+                                    <th>感測器(Sensor)</th>
                
-                                    <th>田間試驗名稱</th>
-                                    <th>田間試驗描述</th>
+                                    <th>田間試驗名稱(Field Trial Name)</th>
+                                    <th>田間試驗描述(Field Trial Description)</th>
                                 </tr>
        
                             </thead>
@@ -171,7 +171,7 @@ type="text" />
                     
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">拍攝載具： <button class="btn btn-sm btn-default" name="drone_run_imaging_vehicle_add_new" type="button">新增載具</button></label>
+                                <label class="col-sm-3 control-label">拍攝載具： <button class="btn btn-sm btn-default" name="drone_run_imaging_vehicle_add_new" type="button">新增載具(Add New Vehicle)</button></label>
                     
                                 <div class="col-sm-9" >
                                     <div id="drone_run_imaging_vehicle_div"></div>
@@ -216,13 +216,13 @@ type="text" />
                         <br/>
 
                         <center>
-                        <button class="btn btn-primary" id="drone_image_upload_drone_run_continue">下一步</button>
+                        <button class="btn btn-primary" id="drone_image_upload_drone_run_continue">下一步(Next Step)</button>
               
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "影像資訊" &>
-                        <& /page/page_title.mas, title=>"上傳影像類型" &>
+/util/workflow.mas:step, title=> "影像資訊(Image Info)" &>
+                        <& /page/page_title.mas, title=>"上傳影像類型(Upload Image Type)" &>
 
                         <div class="well">
                             <center><h4>上傳已拼接的田間實驗正射鑲嵌影像或完整影像</h4></center>
@@ -312,7 +312,7 @@ type="text" />
                         </div>
 
                         <center>
-                        <button class="btn btn-primary" id="drone_image_upload_drone_run_band_continue">下一步</button>
+                        <button class="btn btn-primary" id="drone_image_upload_drone_run_band_continue">下一步(Next Step)</button>
                   
                         </center>
                     </&>
@@ -325,7 +325,7 @@ type="text" />
       </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -336,12 +336,12 @@ type="text" />
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryODMDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryODMDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
             <& 
-/page/page_title.mas, title=>"選擇要上傳的影像" &>
+/page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_odm_form" name="upload_drone_imagery_odm_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -369,8 +369,8 @@ name="drone_run_id" value=""/>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow_odm" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇原始影像 Zip 檔" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇原始影像 Zip 檔(Select Raw Images Zipfile)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -385,14 +385,14 @@ name="drone_run_id" value=""/>
                             </div>
                         <center>
                        
-                            <button class="btn btn-primary" id="upload_drone_imagery_select_images_odm" name="upload_drone_imagery_select_images_odm">下一步</button>
+                            <button class="btn btn-primary" id="upload_drone_imagery_select_images_odm" name="upload_drone_imagery_select_images_odm">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次以使用 OpenDroneMap 處理" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次以使用 OpenDroneMap 處理(Submit Drone Run For Processing With OpenDroneMap)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_odm_submit" id="upload_drone_imagery_odm_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_odm_submit" id="upload_drone_imagery_odm_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -401,7 +401,7 @@ name="drone_run_id" value=""/>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -412,12 +412,12 @@ name="drone_run_id" value=""/>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryODMMicaSenseDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryODMMicaSenseDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_odm_micasense_form" name="upload_drone_imagery_odm_micasense_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -444,8 +444,8 @@ name="drone_run_id" value=""/>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_odm_micasense" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇 MicaSense 原始影像 Zip 檔" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇 MicaSense 原始影像 Zip 檔(Select MicaSense Raw Images Zipfile)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -480,14 +480,14 @@ name="drone_run_id" value=""/>
                         </div>
                         
                         <center>
-                            <button class="btn btn-primary" id="upload_drone_imagery_select_images_odm_micasense" name="upload_drone_imagery_select_images_odm_micasense">下一步</button>
+                            <button class="btn btn-primary" id="upload_drone_imagery_select_images_odm_micasense" name="upload_drone_imagery_select_images_odm_micasense">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次以使用 OpenDroneMap 處理" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次以使用 OpenDroneMap 處理(Submit Drone Run For Processing With OpenDroneMap)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_odm_micasense_submit" id="upload_drone_imagery_odm_micasense_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_odm_micasense_submit" id="upload_drone_imagery_odm_micasense_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -497,7 +497,7 @@ name="drone_run_id" value=""/>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -508,12 +508,12 @@ name="drone_run_id" value=""/>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryOneBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryOneBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_one_band_form" name="upload_drone_imagery_one_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -540,8 +540,8 @@ name="drone_run_id" value=""/>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_one_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -612,14 +612,14 @@ id="drone_run_band_stitched_ortho_image_one_1" name="drone_run_band_stitched_ort
 
                         <center>
                          
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_one" id="upload_drone_imagery_select_images_one">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_one" id="upload_drone_imagery_select_images_one">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_one_band_submit" id="upload_drone_imagery_one_band_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_one_band_submit" id="upload_drone_imagery_one_band_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -629,7 +629,7 @@ id="drone_run_band_stitched_ortho_image_one_1" name="drone_run_band_stitched_ort
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -640,12 +640,12 @@ id="drone_run_band_stitched_ortho_image_one_1" name="drone_run_band_stitched_ort
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryTwoBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryTwoBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_two_band_form" name="upload_drone_imagery_two_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -672,8 +672,8 @@ id="drone_run_band_stitched_ortho_image_one_1" name="drone_run_band_stitched_ort
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_two_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -797,15 +797,15 @@ class="col-sm-3 control-label">影像波段描述：</label>
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_two" id="upload_drone_imagery_select_images_two">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_two" id="upload_drone_imagery_select_images_two">下一步(Next Step)</button>
                         </center>
              
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_two_band_submit" id="upload_drone_imagery_two_band_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_two_band_submit" id="upload_drone_imagery_two_band_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -814,7 +814,7 @@ class="col-sm-3 control-label">影像波段描述：</label>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -825,12 +825,12 @@ class="col-sm-3 control-label">影像波段描述：</label>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryThreeBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryThreeBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_three_band_form" name="upload_drone_imagery_three_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -857,8 +857,8 @@ class="col-sm-3 control-label">影像波段描述：</label>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_three_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -1037,14 +1037,14 @@ class="col-sm-3 control-label">影像波段描述：</label>
 
                         <center>
                    
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_three" id="upload_drone_imagery_select_images_three">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_three" id="upload_drone_imagery_select_images_three">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_three_band_submit" id="upload_drone_imagery_three_band_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_three_band_submit" id="upload_drone_imagery_three_band_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -1053,7 +1053,7 @@ class="col-sm-3 control-label">影像波段描述：</label>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -1064,12 +1064,12 @@ class="col-sm-3 control-label">影像波段描述：</label>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryFourBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryFourBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_four_band_form" name="upload_drone_imagery_four_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -1096,8 +1096,8 @@ class="col-sm-3 control-label">影像波段描述：</label>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_four_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -1329,15 +1329,15 @@ class="col-sm-3 control-label">影像波段描述：</label>
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_four" id="upload_drone_imagery_select_images_four">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_four" id="upload_drone_imagery_select_images_four">下一步(Next Step)</button>
                         </center>
        
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_four_submit" id="upload_drone_imagery_four_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_four_submit" id="upload_drone_imagery_four_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -1346,7 +1346,7 @@ class="col-sm-3 control-label">影像波段描述：</label>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -1357,11 +1357,11 @@ class="col-sm-3 control-label">影像波段描述：</label>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryFiveBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryFiveBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_five_band_form" name="upload_drone_imagery_five_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -1386,8 +1386,8 @@ class="col-sm-3 control-label">影像波段描述：</label>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow_five_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -1671,14 +1671,14 @@ class="col-sm-3 control-label">影像波段描述：</label>
 
                         <center>
              
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_five" id="upload_drone_imagery_select_images_five">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_five" id="upload_drone_imagery_select_images_five">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_submit" id="upload_drone_imagery_five_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_submit" id="upload_drone_imagery_five_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -1687,7 +1687,7 @@ class="col-sm-3 control-label">影像波段描述：</label>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -1698,11 +1698,11 @@ class="col-sm-3 control-label">影像波段描述：</label>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryFiveBandODMDialog">上傳 ODM 空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryFiveBandODMDialog">上傳 ODM 空拍影像(Upload ODM Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_five_band_odm_form" name="upload_drone_imagery_five_band_odm_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -1730,8 +1730,8 @@ class="col-sm-3 control-label">影像波段描述：</label>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow_five_band_odm" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇 ODM 正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇 ODM 正射網格影像(Select ODM Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -1758,14 +1758,14 @@ class="col-sm-3 control-label">影像波段描述：</label>
 
                         <center>
                             
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_five_odm" id="upload_drone_imagery_select_images_five_odm">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_five_odm" id="upload_drone_imagery_select_images_five_odm">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_odm_submit" id="upload_drone_imagery_five_odm_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_odm_submit" id="upload_drone_imagery_five_odm_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -1774,7 +1774,7 @@ class="col-sm-3 control-label">影像波段描述：</label>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -1785,11 +1785,11 @@ class="col-sm-3 control-label">影像波段描述：</label>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryFiveOrTenBandAgisoftDialog">上傳 Agisoft 空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryFiveOrTenBandAgisoftDialog">上傳 Agisoft 空拍影像(Upload Agisoft Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_five_or_ten_band_agisoft_form" name="upload_drone_imagery_five_or_ten_band_agisoft_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -1817,8 +1817,8 @@ class="col-sm-3 control-label">影像波段描述：</label>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow_five_or_ten_band_agisoft" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇 ODM 正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇 ODM 正射網格影像(Select ODM Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -1845,14 +1845,14 @@ class="col-sm-3 control-label">影像波段描述：</label>
 
                         <center>
                             <button class="btn btn-primary" 
-name="upload_drone_imagery_select_images_five_or_ten_agisoft" id="upload_drone_imagery_select_images_five_or_ten_agisoft">下一步</button>
+name="upload_drone_imagery_select_images_five_or_ten_agisoft" id="upload_drone_imagery_select_images_five_or_ten_agisoft">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_or_ten_agisoft_submit" id="upload_drone_imagery_five_or_ten_agisoft_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_five_or_ten_agisoft_submit" id="upload_drone_imagery_five_or_ten_agisoft_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -1861,7 +1861,7 @@ name="upload_drone_imagery_select_images_five_or_ten_agisoft" id="upload_drone_i
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -1872,12 +1872,12 @@ name="upload_drone_imagery_select_images_five_or_ten_agisoft" id="upload_drone_i
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImagerySixBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImagerySixBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_six_band_form" name="upload_drone_imagery_six_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -1904,8 +1904,8 @@ name="upload_drone_imagery_select_images_five_or_ten_agisoft" id="upload_drone_i
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_six_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -2289,14 +2289,14 @@ value="Blue (450-520nm)">藍光 (450-520nm)</option>
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_six" id="upload_drone_imagery_select_images_six">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_six" id="upload_drone_imagery_select_images_six">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_six_submit" id="upload_drone_imagery_six_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_six_submit" id="upload_drone_imagery_six_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -2305,7 +2305,7 @@ value="Blue (450-520nm)">藍光 (450-520nm)</option>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -2316,12 +2316,12 @@ value="Blue (450-520nm)">藍光 (450-520nm)</option>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImagerySevenBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImagerySevenBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_seven_band_form" name="upload_drone_imagery_seven_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -2348,8 +2348,8 @@ value="Blue (450-520nm)">藍光 (450-520nm)</option>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_seven_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -2700,14 +2700,14 @@ name="drone_run_band_description_6" type="text" />
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_seven" id="upload_drone_imagery_select_images_seven">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_seven" id="upload_drone_imagery_select_images_seven">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_seven_submit" id="upload_drone_imagery_seven_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_seven_submit" id="upload_drone_imagery_seven_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -2716,7 +2716,7 @@ name="drone_run_band_description_6" type="text" />
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -2727,11 +2727,11 @@ name="drone_run_band_description_6" type="text" />
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryNineBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryNineBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_nine_band_form" name="upload_drone_imagery_nine_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -2756,8 +2756,8 @@ name="drone_run_band_description_6" type="text" />
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_workflow_nine_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -3320,14 +3320,14 @@ name="drone_run_band_description_6" type="text" />
 
                         <center>
             
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_nine" id="upload_drone_imagery_select_images_nine">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_nine" id="upload_drone_imagery_select_images_nine">下一步(Next Step)</button>
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_nine_submit" id="upload_drone_imagery_nine_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_nine_submit" id="upload_drone_imagery_nine_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -3336,7 +3336,7 @@ name="drone_run_band_description_6" type="text" />
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -3347,12 +3347,12 @@ name="drone_run_band_description_6" type="text" />
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryTenBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryTenBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_ten_band_form" name="upload_drone_imagery_ten_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -3379,8 +3379,8 @@ name="drone_run_band_description_6" type="text" />
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_ten_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -4006,15 +4006,15 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_ten" id="upload_drone_imagery_select_images_ten">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_ten" id="upload_drone_imagery_select_images_ten">下一步(Next Step)</button>
    
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_ten_submit" id="upload_drone_imagery_ten_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_ten_submit" id="upload_drone_imagery_ten_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -4023,7 +4023,7 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -4034,12 +4034,12 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryElevenBandDialog">上傳空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryElevenBandDialog">上傳空拍影像(Upload Aerial Imagery)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
  
-            <& /page/page_title.mas, title=>"選擇要上傳的影像" &>
+            <& /page/page_title.mas, title=>"選擇要上傳的影像(Select Images To Upload)" &>
 
             <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_drone_imagery_eleven_band_form" name="upload_drone_imagery_eleven_band_form" action="/drone_imagery/upload_drone_imagery" >
                 <input type="hidden" name="drone_run_field_trial_id" value="" >
@@ -4066,8 +4066,8 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
         
                 <&| /util/workflow.mas, id=> "drone_imagery_upload_workflow_eleven_band" &>
                     <&|
-/util/workflow.mas:step, title=> "選擇影像" &>
-                        <& /page/page_title.mas, title=>"選擇正射網格影像" &>
+/util/workflow.mas:step, title=> "選擇影像(Select Images)" &>
+                        <& /page/page_title.mas, title=>"選擇正射網格影像(Select Orthophoto Grid)" &>
 
                         <div class="well well-sm">
                             <div class="form-group">
@@ -4758,15 +4758,15 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
                         </div>
 
                         <center>
-                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_eleven" id="upload_drone_imagery_select_images_eleven">下一步</button>
+                            <button class="btn btn-primary" name="upload_drone_imagery_select_images_eleven" id="upload_drone_imagery_select_images_eleven">下一步(Next Step)</button>
                         </center>
      
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出拍攝批次" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出拍攝批次(Submit Drone Run)" &>
                         <center>
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_eleven_submit" id="upload_drone_imagery_eleven_submit">送出。請點擊一次並耐心等候，這可能需要很長時間。</button>
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_eleven_submit" id="upload_drone_imagery_eleven_submit">送出(Submit)。請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
                 </&>
@@ -4775,7 +4775,7 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -4786,7 +4786,7 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryBulkPreviousDialog">批次上傳已處理的空拍影像拍攝批次</h4>
+        <h4 class="modal-title" id="uploadDroneImageryBulkPreviousDialog">批次上傳已處理的空拍影像拍攝批次(Bulk Upload Processed Aerial Imaging Events)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -4796,8 +4796,8 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_bulk_previous_workflow" &>
                     <&|
-/util/workflow.mas:step, title=> "簡介" &>
-                        <& /page/page_title.mas, title=>"此流程將引導您將已處理的拍攝批次空拍影像上傳至資料庫" &>
+/util/workflow.mas:step, title=> "簡介(Intro)" &>
+                        <& /page/page_title.mas, title=>"此流程將引導您將已處理的拍攝批次空拍影像上傳至資料庫(This Workflow Will Guide You Through Uploading Processed Imaging Events)" &>
                         <p>您的田間試驗必須已存在於資料庫中，才能上傳影像。
                         如果不存在，請前往 <a href="/breeders/trials">管理->田間試驗</a>。
                         請確保種植日期也已設定！</p>
@@ -4813,12 +4813,12 @@ Blue (410-480nm)">近海藍光 (410-480nm)</option>
                         <br/>
                         <center>
                         <button class="btn btn-primary" onclick="Workflow.complete(this);
- return false;">下一步</button>
+ return false;">下一步(Next Step)</button>
                         </center>
                     </&>
-                    <&| /util/workflow.mas:step, title=> "定義拍攝批次" &>
+                    <&| /util/workflow.mas:step, title=> "定義拍攝批次(Define Imaging Events)" &>
                         <& /page/page_title.mas, 
-title=>"批次定義拍攝批次" &>
+title=>"批次定義拍攝批次(Bulk Define Imaging Events)" &>
 
                         <h4>上傳的 Excel 檔案 (.xls) 必須包含以下標題：</h4>
 
@@ -4826,28 +4826,28 @@ title=>"批次定義拍攝批次" &>
                             <tbody>
        
                                 <tr>
-                                    <th>Imaging Event Name (拍攝批次名稱)</th>
-                                    <th>Company (公司)</th>
+                                    <th>成像事件名稱(Imaging Event Name)</th>
+                                    <th>公司(Company)</th>
  
-                                    <th>Type (類型)</th>
-                                    <th>Description (描述)</th>
+                                    <th>類型(Type)</th>
+                                    <th>描述(Description)</th>
                              
-                                    <th>Date (日期)</th>
-                                    <th>Vehicle Name (載具名稱)</th>
-                                    <th>Vehicle Battery Set (載具電池組)</th>
+                                    <th>日期(Date)</th>
+                                    <th>載具名稱(Vehicle Name)</th>
+                                    <th>載具電池組(Vehicle Battery Set)</th>
                   
-                                    <th>Sensor (感測器)</th>
-                                    <th>Field Trial Name (田間試驗名稱)</th>
-                                    <th>GeoJSON Filename (GeoJSON 檔名)</th>
+                                    <th>感測器(Sensor)</th>
+                                    <th>田間試驗名稱(Field Trial Name)</th>
+                                    <th>GeoJSON 檔名(GeoJSON Filename)</th>
        
-                                    <th>Image Filenames (影像檔名)</th>
-                                    <th>Coordinate System (座標系統)</th>
+                                    <th>影像檔名(Image Filenames)</th>
+                                    <th>座標系統(Coordinate System)</th>
                                  
-                                    <th>Orthophoto Product Type (正射影像產品類型)</th>
-                                    <th>Rotation Angle (旋轉角度)</th>
-                                    <th>Base Date (基準日期)</th>
+                                    <th>正射影像產品類型(Orthophoto Product Type)</th>
+                                    <th>旋轉角度(Rotation Angle)</th>
+                                    <th>基準日期(Base Date)</th>
                      
-                                    <th>Camera Rig (相機設備)</th>
+                                    <th>相機設備(Camera Rig)</th>
                                 </tr>
                             </tbody>
                         
@@ -4906,13 +4906,13 @@ title=>"批次定義拍攝批次" &>
                         </div>
 
                         <center>
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步(Next Step)</button>
                         </center>
      
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "上傳正射影像" &>
-                        <& /page/page_title.mas, title=>"批次上傳拍攝批次的正射影像" &>
+/util/workflow.mas:step, title=> "上傳正射影像(Upload Orthophoto)" &>
+                        <& /page/page_title.mas, title=>"批次上傳拍攝批次的正射影像(Bulk Upload Imaging Event Orthophotos)" &>
 
                         <h4>上傳一個 Zip 壓縮檔 (.zip)，其中包含依照上一步驟中「Image Filenames」定義命名的正射影像 (.tiff, .png, .jpeg)。</h4>
                
@@ -4944,13 +4944,13 @@ title=>"批次定義拍攝批次" &>
 
         
                         <center>
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步(Next Step)</button>
                         </center>
                     </&>
         
                     <&|
-/util/workflow.mas:step, title=> "定義小區多邊形 GeoJSON" &>
-                        <& /page/page_title.mas, title=>"批次定義小區多邊形" &>
+/util/workflow.mas:step, title=> "定義小區多邊形 GeoJSON(Define Plot Polygons GeoJSON)" &>
+                        <& /page/page_title.mas, title=>"批次定義小區多邊形(Bulk Define Plot Polygons)" &>
 
                         <h4>上傳一個 Zip 壓縮檔 (.zip)，其中包含詳細描述小區多邊形座標位置的 GeoJSON (.geojson) 檔案。</h4>
 
@@ -5022,19 +5022,19 @@ title=>"批次定義拍攝批次" &>
 
                         <hr>
                         <center>
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步(Next Step)</button>
         
                         </center>
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出至資料庫" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出至資料庫(Submit To Database)" &>
 
                         <div id="upload_drone_imagery_bulk_previous_verify_status"></div>
 
                         <center>
                    
-                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_bulk_previous_submit" id="upload_drone_imagery_bulk_previous_submit">送出。
+                            <button type="submit" class="btn btn-info" name="upload_drone_imagery_bulk_previous_submit" id="upload_drone_imagery_bulk_previous_submit">送出(Submit)。
                             請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
@@ -5045,7 +5045,7 @@ title=>"批次定義拍攝批次" &>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -5056,7 +5056,7 @@ title=>"批次定義拍攝批次" &>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryBulkDialog">批次上傳拍攝批次的空拍影像</h4>
+        <h4 class="modal-title" id="uploadDroneImageryBulkDialog">批次上傳拍攝批次的空拍影像(Bulk Upload Aerial Imaging Events)</h4>
       </div>
       <div class="modal-body">
      
@@ -5067,8 +5067,8 @@ title=>"批次定義拍攝批次" &>
                 <&|
 /util/workflow.mas, id=> "drone_imagery_upload_bulk_workflow" &>
                     <&|
-/util/workflow.mas:step, title=> "簡介" &>
-                        <& /page/page_title.mas, title=>"此流程將引導您將空拍影像上傳至資料庫" &>
+/util/workflow.mas:step, title=> "簡介(Intro)" &>
+                        <& /page/page_title.mas, title=>"此流程將引導您將空拍影像上傳至資料庫(This Workflow Will Guide You Through Uploading Aerial Imagery)" &>
                         <p>您的田間試驗必須已存在於資料庫中，才能上傳影像。
                         如果不存在，請前往 <a href="/breeders/trials">管理->田間試驗</a>。
                         請確保種植日期也已設定！</p>
@@ -5084,12 +5084,12 @@ title=>"批次定義拍攝批次" &>
                         <br/>
                         <center>
                         <button class="btn btn-primary" onclick="Workflow.complete(this);
- return false;">下一步</button>
+ return false;">下一步(Next Step)</button>
                         </center>
                     </&>
-                    <&| /util/workflow.mas:step, title=> "定義拍攝批次" &>
+                    <&| /util/workflow.mas:step, title=> "定義拍攝批次(Define Imaging Events)" &>
                         <& /page/page_title.mas, 
-title=>"批次定義拍攝批次" &>
+title=>"批次定義拍攝批次(Bulk Define Imaging Events)" &>
 
                         <h4>上傳的 Excel 檔案 (.xls) 必須包含以下標題：</h4>
 
@@ -5097,25 +5097,25 @@ title=>"批次定義拍攝批次" &>
                             <tbody>
        
                                 <tr>
-                                    <th>Imaging Event Name (拍攝批次名稱)</th>
-                                    <th>Company (公司)</th>
+                                    <th>成像事件名稱(Imaging Event Name)</th>
+                                    <th>公司(Company)</th>
  
-                                    <th>Type (類型)</th>
-                                    <th>Description (描述)</th>
+                                    <th>類型(Type)</th>
+                                    <th>描述(Description)</th>
                              
-                                    <th>Date (日期)</th>
-                                    <th>Vehicle Name (載具名稱)</th>
-                                    <th>Vehicle Battery Set (載具電池組)</th>
+                                    <th>日期(Date)</th>
+                                    <th>載具名稱(Vehicle Name)</th>
+                                    <th>載具電池組(Vehicle Battery Set)</th>
                   
-                                    <th>Sensor (感測器)</th>
-                                    <th>Field Trial Name (田間試驗名稱)</th>
-                                    <th>Image Filenames (影像檔名)</th>
+                                    <th>感測器(Sensor)</th>
+                                    <th>田間試驗名稱(Field Trial Name)</th>
+                                    <th>影像檔名(Image Filenames)</th>
        
-                                    <th>Coordinate System (座標系統)</th>
-                                    <th>Orthophoto Product Type (正射影像產品類型)</th>
+                                    <th>座標系統(Coordinate System)</th>
+                                    <th>正射影像產品類型(Orthophoto Product Type)</th>
                                 
-                                    <th>Base Date (基準日期)</th>
-                                    <th>Camera Rig (相機設備)</th>
+                                    <th>基準日期(Base Date)</th>
+                                    <th>相機設備(Camera Rig)</th>
                                 </tr>
                           
                             </tbody>
@@ -5166,13 +5166,13 @@ title=>"批次定義拍攝批次" &>
                         </div>
 
                         <center>
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步(Next Step)</button>
                         </center>
      
                     </&>
                     <&|
-/util/workflow.mas:step, title=> "上傳正射網格影像" &>
-                        <& /page/page_title.mas, title=>"批次上傳拍攝批次的正射網格影像" &>
+/util/workflow.mas:step, title=> "上傳正射網格影像(Upload Orthophoto Grid)" &>
+                        <& /page/page_title.mas, title=>"批次上傳拍攝批次的正射網格影像(Bulk Upload Imaging Event Orthophoto Grids)" &>
 
                         <h4>上傳一個 Zip 壓縮檔 (.zip)，其中包含依照上一步驟中「Image Filenames」定義命名的正射影像 (.tiff, .png, .jpeg)。</h4>
                
@@ -5204,19 +5204,19 @@ title=>"批次定義拍攝批次" &>
 
         
                         <center>
-                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步</button>
+                        <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">下一步(Next Step)</button>
                         </center>
                     </&>
         
                     <&|
-/util/workflow.mas:step, title=> "送出" &>
-                        <& /page/page_title.mas, title=>"送出至資料庫" &>
+/util/workflow.mas:step, title=> "送出(Submit)" &>
+                        <& /page/page_title.mas, title=>"送出至資料庫(Submit To Database)" &>
 
                         <div id="upload_drone_imagery_bulk_verify_status"></div>
 
                         <center>
                    
-                            <button type="submit" class="btn btn-primary" name="upload_drone_imagery_bulk_submit" id="upload_drone_imagery_bulk_submit">送出。
+                            <button type="submit" class="btn btn-primary" name="upload_drone_imagery_bulk_submit" id="upload_drone_imagery_bulk_submit">送出(Submit)。
                             請點擊一次並耐心等候，這可能需要很長時間。</button>
                         </center>
                     </&>
@@ -5227,7 +5227,7 @@ title=>"批次定義拍攝批次" &>
       </div>
    
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -5238,7 +5238,7 @@ title=>"批次定義拍攝批次" &>
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadDroneImageryAddNewVehicleDialog">新增拍攝載具</h4>
+        <h4 class="modal-title" id="uploadDroneImageryAddNewVehicleDialog">新增拍攝載具(Add New Imaging Vehicle)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -5278,12 +5278,12 @@ title=>"批次定義拍攝批次" &>
             </div>
             <br/><br/>
             <center>
-                <button class="btn btn-primary" type="button" id="drone_run_new_imaging_vehicle_submit" name="drone_run_new_imaging_vehicle_submit">送出</button>
+                <button class="btn btn-primary" type="button" id="drone_run_new_imaging_vehicle_submit" name="drone_run_new_imaging_vehicle_submit">送出(Submit)</button>
             </center>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
     
       </div>
     </div>
@@ -6398,7 +6398,7 @@ jQuery(document).ready(function() {
     //            jQuery('#drone_run_id').val(response.drone_run_project_id);
     //            jQuery('#drone_image_upload_drone_run_band_stitching_odm_image_count').val(response.current_image_count);
     //
-    //            alert('Select another zip file and submit! If this is your last file to upload, make sure to change the select to No.');
+    //            alert('請選取另一個 zip 壓縮檔並送出！如果這是您要上傳的最後一個檔案，請務必將選取項目變更為「否」。');
     //            return;
     //        }
     //    }

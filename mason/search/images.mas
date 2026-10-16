@@ -4,70 +4,70 @@
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'thickbox', 'jquery.dataTables' ] &>
 
-<& /page/page_title.mas, title => "Image Search" &>
+<& /page/page_title.mas, title => "影像搜尋(Image Search)" &>
 
-<&| /page/info_section.mas, title=>"Image Search Criteria",  collapsible => 1, collapsed=>0, subtitle => "All images may not have names, descriptions, or tags associated with them."&>
+<&| /page/info_section.mas, title=>"影像搜尋條件(Image Search Criteria)",  collapsible => 1, collapsed=>0, subtitle => "並非所有影像都具有相關聯的名稱、描述或標籤。"&>
 
     <div id="image_search_form" class="well well-sm">
         <div class="form-horizontal" >
             <div class="form-group">
-                <label class="col-sm-6 control-label">Image descriptors (name, description, or filename): </label>
+                <label class="col-sm-6 control-label">影像描述項 (名稱、描述或檔案名稱 / Image descriptors): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_description_filename_composite" name="image_description_filename_composite" placeholder="e.g. MyImageName" />
+                    <input class="form-control" type="text" id="image_description_filename_composite" name="image_description_filename_composite" placeholder="例如：MyImageName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Company: </label>
+                <label class="col-sm-6 control-label">公司/單位(Company): </label>
                 <div class="col-sm-6" >
                     <div id="image_private_company_div"></div>
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Submitter: </label>
+                <label class="col-sm-6 control-label">提交者(Submitter): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_submitter" name="image_submitter" placeholder="e.g. JaneDoe" />
+                    <input class="form-control" type="text" id="image_submitter" name="image_submitter" placeholder="例如：JaneDoe" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Image tag: </label>
+                <label class="col-sm-6 control-label">影像標籤(Image Tag): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_tag" name="image_tag" placeholder="e.g. ImageTagName" />
+                    <input class="form-control" type="text" id="image_tag" name="image_tag" placeholder="例如：ImageTagName" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Associated stock: </label>
+                <label class="col-sm-6 control-label">關聯材料(Associated Stock): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_stock_uniquename" name="image_stock_uniquename" placeholder="e.g. FieldPlot100" />
+                    <input class="form-control" type="text" id="image_stock_uniquename" name="image_stock_uniquename" placeholder="例如：FieldPlot100" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-6 control-label">Associated project: </label>
+                <label class="col-sm-6 control-label">關聯專案/試驗(Associated Project): </label>
                 <div class="col-sm-6" >
-                    <input class="form-control" type="text" id="image_project_name" name="image_project_name" placeholder="e.g. DroneProject 01/01/2019" />
+                    <input class="form-control" type="text" id="image_project_name" name="image_project_name" placeholder="例如：DroneProject 01/01/2019" />
                 </div>
             </div>
         </div>
 
         <center>
-        <button class="btn btn-primary" id="image_search_submit" >Search</button>
+        <button class="btn btn-primary" id="image_search_submit" >搜尋(Search)</button>
         </center>
     </div>
 </&>
 
-<&| /page/info_section.mas, title=>"Image Search Results",  collapsible => 1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>"影像搜尋結果(Image Search Results)",  collapsible => 1, collapsed=>0 &>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
                 <table id="images_search_results" class="table table-hover table-striped">
                 <thead>
                   <tr>
-                    <th>Image Thumbnail</th>
-                    <th>Company</th>
-                    <th>Filename</th>
-                    <th>Description</th>
-                    <th>Submitter</th>
-                    <th>Associations</th>
-                    <th>Tags</th>
+                    <th>影像縮圖(Image Thumbnail)</th>
+                    <th>公司/單位(Company)</th>
+                    <th>檔案名稱(Filename)</th>
+                    <th>描述(Description)</th>
+                    <th>提交者(Submitter)</th>
+                    <th>關聯(Associations)</th>
+                    <th>標籤(Tags)</th>
                 </tr>
                 </thead>
                 </table>

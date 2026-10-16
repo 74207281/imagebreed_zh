@@ -3,19 +3,19 @@
 
 <div id="brapi_home_study_table_div">
 
-    <h4>Study Observation Units Table</h4>
-    <input name="brapi_home_studytabledbid" id="brapi_home_studytabledbid" class="form-control" type="text" placeholder="StudyDbId e.g. 139" value="139"/>
+    <h4>研究觀測單位表格(Study Observation Units Table)</h4>
+    <input name="brapi_home_studytabledbid" id="brapi_home_studytabledbid" class="form-control" type="text" placeholder="研究資料庫 ID 如 139(StudyDbId e.g. 139)" value="139"/>
     <select name="brapi_home_studytable_datalevel" id="brapi_home_studytable_datalevel" class="form-control" />
-        <option value="plot">Plot</option>
-        <option value="plant">Plant</option>
-        <option value="all">All</option>
+        <option value="plot">小區(Plot)</option>
+        <option value="plant">植株(Plant)</option>
+        <option value="all">全部(All)</option>
     </select>
     <select name="brapi_home_studytable_format" id="brapi_home_studytable_format" class="form-control" />
-        <option value="json">JSON (transformed to HTML table)</option>
+        <option value="json">JSON（轉換為 HTML 表格）(JSON (transformed to HTML table))</option>
         <option value="csv">CSV</option>
         <option value="xls">Excel (xls)</option>
     </select>
-    <button class="btn btn-primary" name="brapi_home_studytabledbid_submit" id="brapi_home_studytabledbid_submit">Get Phenotypes</button>
+    <button class="btn btn-primary" name="brapi_home_studytabledbid_submit" id="brapi_home_studytabledbid_submit">獲取表型(Get Phenotypes)</button>
     <br/><br/>
     <div id="brapi_studytable_detail_result_div">
     </div>
@@ -35,13 +35,13 @@ jQuery(document).ready(function() {
               'method': 'GET',
               'success': function(response) {
                 console.log(response);
-                var html = '<table class="table table-bordered"><thead><tr><th>StudyDbId</th><th>HeaderRow</th><th>ObservationVariableDbIds</th><th>ObservationVariableNames</th></tr></thead><tbody><tr><td>'+response.result.studyDbId+'</td><td>'+response.result.headerRow+'</td><td>'+response.result.observationVariableDbIds+'</td><td>'+response.result.observationVariableNames+'</td></tr></tbody></table>';
+                var html = '<table class="table table-bordered"><thead><tr><th>研究資料庫 ID(StudyDbId)</th><th>標頭列(HeaderRow)</th><th>觀測變數資料庫 ID(ObservationVariableDbIds)</th><th>觀測變數名稱(ObservationVariableNames)</th></tr></thead><tbody><tr><td>'+response.result.studyDbId+'</td><td>'+response.result.headerRow+'</td><td>'+response.result.observationVariableDbIds+'</td><td>'+response.result.observationVariableNames+'</td></tr></tbody></table>';
                 jQuery('#brapi_studytable_detail_result_div').empty().html(html);
                 brapi_create_paginated_table(response.result.data, response.metadata.pagination, 'brapi_studytable_data_result_div', jQuery('#brapi_home_url_select').val()+'/brapi/v1/studies/'+jQuery('#brapi_home_studytabledbid').val()+'/table?format='+jQuery('#brapi_home_studytable_format').val()+'&observationLevel='+jQuery("#brapi_home_studytable_datalevel").val(),  undefined);
 
               },
               error: function(response) {
-                alert('An error occurred');
+                alert('發生錯誤(An error occurred)');
               }
             });
         } else {

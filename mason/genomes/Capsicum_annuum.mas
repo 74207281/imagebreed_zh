@@ -1,35 +1,31 @@
 <%args>
   $organism
 </%args>
-<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> Genome Data' &>
+<& /page/page_title.mas, title => '<i>'.$organism->species.'</i> 基因組數據(Genome Data)' &>
 
 <!-- <div class="page_introduction"> -->
 <p>
-Linked-read sequencing technology was used to create a phased assembly that was scaffolded into chromosomes for an F1 of a wide cross (UCD-10X-F1) between a landrace, Criollos de Morelos 334 (CM334) and a nonpungent blocky pepper-breeding line. Please see <a href="https://www.nature.com/articles/s41438-017-0011-0">Hulse-Kemp et al. (2017)</a> for more details. This genome is available in <a href="/tools/blast?db_id=301">blast</a> and on the <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/C.annuum_UCD10X/">FTP site</a>.  
+利用鏈接讀段(Linked-read)定序技術為地方品種 Criollos de Morelos 334 (CM334) 與非辛辣塊狀甜椒育種系之間的遠緣雜交 F1 (UCD-10X-F1) 建立了定相組裝並架構到染色體中。詳情請參閱 <a href="https://www.nature.com/articles/s41438-017-0011-0">Hulse-Kemp 等人 (2017)</a>。該基因組可在 <a href="/tools/blast?db_id=301">BLAST</a> 和 <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/C.annuum_UCD10X/">FTP 網站(FTP site)</a> 上獲取。(Linked-read sequencing technology was used to create a phased assembly that was scaffolded into chromosomes for an F1 of a wide cross (UCD-10X-F1) between a landrace, Criollos de Morelos 334 (CM334) and a nonpungent blocky pepper-breeding line. Please see <a href="https://www.nature.com/articles/s41438-017-0011-0">Hulse-Kemp et al. (2017)</a> for more details. This genome is available in <a href="/tools/blast?db_id=301">blast</a> and on the <a href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/C.annuum_UCD10X/">FTP site</a>.)
 </p>
 <p>
-The hot pepper genome (Mexican landrace of <i>Capsicum annuum</i> cv. CM334) has been sequenced by an international group of scientists from Korea, Israel and USA.
-The sequence was published in <a href="http://www.nature.com/ng/journal/v46/n3/full/ng.2877.html" target="_blank">Nature Genetics</a> in January 2014.
-The official page for this genome sequences is <a href="http://peppergenome.snu.ac.kr/" target="_blank">http://peppergenome.snu.ac.kr/</a>.
+辣椒基因組（墨西哥地方品種 <i>Capsicum annuum</i> 品種 CM334）已由來自韓國、以色列和美國的國際科學家團隊完成定序。該序列於 2014 年 1 月發表在 <a href="http://www.nature.com/ng/journal/v46/n3/full/ng.2877.html" target="_blank">Nature Genetics</a> 上。該基因組序列的官方網頁為 <a href="http://peppergenome.snu.ac.kr/" target="_blank">http://peppergenome.snu.ac.kr/</a>。(The hot pepper genome (Mexican landrace of <i>Capsicum annuum</i> cv. CM334) has been sequenced by an international group of scientists from Korea, Israel and USA. The sequence was published in <a href="http://www.nature.com/ng/journal/v46/n3/full/ng.2877.html" target="_blank">Nature Genetics</a> in January 2014. The official page for this genome sequences is <a href="http://peppergenome.snu.ac.kr/" target="_blank">http://peppergenome.snu.ac.kr/</a>.)
 </p>
 <p>
-The genome sequence for hot pepper. <i>C. annuum</i> cv. CM334 (Criollo de Morelos 334), a diploid and a landrace collected from the Mexican state of Morelos, was sequenced to 186.6X coverage using Illumina technology. The genome assembly was annotated with the <a href="http://www.nature.com/ng/journal/v46/n3/extref/ng.2877-S1.pdf">PGA annotation pipeline</a>. CM334 genome assembly, pseudomolecules, annotations and C. chinense genome assembly are available through the links below.<br>
+辣椒基因組序列。從墨西哥莫雷洛斯州收集的二倍體地方品種 <i>C. annuum</i> 品種 CM334 (Criollo de Morelos 334)，使用 Illumina 技術進行了 186.6 倍覆蓋度定序。基因組組裝使用 <a href="http://www.nature.com/ng/journal/v46/n3/extref/ng.2877-S1.pdf">PGA 註釋管線(PGA annotation pipeline)</a> 進行註釋。CM334 基因組組裝、偽分子、註釋以及 C. chinense 基因組組裝可透過以下連結取得。<br>(The genome sequence for hot pepper. <i>C. annuum</i> cv. CM334 (Criollo de Morelos 334), a diploid and a landrace collected from the Mexican state of Morelos, was sequenced to 186.6X coverage using Illumina technology. The genome assembly was annotated with the <a href="http://www.nature.com/ng/journal/v46/n3/extref/ng.2877-S1.pdf">PGA annotation pipeline</a>. CM334 genome assembly, pseudomolecules, annotations and C. chinense genome assembly are available through the links below.<br>)
 </p>
 
 <p>
-The complete genomes of wild Mexican pepper accession “Chiltepin” and a Chinese inbred derivative “Zunla-1” was also sequenced and published on the same date by research groups from China and Mexico.
-The genome sequence for these pepper varieties was published in <a href="http://www.pnas.org/content/111/14/5135.abstract" target="_blank">PNAS</a> in January 2014.
-The official page for this genome sequences is <a href="http://peppersequence.genomics.cn/" target="_blank">http://peppersequence.genomics.cn/</a>.
+來自中國和墨西哥的研究團隊也在同一天完成並發表了野生墨西哥辣椒種質「Chiltepin」和中國自交系衍生品系「遵辣 1 號 (Zunla-1)」的全基因組定序。這些辣椒品種的基因組序列於 2014 年 1 月發表在 <a href="http://www.pnas.org/content/111/14/5135.abstract" target="_blank">PNAS</a> 上。該基因組序列的官方網頁為 <a href="http://peppersequence.genomics.cn/" target="_blank">http://peppersequence.genomics.cn/</a>。(The complete genomes of wild Mexican pepper accession “Chiltepin” and a Chinese inbred derivative “Zunla-1” was also sequenced and published on the same date by research groups from China and Mexico. The genome sequence for these pepper varieties was published in <a href="http://www.pnas.org/content/111/14/5135.abstract" target="_blank">PNAS</a> in January 2014. The official page for this genome sequences is <a href="http://peppersequence.genomics.cn/" target="_blank">http://peppersequence.genomics.cn/</a>.)
 </p>
 
 <p>
-<i>C. annuum</i> genome, gene and protein sequences are accessible on the SGN BLAST tool and can be downloaded from the SGN ftp site. <i>C. annuum</i> cv. CM334 genome sequence is also available on SGN JBrowse.
+可在 SGN BLAST 工具上訪問 <i>C. annuum</i> 基因組、基因和蛋白質序列，並可從 SGN FTP 網站下載。<i>C. annuum</i> 品種 CM334 基因組序列也可在 SGN JBrowse 上查閱。(<i>C. annuum</i> genome, gene and protein sequences are accessible on the SGN BLAST tool and can be downloaded from the SGN ftp site. <i>C. annuum</i> cv. CM334 genome sequence is also available on SGN JBrowse.)
 </p>
 <!-- </div> -->
 
 <center>
     <a id="blue_button" href="/tools/blast/?db_id=217" target="_blank">BLAST</a>&nbsp;&nbsp;
-    <a id="blue_button" href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/" target="_blank">FTP Site</a>&nbsp;&nbsp;
+    <a id="blue_button" href="ftp://ftp.solgenomics.net/genomes/Capsicum_annuum/" target="_blank">FTP 網站(FTP Site)</a>&nbsp;&nbsp;
     <a id="blue_button" href="http://solgenomics.net/jbrowse_solgenomics/?data=data%2Fjson%2FPepper.v.1.55&loc=Pepper1.55ch01" target="_blank" style="background-image:none;">JBrowse</a>&nbsp;&nbsp;
 </center>
 
@@ -51,7 +47,7 @@ The official page for this genome sequences is <a href="http://peppersequence.ge
 
 
 <&| /page/info_section.mas,
-      title       => 'Sequence datasets',
+      title       => '序列數據集(Sequence datasets)',
       collapsible => 1,
       hide_if_empty => 1
  &>
@@ -60,7 +56,7 @@ The official page for this genome sequences is <a href="http://peppersequence.ge
 
 
 <&| /page/info_section.mas,
-      title       => 'Browsable annotations',
+      title       => '可瀏覽之註釋(Browsable annotations)',
       collapsible => 1,
       hide_if_empty => 1,
  &>
@@ -70,7 +66,7 @@ The official page for this genome sequences is <a href="http://peppersequence.ge
 </&>
 
 <&| /page/info_section.mas,
-      title       => 'Annotation datasets',
+      title       => '註釋數據集(Annotation datasets)',
       collapsible => 1,
       hide_if_empty => 1,
  &>

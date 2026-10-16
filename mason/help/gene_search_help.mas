@@ -1,79 +1,78 @@
 
-<& /page/page_title.mas, title=>"Gene Search Help" &>
+<& /page/page_title.mas, title=>"基因搜尋說明(Gene Search Help)" &>
 
 <p>
-The <a href="/search/direct_search.pl?search=loci">gene search</a> is a tool for searching genes in SGN's database. 
-These genes originate from various sources, including GenBank, PubMed literature mining, historic collections of gene names, and SGN user-contributed data.
+<a href="/search/direct_search.pl?search=loci">基因搜尋(gene search)</a>是在 SGN 資料庫中搜尋基因的工具。這些基因源自各種來源，包括 GenBank、PubMed 文獻探勘、歷史基因名稱集合以及 SGN 使用者貢獻的資料。(The gene search is a tool for searching genes in SGN's database. These genes originate from various sources, including GenBank, PubMed literature mining, historic collections of gene names, and SGN user-contributed data.)
 </p>
 
-<img src="/documents/help/screenshots/gene_search_help.png" alt="screenshot of gene search form" style="margin: auto; border: 1px solid black;" />
+<img src="/documents/help/screenshots/gene_search_help.png" alt="基因搜尋表單截圖(screenshot of gene search form)" style="margin: auto; border: 1px solid black;" />
 
-<h4>1. Simple search option: search by locus or allele name or symbol</h4>
+<h4>1. 簡易搜尋選項：依基因座或對偶基因名稱或符號搜尋(Simple search option: search by locus or allele name or symbol)</h4>
 <p>
-Use this option for searching the database for genes with a locus or allele name/symbol/synonym/description containing what you typed in. You can search these fields for an exact match, begin with or end with your input, by selecting the desired option from the drop-down menu. 
-The search is case-insensitive.
+使用此選項可在資料庫中搜尋基因座或對偶基因名稱/符號/同義詞/描述中包含您輸入內容的基因。您可以從下拉選單中選擇所需選項，以搜尋這些欄位中的完全相符、以此開頭或以此結尾之內容。(Use this option for searching the database for genes with a locus or allele name/symbol/synonym/description containing what you typed in. You can search these fields for an exact match, begin with or end with your input, by selecting the desired option from the drop-down menu.) 
+搜尋不區分大小寫。(The search is case-insensitive.)
 
-
-</p>
-
-
-<p>
-<b>The following search options can be combined with the generic locus/allele search option. These are visible by clicking the \'Advanced search options\' button:</b>.
-</p>
-
-<h4>2. Organism</h4>
-<p>
-In this drop-down menu you will see a list of the common names of species that make up the collection of genes. You can use this optionfor limiting your search results to loci of only the organism you selected.
 
 </p>
 
 
-<h4>3. Chromosome</h4>
 <p>
-Choose a chromosome from this menu to limit results to loci mapped on that chromosome or linkage group.
+<b>以下搜尋選項可與一般基因座/對偶基因搜尋選項結合使用。點擊「進階搜尋選項(Advanced search options)」按鈕即可查看這些選項：(The following search options can be combined with the generic locus/allele search option. These are visible by clicking the 'Advanced search options' button:)</b>
+</p>
+
+<h4>2. 生物/物種(Organism)</h4>
+<p>
+在此下拉選單中，您將看到構成基因收藏之物種的俗名清單。您可以使用此選項將搜尋結果限制為僅您所選生物的基因座。(In this drop-down menu you will see a list of the common names of species that make up the collection of genes. You can use this optionfor limiting your search results to loci of only the organism you selected.)
+
+</p>
+
+
+<h4>3. 染色體(Chromosome)</h4>
+<p>
+從此選單中選擇染色體，以將結果限制為在該染色體或連鎖群上定位的基因座。(Choose a chromosome from this menu to limit results to loci mapped on that chromosome or linkage group.)
 
 
 </p>
 
-<h4>4. Locus editor</h4>
+<h4>4. 基因座編輯者(Locus editor)</h4>
 <p>
-Each locus in the genes database has an owner (either an SGN curator or a submitter). the owner also has certain edit privileges. You can search for loci owned by a specific <a href= "../search/direct_search.pl?search=directory">SGN user</a> by typing a first or a last name.
-Anyone interested in obtaining an SGN user account may do so by <a href="../solpeople/new-account.pl">signing up for a new account</a>. After obtaining an SGN user account you may upload new loci to SGN\'s database.
-If you are interested in obtaining editor privileges to a specific locus, please follow the link in the locus details page.  
+基因資料庫中的每個基因座都有一位擁有者（SGN 管理員或提交者）。擁有者亦擁有特定的編輯權限。您可以透過輸入名字或姓氏來搜尋特定 <a href= "../search/direct_search.pl?search=directory">SGN 使用者(SGN user)</a> 所擁有的基因座。(Each locus in the genes database has an owner (either an SGN curator or a submitter). the owner also has certain edit privileges. You can search for loci owned by a specific SGN user by typing a first or a last name.)
+任何有興趣取得 SGN 使用者帳號的人皆可透過 <a href="../solpeople/new-account.pl">註冊新帳號(signing up for a new account)</a> 來建立。取得 SGN 使用者帳號後，您即可向 SGN 資料庫上傳新的基因座。(Anyone interested in obtaining an SGN user account may do so by signing up for a new account. After obtaining an SGN user account you may upload new loci to SGN's database.)
+若您有興趣取得特定基因座的編輯者權限，請點擊基因座詳情頁面中的連結。(If you are interested in obtaining editor privileges to a specific locus, please follow the link in the locus details page.)
 
 
 </p>
 
-<h4>5. Annotation features</h4>
+<h4>5. 註解特徵(Annotation features)</h4>
 <p>
-Use these checkboxes for narrowing your search to only genes with one or more of the following features:
+使用這些核取方塊將搜尋縮小為僅包含具有下列一項或多項特徵的基因：(Use these checkboxes for narrowing your search to only genes with one or more of the following features:)
 <ul>
-<li>Sequence: genes that have sequence annotation (GenBank ID and/or SGN unigene ID)</li>
-<li>Marker: genes that correspond to a specific marker from SGN\'s <a href="../search/direct_search.pl?search=markers">marker database</a></li>
-<li>GO/PO annotation: genes that are annotated to at least one  <a href="http://geneontology.org">Gene Ontology</a> or <a href="http://plantontology.org">Plant Ontology</a> term</li>
+<li>序列(Sequence)：具有序列註解的基因（GenBank ID 和/或 SGN unigene ID）(genes that have sequence annotation (GenBank ID and/or SGN unigene ID))</li>
+<li>標記(Marker)：對應於來自 SGN <a href="../search/direct_search.pl?search=markers">標記資料庫(marker database)</a>中特定標記的基因。(genes that correspond to a specific marker from SGN's marker database)</li>
+<li>GO/PO 註解(GO/PO annotation)：註解至至少一個 <a href="http://geneontology.org">基因本體(Gene Ontology)</a> 或 <a href="http://plantontology.org">植物本體(Plant Ontology)</a> 詞彙的基因。(genes that are annotated to at least one Gene Ontology or Plant Ontology term)</li>
 
 </ul>
 
 </p>
 
-<h4>6. Phenotype</h4>
+<h4>6. 表型(Phenotype)</h4>
 <p>
-Some genes may have a phenotype description, either as an associated allele, or an associated phenotyped accession. This option  will narrow the search results for  only genes with a phenotype description containing the word or string you typed in. 
-For searching phenotypes of accessions not necessarily associated with a gene, you should use SGN\'s <a href="../search/direct_search.pl?search=phenotypes">phenotype search</a> page. 
+某些基因可能具有表型描述，可能作為關聯的對偶基因或關聯的表型鑑定品系。此選項將搜尋結果縮小為僅包含表型描述中含有您輸入單字或字串的基因。(Some genes may have a phenotype description, either as an associated allele, or an associated phenotyped accession. This option will narrow the search results for only genes with a phenotype description containing the word or string you typed in.) 
+若要搜尋不一定與基因關聯的品系表型，請使用 SGN 的 <a href="../search/direct_search.pl?search=phenotypes">表型搜尋(phenotype search)</a> 頁面。(For searching phenotypes of accessions not necessarily associated with a gene, you should use SGN's phenotype search page.) 
 
 </p>
 
-<h4>7. Ontology term</h4>
+<h4>7. 本體詞彙(Ontology term)</h4>
 <p>
-Use this box for searching for genes that are annotated to specific <a href="http://geneontology.org">Gene Ontology</a> or <a href="http://plantontology.org">Plant Ontology</a> terms. You may search for ontology annotations by typing any part of the ontology term ID, term name, term synonym, or term definition.
+使用此方塊搜尋註解至特定 <a href="http://geneontology.org">基因本體(Gene Ontology)</a> 或 <a href="http://plantontology.org">植物本體(Plant Ontology)</a> 詞彙的基因。您可以透過輸入本體詞彙 ID、詞彙名稱、詞彙同義詞或詞彙定義的任何部分來搜尋本體註解。(Use this box for searching for genes that are annotated to specific Gene Ontology or Plant Ontology terms. You may search for ontology annotations by typing any part of the ontology term ID, term name, term synonym, or term definition.)
 
 
 </p>
 
 
-<h4>8. GenBank ID</h4>
+<h4>8. GenBank 編號(GenBank ID)</h4>
 <p>
-Use this box for searching genes annotated to a specific GenBank ID. You may search using either a GI number or a GenBank accession.
+使用此方塊搜尋註解至特定 GenBank ID 的基因。您可以使用 GI 編號或 GenBank 登錄號進行搜尋。(Use this box for searching genes annotated to a specific GenBank ID. You may search using either a GI number or a GenBank accession.)
 
 
 </p>

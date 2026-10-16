@@ -29,13 +29,13 @@ foreach my $qtl_pop (@qtl_pops)
 
 <div class="container-fluid">
 
-<&| /page/info_section.mas, title => 'Search QTLs', collapsible=>1, collapsed=>0, subtitle=>'[<a href="/qtl/form">Submit QTL Data</a>]   [<a href="/qtl/submission/guide">Submission Guide</a>]   [<a href="/qtl/search/help">Search Help</a>]' &>
+<&| /page/info_section.mas, title => '搜尋數量性狀基因座(Search QTLs)', collapsible=>1, collapsed=>0, subtitle=>'[<a href="/qtl/form">提交QTL資料(Submit QTL Data)</a>]   [<a href="/qtl/submission/guide">提交指南(Submission Guide)</a>]   [<a href="/qtl/search/help">搜尋說明(Search Help)</a>]' &>
 
 <form  action= "/qtl/search/results" method="post">
   <table align=center cellpadding=20px>
     <tr>
       <td>
-        <h4>Browse Traits With QTLs: <% $links %></h4>
+        <h4>瀏覽具有QTL的性狀(Browse Traits With QTLs): <% $links %></h4>
       </td>
     </tr>
   </table>
@@ -43,18 +43,18 @@ foreach my $qtl_pop (@qtl_pops)
   <div class="well">
   <table align=center>
     <tr>
-      <td><h5>Search QTLs With Trait Name:</h5></td>
+      <td><h5>使用性狀名稱搜尋QTL(Search QTLs With Trait Name):</h5></td>
     </tr>
     <tr>
       <td><input class="form-control" type="text" name="trait" >
-      <br/><input class="btn btn-primary" type="submit" value="Search"></td>
+      <br/><input class="btn btn-primary" type="submit" value="搜尋(Search)"></td>
     </tr>
   </table>
   </div>
   <table align=center cellpadding=20px>
     <tr>
       <td>
-        <h4>Browse QTL Populations:</h4><br/><% $pop_links %>
+        <h4>瀏覽QTL群體(Browse QTL Populations):</h4><br/><% $pop_links %>
       </td>
     </tr>
   </table>

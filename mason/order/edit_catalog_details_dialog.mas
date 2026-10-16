@@ -18,13 +18,13 @@ $item_prop_id
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="editCatalogDetailsDialog">Edit Catalog Item Details</h4>
+                <h4 class="modal-title" id="editCatalogDetailsDialog">編輯目錄品項詳情(Edit Catalog Item Details)</h4>
             </div>
             <div class="modal-body" id="catalog_details_edit_body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_name">Item Name: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_name">品項名稱(Item Name)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <input class="form-control col-sm-8" id="edit_item_name" type="text" value="<%$item_name%>" disabled/>
@@ -32,7 +32,7 @@ $item_prop_id
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_species">Species: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_species">物種(Species)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <input class="form-control col-sm-8" id="edit_item_species" type="text" value="<%$species%>" disabled/>
@@ -40,30 +40,30 @@ $item_prop_id
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_type">Item Type: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_type">品項類型(Item Type)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <select class="form-control" id="edit_item_type" value="<%$item_type%>">
-                                        <option value="single item">single item</option>
-                                        <option value="set of items">set of items</option>
+                                        <option value="single item">單一品項(single item)</option>
+                                        <option value="set of items">品項組合(set of items)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_category">Item Category: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_category">品項類別(Item Category)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <select class="form-control" id="edit_item_category" value="<%$category%>">
-                                        <option value="released variety">released variety</option>
-                                        <option value="pathogen assay ">pathogen assay</option>
-                                        <option value="control">control</option>
+                                        <option value="released variety">已推廣品種(released variety)</option>
+                                        <option value="pathogen assay ">病原體檢測(pathogen assay)</option>
+                                        <option value="control">對照(control)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_description">Description: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_description">說明(Description)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <textarea class="form-control" id="edit_item_description" rows="3" maxlength="250"><% $description %></textarea>
@@ -71,7 +71,7 @@ $item_prop_id
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_material_source">Material Source: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_material_source">材料來源(Material Source)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <select class="form-control" id="edit_item_material_source" value="<%$material_source%>">
@@ -82,7 +82,7 @@ $item_prop_id
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_breeding_program">Breeding Program: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_breeding_program">育種計畫(Breeding Program)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <select class="form-control" id="edit_item_breeding_program" value="<%$program_id%>"></select>
@@ -90,19 +90,19 @@ $item_prop_id
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_item_availability">Availability: </label>
+                            <label class="col-sm-3 control-label" for="edit_item_availability">供貨狀態(Availability)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <select class="form-control" id="edit_item_availability" value="<%$availability%>">
-                                        <option value="in stock">in stock</option>
-                                        <option value="out of stock">out of stock</option>
-                                        <option value="available in 3 months">available in 3 months</option>
+                                        <option value="in stock">現貨(in stock)</option>
+                                        <option value="out of stock">缺貨(out of stock)</option>
+                                        <option value="available in 3 months">3個月內可供貨(available in 3 months)</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label" for="edit_contact_person">Contact Person Username: </label>
+                            <label class="col-sm-3 control-label" for="edit_contact_person">聯絡人使用者名稱(Contact Person Username)：</label>
                             <div class="col-sm-8">
                                 <div class="input-group">
                                     <input class="form-control col-sm-8" id="edit_contact_person" type="text" value="<%$contact_person_username%>" />
@@ -113,8 +113,8 @@ $item_prop_id
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_item_details_cancel_button">Cancel</button>
-                <button type="button" class="btn btn-primary" id="save_item_details">Save Changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="edit_item_details_cancel_button">取消(Cancel)</button>
+                <button type="button" class="btn btn-primary" id="save_item_details">儲存變更(Save Changes)</button>
             </div>
         </div>
     </div>
@@ -126,18 +126,18 @@ $item_prop_id
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="editCatalogSavedDialog">Success</h4>
+                <h4 class="modal-title" id="editCatalogSavedDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The catalog info was saved successfully.
+                        目錄資訊已成功儲存。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_edit_item_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_edit_item_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新整理(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -210,7 +210,7 @@ jQuery(document).ready( function() {
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred adding item');
+                alert('儲存品項時發生錯誤(An error occurred adding item)');
             }
         });
     });

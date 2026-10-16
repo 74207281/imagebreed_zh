@@ -1,24 +1,18 @@
-<& /page/page_title.mas, title => 'About Plant Cell Walls' &>
+<& /page/page_title.mas, title => '關於植物細胞壁(About Plant Cell Walls)' &>
 
 <div class="indented_content" style="margin: 20px auto 30px auto; width: 480px">
 
   <p>
-  Plant cell walls are typically considered as complex structural
-  matrices that surround all plant cells. They consist mostly of
-  polysaccharides, but also contain components such as lignin,
-  structural lipids and proteins in specialized cell types.
+  植物細胞壁通常被視為包圍所有植物細胞的複雜結構基質(Plant cell walls are typically considered as complex structural matrices that surround all plant cells)。它們主要由多醣組成，但在特化的細胞類型中也含有木質素、結構脂質和蛋白質等成分(They consist mostly of polysaccharides, but also contain components such as lignin, structural lipids and proteins in specialized cell types)。
   </p>
 
   <div style="width: 430px" class="captioned_image">
     <img src="/img/secretom/cell_wall_diagram_400.png" />
-    <p>Plant <a href="http://en.wikipedia.org/wiki/Cell_wall">cell wall</a> model</p>
+    <p>植物<a href="http://en.wikipedia.org/wiki/Cell_wall">細胞壁(cell wall)</a>模型(Plant cell wall model)</p>
   </div> 
 
   <p>
-  However, the term "plant cell wall" is also used more broadly to refer
-  to the entire compartment outside the plasma membrane that forms a
-  continuum throughout the plant, also termed the "apoplast", or
-  apoplastic compartment.
+  然而，「植物細胞壁」一詞也被更廣泛地用來指質膜外的整個區室，該區室在整個植物體內形成一個連續體，亦稱為「質外體（apoplast）」或質外體區室(However, the term "plant cell wall" is also used more broadly to refer to the entire compartment outside the plasma membrane that forms a continuum throughout the plant, also termed the "apoplast", or apoplastic compartment)。
   </p>
 
   <div style="width: 430px" class="captioned_image">
@@ -26,9 +20,7 @@
     <img src="/img/secretom/gfp_diffuse_400.png" />
 
     <p>
-      Green fluorescent protein that has diffused throughout the cell
-      wall and apoplastic compartment surrounding an onion epidermal
-      cell.  Scale bar represents 50 micrometers.
+      擴散至洋蔥表皮細胞周圍的細胞壁和質外體區室的綠色螢光蛋白（GFP）(Green fluorescent protein that has diffused throughout the cell wall and apoplastic compartment surrounding an onion epidermal cell)。比例尺代表 50 微米(Scale bar represents 50 micrometers)。
     </p>
 
   </div>

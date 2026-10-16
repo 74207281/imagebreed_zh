@@ -1,14 +1,14 @@
 
 
 <div class="boxbgcolor5">
-<div class="boxheading">Potato Genome Sequencing Resources</div>
+<div class="boxheading">馬鈴薯基因體定序資源(Potato Genome Sequencing Resources)</div>
 <div class="boxcontent">
 
-Download BAC by BAC data: <a href="ftp://ftp.solgenomics.net/potato_genome/">SGN FTP site</a><br />
-SGN Potato BLAST <a href="/tools/blast/?db_id=89">BACs</a> | 
-<a href="/tools/blast/?db_id=90">BAC ends</a>
+下載逐個 BAC 數據(Download BAC by BAC data): <a href="ftp://ftp.solgenomics.net/potato_genome/">SGN FTP 站點(SGN FTP site)</a><br />
+SGN 馬鈴薯 BLAST(SGN Potato BLAST) <a href="/tools/blast/?db_id=89">BAC</a> | 
+<a href="/tools/blast/?db_id=90">BAC 末端(BAC ends)</a>
 <br />
-Project website and shotgun data: <a href="http://www.potatogenome.net">http://www.potatogenome.net</a> <br />
+計畫網站與鳥槍法定序數據(Project website and shotgun data): <a href="http://www.potatogenome.net">http://www.potatogenome.net</a> <br />
 
 </div>
 

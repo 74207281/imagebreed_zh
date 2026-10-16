@@ -1,5 +1,6 @@
 #!/usr/bin/perl -w
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/  page_title_html
                                        blue_section_html
@@ -10,7 +11,7 @@ use CXGN::Transcript::Unigene;
 use CXGN::Transcript::CDS;
 use Bio::Seq;
 
-my $page = CXGN::Page->new( "ESTScan Details", "Chenwei Lin");
+my $page = CXGN::Page->new( "ESTScan 詳細資訊 (ESTScan Details)", "Chenwei Lin");
 my ($unigene_id) = $page->get_encoded_arguments("unigene_id");
 
 
@@ -43,8 +44,8 @@ foreach my $c (@cds) {
 	$estscan_pep_content = qq{<tr><td class="sequence">$estscan_pep_content</td></tr>};
 	$estscan_clean_cds_content = qq{<tr><td class="sequence">$estscan_clean_cds_content</td></tr>};
 	$direction_content = ($direction eq 'F') 
-	    ? '<tr><td>Forward</td></tr>'
-	    : '<tr><td>Reverse</td></tr>';
+	    ? '<tr><td>正向 (Forward)</td></tr>'
+	    : '<tr><td>反向 (Reverse)</td></tr>';
 	
 	$score_content = "<tr><td>$score</td></tr>";
 
@@ -54,19 +55,19 @@ foreach my $c (@cds) {
 }
 
 my $note_content = <<EOH;
-<br /><span style="color: blue">ACTGX</span><span style="color: gray"> -- Inserted by ESTScan</span>
-<br /><span style="color: red">actgn</span><span style="color: gray"> -- Deleted by ESTScan</span>
-<br /><span style="color: gray">ACTGN</span><span style="color: gray"> -- UTR Deleted by ESTScan</span>
+<br /><span style="color: blue">ACTGX</span><span style="color: gray"> -- 由 ESTScan 插入 (Inserted by ESTScan)</span>
+<br /><span style="color: red">actgn</span><span style="color: gray"> -- 由 ESTScan 刪除 (Deleted by ESTScan)</span>
+<br /><span style="color: gray">ACTGN</span><span style="color: gray"> -- 由 ESTScan 刪除之 UTR (UTR Deleted by ESTScan)</span>
 <br />
 EOH
 
 $page->header();
-print page_title_html("ESTScan Details for Unigene SGN-U$unigene_id");
-print blue_section_html('Score','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$score_content.'</table>');
-print blue_section_html('Direction', '<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$direction_content.'</table>');
-print blue_section_html('Predicted Peptide Sequence','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_pep_content.'</table>');
-print blue_section_html('Predicted Coding Sequence','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_clean_cds_content.'</table>');
-print blue_section_html('Edits in Original Sequence','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_edit_cds_content.'<tr><td>'. $note_content.'</td></tr>'.'</table>');
+print page_title_html("單一基因 SGN-U$unigene_id 的 ESTScan 詳細資訊 (ESTScan Details for Unigene SGN-U$unigene_id)");
+print blue_section_html('分數 (Score)','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$score_content.'</table>');
+print blue_section_html('方向 (Direction)', '<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$direction_content.'</table>');
+print blue_section_html('預測胜肽序列 (Predicted Peptide Sequence)','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_pep_content.'</table>');
+print blue_section_html('預測編碼序列 (Predicted Coding Sequence)','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_clean_cds_content.'</table>');
+print blue_section_html('原始序列編輯 (Edits in Original Sequence)','<table width="100%" cellpadding="0" cellspacing="0" border="0">'.$estscan_edit_cds_content.'<tr><td>'. $note_content.'</td></tr>'.'</table>');
 
 
 $page->footer();
@@ -77,7 +78,7 @@ sub empty_search {
 
   print <<EOF;
   <br />
-  <b>No unigene search criteria specified</b>
+  <b>未指定單一基因搜尋條件 (No unigene search criteria specified)</b>
 
 EOF
 
@@ -93,7 +94,7 @@ sub invalid_search {
 
   print <<EOF;
   <br />
-  <b>The specified unigene identifer ($unigene_id) does not result in a valid search.</b>
+  <b>指定的單一基因識別碼 ($unigene_id) 未產生有效搜尋 (The specified unigene identifier does not result in a valid search)。</b>
 
 EOF
 

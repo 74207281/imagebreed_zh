@@ -1,35 +1,25 @@
-<& /page/page_title.mas, title => 'Functional Screens to Identify Secreted Proteins' &>
+<& /page/page_title.mas, title => '鑑定分泌蛋白之功能性篩選(Functional Screens to Identify Secreted Proteins)' &>
 
 <div class="page_introduction">
   <p>
-  We have been developing and applying functional screens to identify
-  genes encoding secreted proteins. The genes are identified based on
-  the ultimate localization of the encoded protein, utilizing protein
-  markers whose activities confirm targeting to the cell surface.
+  我們一直在開發並應用功能性篩選來鑑定編碼分泌蛋白的基因(We have been developing and applying functional screens to identify genes encoding secreted proteins)。這些基因是根據所編碼蛋白質的最終定位來鑑定的，利用其活性可確認靶向細胞表面的蛋白質標記(The genes are identified based on the ultimate localization of the encoded protein, utilizing protein markers whose activities confirm targeting to the cell surface)。
   </p>
 </div>
 
-<&| /page/info_section.mas, title => 'Yeast Secretion Trap (YST) Screen' &>
+<&| /page/info_section.mas, title => '酵母分泌捕捉（YST）篩選(Yeast Secretion Trap (YST) Screen)' &>
 
   <div style="width: 330px; margin: 0; margin-right: 2em; float: left" class="captioned_image caption_right">
 
     <img src="/documents/img/secretom/YST_control_170.jpg" />
 
     <p>
-    Sucrose plate with no yeast colonies growing (negative control).
+    無酵母菌落生長的蔗糖培養基平板（陰性對照）(Sucrose plate with no yeast colonies growing (negative control))。
     </p>
 
   </div>
 
   <p>
-  The YST screen can be used to test a specific cDNA of interest, or to
-  screen a cDNA library.  The screen uses invertase, an enzyme that
-  hydrolyzes sucrose to generate glucose and fructose, as a reporter
-  gene/protein and yeast (<span class="species_binomial">S. cerevisiae</span>)
-  as a host. If yeast cells are streaked onto plates containing sucrose
-  as the sole carbon source, they must secrete invertase to break down
-  the sucrose in order to grow, and so an invertase-deficient yeast
-  mutant will be unable to grow.
+  YST 篩選可用於測試感興趣的特定 cDNA，或用於篩選 cDNA 文庫(The YST screen can be used to test a specific cDNA of interest, or to screen a cDNA library)。該篩選使用轉化酶（一種水解蔗糖生成葡萄糖和果糖的酵素）作為報告基因／蛋白質，並以酵母（<span class="species_binomial">S. cerevisiae</span>）作為宿主(The screen uses invertase, an enzyme that hydrolyzes sucrose to generate glucose and fructose, as a reporter gene/protein and yeast (S. cerevisiae) as a host)。如果將酵母細胞劃線接種在以蔗糖為唯一碳源的平板上，它們必須分泌轉化酶以分解蔗糖才能生長，因此缺乏轉化酶的酵母突變體將無法生長(If yeast cells are streaked onto plates containing sucrose as the sole carbon source, they must secrete invertase to break down the sucrose in order to grow, and so an invertase-deficient yeast mutant will be unable to grow)。
   </p>
 
 
@@ -38,7 +28,7 @@
     <img src="/documents/img/secretom/YST_transformed_170.jpg" />
 
     <p>
-    Sucrose plate showing yeast colonies transformed with the YST vector library.
+    顯示以 YST 載體文庫轉化之酵母菌落的蔗糖培養基平板(Sucrose plate showing yeast colonies transformed with the YST vector library)。
     </p>
 
   </div>
@@ -46,109 +36,71 @@
 
   <p>
 
-  This system can also identify plasma membrane (PM)-spanning or
-  PM-anchored proteins if the orientation of the fusion protein is such
-  that the invertase component is external to the cell. The resulting
-  yeast transformants can then be isolated and the plasmids containing
-  the heterologous transgenes sequenced, allowing identification of the
-  secreted protein. We typically also confirm the localization of
-  candidates of interest by transient expression as GFP fusion proteins
-  in onion epidermal cells, coupled with staining using the FM-64 dye to
-  co-stain for the plasma membrane,
+  如果融合蛋白的定向使得轉化酶組分位於細胞外部，則此系統還可以鑑定跨質膜（PM）或質膜錨定的蛋白質(This system can also identify plasma membrane (PM)-spanning or PM-anchored proteins if the orientation of the fusion protein is such that the invertase component is external to the cell)。然後可以分離所得的酵母轉化子，並對含有異源轉基因的質體進行定序，從而鑑定出分泌蛋白(The resulting yeast transformants can then be isolated and the plasmids containing the heterologous transgenes sequenced, allowing identification of the secreted protein)。我們通常還透過在洋蔥表皮細胞中瞬時表現為 GFP 融合蛋白，並結合使用 FM-64 染劑對質膜進行共染色，來確認感興趣候選者的定位(We typically also confirm the localization of candidates of interest by transient expression as GFP fusion proteins in onion epidermal cells, coupled with staining using the FM-64 dye to co-stain for the plasma membrane)。
 
   </p>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Necrosis Inducing Protein (NIP) Secretion Trap Screen' &>
+<&| /page/info_section.mas, title => '壞死誘導蛋白（NIP）分泌捕捉篩選(Necrosis Inducing Protein (NIP) Secretion Trap Screen)' &>
 
   <div style="width: 350px; float: right; margin: 0 0 10px 20px;" class="captioned_image caption_left">
 
     <img src="/documents/img/secretom/N_benth_NIP_x210.jpg" />
 
     <p style="text-align: left">
-    A <span class="species_binomial">Nicotiana benthamiana</span> leaf
-    showing regions of HR indicating the presence of a secreted
-    protein fused to NIP.
+    本氏菸草（<span class="species_binomial">Nicotiana benthamiana</span>）葉片顯示過敏反應（HR）區域，指示存在與 NIP 融合的分泌蛋白(A Nicotiana benthamiana leaf showing regions of HR indicating the presence of a secreted protein fused to NIP)。
     </p>
 
   </div>
 
   <p>
-  We have also developed a new technique termed the NIP secretion trap
-  screen. Briefly, this involves ligating cDNAs in frame at the 5&rsquo;
-  end of the DNA sequence encoding a gene termed necrosis-inducing
-  protein (NIP) that has been truncated to remove the native secretory
-  signal peptide. NIP was identified from the oomycete Phytophthora
-  sojae, as a protein that induces a hypersensitive response (HR),
-  resulting in cell death, in leaves of some plants when present in the
-  apoplast. It does not cause HR when expressed in the plant
-  cytosol. Constructs containing individual cDNA::Nip fusions are
-  transformed into <span class="species_binomial">Agrobacterium
-  tumefaciens</span>, which is then infiltrated into the apoplastic
-  compartment of Nicotiana benthamiana leaves. Any proteins encoding SPs
-  will be secreted from infected plant cells as NIP fusion proteins,
-  causing a readily detectable HR.
+  我們還開發了一種稱為 NIP 分泌捕捉篩選的新技術(We have also developed a new technique termed the NIP secretion trap screen)。簡而言之，這涉及在編碼壞死誘導蛋白（NIP）基因的 DNA 序列 5' 端以符合閱讀框方式接合 cDNA，該基因已經過截短以去除其天然分泌訊息胜肽(Briefly, this involves ligating cDNAs in frame at the 5' end of the DNA sequence encoding a gene termed necrosis-inducing protein (NIP) that has been truncated to remove the native secretory signal peptide)。NIP 是從大豆疫黴菌（Phytophthora sojae）中鑑定出的一種蛋白質，當其存在於質外體中時，會在某些植物的葉片中誘導過敏反應（HR），從而導致細胞死亡(NIP was identified from the oomycete Phytophthora sojae, as a protein that induces a hypersensitive response (HR), resulting in cell death, in leaves of some plants when present in the apoplast)。當在植物細胞質中表現時，它不會引起 HR(It does not cause HR when expressed in the plant cytosol)。含有個別 cDNA::Nip 融合的構築體被轉化到根癌農桿菌（<span class="species_binomial">Agrobacterium tumefaciens</span>）中，然後浸潤到本氏菸草葉片的質外體區室中(Constructs containing individual cDNA::Nip fusions are transformed into Agrobacterium tumefaciens, which is then infiltrated into the apoplastic compartment of Nicotiana benthamiana leaves)。任何編碼 SP 的蛋白質都將作為 NIP 融合蛋白從受感染的植物細胞中分泌出來，從而引起易於檢測的 HR(Any proteins encoding SPs will be secreted from infected plant cells as NIP fusion proteins, causing a readily detectable HR)。
   </p>
 
   <p>
-  The Nip fusion assay is a convenient and rapid means to confirm
-  secretion of proteins in planta and complements the YST screen.
+  Nip 融合檢測是在植物體內確認蛋白質分泌的便捷且快速的手段，並對 YST 篩選形成了互補(The Nip fusion assay is a convenient and rapid means to confirm secretion of proteins in planta and complements the YST screen)。
   </p>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Objectives', is_subsection => 0 &>
+<&| /page/info_section.mas, title => '目標(Objectives)', is_subsection => 0 &>
 
   <div style="width: 230px; margin: 0 0 10px 20px; float: right" class="captioned_image">
 
     <img src="/documents/img/secretom/onion_cyto_secreted_200.jpg" />
 
     <p style="text-align: left">
-    A cytoplasmic protein (green) and a secreted protein (red) in
-    plasmolyzed onion cells. Scale bar represents 50 microns.
+    質壁分離洋蔥細胞中的細胞質蛋白（綠色）和分泌蛋白（紅色）(A cytoplasmic protein (green) and a secreted protein (red) in plasmolyzed onion cells)。比例尺代表 50 微米(Scale bar represents 50 microns)。
     </p>
 
   </div>
 
   <ul>
     <li>
-    Screen a range of tomato tissues for genes encoding secreted
-    proteins, focusing particularly on fruit development and leaves at
-    various stages of infections with <span class="species_binomial">
-    Phytopthora infestans</span>.
+    篩選一系列番茄組織中編碼分泌蛋白的基因，特別著重於果實發育以及受到 <span class="species_binomial">
+    Phytophthora infestans</span> 感染各階段的葉片(Screen a range of tomato tissues for genes encoding secreted proteins, focusing particularly on fruit development and leaves at various stages of infections with Phytophthora infestans)。
     </li>
     <li>
-    Annotate the corresponding genes and confirm their localization in
-    the cell wall by transient expression as fluorescent fusion proteins
-    in onion epidermal cells.
+    註解相應基因，並透過在洋蔥表皮細胞中瞬時表現為螢光融合蛋白來確認其在細胞壁中的定位(Annotate the corresponding genes and confirm their localization in the cell wall by transient expression as fluorescent fusion proteins in onion epidermal cells)。
     </li>
     <li>
-    Further examine the localization and trafficking pathways of
-    candidates that show unexpected localization in the apoplast.
+    進一步檢查在質外體中表現出非預期定位之候選者的定位與運輸途徑(Further examine the localization and trafficking pathways of candidates that show unexpected localization in the apoplast)。
     </li>
   </ul>
 
 
 
   <p>
-  To date we have identified both known cell wall localized proteins as
-  well as a number of proteins whose presence in the apoplast is
-  unexpected, based on functional annotation, or the absence of a
-  predicted secretory signal peptide, suggesting alternative
-  non-canonical secretion pathways, as have describe in yeast and
-  mammalian cells. We have also identified several proteins that show
-  dual localization in the wall an intracellular compartments, and we
-  are now characterizing some of the complexity in the secretory
-  pathway.
+  迄今為止，我們既鑑定出了已知的細胞壁定域蛋白質，也鑑定出了許多根據功能註解或缺乏預測分泌訊息胜肽而在質外體中的存在出乎意料的蛋白質，這暗示了替代的非經典分泌途徑，正如在酵母和哺乳動物細胞中所描述的那樣(To date we have identified both known cell wall localized proteins as well as a number of proteins whose presence in the apoplast is unexpected, based on functional annotation, or the absence of a predicted secretory signal peptide, suggesting alternative non-canonical secretion pathways, as have describe in yeast and mammalian cells)。我們還鑑定出了幾種在細胞壁和細胞內區室中表現出雙重定位的蛋白質，目前正在探究分泌途徑中的一些複雜性(We have also identified several proteins that show dual localization in the wall an intracellular compartments, and we are now characterizing some of the complexity in the secretory pathway)。
   </p>
 
 </&>
 
 <&| /secretom/section_templates/data_items.mas &>
-- text: "Tomato (cv. Ailsa Craig) fruit (multiple growth and ripening stages): YST clones"
+- text: "番茄（品系 Ailsa Craig）果實（多個生長與成熟階段）：YST 純系(Tomato (cv. Ailsa Craig) fruit (multiple growth and ripening stages): YST clones)"
   ref: /download/data/secretom/Functional_screens/Tomato_fruit_YST_clones.xlsx
-- text: "Tomato (cv. Ailsa Craig) leaves infected with Phytophthora infestans: YST clones"
+- text: "感染致病疫黴（Phytophthora infestans）的番茄（品系 Ailsa Craig）葉片：YST 純系(Tomato (cv. Ailsa Craig) leaves infected with Phytophthora infestans: YST clones)"
   ref: /download/data/secretom/Functional_screens/Tomato_and_Pinfestans_YST_clones.xls
 </&>
 

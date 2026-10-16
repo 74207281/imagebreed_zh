@@ -23,6 +23,8 @@ Beth Skwarecki (eas68@cornell.edu)
 =cut
 
 use strict;
+use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Map::Tools;
@@ -88,10 +90,10 @@ sub input_box {
 
     print <<HTML;
 
-    <h3>Seedbac finder</h3>
-    This tool lists all anchored bacs for a given chromosome on the tomato F2-2000 map to help identify seed bacs.<br /><br />
+    <h3>種子 BAC 搜尋器 (Seedbac finder)</h3>
+    此工具列出番茄 F2-2000 圖譜上特定染色體的所有定位 BAC，以協助識別種子 BAC (seed BAC)。<br /><br />
     <form action="#">
-      Chromosome: <select name="chr">
+      染色體 (Chromosome)：<select name="chr">
 
 HTML
       for(my $i=1; $i<=12; $i++){
@@ -101,7 +103,7 @@ HTML
     print <<HTML;
       </select>
 
-      Marker minimal confidence: <select name="confidence">
+      標記最低可信度 (Marker minimal confidence)：<select name="confidence">
       <option value=\"0\">I</option>
       <option value=\"1\">ILOD(2)</option>
       <option value=\"2\">CLOD(3)</option>
@@ -110,19 +112,20 @@ HTML
 
       <!-- Return <input type="text" name="nr_bacs" value="all" size="3" /> BACs per anchor point. -->
       <br /><br />
-      <input type="checkbox" name="show_overgo" checked="checked" /> Retrieve experimental (overgo) associations<br />
-      <input type="checkbox" name="show_computational" /> Retrieve computational associations<br />
-      <input type="checkbox" name="show_manual" /> Retrieve manual associations<br />
+      <input type="checkbox" name="show_overgo" checked="checked" /> 檢索實驗性 (overgo) 關聯<br />
+      <input type="checkbox" name="show_computational" /> 檢索計算性 (computational) 關聯<br />
+      <input type="checkbox" name="show_manual" /> 檢索人工標註 (manual) 關聯<br />
 
       <br />
-      <input type="checkbox" name="text_output" /> Output as text<br />
+      <input type="checkbox" name="text_output" /> 輸出為純文字<br />
       <br />
-      &nbsp;&nbsp;<input type="submit" value="Submit" />
+      &nbsp;&nbsp;<input type="submit" value="送出 (Submit)" />
       </form>
 
 HTML
 
 }
+
 
 sub get_args {
     my $self = shift;
@@ -166,16 +169,16 @@ sub display_results_html {
 
     $self->input_box();
 
-    print "<br /><h3>Seedbacs for chromosome ".$self->get_chr()."</h3>";
+    print "<br /><h3>第 ".$self->get_chr()." 號染色體的種子 BAC (Seedbacs for chromosome ".$self->get_chr().")</h3>";
 
-    print "Only unambiguous matches are shown. ";
-    if ($self->{nr_bacs}) { print "$self->{nr_bacs} shown per anchor point."; }
-    else { print "All BACs listed for each marker."; }
+    print "僅顯示無歧義的匹配結果 (Only unambiguous matches are shown)。";
+    if ($self->{nr_bacs}) { print "每個錨定點顯示 $self->{nr_bacs} 個 (shown per anchor point)。"; }
+    else { print "列出各標記的所有 BAC (All BACs listed for each marker)。"; }
     print "<br />\n";
     #if (! @bacs) { print "No bacs found or marker does not exist.\n"; }
 
     print qq { <table cellspacing="5" cellpadding="0" border="0"> };
-    print qq { <tr><td>Marker</td><td>confidence</td><td>offset (cM)</td><td>BAC name</td><td>estimated length</td><td>contig name</td><td>contig size</td><td>top pick</td><td>type</td></tr> };
+    print qq { <tr><td>標記 (Marker)</td><td>可信度 (confidence)</td><td>位移 cM (offset)</td><td>BAC 名稱 (BAC name)</td><td>估計長度 (estimated length)</td><td>重疊群名稱 (contig name)</td><td>重疊群大小 (contig size)</td><td>最佳選擇 (top pick)</td><td>類型 (type)</td></tr> };
 
     print $self->{html};
 
@@ -195,10 +198,11 @@ sub format_html {
 	if (!$self->{bgcolor}) { $self->{bgcolor}="#ffffff"; }
 	my $toppick="&nbsp;";
 	if ($count ==1) { $toppick=qq{<img src="/img/checkmark.jpg" alt="" />}; }
-	$s .= qq { <tr bgcolor="$self->{bgcolor}"><td><a href="/search/markers/markerinfo.pl?marker_id=$marker_id">$marker_name</a> [<a href="/tools/seedbac/sbfinder.pl?marker=$marker_name">all</a>][<a href="/cview/view_chromosome.pl?chr_nr=$self->{chr}&amp;hilite=$marker_name">View</a>]</td><td align="center">$confidence[$confidence]</td><td align="center">$offset</td><td><b></b></td><td align="center">$len</td><td align="center">$name</td><td align="center">$contigs</td><td bgcolor="#FFFFFF">$toppick</td><td>$type</td></tr> };
+	$s .= qq { <tr bgcolor="$self->{bgcolor}"><td><a href="/search/markers/markerinfo.pl?marker_id=$marker_id">$marker_name</a> [<a href="/tools/seedbac/sbfinder.pl?marker=$marker_name">全部 (all)</a>][<a href="/cview/view_chromosome.pl?chr_nr=$self->{chr}&amp;hilite=$marker_name">檢視 (View)</a>]</td><td align="center">$confidence[$confidence]</td><td align="center">$offset</td><td><b></b></td><td align="center">$len</td><td align="center">$name</td><td align="center">$contigs</td><td bgcolor="#FFFFFF">$toppick</td><td>$type</td></tr> };
 
     return $s;
 }
+
 
 sub format_text {
     my $self = shift;
@@ -231,7 +235,7 @@ sub toggle_bgcolor {
 sub get_overgo_associations {
     my $self = shift;
 
-    $self ->{html}.= qq { <tr><td colspan="10"><h3>Experimental (overgo) Associations</h3></td></tr> };
+    $self ->{html}.= qq { <tr><td colspan="10"><h3>實驗性 (overgo) 關聯 (Experimental (overgo) Associations)</h3></td></tr> };
 
     my $results = $self->get_associations("overgo");
 
@@ -247,7 +251,8 @@ sub get_computational_associations {
     my $physical = $self->get_dbh()->qualify_schema("physical");
     my $genomic  = $self->get_dbh()->qualify_schema("genomic");
     my $current_tomato_map_id = CXGN::Map::Tools::current_tomato_map_id;
-    $self ->{html}.= qq { <tr><td colspan="10"><h3>Computational Associations</h3></td></tr> };
+    $self ->{html}.= qq { <tr><td colspan="10"><h3>計算性關聯 (Computational Associations)</h3></td></tr> };
+
 #     my $sth = $self->get_dbh()->prepare("
 #        SELECT distinct(marker_alias.marker_id), max(marker_alias.alias), max(confidence_id), max(position), max(library.shortname||platenum||clone.wellrow||clone.wellcol), max(estimated_length), max('?'), 0, linkage_group.lg_order
 #        FROM $physical.computational_associations JOIN $genomic.clone using (clone_id)
@@ -293,7 +298,8 @@ sub get_computational_associations {
 sub get_manual_associations {
     my $self = shift;
 
-    $self ->{html}.= qq { <tr><td colspan="10"><h3>Manual Associations</h3></td></tr> };
+    $self ->{html}.= qq { <tr><td colspan="10"><h3>人工標註關聯 (Manual Associations)</h3></td></tr> };
+
 
     my $results = $self->get_associations("manual");
 

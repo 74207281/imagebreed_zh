@@ -25,17 +25,17 @@ $comment
 
 <%perl>
 
-$qtl_image = qq |<img src="$qtl_image" width=320 height=320 alt="QTL for $trait_name"> |;
+$qtl_image = qq |<img src="$qtl_image" width=320 height=320 alt="$pop_name 中的 $trait_name QTL(QTL for $trait_name in $pop_name)"> |;
 
 </%perl>
 
 
 
 <& /page/page_title.mas, 
-   title => "QTL for $trait_name in $pop_name" 
+   title => "$pop_name 中的 $trait_name QTL(QTL for $trait_name in $pop_name)" 
 &>
 <&| /page/info_section.mas, 
-    title => "QTL map for $trait_name" 
+    title => "$trait_name 的 QTL 圖譜(QTL map for $trait_name)" 
 &>
   <table cellpadding=20>
     <tr>
@@ -59,11 +59,11 @@ $qtl_image = qq |<img src="$qtl_image" width=320 height=320 alt="QTL for $trait_
 <&| /page/info_section.mas,
     collapsible => 1, 
     collapsed   => 1, 
-    title       => "QTL 95% Confidence Interval" 
+    title       => "QTL 95% 信賴區間(QTL 95% Confidence Interval)" 
 &>  
 
 <& /page/columnar_table.mas,
-     headings    => ["Marker", " Position (cM)", "LOD", "Remark"],
+     headings    => ["標記(Marker)", "位置(cM)(Position (cM))", "LOD", "備註(Remark)"],
     data         => $marker_link,
     __alt_freq   => 2,
     __alt_width  => 1,
@@ -75,7 +75,7 @@ $qtl_image = qq |<img src="$qtl_image" width=320 height=320 alt="QTL for $trait_
 <&| /page/info_section.mas, 
     collapsible => 1, 
     collapsed   => 1, 
-    title       => "QTL markers' genetic positions and Comparative Map Viewer" 
+    title       => "QTL 標記的遺傳位置與比較地圖檢視器(QTL markers' genetic positions and Comparative Map Viewer)" 
  &>
 
 <% $cmv_link %>
@@ -87,7 +87,7 @@ $qtl_image = qq |<img src="$qtl_image" width=320 height=320 alt="QTL for $trait_
 <&| /page/info_section.mas, 
     collapsible => 1, 
     collapsed   => 1, 
-    title       => "Browse QTL region" 
+    title       => "瀏覽 QTL 區域(Browse QTL region)" 
 &>
 
 <% $download %>

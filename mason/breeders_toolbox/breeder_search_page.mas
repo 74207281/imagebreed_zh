@@ -6,12 +6,12 @@ $dataset_id => undef
 <& /util/import_javascript.mas, entries => ["wizard"] &>
 <& /util/import_css.mas, paths => ['wizard.css'] &>
 
-<& /page/page_title.mas, title=>"Search Wizard" &>
+<& /page/page_title.mas, title=>"搜尋嚮導(Search Wizard)" &>
 
 <div class="row">
   <div class="col-md-12" style="margin-bottom:1em; text-align:right;">
-    Don't see your data? <button id="update_wizard_lists" class="btn btn-default">Refresh Lists</button>
-    <button id="update_wizard_show" class="btn btn-default">Update Wizard</button>
+    沒有看到您的數據？ <button id="update_wizard_lists" class="btn btn-default">重新整理清單(Refresh Lists)</button>
+    <button id="update_wizard_show" class="btn btn-default">更新嚮導(Update Wizard)</button>
   </div>
 </div>
 
@@ -43,25 +43,25 @@ $dataset_id => undef
 
           <div class="panel-heading">
             <select class="wizard-type-select form-control input-sm form-inline">
-              <option value="" disabled selected>Select Column Type</option>
+              <option value="" disabled selected>選擇欄位類型</option>
               <optgroup class="wizard-types-group" label="--------------------"></optgroup>
-              <optgroup class="wizard-lists-group" label="Load Selection from List:"></optgroup>
+              <optgroup class="wizard-lists-group" label="從清單載入選擇："></optgroup>
             </select>
           </div>
 
           <div class="panel-heading">
-            <input type="text" class="wizard-search form-control input-sm" placeholder="Search">
+            <input type="text" class="wizard-search form-control input-sm" placeholder="搜尋">
           </div>
 
           <div class="panel-body">
 
             <div class="wizard-btn-center">
               <div class="btn-group">
-                <button class="wizard-select-all btn btn-default btn-xs">Select All</button
+                <button class="wizard-select-all btn btn-default btn-xs">全選(Select All)</button
                 ><button class="wizard-btn-tag btn btn-primary btn-xs">
                   <span class="wizard-count-selected">0</span>/<span class="wizard-count-all">0</span>
                 </button
-                ><button class="wizard-select-clear btn btn-default btn-xs">Clear</button>
+                ><button class="wizard-select-clear btn btn-default btn-xs">清除(Clear)</button>
               </div>
             </div>
 
@@ -70,7 +70,7 @@ $dataset_id => undef
 
             <div class="wizard-btn-center wizard-union-toggle">
               <div class="btn-group wizard-union-toggle-btn-group">
-                <button type="button" class="btn btn-xs btn-default disabled">Match</button>
+                <button type="button" class="btn btn-xs btn-default disabled">比對(Match)</button>
                 <button type="button" class="btn btn-xs wizard-union-toggle-btn wizard-union-toggle-btn-any btn-primary active">ANY</button>
                 <button type="button" class="btn btn-xs wizard-union-toggle-btn wizard-union-toggle-btn-min btn-default">MIN</button>
                 <button type="button" class="btn btn-xs wizard-union-toggle-btn wizard-union-toggle-btn-all btn-default">ALL</button>
@@ -94,26 +94,26 @@ $dataset_id => undef
               <tr>
                 <td>
                   <select class="wizard-add-to-list-id form-control input-sm">
-                    <option selected value="" disabled>Add to List...</option>
+                    <option selected value="" disabled>新增至清單(Add to List)...</option>
                     <optgroup class="wizard-lists-group" label="--------------------"></optgroup>
                   </select>
                 </td>
                 <td>
-                  <button class="wizard-add-to-list btn btn-sm btn-primary btn-block">Add</button>
+                  <button class="wizard-add-to-list btn btn-sm btn-primary btn-block">新增(Add)</button>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <input class="wizard-create-list-name form-control input-sm" type="text" placeholder="Create New List..."></input>
+                  <input class="wizard-create-list-name form-control input-sm" type="text" placeholder="建立新清單..."></input>
                 </td>
                 <td>
-                  <button class="wizard-create-list btn btn-primary btn-sm btn-block">Create</button>
+                  <button class="wizard-create-list btn btn-primary btn-sm btn-block">建立(Create)</button>
                 </td>
               </tr>
             </&>
             <&| /util/user.mas:logged_out &>
               <tr>
-                <td><button class="btn btn-xs btn-primary" name="site_login_button">Log In</button> to save lists.</td>
+                <td><button class="btn btn-xs btn-primary" name="site_login_button">登入(Log In)</button> 以儲存清單。</td>
               </tr>
             </&>
           </table>
@@ -129,28 +129,28 @@ $dataset_id => undef
   <div class="wizard-datasets panel-group col-sm-12 col-md-6">
     <div class="panel panel-default wizard-panel">
       <div class="panel-heading">
-        <&| /util/user.mas:logged_out &><button class="btn btn-xs btn-primary" name="site_login_button">Log In</button> to</&>
-        Load/Create Datasets using <button class="btn btn-xs btn-default disabled wizard-btn-tag">Match</button> Columns
+        <&| /util/user.mas:logged_out &><button class="btn btn-xs btn-primary" name="site_login_button">登入(Log In)</button> 以</&>
+        使用 <button class="btn btn-xs btn-default disabled wizard-btn-tag">比對(Match)</button> 欄位載入/建立資料集
       </div>
       <&| /util/user.mas:logged_in &>
         <div class="panel-body">
           <div class="input-group">
             <select class="form-control input-sm wizard-dataset-select">
-              <option selected value="" disabled>Load Dataset</option>
+              <option selected value="" disabled>載入資料集(Load Dataset)</option>
               <optgroup class="wizard-dataset-group" label="--------------------"></optgroup>
             </select>
             <span class="input-group-btn">
-              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-load">Load</button></span>
-              <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-public">Make Public</button></span>
-              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-danger wizard-dataset-delete">Delete</button></span>
+              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-load">載入(Load)</button></span>
+              <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-public">設為公開(Make Public)</button></span>
+              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-danger wizard-dataset-delete">刪除(Delete)</button></span>
             </span>
           </div>
         </div>
         <div class="panel-body" style="margin-top:-1px;">
           <div class="input-group">
-            <input type="text" placeholder="Create New Dataset" class="form-control input-sm wizard-dataset-name" />
+            <input type="text" placeholder="建立新資料集" class="form-control input-sm wizard-dataset-name" />
             <span class="input-group-btn">
-              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-create">Create</button></span>
+              <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-primary wizard-dataset-create">建立(Create)</button></span>
             </span>
           </div>
         </div>
@@ -162,29 +162,29 @@ $dataset_id => undef
     <&| /util/user.mas:logged_out &>
       <div class="panel panel-default">
         <div class="panel-heading">
-          <button class="btn btn-xs btn-primary" name="site_login_button">Log In</button> to download related data.
+          <button class="btn btn-xs btn-primary" name="site_login_button">登入(Log In)</button> 以獲取相關數據。
         </div>
       </div>
     </&>
     <&| /util/user.mas:logged_in &>
       <div class="panel panel-default">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#wiz-down-group" href="#wiz-down-1-c" aria-controls="wiz-down-1-c">
-          <span class="btnn btn-link">Related Genotype Data</span>
+          <span class="btnn btn-link">相關基因型數據(Related Genotype Data)</span>
         </div>
         <div id="wiz-down-1-c" class="panel-collapse collapse" role="tabpanel">
           <table class="table">
             <tr>
               <td colspan="4">
                 <span class="glyphicon glyphicon-info-sign" title="To download related genotype data, select 1 or more Accessions and optionally no more than 1 Genotyping Protocol in the wizard. If no genotyping protocol is selected, the database default protocol will be used. Click the checkbox here to compute genotypes for the selected accessions from genotypes of parents; this works for downloading genotypes, downloading the GRM, and performing GWAS."></span>
-                <span>Download Genotype Data</span>
+                <span>下載基因型數據</span>
                 <input class="wizard-download-genotypes-info form-control input-sm" type="text" disabled></input>
               </td>
               <td colspan="4">
-                  <span>Compute From Parents</span><br/>
+                  <span>從親本計算</span><br/>
                   <input type="checkbox" class="wizard-download-genotypes-parents-compute">
               </td>
               <td colspan="4">
-                  <span>Include Duplicate Genotypes</span><br/>
+                  <span>包含重複基因型</span><br/>
                   <input type="checkbox" class="wizard-download-genotypes-duplicates-include">
               </td>
             </tr>
@@ -194,39 +194,39 @@ $dataset_id => undef
                 <tr>
                     <td colspan="12">
                         <span class="glyphicon glyphicon-info-sign" title="You can use either chromosome or markers (markerset) to filter genotyping data. You cannot use both criteria at the same time."></span>
-                        <span>Filter by Chromosome or Markerset</span>
+                        <span>依染色體或標記集篩選</span>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <span>Chromosome</span>
+                        <span>染色體</span>
                         <select class="wizard-download-genotypes-chromosome-number form-control input-sm"></select>
                     </td>
                     <td colspan="4">
-                        <span>Start Position</span>
+                        <span>起始位置</span>
                         <input placeholder="" type="number" class="wizard-download-genotypes-start-position form-control input-sm">
                     </td>
                     <td colspan="4">
-                        <span>End Position</span>
+                        <span>結束位置</span>
                         <input placeholder="" type="number" class="wizard-download-genotypes-end-position form-control input-sm">
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6">
-                        <span>Markerset Filter</span>
+                        <span>標記集篩選</span>
                         <select class="wizard-download-genotypes-marker-set-list-id form-control input-sm" id="wizard-download-genotypes-marker-set-list-id"></select>
                     </td>
                     <td colspan="6">
                         <br/>
-                        <button class="btn btn-sm btn-default" onClick="window.open('/breeders/markers', '_blank');">Manage Markersets</button>
+                        <button class="btn btn-sm btn-default" onClick="window.open('/breeders/markers', '_blank');">管理標記集(Manage Markersets)</button>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="6">
-                        <span>Genotypes Download Format</span>
+                        <span>基因型下載格式</span>
                         <select class="wizard-download-genotypes-format form-control input-sm" >
-                            <option value="VCF">VCF File Format</option>
-                            <option value="DosageMatrix">Dosage Matrix File Format (.tsv)</option>
+                            <option value="VCF">VCF 檔案格式</option>
+                            <option value="DosageMatrix">劑量矩陣檔案格式 (.tsv)</option>
                         </select>
                     </td>
                     <td colspan="6">
@@ -235,10 +235,10 @@ $dataset_id => undef
                 <tr>
                     <td colspan="6">
                         <span class="glyphicon glyphicon-info-sign" title="Select accessions, and optionally a genotyping protocol. If no genotyping protocol is selected, the default genotyping protocol is used in your system. If you want to filter genotypes, use the chromosome, start position, end position, or markerset. Can compute genotypes from parents if the parents of the accessions you selected have genotypes by checking the checkbox. Genotypes can be downloaded in VCF and Dosage Matrix Formats."></span>
-                        <span>Download Genotypes</span><br/>
+                        <span>下載基因型</span><br/>
                         <button class="wizard-download-genotypes btn btn-sm btn-primary">
                             <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-                            Download Genotypes
+                            下載基因型(Download Genotypes)
                         </button>
                     </td>
                     <td colspan="6">
@@ -250,21 +250,21 @@ $dataset_id => undef
             <table class="table">
                 <tr>
                     <td colspan="6">
-                      <span>Minor Allele Frequency</span>
+                      <span>次要等位基因頻率(MAF)</span>
                       <input placeholder="0.05" value="0.05" type="number" class="wizard-download-genotypes-grm-maf form-control input-sm">
                     </td>
                     <td colspan="3">
-                      <span>Marker Filter</span>
+                      <span>標記篩選</span>
                       <input placeholder="0.60" value="0.60" type="number" class="wizard-download-genotypes-grm-marker-filter form-control input-sm">
                     </td>
                     <td colspan="3">
-                      <span>Individuals Filter</span>
+                      <span>個體篩選</span>
                       <input placeholder="0.80" value="0.80" type="number" class="wizard-download-genotypes-grm-individuals-filter form-control input-sm">
                     </td>
                 </tr>
               <tr>
                 <td colspan="12">
-                  <span>Genomic Relationship Matrix (GRM) Download Format</span>
+                  <span>基因組親緣關係矩陣(GRM)下載格式</span>
                   <select class="wizard-download-genotypes-grm-format form-control input-sm" >
                       <option value="matrix_uniquenames">Matrix Stock Names (.tsv)</option>
                       <option value="three_column_uniquenames">3-Column Stock Names (.tsv)</option>
@@ -278,32 +278,32 @@ $dataset_id => undef
                   </select>
                   <br/>
                     <span class="glyphicon glyphicon-info-sign" title="Select accessions, and optionally a genotyping protocol. If no genotyping protocol is selected, the default genotyping protocol is used in your system. Specify minor allele frequency (MAF), marker filter, and individuals filter. Can compute genotypes from parents if the parents of the accessions you selected have genotypes by checking the checkbox. GRM can be downloaded in a matrix format (.tsv) and a three column format."></span>
-                    <span>Download GRM</span><br/>
+                    <span>下載 GRM</span><br/>
                     <button class="wizard-download-genetic-relationship-matrix btn btn-sm btn-primary">
                         <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-                        Download GRM
+                        下載 GRM(Download GRM)
                     </button>
                 </td>
               </tr>
               <tr>
                   <td colspan="12">
-                    <span>Genome Wide Association Study (GWAS) Download Format</span>
+                    <span>全基因組關聯分析(GWAS)下載格式</span>
                     <select class="wizard-download-genotypes-gwas-format form-control input-sm" >
                         <option value="manhattan_qq_plots">Manhattan + QQ Plots (.pdf)</option>
                         <option value="results_tsv">GWAS Results (.tsv)</option>
                     </select>
                     <br/>
-                    <span>Selected Traits Are All Repeated Measurements</span>
+                    <span>所選性狀均為重複測量</span>
                     <select class="wizard-download-genotypes-gwas-repeated-measurements form-control input-sm" >
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
+                        <option value="no">否(No)</option>
+                        <option value="yes">是(Yes)</option>
                     </select>
                     <br/>
                         <span class="glyphicon glyphicon-info-sign" title="Select accessions, traits, and optionally a genotyping protocol. If no genotyping protocol is selected, the default genotyping protocol is used in your system. When many traits are selected and these traits are not treated as repeated measurements, the traits are treated separately and distinct results are returned e.g. several Manhattan plots are returned. If the selected traits are in fact repeated measurements, then select 'yes'; a single GWAS will be run against all of the phenotypes e.g. a single Manhattan plot is returned. Specify minor allele frequency (MAF), marker filter, and individuals filter. Can compute genotypes from parents if the parents of the accessions you selected have genotypes by checking the checkbox. GWAS uses a fixed effect for different field trials and a fixed effect for replicate. GWAS uses Kinship matrix calculated from the genotype data. MAF and missing data used to filter prior to GWAS and Kinship matrix calculation. Can select whether to return results in Manhattan and QQ Plot (.pdf) form or as the tabular results (.tsv)."></span>
-                        <span>Run GWAS</span><br/>
+                        <span>執行 GWAS</span><br/>
                       <button class="wizard-download-gwas btn btn-sm btn-primary">
                           <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-                          Download GWAS
+                          下載 GWAS(Download GWAS)
                       </button>
                   </td>
               </tr>
@@ -315,17 +315,17 @@ $dataset_id => undef
 
       <div class="panel panel-default">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#wiz-down-group" href="#wiz-down-2-c" aria-controls="wiz-down-2-c">
-          <span class="btnn btn-link">Related Trial Metadata</span>
+          <span class="btnn btn-link">相關試驗元數據(Related Trial Metadata)</span>
         </div>
         <div id="wiz-down-2-c" class="panel-collapse collapse" role="tabpanel">
           <table class="table">
             <tr>
               <td>
-                <input class="wizard-download-tmetadata-info form-control input-sm" type="text" disabled value="No Trials Selected"></input>
+                <input class="wizard-download-tmetadata-info form-control input-sm" type="text" disabled value="未選擇試驗"></input>
               </td>
               <td>
                 <select class="wizard-download-tmetadata-format form-control input-sm">
-                  <option value="" disabled>Format</option>
+                  <option value="" disabled>格式</option>
                   <option selected value="csv">CSV</option>
                   <option value="xls">XLS</option>
                 </select>
@@ -335,7 +335,7 @@ $dataset_id => undef
           <div class="panel-footer" style="border-top: 1px solid #ddd;">
             <button class="wizard-download-tmetadata btn btn-sm btn-primary">
                 <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-                Metadata
+                元數據(Metadata)
             </button>
           </div>
         </div>
@@ -343,7 +343,7 @@ $dataset_id => undef
 
       <div class="panel panel-default">
         <div class="panel-heading" role="button" data-toggle="collapse" data-parent="#wiz-down-group" href="#wiz-down-3-c" aria-controls="wiz-down-3-c">
-          <span class="btnn btn-link">Related Trial Phenotypes</span>
+          <span class="btnn btn-link">相關試驗表型(Related Trial Phenotypes)</span>
         </div>
         <div id="wiz-down-3-c" class="panel-collapse collapse" role="tabpanel">
           <table class="table">
@@ -355,27 +355,27 @@ $dataset_id => undef
             <tr>
               <td>
                 <select class="wizard-download-phenotypes-format form-control input-sm">
-                  <option value="" disabled>Format</option>
-                  <option selected value="csv">CSV Wide Format</option>
-                  <option value="csv_long">CSV Long Format</option>
-                  <option value="xlsx">Excel (xlsx) Wide Format</option>
-                  <option value="xlsx_long">Excel (xlsx) Long Format</option>
+                  <option value="" disabled>格式</option>
+                  <option selected value="csv">CSV 寬格式 (Wide Format)</option>
+                  <option value="csv_long">CSV 長格式 (Long Format)</option>
+                  <option value="xlsx">Excel (xlsx) 寬格式 (Wide Format)</option>
+                  <option value="xlsx_long">Excel (xlsx) 長格式 (Long Format)</option>
                 </select>
               </td>
               <td>
                 <select class="wizard-download-phenotypes-level form-control input-sm">
-                  <option value="" disabled>Data Level</option>
-                  <option selected value="all">All Levels</option>
-                  <option value="plot">Plots</option>
-                  <option value="plant">Plants</option>
+                  <option value="" disabled>數據層級</option>
+                  <option selected value="all">所有層級</option>
+                  <option value="plot">小區(Plots)</option>
+                  <option value="plant">植株(Plants)</option>
                 </select>
               </td>
               <td>
                 <select class="wizard-download-phenotypes-repeat-measurements form-control input-sm">
-                  <option value="" disabled>Repeat Measurements</option>
-                  <option selected value="all">All Values</option>
-                  <option value="average">Average Repeated Values</option>
-                  <option value="first">First Value</option>
+                  <option value="" disabled>重複測量</option>
+                  <option selected value="all">所有數值</option>
+                  <option value="average">重複數值取平均</option>
+                  <option value="first">取第一筆數值</option>
                 </select>
               </td>
             </tr>
@@ -384,7 +384,7 @@ $dataset_id => undef
                 <div class="checkbox">
                   <label>
                     <input class="wizard-download-phenotypes-timestamp" type="checkbox">
-                    Include timestamps
+                    包含時間戳記
                   </label>
                 </div>
               </td>
@@ -392,7 +392,7 @@ $dataset_id => undef
                 <div class="checkbox">
                   <label>
                     <input class="wizard-download-phenotypes-entry-numbers" type="checkbox" checked>
-                    Include accession entry numbers
+                    包含種原登錄編號
                   </label>
                 </div>
               </td>
@@ -402,7 +402,7 @@ $dataset_id => undef
                 <div class="checkbox">
                   <label>
                     <input class="wizard-download-phenotypes-outliers" type="checkbox">
-                    Suppress user defined outliers
+                    排除使用者定義的離群值
                   </label>
                 </div>
               </td>
@@ -410,22 +410,22 @@ $dataset_id => undef
                 <div class="checkbox">
                   <label>
                     <input class="wizard-download-phenotypes-header" type="checkbox">
-                    Include Header
+                    包含表頭
                   </label>
                 </div>
               </td>
             </tr>
             <tr>
               <td>
-                <span>Trait Name Contains</span>
+                <span>性狀名稱包含</span>
                 <input placeholder="" type="text" class="wizard-download-phenotypes-name form-control">
               </td>
               <td>
-                <span>Min Value</span>
+                <span>最小值</span>
                 <input placeholder="-&#8734;" type="text" class="wizard-download-phenotypes-min form-control">
               </td>
               <td>
-                <span>Max Value</span>
+                <span>最大值</span>
                 <input placeholder="&#8734;" type="text" class="wizard-download-phenotypes-max form-control">
               </td>
             </tr>
@@ -433,7 +433,7 @@ $dataset_id => undef
           <div class="panel-footer" style="border-top: 1px solid #ddd;">
             <button class="wizard-download-phenotypes btn btn-sm btn-primary">
                 <span class="glyphicon glyphicon-download" aria-hidden="true"></span>
-                Download Phenotypes
+                下載表型(Download Phenotypes)
             </button>
           </div>
         </div>
@@ -452,19 +452,19 @@ $dataset_id => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h3 class="modal-title" id="updateWizardDialog">Update Search Wizard</h3>
+        <h3 class="modal-title" id="updateWizardDialog">更新搜尋嚮導(Update Search Wizard)</h3>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-	     <h4>How the wizard works</h4>
-	     	     <p>For the search wizard to be fast and flexible, it avoids querying the database directly. Instead, it stores a copy of the data from the database in a temporary format that is optimized for the types of queries the wizard makes.</p><p>For this to be practical, the copy must be updated regularly. Updates usually start every time new data is uploaded, however users with submitter status or higher can also initiate them manually.</p><p>If an update isn't already in progress, you can initiate one below. It will run independently on the server without any additional input required from the user. Depending on the size of the database, it will take from a few minutes to a few hours to complete.</p>
-	<div><h4>Current status:</h4><p id="wizard_status"></p></div>
+	     <h4>嚮導如何運作(How the wizard works)</h4>
+	     	     <p>為了讓搜尋嚮導快速且靈活，它避免直接查詢資料庫。相反地，它會將資料庫中的數據以臨時格式儲存一份副本，該格式已針對嚮導執行的查詢類型進行了最佳化。</p><p>為使其切實可行，必須定期更新該副本。通常每次上傳新數據時都會開始更新，但具有提交者（submitter）或更高權限的使用者也可以手動啟動更新。</p><p>如果更新尚未在進行中，您可以在下方啟動更新。它將在伺服器上獨立運行，不需要使用者提供任何額外輸入。根據資料庫的大小，通常需要幾分鐘到幾個小時才能完成。</p>
+	<div><h4>目前狀態(Current status)：</h4><p id="wizard_status"></p></div>
         </div>
       </div>
       <div class="modal-footer">
         <div class="well well-sm" id="update_wizard_error" style="display:none;"></div>
-        <button type="button" class="btn btn-primary wiz-update" name="update_wizard" data-loading-text="Working..." id="update_wizard">Update search wizard</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary wiz-update" name="update_wizard" data-loading-text="處理中..." id="update_wizard">更新搜尋嚮導(Update search wizard)</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -477,12 +477,12 @@ $dataset_id => undef
       .then(function(isLoading){
         if(isLoading) {
           d3.select("#update_wizard")
-          .attr("title","A search wizard update is already in progress...")
+          .attr("title","搜尋嚮導更新已在進行中...")
           .attr("disabled",true);
         }
         else {
           d3.select("#update_wizard")
-          .attr("title","Refresh the search wizard to include newly uploaded data")
+          .attr("title","重新整理搜尋嚮導以包含新上傳的資料")
           .attr("disabled",null)
         }
       });
@@ -538,7 +538,7 @@ $dataset_id => undef
   function updateChromosomeNames(names) {
     var html = "";
     if ( names )  {
-      html += "<option value=''>All</option>";
+      html += "<option value=''>全部(All)</option>";
       for ( var i = 0; i < names.length; i++ ) {
         html += "<option value='" + names[i] + "'>" + names[i] + "</option>";
       }

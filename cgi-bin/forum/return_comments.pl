@@ -1,9 +1,10 @@
 #!/usr/bin/perl
-use strict; 
+use strict;
+use utf8; 
 
 # this script is for ajax use. It just returns the comment html, nothing else.
 
-print "Content-type: text/html\n\n";
+print "Content-type: text/html; charset=UTF-8\n\n";
 
 
 

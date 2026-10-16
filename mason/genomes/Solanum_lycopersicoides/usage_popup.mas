@@ -3,32 +3,38 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="usagePolicyDialog">Please Note: S.lycopersicoides Data Access Agreement</h4>
+        <h4 class="modal-title" id="usagePolicyDialog">請注意：S.lycopersicoides 數據存取協議(Please Note: S.lycopersicoides Data Access Agreement)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-	     <h4>Solanum lycopersicoides genome adheres to the <a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html"> Toronto Agreement</a> on prepublication data release.</h4>
-The Boyce Thompson Institute and RWTH Aachen University are pleased to make the pre-publication 
- Solanum lycopersicoides LA2951 genome sequences publicly available as a resource for plant breeding and biology. 
+ 	     <h4>Solanum lycopersicoides 基因組遵循關於發表前數據發布的<a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html">多倫多協議(Toronto Agreement)</a>。(Solanum lycopersicoides genome adheres to the <a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html"> Toronto Agreement</a> on prepublication data release.)</h4>
+<p>
+博伊斯湯普森研究所 (Boyce Thompson Institute) 和亞琛工業大學 (RWTH Aachen University) 很高興公開發布未正式發表的 Solanum lycopersicoides LA2951 基因組序列，作為植物育種和生物學的資源。(The Boyce Thompson Institute and RWTH Aachen University are pleased to make the pre-publication 
+ Solanum lycopersicoides LA2951 genome sequences publicly available as a resource for plant breeding and biology.)
+</p>
 
- By accessing these data, I hereby agree to respect the rights of the consortium to analyze and 
+<p>
+ 透過存取這些數據，本人特此同意根據多倫多協議 (Toronto agreement) 尊重該聯盟在經過同儕審查的刊物中分析並發表首次全域分析的權利。這包括：1) 對基因、基因家族和重複序列的全染色體或全基因組層級分析；以及 2) 與其他生物體的比較分析。不與聯盟計劃重疊的研究可在達成協議後進行。請聯絡 <a href="mailto:usadel@bio1.rwth-aachen.de">Bjorn Usadel 博士(Dr. Bjorn Usadel)</a> 或 <a href="mailto:srs57@cornell.edu">Susan Strickler 博士(Dr. Susan Strickler)</a> 討論此類可能性。(By accessing these data, I hereby agree to respect the rights of the consortium to analyze and 
  publish the first global analyses in a peer-reviewed publication according to the Toronto agreement. 
  This includes: 
  1) whole chromosome or whole genome level analyses on genes, gene families, and repetitive sequences and 
  2) comparative analyses with other organisms. 
  Studies that do not overlap with those planned by the consortium may be undertaken following an agreement. 
- Please contact  <a href="mailto:usadel@bio1.rwth-aachen.de">Dr. Bjorn Usadel</a> or  <a href="mailto:srs57@cornell.edu">Dr. Susan Strickler</a>  
- to discuss such possibilities. 
+ Please contact <a href="mailto:usadel@bio1.rwth-aachen.de">Dr. Bjorn Usadel</a> or <a href="mailto:srs57@cornell.edu">Dr. Susan Strickler</a> 
+ to discuss such possibilities.)
+</p>
 
- The data may be freely downloaded and used by all who respect the restrictions described above.
- <b>Any use of the S. lycopersicoides genome data prior to its publication must follow the agreement 
- and must credit "The Solanum lycopersicoides Genome Consortium".</b>
+<p>
+ 所有遵守上述限制的人士均可免費下載和使用這些數據。(The data may be freely downloaded and used by all who respect the restrictions described above.)
+ <b>在正式發表之前，對 S. lycopersicoides 基因組數據的任何使用都必須遵守該協議，並必須註明出處為「Solanum lycopersicoides 基因組聯盟」。(Any use of the S. lycopersicoides genome data prior to its publication must follow the agreement 
+ and must credit "The Solanum lycopersicoides Genome Consortium".)</b>
+</p>
 
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" id="usage_policy_disagree_submit">Don't Agree</button>
-        <button type="button" class="btn btn-primary" id="usage_policy_agree_submit">Agree</button>
+        <button type="button" class="btn btn-default" id="usage_policy_disagree_submit">不同意(Don't Agree)</button>
+        <button type="button" class="btn btn-primary" id="usage_policy_agree_submit">同意(Agree)</button>
       </div>
     </div>
   </div>
@@ -49,7 +55,7 @@ The Boyce Thompson Institute and RWTH Aachen University are pleased to make the 
 
 
   if (jQuery.cookie("data_usage_policy_approved") == 1) { 
-    document.write('<div class="well well-sm">You have already accepted the data usage policy. Thank you. For more information, you can access the <a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html"> Toronto Agreement publication </div>');
+    document.write('<div class="well well-sm">您已接受數據使用政策。謝謝。如需更多資訊，您可以查閱<a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html">多倫多協議出版物(Toronto Agreement publication)</a>。(You have already accepted the data usage policy. Thank you. For more information, you can access the <a href="https://www.nature.com/nature/journal/v461/n7261/full/461168a.html"> Toronto Agreement publication</a>)</div>');
   }
 
   window.onload=function() {

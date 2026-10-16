@@ -1,28 +1,29 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/info_section_html/;
 
 my $page = CXGN::Page->new('tomato sequencing scope','Robert Buels');
 
-$page->header(('Tomato Sequencing Scope and Completion Criteria') x 2);
+$page->header(('番茄定序範圍與完成標準 (Tomato Sequencing Scope and Completion Criteria)') x 2);
 
 print <<EOH;
-<p>This page explains what parts of the tomato genome will be sequenced by the <a href="/about/tomato_project_overview.pl">International Tomato Sequencing Project</a>, and when the project will be considered complete.</p>
+<p>本頁面說明<a href="/about/tomato_project_overview.pl">國際番茄定序計畫 (International Tomato Sequencing Project)</a>將對番茄基因組的哪些部分進行定序，以及何時將視為專案完成。(This page explains what parts of the tomato genome will be sequenced by the International Tomato Sequencing Project, and when the project will be considered complete.)</p>
 
-<div style="text-align: right; margin-bottom: 1em"><b>Download sequencing scope presentation:</b> <a href="/documents/about/tomato_sequencing_scope.ppt">[ppt]</a></div>
+<div style="text-align: right; margin-bottom: 1em"><b>下載定序範圍簡報 (Download sequencing scope presentation):</b> <a href="/documents/about/tomato_sequencing_scope.ppt">[ppt]</a></div>
 EOH
 
-print info_section_html( title => '1. Sequencing scope',
+print info_section_html( title => '1. 定序範圍 (Sequencing scope)',
 			 contents =>
-			 info_section_html( title => '1.1 Estimate of euchromatin size and number of BACs to sequence',
+			 info_section_html( title => '1.1 真染色質大小與擬定序 BAC 數量估算 (Estimate of euchromatin size and number of BACs to sequence)',
 					    is_subsection => 1,
 					    contents => <<EOH)
 <p>We have developed estimates of the physical distance to be covered in sequencing the euchromatin gene space of tomato centromeric arms.  While more accurate estimates will develop as the project proceeds and more sequence is generated, we note that the current estimates are similar to each other.</p>
 
 <dl>
-<dt>A. Cytologically Based Measurement of Euchromatin Content</dt>
+<dt>A. 基於細胞學之真染色質含量測量 (Cytologically Based Measurement of Euchromatin Content)</dt>
 
 <dd>We previously determined the amount of DNA in euchromatin and
     heterochromatin of tomato chromosomes (Peterson et al. 1996).
@@ -46,39 +47,39 @@ print info_section_html( title => '1. Sequencing scope',
     heterochromatin.
     <center>
     <table>
-    <tr><td></td><th>Heterochromatin</th><th>Euchromatin</th></tr>
+    <tr><td></td><th>異染色質 (Heterochromatin)</th><th>真染色質 (Euchromatin)</th></tr>
     <tr>
-        <td align="right">Relative chromosome length</td>
+        <td align="right">相對染色體長度 (Relative chromosome length)</td>
         <td align="right">0.36</td>
         <td align="right">0.64</td>
     </tr>
     <tr>
-	<td align="right">Relative bivalent diameter</td>
+	<td align="right">相對二價體直徑 (Relative bivalent diameter)</td>
         <td align="right">&times;  1.23 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
 	<td align="right">&times;  1.00 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
     </tr>
     <tr>
-        <td align="right">Relative area</td>
+        <td align="right">相對面積 (Relative area)</td>
         <td align="right">0.44</td>
         <td align="right">0.64</td>
     </tr>
     <tr>
-        <td align="right">Relative optical density</td>
+        <td align="right">相對光密度 (Relative optical density)</td>
         <td align="right">&times;  4.78 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
         <td align="right">&times;  1.00 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
     </tr>
     <tr>
-        <td align="right">Relative OD X relative area</td>
+        <td align="right">相對 OD &times; 相對面積 (Relative OD X relative area)</td>
         <td align="right">2.10</td>
         <td align="right">0.64</td>
     </tr>
     <tr>
-        <td align="right">Total OD X area</td>
+        <td align="right">總 OD &times; 面積 (Total OD X area)</td>
         <td align="right">&divide; 2.74 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
         <td align="right">&divide; 2.74 <hr style="padding: 0; margin: 0 0 0 3em; border: 1px solid black" /></td>
     </tr>
     <tr>
-        <td align="right">Fraction of genome</td>
+        <td align="right">基因組比例 (Fraction of genome)</td>
         <td align="right">0.77</td>
         <td align="right">0.23</td>
     </tr>
@@ -96,7 +97,7 @@ print info_section_html( title => '1. Sequencing scope',
      [0.73 pg x (965 x106 pb/pg) =], there are 7.05 x 108 bp (705 Mb)
     of DNA in the heterochromatin of one tomato genome.
 </dd>
-<dt>B. Estimating Euchromatin Arm Size Based on Available Genome and EST Sequence</dt>
+<dt>B. 基於現有基因組與 EST 序列之真染色質臂大小估算 (Estimating Euchromatin Arm Size Based on Available Genome and EST Sequence)</dt>
 <dd>
    As of the summer of 2006 a total of 15.5 Mb of non-overlapping
    tomato genomic sequence had been submitted to SGN by the US team
@@ -132,15 +133,15 @@ print info_section_html( title => '1. Sequencing scope',
 
    <center>
    <table>
-   <tr><th>Method</th><th>Sequencing Target</th></tr>
-   <tr><td>Cytology</td><td>212 Mb</td></tr>
-   <tr><td>Available Sequence and percent high quality gene models</td><td>234 Mb</td></tr>
-   <tr><td>Available sequence and total gene models</td><td>220 Mb</td></tr>
+   <tr><th>方法 (Method)</th><th>定序目標 (Sequencing Target)</th></tr>
+   <tr><td>細胞學 (Cytology)</td><td>212 Mb</td></tr>
+   <tr><td>可用序列與高品質基因模型百分比 (Available Sequence and percent high quality gene models)</td><td>234 Mb</td></tr>
+   <tr><td>可用序列與總基因模型 (Available sequence and total gene models)</td><td>220 Mb</td></tr>
    </table>
    </center>
 </dd>
 </dl>
-<h4>Additional Information</h4>
+<h4>其他資訊 (Additional Information)</h4>
 
 <p> When the sequencing project is advanced to the stage where BAC
 contigs can be assayed for both total non-redundant sequence length
@@ -173,14 +174,14 @@ cytological results on which the project was based.
 <p>In summary, the data described above is consistent with a sequencing target of 212 - 234 Mb for completion of the objectives of the international tomato genome sequencing project. At present we propose use of the larger estimate, 234 Mb, to guide our project plan as it is likely more accurate and more conservative (in terms of justifying budget and activity for completion of project goals).
 </p>
 EOH
-			 .info_section_html(title => '1.2 Sequencing standards',
+			 .info_section_html(title => '1.2 定序標準 (Sequencing standards)',
 					    is_subsection => 1,
 					    contents => <<EOH)
-<p>A "finished BAC" is defined as one:</p>
+<p>「已完成的 BAC (finished BAC)」定義如下 (A "finished BAC" is defined as one)：</p>
 <ul>
-<li>that contains an error rate of less than 1:10,000 bases and continuous sequence across the entire BAC (HTGS phase 3)</li>
-<li>that has an average of 8-fold redundancy in sequencing coverage with a minimum of one high quality read in both directions at any given location</li>
-<li>that is as gap-free as possible, given all reasonable state-of-the-art gap-filling approaches available at the time of sequencing</li>
+<li>包含低於 1:10,000 鹼基的錯誤率，且整條 BAC 序列連續無間隙 (HTGS 第 3 階段) (that contains an error rate of less than 1:10,000 bases and continuous sequence across the entire BAC (HTGS phase 3))</li>
+<li>定序覆蓋度平均達到 8 倍冗餘，在任何給定位置雙向均至少有一次高品質讀取 (that has an average of 8-fold redundancy in sequencing coverage with a minimum of one high quality read in both directions at any given location)</li>
+<li>在定序時所有合理可用的先進填補間隙方法下，盡可能做到無間隙 (that is as gap-free as possible, given all reasonable state-of-the-art gap-filling approaches available at the time of sequencing)</li>
 </ul>
 
 <p>
@@ -189,7 +190,7 @@ Regarding the euchromatin pseudomolecule, a small number of recalcitrant gaps, w
 EOH
 		       );
 
-print info_section_html( title => '2. Completion criteria',
+print info_section_html( title => '2. 完成標準 (Completion criteria)',
 			 contents => <<EOH,
 <p>
 We shall use as our targeted sequencing goals two guiding principles: 1) complete sequencing of the major euchromatin "arms" flanking each of the 12 tomato chromosomes 2) to a degree of completion comparable to the standards of completion used to guide the international rice genome sequencing project (IRGSP, 2005) and enumerated above. We further define our objectives to include sequencing to at least the closest mapped marker to the visible euchromatin heterochromatin borders of each chromosome arm.  In situ hybridization will be used to determine if these borders define the true euchromatin/heterochromatin borders or a gap that will be at minimum physically defined and at maximum walked via the above strategy until characteristic heterochromatin repeats are reached (at which time FISH will be performed with the closest low copy BAC or internal BAC sequence).

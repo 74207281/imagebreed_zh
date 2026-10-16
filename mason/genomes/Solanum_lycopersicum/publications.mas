@@ -43,7 +43,7 @@ function authors_off( id_base ) {
 
 </script>
 
-<& /page/page_title.mas, title => "Tomato Genome Publications" &>
+<& /page/page_title.mas, title => "番茄基因組出版物(Tomato Genome Publications)" &>
 
 <%args>
   $schema
@@ -74,14 +74,14 @@ for my $pub (@pubs) {
 }
 </%init>
 
-<&| /page/info_section.mas, title=>'Publications', collapsible => 0, empty_message => 'temporarily unavailable' &>
+<&| /page/info_section.mas, title=>'出版物(Publications)', collapsible => 0, empty_message => '暫時不可用(temporarily unavailable)' &>
 
 %  # for each year, print out the pubs associated with it
 %   my @sorted_years =  sort {$b <=> $a} keys %pubs_by_year;
 %   for my $year ( @sorted_years ) {
 %     my $pubs = $pubs_by_year{$year};
       <&| /page/info_section.mas, title         => $year,
-                                  subtitle      => @$pubs.' publication'.(@$pubs > 1 ? 's' : ''),
+                                  subtitle      => @$pubs.' 篇出版物(publication'.(@$pubs > 1 ? 's' : '').')',
                                   collapsible   => 1,
                                   collapsed     => ($year == $sorted_years[0] || $year == $sorted_years[1] ? 0 : 1),
                                   is_subsection => 1,
@@ -138,32 +138,32 @@ for my $pub (@pubs) {
   <td>
     <table>
       <tr>
-	<td class="width">Author(s):</td>
+	<td class="width">作者(Author(s)):</td>
 	<td><% $names | h %>
 % if( $extra_names ){
 %   my $id = $pub->pub_id;
           <span style="display: none" id="extra_<% $id %>"><% $extra_names |h %></span>
-          <a style="display: none" id="fewer_<% $id %>" href="javascript:authors_off(<% $id %>)">show fewer</a>
-          <a id="all_<% $id %>" href="javascript:authors_on(<% $id %>)">show all</a>
+          <a style="display: none" id="fewer_<% $id %>" href="javascript:authors_off(<% $id %>)">顯示較少(show fewer)</a>
+          <a id="all_<% $id %>" href="javascript:authors_on(<% $id %>)">顯示全部(show all)</a>
 %  }
 	</td>
       </tr>
       <tr>
-	<td class="width">Journal:</td>
+	<td class="width">期刊(Journal):</td>
 	<td><% $pub->series_name | h %></td>
       </tr>
       <tr>
-	<td class="width">Volume:</td>
+	<td class="width">卷號(Volume):</td>
 	<td><% $pub->volume | h %></td>
       </tr>
 % if( $pub->issue ) {
       <tr>
-	<td class="width">Issue:</td>
+	<td class="width">期號(Issue):</td>
 	<td><% $pub->issue | h %></td>
       </tr>
 % }
       <tr>
-	<td class="width">Pages:</td>
+	<td class="width">頁碼(Pages):</td>
 	<td><% $pub->pages | h %></td>
       </tr>
 % if( $pubmed

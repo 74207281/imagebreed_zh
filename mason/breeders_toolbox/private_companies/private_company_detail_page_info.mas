@@ -21,16 +21,16 @@ $company_sp_person_access_cvterm_name => undef
 
 
 <table class="table table-bordered table-hover">
-    <tr><td><b>Company Name</b><td><% $company_name %></td></tr>
-    <tr><td><b>Description</b><td><% $company_description %></td></tr>
-    <tr><td><b>Contact Email</b><td><% $company_contact_email %></td></tr>
-    <tr><td><b>Contact First Name</b><td><% $company_contact_first_name %></td></tr>
-    <tr><td><b>Contact Last Name</b><td><% $company_contact_last_name %></td></tr>
-    <tr><td><b>Contact Phone</b><td><% $company_contact_phone %></td></tr>
-    <tr><td><b>Address</b><td><% $company_address_street %> <% $company_address_street_2 %> <% $company_address_city %> <% $company_address_state %> <% $company_address_zipcode %> <% $company_address_country %></td></tr>
-    <tr><td><b>Create Date</b><td><% $company_create_date %></td></tr>
-    <tr><td><b>Company Access</b><td><% $company_type_cvterm_name %></td></tr>
-    <tr><td><b>Your Access in Company</b><td><b><% $company_sp_person_access_cvterm_name %></b></td></tr>
+    <tr><td><b>公司名稱(Company Name)</b><td><% $company_name %></td></tr>
+    <tr><td><b>描述(Description)</b><td><% $company_description %></td></tr>
+    <tr><td><b>聯絡電子郵件(Contact Email)</b><td><% $company_contact_email %></td></tr>
+    <tr><td><b>聯絡人名字(Contact First Name)</b><td><% $company_contact_first_name %></td></tr>
+    <tr><td><b>聯絡人姓氏(Contact Last Name)</b><td><% $company_contact_last_name %></td></tr>
+    <tr><td><b>聯絡電話(Contact Phone)</b><td><% $company_contact_phone %></td></tr>
+    <tr><td><b>地址(Address)</b><td><% $company_address_street %> <% $company_address_street_2 %> <% $company_address_city %> <% $company_address_state %> <% $company_address_zipcode %> <% $company_address_country %></td></tr>
+    <tr><td><b>建立日期(Create Date)</b><td><% $company_create_date %></td></tr>
+    <tr><td><b>公司存取權限(Company Access)</b><td><% $company_type_cvterm_name %></td></tr>
+    <tr><td><b>您在公司的權限(Your Access in Company)</b><td><b><% $company_sp_person_access_cvterm_name %></b></td></tr>
 </table>
 
 <script>

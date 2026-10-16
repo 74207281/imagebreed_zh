@@ -32,7 +32,7 @@ $genotyping_project_link => undef
 
 <& /util/import_javascript.mas, classes => [ 'jquery.iframe-post-form', 'CXGN.Trial03152022', 'CXGN.BreedersToolbox.GenotypingTrial08232022', 'CXGN.BreedersToolbox.GenotypingSubmission03152022' ] &>
 
-<& /page/page_title.mas, title=>"Genotyping plate $trial_name" &>
+<& /page/page_title.mas, title=>"基因分型微孔盤(Genotyping Plate) $trial_name" &>
 
 <%perl>
     my $order_id;
@@ -56,14 +56,14 @@ $genotyping_project_link => undef
                 <div class="panel-body">
                     <table class="table table-bordered table-hover">
                     <tbody>
-                    <tr><td><b>Genotyping Project</b></td><td><% $genotyping_project_link %></td></tr>
-                    <tr><td><b>Breeding Program</b></td><td><a href="/breeders/program/<% $breeding_program_id %>"><% $breeding_program_name %></a></td></tr>
-                    <tr><td><b>Trial Type</b></td><td>Genotyping Plate</td></tr>
-                    <tr><td><b>Plate Format</b></td><td><% $genotyping_plate_format %></td></tr>
-                    <tr><td><b>Plate Sample Type</b></td><td><% $genotyping_plate_sample_type %></td></tr>
-                    <tr><td><b>Genotyping Facility</b></td><td><% $genotyping_facility %></td></tr>
-                    <tr><td><b>Description</b></td><td><% $trial_description %></td></tr>
-                    <tr><td><b>Created By</b></td><td><% $trial_owner %></td></tr>
+                    <tr><td><b>基因分型專案(Genotyping Project)</b></td><td><% $genotyping_project_link %></td></tr>
+                    <tr><td><b>育種計畫(Breeding Program)</b></td><td><a href="/breeders/program/<% $breeding_program_id %>"><% $breeding_program_name %></a></td></tr>
+                    <tr><td><b>試驗類型(Trial Type)</b></td><td>基因分型微孔盤</td></tr>
+                    <tr><td><b>微孔盤格式(Plate Format)</b></td><td><% $genotyping_plate_format %></td></tr>
+                    <tr><td><b>微孔盤樣本類型(Plate Sample Type)</b></td><td><% $genotyping_plate_sample_type %></td></tr>
+                    <tr><td><b>基因分型機構(Genotyping Facility)</b></td><td><% $genotyping_facility %></td></tr>
+                    <tr><td><b>描述(Description)</b></td><td><% $trial_description %></td></tr>
+                    <tr><td><b>建立者(Created By)</b></td><td><% $trial_owner %></td></tr>
                     <!-- <tr><td><b>Submitted to Genotyping Facility</b></td><td><% $genotyping_facility_submitted %></td></tr>
                     <tr><td><b>Genotyping Facility Status</b></td><td><% $genotyping_facility_status %></td></tr>
                     <tr><td><b>Raw Data Link</b></td><td><a href='<% $raw_data_link %>'><% $raw_data_link %></td></tr> -->
@@ -74,7 +74,7 @@ $genotyping_project_link => undef
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <button class="btn btn-primary btn-sm" id="edit_genotyping_trial_details" style="margin:3px">Edit Plate Details</button>
+                    <button class="btn btn-primary btn-sm" id="edit_genotyping_trial_details" style="margin:3px">編輯微孔盤詳細資料(Edit Plate Details)</button>
                 </div>
             </div>
 
@@ -89,9 +89,9 @@ $genotyping_project_link => undef
                 </div>
             </div> -->
 
-            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=csv&dataLevel=plate" class="btn btn-default">Download Breedbase Formatted File</a>
-            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=intertekxls&dataLevel=plate" class="btn btn-default">Download Intertek Formatted File</a>
-            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=dartseqcsv&dataLevel=plate" class="btn btn-default">Download DartSeq Formatted File</a>
+            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=csv&dataLevel=plate" class="btn btn-default">下載 Breedbase 格式檔案(Download Breedbase Formatted File)</a>
+            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=intertekxls&dataLevel=plate" class="btn btn-default">下載 Intertek 格式檔案(Download Intertek Formatted File)</a>
+            <a href="/breeders/trial/<% $trial_id %>/download/layout?format=dartseqcsv&dataLevel=plate" class="btn btn-default">下載 DartSeq 格式檔案(Download DartSeq Formatted File)</a>
 
         </div>
         <div class="col-sm-3">
@@ -110,22 +110,22 @@ $genotyping_project_link => undef
                     <span style="font-size:3.5em;" class="glyphicon glyphicon-export"></span>
                 </div>
                 <div class="col-sm-11">
-                <&| /page/info_section.mas, title => "<h4 style='display:inline'>Genotyping plate submission status</h4>", subtitle=> "Submit genotyping plates to facilities.", id => 'genotyping_facilities_section', collapsible => 1, collapsed => 1 &>
+                <&| /page/info_section.mas, title => "<h4 style='display:inline'>基因分型微孔盤提交狀態(Genotyping Plate Submission Status)</h4>", subtitle=> "提交基因分型微孔盤至機構。", id => 'genotyping_facilities_section', collapsible => 1, collapsed => 1 &>
                     <div class="col-sm-9"></div>
                     <div class="col-sm-3">
-                        <button class="btn btn-primary btn-sm" id="submit_plate_link" style="margin:3px">Submit plates</button>
+                        <button class="btn btn-primary btn-sm" id="submit_plate_link" style="margin:3px">提交微孔盤(Submit Plates)</button>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <table class="table table-bordered table-hover">
                             <tbody>
-                                <tr><td><b>Genotyping Facility</b></td><td><div id="genotyping_facility_tab"><% $genotyping_facility %></div></td></tr>
-                                <tr><td><b>Submitted to Genotyping Facility</b></td><td><div id="genotyping_facility_submitted_tab"></div></td></tr>
-                                <tr><td><b>Genotyping Facility Order ID </b></td><td><div id="genotyping_vendor_order_id_tab"><% $order_id %></div></td></tr>
-                                <tr><td><b>Genotyping Facility Submission ID </b></td><td><div id="genotyping_vendor_submission_id_tab"><% $submission_id %></div></td></tr>
-                                <tr><td><b>Live Status From Genotyping Facility</b></td><td><div id="genotyping_trial_status_info"></div></td></tr>
-                                <tr><td><b>Download PDF</b></td><td><div id="download_trial_pdf"></div></td></tr>
-                                <tr><td><b>Raw Data Link</b></td><td><div id="raw_data_tab"></div></td></tr>
+                                <tr><td><b>基因分型機構(Genotyping Facility)</b></td><td><div id="genotyping_facility_tab"><% $genotyping_facility %></div></td></tr>
+                                <tr><td><b>已提交至基因分型機構(Submitted to Genotyping Facility)</b></td><td><div id="genotyping_facility_submitted_tab"></div></td></tr>
+                                <tr><td><b>基因分型機構訂單 ID(Genotyping Facility Order ID)</b></td><td><div id="genotyping_vendor_order_id_tab"><% $order_id %></div></td></tr>
+                                <tr><td><b>基因分型機構提交 ID(Genotyping Facility Submission ID)</b></td><td><div id="genotyping_vendor_submission_id_tab"><% $submission_id %></div></td></tr>
+                                <tr><td><b>基因分型機構即時狀態(Live Status From Genotyping Facility)</b></td><td><div id="genotyping_trial_status_info"></div></td></tr>
+                                <tr><td><b>下載 PDF(Download PDF)</b></td><td><div id="download_trial_pdf"></div></td></tr>
+                                <tr><td><b>原始資料連結(Raw Data Link)</b></td><td><div id="raw_data_tab"></div></td></tr>
                             </tbody>
                             </table>
                         </div>
@@ -145,12 +145,12 @@ $genotyping_project_link => undef
                     <span style="font-size:3.5em;" class="glyphicon glyphicon-qrcode"></span>
                 </div>
                 <div class="col-sm-7">
-                    <h4>Generate barcode labels for samples, accessions or plate ID.</h4>
+                    <h4>產生樣本、種原或微孔盤 ID 的條碼標籤(Generate Barcode Labels for Samples, Accessions or Plate ID)</h4>
                 </div>
                 <div class="col-sm-2">
                     <& /breeders_toolbox/trial/generate_genotrial_barcode.mas, trial_name => $trial_name, trial_id => $trial_id, identifier => $identifier_prefix, plate_id=> $plate_id &>
 
-                    <button id="generate_genotyping_trial_barcode_link" class="btn btn-primary btn-sm">Go</button>
+                    <button id="generate_genotyping_trial_barcode_link" class="btn btn-primary btn-sm">執行(Go)</button>
                 </div>
             </div>
         </div>
@@ -198,7 +198,7 @@ $genotyping_project_link => undef
                 <div class="col-sm-11">
 
 % my $plate_view_link = '/breeders_toolbox/trial/'.$trial_id.'?format=as_table';
-                    <&| /page/info_section.mas, title=>"<h4 style='display:inline'>Plate Layout</h4>", id=>"trial_plate_layout", collapsible=>1, collapsed=>0, is_subsection=>1,subtitle=> qq{ Download layout <a class='btn btn-sm btn-default' style='margin:3px' id=\"download_layout_xls_link\" href=\"/breeders/trial/$trial_id/download/layout?format=xls&dataLevel=plate\">XLS</a> <a class='btn btn-sm btn-default' style='margin:3px' id=\"download_layout_csv_link\" href=\"/breeders/trial/$trial_id/download/layout?format=csv&dataLevel=plate\">CSV</a><a class='btn btn-sm btn-default' style='margin:3px' href=$plate_view_link>Plate View</a> } &>
+                    <&| /page/info_section.mas, title=>"<h4 style='display:inline'>微孔盤配置(Plate Layout)</h4>", id=>"trial_plate_layout", collapsible=>1, collapsed=>0, is_subsection=>1,subtitle=> qq{ 下載配置(Download Layout) <a class='btn btn-sm btn-default' style='margin:3px' id=\"download_layout_xls_link\" href=\"/breeders/trial/$trial_id/download/layout?format=xls&dataLevel=plate\">XLS</a> <a class='btn btn-sm btn-default' style='margin:3px' id=\"download_layout_csv_link\" href=\"/breeders/trial/$trial_id/download/layout?format=csv&dataLevel=plate\">CSV</a><a class='btn btn-sm btn-default' style='margin:3px' href=$plate_view_link>微孔盤檢視(Plate View)</a> } &>
 
                         <div class="well well-sm">
                             <& /breeders_toolbox/genotyping_trials/format/as_table.mas, trial_id => $trial_id, trial_name => $trial_name, breeding_program_name => $breeding_program_name, breeding_program_id => $breeding_program_id, genotyping_plate_format => $genotyping_plate_format, table_only=>1 &>
@@ -226,7 +226,7 @@ $genotyping_project_link => undef
                 </div>
                 <div class="col-sm-11">
 
-                    <&| /page/info_section.mas, title => "<h4 style='display:inline'>Additional Files</h4>", subtitle=> "Upload and view any additional files for   this plate", id => 'genotyping_trial_additional_files_section', collapsible => 1, collapsed => 1 &>
+                    <&| /page/info_section.mas, title => "<h4 style='display:inline'>附加檔案(Additional Files)</h4>", subtitle=> "上傳並檢視此微孔盤的任何附加檔案", id => 'genotyping_trial_additional_files_section', collapsible => 1, collapsed => 1 &>
 
                         <div class="panel panel-default">
                             <div class="panel-body">
@@ -249,7 +249,7 @@ $genotyping_project_link => undef
                 </div>
                 <div class="col-sm-11">
 
-                    <&| /page/info_section.mas, title => "<h4 style='display:inline'>Plate Linkage</h4>", subtitle => 'View any field trial to genotyping plate linkage', id => 'genotyping_trial_from_field_trial_section', collapsible => 1, collapsed => 1 &>
+                    <&| /page/info_section.mas, title => "<h4 style='display:inline'>微孔盤連結(Plate Linkage)</h4>", subtitle => '檢視任何田間試驗與基因分型微孔盤的連結', id => 'genotyping_trial_from_field_trial_section', collapsible => 1, collapsed => 1 &>
                         <& /breeders_toolbox/trial/genotyping_trial_from_field_trial_linkage.mas, trial_id => $trial_id, trial_type => 'genotyping_trial' &>
                     </&>
                 </div>
@@ -266,10 +266,10 @@ $genotyping_project_link => undef
                 </div>
                 <div class="col-sm-11">
 
-                    <&| /page/info_section.mas, title=>"<h4 style='display:inline'>Trial Deletion</h4>", collapsible=>1, collapsed=>1, subtitle=>"<font color=\"red\">Deletion cannot be undone</font>" &>
-                        <div class="boxbgcolor5">Note: Do not delete a genotype layout for an experiment that has already been submitted to the sequencing facility.</div>
+                    <&| /page/info_section.mas, title=>"<h4 style='display:inline'>刪除試驗(Trial Deletion)</h4>", collapsible=>1, collapsed=>1, subtitle=>"<font color=\"red\">刪除後無法復原</font>" &>
+                        <div class="boxbgcolor5">注意：請勿刪除已提交至定序機構的實驗之基因型配置。</div>
                         <br /><br />
-                        <button class="btn btn-default" id="delete_layout_data_by_trial_id">Delete this genotyping experiment</button>
+                        <button class="btn btn-default" id="delete_layout_data_by_trial_id">刪除此基因分型實驗(Delete This Genotyping Experiment)</button>
                     </&>
                 </div>
             </div>
@@ -277,9 +277,9 @@ $genotyping_project_link => undef
     </div>
 </div>
 
-<&| /page/info_section.mas, id=>"genotyping_trial_check_layout_section", title=>"Check Plate Design", collapsible=>1, collapsed=>1 &>
+<&| /page/info_section.mas, id=>"genotyping_trial_check_layout_section", title=>"檢查微孔盤設計(Check Plate Design)", collapsible=>1, collapsed=>1 &>
     <div id="genotyping_trial_check_layout_section_div">
-        <div class="well well-sm">LOADING...</div>
+        <div class="well well-sm">載入中...</div>
     </div>
 </&>
 
@@ -328,9 +328,9 @@ genotyping_facility => $genotyping_facility
             success: function(response){
                 var html = '';
                 if (response.has_layout == 1){
-                    html += '<p class="text-success" title="This trial has plots and their layout information saved in the database. All relationships between accessions, plots, seedlots, plants, and subplots are consistent. You can view and download this information in the Design section on this page."><small>Has Field Layout&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
+                    html += '<p class="text-success" title="此試驗在資料庫中已儲存小區及其配置資訊。種原、小區、種子批次、植株和子區之間的所有關係均一致。您可以在此頁面的設計區段中檢視並下載此資訊。"><small>具有田間配置&nbsp;&nbsp;</small><span class="glyphicon glyphicon-ok-sign"></span></p>';
                 } else {
-                    html += '<p class="text-danger" title="There is something wrong with the layout! If this occurs please contact us because this should not occur! (click here for more info)"><span id="layout_error_button"><small>Bad Field Layout&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></span></p>';
+                    html += '<p class="text-danger" title="配置發生錯誤！如果發生這種情況，請聯繫我們，因為這不應該發生！（點選此處了解更多資訊）"><span id="layout_error_button"><small>無效的田間配置&nbsp;&nbsp;</small><span class="glyphicon glyphicon-remove-sign"></span></span></p>';
                 }
                 jQuery(document).on('click', 'span[id="layout_error_button"]', function(){
                     alert(response.layout_errors);
@@ -338,7 +338,7 @@ genotyping_facility => $genotyping_facility
                 jQuery('#genotyping_trial_check_layout_section_div').html(html);
             },
             error: function(response){
-                alert('Error retrieving trial check layout section');
+                alert('取得試驗檢查配置區段時發生錯誤');
             }
 
         });

@@ -3,12 +3,12 @@
 
 <div id="brapi_home_maps_detail_div">
 
-    <h4>Genome Map Details</h4>
-    <input name="brapi_home_mapsdbid" id="brapi_home_mapsdbid" class="form-control" type="text" placeholder="MapsDbId e.g. 1" value="1"/>
-    <input name="brapi_home_maps_linkagegroupids" id="brapi_home_maps_linkagegroupids" class="form-control" type="text" placeholder="LinkageGroupIds e.g. S5,S13" value="S5,S13"/>
-    <input name="brapi_home_maps_min" id="brapi_home_maps_min" class="form-control" type="text" placeholder="Minimum Position e.g. 10000" value="10000"/>
-    <input name="brapi_home_maps_max" id="brapi_home_maps_max" class="form-control" type="text" placeholder="Maximum Position e.g. 200000" value="200000"/>
-    <button class="btn btn-primary" name="brapi_home_mapsdbid_submit" id="brapi_home_mapsdbid_submit">Get Map Details</button>
+    <h4>基因組圖譜詳細資訊(Genome Map Details)</h4>
+    <input name="brapi_home_mapsdbid" id="brapi_home_mapsdbid" class="form-control" type="text" placeholder="圖譜資料庫 ID 如 1(MapsDbId e.g. 1)" value="1"/>
+    <input name="brapi_home_maps_linkagegroupids" id="brapi_home_maps_linkagegroupids" class="form-control" type="text" placeholder="連鎖群 ID 如 S5,S13(LinkageGroupIds e.g. S5,S13)" value="S5,S13"/>
+    <input name="brapi_home_maps_min" id="brapi_home_maps_min" class="form-control" type="text" placeholder="最小位置 如 10000(Minimum Position e.g. 10000)" value="10000"/>
+    <input name="brapi_home_maps_max" id="brapi_home_maps_max" class="form-control" type="text" placeholder="最大位置 如 200000(Maximum Position e.g. 200000)" value="200000"/>
+    <button class="btn btn-primary" name="brapi_home_mapsdbid_submit" id="brapi_home_mapsdbid_submit">獲取圖譜詳細資訊(Get Map Details)</button>
     <br/><br/>
     <div id="brapi_maps_detail_result_div">
     </div>
@@ -32,7 +32,7 @@ jQuery(document).ready(function() {
             brapi_create_paginated_table(response.result.linkageGroups, response.metadata.pagination, 'brapi_maps_info_result_div', '/brapi/v1/maps/'+jQuery('#brapi_home_mapsdbid').val(), undefined);
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
 
@@ -44,7 +44,7 @@ jQuery(document).ready(function() {
             brapi_create_paginated_table(response.result.data, response.metadata.pagination, 'brapi_maps_positions_result_div', jQuery('#brapi_home_url_select').val()+'/brapi/v1/maps/'+jQuery('#brapi_home_mapsdbid').val()+'/positions', undefined);
           },
           error: function(response) {
-            alert('An error occurred');
+            alert('發生錯誤(An error occurred)');
           }
         });
 

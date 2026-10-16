@@ -13,8 +13,8 @@
 <& /feature/page_title.mas, feature => $feature &>
 
 <&| /page/info_section.mas,
-    title       => type_name($feature,'caps').' details',
-    subtitle    => $feature->is_obsolete ? 'WARNING: This feature is obsolete, new data is available.' : '',
+    title       => type_name($feature,'caps').' 詳細資訊(details)',
+    subtitle    => $feature->is_obsolete ? '警告：此特徵已廢棄，有新資料可用。(WARNING: This feature is obsolete, new data is available.)' : '',
     collapsible => 1,
 &>
    <& /feature/feature_data.mas,
@@ -27,7 +27,7 @@
 </&>
 
 <&| /page/info_section.mas,
-    title       => 'Tree and alignment',
+    title       => '樹狀圖與比對(Tree and alignment)',
     collapsible => 1,
 &>
 
@@ -36,7 +36,7 @@
 </&>
 
 <&| /page/info_section.mas,
-   title => 'Related features',
+   title => '相關特徵(Related features)',
    collapsible => 1,
    hide_if_empty => 1,
 &>
@@ -49,8 +49,8 @@
 </&>
 
 <&| /page/info_section.mas,
-     title => 'Related views',
-     empty_message => 'None found',
+     title => '相關檢視(Related views)',
+     empty_message => '未找到(None found)',
      collapsible => 1,
      is_empty => ! scalar @$xrefs,
  &>

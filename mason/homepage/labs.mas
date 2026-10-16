@@ -14,17 +14,17 @@ my $contents = CXGN::Tools::File::get_sections($file);
 
 <!--
 <div class="boxbgcolor1" style="border:0px; ">
-<div class="boxheading">Featured lab</div>
+<div class="boxheading">精選實驗室(Featured lab)</div>
 <div class="boxcontent"><% $contents %></div>
-<a href="/community/feature/index.pl">See all featured labs...</a>
+<a href="/community/feature/index.pl">查看所有精選實驗室(See all featured labs)...</a>
 </div>
 -->
 
-<h4>Featured Lab</h4>
+<h4>精選實驗室(Featured Lab)</h4>
 
 <% $contents %>
 
-<button class="btn btn-info btn-sm" onclick='location.href="/community/feature/index.pl"'>See all featured labs...</button>
+<button class="btn btn-info btn-sm" onclick='location.href="/community/feature/index.pl"'>查看所有精選實驗室(See all featured labs)...</button>
 
 
 

@@ -8,53 +8,53 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="uploadLocationsDialog">Upload Locations</h4>
+        <h4 class="modal-title" id="uploadLocationsDialog">上傳地點(Upload Locations)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-                <b>Locations may be uploaded in an Excel file (.xls or .xlsx)</b>
+                <b>地點可以 Excel 檔案（.xls 或 .xlsx）上傳</b>
                 <br>
-                <b>Header:</b><br>
-                The first row (header) must contain the following:
+                <b>表頭：</b><br>
+                第一列（表頭）必須包含以下內容：
                 <br>
                 <table class="table table-bordered table-hover">
                   <tbody>
                   <tr>
-                    <td>Name</td>
-                    <td>Abbreviation</td>
-                    <td>Country Code</td>
-                    <td>Country Name</td>
-                    <td>Program</td>
-                    <td>Type</td>
-                    <td>Latitude</td>
-                    <td>Longitude</td>
-                    <td>Altitude</td>
-                    <td>NOAA Station ID</td>
+                    <td>名稱(Name)</td>
+                    <td>縮寫(Abbreviation)</td>
+                    <td>國家代碼(Country Code)</td>
+                    <td>國家名稱(Country Name)</td>
+                    <td>育種計畫(Program)</td>
+                    <td>類型(Type)</td>
+                    <td>緯度(Latitude)</td>
+                    <td>經度(Longitude)</td>
+                    <td>海拔高度(Altitude)</td>
+                    <td>NOAA 測站 ID(NOAA Station ID)</td>
                   </tr>
                   </tbody>
                 </table>
-                <b>Required columns:</b><br><br>
-                <b>Name:</b> must not conflict with an existing location name<br>
-                <b>Abbreviation</b><br>
-                <b>Country Code:</b> must be an <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO Alpha-3 country code</a><br>
-                <b>Country Name:</b> must be an uppercase english short name from the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO standard</a><br>
-                <b>Program:</b> must be an exisiting Breeding Program in the database, or multiple breeding programs separated by '&'<br>
-                <b>Type:</b> must be one of the following: Farm, Field, Greenhouse, Screenhouse, Lab, Storage, Other<br>
-                <b>Latitude:</b> (in degrees) must be a number between 90 and -90.<br>
-                <b>Longitude:</b> (in degrees) must be a number between 180 and -180.<br>
-                <b>Altitude:</b> (in meters) must be a number between -418 (Dead Sea) and 8,848 (Mt. Everest).<br>
-                <b>NOAA Station ID:</b> The NOAA Station ID that is nearest and most relevant to the location. <a href="https://www.ncdc.noaa.gov/cdo-web/search" target="_blank">Search Here</a><br>
+                <b>必填欄位：</b><br><br>
+                <b>名稱(Name)：</b> 不得與現有地點名稱衝突<br>
+                <b>縮寫(Abbreviation)</b><br>
+                <b>國家代碼(Country Code)：</b> 必須為 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO Alpha-3 國家代碼</a><br>
+                <b>國家名稱(Country Name)：</b> 必須為 <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 標準</a> 中的大寫英文簡稱<br>
+                <b>育種計畫(Program)：</b> 必須是資料庫中現有的育種計畫，多個育種計畫請用 '&' 分隔<br>
+                <b>類型(Type)：</b> 必須為以下之一：Farm, Field, Greenhouse, Screenhouse, Lab, Storage, Other<br>
+                <b>緯度(Latitude)：</b>（度）必須是介於 90 與 -90 之間的數值。<br>
+                <b>經度(Longitude)：</b>（度）必須是介於 180 與 -180 之間的數值。<br>
+                <b>海拔高度(Altitude)：</b>（公尺）必須是介於 -418（死海）與 8,848（聖母峰）之間的數值。<br>
+                <b>NOAA 測站 ID(NOAA Station ID)：</b> 距離該地點最近且最相關的 NOAA 測站 ID。<a href="https://www.ncdc.noaa.gov/cdo-web/search" target="_blank">在此搜尋</a><br>
                 <br>
 
           <form method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_locations_form" name="upload_locations_form">
-    <label for="locations_upload_file" style="display: inline-block;">Location File:</label>
+    <label for="locations_upload_file" style="display: inline-block;">地點檔案：</label>
     <input type="file" name="locations_upload_file" id="locations_upload_file" encoding="multipart/form-data" />
   </form>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	<button type="button" class="btn btn-primary" name="upload_locations_dialog_submit" id="upload_locations_dialog_submit">Upload</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
+	<button type="button" class="btn btn-primary" name="upload_locations_dialog_submit" id="upload_locations_dialog_submit">上傳(Upload)</button>
       </div>
     </div>
   </div>
@@ -65,12 +65,12 @@
         <div class="modal-content ui-front">
             <div class="modal-header text-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="locationsResultDialog">Results</h4>
+                <h4 class="modal-title" id="locationsResultDialog">結果(Results)</h4>
             </div>
             <div id="locations_result_body" class="container-fluid">
             </div>
             <div class="modal-footer">
-                <button id="locations_result_close_button" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="locations_result_close_button" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@ jQuery(document).ready(function() {
         var uploadFile = jQuery("#locations_upload_file").val();
         jQuery('#upload_locations_form').attr("action", "/ajax/locations/upload");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選擇一個檔案");
             return;
         }
         jQuery("#upload_locations_form").submit();
@@ -111,7 +111,7 @@ jQuery(document).ready(function() {
                 for (i = 0; i < response.error.length; i++) {
                     errors.push( '<p>'+response.error[i]+'</p>');
                 }
-                var html = '<br><center><b>Upload failed.</b><br><b>Please fix the following errors in </b>'+response.filename+'<b> and try again:</b></center><br>';
+                var html = '<br><center><b>上傳失敗。</b><br><b>請修正 </b>'+response.filename+'<b> 中的以下錯誤後重試：</b></center><br>';
                 html += errors.join('') + '<br>';
                 document.getElementById('locations_result_body').innerHTML = html;
                 jQuery('#locations_result_dialog').modal("show");
@@ -132,7 +132,7 @@ jQuery(document).ready(function() {
         },
         error: function(response) {
             jQuery('#working_modal').modal("hide");
-            alert("An error occurred");
+            alert("發生錯誤");
         }
     });
 

@@ -7,7 +7,7 @@ $dataset_contents => ''
 
 </%args>
 
-<& /page/page_title.mas, title => "Dataset $dataset_name" &>
+<& /page/page_title.mas, title => "資料集(Dataset) $dataset_name" &>
 <& /util/import_javascript.mas, entries => ['dataset_scatterplot'], classes => [ 'jqueryui.js', 'jquery.js', 'd3.d3v4Min', 'jstree.dist.jstree', "thickbox", "CXGN.Page.FormattingHelpers" ] &>
 <& /util/import_javascript.mas, entries => ['dataset'] &>
 <& /util/import_css.mas, paths => ['wizard.css'] &>
@@ -90,7 +90,7 @@ $dataset_contents => ''
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Dataset Details</title>
+  <title>資料集詳情(Dataset Details)</title>
 </head>
 
 <%perl>
@@ -108,18 +108,18 @@ $dataset_contents => ''
       <option value="10">Load2</option>
   </select>
   <table id="dataset_results"; border="1">
-         <tr><td>Name<td><% $dataset_name %>
-         <tr><td>Description<td><% $dataset_description %>
-         <tr><td>Contents<td><% $dataset_contents %>
+         <tr><td>名稱(Name)<td><% $dataset_name %>
+         <tr><td>說明(Description)<td><% $dataset_description %>
+         <tr><td>內容(Contents)<td><% $dataset_contents %>
 %        if ($c->user()) {
-             <tr><td>Edit<td>
+             <tr><td>編輯(Edit)<td>
              <span class="input-group-btn">
-               <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary" id="wizard-dataset-public">Make Public</button></span>
-               <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary" id="wizard-dataset-private">Make Private</button></span>
-               <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-danger" id="wizard-dataset-delete">Delete</button></span>
+               <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary" id="wizard-dataset-public">設為公開(Make Public)</button></span>
+               <span><button style="width:9em;margin-left:4px;" class="btn btn-sm btn-primary" id="wizard-dataset-private">設為私人(Make Private)</button></span>
+               <span><button style="width:5em;margin-left:4px;" class="btn btn-sm btn-danger" id="wizard-dataset-delete">刪除(Delete)</button></span>
              </span>
 %        }
-         <tr><td>Select Dataset in Wizard<td><% $wizard_link %>
+         <tr><td>在嚮導中選取資料集(Select Dataset in Wizard)<td><% $wizard_link %>
   </table>
   </div> 
   </div>
@@ -134,7 +134,7 @@ $dataset_contents => ''
         alert(response.options);
       },
       error: function(response) {
-        alert("An error occurred");
+        alert("發生錯誤(An error occurred)");
       }  
     });
     });

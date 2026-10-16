@@ -19,24 +19,24 @@ $main_page
 
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables'] &>
 
-<& /page/page_title.mas, title => "Catalog Item Details for: $item_name" &>
+<& /page/page_title.mas, title => "目錄品項詳情(Catalog Item Details)：$item_name" &>
 
-<&| /page/info_section.mas, title=>"Details",  collapsible => 1, collapsed=>0 &>
+<&| /page/info_section.mas, title=>"詳情(Details)",  collapsible => 1, collapsed=>0 &>
 
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-sm-6">
                     <table class="table table-bordered table-hover">
-                        <tr><td><b>Species</b></td><td><% $species %> </td></tr>
-                        <tr><td><b>Item Type</b></td><td><% $item_type %> </td></tr>
-                        <tr><td><b>Category</b></td><td><% $category %></td></tr>
-                        <tr><td><b>Description</b></td><td><% $description %></td></tr>
-                        <tr><td><b>Material Source</b><td><% $material_source %></td></tr>
-                        <tr><td><b>Breeding Program</b></td><td><% $breeding_program %></td></tr>
-                        <tr><td><b>Availability</b></td><td><% $availability %></td></tr>
-                        <tr><td><b>Contact Person Username</b></td><td><% $contact_person_username %></td></tr>
-                        <tr><td><b>Main Detail Page</b></td><td><% $main_page %></td></tr>
+                        <tr><td><b>物種(Species)</b></td><td><% $species %> </td></tr>
+                        <tr><td><b>品項類型(Item Type)</b></td><td><% $item_type %> </td></tr>
+                        <tr><td><b>類別(Category)</b></td><td><% $category %></td></tr>
+                        <tr><td><b>說明(Description)</b></td><td><% $description %></td></tr>
+                        <tr><td><b>材料來源(Material Source)</b><td><% $material_source %></td></tr>
+                        <tr><td><b>育種計畫(Breeding Program)</b></td><td><% $breeding_program %></td></tr>
+                        <tr><td><b>供貨狀態(Availability)</b></td><td><% $availability %></td></tr>
+                        <tr><td><b>聯絡人使用者名稱(Contact Person Username)</b></td><td><% $contact_person_username %></td></tr>
+                        <tr><td><b>主要詳情頁面(Main Detail Page)</b></td><td><% $main_page %></td></tr>
                     </table>
                 </div>
                 <div class="col-sm-6">
@@ -52,17 +52,17 @@ $main_page
 </&>
 
 % if ($check_vendor_role == 1) {
-    <&| /page/info_section.mas, title => 'Edit or Remove Catalog Item', collapsible=>1, collapsed=>0 &>
+    <&| /page/info_section.mas, title => '編輯或移除目錄品項(Edit or Remove Catalog Item)', collapsible=>1, collapsed=>0 &>
         <div class = "well well-sm">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <button id="edit_catalog_item_link" class="btn btn-primary btn-sm">Edit Catalog Item</button>
-                    <button id="delete_catalog_item_button" class="btn btn-primary btn-sm">Delete Catalog Item</button>
+                    <button id="edit_catalog_item_link" class="btn btn-primary btn-sm">編輯目錄品項(Edit Catalog Item)</button>
+                    <button id="delete_catalog_item_button" class="btn btn-primary btn-sm">刪除目錄品項(Delete Catalog Item)</button>
                 </div>
             </div>
         </div>
     </&>
-    <&| /page/info_section.mas, title => 'Add or Remove Image', collapsible=>1, collapsed=>0 &>
+    <&| /page/info_section.mas, title => '新增或移除圖片(Add or Remove Image)', collapsible=>1, collapsed=>0 &>
         <div class = "well well-sm">
             <div class = "panel panel-default">
                 <div class = "panel-body">
@@ -81,18 +81,18 @@ $main_page
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="deleteItemSuccessDialog">Success</h4>
+                <h4 class="modal-title" id="deleteItemSuccessDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The catalog item was delete.
+                        目錄品項已刪除。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_deleted_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="dismiss_deleted_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -103,18 +103,18 @@ $main_page
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addImageMessageDialog">Success</h4>
+                <h4 class="modal-title" id="addImageMessageDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The image was added successfully.
+                        圖片已成功新增。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_add_image_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_add_image_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新整理(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -125,18 +125,18 @@ $main_page
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="removeImageMessageDialog">Success</h4>
+                <h4 class="modal-title" id="removeImageMessageDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        The image was removed from the catalog item.
+                        已從目錄品項中移除圖片。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_remove_image_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close & Reload</button>
+                <button id="dismiss_remove_image_message_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉並重新整理(Close & Reload)</button>
             </div>
         </div>
     </div>
@@ -157,21 +157,21 @@ jQuery(document).ready( function() {
             'searching': false,
             'ajax': '/ajax/catalog/image_list/' + <% $item_id %>,
             'columns': [
-                { title: "Name", "data": "image_name" },
-                { title: "Image", "data": "small_image" },
-                { title: "Description", "data": "image_description"},
-                { title: "Add or Remove Image", "data": "null", "render": function ( data, type, row ) {
+                { title: "名稱(Name)", "data": "image_name" },
+                { title: "圖片(Image)", "data": "small_image" },
+                { title: "說明(Description)", "data": "image_description"},
+                { title: "新增或移除圖片(Add or Remove Image)", "data": "null", "render": function ( data, type, row ) {
                     if (row.image_id == selected_image_id) {
-                        return "<a onclick='removeImage()' >Remove</a>"
+                        return "<a onclick='removeImage()' >移除(Remove)</a>"
                     } else {
-                        return "<a onclick='addImage(\""+row.image_id+"\")' >Add</a>"
+                        return "<a onclick='addImage(\""+row.image_id+"\")' >新增(Add)</a>"
                     }
                 }},
             ],
     });
 
     jQuery('#delete_catalog_item_button').click( function() {
-        var response = confirm('Really delete this catalog item? This action cannot be undone.');
+        var response = confirm('確定要刪除此目錄品項嗎？此操作無法復原。(Really delete this catalog item? This action cannot be undone.)');
         if (response) {
             jQuery.ajax({
                 url: '/ajax/catalog/delete',
@@ -231,7 +231,7 @@ function addImage(image_id){
         },
         error: function(response){
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred adding image');
+            alert('新增圖片時發生錯誤(An error occurred adding image)');
         }
     });
 
@@ -271,7 +271,7 @@ function removeImage(){
         },
         error: function(response){
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred removing image');
+            alert('移除圖片時發生錯誤(An error occurred removing image)');
         }
     });
 

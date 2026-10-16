@@ -23,17 +23,17 @@ if (@trial_names) {
 
 </%perl>
 
-<& '/page/page_title.mas', title => "Compare trials" &>
+<& '/page/page_title.mas', title => "比較試驗(Compare trials)" &>
 
 <& '/util/import_javascript.mas', classes => [ 'popup' ] &>
 
-Comparison of trials <b><% join ",",@trial_names %></b>
+試驗比較(Comparison of trials) <b><% join ",",@trial_names %></b>
 <br /><br />
-Total accession count: <span id="total_accession_count"></span><br />
-Common accession count: <span id="common_accession_count"></span><br />
-Common traits: <span id="common_trait_count"></span><br />
+品系/種原總數(Total accession count)：<span id="total_accession_count"></span><br />
+共同品系/種原數(Common accession count)：<span id="common_accession_count"></span><br />
+共同性狀(Common traits)：<span id="common_trait_count"></span><br />
 
-Trait: <select id="trait_select"><option disabled="1">select trials first</option></select>
+性狀(Trait)：<select id="trait_select"><option disabled="1">請先選擇試驗(select trials first)</option></select>
 
 <center>
 <div id="result_div">

@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::DB::Connection;
 
@@ -17,7 +18,7 @@ my $blast_matches_q = $dbh->prepare ("select bt.db_name, bd.defline, bt.blast_pr
 
 my $blast_unig_link_q = $dbh->prepare("select u.unigene_id, g.comment, bh.score, bh.evalue, bh.identity_percentage, bh.apply_start, bh.apply_end from blast_defline as bd left join blast_hits as bh on (bd.defline_id=bh.defline_id) left join blast_annotations as ba using (blast_annotation_id) left join unigene as u on (ba.apply_id=u.unigene_id) left join unigene_build as ub using (unigene_build_id) left join groups as g on (ub.organism_group_id=g.group_id) where apply_type='15' and ub.status='C' and bd.defline_id=?");
 
-my $page = CXGN::Page->new( "Annotation Search Results", "Dan");
+my $page = CXGN::Page->new( "註釋搜尋結果 (Annotation Search Results)", "Dan");
 
 my $desc_colour='#EEEEEE';
 my $unig_link='/search/unigene.pl?unigene_id=';
@@ -55,7 +56,7 @@ if ($search_type eq 'manual_search'){
 
     my ($type_desc, $annot_text, $author_name, $last_updated) = $manual_annot_matches_q->fetchrow_array();
 
-    my $annot_target_desc = "$type_desc by $author_name on $last_updated";
+    my $annot_target_desc = "$type_desc（作者: $author_name，最後更新: $last_updated）";
     @match_detail = ($annot_target_desc, $annot_text);
 
 
@@ -68,7 +69,7 @@ if ($search_type eq 'manual_search'){
 
     while (my ($unig_id, $build_desc, $build_nr, $build_date, $unig_build_id) = $manual_clone_unig_link_q->fetchrow_array()){
 
-	my $unig_desc="<tr><td></td><td align=\"left\" nowrap=\"nowrap\"><a href=\"$unig_link$unig_id\">SGN-U$unig_id</a></td><td align=\"left\" nowrap=\"nowrap\">$build_desc build $build_nr from $build_date</td><td></td></tr>";
+	my $unig_desc="<tr><td></td><td align=\"left\" nowrap=\"nowrap\"><a href=\"$unig_link$unig_id\">SGN-U$unig_id</a></td><td align=\"left\" nowrap=\"nowrap\">$build_desc 第 $build_nr 版構建 (日期: $build_date)</td><td></td></tr>";
 
 	push @unigene_list, [$unig_desc, $unig_build_id];
 
@@ -94,7 +95,7 @@ elsif($search_type eq 'blast_search'){
     }
 
     my ($blast_target_db, $defline, $blast_program) = $blast_matches_q->fetchrow_array();
-    my $annot_target_desc = "Unigene <b>$blast_program</b> search against <b>$blast_target_db</b>";
+    my $annot_target_desc = "單一基因 <b>$blast_program</b> 比對 <b>$blast_target_db</b> 搜尋 (Unigene $blast_program search against $blast_target_db)";
     @match_detail = ($annot_target_desc, $defline);
 
 
@@ -106,7 +107,7 @@ elsif($search_type eq 'blast_search'){
     while (my ($unig_id, $build_desc,  $blast_score, $evalue, $identity_pct, $span_start, $span_end)=$blast_unig_link_q->fetchrow_array()){
 	my $span_ln=abs($span_end - $span_start);
 	$identity_pct=sprintf "%7.2f", $identity_pct;
-	my $unig_desc="<tr><td></td><td align=\"left\" nowrap=\"nowrap\"><a href=\"$unig_link$unig_id\">SGN-U$unig_id</a></td><td align=\"left\" nowrap=\"nowrap\">$build_desc;</td><td align=\"left\" nowrap=\"nowrap\"> matched with $identity_pct% identity over ${span_ln}bp (e-value $evalue)</td></tr>";
+	my $unig_desc="<tr><td></td><td align=\"left\" nowrap=\"nowrap\"><a href=\"$unig_link$unig_id\">SGN-U$unig_id</a></td><td align=\"left\" nowrap=\"nowrap\">$build_desc;</td><td align=\"left\" nowrap=\"nowrap\"> 比對同一性為 $identity_pct%，跨度 ${span_ln}bp (e-value $evalue)</td></tr>";
 	push @unigene_list, [$unig_desc, $blast_score];
     }
 
@@ -137,7 +138,7 @@ my $web_format="
 
 if (@unigene_list){
     $web_format .= "
-<tr><td colspan=\"2\" align=\"left\" nowrap=\"nowrap\"><br />Unigenes containing this annotation:</td></tr>
+<tr><td colspan=\"2\" align=\"left\" nowrap=\"nowrap\"><br />包含此註釋的單一基因 (Unigenes containing this annotation):</td></tr>
 <tr><td colspan=\"2\" align=\"left\" nowrap=\"nowrap\">
 <table align=\"left\" cellspacing=\"2\" cellpadding=\"0\" border=\"0\">
 ";
@@ -183,7 +184,7 @@ sub no_matches {
 
   print <<EOF;
 
-  <p>ERROR:  No matches; should return at least one match for $match_id</p>
+  <p>錯誤：無相符項目；$match_id 應至少返回一筆結果 (ERROR: No matches; should return at least one match for $match_id)</p>
 EOF
 
   $page->footer();
@@ -198,7 +199,7 @@ sub too_many_matches {
 
   print <<EOF;
 
-  <p>ERROR:  Too many matches: should only return one match for $match_id</p>
+  <p>錯誤：過多相符項目；$match_id 應只返回一筆結果 (ERROR: Too many matches: should only return one match for $match_id)</p>
 
 EOF
 
@@ -213,7 +214,7 @@ sub null_request {
 
   print <<EOF;
 
-  <p><b>No match_id was found</b></p>
+  <p><b>未找到比對 ID (No match_id was found)</b></p>
 
 EOF
 

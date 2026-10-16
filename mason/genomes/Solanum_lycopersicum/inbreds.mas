@@ -4,60 +4,60 @@
 </%doc>
 
 
-<& /page/page_title.mas, title=>"Genomes of <i>Solanum lycopersicum</i> inbred lines" &>
+<& /page/page_title.mas, title=>"<i>Solanum lycopersicum</i> 自交系基因組(Genomes of <i>Solanum lycopersicum</i> inbred lines)" &>
 
 <div class="page_introduction">
-  The genomes of tomato inbred lines consist mostly of <a href="/organism/1/view/"><i>Solanum lycopersicum</i></a>
+  番茄自交系的基因組主要由 <a href="/organism/1/view/"><i>Solanum lycopersicum</i></a> 組成，並帶有來自各種野生番茄物種的基因組片段。育種者培育自交系是為了在保持馴化種遺傳背景的同時，引入來自多個野生種和/或種質的有價值的遺傳變異。這是透過雜交，隨後進行多代回交和選擇來實現的。(The genomes of tomato inbred lines consist mostly of <a href="/organism/1/view/"><i>Solanum lycopersicum</i></a>
   and carry genome fragments originating from various tomato wild species.
   Breeders develop inbreds for introducing valuable genetic variation from multiple wild species and/or accessions while maintaining
-  a genetic background of the domesticated species. This is achieved by outcrossing followed by multiple genetrations of backcrossing and selection.
+  a genetic background of the domesticated species. This is achieved by outcrossing followed by multiple genetrations of backcrossing and selection.)
 
 </div>
 
 
-<&| /page/info_section.mas, title => 'Gh13 genome' &>
-  Gh13 is a begomovirus resistant line carrying the <a href="/locus/8216/view"><i>Ty3</i></a> gene.
+<&| /page/info_section.mas, title => 'Gh13 基因組(Gh13 genome)' &>
+  Gh13 是一條攜帶 <a href="/locus/8216/view"><i>Ty3</i></a> 基因的粉蝨傳播雙生病毒 (begomovirus) 抗性品系。該品系在瓜地馬拉開發 <a href="/publication/18734/view">(Mejia et al., 2004)</a>，在該地經過多個季節的測試，始終表現出針對當地高病毒壓力的極佳抗性。據報導，Gh13 的抗性來源於 <a href="/organism/938/view"><i>S. habrochaites</i></a> <a href="/publication/18735/view">(Vidavsky and Czosnek, 1998)</a>。(Gh13 is a begomovirus resistant line carrying the <a href="/locus/8216/view"><i>Ty3</i></a> gene.
   This line was developed in Guatamala <a href="/publication/18734/view">(Mejia et al., 2004)</a>
-  were it has been tested over multiple seasons and consistently shows very good resistance against high begomovirus pressure there. Resistance in Gh13 is reportedly derived from <a href="/organism/938/view"><i>S. habrochaites</i></a>  <a href="/publication/18735/view">(Vidavsky and Czosnek, 1998)</a><br />
+  were it has been tested over multiple seasons and consistently shows very good resistance against high begomovirus pressure there. Resistance in Gh13 is reportedly derived from <a href="/organism/938/view"><i>S. habrochaites</i></a>  <a href="/publication/18735/view">(Vidavsky and Czosnek, 1998)</a>)<br />
 
   <% info_table_html(
                      __border   => 0,
                      __multicol => 2,
-                     'Bulk Datasets (via FTP)' =>
-                     '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/gh13/">Consensus sequence</a>',
-                     BLAST => '<a href="/tools/blast/?db_id=214">Genomic sequence</a>',
-                     'Genome browser' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.40&tracks=DNA,bti87_snps,gene_models">Jbrowse</a>'
+                     '批量數據集 (透過 FTP)(Bulk Datasets (via FTP))' =>
+                     '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/gh13/">共識序列(Consensus sequence)</a>',
+                     'BLAST' => '<a href="/tools/blast/?db_id=214">基因組序列(Genomic sequence)</a>',
+                     '基因組瀏覽器(Genome browser)' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.40&tracks=DNA,bti87_snps,gene_models">JBrowse</a>'
                     )
   %>
 </&>
 
 
-<&| /page/info_section.mas, title => 'BTI87 genome' &>
-  BTI87 is a begomovirus resistant line carrying the <a href="/locus/8216/view"><i>Ty3</i></a> gene.
-  BTI87 was developed in Guatemala and maintains a high level of resistance derived from the begomovirus-resistant inbred Gc171, which is in turn derived from <a href="/organism/1373/view"><i>S. chilense</i> accession <a href="/stock/28625/view">LA1932</a> <a href="/publication/18736/view">(Scott and Schuster, 2007)</a><br />
+<&| /page/info_section.mas, title => 'BTI87 基因組(BTI87 genome)' &>
+  BTI87 是一條攜帶 <a href="/locus/8216/view"><i>Ty3</i></a> 基因的粉蝨傳播雙生病毒抗性品系。BTI87 在瓜地馬拉開發，並維持源自抗粉蝨雙生病毒自交系 Gc171 的高水準抗性，而後者又源自 <a href="/organism/1373/view"><i>S. chilense</i></a> 種質 <a href="/stock/28625/view">LA1932</a> <a href="/publication/18736/view">(Scott and Schuster, 2007)</a>。(BTI87 is a begomovirus resistant line carrying the <a href="/locus/8216/view"><i>Ty3</i></a> gene.
+  BTI87 was developed in Guatemala and maintains a high level of resistance derived from the begomovirus-resistant inbred Gc171, which is in turn derived from <a href="/organism/1373/view"><i>S. chilense</i></a> accession <a href="/stock/28625/view">LA1932</a> <a href="/publication/18736/view">(Scott and Schuster, 2007)</a>)<br />
 
     <% info_table_html(
        __border   => 0,
     __multicol => 2,
-    'Bulk Datasets (via FTP)' =>
-    '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/bti87/">Consensus sequence</a>',
-    BLAST => '<a href="/tools/blast/?db_id=215">Genomic sequence</a>',
-    'Genome browser' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.40&tracks=DNA,gh13_snps,gene_models">Jbrowse</a>'
+    '批量數據集 (透過 FTP)(Bulk Datasets (via FTP))' =>
+    '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/bti87/">共識序列(Consensus sequence)</a>',
+    'BLAST' => '<a href="/tools/blast/?db_id=215">基因組序列(Genomic sequence)</a>',
+    '基因組瀏覽器(Genome browser)' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.40&tracks=DNA,gh13_snps,gene_models">JBrowse</a>'
     )
     %>
 </&>
 
-<&| /page/info_section.mas, title => 'Fla630 genome' &>
-  Fla630 is a  Fusarium Wilt Race 3 resistant tomato inbred line carrying the <a href="/locus/718/view"><i>I-3</i></a> gene.
-   The I-3 gene was introgressed from <a href="/organism/19/view"><i>S. pennellii</i> and confers resistance to race 3. Although I-3 provides effective control, it is negatively associated with several horticultural traits, including increased sensitivity to bacterial spot disease (Xanthomonas spp.)<br />
+<&| /page/info_section.mas, title => 'Fla630 基因組(Fla630 genome)' &>
+  Fla630 是一條攜帶 <a href="/locus/718/view"><i>I-3</i></a> 基因的抗鐮刀菌枯萎病第 3 生理小種 (Fusarium Wilt Race 3) 番茄自交系。I-3 基因從 <a href="/organism/19/view"><i>S. pennellii</i></a> 滲入，賦予對第 3 生理小種的抗性。儘管 I-3 提供了有效的防控，但它與幾種園藝性狀呈負相關，包括對細菌性斑點病 (Xanthomonas spp.) 的敏感性增加。(Fla630 is a  Fusarium Wilt Race 3 resistant tomato inbred line carrying the <a href="/locus/718/view"><i>I-3</i></a> gene.
+   The I-3 gene was introgressed from <a href="/organism/19/view"><i>S. pennellii</i></a> and confers resistance to race 3. Although I-3 provides effective control, it is negatively associated with several horticultural traits, including increased sensitivity to bacterial spot disease (Xanthomonas spp.))<br />
 
     <% info_table_html(
        __border   => 0,
     __multicol => 2,
-    'Bulk Datasets (via FTP)' =>
-    '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/Fla630/">Consensus sequence</a>',
-    BLAST => '<a href="/tools/blast/?db_id=300">Genomic sequence</a>',
-    'Genome browser' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.50&tracks=DNA,630_snps,gene_models">Jbrowse</a>'
+    '批量數據集 (透過 FTP)(Bulk Datasets (via FTP))' =>
+    '<a href="ftp://ftp.solgenomics.net/genomes/Solanum_lycopersicum/inbred_lines/Fla630/">共識序列(Consensus sequence)</a>',
+    'BLAST' => '<a href="/tools/blast/?db_id=300">基因組序列(Genomic sequence)</a>',
+    '基因組瀏覽器(Genome browser)' => '<a href="/jbrowse_solgenomics/?data=data/json/SL2.50&tracks=DNA,630_snps,gene_models">JBrowse</a>'
     )
     %>
 </&>

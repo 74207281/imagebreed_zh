@@ -11,7 +11,7 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypesDialog">Upload Genotypes</h4>
+                <h4 class="modal-title" id="uploadGenotypesDialog">上傳基因型(Upload Genotypes)</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_genotypes_form" name="upload_genotypes_form" action="/ajax/genotype/upload">
@@ -19,25 +19,25 @@ $is_from_grm => undef
                     <div class="container-fluid">
 
                         <&| /util/workflow.mas, id=> "upload_genotypes_workflow" &>
-                            <&| /util/workflow.mas:step, title=> "Intro" &>
-                                <& /page/page_title.mas, title=>"This workflow will guide you through uploading genotypes into the database" &>
+                            <&| /util/workflow.mas:step, title=> "介紹(Intro)" &>
+                                <& /page/page_title.mas, title=>"此工作流程將引導您將基因型上傳至資料庫(This workflow will guide you through uploading genotypes into the database)" &>
                                 <ul>
-                                    <li>Select a genotyping project on the next screen. This project can represent a series of genotyping plates sent to a genotyping facilty.</li>
-                                    <li>Ideally the sample names in your VCF file will match sample names in genotyping plates in the database; however, the sample names in your file can also match accession names in the database.</li>
-                                    <li>Curently we support the VCF format, the Tassel HDF5 format, the Intertek CSV format and SSR for upload. Genomic relationship matrices (GRM) can also be uploaded in a three column format.</li>
-                                    <li>If you are uploading many files that used the same genotyping protocol, you can do so, and the database will ensure that the marker information is consistent across the genotyping data (e.g. the markers had the same reference, alternate, position, etc.).</li>
+                                    <li>在下一個畫面上選擇基因分型專案。此專案可代表發送至基因分型機構的一系列基因分型微孔盤。</li>
+                                    <li>理想情況下，您的 VCF 檔案中的樣本名稱應與資料庫中基因分型微孔盤的樣本名稱相符；但是，您檔案中的樣本名稱也可以與資料庫中的種原名稱相符。</li>
+                                    <li>目前我們支援 VCF 格式、Tassel HDF5 格式、Intertek CSV 格式與 SSR 進行上傳。基因組親緣關係矩陣 (GRM) 也可以三欄格式上傳。</li>
+                                    <li>如果您要上傳使用相同基因分型協定的多個檔案，您可以這樣做，資料庫將確保基因分型資料中的標記資訊一致（例如標記具有相同的參考、替代、位置等）。</li>
                                 </ul>
 
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:step, title=> "Data Type" &>
-                                <& /page/page_title.mas, title=>"Select the type of genotyping data being uploaded" &>
+                            <&| /util/workflow.mas:step, title=> "資料類型(Data Type)" &>
+                                <& /page/page_title.mas, title=>"選擇要上傳的基因分型資料類型(Select the type of genotyping data being uploaded)" &>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Type of genotyping data: </label>
+                                    <label class="col-sm-3 control-label">基因分型資料類型：</label>
                                     <div class="col-sm-9">
 %  if ($genotyping_data_type) {
                                         <select class="form-control" id="genotype_data_type_select" name="genotype_data_type_select">
@@ -45,11 +45,11 @@ $is_from_grm => undef
                                         </select>
 %  } else {
                                         <select class="form-control" id="genotype_data_type_select" name="genotype_data_type_select">
-                                            <option value="">Select data type</option>
+                                            <option value="">選擇資料類型</option>
                                             <option value="vcf">VCF</option>
                                             <option value="tassel_hdf5">Tassel HDF5</option>
                                             <option value="intertek">Intertek</option>
-                                            <option value="grm">Genomic Relationship Matrix (GRM)</option>
+                                            <option value="grm">基因組親緣關係矩陣 (GRM)</option>
                                             <option value="ssr">SSR</option>
                                         </select>
 %  }
@@ -58,47 +58,47 @@ $is_from_grm => undef
 
                                 <center>
                                     <div id="genotype_data_type_select_format_vcf_div" style="display:none">
-                                        <&| /page/explanation.mas, title=>'Template information' &>
+                                        <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                             <p>
-                                                <b>File Format Information</b>
+                                                <b>檔案格式資訊</b>
                                                 <br>
-                                                <a id="upload_genotype_vcf_spreadsheet_info_format">VCF Format</a>
+                                                <a id="upload_genotype_vcf_spreadsheet_info_format">VCF 格式(VCF Format)</a>
                                             </p>
                                         </&>
                                     </div>
                                     <div id="genotype_data_type_select_format_hdf5_vcf_div" style="display:none">
-                                        <&| /page/explanation.mas, title=>'Template information' &>
+                                        <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                             <p>
-                                                <b>File Format Information</b>
+                                                <b>檔案格式資訊</b>
                                                 <br>
-                                                <a id="upload_genotype_tassel_hdf5_info_format">Tassel HDF5 VCF Format</a>
+                                                <a id="upload_genotype_tassel_hdf5_info_format">Tassel HDF5 VCF 格式(Tassel HDF5 VCF Format)</a>
                                             </p>
                                         </&>
                                     </div>
                                     <div id="genotype_data_type_select_format_intertek_div" style="display:none">
-                                        <&| /page/explanation.mas, title=>'Template information' &>
+                                        <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                             <p>
-                                                <b>File Format Information</b>
+                                                <b>檔案格式資訊</b>
                                                 <br>
-                                                <a id="upload_genotype_intertek_spreadsheet_info_format">Intertek Format</a>
+                                                <a id="upload_genotype_intertek_spreadsheet_info_format">Intertek 格式(Intertek Format)</a>
                                             </p>
                                         </&>
                                     </div>
                                     <div id="genotype_data_type_select_format_ssr_div" style="display:none">
-                                        <&| /page/explanation.mas, title=>'Template information' &>
+                                        <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                             <p>
-                                                <b>File Format Information</b>
+                                                <b>檔案格式資訊</b>
                                                 <br>
-                                                <a id="upload_ssr_data_spreadsheet_info">SSR Format</a>
+                                                <a id="upload_ssr_data_spreadsheet_info">SSR 格式(SSR Format)</a>
                                             </p>
                                         </&>
                                     </div>
                                     <div id="genotype_data_type_select_format_grm_div" style="display:none">
-                                        <&| /page/explanation.mas, title=>'Template information' &>
+                                        <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                             <p>
-                                                <b>File Format Information</b>
+                                                <b>檔案格式資訊</b>
                                                 <br>
-                                                <a id="upload_grm_data_spreadsheet_info">Genomic Relationships Matrix (GRM) Format</a>
+                                                <a id="upload_grm_data_spreadsheet_info">基因組親緣關係矩陣 (GRM) 格式(Genomic Relationships Matrix (GRM) Format)</a>
                                             </p>
                                         </&>
                                     </div>
@@ -106,23 +106,23 @@ $is_from_grm => undef
 
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" id="genotype_data_type_select_submit">Go to Next Step</button>
+                                <button class="btn btn-primary" id="genotype_data_type_select_submit">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:step, title=> "Genotyping Project" &>
-                                <& /page/page_title.mas, title=>"Select the genotyping project or create a new one." &>
+                            <&| /util/workflow.mas:step, title=> "基因分型專案(Genotyping Project)" &>
+                                <& /page/page_title.mas, title=>"選擇基因分型專案或建立新專案。(Select the genotyping project or create a new one.)" &>
 
                                 <table id="upload_genotyping_data_project_search_results" width="100%" class="table table-hover table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
-                                            <th>Genotyping Project Name</th>
-                                            <th>Description</th>
-                                            <th>Breeding program</th>
-                                            <th>Year</th>
-                                            <th>Location</th>
-                                            <th>Genotyping Facility</th>
+                                            <th>選擇(Select)</th>
+                                            <th>基因分型專案名稱(Genotyping Project Name)</th>
+                                            <th>描述(Description)</th>
+                                            <th>育種計畫(Breeding Program)</th>
+                                            <th>年份(Year)</th>
+                                            <th>地點(Location)</th>
+                                            <th>基因分型機構(Genotyping Facility)</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -132,27 +132,27 @@ $is_from_grm => undef
 
                                 <br/>
                                 <center>
-                                <button class="btn btn-info" name="create_genotyping_project_link">If you need to create a genotyping project, click here</button><br/><br/>
-                                <button class="btn btn-primary" id="upload_genotyping_data_project_check_button">Go to Next Step</button>
+                                <button class="btn btn-info" name="create_genotyping_project_link">若您需要建立基因分型專案，請點選此處(If you need to create a genotyping project, click here)</button><br/><br/>
+                                <button class="btn btn-primary" id="upload_genotyping_data_project_check_button">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Genotyping Protocol" &>
-                                <& /page/page_title.mas, title=>"Select or Create a New Genotyping Protocol<br/><small>The genotyping protocol represents a specific instance of how genotypes were called for a set of markers in a genotyping platform. Many genotyping projects can use the same genotyping protocol.</small>" &>
+                            <&| /util/workflow.mas:step, title=> "基因分型協定(Genotyping Protocol)" &>
+                                <& /page/page_title.mas, title=>"選擇或建立新的基因分型協定(Select or Create a New Genotyping Protocol)<br/><small>基因分型協定代表在基因分型平台中為一組標記呼叫基因型的特定實例。許多基因分型專案可以使用相同的基因分型協定。</small>" &>
 
                                 <hr>
 
                                 <table id="upload_genotyping_data_protocol_search_results" width="100%" class="table table-hover table-striped">
                                     <thead>
                                         <tr>
-                                            <th>Select</th>
-                                            <th>Protocol Name</th>
-                                            <th>Header Description</th>
-                                            <th>Number of Markers</th>
-                                            <th>Protocol Description</th>
-                                            <th>Reference Genome</th>
-                                            <th>Species</th>
-                                            <th>Sample Unit</th>
-                                            <th>Create Date</th>
+                                            <th>選擇(Select)</th>
+                                            <th>協定名稱(Protocol Name)</th>
+                                            <th>表頭描述(Header Description)</th>
+                                            <th>標記數量(Number of Markers)</th>
+                                            <th>協定描述(Protocol Description)</th>
+                                            <th>參考基因組(Reference Genome)</th>
+                                            <th>物種(Species)</th>
+                                            <th>樣本單位(Sample Unit)</th>
+                                            <th>建立日期(Create Date)</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -160,7 +160,7 @@ $is_from_grm => undef
 %  if (!$is_from_grm) {
 
                                 <center>
-                                <button class="btn btn-primary" id="upload_genotyping_data_protocol_missing_button">My protocol is not here. Create a new one.</button>
+                                <button class="btn btn-primary" id="upload_genotyping_data_protocol_missing_button">找不到我的協定。建立新協定。(My protocol is not here. Create a new one.)</button>
                                 </center>
                                 <br/>
 
@@ -170,39 +170,39 @@ $is_from_grm => undef
                                 <div id="upload_genotype_data_protocol_details" style="display:none">
                                     <div class="well">
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Genotyping Protocol Name:</label>
+                                            <label class="col-sm-5 control-label">基因分型協定名稱：</label>
                                             <div class="col-sm-7">
                                                 <input class="form-control" id="upload_genotype_vcf_protocol_name" name="upload_genotype_vcf_protocol_name" type="text" placeholder=" e.g. GBS ApeKI Cassava genome v6 Jan2015"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Genotyping Protocol Reference Genome:</label>
+                                            <label class="col-sm-5 control-label">基因分型協定參考基因組：</label>
                                             <div class="col-sm-7">
                                                 <input class="form-control" id="upload_genotype_vcf_reference_genome_name" name="upload_genotype_vcf_reference_genome_name" type="text" placeholder="Mesculenta_511_v7.0"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Species:</label>
+                                            <label class="col-sm-5 control-label">物種：</label>
                                             <div class="col-sm-7">
                                                 <input class="form-control" id="upload_genotypes_species_name_input" name="upload_genotypes_species_name_input" type="text" placeholder=" e.g. Manihot esculenta"/>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Description:</label>
+                                            <label class="col-sm-5 control-label">描述：</label>
                                             <div class="col-sm-7">
                                                 <input class="form-control" id="upload_genotypes_protocol_description_input" name="upload_genotypes_protocol_description_input" type="text" />
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-5 control-label">Choose Sample Unit: </label>
+                                            <label class="col-sm-5 control-label">選擇樣本單位：</label>
                                             <div class="col-sm-7">
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
-                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="tissue_sample" checked>&nbsp;&nbsp;&nbsp;Exported Tissue Sample Name: The sample names in your VCF are tissue_sample_names that already exist in genotyping plates (e.g. 96 well plates) or sampling trials in the database. The sample names in your VCF file can be the tissue_sample_name triple pipe joined to the accession_name (e.g. tissue_sample_name|||accession_name) or just simply the tissue_sample_name corresponding to the genotyping plate well or sampling trial sample. This is the <strong>recommended format</strong>.
+                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="tissue_sample" checked>&nbsp;&nbsp;&nbsp;導出的組織樣本名稱：您 VCF 中的樣本名稱是已存在於資料庫中的基因分型微孔盤（例如 96 孔微孔盤）或取樣試驗中的組織樣本名稱。VCF 檔案中的樣本名稱可以是三個直線符號連接組織樣本名稱與種原名稱（例如 tissue_sample_name|||accession_name），或僅僅是對應於基因分型微孔盤孔或取樣試驗樣本的組織樣本名稱。這是<strong>建議的格式</strong>。
                                                         <br/><br/>
-                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="accession">&nbsp;&nbsp;&nbsp;Accession: The sample names are of accession names
+                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="accession">&nbsp;&nbsp;&nbsp;種原：樣本名稱為種原名稱
                                                         <br/><br/>
-                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="stocks">&nbsp;&nbsp;&nbsp;Mixed Stocks: The sample names are a mix of accession names or plot names or sample names or other stock names. This is <strong>not recommended</strong> because it will lead to messy sample metadata.
+                                                        <input type="radio" name="upload_genotype_vcf_observation_type" value="stocks">&nbsp;&nbsp;&nbsp;混合材料：樣本名稱為種原名稱、小區名稱、樣本名稱或其他材料名稱的混合。<strong>不建議</strong>這樣做，因為這會導致樣本元資料混亂。
                                                     </div>
                                                 </div>
                                             </div>
@@ -213,13 +213,13 @@ $is_from_grm => undef
 
                                 <div class="well">
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Location of Data Generation: </label>
+                                        <label class="col-sm-5 control-label">資料產生位置：</label>
                                         <div class="col-sm-7">
                                             <span id="upload_genotype_location_select_div"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Exported Tissue Sample Names Include Numbers Generated by Genotyping Facility (e.g. sample_name:IGD1001:09):<br/><small>The generated number is separated from the tissue sample name in the database by a ':' separating character.</small> </label>
+                                        <label class="col-sm-5 control-label">導出的組織樣本名稱包含基因分型機構產生的編號（例如 sample_name:IGD1001:09）：<br/><small>產生的編號在資料庫中由冒號「:」分隔字元與組織樣本名稱分隔。</small></label>
                                         <div class="col-sm-7">
                                             <input type="checkbox" id="upload_genotype_vcf_include_igd_numbers" name="upload_genotype_vcf_include_igd_numbers" >
                                         </div>
@@ -230,11 +230,11 @@ $is_from_grm => undef
 
                                 <br/>
                                 <center>
-                                <button class="btn btn-primary" id="upload_genotyping_data_protocol_check_button">Go to Next Step</button>
+                                <button class="btn btn-primary" id="upload_genotyping_data_protocol_check_button">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Genotype Info" &>
-                                <& /page/page_title.mas, title=>"Provide genotype information" &>
+                            <&| /util/workflow.mas:step, title=> "基因型資訊(Genotype Info)" &>
+                                <& /page/page_title.mas, title=>"提供基因型資訊(Provide Genotype Information)" &>
 
                                 <input class="form-control" id="upload_genotype_data_type" name="upload_genotype_data_type" type="hidden" value = "" />
 
@@ -244,7 +244,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select VCF File: </label>
+                                                <label class="col-sm-6 control-label">選擇 VCF 檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_vcf_file_input" id="upload_genotype_vcf_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -257,7 +257,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select Tassel HDF5 (.h5) File: </label>
+                                                <label class="col-sm-6 control-label">選擇 Tassel HDF5 (.h5) 檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_tassel_hdf5_file_input" id="upload_genotype_tassel_hdf5_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -270,7 +270,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select Intertek SNP Result Grid File: </label>
+                                                <label class="col-sm-6 control-label">選擇 Intertek SNP 結果網格檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_intertek_file_input" id="upload_genotype_intertek_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -280,7 +280,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select Intertek SNP Information File: </label>
+                                                <label class="col-sm-6 control-label">選擇 Intertek SNP 資訊檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_intertek_snp_file_input" id="upload_genotype_intertek_snp_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -293,7 +293,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select SSR File: </label>
+                                                <label class="col-sm-6 control-label">選擇 SSR 檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_ssr_file_input" id="upload_genotype_ssr_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -306,7 +306,7 @@ $is_from_grm => undef
                                     <div class="panel panel-default">
                                         <div class="panel-body">
                                             <div class="form-group">
-                                                <label class="col-sm-6 control-label">Select Genomic Relationships File: </label>
+                                                <label class="col-sm-6 control-label">選擇基因組親緣關係檔案：</label>
                                                 <div class="col-sm-6">
                                                     <input type="file" name="upload_genotype_grm_file_input" id="upload_genotype_grm_file_input" encoding="multipart/form-data" />
                                                 </div>
@@ -316,7 +316,7 @@ $is_from_grm => undef
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Ignore any possible warnings and upload genotypes?: </label>
+                                    <label class="col-sm-5 control-label">忽略任何可能的警告並上傳基因型？：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="upload_genotype_accept_warnings" name="upload_genotype_accept_warnings">
                                             <option value="">No</option>
@@ -332,15 +332,15 @@ $is_from_grm => undef
                                 <input class="form-control" id="upload_genotype_data_is_from_grm_observation_type" name="upload_genotype_data_is_from_grm_observation_type" type="hidden" value="accession" />
 
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">GRM Format: </label>
+                                    <label class="col-sm-5 control-label">GRM 格式：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control">
-                                            <option value="">Computed From Genotyping Data</option>
+                                            <option value="">從基因分型資料計算</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Compute From Parents: </label>
+                                    <label class="col-sm-5 control-label">從親本計算：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="upload_genotype_data_is_from_grm_compute_from_parents" name="upload_genotype_data_is_from_grm_compute_from_parents">
                                             <option value="no">No</option>
@@ -349,19 +349,19 @@ $is_from_grm => undef
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Protocol Name:</label>
+                                    <label class="col-sm-5 control-label">基因分型協定名稱：</label>
                                     <div class="col-sm-7">
                                         <input class="form-control" id="upload_genotype_is_from_grm_protocol_name" name="upload_genotype_is_from_grm_protocol_name" type="text" placeholder=" e.g. FieldTrial2022 GRM GBS ApeKI Cassava genome v6"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Description:</label>
+                                    <label class="col-sm-5 control-label">描述：</label>
                                     <div class="col-sm-7">
                                         <input class="form-control" id="upload_genotype_is_from_grm_protocol_desc" name="upload_genotype_is_from_grm_protocol_desc" type="text" />
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Location of Data Generation: </label>
+                                    <label class="col-sm-5 control-label">資料產生位置：</label>
                                     <div class="col-sm-7">
                                         <span id="upload_genotype_is_from_grm_location_select_div"></span>
                                     </div>
@@ -369,17 +369,17 @@ $is_from_grm => undef
 
                                 <div class="well well-sm">
                                     <center>
-                                        <h4>Accessions to Include in GRM</h4>
+                                        <h4>包含於 GRM 中的種原(Accessions to Include in GRM)</h4>
                                     </center>
 
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Accessions in Field Trial(s): </label>
+                                        <label class="col-sm-5 control-label">田間試驗中的種原：</label>
                                         <div class="col-sm-7">
                                             <span id="upload_genotype_is_from_grm_field_trial_select_div"></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Accession List: </label>
+                                        <label class="col-sm-5 control-label">種原清單：</label>
                                         <div class="col-sm-7">
                                             <span id="upload_genotype_is_from_grm_accession_list_select_div"></span>
                                         </div>
@@ -389,21 +389,21 @@ $is_from_grm => undef
 %  }
 
                                 <center>
-                                <button class="btn btn-primary" id="upload_genotype_data_info_button" >Go to Next Step</button>
+                                <button class="btn btn-primary" id="upload_genotype_data_info_button" >前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Confirm" &>
-                                <& /page/page_title.mas, title=>"Finalize and submit your genotyping data" &>
+                            <&| /util/workflow.mas:step, title=> "確認(Confirm)" &>
+                                <& /page/page_title.mas, title=>"確認並提交您的基因分型資料(Finalize and submit your genotyping data)" &>
 
                                 <div id="upload_genotypes_missing_stocks_div" style="display:none">
                                     <div id="upload_genotypes_add_missing_stocks_html">
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="col-sm-5 control-label">Add these missing stocks as new accessions?: </label>
+                                        <label class="col-sm-5 control-label">將這些遺漏的材料作為新品種/種原加入？：</label>
                                         <div class="col-sm-7">
                                             <select class="form-control" id="upload_genotype_add_new_accessions" name="upload_genotype_add_new_accessions">
-                                                <option value="">No (currently disabled for safety)</option>
+                                                <option value="">否（為了安全起見目前已停用）</option>
                                                 <!--option value="1">Yes</option-->
                                             </select>
                                         </div>
@@ -419,15 +419,15 @@ $is_from_grm => undef
                                 </div>
 
                                 <center>
-                                <button type="button" class="btn btn-primary" name="upload_genotype_submit" id="upload_genotype_submit">Submit</button>
+                                <button type="button" class="btn btn-primary" name="upload_genotype_submit" id="upload_genotype_submit">提交(Submit)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Complete" &>
-                                <& /page/page_title.mas, title=>"Complete! Your genotyping data was saved in the database." &>
+                            <&| /util/workflow.mas:step, title=> "完成(Complete)" &>
+                                <& /page/page_title.mas, title=>"完成！您的基因分型資料已儲存於資料庫中。(Complete! Your genotyping data was saved in the database.)" &>
 
                                 <p>
                                     <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                    The genotyping data was saved successfully
+                                    基因分型資料已成功儲存
                                 </p>
 
                                 <div id="upload_genotype_submit_complete"></div>
@@ -440,7 +440,7 @@ $is_from_grm => undef
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -451,17 +451,17 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypeVCFDialog">Upload VCF Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypeVCFDialog">上傳 VCF 範本資訊(Upload VCF Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading VCF genotype data.</b>
+                    <b>此處用於上傳 VCF 基因型資料。</b>
                     <br/>
-                    <b>VCF is a tab separated format. If your VCF is very large (greater than 10GB), please consider converting it to an HDF5 (.h5) file using Tassel, and uploading the HDF5 formatted file instead.</b>
+                    <b>VCF 是以 Tab 分隔的格式。如果您的 VCF 非常大（大於 10GB），請考慮使用 Tassel 將其轉換為 HDF5 (.h5) 檔案，並改為上傳 HDF5 格式的檔案。</b>
                     <br />
-                    <b>Header:</b>
+                    <b>表頭：</b>
                     <br>
-                    The first row (header) must contain the following fields, followed by all genotyped sample names:
+                    第一列（表頭）必須包含以下欄位，後隨所有已進行基因分型的樣本名稱：
 
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -476,12 +476,12 @@ $is_from_grm => undef
                                 <td>FILTER</td>
                                 <td>INFO</td>
                                 <td>FORMAT</td>
-                                <td>Sample names...</td>
+                                <td>樣本名稱...</td>
                             </tr>
                         </tbody>
                     </table>
 
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
                     <li>#CHROM (chromosome: An identifier from the reference genome pointing to a contig in the assembly file (cf. the ##assembly line in the header). All entries for a specific CHROM should form a contiguous block within the VCF file. The colon symbol (:) must be absent from all chromosome names to avoid parsing errors when dealing with breakends. (String, no white-space permitted, Required))</li>
                     <li>POS (position: The reference position, with the 1st base having position 1. Positions are sorted numerically, in increasing order, within each reference sequence CHROM. It is permitted to have multiple records with the same POS. Telomeres are indicated by using positions 0 or N+1, where N is the length of the corresponding chromosome or contig. (Integer, Required) )</li>
@@ -538,7 +538,7 @@ $is_from_grm => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_genotyping_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_genotyping_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -549,18 +549,18 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypeIntertekDialog">Upload Intertek Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypeIntertekDialog">上傳 Intertek 範本資訊(Upload Intertek Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading Intertek genotype data.</b>
+                    <b>此處用於上傳 Intertek 基因型資料。</b>
                     <br/>
-                    <b>Please use CSV formatted files</b>
+                    <b>請使用 CSV 格式檔案</b>
                     <br/>
                     <br/>
-                    <b>For Intertek SNP Result Grid File:</b>
+                    <b>針對 Intertek SNP 結果網格檔案：</b>
                     <br>
-                    <p>The header must be:</p>
+                    <p>表頭必須為：</p>
                     <br/>
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -568,17 +568,17 @@ $is_from_grm => undef
                         <tbody>
                             <tr>
                                 <td>SampleName.LabID</td>
-                                <td>All Marker Names In Separate Columns (e.g. marker name = S12_7926132)</td>
+                                <td>所有標記名稱獨立為欄（例如標記名稱 = S12_7926132）</td>
                             </tr>
                         </tbody>
                     </table>
 
                     <br/>
-                    <p>The SampleName.LabID column should contain the sample name (exported_tissue_sample_name or accession_name) and it must exist in the database already</p>
+                    <p>SampleName.LabID 欄位應包含樣本名稱（導出的組織樣本名稱或種原名稱），且必須已存在於資料庫中</p>
 
-                    <b>For Intertek SNP Information File:</b>
+                    <b>針對 Intertek SNP 資訊檔案：</b>
                     <br>
-                    <p>The header must be:</p>
+                    <p>表頭必須為：</p>
                     <br/>
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -601,7 +601,7 @@ $is_from_grm => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_genotyping_intertek_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_genotyping_intertek_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -612,20 +612,20 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypeTasselHDF5Dialog">Upload Tassel HDF5 Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypeTasselHDF5Dialog">上傳 Tassel HDF5 範本資訊(Upload Tassel HDF5 Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading Tassel HDF5 VCF genotype data.</b>
+                    <b>此處用於上傳 Tassel HDF5 VCF 基因型資料。</b>
                     <br/>
-                    <b>Please use HDF5 (.h5) formatted files that work with Tassel</b>
+                    <b>請使用相容於 Tassel 的 HDF5 (.h5) 格式檔案</b>
                     <br/>
-                    <b>Uploading an HDF5 file is important when the size of the VCF grows very large (e.g. greater than 20GB)</b>
+                    <b>當 VCF 大小變得非常大（例如大於 20GB）時，上傳 HDF5 檔案非常重要</b>
                     <br/>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -636,13 +636,13 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSSRProtocolFormatDialog">Upload SSR Marker Info Template Information</h4>
+                <h4 class="modal-title" id="uploadSSRProtocolFormatDialog">上傳 SSR 標記資訊範本資訊(Upload SSR Marker Info Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>SSR marker info may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>SSR 標記資訊可透過 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br />
-                    <b>Header:</b>
+                    <b>表頭：</b>
                     <br>
                     The first row (header) must contain the following fields:
 
@@ -661,7 +661,7 @@ $is_from_grm => undef
                             </tr>
                         </tbody>
                     </table>
-                    <b>Required columns:</b>
+                    <b>必填欄位：</b>
                     <ul>
                         <li>marker_name</li>
                         <li>forward_primer</li>
@@ -669,7 +669,7 @@ $is_from_grm => undef
                         <li>annealing_temperature</li>
                         <li>product_sizes</li>
                     </ul>
-                    <b>Optional columns (required in the header, but value may be left blank)</b>
+                    <b>選填欄位（表頭中必須存在，但值可為空白）</b>
                     <ul>
                         <li>sequence_motif</li>
                         <li>sequence_source</li>
@@ -678,7 +678,7 @@ $is_from_grm => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -689,7 +689,7 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSSRProtocolErrorDialog">Upload SSR Marker Info Error</h4>
+                <h4 class="modal-title" id="uploadSSRProtocolErrorDialog">上傳 SSR 標記資訊錯誤(Upload SSR Marker Info Error)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -699,7 +699,7 @@ $is_from_grm => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -710,18 +710,18 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="SSRProtocolSavedDialog">Success</h4>
+                <h4 class="modal-title" id="SSRProtocolSavedDialog">成功(Success)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <p>
                         <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                        SSR marker info was saved successfully. You can now proceed with SSR genotyping data upload.
+                        SSR 標記資訊已成功儲存。您現在可以繼續進行 SSR 基因分型資料上傳。
                     </p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="dismiss_ssr_protocol_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="dismiss_ssr_protocol_saved_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -732,25 +732,25 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSSRProtocolDialog">Upload SSR Protocol (Marker Info) </h4>
+                <h4 class="modal-title" id="uploadSSRProtocolDialog">上傳 SSR 協定 (標記資訊)(Upload SSR Protocol (Marker Info))</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
                     <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_ssr_protocol_form" name="upload_ssr_protocol_form">
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">SSR Protocol Name:</label>
+                            <label class="col-sm-5 control-label">SSR 協定名稱：</label>
                             <div class="col-sm-7">
                                 <input class="form-control" id="upload_ssr_protocol_name" name="upload_ssr_protocol_name" type="text" placeholder=" e.g. SSR Cassava set 1"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Species:</label>
+                            <label class="col-sm-5 control-label">物種：</label>
                             <div class="col-sm-7">
                                 <input class="form-control" id="upload_ssr_species_name_input" name="upload_ssr_species_name_input" type="text" placeholder=" e.g. Manihot esculenta"/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-5 control-label">Description:</label>
+                            <label class="col-sm-5 control-label">描述：</label>
                             <div class="col-sm-7">
                                 <input class="form-control" id="upload_ssr_protocol_description_input" name="upload_ssr_protocol_description_input" type="text" />
                             </div>
@@ -769,11 +769,11 @@ $is_from_grm => undef
 -->
                         <div class="row">
                             <div class="col-sm-5">
-                                <&| /page/explanation.mas, title=>'Template information' &>
+                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                     <p>
-                                        <b>File format information</b>
+                                        <b>檔案格式資訊</b>
                                         <br>
-                                        <a id="upload_ssr_protocol_format">Spreadsheet format</a>
+                                        <a id="upload_ssr_protocol_format">試算表格式(Spreadsheet Format)</a>
                                     </p>
                                 </&>
                             </div>
@@ -782,7 +782,7 @@ $is_from_grm => undef
                                 <div class="panel panel-default">
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label class="col-sm-4 control-label">Select an XLS File: </label>
+                                            <label class="col-sm-4 control-label">選擇 XLS 檔案：</label>
                                             <div class="col-sm-4">
                                                 <input type="file" name="xls_ssr_protocol_file" id="xls_ssr_protocol_file" encoding="multipart/form-data" />
                                             </div>
@@ -795,8 +795,8 @@ $is_from_grm => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" name="upload_ssr_protocol_submit" id="upload_ssr_protocol_submit">Upload File</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" name="upload_ssr_protocol_submit" id="upload_ssr_protocol_submit">上傳檔案(Upload File)</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -807,15 +807,15 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGRMSpreadsheetInfoDialog">Upload Genomic Relationships Data Template Information</h4>
+                <h4 class="modal-title" id="uploadGRMSpreadsheetInfoDialog">上傳基因組親緣關係資料範本資訊(Upload Genomic Relationships Data Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>Genomic Relationship Matrix (GRM) data may be uploaded as a tab-separated file (.tsv)</b>
+                    <b>基因組親緣關係矩陣 (GRM) 資料可作為 Tab 分隔檔案 (.tsv) 上傳</b>
                     <br />
-                        (Excel format not supported)
+                        （不支援 Excel 格式）
                     <br /><br />
-                    <b>Example of GRM Data Spreadsheet:</b>
+                    <b>GRM 資料試算表範例：</b>
                     <br>
 
                     <table class="table table-hover table-bordered table-condensed" >
@@ -828,17 +828,17 @@ $is_from_grm => undef
                             </tr>
                         </tbody>
                     </table>
-                    <b>Required columns:</b>
+                    <b>必填欄位：</b>
                     <ul>
-                        <li><b>a_accession</b>: The uniquename or synonym of the first accession. Must already exist in the database.</li>
-                        <li><b>b_accession</b>: The uniquename or synonym of the second accession. Must already exist in the database.</li>
-                        <li><b>value</b>: The genomic relationship value between the two accessions.</li>
+                        <li><b>a_accession</b>：第一個種原的唯一名稱或別名。必須已存在於資料庫中。</li>
+                        <li><b>b_accession</b>：第二個種原的唯一名稱或別名。必須已存在於資料庫中。</li>
+                        <li><b>value</b>：兩個種原之間的基因組親緣關係值。</li>
                     </ul>
-                    <b>Note: Only upload a one-sided (upper or lower diagonal) relationship because the database will automatically save both sides.</b>
+                    <b>注意：僅上傳單邊（上三角或下三角）關係，因為資料庫會自動儲存兩側。</b>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -849,13 +849,13 @@ $is_from_grm => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadSSRSpreadsheetInfoDialog">Upload SSR Data Template Information</h4>
+                <h4 class="modal-title" id="uploadSSRSpreadsheetInfoDialog">上傳 SSR 資料範本資訊(Upload SSR Data Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>SSR data may be uploaded in an Excel file (.xls or .xlsx)</b>
+                    <b>SSR 資料可透過 Excel 檔案（.xls 或 .xlsx）上傳</b>
                     <br />
-                    <b>Example of SSR Data Spreadsheet:</b>
+                    <b>SSR 資料試算表範例：</b>
                     <br>
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead>
@@ -909,20 +909,20 @@ $is_from_grm => undef
                         </tbody>
                     </table>
                     <b>
-                        Column Info:
+                        欄位資訊：
                     </b>
                     <ul>
-                        <li>s01 and s02 are marker names.</li>
-                        <li>139, 170, 194 are product sizes generated by marker s01 and 203,229,290 are product sizes generated by marker s02.</li>
-                        <li>sample_A, sample_B, sample_C are accession names.</li>
-                        <li>"1" indicates the presence of PCR product.</li>
-                        <li>"0" indicates the absence of PCR product.</li>
+                        <li>s01 和 s02 為標記名稱。</li>
+                        <li>139、170、194 是標記 s01 產生的產物大小，203、229、290 是標記 s02 產生的產物大小。</li>
+                        <li>sample_A、sample_B、sample_C 為種原名稱。</li>
+                        <li>「1」表示存在 PCR 產物。</li>
+                        <li>「0」表示不存在 PCR 產物。</li>
                         <br>
                     </ul>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -936,7 +936,7 @@ jQuery(document).ready(function(){
     jQuery('#genotype_data_type_select_submit').click(function(){
         data_type = jQuery('#genotype_data_type_select').val();
         if (data_type == '') {
-            alert('Please select a data type first!');
+            alert('請先選擇資料類型！');
             return false;
         }
         else {
@@ -948,7 +948,7 @@ jQuery(document).ready(function(){
 
 %  if ($is_from_grm) {
     var list = new CXGN.List();
-    jQuery("#upload_genotype_is_from_grm_accession_list_select_div").html(list.listSelect("upload_genotype_is_from_grm_accession_list_select_div", ["accessions"], 'Optionally select a list of accessions', undefined, undefined));
+    jQuery("#upload_genotype_is_from_grm_accession_list_select_div").html(list.listSelect("upload_genotype_is_from_grm_accession_list_select_div", ["accessions"], '可選擇種原清單', undefined, undefined));
 
     get_select_box('trials', 'upload_genotype_is_from_grm_field_trial_select_div', { 'name' : 'upload_genotype_is_from_grm_field_trial_ids', 'id' : 'upload_genotype_is_from_grm_field_trial_ids', 'empty':1, 'multiple':1 });
 %  }
@@ -1030,7 +1030,7 @@ jQuery(document).ready(function(){
             if (selected.length == 0){
                 jQuery('#upload_ssr_protocol_dialog').modal('show');
             } else if (selected.length > 0) {
-                alert('If you selected a protocol, do not try to make a new one at the same time!');
+                alert('如果您已選擇協定，請勿同時嘗試建立新協定！');
             }
         } else {
             jQuery('#upload_genotype_data_protocol_details').show();
@@ -1055,10 +1055,10 @@ jQuery(document).ready(function(){
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1){
-            alert('Only select one genotyping project!');
+            alert('請僅選擇一個基因分型專案！');
         } else {
             if (selected.length == 0){
-                alert('Select a genotyping project or create a new one!');
+                alert('請選擇基因分型專案或建立新專案！');
             } else if (selected.length == 1){
                 jQuery('#upload_genotype_project_id').val(selected[0]);
                 Workflow.complete('#upload_genotyping_data_project_check_button');
@@ -1076,14 +1076,14 @@ jQuery(document).ready(function(){
             selected.push(jQuery(this).val());
         });
         if (selected.length > 1){
-            alert('Only select one genotyping protocol!');
+            alert('請僅選擇一個基因分型協定！');
         } else {
             if (selected.length == 0 && jQuery('#upload_genotype_vcf_protocol_name').val() == '' && jQuery('#upload_genotype_protocol_id').val() == ''){
-                alert('Select a genotyping protocol or create a new one!');
+                alert('請選擇基因分型協定或建立新協定！');
             } else if (is_from_grm != 1 && selected.length == 1 && jQuery('#upload_genotype_vcf_protocol_name').val() != ''){
-                alert('If you selected a protocol, do not try to make a new one at the same time!');
+                alert('如果您已選擇協定，請勿同時嘗試建立新協定！');
             } else if (is_from_grm == 1 && selected.length == 0) {
-                alert('Please select a genotyping protocol first!');
+                alert('請先選擇基因分型協定！');
             } else if (selected.length == 1 && (jQuery('#upload_genotype_vcf_protocol_name').val() == '' || jQuery('#upload_genotype_vcf_protocol_name').val() == undefined) ) {
                 jQuery('#upload_genotype_protocol_id').val(selected[0]);
                 Workflow.complete('#upload_genotyping_data_protocol_check_button');
@@ -1093,9 +1093,9 @@ jQuery(document).ready(function(){
                 Workflow.focus('#upload_genotypes_workflow', 4);
             } else if (selected.length == 0 && jQuery('#upload_genotype_vcf_protocol_name').val() != '') {
                 if (jQuery('#upload_genotype_vcf_reference_genome_name').val() == ''){
-                    alert('Please give a reference genome name.');
+                    alert('請提供參考基因組名稱。');
                 } else if (jQuery('#upload_genotypes_species_name_input').val() == ''){
-                    alert('Please give a species name.');
+                    alert('請提供物種名稱。');
                 } else {
                     jQuery('#upload_genotype_protocol_id').val(undefined);
                     Workflow.complete('#upload_genotyping_data_protocol_check_button');
@@ -1111,21 +1111,21 @@ jQuery(document).ready(function(){
 %  if ($is_from_grm) {
         var selected_field_trial_ids = jQuery('#upload_genotype_is_from_grm_field_trial_ids').val();
         if (selected_field_trial_ids == null) {
-            alert('Please select field trial(s) to link the GRM to.');
+            alert('請選擇要連結 GRM 的田間試驗。');
             return false;
         }
         if (selected_field_trial_ids.length < 1) {
-            alert('Please select field trial(s) to link the GRM to.');
+            alert('請選擇要連結 GRM 的田間試驗。');
             return false;
         }
         jQuery('#upload_genotype_is_from_grm_field_trial_ids_json').val(JSON.stringify(selected_field_trial_ids));
 
         if (jQuery('#upload_genotype_is_from_grm_protocol_name').val() == '') {
-            alert('Please give a GRM protocol name first!');
+            alert('請先提供 GRM 協定名稱！');
             return false;
         }
         else if (jQuery('#upload_genotype_is_from_grm_protocol_desc').val() == '') {
-            alert('Please give a GRM protocol description first!');
+            alert('請先提供 GRM 協定描述！');
             return false;
         }
         else {
@@ -1175,19 +1175,19 @@ jQuery(document).ready(function(){
 
         jQuery('#upload_ssr_protocol_form').attr("action", "/ajax/genotype/upload_ssr_protocol");
         if (ssr_protocol_name === ''){
-            alert("Please give a protocol name");
+            alert("請提供協定名稱");
             return;
         }
         if (ssr_protocol_species_name === ''){
-            alert("Please give a species name");
+            alert("請提供物種名稱");
             return;
         }
         if (ssr_protocol_description === ''){
-            alert("Please give a description");
+            alert("請提供描述");
             return;
         }
         if (uploadFile === ''){
-            alert("Please select a file");
+            alert("請選擇檔案");
             return;
         }
         jQuery('#upload_ssr_protocol_form').submit();

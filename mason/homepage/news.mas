@@ -8,7 +8,7 @@ use CXGN::Tools::File;
 
 my $file = File::Spec->catfile($c->get_conf('homepage_files_dir'), 'news.txt');
 
-my $contents = "News is not available at the moment.<br /><br />";
+my $contents = "目前無法取得最新消息(News is not available at the moment)。<br /><br />";
 
 eval {
   $contents = CXGN::Tools::File::get_sections($file);
@@ -18,14 +18,14 @@ eval {
 </%perl>
 
 <!-- <div class="boxbgcolor1" style="margin:0px;">
-<div class="boxheading">News</div>
+<div class="boxheading">最新消息(News)</div>
 <div class="boxcontent"> -->
   <% $contents %>
 <!-- </div> -->
 
-<button class="btn btn-info btn-sm" onclick='location.href="/oldhighlights.pl"'>See all news...</button>
+<button class="btn btn-info btn-sm" onclick='location.href="/oldhighlights.pl"'>查看所有新聞(See all news)...</button>
 
 <!--
-<a href="oldhighlights.pl">See all news...</a>
+<a href="oldhighlights.pl">查看所有新聞(See all news)...</a>
 -->
 <!-- </div> -->

@@ -2,7 +2,7 @@
 
   <p>
 
-  PLEASE READ BEFORE ACCESSING THE PRE-PUBLICATION TOMATO GENOME
+  在存取發表前的番茄基因組序列或註釋之前請先閱讀：國際番茄基因組定序聯盟 (The International Tomato Genome Sequencing Consortium) 很高興向公共和私營研究社群提供番茄基因組的發表前草圖組裝，作為促進植物生物學發現並透過改善農業來改善人類生存條件的資源。該組裝由荷蘭／法國組裝團隊完成，包含 454 數據和 Sanger 定序數據（BAC 末端、fosmid 末端和精選 BAC 混合序列）。(PLEASE READ BEFORE ACCESSING THE PRE-PUBLICATION TOMATO GENOME
   SEQUENCE OR ANNOTATIONS: The International Tomato Genome Sequencing
   Consortium is pleased to make available a pre-publication draft
   assembly of the tomato genome for use by public and private research
@@ -10,10 +10,10 @@
   improve the human condition through improved agriculture. This
   assembly was produced by the Dutch/French assembly team and includes
   both 454 data and Sanger sequence data (BAC-ends, fosmid-ends and
-  Selected BAC Mixture sequences).  </p>
+  Selected BAC Mixture sequences).)  </p>
 
   <p>
-  We caution you that the current assembly is a "work-in-progress" and
+  我們提醒您，目前的組裝仍處於「進行中」狀態，因此在發表前可能會進行修改（預計於 2011 年中發表），其中部分修改可能相當重大。因此，我們建議您仔細且獨立地驗證您從該序列中得出的任何結論。隨著組裝的改進，我們將更新此資源。我們歡迎有關您的成功經驗的任何回饋，或有助於我們改進此序列品質和準確性的回饋。(We caution you that the current assembly is a "work-in-progress" and
   as such is subject to modification prior to publication release
   (anticipated for mid-2011), some of which is likely to be
   substantial. Therefore we encourage you to carefully and
@@ -21,11 +21,11 @@
   sequence. We will update this resource as improvements in the
   assembly are made. We welcome any feedback regarding your successes
   or that may assist us in improving the quality and accuracy of this
-  sequence.
+  sequence.)
   </p>
 
   <p>
-  This pre-publication tomato genome data is made available with
+  提供此發表前的番茄基因組數據的前提是，使用者將尊重那些為在同儕審查出版物中描述番茄基因組做出貢獻的人的權利。此描述包括對基因、基因家族、重複序列等的全基因組層級分析。我們鼓勵您參閱 NIH-NHGRI 關於發表前基因組序列分發和使用的指南：<a href="http://www.genome.gov/page.cfm?pageID=10506537">http://www.genome.gov/page.cfm?pageID=10506537</a>。在發表之前對番茄基因組數據的任何使用均應註明出處為「國際番茄基因組定序聯盟」(The International Tomato Genome Sequencing Consortium)。如果您不確定如何標註序列的使用出處或適當使用方式，請隨時聯絡 <a href="mailto:jv27@cornell.edu">Joyce Van Eck</a>。(This pre-publication tomato genome data is made available with
   the understanding that users will respect the rights of those who
   contributed to this effort to describe the tomato genome in a
   peer-reviewed publication. This description includes whole genome
@@ -38,7 +38,7 @@
   credit "The International Tomato Genome Sequencing Consortium". If
   you are uncertain about how to credit the use of the sequence or its
   appropriate use please do not hesitate to contact
-  <a href="mailto:jv27@cornell.edu">Joyce Van Eck</a>.
+  <a href="mailto:jv27@cornell.edu">Joyce Van Eck</a>.)
   </p>
 
 </div>

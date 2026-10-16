@@ -8,6 +8,7 @@
 # they should go through /solpeople/profile/<sp_person_id>, so they'll already be logged in when they get here)
 
 use strict;
+use utf8;
 use CXGN::Login;
 
 my $contact_info_page = new SolPeoplePersonalInfoPage();
@@ -189,9 +190,9 @@ sub generate_form
 	if($form->is_editable()) {
 	    $form->add_label(display_name => "",
 			     field_name => "lbl1",
-			     contents => "If you would like to enter or update information at this time but do not want it displayed publically, check this option.");
+			     contents => "如果您此時希望輸入或更新資訊，但不希望將其公開顯示，請勾選此選項。");
 
-	    $form->add_checkbox(display_name => "Censor contact information from directory search and public display",
+	    $form->add_checkbox(display_name => "在名錄搜尋與公開顯示中隱藏聯絡資訊 (Censor contact information)",
 				field_name => "censor",
 				contents => "1",
 				selected => $person->get_censored(),
@@ -201,10 +202,10 @@ sub generate_form
 
 	    $form->add_label(display_name => "",
 			     field_name => "lbl2",
-			     contents => "The first and last names you enter here will be displayed in the SGN directory (if not censored using the box above)."
-			     . " Your username for this interface is not displayed.");
+			     contents => "您在此處輸入的名字與姓氏將顯示在 SGN 名錄中 (若未勾選上方隱藏方塊)。"
+			     . " 您在此系統的使用者名稱不會被公開顯示。");
 	}
-	$form->add_select(display_name => "Salutation",
+	$form->add_select(display_name => "稱謂 (Salutation)",
 			  field_name => "salutation",
 			  contents => $person->get_salutation(),
 			  object => $person,
@@ -212,7 +213,7 @@ sub generate_form
 			  setter => "set_salutation",
 			  select_list_ref => [qw(None Prof. Dr. Mr. Ms. Mrs.)],
 			  select_id_list_ref => ['', qw(Prof. Dr. Mr. Ms. Mrs.)]);
-	$form->add_field(display_name => "First name",
+	$form->add_field(display_name => "名字 (First name)",
 			 field_name => "first_name",
 			 contents => $displayed_first_name,
 			 length => $default_field_length,
@@ -220,7 +221,7 @@ sub generate_form
 			 getter => "get_first_name",
 			 setter => "set_first_name",
 			 validate => "string");
-	$form->add_field(display_name => "Last name",
+	$form->add_field(display_name => "姓氏 (Last name)",
 			 field_name => "last_name",
 			 contents => $displayed_last_name,
 			 length => $default_field_length,
@@ -228,14 +229,14 @@ sub generate_form
 			 getter => "get_last_name",
 			 setter => "set_last_name",
 			 validate => "string");
-	$form->add_field(display_name => "Organization",
+	$form->add_field(display_name => "所屬機構 (Organization)",
 			 field_name => "organization",
 			 contents => $person->get_organization(),
 			 length => 50,
 			 object => $person,
 			 getter => "get_organization",
 			 setter => "set_organization");
-	$form->add_textarea(display_name => "Address",
+	$form->add_textarea(display_name => "地址 (Address)",
 			    field_name => "address",
 			    contents => $person->get_address(),
 			    rows => 4,
@@ -243,7 +244,7 @@ sub generate_form
 			    object => $person,
 			    getter => "get_address",
 			    setter => "set_address");
-	$form->add_field(display_name => "Country",
+	$form->add_field(display_name => "國家 (Country)",
 			 field_name => "country",
 			 contents => $person->get_country(),
 			 length => $default_field_length,
@@ -253,17 +254,17 @@ sub generate_form
 	if($form->is_editable()) {
 	    $form->add_label(display_name => "",
 			     field_name => "lbl3",
-			     contents => "If you wish to be contacted via telephone or fax by interested parties who found your directory entry on SGN, please enter"
-			     . " telephone numbers here. These numbers will be displayed publically to all SGN users who view your entry.");
+			     contents => "若您希望透過電話或傳真被聯絡，請在此輸入電話號碼。"
+			     . " 這些號碼將對檢視您個人資料的 SGN 使用者公開顯示。");
 	}
-	$form->add_field(display_name => "Phone",
+	$form->add_field(display_name => "電話 (Phone)",
 			 field_name => "phone",
 			 contents => $person->get_phone_number(),
 			 length => $default_field_length,
 			 object => $person,
 			 getter => "get_phone_number",
 			 setter => "set_phone_number");
-	$form->add_field(display_name => "Fax",
+	$form->add_field(display_name => "傳真 (Fax)",
 							field_name => "fax",
 							contents => $person->get_fax(),
 							length => $default_field_length,
@@ -274,17 +275,17 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl4",
-								contents => "If you would like to be contacted via email by interested parties who found your directory entry on SGN, please enter"
-								. " an address here. This address will be displayed publically to all SGN users who view your entry.");
+								contents => "若您希望透過電子郵件被聯絡，請在此輸入電子信箱地址。"
+								. " 該地址將對檢視您個人資料的所有使用者公開顯示。");
 	}
-	$form->add_field(display_name => "Contact E-mail",
+	$form->add_field(display_name => "聯絡電子郵件 (Contact E-mail)",
 							field_name => "contact_email",
 							contents => $person->get_contact_email(),
 							length => $default_field_length,
 							object => $person,
 							getter => "get_contact_email",
 							setter => "set_contact_email");
-	$form->add_field(display_name => "Website",
+	$form->add_field(display_name => "個人或實驗室網站 (Website)",
 							field_name => "webpage",
 							contents => $person->get_webpage(),
 							length => $default_field_length,
@@ -295,9 +296,9 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl5",
-								contents => "Enter research keywords (for searching) and a fuller explanation of your research interests (for searching and displaying) below.");
+								contents => "請在下方輸入研究關鍵字 (供搜尋) 以及更詳細的研究興趣說明 (供搜尋與顯示)。");
 	}
-	$form->add_field(display_name => "Keywords",
+	$form->add_field(display_name => "研究關鍵字 (Keywords)",
 							field_name => "keywords",
 							contents => $person->get_research_keywords(),
 							length => 60,
@@ -308,10 +309,10 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl6",
-								contents => "Please separate terms with a <b>semicolon</b>. Do not use quotation marks or other punctuation. (Example: fruit development;"
+								contents => "請用<b>分號 (;)</b> 分隔詞彙。請勿使用引號或其他標點符號。(例如: fruit development;"
 												. " host pathogen interaction; drought tolerance)");
 	}
-	$form->add_multiselect(display_name => "Research Organisms",
+	$form->add_multiselect(display_name => "研究物種 (Research Organisms)",
 									field_name => "organisms",
 									choices => \@organism_ids,
 									labels => \@organism_names,
@@ -322,11 +323,10 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl7",
-								contents => "You may select multiple organisms by clicking on more than one while holding the control key down. If an organism is not listed"
-												. " in the selection box, please specify your additional organisms by their official Latin names in the text entry box below, in"
-												. " a <b>semicolon</b>-separated list.");
+								contents => "您可以按住 Ctrl (或 Cmd) 鍵點擊多個物種以進行複選。如果某物種未列在選單中，"
+												. " 請在下方文字方塊中輸入正式拉丁學名，並以<b>分號 (;)</b> 分隔。");
 		#the contents will be edited by the pre-storing validation function; notice this field never needs to be gotten, only sotten
-		$form->add_field(display_name => "Unlisted Organisms",
+		$form->add_field(display_name => "未列出之物種 (Unlisted Organisms)",
 								field_name => "unlisted_organisms",
 								id => $self->{organisms_source_element_id},
 								contents => "",
@@ -340,7 +340,7 @@ sub generate_form
 				  field_name => "format",
 				  id_prefix => "format_",
 				  choices => ["auto", "html"],
-				  labels => ["Auto-format (entry is plain text)", "Use HTML markup tags"],
+				  labels => ["自動格式化 (純文字) / Auto-format", "使用 HTML 標籤 (Use HTML markup tags)"],
 				  contents => $person->get_user_format(),
 				  object => $person,
 				  getter => 'get_user_format',
@@ -348,10 +348,10 @@ sub generate_form
 
 	    $form->add_label(display_name => "",
 			     field_name => "lbl8",
-			     contents => "For auto-formatted plain text entries, separate paragraphs by a single empty line. For HTML entries, please use only paragraph"
-			     . " tags (&lt;p&gt;), bold and italic tags (&lt;b&gt;, &lt;i&gt;), and break tags (&lt;br&gt;). All other tags will be removed.");
+			     contents => "對於自動格式化的純文字項目，請以空行分隔段落。對於 HTML 格式，請僅使用段落"
+			     . " 標籤 (&lt;p&gt;)、粗體與斜體標籤 (&lt;b&gt;, &lt;i&gt;) 以及換行標籤 (&lt;br&gt;)。所有其他標籤將會被移除。");
 	}
-	$form->add_textarea(display_name => "Interests",
+	$form->add_textarea(display_name => "研究興趣 (Interests)",
 			    field_name => "research_interests",
 			    id => $self->{html_source_element_id},
 			    contents => $person->get_research_interests(),
@@ -364,8 +364,7 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl9",
-								contents => "The preview feature below (requires JavaScript) shows your current interests statement if you've selected HTML format. Also,"
-												. " if you need to define new organisms, the preview will show how the website is parsing the text you've entered above.");
+								contents => "下方的預覽功能 (需啟用 JavaScript) 會顯示您目前的興趣陳述。此外，如果您定義了新物種，預覽也將顯示網站如何解析您輸入的文字。");
 	}
 
 	#for allowing the form to make changes
@@ -377,8 +376,8 @@ sub generate_form
 
 	if($form->is_editable())
 	{
-		$form->set_reset_button_text("Clear");
-		$form->set_submit_button_text("Submit Changes");
+		$form->set_reset_button_text("清除 (Clear)");
+		$form->set_submit_button_text("送出變更 (Submit Changes)");
 	}
 	if($self->get_action() =~ /view|edit/)
 	{
@@ -408,33 +407,33 @@ sub get_actions_toolbar
 	my $home;
 	if($user_is_owner || $user_type eq 'curator')
 	{
-		$home = qq(<a href="/solpeople/profile/$sp_person_id">[Profile Home]</a>&nbsp;&nbsp;);
+		$home = qq(<a href="/solpeople/profile/$sp_person_id">[個人檔案首頁 (Profile Home)]</a>&nbsp;&nbsp;);
 	}
 	else
 	{
-		$home = qq(<span class="ghosted">[Directory Update Home]</span>);
+		$home = qq(<span class="ghosted">[名錄更新首頁 (Directory Update Home)]</span>);
 	}
 
 	if($self->get_action() eq "edit")
 	{
 		if($user_is_owner || $user_type eq 'curator')
 		{
-			return $home . qq(<a href="$script_name?action=view&sp_person_id=$sp_person_id">[Cancel Edit]</a>);
+			return $home . qq(<a href="$script_name?action=view&sp_person_id=$sp_person_id">[取消編輯 (Cancel Edit)]</a>);
 		}
 		else
 		{
-			return $home . qq(<span class="ghosted">[Cancel Edit]</span>);
+			return $home . qq(<span class="ghosted">[取消編輯 (Cancel Edit)]</span>);
 		}
 	}
 	elsif($self->get_action() eq "view")
 	{
 		if($user_is_owner || $user_type eq 'curator')
 		{
-			return $home . qq(<a href="$script_name?action=edit&sp_person_id=$sp_person_id">[Edit]</a>);
+			return $home . qq(<a href="$script_name?action=edit&sp_person_id=$sp_person_id">[編輯 (Edit)]</a>);
 		}
 		else
 		{
-			return $home . qq(<span class="ghosted">[Edit]</span>);
+			return $home . qq(<span class="ghosted">[編輯 (Edit)]</span>);
 		}
 	}
 	elsif($self->get_action() eq "store") {}
@@ -455,11 +454,11 @@ sub display_page
 	$page->add_style(text => ".subtitle {font-weight: bold; text-align: center}");
 	$page->add_style(text => ".invisible {display: none}");
 	$page->jsan_use("MochiKit.DOM", "MochiKit.Signal"); #include javascript modules
-	$page->header("Sol People: contact and research info");
+	$page->header("Sol People: 聯絡與研究資訊 (Contact and Research Info)");
 
 	print qq{<table><tr valign="middle"><td width="670" align="center" valign="middle" ><br />};
 
-	print page_title_html("Personal info for " . $person->get_first_name() . " " . $person->get_last_name());
+	print page_title_html("個人資訊 - " . $person->get_first_name() . " " . $person->get_last_name() . " (Personal info for " . $person->get_first_name() . " " . $person->get_last_name() . ")");
 
 	print "</td><td>";
 
@@ -479,14 +478,14 @@ sub display_page
 		my $organisms_preview_pane_parent_id = 'organisms_preview_pane_parent';
 		print <<EOHTML;
 <hr width="90%" />
-<div class="subtitle">Interests and Organisms Preview</div>
+<div class="subtitle">研究興趣與物種預覽 (Interests and Organisms Preview)</div>
 <div id="all_html_preview_stuff">
-Your research interests will be displayed on SGN\'s website as shown in the box below (the box will not be displayed).
+您的研究興趣將在 SGN 網站上顯示如下方框所示（方框本身不會顯示）(Your research interests will be displayed on SGN's website as shown in the box below)：
 <div id="$html_preview_pane_parent_id"></div>
 </div>
-<br />You have entered the following currently unlisted organisms. Please check that these names are spelled correctly.
-Once committed, these names cannot be changed by this interface.
-If you accidentally save an incorrect organism name, please contact us via <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a>.
+<br />您輸入了以下目前未列出的物種，請檢查這些名稱拼寫是否正確 (You have entered the following currently unlisted organisms. Please check that these names are spelled correctly)。
+儲存後，無法透過此介面變更這些名稱 (Once committed, these names cannot be changed by this interface)。
+如果您不小心儲存了錯誤的物種名稱，請透過 <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a> 與我們聯絡。
 <div id="$organisms_preview_pane_parent_id"></div>
 <script type="text/javascript">
 DynamicPreviewPane.createPreviewPane('html', '$self->{html_source_element_id}', '$html_preview_pane_parent_id');
@@ -535,7 +534,7 @@ EOHTML
 	    }
 
 	    if ($more) {
-		$locus_annotations .= qq|<br><b>and <a href="/search/locus">$more more</a></b><br />|;
+		$locus_annotations .= qq|<br><b>以及另外 <a href="/search/locus">$more 個 (and $more more)</a></b><br />|;
 
 
 	    }
@@ -543,7 +542,7 @@ EOHTML
 
 	if (@annotated_loci) {
 	    print "<hr />\n";
-	    print "Locus editor assignments:&nbsp;\n";
+	    print "基因位點編輯者指派 (Locus editor assignments):&nbsp;\n";
 	    print $locus_annotations;
 	}
 
@@ -559,7 +558,7 @@ sub owner_populations {
     my $self = shift;
     my $sp_person_id = $self->get_object_id();
     my @pops = CXGN::Phenome::Population->my_populations($sp_person_id);
-    my $pop_list = 'Populations:<br/>';
+    my $pop_list = '族群 (Populations):<br/>';
 
     if (@pops) {
 	foreach my $pops (@pops) {

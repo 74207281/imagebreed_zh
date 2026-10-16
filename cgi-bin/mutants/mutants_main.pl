@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('mutants_main.html','html2pl converter');
-$page->header('Mutants');
+$page->header('突變株 (Mutants)');
 print<<END_HEREDOC;
 
 
@@ -10,36 +11,14 @@ border="0">
 <tr>
 <td>
 <ul>
-<li><a href="http://zamir.sgn.cornell.edu/mutants/">Genes that make
-Tomatoes</a>
-<blockquote>"The Genes That Make Tomatoes." This database is hosted
-by SGN in collaboration with the Zamir Lab at the Hebrew University
-of Jerusalem. All data was collected from a mutagenesis project, in
-which over 150,000 m2 plants were screened iin the field for mutant
-phenotypes at defined developmental stages (summer 2001, 2002 and
-2003). In the web site there is a description of the project and
-the mutant population as well as a new search engine. The
-collection of 3500 monogenic mutants is amenable for searching
-according to a detailed phenotypic catalog and combinations of
-traits.</blockquote>
+<li><a href="http://zamir.sgn.cornell.edu/mutants/">建構番茄的基因 (Genes that make Tomatoes)</a>
+<blockquote>「建構番茄的基因 (The Genes That Make Tomatoes)」資料庫是由 SGN 與耶路撒冷希伯來大學的 Zamir 實驗室合作託管。所有數據均收集自誘變專案，在田間針對特定發育階段（2001、2002 和 2003 年夏季）篩選了超過 150,000 株 M2 植株的突變表型。網站中包含該專案與突變族群的說明，以及新的搜尋引擎。3,500 個單基因突變株的收藏可依據詳細的表型目錄和性狀組合進行檢索。</blockquote>
 </li>
-<li><a href="http://zamir.sgn.cornell.edu/Qtl/Html/home.htm">Real
-Time QTL</a>
-<blockquote>The objective of Real Time QTL (RTQ) is to present
-<em>in silico</em> the range of statistical outputs that describe
-the components of genetic variastion using tomato as a model
-organism.</blockquote>
+<li><a href="http://zamir.sgn.cornell.edu/Qtl/Html/home.htm">即時數量性狀基因座 (Real Time QTL)</a>
+<blockquote>即時 QTL (RTQ) 的目標是以番茄作為模式生物，在電腦模擬 (<em>in silico</em>) 中呈現描述遺傳變異組成成分的統計輸出範圍。</blockquote>
 </li>
-<li><a href="http://tgrc.ucdavis.edu/">TGRC</a> [external link]
-<blockquote>The C.M. Rick Tomato Genetics Resource Center (TGRC) is
-a genebank of wild relatives, monogenic mutants and miscellaneous
-genetic stocks of tomato. The Center is named for Dr. Charles M.
-Rick, Prof. Emer. who established much of the collection through
-his research and plant collecting activities. Located in the Dept.
-of Vegetable Crops, University of California at Davis, the TGRC is
-also integrated with the National Plant Germplasm System (NPGS).
-The TGRC facilitates research on tomato by providing seed samples
-of its accessions to interested scientists worldwide.</blockquote>
+<li><a href="http://tgrc.ucdavis.edu/">TGRC 番茄遺傳資源中心 (TGRC)</a> [外部連結 (external link)]
+<blockquote>C.M. Rick 番茄遺傳資源中心 (TGRC) 是野生近緣種、單基因突變株及各類番茄遺傳種原的基因庫。該中心以名譽教授 Charles M. Rick 博士命名，他透過研究與植物採集工作建立了大部分的收藏。TGRC 位於加州大學戴維斯分校蔬菜作物學系，亦整合至國家植物種原系統 (NPGS)。TGRC 透過向全球感興趣的科學家提供其種原的種子樣本以促進番茄研究。</blockquote>
 </li>
 </ul>
 </td>

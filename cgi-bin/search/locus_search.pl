@@ -7,6 +7,7 @@
 
 
 use strict;
+use utf8;
 
 use CXGN::Phenome;
 use CXGN::Page;
@@ -20,10 +21,10 @@ use CXGN::Search::CannedForms;
 
 # Start a new SGN page.
 
-my $page=CXGN::Page->new("SGN gene search results","Naama");
+my $page=CXGN::Page->new("SGN 基因搜尋結果 (SGN gene search results)","Naama");
 $page->header();
 
-print page_title_html('Gene search results');
+print page_title_html('基因搜尋結果 (Gene search results)');
 
 
 #create the search and query objects
@@ -84,12 +85,12 @@ if(%params) {
 <div id="searchresults">
 EOH
 
-$results_html .= columnar_table_html(headings => ['Organism',
-						  'Locus name',
-						  'Locus symbol',
-						  'Allele name',
-						  'Allele symbol',
-						  'Allele phenotype'],
+$results_html .= columnar_table_html(headings => ['生物體 (Organism)',
+						  '基因座名稱 (Locus name)',
+						  '基因座符號 (Locus symbol)',
+						  '對偶基因名稱 (Allele name)',
+						  '對偶基因符號 (Allele symbol)',
+						  '對偶基因性狀 (Allele phenotype)'],
 				     data => \@results,
 				     # __alt_freq => 2,
 				     # __alt_width => 2,
@@ -104,12 +105,12 @@ EOH
 
 if (@results) {
     
-    print blue_section_html('Gene search results', ,sprintf('<span class="paginate_summary">%s matches </span>', $result->total_results,$result->time),$results_html);
+    print blue_section_html('基因搜尋結果 (Gene search results)', sprintf('<span class="paginate_summary">%s 筆相符結果 (%s matches)</span>', $result->total_results,$result->time),$results_html);
 }else {
-    print '<h4><span class="">No matches found</span></h4>';
+    print '<h4><span class="">未找到相符結果 (No matches found)</span></h4>';
 }
 
-  print info_section_html(title    => 'Search again', 
+  print info_section_html(title    => '重新搜尋 (Search again)', 
 			  contents =>CXGN::Search::CannedForms::gene_search_form($page,$query)
 			  );
 }

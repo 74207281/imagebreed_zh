@@ -1,10 +1,10 @@
 <%args>
 </%args>
 
-<h4>Observation Levels</h4>
+<h4>觀測層級(Observation Levels)</h4>
 
 <div id="brapi_obslevel_home_div">
-<button class="btn btn-primary" id="brapi_home_show_obslevels">Show ObservationLevels</button>
+<button class="btn btn-primary" id="brapi_home_show_obslevels">顯示觀測層級(Show ObservationLevels)</button>
 
 </div>
 
@@ -26,7 +26,7 @@ jQuery("#brapi_home_show_obslevels").click(function() {
         jQuery("#brapi_obslevel_home_div").empty().html(html);
       },
       error: function(response) {
-        alert('An error occurred');
+        alert('發生錯誤(An error occurred)');
       }
     });
 });

@@ -7,18 +7,18 @@ $program_id
 <div class="well well-sm">
     <div class="panel panel-default">
         <div class="panel-body">
-            <&| /page/info_section.mas, title=>"Location Info", is_subsection => 1, collapsible=>1, collapsed=>0 &>
+            <&| /page/info_section.mas, title=>"地點資訊(Location Info)", is_subsection => 1, collapsible=>1, collapsed=>0 &>
                 <table class="table table-hover table-bordered" id="program_location_table">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Abbreviation</th>
-                            <th>Country</th>
-                            <th>Type</th>
-                            <th>Altitude(m)</th>
-                            <th>Trials</th>
-                            <th>Nearest NOAA Station ID</th>
+                            <th>ID(Id)</th>
+                            <th>名稱(Name)</th>
+                            <th>縮寫(Abbreviation)</th>
+                            <th>國家(Country)</th>
+                            <th>類型(Type)</th>
+                            <th>海拔(公尺)(Altitude(m))</th>
+                            <th>試驗(Trials)</th>
+                            <th>最近的 NOAA 測站 ID(Nearest NOAA Station ID)</th>
                         </tr>
                     </thead>
                 </table>

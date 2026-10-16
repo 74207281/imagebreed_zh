@@ -10,7 +10,7 @@ $facilities => ();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="addGenoTrialDialog">Add Genotyping Plate</h4>
+                <h4 class="modal-title" id="addGenoTrialDialog">新增基因分型微孔盤(Add Genotyping Plate)</h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" encoding="multipart/form-data" id="upload_genotyping_trials_form" name="upload_genotyping_trials_form">
@@ -18,124 +18,124 @@ $facilities => ();
                     <div class="container-fluid">
 
                         <&| /util/workflow.mas, id=> "genotyping_trial_create_workflow" &>
-                            <&| /util/workflow.mas:step, title=> "Intro" &>
-                                <& /page/page_title.mas, title=>"This workflow will guide you through adding a genotyping plate in the database" &>
-                                <p>Genotyping plates represent 96 or 384 well plates.</p>
-                                <p>Each plate has a globally unique Plate ID.</p>
-                                <p>Each well in the plate has a globally unique tissue sample ID.</p>
-                                <p>The "contents" of each well can be either a tissue sample, plant name, plot name, or accession name. This "source" name must be in the database already. This is useful if you provide a field trial entity (such as a plot or plant or tissue sample name), so that phenotypes and genotypes can be directly compared.</p>
-                                <p>If you choose to submit your genotyping plate to a genotyping facility (Cornell IGD, Intertek, etc) we can generate the files they require for you. Please be aware of their requirements, such as blank well positions and concentrations.</p>
-                                <p>In addition to sample ID, you have an option to include facility identifier for each well. </p>
+                            <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                                <& /page/page_title.mas, title=>"此工作流程將引導您在資料庫中新增基因分型微孔盤(This Workflow Will Guide You Through Adding A Genotyping Plate In The Database)" &>
+                                <p>基因分型微孔盤代表 96 或 384 孔微孔盤。</p>
+                                <p>每個微孔盤都有全域唯一的微孔盤 ID。</p>
+                                <p>微孔盤中的每個孔位都有全域唯一的組織樣本 ID。</p>
+                                <p>每個孔位的「內容物」可以是組織樣本、植株名稱、小區名稱或品系名稱。此「來源」名稱必須已存在於資料庫中。如果您提供田間試驗實體（例如小區、植株或組織樣本名稱），這將有助於直接比較表型與基因型。</p>
+                                <p>如果您選擇將基因分型微孔盤送交至基因分型機構（Cornell IGD、Intertek 等），我們可以為您產生他們所需的檔案。請注意他們的要求，例如空白孔位位置和濃度。</p>
+                                <p>除了樣本 ID 外，您還可以選擇為每個孔位納入機構識別碼。</p>
                                 <br/><br/>
                                 <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:step, title=> "Genotyping Project" &>
-                                <& /page/page_title.mas, title=>"Select a genotyping project" &>
-                                <p>Genotyping projects are for grouping genotyping plates and/or genotyping data together. Genotyping Project should match Vendor Project if you have one. </p>
+                            <&| /util/workflow.mas:step, title=> "基因分型專案(Genotyping Project)" &>
+                                <& /page/page_title.mas, title=>"選取基因分型專案(Select A Genotyping Project)" &>
+                                <p>基因分型專案用於將基因分型微孔盤和／或基因分型資料分組在一起。如果您有廠商專案，基因分型專案應與之相符。</p>
                                 <center>
-                                    <button class="btn btn-info" name="create_genotyping_project_link">If you need to create a genotyping project, click here</button><br/><br/>
-                                    <button id="next_step_creating_genotyping_plates" class="btn btn-primary" onclick="Workflow.complete(this);">Once you have a genotyping project, go to Next Step</button>
+                                    <button class="btn btn-info" name="create_genotyping_project_link">若您需要建立基因分型專案，請點擊此處(If you need to create a genotyping project, click here)</button><br/><br/>
+                                    <button id="next_step_creating_genotyping_plates" class="btn btn-primary" onclick="Workflow.complete(this);">取得基因分型專案後，前往下一步(Once you have a genotyping project, go to Next Step)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:step, title=> "Basic Plate Info" &>
-                                <& /page/page_title.mas, title=>"Provide info about your plate" &>
+                            <&| /util/workflow.mas:step, title=> "微孔盤基本資訊(Basic Plate Info)" &>
+                                <& /page/page_title.mas, title=>"提供關於微孔盤的資訊(Provide Info About Your Plate)" &>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Project Name: </label>
+                                    <label class="col-sm-5 control-label">基因分型專案名稱：</label>
                                     <div class="col-sm-7">
                                         <span id="plate_genotyping_project_select_div"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Plate ID: <br/><small>-In Coordinate App this is called "Plate Name"<br/>-This is the globally unique name of the plate</small></label>
+                                    <label class="col-sm-5 control-label">基因分型微孔盤 ID：<br/><small>-在 Coordinate App 中此稱為「微孔盤名稱」<br/>-這是微孔盤的全域唯一名稱</small></label>
                                     <div class="col-sm-7">
-                                        <input class="form-control" id="genotyping_trial_name" name="genotyping_trial_name" type="text" placeholder=" e.g. 18DNA00001"/>
+                                        <input class="form-control" id="genotyping_trial_name" name="genotyping_trial_name" type="text" placeholder="例如 18DNA00001"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Company: </label>
+                                    <label class="col-sm-5 control-label">公司：</label>
                                     <div class="col-sm-7">
                                         <span id="company_select_div"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Plate's Breeding Program: </label>
+                                    <label class="col-sm-5 control-label">基因分型微孔盤之育種計畫：</label>
                                     <div class="col-sm-7">
                                         <span id="breeding_program_select_div"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Plate's Location: </label>
+                                    <label class="col-sm-5 control-label">基因分型微孔盤之位置：</label>
                                     <div class="col-sm-7">
                                         <span id="location_select_div"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Plate Format: </label>
+                                    <label class="col-sm-5 control-label">微孔盤格式：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="genotyping_trial_plate_format">
-                                            <option value="96">96 Well</option>
-                                            <option value="384">384 Well</option>
+                                            <option value="96">96 孔</option>
+                                            <option value="384">384 孔</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Sample Type: </label>
+                                    <label class="col-sm-5 control-label">樣本類型：</label>
                                     <div class="col-sm-7">
                                         <select class="form-control" id="genotyping_trial_plate_sample_type">
                                             <option value="DNA">DNA</option>
                                             <option value="RNA">RNA</option>
-                                            <option value="Tissue">Tissue</option>
+                                            <option value="Tissue">組織</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Genotyping Plate's Description (optional): </label>
+                                    <label class="col-sm-5 control-label">基因分型微孔盤描述（選填）：</label>
                                     <div class="col-sm-7">
                                         <textarea class="form-control" id="genotyping_trial_description" name="genotyping_trial_description" maxlength="250"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-5 control-label">Include Identifiers Generated by Genotyping Facility <br/>(only for upload options):<br/></label>
+                                    <label class="col-sm-5 control-label">納入基因分型機構產生的識別碼<br/>（僅適用於上傳選項）：<br/></label>
                                     <div class="col-sm-7">
                                         <input type="checkbox" id="upload_include_facility_identifiers" name="upload_include_facility_identifiers" >
                                     </div>
                                 </div>
                                 <br/>
                                 <center>
-                                    <button id="plate_info_intro_button" class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                    <button id="plate_info_intro_button" class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                 </center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Well Info" &>
-                                <& /page/page_title.mas, title=>"Provide information about the wells in your plate" &>
+                            <&| /util/workflow.mas:step, title=> "孔位資訊(Well Info)" &>
+                                <& /page/page_title.mas, title=>"提供微孔盤中孔位的相關資訊(Provide Information About The Wells In Your Plate)" &>
                                 <br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label text-align: right">Select One: </label>
+                                    <label class="col-sm-3 control-label text-align: right">請選擇一項：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="genotyping_trial_well_input_option">
-                                            <option value="">Select a file format that you want to upload</option>
-                                            <option value="xls">I am uploading a plate design I made in Excel</option>
-                                            <option value="coordinate">I am uploading a Default Coordinate Android Application plate design</option>
-                                            <option value="coordinate_template">I am uploading a Custom Coordinate Android Application plate design</option>
-                                            <option value="design">I need to design a completely new plate</option>
+                                            <option value="">請選取您要上傳的檔案格式</option>
+                                            <option value="xls">我要上傳在 Excel 中製作的微孔盤設計</option>
+                                            <option value="coordinate">我要上傳預設 Coordinate Android 應用程式微孔盤設計</option>
+                                            <option value="coordinate_template">我要上傳自訂 Coordinate Android 應用程式微孔盤設計</option>
+                                            <option value="design">我需要設計一個全新的微孔盤</option>
                                         </select>
                                     </div>
                                 </div>
                                 <br/><br/>
 
                                 <div id="genotyping_trial_well_upload_section" style="display:none">
-                                    <h3>You want to upload an existing plate layout</h3>
+                                    <h3>您想要上傳現有的微孔盤配置</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="genotyping_trial_layout_upload_spreadsheet_info_format">Spreadsheet format</a>
+                                                        <a id="genotyping_trial_layout_upload_spreadsheet_info_format">試算表格式(Spreadsheet Format)</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -144,7 +144,7 @@ $facilities => ();
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select Plate Layout XLS File: </label>
+                                                            <label class="col-sm-6 control-label">選取微孔盤配置 XLS 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="genotyping_trial_layout_upload" id="genotyping_trial_layout_upload" encoding="multipart/form-data" />
                                                             </div>
@@ -157,15 +157,15 @@ $facilities => ();
                                 </div>
 
                                 <div id="genotyping_trial_well_coordinate_upload_section" style="display:none">
-                                    <h3>You want to upload a Coordinate Android Application file.</h3>
+                                    <h3>您想要上傳 Coordinate Android 應用程式檔案。</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="genotyping_trial_layout_upload_coordinate_spreadsheet_info_format">Spreadsheet format</a>
+                                                        <a id="genotyping_trial_layout_upload_coordinate_spreadsheet_info_format">試算表格式(Spreadsheet Format)</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -174,7 +174,7 @@ $facilities => ();
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select Coordinate CSV File: </label>
+                                                            <label class="col-sm-6 control-label">選取 Coordinate CSV 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="genotyping_trial_layout_upload_coordinate" id="genotyping_trial_layout_upload_coordinate" encoding="multipart/form-data" />
                                                             </div>
@@ -187,15 +187,15 @@ $facilities => ();
                                 </div>
 
                                 <div id="genotyping_trial_well_coordinate_template_upload_section" style="display:none">
-                                    <h3>You want to upload a Custom Android Application file.</h3>
+                                    <h3>您想要上傳自訂 Android 應用程式檔案。</h3>
                                     <div class="well well-sm">
                                         <div class="row">
                                             <div class="col-sm-4">
-                                                <&| /page/explanation.mas, title=>'Template information' &>
+                                                <&| /page/explanation.mas, title=>'範本資訊(Template Information)' &>
                                                     <p>
-                                                        <b>File format information</b>
+                                                        <b>檔案格式資訊</b>
                                                         <br>
-                                                        <a id="genotyping_trial_layout_upload_coordinate_custom_spreadsheet_info_format">Spreadsheet format</a>
+                                                        <a id="genotyping_trial_layout_upload_coordinate_custom_spreadsheet_info_format">試算表格式(Spreadsheet Format)</a>
                                                     </p>
                                                 </&>
                                             </div>
@@ -204,7 +204,7 @@ $facilities => ();
                                                 <div class="panel panel-default">
                                                     <div class="panel-body">
                                                         <div class="form-group">
-                                                            <label class="col-sm-6 control-label">Select Coordinate CSV File: </label>
+                                                            <label class="col-sm-6 control-label">選取 Coordinate CSV 檔案：</label>
                                                             <div class="col-sm-6">
                                                                 <input type="file" name="genotyping_trial_layout_upload_coordinate_template" id="genotyping_trial_layout_upload_coordinate_template" encoding="multipart/form-data" />
                                                             </div>
@@ -217,83 +217,83 @@ $facilities => ();
                                 </div>
 
                                 <div id="genotyping_trial_well_design_section" style="display:none">
-                                    <h3>You want to design a completely new plate.</h3>
+                                    <h3>您想要設計一個全新的微孔盤。</h3>
                                     <div class="well well-sm">
                                         <ul>
-                                            <li>Select a list for the source material going into each well. Your list should be a one to one pairing to each well e.g. if you want to fill 95 wells you should supply a list of 95 elements.</li>
-                                            <li>Note: From the most desirable to least desirable source observation unit you can choose: tissue samples, plants, plots, or accessions</li>
+                                            <li>選取要放入每個孔位之來源材料的清單。您的清單應與每個孔位一對一配對，例如若要填滿 95 個孔位，您應提供包含 95 個項目的清單。</li>
+                                            <li>注意：來源觀察單位的偏好順序為：組織樣本、植株、小區或品系</li>
                                         </ul>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-sm-7 control-label">Source Observation Unit List: </label>
+                                        <label class="col-sm-7 control-label">來源觀察單位清單：</label>
                                         <div class="col-sm-5">
-                                            <span id="accession_select_box_span">[loading...]</span>
+                                            <span id="accession_select_box_span">[載入中...]</span>
                                         </div>
                                     </div>
                                     <br/>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Blank Well: <small>(Cornell IGD requires a specific well to be blank.)</small></label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>空白孔位：<small>(Cornell IGD 要求特定孔位為空白。)</small></label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_blank_well" name="genotyping_blank_well" type="text" placeholder="e.g. A01"/>
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Well Concentration (ng/ul): <small>(If you used the same conc for all wells)</small></label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>孔位濃度 (ng/ul)：<small>(若所有孔位使用相同濃度)</small></label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_concentration" name="genotyping_well_concentration" type="text" />
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Well Volume (ul): <small>(If you used the same vol for all wells)</small></label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>孔位體積 (ul)：<small>(若所有孔位使用相同體積)</small></label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_volume" name="genotyping_well_volume" type="text" />
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Tissue: <small>(If used the same tissue for all wells)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>組織：<small>(若所有孔位使用相同組織)</small> </label>
                                         <div class="col-sm-5">
                                             <select class="form-control" id="genotyping_well_tissue">
-                                                <option value="leaf">Leaf</option>
-                                                <option value="root">Root</option>
-                                                <option value="stem">Stem</option>
+                                                <option value="leaf">葉(Leaf)</option>
+                                                <option value="root">根(Root)</option>
+                                                <option value="stem">莖(Stem)</option>
                                             </select>
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> NCBI Taxonomy ID: <small>(Official NCBI ID.)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>NCBI 分類 ID：<small>(官方 NCBI ID。)</small> </label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_ncbi_taxonomy_id" name="genotyping_well_ncbi_taxonomy_id" type="text" />
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Extraction: <small>(If used the same extraction for all wells)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>萃取方式：<small>(若所有孔位使用相同萃取方式)</small> </label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_extraction" name="genotyping_well_extraction" type="text" />
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Person: <small>(If same person prepared all wells.)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>人員：<small>(若所有孔位由同一人製備。)</small> </label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_dna_person" name="genotyping_well_dna_person" type="text" />
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Date: <small>(If plated on same date. YYYY/MM/DD)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>日期：<small>(若在同天分盤。YYYY/MM/DD)</small> </label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_date" name="genotyping_well_date" type="text" placeholder="YYYY/MM/DD"/>
                                         </div>
                                     </div>
                                     <br/>
                                     <div class="form-group form-group-sm">
-                                        <label class="col-sm-7 control-label"><i>Optional</i> Notes: <small>(Additional notes for these wells.)</small> </label>
+                                        <label class="col-sm-7 control-label"><i>（選填）</i>備註：<small>(這些孔位的其他備註。)</small> </label>
                                         <div class="col-sm-5">
                                             <input class="form-control" id="genotyping_well_notes" name="genotyping_well_notes" type="text" />
                                         </div>
@@ -303,22 +303,22 @@ $facilities => ();
                                 <br/>
                                 <div id="next_upload_button" style="display:none">
                                     <center>
-                                        <button id="well_info_intro_button" class="btn btn-primary" onclick="Workflow.complete(this); return false;">Go to Next Step</button>
+                                        <button id="well_info_intro_button" class="btn btn-primary" onclick="Workflow.complete(this); return false;">前往下一步(Go to Next Step)</button>
                                     </center>
                                 </div>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Trial Linkage" &>
-                                <& /page/page_title.mas, title=>"Is your genotyping plate linked with field trials in the database? This information can also be added from the genotyping plate detail page once the trial is saved in the database." &>
-                                <p>If you provided us with information about where the tissue sample in each well originated (e.g. it came from a plot name or plant name or tissue sample name in a field trial), we will automatically create linkage between the field trial(s) and this genotyping plate.</p>
+                            <&| /util/workflow.mas:step, title=> "試驗關聯(Trial Linkage)" &>
+                                <& /page/page_title.mas, title=>"您的基因分型微孔盤是否與資料庫中的田間試驗關聯？此資訊亦可在試驗儲存至資料庫後，從基因分型微孔盤詳細資料頁面新增。(Is Your Genotyping Plate Linked With Field Trials In The Database?)" &>
+                                <p>如果您向我們提供了每個孔位中組織樣本來源的資訊（例如來自田間試驗中的小區名稱、植株名稱或組織樣本名稱），我們將自動在田間試驗與此基因分型微孔盤之間建立關聯。</p>
                                 <br/>
                                 <center>
-                                    <button id="trial_linkage_intro_button"  class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >Continue to Next Step</button>
+                                    <button id="trial_linkage_intro_button"  class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >繼續前往下一步(Continue to Next Step)</button>
                                 <center>
                             </&>
-                            <&| /util/workflow.mas:step, title=> "Confirm" &>
-                                <& /page/page_title.mas, title=>"Finalize and submit your genotyping plate" &>
+                            <&| /util/workflow.mas:step, title=> "確認(Confirm)" &>
+                                <& /page/page_title.mas, title=>"確認並送出您的基因分型微孔盤(Finalize And Submit Your Genotyping Plate)" &>
 
-                                <p>Automatic submission to the Genotyping Facility currently not working. You can submit it from the Genotyping Plate's detail page or download the information from the Genotyping Plate's detail page and submit it yourself after clicking Submit</p>
+                                <p>自動送交至基因分型機構功能目前尚未開放。您可以在點擊送出後，從基因分型微孔盤的詳細資料頁面送交，或是從詳細資料頁面下載資訊並自行送交。</p>
 <!--
                                 <div class="form-group">
                                     <label class="col-sm-5 control-label">Along with saving this information to this database, I want to automatically submit to the Genotyping Facility: <small>Automatic submission currently not working. You can submit it from the Genotyping Plate's detail page or download the information from the Genotyping Plate's detail page and submit it yourself after clicking Submit</small></label>
@@ -334,19 +334,19 @@ $facilities => ();
 
                                 <hr/>
                                 <center>
-                                    <button type="button" class="btn btn-primary" name="add_geno_trial_submit" id="add_geno_trial_submit">Submit</button>
+                                    <button type="button" class="btn btn-primary" name="add_geno_trial_submit" id="add_geno_trial_submit">送出(Submit)</button>
                                 </center>
                             </&>
 
-                            <&| /util/workflow.mas:complete, title=> "Complete" &>
-                                <& /page/page_title.mas, title=>"Complete! Your genotyping plate was saved in the database." &>
+                            <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
+                                <& /page/page_title.mas, title=>"完成！您的基因分型微孔盤已儲存至資料庫。(Complete! Your Genotyping Plate Was Saved In The Database.)"
                                 <p>
                                     <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
-                                    The genotyping plate was saved successfully
+                                    基因分型微孔盤已成功儲存
                                 </p>
                                 <ul>
-                                    <li>You may want to proceed to the genotyping plate detail page for the trial you just created.</li>
-                                    <li>You can print barcodes for the plate and tissue samples.</li>
+                                    <li>您可以前往剛建立之試驗的基因分型微孔盤詳細資料頁面。</li>
+                                    <li>您可以為微孔盤和組織樣本列印條碼。</li>
                                 </ul>
                                 <br/>
                             </&>
@@ -355,7 +355,7 @@ $facilities => ();
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -366,17 +366,17 @@ $facilities => ();
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypingTrialInfoDialog">Upload Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypingTrialInfoDialog">上傳範本資訊(Upload Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading a pre-existing genotyping plate layout.</b>
+                    <b>此功能用於上傳既有的基因分型微孔盤配置。</b>
                     <br/>
-                    <b>File must be Excel file (.xls or .xlsx)</b>
+                    <b>檔案必須為 Excel 檔案 (.xls 或 .xlsx)</b>
                     <br />
-                    <b>Header:</b>
+                    <b>標頭：</b>
                     <br>
-                    The first row (header) must contain the following:
+                    第一列（標頭）必須包含以下內容：
 
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -399,9 +399,9 @@ $facilities => ();
                             </tr>
                         </tbody>
                     </table>
-                    Optional column: In addition to sample ids, you can add facility identifiers in the last column with the header: "facility_identifier".
+                    選填欄位：除樣本 ID 外，您可以在最後一欄新增機構識別碼，欄位標題為："facility_identifier"。
                     <br/><br/>
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
                     <li>date (should be YYYY-MM-DD)</li>
                     <li>sample_id (the unique identifier for the sample in the well)</li>
@@ -412,7 +412,7 @@ $facilities => ();
                     <li>tissue_type (must be either leaf, root, or stem)</li>
                     </ul>
 
-                    <b>Optional fields:</b>
+                    <b>選填欄位：</b>
                     <ul>
                     <li>ncbi_taxonomy_id (NCBI taxonomy identifier)</li>
                     <li>dna_person (the name of the person who prepared the well)</li>
@@ -427,7 +427,7 @@ $facilities => ();
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_genotyping_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_genotyping_spreadsheet_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -438,19 +438,19 @@ $facilities => ();
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypingTrialCoordinateInfoDialog">Upload Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypingTrialCoordinateInfoDialog">上傳範本資訊(Upload Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading a Default Coordinate Android Application exported plate layout.</b>
+                    <b>此功能用於上傳預設 Coordinate Android 應用程式匯出的微孔盤配置。</b>
                     <br/>
-                    <b>File must be a CSV file (.csv)</b>
+                    <b>檔案必須為 CSV 檔案 (.csv)</b>
                     <br />
-                    (Excel format not supported)
+                    （不支援 Excel 格式）
                     <br /><br />
-                    <b>Header:</b>
+                    <b>標頭：</b>
                     <br>
-                    The first row (header) must contain the following:
+                    第一列（標頭）必須包含以下內容：
 
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -470,9 +470,9 @@ $facilities => ();
                             </tr>
                         </tbody>
                     </table>
-                    Optional column: In addition to sample ids, you can add facility identifiers in the last column with the header: "facility_identifier".
+                    選填欄位：除樣本 ID 外，您可以在最後一欄新增機構識別碼，欄位標題為："facility_identifier"。
                     <br/><br/>
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
                     <li>date (should be YYYY-MM-DD)</li>
                     <li>plate_id (an identifier for a grouping of plates. called "Genotyping Project Name" in genotyping plate submission form. e.g. NextGenCassava)</li>
@@ -485,7 +485,7 @@ $facilities => ();
                     <li>tissue_type (must be either leaf, root, or stem)</li>
                     </ul>
 
-                    <b>Optional fields:</b>
+                    <b>選填欄位：</b>
                     <ul>
                     <li>notes (any additional notes on the well)</li>
                     <li>extraction (free-text for the extraction method e.g. CTAB)</li>
@@ -495,7 +495,7 @@ $facilities => ();
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_genotyping_coordinate_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_genotyping_coordinate_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>
@@ -506,22 +506,22 @@ $facilities => ();
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="uploadGenotypingTrialCoordinateCustomInfoDialog">Upload Template Information</h4>
+                <h4 class="modal-title" id="uploadGenotypingTrialCoordinateCustomInfoDialog">上傳範本資訊(Upload Template Information)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                    <b>This is for uploading a Custom Coordinate Android Application exported plate layout.</b>
+                    <b>此功能用於上傳自訂 Coordinate Android 應用程式匯出的微孔盤配置。</b>
                     <br/>
-                    <b>File must be a CSV file (.csv)</b>
+                    <b>檔案必須為 CSV 檔案 (.csv)</b>
                     <br />
-                    (Excel format not supported)
+                    （不支援 Excel 格式）
                     <br /><br />
                     <b>Header:</b>
                     <br
 
-                    <p>Note that tissue type will be set to 'leaf' if you use this upload type, since tissue type is not provided in the upload and tissue type is required for DaRT.</p>
+                    <p>請注意，若您使用此上傳類型，組織類型將預設設為「葉 (leaf)」，因為上傳中未提供組織類型且 DaRT 需要組織類型。</p>
 
-                    The first row (header) must contain the following:
+                    第一列（標頭）必須包含以下內容：
 
                     <table class="table table-hover table-bordered table-condensed" >
                         <thead></thead>
@@ -536,9 +536,9 @@ $facilities => ();
                             </tr>
                         </tbody>
                     </table>
-                    Optional column: In addition to sample ids, you can add facility identifiers in the last column with the header: "Facility Identifier".
+                    選填欄位：除樣本 ID 外，您可以在最後一欄新增機構識別碼，欄位標題為："Facility Identifier"。
                     <br/><br/>
-                    <b>Required fields:</b>
+                    <b>必填欄位：</b>
                     <ul>
                         <li>Value (the identifier of the origin material. e.g. 2018MyPlant0001. in order of most desirable identifier to least desirable identifier that can be used here: tissue sample name, plant name, plot name, accession name. This can also say 'exclude' to indicate a BLANK)</li>
                         <li>Column (the column position of the sample e.g. 10)</li>
@@ -547,7 +547,7 @@ $facilities => ();
                         <li>Person (the name of the person who plated the individual sample. can be any name.)</li>
                         <li>Date (should be YYYY-MM-DD)</li>
                     </ul>
-                    <b>Optional field:</b>
+                    <b>選填欄位：</b>
                     <ul>
                         <li>Facility Identifier (if you would like to include facility identifiers in your genotyping plate layout, you can add facility identifiers in the last column with the header <b>"Facility Identifier"</b>)</li>
                     </ul>
@@ -555,7 +555,7 @@ $facilities => ();
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_upload_genotyping_coordinate_custom_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_upload_genotyping_coordinate_custom_info_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
             </div>
         </div>
     </div>

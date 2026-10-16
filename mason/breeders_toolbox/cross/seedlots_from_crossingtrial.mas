@@ -16,7 +16,7 @@ $locations_by_program_json
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="add_seedlot_dialog">Add New Seedlot</h4>
+                <h4 class="modal-title" id="add_seedlot_dialog">新增種子批次(Add New Seedlot)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -25,7 +25,7 @@ $locations_by_program_json
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="add_cross_seedlot_button" type="button" class="btn btn-primary" >Add</button>
+                <button id="add_cross_seedlot_button" type="button" class="btn btn-primary" >新增(Add)</button>
             </div>
         </div>
     </div>
@@ -48,15 +48,15 @@ jQuery(document).ready(function(){
             'ajax':'/ajax/breeders/trial/'+ <% $trial_id %> + '/seedlots_from_crossingtrial',
 
             columns: [
-                { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
-                { title: "Seedlot Name", "data": null, "render": function ( data, type, row ) {
+                { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+                { title: "種子批次名稱(Seedlot Name)", "data": null, "render": function ( data, type, row ) {
                     if (row.seedlot_id === null){
-                        return 'No Seedlot'
+                        return '無種子批次'
                     } else {
                         return "<a href='/breeders/seedlot/"+row.seedlot_id+"'>"+row.seedlot_name+"</a>"
                     }
                 }},
-                { title: "Add New Seedlot", "data": "null", "render": function ( data, type, row ) { return "<a onclick='addSeedlot(\""+row.cross_name+"\", \""+breeding_program_name+"\", \""+breeding_program_id+"\", \""+locations_by_program_json+"\", \""+time+"\")' >Add</a>"; } },
+                { title: "新增種子批次(Add New Seedlot)", "data": "null", "render": function ( data, type, row ) { return "<a onclick='addSeedlot(\""+row.cross_name+"\", \""+breeding_program_name+"\", \""+breeding_program_id+"\", \""+locations_by_program_json+"\", \""+time+"\")' >新增</a>"; } },
             ]
         });
     });
@@ -65,44 +65,44 @@ jQuery(document).ready(function(){
 
         var seedlot_name = jQuery('#new_seedlot_name').val();
         if (!seedlot_name) {
-            alert ("Seedlot name is required");
+            alert("種子批次名稱為必填項");
             return;
         }
 
         var seedlot_program = jQuery('#new_seedlot_program').val();
         if (!seedlot_program) {
-            alert ("Error retrieving breeding program name");
+            alert("擷取育種計畫名稱時發生錯誤");
             return;
         }
 
         var seedlot_program_id = jQuery('#new_seedlot_breeding_program_id').val();
         if (!seedlot_program_id) {
-            alert ("Error retrieving breeding program id");
+            alert("擷取育種計畫 ID 時發生錯誤");
             return;
         }
 
         var seedlot_location = jQuery('#new_seedlot_location').val();
         if (!seedlot_location) {
-            alert ("Location is required");
+            alert("地點為必填項");
             return;
         }
 
         var box_name = jQuery('#new_seedlot_box_name').val();
         if (!box_name) {
-            alert ("Box name is required");
+            alert("盒子名稱為必填項");
             return;
         }
 
         var seedlot_content = jQuery('#new_seedlot_content').val();
         if (!seedlot_content) {
-            alert ("Cross Unique ID is required");
+            alert("雜交唯一識別碼為必填項");
             return;
         }
 
         var seedlot_amount = jQuery('#new_seedlot_amount').val();
         var seedlot_weight = jQuery('#new_seedlot_weight').val();
         if (!seedlot_amount && !seedlot_weight) {
-            alert ("Seedlot amount or weight is required");
+            alert("種子批次數量或重量為必填項");
             return;
         }
 
@@ -110,7 +110,7 @@ jQuery(document).ready(function(){
 
         var seedlot_timestamp = jQuery('#new_seedlot_timestamp').val();
         if (!seedlot_timestamp) {
-            alert ("Timestamp is required");
+            alert("時間戳記為必填項");
             return;
         }
 
@@ -136,7 +136,7 @@ jQuery(document).ready(function(){
             success: function(response) {
                 jQuery('#working_modal').modal('hide');
                 if (response.success == 1) {
-                    alert("The seedlot has been added.");
+                    alert("種子批次已新增。");
                     jQuery('#add_cross_seedlot_dialog').modal('hide');
                     location.reload();
                 }
@@ -146,7 +146,7 @@ jQuery(document).ready(function(){
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred adding seedlot');
+                alert('新增種子批次時發生錯誤');
             }
         });
     });
@@ -157,22 +157,22 @@ function addSeedlot(cross_name, breeding_program_name, breeding_program_id,locat
 
     var locations = locations_by_program_json.split (",");
     var html = '';
-    html = html + '<form class="form-horizontal"><div class="form-group"><label class="col-sm-3 control-label">Cross Unique ID: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_content" name="new_seedlot_content" value="'+cross_name+'" disabled></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Seedlot Name: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_name" name="new_seedlot_name" placeholder="Required"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Breeding Program: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_program" name="new_seedlot_program" value="'+breeding_program_name+'" disabled></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Location: </label><div class="col-sm-9" ><select class="form-control" id="new_seedlot_location" name="new_seedlot_location"><option disabled value="" selected hidden>Select a location</option>';
+    html = html + '<form class="form-horizontal"><div class="form-group"><label class="col-sm-3 control-label">雜交唯一識別碼：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_content" name="new_seedlot_content" value="'+cross_name+'" disabled></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">種子批次名稱：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_name" name="new_seedlot_name" placeholder="必填"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">育種計畫：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_program" name="new_seedlot_program" value="'+breeding_program_name+'" disabled></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">地點：</label><div class="col-sm-9" ><select class="form-control" id="new_seedlot_location" name="new_seedlot_location"><option disabled value="" selected hidden>選擇地點</option>';
     if (locations) {
         for (var i=0; i<locations.length; i++) {
             html = html + '<option value='+locations[i]+'>'+locations[i]+'</option>';
         }
     }
     html = html + '</select></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Box Name: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_box_name" name="new_seedlot_box_name" placeholder="Required"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Amount: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_amount" name="new_seedlot_amount" placeholder="Amount (number of seeds) OR Weight (g), required"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Weight (g): </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_weight" name="new_seedlot_weight" placeholder="Amount (number of seeds) OR Weight (g), required"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Organization: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_organization" name="new_seedlot_organization" placeholder="Optional"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Timestamp: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_timestamp" name="new_seedlot_timestamp" value="'+time+'"></div><br><br>';
-    html = html + '<label class="col-sm-3 control-label">Description: </label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_description" name="new_seedlot_description" placeholder="Optional"></div></div></div></form>';
+    html = html + '<label class="col-sm-3 control-label">盒子名稱：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_box_name" name="new_seedlot_box_name" placeholder="必填"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">數量：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_amount" name="new_seedlot_amount" placeholder="數量（種子數）或重量（克），必填"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">重量 (g)：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_weight" name="new_seedlot_weight" placeholder="數量（種子數）或重量（克），必填"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">機構/組織：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_organization" name="new_seedlot_organization" placeholder="選填"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">時間戳記：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_timestamp" name="new_seedlot_timestamp" value="'+time+'"></div><br><br>';
+    html = html + '<label class="col-sm-3 control-label">描述：</label><div class="col-sm-9" ><input class="form-control" id="new_seedlot_description" name="new_seedlot_description" placeholder="選填"></div></div></div></form>';
     html = html + '<input id="new_seedlot_breeding_program_id" type="hidden" value="'+breeding_program_id+'"/>';
 
     jQuery('#add_cross_seedlot_div').html(html);

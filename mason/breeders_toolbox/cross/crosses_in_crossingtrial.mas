@@ -10,7 +10,7 @@ $trial_id
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
-        <&| /page/info_section.mas, title => 'Add Crosses to a List', collapsible=>1, collapsed=>0, subtitle=>'<i>Adding crosses in this crossing experiment to a new or exisiting list</i>'&>
+        <&| /page/info_section.mas, title => '將雜交新增至清單(Add Crosses to a List)', collapsible=>1, collapsed=>0, subtitle=>'<i>將此雜交實驗中的雜交新增至新清單或現有清單</i>'&>
         <br>
         <div id="crosses_to_new_list" style="display:none"></div>
         <div id="crosses_add_to_list"></div>
@@ -28,41 +28,41 @@ jQuery(document).ready(function(){
             'destroy': true,
             'ajax':'/ajax/breeders/trial/'+ <% $trial_id %> + '/crosses_and_details_in_trial',
             columns: [
-                { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
-                { title: "Cross Combination", "data": "cross_combination" },
-                { title: "Cross Type", "data": "cross_type" },
-                { title: "Female Parent", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.female_parent_id+"/view'>"+row.female_parent_name+"</a>"; } },
-                { title: "Female Ploidy", "data": "female_ploidy_level" },
-                { title: "Male Parent", "data": null, "render": function ( data, type, row ) {
+                { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+                { title: "雜交組合(Cross Combination)", "data": "cross_combination" },
+                { title: "雜交類型(Cross Type)", "data": "cross_type" },
+                { title: "母本(Female Parent)", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.female_parent_id+"/view'>"+row.female_parent_name+"</a>"; } },
+                { title: "母本倍數性(Female Ploidy)", "data": "female_ploidy_level" },
+                { title: "父本(Male Parent)", "data": null, "render": function ( data, type, row ) {
                     if (row.male_parent_id === null){
                         return 'NA';
                     } else {
                         return "<a href='/stock/"+row.male_parent_id+"/view'>"+row.male_parent_name+"</a>";
                     }
                 }},
-                { title: "Male Ploidy", "data": "male_ploidy_level" },
-                { title: "Female Plot", "data": null, "render": function ( data, type, row ) {
+                { title: "父本倍數性(Male Ploidy)", "data": "male_ploidy_level" },
+                { title: "母本小區(Female Plot)", "data": null, "render": function ( data, type, row ) {
                     if (row.female_plot_id === null){
                         return 'NA';
                     } else {
                         return "<a href='/stock/"+row.female_plot_id+"/view'>"+row.female_plot_name+"</a>";
                     }
                 }},
-                { title: "Male Plot", "data": null, "render": function ( data, type, row ) {
+                { title: "父本小區(Male Plot)", "data": null, "render": function ( data, type, row ) {
                     if (row.male_plot_id === null){
                         return 'NA';
                     } else {
                         return "<a href='/stock/"+row.male_plot_id+"/view'>"+row.male_plot_name+"</a>";
                     }
                 }},
-                { title: "Female Plant", "data": null, "render": function ( data, type, row ) {
+                { title: "母本植株(Female Plant)", "data": null, "render": function ( data, type, row ) {
                     if (row.female_plant_id === null){
                         return 'NA';
                     } else {
                         return "<a href='/stock/"+row.female_plant_id+"/view'>"+row.female_plant_name+"</a>";
                     }
                 }},
-                { title: "Male Plant", "data": null, "render": function ( data, type, row ) {
+                { title: "父本植株(Male Plant)", "data": null, "render": function ( data, type, row ) {
                     if (row.male_plant_id === null){
                         return 'NA';
                     } else {
@@ -73,7 +73,7 @@ jQuery(document).ready(function(){
             "fnInitComplete": function(oSettings, json) {
                 //console.log(json);
                 if (!isLoggedIn()) {
-                    jQuery('#crosses_add_to_list').html("<div class='well well-sm'><h3>Please login to use lists!</h3></div>");
+                    jQuery('#crosses_add_to_list').html("<div class='well well-sm'><h3>請先登入以使用清單功能！</h3></div>");
                 } else {
                     var html = "";
                     for(var i=0; i<json.data.length; i++){

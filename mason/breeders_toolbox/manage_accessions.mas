@@ -8,12 +8,12 @@ $editable_stock_props_definitions => {}
 
 <& /util/import_javascript.mas, classes => [ 'bootstrap_min.js', 'jquery.iframe-post-form', 'CXGN.BreedersToolbox.Accessions03152022', 'CXGN.BreedersToolbox.UploadPedigrees03152022' ] &>
 
-<& /page/page_title.mas, title=>"管理種原" &>
+<& /page/page_title.mas, title=>"管理種原(Manage Accessions)" &>
 
 <div class="container-fluid">
 
 <div class="well">
-<&| /page/info_section.mas, title=>'種原', collapsible=>1, collapsed=>0, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" name="add_accessions_link">新增種原或上傳種原資訊</button> <button class="btn btn-sm btn-primary" style="margin:3px" id="upload_pedigrees_link">上傳譜系檔案</button>' &>
+<&| /page/info_section.mas, title=>'種原(Accessions)', collapsible=>1, collapsed=>0, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" name="add_accessions_link">新增種原或上傳種原資訊(Add Accessions Or Upload Accession Info)</button> <button class="btn btn-sm btn-primary" style="margin:3px" id="upload_pedigrees_link">上傳譜系檔案(Upload Pedigree File)</button>' &>
 
 <& /breeders_toolbox/accessions.mas, accessions=>$accessions &>
 <& /breeders_toolbox/add_accessions_dialogs.mas, preferred_species=>$preferred_species, editable_stock_props=>$editable_stock_props, editable_stock_props_definitions=>$editable_stock_props_definitions &>
@@ -23,8 +23,8 @@ $editable_stock_props_definitions => {}
 <div>
   </br>
   </br>
-  <p><b>搜尋具有譜系資料的種原：</b></p>
-  <button id="accessions_with_pedigree_onswitch" class="btn btn-default">顯示具有譜系資料的種原</button>
+  <p><b>搜尋具有譜系資料的種原(Search Accessions with Pedigree)：</b></p>
+  <button id="accessions_with_pedigree_onswitch" class="btn btn-default">顯示具有譜系資料的種原(Show Accessions with Pedigree)</button>
 </div>
 <div id="accessions_with_pedigree_section" style="display:none">
   <hr>
@@ -36,10 +36,10 @@ $editable_stock_props_definitions => {}
       <table id="accessions_with_pedigree_table" class="table table-hover table-striped">
       <thead>
           <tr>
-              <th>種原名稱</th>
-              <th>雌性親本</th>
-              <th>雄性親本</th>
-              <th>雜交類型</th>
+              <th>種原名稱(Accession Name)</th>
+              <th>雌性親本(Female Parent)</th>
+              <th>雄性親本(Male Parent)</th>
+              <th>雜交類型(Cross Type)</th>
           </tr>
       </thead>
       </table>
@@ -48,7 +48,7 @@ $editable_stock_props_definitions => {}
 
 </&>
 </div><div class="well">
-<&| /page/info_section.mas, title=>'族群', id=> "manage_accessions_populations", collapsible=>1, collapsed=>1, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" id="manage_accessions_populations_new">建立族群</button>' &>
+<&| /page/info_section.mas, title=>'族群(Populations)', id=> "manage_accessions_populations", collapsible=>1, collapsed=>1, subtitle=>'<button class="btn btn-sm btn-primary" style="margin:3px" id="manage_accessions_populations_new">建立族群(Create Population)</button>' &>
 <div class="panel-group" id="accordion"></div>
 </&>
 </div></div>

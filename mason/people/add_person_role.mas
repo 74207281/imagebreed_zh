@@ -8,25 +8,25 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="addPersonRoleDialog">Give Role to User</h4>
+        <h4 class="modal-title" id="addPersonRoleDialog">指派使用者角色(Give Role to User)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
 	       <form class="form-horizontal" >
 	        <div class="form-group">
-                <label class="col-sm-3 control-label">Username: </label>
+                <label class="col-sm-3 control-label">使用者名稱(Username)： </label>
                 <div class="col-sm-9" >
                     <div id="add_person_role_person_select_div">
-                    [LOADING...]
+                    [載入中...(LOADING...)]
                     </div>
                 </div>
 	        </div>
             <div class="form-group">
-                <label class="col-sm-3 control-label">Role: </label>
+                <label class="col-sm-3 control-label">角色(Role)： </label>
                 <div class="col-sm-9" >
                     <div id="add_person_role_role_select_div">
-                    [LOADING...]
+                    [載入中...(LOADING...)]
                     </div>
                 </div>
 	        </div>
@@ -35,8 +35,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="add_person_role_cancel_button" id="add_person_role_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="add_person_role_submit_button" id="add_person_role_submit_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="add_person_role_cancel_button" id="add_person_role_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="add_person_role_submit_button" id="add_person_role_submit_button" title="送出(Submit)">送出(Submit)</button>
       </div>
     </div>
   </div>
@@ -71,7 +71,7 @@ jQuery(document).ready(function() {
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occured: '+response);
+                alert('發生錯誤(An error occurred)：'+response);
             }
         });
 
@@ -89,14 +89,14 @@ jQuery(document).ready(function() {
                 //console.log(response);
                 jQuery("#working_modal").modal("hide");
                 if (response.error) {
-                    alert('Error: '+response.error);
+                    alert('錯誤(Error)：'+response.error);
                 } else {
-                    alert('Role Added for User!');
+                    alert('已成功為使用者指派角色！(Role Added for User!)');
                 }
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occured: '+response);
+                alert('發生錯誤(An error occurred)：'+response);
             }
         });
     });

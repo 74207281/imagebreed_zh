@@ -1,34 +1,34 @@
 
-<& /page/page_title.mas, title=>'Search Cross Details Using Male Parents / Populations' &>
+<& /page/page_title.mas, title=>'使用父本/群體搜尋雜交詳細資訊(Search Cross Details Using Male Parents / Populations)' &>
 <br>
-<&| /page/info_section.mas, title => 'Search', collapsible=>1, collapsed=>0&>
+<&| /page/info_section.mas, title => '搜尋(Search)', collapsible=>1, collapsed=>0&>
     <div class="row" id="cross_search_form" >
         <div class="col-sm-12 well">
             <div class="row">
                 <div class="col-sm-10">
                     <div class="form-horizontal">
                         <div class="form-group form-group-sm">
-                            <label class="control-label col-sm-3">Male Parent / Population:</label>
+                            <label class="control-label col-sm-3">父本/群體(Male Parent / Population):</label>
                             <div class="col-sm-9">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="cross_male" placeholder="Enter male parent">
+                                    <input type="text" class="form-control" id="cross_male" placeholder="輸入父本名稱(Enter male parent)">
                                     <div class="input-group-btn">
-                                        <button class="btn btn-info" id="search_cross_female_parents"><i class="glyphicon glyphicon-search"></i> Female Parent</button>
-                                        <button class="btn btn-primary" id="search_all_crosses_using_male"><i class="glyphicon glyphicon-search"></i> All Crosses </button>
+                                        <button class="btn btn-info" id="search_cross_female_parents"><i class="glyphicon glyphicon-search"></i> 母本(Female Parent)</button>
+                                        <button class="btn btn-primary" id="search_all_crosses_using_male"><i class="glyphicon glyphicon-search"></i> 所有雜交(All Crosses) </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group form-group-sm">
-                            <label class="control-label col-sm-3">Female Parent:</label>
+                            <label class="control-label col-sm-3">母本(Female Parent):</label>
                             <div class="col-sm-9" >
                                 <div class="input-group">
                                     <select class="form-control" id="cross_female">
-                                        <option value="">Choose male parent first</option>
+                                        <option value="">請先選擇父本(Choose male parent first)</option>
                                     </select>
                                     </select>
                                     <div class="input-group-btn">
-                                        <button class="btn btn-info" id="search_crosses_male_female"><i class="glyphicon glyphicon-search"></i> Cross Info </button>
+                                        <button class="btn btn-info" id="search_crosses_male_female"><i class="glyphicon glyphicon-search"></i> 雜交資訊(Cross Info) </button>
                                     </div>
                                 </div>
                             </div>
@@ -39,19 +39,19 @@
         </div>
     </div>
 </&>
-<&| /page/info_section.mas, title => 'Search Results', collapsible=>1, collapsed=>0&>
+<&| /page/info_section.mas, title => '搜尋結果(Search Results)', collapsible=>1, collapsed=>0&>
     <div class="well well-sm">
         <div class="panel panel-default">
             <div class="panel-body">
                 <table id="cross_male_female_search_results" width="100%" class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>Female Parent</th>
-                            <th>Male Parent / Population</th>
-                            <th>Cross Unique ID</th>
-                            <th>Cross Type</th>
-                            <th>Family Name</th>
-                            <th>Crossing Experiment</th>
+                            <th>母本(Female Parent)</th>
+                            <th>父本/群體(Male Parent / Population)</th>
+                            <th>雜交唯一ID(Cross Unique ID)</th>
+                            <th>雜交類型(Cross Type)</th>
+                            <th>家族/家系名稱(Family Name)</th>
+                            <th>雜交試驗(Crossing Experiment)</th>
                         </tr>
                     </thead>
                 </table>
@@ -59,7 +59,7 @@
         </div>
         <div class="panel panel-default">
             <div class="panel-body">
-                <&| /page/info_section.mas, title => 'Copy crosses to a List', collapsible=>1, collapsed=>1, subtitle=>'<i>Copy the cross unique ids showing in table to a new or exisiting list</i>'&>
+                <&| /page/info_section.mas, title => '複製雜交至清單(Copy crosses to a List)', collapsible=>1, collapsed=>1, subtitle=>'<i>將表格中顯示的雜交唯一ID複製到新清單或現有清單中</i>'&>
                     <div style="text-align:right" id="crosses_to_list_menu"></div>
                     <div id="cross_names" style="display: none;"></div>
                 </&>
@@ -95,14 +95,14 @@ jQuery(document).ready(function (){
                 console.log(html);
 
                 if(i ==''){
-                    alert("No female parent");
+                    alert("無符合的母本！(No female parent)");
                     return;
                 }
 
                 jQuery('#cross_female').html(html);
             },
             error:function(response){
-                alert("An error occurred");
+                alert("發生錯誤！(An error occurred)");
             }
         });
     });

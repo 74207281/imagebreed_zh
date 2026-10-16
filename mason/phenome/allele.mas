@@ -52,15 +52,15 @@ foreach my $a (@$alleles) {
   foreach my $a_synonym (@allele_aliases) {
     $allele_synonyms .= $a_synonym->get_allele_alias() . "  ";
   }
-  if ( !$allele_synonyms ) { $allele_synonyms = "[add new]"; }
+  if ( !$allele_synonyms ) { $allele_synonyms = "[新增(add new)]"; }
   my $allele_synonym_link =
     qq |<a href= "/phenome/allele_synonym.pl?allele_id=$allele_id&amp;action=new">$allele_synonyms</a> |;
 
   my $a_person_id = $a->get_sp_person_id;
   my $allele_edit_link =
     ( $a_person_id && $user_id && ( $a_person_id == $user_id ) || ( $curator ) )
-    ? "<a href=\"/phenome/allele.pl?action=edit&amp;allele_id=$allele_id\">[Edit]</a>"
-	: '<span class="ghosted">[Edit]</span> ';
+    ? "<a href=\"/phenome/allele.pl?action=edit&amp;allele_id=$allele_id\">[編輯(Edit)]</a>"
+	: '<span class="ghosted">[編輯(Edit)]</span> ';
 
   my $phenotype   = $a->get_allele_phenotype();
   my $stock_ids   = $a->get_stock_ids();
@@ -83,9 +83,9 @@ foreach my $a (@$alleles) {
 if (@allele_data) {
   $data = columnar_table_html(
 			      headings => [
-					   'Allele symbol', 'Allele name',
-					   'Synonyms',      'Phenotype',
-					   'Accessions',
+					   '等位基因符號(Allele symbol)', '等位基因名稱(Allele name)',
+					   '同義詞(Synonyms)',      '表型(Phenotype)',
+					   '品系/種原(Accessions)',
 					  ],
 			      data         => \@allele_data,
 			      __alt_freq   => 2,

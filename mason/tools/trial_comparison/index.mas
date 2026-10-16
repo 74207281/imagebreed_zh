@@ -8,7 +8,7 @@
 
 </%args>
 
-<& '/page/page_title.mas', title => "Compare trials" &>
+<& '/page/page_title.mas', title => "比較試驗(Compare trials)" &>
 
 <& /util/import_css.mas, paths => ['tools/trial_comparison.css'] &>
 
@@ -28,23 +28,23 @@
   <center class = "col-md-offset-2 col-md-8">
     <form class="tc-form">
       <div class="form-group">
-        <label for="trials_list_select">Choose a list of trials:</label>
+        <label for="trials_list_select">選擇試驗清單(Choose a list of trials):</label>
         <div id="trials_list_select_container">
           <select disabled class="form-control input-sm" id="trials_list_select">
-            <option selected="selected">Loading...</option>
+            <option selected="selected">載入中...(Loading...)</option>
           </select>
         </div>
         <img hidden id="trials-loading-spinner" src="/img/wheel.gif" alt="loading">
       </div>
       <div class="form-group">
-        <label>Choose Observation Level</label>
+        <label>選擇觀察層級(Choose Observation Level)</label>
         <select class="form-control input-sm" id="unit_select">
-          <option selected value="plot">Plot</option>
-          <option value="plant">Plant</option>
+          <option selected value="plot">小區(Plot)</option>
+          <option value="plant">植株(Plant)</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Choose a trait to compare:</label>
+        <label>選擇要比較的性狀(Choose a trait to compare):</label>
         <select disabled class="form-control input-sm" id="trait_select">
           <option selected="selected" value=""> </option>
         </select>
@@ -73,12 +73,12 @@
       var select_html = list.listSelect('trials', ['trials'], ' ', undefined, undefined);
       $('#trials_list_select_container').html(select_html);
       if (d3.select('#trials_list_select').selectAll("option").size()<2){
-        d3.select('#trials_list_select').html("<option>No trial lists! (Create one using the wizard.)</option>");
+        d3.select('#trials_list_select').html("<option>無試驗清單！請使用精靈建立一個。(No trial lists! (Create one using the wizard.))</option>");
       }
       $('#trials_list_select').change(call_change);
     }
     else {
-      $('#trials_list_select').html('<option selected="selected">You must be logged in to use lists.</option>');
+      $('#trials_list_select').html('<option selected="selected">您必須登入才能使用清單。(You must be logged in to use lists.)</option>');
     }
   })
 
@@ -103,7 +103,7 @@
       var require_login = "<%  $c->get_conf('brapi_require_login') %>";
       if (require_login === '1'){
           auth_token = "<%  CXGN::Login->new($c->dbc->dbh)->get_login_cookie() %>";
-          if (!auth_token){ alert("Login required to display graphical filtering"); }
+          if (!auth_token){ alert("需登入以顯示試驗比較(Login required to display trial comparison)"); }
       }
       BrAPI("/brapi/v2",'v2.0',auth_token)
         .search_observationunits({

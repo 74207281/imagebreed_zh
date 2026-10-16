@@ -80,9 +80,9 @@ $alternate_edit_button => undef
 
 <& /util/import_javascript.mas, classes => ["CXGN.Page.Form.JSFormPage"] &>
 
-<table><tr><td><div id="<% $form_div_name %>_buttons" >[loading edit links...]</div>
+<table><tr><td><div id="<% $form_div_name %>_buttons" >[載入編輯連結中...(loading edit links...)]</div>
 </td></tr></table>
-<div id="<% $form_div_name %>" >[loading...]</div>
+<div id="<% $form_div_name %>" >[載入中...(loading...)]</div>
 
 <script language="javascript" type="text/javascript">
 

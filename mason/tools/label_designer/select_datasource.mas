@@ -1,18 +1,18 @@
 <br/>
 <div class="text-center">
-    <p><b>Welcome to the Label Designer</b></p>
+    <p><b>歡迎使用標籤設計工具(Welcome to the Label Designer)</b></p>
     <br/>
-    <p>This workflow will guide you through each step of the design process. For detailed explanations of each step please refer to the <a href="http://solgenomics.github.io/sgn/03_managing_breeding_data/03_12.html">label designer section of the manual</a>.<p>
-    <p>To start, select a data source and a data level. The data source can be a list, crossing experiment, trial, or genotyping plate. When you are finished, click 'Next'<p>
+    <p>此工作流程將引導您完成設計流程的每個步驟。有關各步驟的詳細說明，請參閱<a href="http://solgenomics.github.io/sgn/03_managing_breeding_data/03_12.html">使用手冊中的標籤設計工具章節(label designer section of the manual)</a>。<p>
+    <p>首先，請選擇資料來源與資料層級。資料來源可以是清單(list)、雜交試驗(crossing experiment)、試驗(trial)或基因分型微孔板(genotyping plate)。完成後，請點擊「下一步(Next)」。<p>
 </div>
 <br/><br/>
 <div class="col-md-2 text-center">
-    <label><b>Data Source:</b></label>
+    <label><b>資料來源(Data Source):</b></label>
 </div>
 <div class="col-md-4" id="data_source">
 </div>
 <div class="col-md-2 text-center">
-    <label>Label For Every:</label>
+    <label>標籤層級單位(Label For Every):</label>
 </div>
 <div class="col-md-4">
     <div id="label_designer_data_level_select_div"></div>

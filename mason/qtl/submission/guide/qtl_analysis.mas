@@ -13,11 +13,11 @@ Isaak Y Tecle (iyt2@cornell.edu)
 </%doc>
 
 <&| /page/info_section.mas, 
-   title      => "Step 6: QTL analysis",
+   title      => "步驟 6：QTL 分析(Step 6: QTL analysis)",
   collapsible => 1,
   collapsed   => 1
 &>
 
-Now that the QTL data is uploaded to the database, you can proceed to perform the on-the-fly QTL analysis for one trait at a time. On the population page, click the graph icon under the 'QTL(s)' column and in a couple of minutes you will be taken to a page with the genome wide QTL mapping output. Further help can be found <a href="http://solgenomics.net/qtl/search/help">here</a>.
+現在 QTL 資料已上傳到資料庫中，您可以繼續進行每次一個性狀的即時 QTL 分析。在群體頁面上，點擊「QTL」欄位下的圖表圖示，幾分鐘後您將被帶到包含全基因組 QTL 定位輸出的頁面。更多說明請參閱(Now that the QTL data is uploaded to the database, you can proceed to perform the on-the-fly QTL analysis for one trait at a time. On the population page, click the graph icon under the 'QTL(s)' column and in a couple of minutes you will be taken to a page with the genome wide QTL mapping output. Further help can be found) <a href="http://solgenomics.net/qtl/search/help">此處(here)</a>。
 
 </&>

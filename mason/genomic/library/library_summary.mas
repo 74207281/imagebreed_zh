@@ -29,22 +29,22 @@ sub library_summary_html {
     $vector &&= $this->cloning_vector_object->link_html;
 
     info_table_html(#table attributes
-		    __title          => 'Library',
+		    __title          => '基因庫(Library)',
 		    __multicol       => 2,
 
 		    #fields that will always be there
-		    Name             => $libname,
-		    Organism         => $organism,
-		    Accession        => $accession,
-		    'Cloning host'   => $host,
-		    'Cloning vector' => $vector,
+		    '名稱(Name)'             => $libname,
+		    '物種/生物體(Organism)'   => $organism,
+		    '品系/材料(Accession)'    => $accession,
+		    '選殖宿主(Cloning host)'   => $host,
+		    '選殖載體(Cloning vector)' => $vector,
 
 		    #fields that are only sometimes there
-		    $rs1 ? $rs2 ? ('Restriction enzyme 1', $rs1)
-		                : ('Restriction enzyme'  , $rs1)
+		    $rs1 ? $rs2 ? ('限制酶 1(Restriction enzyme 1)', $rs1)
+		                : ('限制酶(Restriction enzyme)'  , $rs1)
 		         : (),
-		    $rs2 ? $rs1 ? ('Restriction enzyme 2', $rs2)
-		                : ('Restriction enzyme'  , $rs2)
+		    $rs2 ? $rs1 ? ('限制酶 2(Restriction enzyme 2)', $rs2)
+		                : ('限制酶(Restriction enzyme)'  , $rs2)
 		         : (),
 		    );
 

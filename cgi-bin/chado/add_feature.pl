@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 
 my $add_feature_page = CXGN::Chado::AddFeaturePage->new();
 
@@ -176,7 +177,7 @@ sub delete_dialog {
 	$object_dbxref_id= $args{object_dbxref_id};
     }
     
-    my $back_link= qq |<a href="javascript:history.back(1)">Go back without deleting</a> |;
+    my $back_link= qq |<a href="javascript:history.back(1)">返回且不刪除 (Go back without deleting)</a> |;
     
     $self->get_page()->header();
     
@@ -184,14 +185,14 @@ sub delete_dialog {
     page_title_html();
     print qq { 	
 	<form>
-	    Delete the sequence association with $type ($object_name)? 
+	    刪除與 $type ($object_name) 的序列關聯？(Delete the sequence association with $type ($object_name)?) 
 	    <input type="hidden" name="action" value="delete" />
 	    <input type="hidden" name="$field_name" value="$object_id" />	    
 	    <input type="hidden" name="type" value="$type" />
 	    <input type="hidden" name="type_id" value="$type_id" />
 	    <input type="hidden" name="object_dbxref_id" value="$object_dbxref_id" />
 	    <input type="hidden" name="refering_page" value="$args{refering_page}" />	
-	    <input type="submit" value="Delete" />
+	    <input type="submit" value="刪除 (Delete)" />
 	    </form>
 	    
 	    $back_link
@@ -220,7 +221,7 @@ sub delete {
     }elsif ($type eq 'allele') {
  	my $allele_dbxref_obj=CXGN::Phenome::AlleleDbxref->new($self->get_dbh, $args{object_dbxref_id});
 	$allele_dbxref_obj->delete();
-    }else { print qq | <h3> What are you trying to delete here? </h3>| ; exit();}
+    }else { print qq | <h3> 您在此嘗試刪除什麼？(What are you trying to delete here?) </h3>| ; exit();}
     
     $self->send_feature_email('delete');
     $self->get_page()->client_redirect("$script_name?type=$type&amp;type_id=$type_id&amp;refering_page=$refering_page&amp;action=new");
@@ -246,7 +247,7 @@ sub generate_form {
     
     # add form elements
     #
-    $self->get_form()->add_field(display_name=>"Enter a Genbank accession: ", 
+    $self->get_form()->add_field(display_name=>"輸入 GenBank 編號 (Enter a Genbank accession): ", 
 				 field_name=>"accession", 
 				 length=>20, 
 				 object=>$feature, 
@@ -301,19 +302,19 @@ sub display_page {
     # render the form
     $self->get_page()->header();
     
-    print page_title_html( qq { SGN feature upload page } );
+    print page_title_html( qq { SGN 特徵上傳頁面 (SGN feature upload page) } );
 
-    print qq { <b> Features list</b> };
+    print qq { <b> 特徵列表 (Features list)</b> };
 
     if ($args{type} eq 'locus') { 
 	$locus = CXGN::Phenome::Locus->new($self->get_dbh(), $args{type_id});
 	@dbxref_objs= $locus->get_dbxrefs(); #array of dbxref objects
-	print "for locus '".$locus->get_locus_name()."'<br /><br />\n";
+	print "基因座 (for locus) '".$locus->get_locus_name()."'<br /><br />\n";
     
     }elsif ($args{type} eq 'allele') {
 	$allele = CXGN::Phenome::Allele->new($self->get_dbh(), $args{type_id});
 	@dbxref_objs=$allele->get_all_allele_dbxrefs(); #array of dbxref objects
-	print "for allele '".$allele->get_allele_name()."'<br /><br />\n";
+	print "對偶基因 (for allele) '".$allele->get_allele_name()."'<br /><br />\n";
     }
 
     foreach my $dbxref (@dbxref_objs) {
@@ -334,7 +335,7 @@ sub display_page {
 	
 	if ($obsolete eq 'f') {
 	    my $genbank_link= "http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=nuccore&list_uids=$accession";
-	    if ($feature_id && $object_dbxref_id) {print "<a href= $genbank_link target=blank>$GBaccession </a>" . $description . qq { \n <a href="add_feature.pl?feature_id=$feature_id&amp;type=$args{type}&amp;type_id=$args{type_id}&amp;object_dbxref_id=$object_dbxref_id&amp;action=confirm_delete&amp;refering_page=$args{refering_page}">[Remove]</a> <br />\n }; } 
+	    if ($feature_id && $object_dbxref_id) {print "<a href= $genbank_link target=blank>$GBaccession </a>" . $description . qq { \n <a href="add_feature.pl?feature_id=$feature_id&amp;type=$args{type}&amp;type_id=$args{type_id}&amp;object_dbxref_id=$object_dbxref_id&amp;action=confirm_delete&amp;refering_page=$args{refering_page}">[移除 (Remove)]</a> <br />\n }; } 
 	}elsif ($feature_id)  {
 	    push @obsoleted, $feature ; #an array of obsoletes feature objects
 	}
@@ -342,12 +343,12 @@ sub display_page {
     
     if (@obsoleted) { print_obsoleted(@obsoleted) ; }
     
-    print qq { <br /><br /><b>Associate a sequence with this $args{type}</b>: };
+    print qq { <br /><br /><b>將序列與此 $args{type} 建立關聯 (Associate a sequence with this $args{type})</b>: };
     print qq { <center> };
     $self->get_form()->as_table();
     print qq { </center> };
     
-    if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[Go back]</a><br /><br />\n"; }
+    if ($args{refering_page}) { print "<a href=\"$args{refering_page}\">[返回 (Go back)]</a><br /><br />\n"; }
     $self->get_page()->footer();
 }
 
@@ -366,7 +367,7 @@ sub print_obsoleted {
 
     my $print_obsoleted= "<br>" . 
 	html_optional_show('obsoleted_features',
-			   'Show obsolete',
+			   '顯示已廢棄 (Show obsolete)',
 			   qq|<div class="minorbox">$obsoleted_features</div> |,
 			   );
     
@@ -389,7 +390,7 @@ sub confirm_store {
 	$feature->set_name($GBaccession);
 	print STDERR "****add_feature.pl is setting feature name $GBaccession...\n\n";
     }elsif ($GBaccession=~ m/^\d/) { #the user submitted an accession that looks like a GenBank GI number!
-	$self->get_page->message_page("Please type a valid genBank accession !!");
+	$self->get_page->message_page("請輸入有效的 GenBank 編號！(Please type a valid GenBank accession !!)");
 	print STDERR "^^^^add_feature.pl found an accession that looks like a gi number...\n\n";
     } 
     
@@ -428,8 +429,8 @@ sub confirm_store {
 	}
 	print STDERR "$type _ dbxref obsolete = '$obsolete' !!!!!\n";
 	if  ($associated_feature && $obsolete eq 'f') {
-	    print  "<h3>Sequence '$GBaccession' is already associated with $args{type}  $args{type_id} </h3>";
-	    print qq { <a href="javascript:history.back(1)">back to features</a> };
+	    print  "<h3>序列 '$GBaccession' 已與 $args{type} $args{type_id} 建立關聯 (Sequence '$GBaccession' is already associated with $args{type} $args{type_id})</h3>";
+	    print qq { <a href="javascript:history.back(1)">返回特徵 (back to features)</a> };
 	    $self->get_page()->footer();		   
 	    
 	}else{  ##the feature exists but not associated with the object
@@ -482,8 +483,8 @@ sub print_confirm_form {
     #add genbank verification step	
     if ($feature->get_message() ) { $self->get_page->message_page("FeatureFetch.pm returned message: " . $feature->get_message()); }
     if ( !$feature_seqlen ) {
-	print  qq |<h3> $GBaccession is not a valid GenBank accession. </h3>  |;
-	print  qq |<a href="$script_name?type=$type&amp;type_id=$type_id&amp;refering_page=$refering_page&amp;action=new">Go back</a>|;
+	print  qq |<h3> $GBaccession 不是有效的 GenBank 編號 (is not a valid GenBank accession)。</h3>  |;
+	print  qq |<a href="$script_name?type=$type&amp;type_id=$type_id&amp;refering_page=$refering_page&amp;action=new">返回 (Go back)</a>|;
 	$self->get_page()->footer();		   
 	exit(0);
     }
@@ -494,8 +495,8 @@ sub print_confirm_form {
     
     if( !$organism ) { 
 	my $organism_name = $feature->get_organism_name();
-	print  qq |<h3> The requested sequence ($GBaccession) corresponds to an unsubmittable organism: $organism_name. If you think this organism should be submittable please contact <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a></h3>  |;
-	print qq |<a href="$script_name?type=$type&amp;type_id=$type_id&amp;refering_page=$refering_page&amp;action=new">Go back</a><br />|;
+	print  qq |<h3> 請求的序列 ($GBaccession) 對應到不可提交的物種 (unsubmittable organism)：$organism_name。如果您認為此物種應可提交，請聯絡 <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a></h3>  |;
+	print qq |<a href="$script_name?type=$type&amp;type_id=$type_id&amp;refering_page=$refering_page&amp;action=new">返回 (Go back)</a><br />|;
 	
 	$self->get_page()->footer();		   
 	exit(0);
@@ -525,7 +526,7 @@ sub print_confirm_form {
     my $print_associations;
 
     my @loci_feature=$feature->associated_loci();
-    if (@loci_feature) {$print_associations .= "this sequence is already associated with locus:"; }
+    if (@loci_feature) {$print_associations .= "此序列已與基因座建立關聯 (this sequence is already associated with locus):"; }
 
     foreach my $l(@loci_feature) { 
 	my $l_id= $l->get_locus_id();
@@ -542,7 +543,7 @@ sub print_confirm_form {
 	if ($publication && !$is_associated) {
 	    my @associated_with_loci = $publication->get_loci();
 	    if (@associated_with_loci) {
-		$print_associations .= "<br> this publication is already associated with locus: ";
+		$print_associations .= "<br> 此文獻已與基因座建立關聯 (this publication is already associated with locus): ";
 		foreach my $a(@associated_with_loci) {
 		    my $a_locus_id= $a->get_locus_id;
 		    my $a_locus_name=$a->get_locus_name;
@@ -574,9 +575,9 @@ sub print_confirm_form {
 	}
     }
 
-    print qq | <br/> <h3>The following sequence will be stored in the database and associated with $args{type}  $args{type_id}: </h3> $print_feature|;
+    print qq | <br/> <h3>以下序列將儲存至資料庫並與 $args{type} $args{type_id} 關聯 (The following sequence will be stored in the database and associated with $args{type} $args{type_id}): </h3> $print_feature|;
     if (@print_publications) { 
-	print qq|<br><br><b>Publications related to this sequence:</b><br><br>@print_publications|;
+	print qq|<br><br><b>與此序列相關的文獻 (Publications related to this sequence):</b><br><br>@print_publications|;
     }
 
     print qq | <b> $print_associations </b> |;
@@ -585,7 +586,7 @@ sub print_confirm_form {
 
     if ($show_checkbox eq "yes"){ #don't display the checkbox if theres no publications to store
 	$self->get_form()->add_checkbox( field_name=>"publications_checkbox",
-					 display_name=>"<b>Check here to also associate and store the above publication(s)</b>",
+					 display_name=>"<b>勾選此處以同時關聯並儲存上述文獻 (Check here to also associate and store the above publication(s))</b>",
 					 object=>$self, 
 					 getter=>"get_checkbox_value", 
 					 setter=>"set_checkbox_value");
@@ -599,7 +600,7 @@ sub print_confirm_form {
     
     $self->get_form()->add_hidden( field_name=>"action", contents=>"store" );
     
-    page_title_html("Confirm store");
+    page_title_html("確認儲存 (Confirm store)");
     
     print qq { <center><br> };
     
@@ -610,7 +611,7 @@ sub print_confirm_form {
     if ($self->get_action()=~/store/i) {
 	$self->get_form()->from_request(%args);
     }
-    print qq | <BR> <a href="javascript:history.back(1)">Go back without storing the sequence</a> | ;
+    print qq | <BR> <a href="javascript:history.back(1)">返回且不儲存序列 (Go back without storing the sequence)</a> | ;
     
     $self->get_page()->footer();
     

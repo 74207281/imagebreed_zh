@@ -16,58 +16,58 @@ $analysis_metadata
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Analysis Name</b></td>
+                <td><b>分析名稱(Analysis Name)</b></td>
                 <td>
                     <div id="trial_name">
 % if ($trial_name) {
 %   print "$trial_name";
 % } else {
-%   print "<span class='text-danger'>[No Trial Name]</span>";
+%   print "<span class='text-danger'>[無分析名稱, No Analysis Name]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Breeding Program </b></td>
+                <td><b>育種計畫(Breeding Program)</b></td>
                 <td>
                     <span id="breeding_program">
 % if ($breeding_program_name) {
                     <a href="/breeders/program/<% $breeding_program_id %>"><% $breeding_program_name %></a>
 % }
 % else {
-%  print "<span class='text-danger'>[No Breeding Program]</span>";
+%  print "<span class='text-danger'>[無育種計畫, No Breeding Program]</span>";
 % }
                     </span>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Year</b></td>
+                <td><b>年份(Year)</b></td>
                 <td>
                     <div id="trial_year">
 % if ($year) {
 %  print "$year";
 % } else {
-%  print "<span class='text-danger'>[No Year]</span>";
+%  print "<span class='text-danger'>[無年份, No Year]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Description</b></td>
+            <tr><td><b>描述(Description)</b></td>
                 <td>
                     <div id="trial_description">
 % if ($trial_description) {
 %  print "$trial_description";
 % } else {
-%  print "<span class='text-danger'>[No Description]</span>";
+%  print "<span class='text-danger'>[無描述, No Description]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Protocol</b></td>
+            <tr><td><b>實驗方案(Protocol)</b></td>
                 <td>
                     <div id="analysis_protocol">
 %  print $analysis_metadata->analysis_protocol;
@@ -75,7 +75,7 @@ $analysis_metadata
                 </td>
             </tr>
 
-            <tr><td><b>Dataset ID</b></td>
+            <tr><td><b>資料集 ID (Dataset ID)</b></td>
                 <td>
                     <div id="analysis_dataset_id">
 %  print $analysis_metadata->dataset_id;
@@ -83,7 +83,7 @@ $analysis_metadata
                 </td>
             </tr>
 
-            <tr><td><b>Created</b></td>
+            <tr><td><b>建立時間(Created)</b></td>
                 <td>
                     <div id="analysis_create_timestamp">
 %  print $analysis_metadata->create_timestamp;
@@ -91,7 +91,7 @@ $analysis_metadata
                 </td>
             </tr>
 
-            <tr><td><b>Result Summary</b></td>
+            <tr><td><b>結果摘要(Result Summary)</b></td>
                 <td>
                     <div id="analysis_result_summary">
 %  if ($analysis_metadata->result_summary) {

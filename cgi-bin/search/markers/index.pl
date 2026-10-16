@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new("Sol Genomics Network","Tyler");
-$page->header();
+$page->header('標記搜尋 (Marker Search)');
 print <<END_HEREDOC;
 
 <br />
@@ -37,7 +38,7 @@ print <<END_HEREDOC;
 </map>
 
 <img src="/documents/img/marker_diagram.png" usemap="#marker_search" border="0" alt="" />
-To search other markers use our <a href="/search/markers/markersearch.pl">marker search</a>.
+若要搜尋其他標記，請使用我們的<a href="/search/markers/markersearch.pl">標記搜尋 (Marker Search)</a>。
 
 </div>
 </td>

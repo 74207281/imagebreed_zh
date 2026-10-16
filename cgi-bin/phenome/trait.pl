@@ -11,6 +11,7 @@ package CXGN::Phenome::TraitDetailPage;
 use base qw/CXGN::Page::Form::SimpleFormPage/;
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw/info_section_html
@@ -44,7 +45,7 @@ sub define_object {
     else {
 	$user_trait_id= $args{trait_id};
     }
-    unless (!$user_trait_id || $user_trait_id =~m /^\d+$/) { $self->get_page->message_page("No term exists for identifier $user_trait_id"); }  
+    unless (!$user_trait_id || $user_trait_id =~m /^\d+$/) { $self->get_page->message_page("找不到識別碼 $user_trait_id 的詞彙 (No term exists for identifier $user_trait_id)"); }  
     $self->set_object_id($user_trait_id);
     $self->set_object(CXGN::Phenome::UserTrait->new($self->get_dbh, $self->get_object_id));
     
@@ -66,7 +67,7 @@ sub display_page {
     my $definition = $ut->get_definition() ;     
     my $page="/phenome/trait.pl?trait_id=$ut_id";
     my $action= $args{action} || ""; 
-    if (!$ut_id) {  $self->get_page->message_page("No term exists for this identifier")  } ;
+    if (!$ut_id) {  $self->get_page->message_page("此識別碼不存在任何詞彙 (No term exists for this identifier)")  } ;
     
     $self->get_page->header("SGN: $ut_name " );
     print page_title_html("$ut_name\n");
@@ -75,7 +76,7 @@ sub display_page {
     
    
   
-    print info_section_html(title    => 'Trait details',
+    print info_section_html(title    => '性狀詳細資訊 (Trait details)',
  			    contents => $trait_html,
 			    );
     
@@ -91,10 +92,10 @@ sub display_page {
    
     my $pop_count = scalar(@pops);
     if ($pop_count > 0) { 
-	$pop_count .= " " . 'populations';
+	$pop_count .= " " . '個族群 (populations)';
     }
             
-   print info_section_html(title    => "Phenotype data/QTLs ($pop_count)",
+   print info_section_html(title    => "表型資料 / QTL ($pop_count) (Phenotype data/QTLs ($pop_count))",
  			    contents => $pop_list,
  			    collapsible=>1,
 			    collapsed=>0,
@@ -124,12 +125,12 @@ sub generate_form {
     my $definition = $ut->get_definition() ; 
     
     $self->get_form()->add_label(
-				 display_name =>"Term name",
+				 display_name =>"詞彙名稱 (Term name)",
 				 field_name   =>"term_name",
 				 contents     => $ut_name,
 				 );
     $self->get_form()->add_label(
-				 display_name =>"Definition",
+				 display_name =>"定義 (Definition)",
 				 field_name   =>"definition",
 				 contents     => $definition,
 				 );   

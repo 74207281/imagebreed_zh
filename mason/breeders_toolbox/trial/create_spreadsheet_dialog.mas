@@ -11,7 +11,7 @@ $trial_stock_type => undef
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="createSpreadsheetDialog">Download Phenotype Spreadsheet for <% $trial_name %></h4>
+        <h4 class="modal-title" id="createSpreadsheetDialog">下載 <% $trial_name %> 的表型試算表(Download Phenotype Spreadsheet for <% $trial_name %>)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
@@ -19,51 +19,51 @@ $trial_stock_type => undef
             <form class="form-horizontal" role="form" method="post" >
 
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Trial: </label>
+                    <label class="col-sm-3 control-label">試驗：</label>
                     <div class="col-sm-9" >
                         <div id="select_trial_for_create_spreadsheet">
 % if ($trial_id) {
                             <input type="text" class="form-control" value="<% $trial_name %>" text="<% $trial_name %>" disabled/>
                             <input type="hidden" id="html_select_trial_for_create_spreadsheet" name="html_select_trial_for_create_spreadsheet" value="<% $trial_id %>" />
 % } else {
-                        [Loading...]
+                        [載入中...]
 % }
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Trait List: </label>
+                    <label class="col-sm-3 control-label">性狀清單：</label>
                     <div class="col-sm-9" >
                         <div id ="trait_list_spreadsheet">
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Include Notes Column </label>
+                    <label class="col-sm-3 control-label">包含備註欄位 </label>
                     <div class="col-sm-9" >
                         <input type="checkbox" id="include_notes_column" name="include_notes_column" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label">Spreadsheet Format: </label>
+                    <label class="col-sm-3 control-label">試算表格式：</label>
                     <div class="col-sm-9" >
                         <select class="form-control" id="create_spreadsheet_phenotype_file_format" name="create_spreadsheet_phenotype_file_format">
-                            <option value="ExcelBasic">Detailed</option>
-                            <option value="ExcelBasicSimple">Simple</option>
-                            <option value="ExcelAssociatedImages">Associated Images</option>
+                            <option value="ExcelBasic">詳細 (Detailed)</option>
+                            <option value="ExcelBasicSimple">簡易 (Simple)</option>
+                            <option value="ExcelAssociatedImages">關聯影像 (Associated Images)</option>
                         </select>
                     </div>
                 </div>
                 <div id="create_spreadsheet_phenotype_data_level_div">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Data Level: </label>
+                        <label class="col-sm-3 control-label">資料層級：</label>
                         <div class="col-sm-9" >
                             <select class="form-control" id="create_spreadsheet_data_level">
-                                <option value="plots">Plots</option>
-                                <option value="plants">Plants</option>
-                                <option value="subplots">Subplots</option>
-                                <option value="plants_subplots">Plants and Subplots</option>
-                                <option value="tissue_samples">Tissue Samples</option>
+                                <option value="plots">小區</option>
+                                <option value="plants">植株</option>
+                                <option value="subplots">次小區</option>
+                                <option value="plants_subplots">植株與次小區</option>
+                                <option value="tissue_samples">組織樣本</option>
                             </select>
                         </div>
                     </div>
@@ -72,9 +72,9 @@ $trial_stock_type => undef
             <div id="create_spreadsheet_plant_options" style="display:none">
                 <hr>
                 <div class="form-group">
-                    <label class="col-sm-5 control-label "><small>Sample Number: </small></label>
+                    <label class="col-sm-5 control-label "><small>樣本編號：</small></label>
                     <div class="col-sm-7" >
-                        <input type="text" class="form-control" id="create_spreadsheet_sample_number" placeholder="Leave blank for all"/>
+                        <input type="text" class="form-control" id="create_spreadsheet_sample_number" placeholder="留空代表全部"/>
                     </div>
                 </div>
             </div>
@@ -84,8 +84,8 @@ $trial_stock_type => undef
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" name="create_phenotyping_cancel_button" id="create_phenotyping_cancel_button" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" name="create_phenotyping_ok_button" id="create_phenotyping_ok_button" title="Submit">Submit</button>
+        <button type="button" class="btn btn-default" name="create_phenotyping_cancel_button" id="create_phenotyping_cancel_button" data-dismiss="modal">關閉(Close)</button>
+        <button type="button" class="btn btn-primary" name="create_phenotyping_ok_button" id="create_phenotyping_ok_button" title="提交(Submit)">提交(Submit)</button>
       </div>
     </div>
   </div>
@@ -142,14 +142,14 @@ jQuery(document).ready(function() {
                         //console.log(response);
                         jQuery("#working_modal").modal("hide");
                         if(response.has_plants == 0 || response.has_subplots == 0 || response.has_tissue_samples == 0){
-                            alert('The trial '+response.trial_name+' does not have '+level);
+                            alert('試驗 '+response.trial_name+' 沒有 '+level);
                             jQuery('#create_spreadsheet_data_level').val('plots');
                             jQuery('#create_spreadsheet_plant_options').hide();
                         }
                     },
                     error: function () {
                         jQuery("#working_modal").modal("hide");
-                        alert('An error occurred checking trial '+selected_trial_names[i]+' for plants or subplots.');
+                        alert('檢查試驗 '+selected_trial_names[i]+' 的植株或次小區時發生錯誤。');
                     }
                 });
             }
@@ -214,7 +214,7 @@ function create_phenotype_spreadsheet() {
         },
         error: function () {
             jQuery('#working_modal').modal("hide");
-            alert('An error occurred creating a phenotype file.');
+            alert('建立表型檔案時發生錯誤。');
             jQuery('#create_spreadsheet_dialog').modal("hide");
         }
     });

@@ -14,18 +14,17 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 
 <& /page/page_title.mas, 
-   title => "QTL Data Submission Guidelines"
+   title => "QTL 資料提交指南(QTL Data Submission Guidelines)"
 &>
 
 <p>
-  This document guides QTL data submitters on the process of loading the data, 
-  setting statistical parameters and finally the QTL mapping.
+  本文件指導 QTL 資料提交者完成載入資料、設定統計參數以及最終進行 QTL 定位的流程(This document guides QTL data submitters on the process of loading the data, setting statistical parameters and finally the QTL mapping)。
 </p>
 
 <& /qtl/qtl_form/general_intro.mas, 
    guide => undef 
 &>
-<p> Detailed guide:</p>
+<p> 詳細指南(Detailed guide)：</p>
 <& population_details.mas &>
 <& traits_list.mas &>
 <& phenotype_dataset.mas &>

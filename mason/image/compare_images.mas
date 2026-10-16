@@ -8,41 +8,41 @@ $stock_id
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="stockDetailPageCompareImagesDialog">Compare Images</h4>
+        <h4 class="modal-title" id="stockDetailPageCompareImagesDialog">比較圖片(Compare Images)</h4>
       </div>
       <div class="modal-body">
         <div class="container-fluid">
 
             <&| /util/workflow.mas, id=> "stock_detail_page_compare_images_workflow" &>
-                <&| /util/workflow.mas:step, title=> "Comparison" &>
-                    <& /page/page_title.mas, title=>"Select the comparison you are interested in" &>
+                <&| /util/workflow.mas:step, title=> "比較設定(Comparison)" &>
+                    <& /page/page_title.mas, title=>"選取您感興趣的比較項目(Select the comparison you are interested in)" &>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">Comparison: </label>
+                            <label class="col-sm-3 control-label">比較方式(Comparison)：</label>
                             <div class="col-sm-9" >
                                 <select id="stock_detail_page_compare_images_comparison_select" class="form-control">
-                                    <option value="compare_pixel_values_two_images">Compare pixel values for two different images</option>
+                                    <option value="compare_pixel_values_two_images">比較兩張不同圖片的像素值(Compare pixel values for two different images)</option>
                                 </select>
                             </div>
                         </div>
                     </form>
                     <center>
-                    <button class="btn btn-primary" id="stock_detail_page_compare_images_comparison_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="stock_detail_page_compare_images_comparison_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Image Selection" &>
-                    <& /page/page_title.mas, title=>"Select the images you are interested in comparing" &>
+                <&| /util/workflow.mas:step, title=> "選取圖片(Image Selection)" &>
+                    <& /page/page_title.mas, title=>"選取您欲比較的圖片(Select the images you are interested in comparing)" &>
 
                     <table class="table table-bordered table-hover" id="stock_detail_page_compare_images_images_type_table">
                         <thead>
                             <tr>
-                                <th>Select</th>
-                                <th>Image</th>
-                                <th>Field Trial</th>
-                                <th>Drone Run Name</th>
-                                <th>Drone Run Band Name</th>
-                                <th>Drone Run Band Type</th>
-                                <th>Plot Polygon Type</th>
+                                <th>選取(Select)</th>
+                                <th>圖片(Image)</th>
+                                <th>田間試驗(Field Trial)</th>
+                                <th>無人機航次名稱(Drone Run Name)</th>
+                                <th>無人機航次波段名稱(Drone Run Band Name)</th>
+                                <th>無人機航次波段類型(Drone Run Band Type)</th>
+                                <th>小區多邊形類型(Plot Polygon Type)</th>
                             </tr>
                         </thead>
                     </table>
@@ -50,11 +50,11 @@ $stock_id
                     <br/><br/>
 
                     <center>
-                    <button class="btn btn-primary" id="stock_detail_page_compare_images_images_select_step">Go to Next Step</button>
+                    <button class="btn btn-primary" id="stock_detail_page_compare_images_images_select_step">前往下一步(Go to Next Step)</button>
                     </center>
                 </&>
-                <&| /util/workflow.mas:step, title=> "Result" &>
-                    <& /page/page_title.mas, title=>"Image comparison results" &>
+                <&| /util/workflow.mas:step, title=> "結果(Result)" &>
+                    <& /page/page_title.mas, title=>"圖片比較結果(Image comparison results)" &>
 
                     <div id="stock_detail_page_compare_images_result_div"></div>
                 </&>
@@ -64,7 +64,7 @@ $stock_id
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
       </div>
     </div>
   </div>
@@ -95,7 +95,7 @@ jQuery(document).ready(function() {
             compare_images_selected_image_ids.push(jQuery(this).val());
         });
         if (compare_images_selected_image_ids.length != 2){
-            alert('Please select two image types!');
+            alert('請選取兩種圖片類型！(Please select two image types!)');
             return false;
         } else {
     
@@ -108,7 +108,7 @@ jQuery(document).ready(function() {
                     console.log(response);
                     jQuery("#working_modal").modal("hide");
 
-                    var html = '<a target=_blank href="'+response.result+'">File</a>';
+                    var html = '<a target=_blank href="'+response.result+'">檔案(File)</a>';
                     jQuery('#stock_detail_page_compare_images_result_div').html(html);
 
                     Workflow.complete("#stock_detail_page_compare_images_images_select_step");
@@ -116,7 +116,7 @@ jQuery(document).ready(function() {
                 },
                 error: function(response){
                     jQuery("#working_modal").modal("hide");
-                    alert('Error comparing images!')
+                    alert('比較圖片時發生錯誤！(Error comparing images!)');
                 }
             });
         }

@@ -1,5 +1,5 @@
 
- <& /page/page_title.mas, title=>"Tomato Genome Project - clone distribution policy" &>
+ <& "/page/page_title.mas", title => "番茄基因體計畫 - 選殖株分發政策(Tomato Genome Project - clone distribution policy)" &>
 
   <center>
     
@@ -10,107 +10,43 @@
         <td>
 
 
-          <p>Development of the tomato EST database is
-          currently in progress and continues to be updated on a
-          regular basis as new sequences are added. Our objective
-          is to ultimately make available to the research community
-          a complete set of non-redundant tomato ESTs. The "in
-          progress" collection is continually updated as new EST
-          sequences are added to the database. In some cases new
-          EST sequences provide information that modifies the
-          previous "in-progress" non-redundant EST collection. For
-          example, when clones are found through additional
-          sequencing to be chimeric, or when a new EST sequence
-          "links" two clones previously thought to be unique. In
-          short, the "in-progress" non-redundant set is expected to
-          contain a considerable number of duplications and errors
-          of various types. Once the sequencing phase of this
-          project is completed (fall 2001) a final build will be
-          created and a final non-redundant gene set defined. This
-          collection is currently estimated to range from 25,000 -
-          40,000 cDNA clones which will be condensed, quality
-          confirmed, and re-arrayed into a collection that can be
-          distributed in whole - or can much more efficiently be
-          searched for individual clones than is currently the case
-          with over 25 libraries each containing 4000 - 15,000
-          ordered clones.</p>
+          <p>番茄 EST 資料庫的開發目前正在進行中，隨著新序列的新增，該資料庫會持續定期更新。我們的目標是最終向研究社群提供一套完整的非冗餘番茄 EST。「進行中」的集合隨著新 EST 序列新增至資料庫而持續更新。在某些情況下，新的 EST 序列提供的資訊會修改先前「進行中」的非冗餘 EST 集合。例如，透過額外定序發現選殖株為嵌合體時，或者當新的 EST 序列將先前被認為是獨特的兩個選殖株「連結」在一起時。簡而言之，預計「進行中」的非冗餘集合將包含相當數量的重複和各種類型的錯誤。一旦本計畫的定序階段完成（2001 年秋季），將建立最終組裝版本並定義最終的非冗餘基因集。目前估計該集合包含 25,000 至 40,000 個 cDNA 選殖株，這些選殖株將經過濃縮、品質確認並重新排列為一個可整體分發的集合 - 或者比目前擁有超過 25 個各含 4,000 至 15,000 個有序選殖株的基因庫更有效地搜尋單個選殖株。(Development of the tomato EST database is currently in progress and continues to be updated on a regular basis as new sequences are added. Our objective is to ultimately make available to the research community a complete set of non-redundant tomato ESTs. The "in progress" collection is continually updated as new EST sequences are added to the database. In some cases new EST sequences provide information that modifies the previous "in-progress" non-redundant EST collection. For example, when clones are found through additional sequencing to be chimeric, or when a new EST sequence "links" two clones previously thought to be unique. In short, the "in-progress" non-redundant set is expected to contain a considerable number of duplications and errors of various types. Once the sequencing phase of this project is completed (fall 2001) a final build will be created and a final non-redundant gene set defined. This collection is currently estimated to range from 25,000 - 40,000 cDNA clones which will be condensed, quality confirmed, and re-arrayed into a collection that can be distributed in whole - or can much more efficiently be searched for individual clones than is currently the case with over 25 libraries each containing 4000 - 15,000 ordered clones.)</p>
 
-          <p><strong>We realize the need for access by the research
-          community to EST clones prior to completion of this
-          project and thus have instituted a policy whereby up to
-          150 clones per laboratory per year can be requested on a
-          subsidized re-charge basis through the Clemson University
-          Genomics Institute (CUGI) which handles maintenance and
-          distribution of the tomato ESTs and receives funding
-          through this project to offset some of the associated
-          costs.</strong></p>
+          <p><strong>我們瞭解研究社群在本計畫完成之前獲取 EST 選殖株的需求，因此制定了一項政策：每個實驗室每年最多可透過克萊姆森大學基因體研究所 (CUGI) 以補貼收費方式索取 150 個選殖株，CUGI 負責番茄 EST 的維護與分發，並透過本計畫獲得資助以抵銷部分相關費用。(We realize the need for access by the research community to EST clones prior to completion of this project and thus have instituted a policy whereby up to 150 clones per laboratory per year can be requested on a subsidized re-charge basis through the Clemson University Genomics Institute (CUGI) which handles maintenance and distribution of the tomato ESTs and receives funding through this project to offset some of the associated costs.)</strong></p>
 
-          <strong>Cost Basis</strong>
-          <p>CUGI received a total of \$100,000 (apx. \$80K in direct
-          costs) spread over 3 years in support of clone
-          maintenance and distribution. These funds have been used
-          for a) purchase of 3 -80 freezers and service contracts
-          to insure their operation b) support a half-time tech
-          position, c) annual replication of all EST libraries to
-          insure against loss of clone viability, and d) software
-          upgrades used in clone request tracking and eventual
-          public dissemination of all clone requests. It is
-          important to realize that with 22 ordered EST libraries
-          (each containing 4,000 - 15,000 ordered clones) tracking,
-          localizing, and picking each clone represents a
-          significant effort.</p>
+          <strong>費用依據(Cost Basis)</strong>
+          <p>CUGI 在 3 年內共收到 100,000 美元（約 80,000 美元的直接成本）的資助，用於支援選殖株維護和分發。這些資金用於：a) 購買 3 台 -80 度冷凍櫃及服務合約以確保其運作；b) 支援半職技術人員職位；c) 每年複製所有 EST 基因庫以防止選殖株活性喪失；以及 d) 用於選殖株申請追蹤及最終公開所有選殖株申請的軟體升級。必須瞭解的是，擁有 22 個有序 EST 基因庫（每個包含 4,000 - 15,000 個有序選殖株），追蹤、定位和挑選每個選殖株需要付出巨大的努力。(CUGI received a total of \$100,000 (apx. \$80K in direct costs) spread over 3 years in support of clone maintenance and distribution. These funds have been used for a) purchase of 3 -80 freezers and service contracts to insure their operation b) support a half-time tech position, c) annual replication of all EST libraries to insure against loss of clone viability, and d) software upgrades used in clone request tracking and eventual public dissemination of all clone requests. It is important to realize that with 22 ordered EST libraries (each containing 4,000 - 15,000 ordered clones) tracking, localizing, and picking each clone represents a significant effort.)</p>
 
-          <strong>Clone Request Charges</strong>
-          <p>Up to 150 clones can be requested per laboratory per year
-          at the subsidized rate of \$5 per clone. An unlimited
-          number of additional clones can be requested by any one
-          laboratory in a 12 month period but at a non-subsidized
-          rate of \$20 per clone. This later price is in line with
-          other clone distribution centers, such as the American
-          Type Culture Collection (ATCC), which recover total costs
-          through re-charge fees. Cost recovery for the entire
-          non-redundant set will be determined when said collection
-          is completed (est. late 2001).</p>
+          <strong>選殖株申請費用(Clone Request Charges)</strong>
+          <p>每個實驗室每年最多可申請 150 個選殖株，補貼價格為每個選殖株 5 美元。任何一個實驗室在 12 個月內可以申請無限數量的額外選殖株，但需按非補貼價格每個選殖株 20 美元計費。後者的價格與其他透過收費收回全部成本的選殖株分發中心一致（如美國典型培養物保藏中心 ATCC）。整個非冗餘集合的成本回收將在該集合完成時確定（預計 2001 年底）。(Up to 150 clones can be requested per laboratory per year at the subsidized rate of \$5 per clone. An unlimited number of additional clones can be requested by any one laboratory in a 12 month period but at a non-subsidized rate of \$20 per clone. This later price is in line with other clone distribution centers, such as the American Type Culture Collection (ATCC), which recover total costs through re-charge fees. Cost recovery for the entire non-redundant set will be determined when said collection is completed (est. late 2001).)</p>
 
           <table summary="" border="0">
             <tr>
-              <td>Clones 1 - 150 in any twelve month period:</td>
-              <td>\$5/clone</td>
+              <td>任何 12 個月期間內的第 1 - 150 個選殖株：(Clones 1 - 150 in any twelve month period:)</td>
+              <td>每個選殖株 5 美元(\$5/clone)</td>
             </tr>
 
             <tr>
-              <td>Clones 151 - unlimited in any twelve month
-              period:</td>
-              <td>\$20/clone</td>
+              <td>任何 12 個月期間內的第 151 個起至無限制：(Clones 151 - unlimited in any twelve month period:)</td>
+              <td>每個選殖株 20 美元(\$20/clone)</td>
             </tr>
 
             <tr>
-              <td>Entire 384 well plates of sequential ESTs from a
-              given library</td>
-              <td>\$10/plate(academic)<br />
-              \$50/plate(industry)</td>
+              <td>來自特定基因庫的連續 EST 整盤 384 孔板：(Entire 384 well plates of sequential ESTs from a given library)</td>
+              <td>每盤 10 美元（學術單位）(\$10/plate(academic))<br />
+              每盤 50 美元（產業界）(\$50/plate(industry))</td>
             </tr>
 
             <tr>
-              <td>Shipping and handling (all clones shipped via
-              over-night courier):</td>
-              <td>apx. \$40/request, depending on specific shipping
-              cost.</td>
+              <td>運費與手續費（所有選殖株均透過隔夜快遞寄送）：(Shipping and handling (all clones shipped via over-night courier):)</td>
+              <td>每次申請約 40 美元，視具體運費而定。(apx. \$40/request, depending on specific shipping cost.)</td>
             </tr>
           </table>
 
-          <p>Clone requests should be directed to <a href=
-          "mailto:atkins2\@genome.clemson.edu">Dr. Michale
-          Atkins</a> at the Clemson University Genomics Institute
-          (CUGI).</p>
+          <p>選殖株申請請聯絡克萊姆森大學基因體研究所 (CUGI) 的 <a href="mailto:atkins2\@genome.clemson.edu">Michale Atkins 博士(Dr. Michale Atkins)</a>。(Clone requests should be directed to <a href="mailto:atkins2\@genome.clemson.edu">Dr. Michale Atkins</a> at the Clemson University Genomics Institute (CUGI).)</p>
 
-          <strong>Acknowledgements</strong>
-          <p>Publications referring to the use of clones resulting
-          from the NSF Tomato Genome Project should include an
-          acknowledgement similar to the following: "Tomato EST
-          clone(s) XXX were supplied by the NSF Tomato Genome
-          Project (DBI-9872617, S. Tanksley, G. Martin, J.
-          Giovannoni, C. Ronning)".</p>
+          <strong>致謝(Acknowledgements)</strong>
+          <p>引用由 NSF 番茄基因體計畫產生的選殖株的出版物應包含類似於以下的致謝：「番茄 EST 選殖株 XXX 由 NSF 番茄基因體計畫提供 (DBI-9872617, S. Tanksley, G. Martin, J. Giovannoni, C. Ronning)。」(Publications referring to the use of clones resulting from the NSF Tomato Genome Project should include an acknowledgement similar to the following: "Tomato EST clone(s) XXX were supplied by the NSF Tomato Genome Project (DBI-9872617, S. Tanksley, G. Martin, J. Giovannoni, C. Ronning)".)</p>
         </td>
       </tr>
     </table><!-- begin footer include -->

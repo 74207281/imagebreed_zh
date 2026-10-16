@@ -43,14 +43,14 @@ sub unigene_search {
 <table summary="" cellpadding="10" width="100%"><tr><td valign="top" bgcolor="#EEEEEE" width="320">
 
 <br />
-Enter a list of identifiers or upload a file containing one identifer separated by whitespace (returns, spaces or tabs):<br />
+輸入識別碼列表，或上傳以空格/換行/製表符分隔的識別碼檔案(Enter a list of identifiers or upload a file containing identifiers separated by whitespace)：<br />
 
 
 <table summary="" width="100%" cellpadding="0"><tr><td>
 <textarea name="ids" rows="5" cols="20"></textarea>
 </td>
 <td>
-<i>Example:</i>
+<i>範例(Example)：</i>
 <pre style="border: 1px solid gray; width: 10em; height: 5em">
 SGN-U268057
 SGN-U562661
@@ -60,56 +60,56 @@ SGN-U196026
 <br />
 <br />
 
-And/or upload list file: <br /><input type="file" name="file" />
+及/或上傳識別碼列表檔案(And/or upload list file)：<br /><input type="file" name="file" />
 <br />
 <br />
 
 </td><td valign="top" bgcolor="#EEEEEE" width="320">
 
- <input type="checkbox" name="convert_to_current" checked="checked" /><label for="convert_to_current"><a class="stealth" title="Check this box to convert each unigene in the list to its equivalent in the most current corresponding unigene build(s), if available"><img src="/documents/img/new.gif" />convert unigene list to current build</a></label>
+ <input type="checkbox" name="convert_to_current" checked="checked" /><label for="convert_to_current"><a class="stealth" title="勾選此方塊可將列表中的每個單一基因群轉換為最新相應建置版本中的等效項（若可用）(Check this box to convert each unigene in the list to its equivalent in the most current corresponding unigene build, if available)"><img src="/documents/img/new.gif" />將單一基因群列表轉換至最新版本(convert unigene list to current build)</a></label>
 
  <hr />
 
-<input type="radio" name="unigene_mode" value="unigene_info" checked="checked" /> <b>Download unigene information</b>:<br />
+<input type="radio" name="unigene_mode" value="unigene_info" checked="checked" /> <b>下載單一基因群資訊(Download unigene information)</b>：<br />
 <!-- SGN_U for Unigene Info -->
 <div style="padding-left: 1em">
-    <input type="checkbox" name="SGN_U_U" checked="checked" /> unigene id (SGN-U)<br />
-    <input type="checkbox" name="automatic_annotation" checked="checked" /> automatic (BLAST) annotation<br />
-    <input type="checkbox" name="best_genbank_match" checked="checked" /> best genbank match<br />
-    <input type="checkbox" name="best_arabidopsis_match" checked="checked" /> best arabidopsis match<br />
-    <input type="checkbox" name="associated_loci" checked="checked" /> associated loci<br />
-    <input type="checkbox" name = "uni_seq" checked="checked" onclick="check_fasta_option()"/> sequence<br />
+    <input type="checkbox" name="SGN_U_U" checked="checked" /> 單一基因群 ID (unigene id, SGN-U)<br />
+    <input type="checkbox" name="automatic_annotation" checked="checked" /> 自動 (BLAST) 註解(automatic annotation)<br />
+    <input type="checkbox" name="best_genbank_match" checked="checked" /> 最佳 GenBank 比對(best genbank match)<br />
+    <input type="checkbox" name="best_arabidopsis_match" checked="checked" /> 最佳阿拉伯芥比對(best arabidopsis match)<br />
+    <input type="checkbox" name="associated_loci" checked="checked" /> 相關基因座(associated loci)<br />
+    <input type="checkbox" name = "uni_seq" checked="checked" onclick="check_fasta_option()"/> 序列(sequence)<br />
     <div style="padding-left: 1em">
-         <input type="radio" name="seq_mode" value="unigene_seq" checked="checked" /> unigene nucleotide sequence<br />
-         <input type="radio" name="seq_mode" value="estscan_seq" /> estscan predicted proteins<br />
-         <input type="radio" name="seq_mode" value="longest6frame_seq" /> longest ORF from 6-frame translation<br />
-         <input type="radio" name="seq_mode" value="preferred_protein_seq" /> preferred sequence<br />
+         <input type="radio" name="seq_mode" value="unigene_seq" checked="checked" /> 單一基因群核苷酸序列(unigene nucleotide sequence)<br />
+         <input type="radio" name="seq_mode" value="estscan_seq" /> ESTScan 預測蛋白質(estscan predicted proteins)<br />
+         <input type="radio" name="seq_mode" value="longest6frame_seq" /> 6 閱讀框轉譯中最長開放閱讀框 (ORF) (longest ORF from 6-frame translation)<br />
+         <input type="radio" name="seq_mode" value="preferred_protein_seq" /> 偏好序列(preferred sequence)<br />
     </div>
 </div>
 
-<input type="radio" name="unigene_mode" value="member_info" /> <b>Download member information</b>:
+<input type="radio" name="unigene_mode" value="member_info" /> <b>下載成員資訊(Download member information)</b>：
 <div style="padding-left: 1em">
-    <input type="checkbox" name="clone_name" checked="checked" /> clone name<br />
-    <input type="checkbox" name="SGN_C" checked="checked" /> clone id (SGN-C)<br />
-    <input type="checkbox" name="SGN_T" checked="checked" /> sequence read id (SGN-T)<br />
-    <input type="checkbox" name="SGN_E" checked="checked" /> est id (SGN-E)<br />
-    <input type="checkbox" name="build_nr" checked="checked" /> unigene build number<br />
+    <input type="checkbox" name="clone_name" checked="checked" /> 選殖株名稱(clone name)<br />
+    <input type="checkbox" name="SGN_C" checked="checked" /> 選殖株 ID (clone id, SGN-C)<br />
+    <input type="checkbox" name="SGN_T" checked="checked" /> 序列讀取 ID (sequence read id, SGN-T)<br />
+    <input type="checkbox" name="SGN_E" checked="checked" /> EST ID (SGN-E)<br />
+    <input type="checkbox" name="build_nr" checked="checked" /> 單一基因群建置版本號(unigene build number)<br />
     <!-- SGN_U for Member Info -->
-    <input type="checkbox" name="SGN_U_M" checked="checked" /> unigene id (SGN-U)<br />
-    <input type="checkbox" name="chipname" checked="checked" /> chipname<br />
-    <input type="checkbox" name="SGN_S" checked="checked" /> microarray spot id (SGN-S)<br />
-    <input type="checkbox" name="TUS" checked="checked" /> TUS number<br />
-    <input type="checkbox" name="manual_annotation" /> manual annotation<br />
-    <input type="checkbox" name="est_seq" checked="checked" /> EST sequence<br />
+    <input type="checkbox" name="SGN_U_M" checked="checked" /> 單一基因群 ID (unigene id, SGN-U)<br />
+    <input type="checkbox" name="chipname" checked="checked" /> 晶片名稱(chipname)<br />
+    <input type="checkbox" name="SGN_S" checked="checked" /> 微陣列點位 ID (microarray spot id, SGN-S)<br />
+    <input type="checkbox" name="TUS" checked="checked" /> TUS 編號(TUS number)<br />
+    <input type="checkbox" name="manual_annotation" /> 人工註解(manual annotation)<br />
+    <input type="checkbox" name="est_seq" checked="checked" /> EST 序列(EST sequence)<br />
 </div>
 </td></tr></table>
 
 %    if ( $debug eq "1" ) {
-%        print qq|<input type="checkbox" checked="checked" name=debug /> print debug statements<br /><br />\n|;
+%        print qq|<input type="checkbox" checked="checked" name=debug /> 列印除錯訊息(print debug statements)<br /><br />\n|;
 %    }
 
 	<input type=hidden name="idType" value="unigene" />
-	<input type="reset" />&nbsp;&nbsp;
-<input type="submit" value="Submit" /><br />
+	<input type="reset" value="重設(Reset)" />&nbsp;&nbsp;
+<input type="submit" value="送出(Submit)" /><br />
 </form>
 

@@ -4,40 +4,40 @@
 
 </%args>
 
-<& /page/page_title.mas, title=>'Breeder Tools' &>
+<& /page/page_title.mas, title=>'育種工具(Breeder Tools)' &>
 
 <div class="container-fluid">
 
 <dl>
-<dt><a href="/breeders/manage_programs">Breeding Programs</a></dt>
-<dd>Add new breeding program information.</dd>
+<dt><a href="/breeders/manage_programs">育種計畫(Breeding Programs)</a></dt>
+<dd>新增育種計畫資訊。</dd>
 
-<dt><a href="/breeders/accessions">Accessions</a></dt>
-<dd>Manage accessions. Add new accessions using fuzzy matching.</dd>
+<dt><a href="/breeders/accessions">種原(Accessions)</a></dt>
+<dd>管理種原。使用模糊比對新增種原。</dd>
 
-<dt><a href="/breeders/trials">Field Trials</a></dt>
-<dd>Manage trials. Add new trials and create field layouts.</dd>
+<dt><a href="/breeders/trials">田間試驗(Field Trials)</a></dt>
+<dd>管理試驗。新增試驗並建立田間配置。</dd>
 
-<dt><a href="/breeders/genotyping">Genotyping Plates</a></dt>
-<dd>Upload and manage IGD genotyping plates.</dd>
+<dt><a href="/breeders/genotyping">基因型分型盤(Genotyping Plates)</a></dt>
+<dd>上傳並管理 IGD 基因型分型盤。</dd>
 
-<dt><a href="/breeders/locations">Locations</a></dt>
-<dd>Manage locations. Add/remove locations</dd>
+<dt><a href="/breeders/locations">地點(Locations)</a></dt>
+<dd>管理地點。新增或移除地點。</dd>
 
-<dt><a href="/breeders/crosses">Crosses</a></dt>
-<dd>Create new crosses.</dd>
+<dt><a href="/breeders/crosses">雜交(Crosses)</a></dt>
+<dd>建立新雜交。</dd>
 
-<dt><a href="/breeders/phenotyping">Phenotyping</a></dt>
-<dd>Upload phenotype information for accessions in the database.</dd>
+<dt><a href="/breeders/phenotyping">表型分析(Phenotyping)</a></dt>
+<dd>為資料庫中的種原上傳表型資訊。</dd>
 
-<dt><a href="/fieldbook">Fieldbook</a><dt>
-<dd>Create files for the Android Fieldbook app, upload files from Fieldbook to the database.
+<dt><a href="/fieldbook">田間簿(Fieldbook)</a><dt>
+<dd>建立適用於 Android Fieldbook 應用程式的檔案，將 Fieldbook 檔案上傳至資料庫。</dd>
 
-<dt><a href="/barcode">Barcodes</a></dt>
-<dd>Download barcodes for accessions and plots.</dd>
+<dt><a href="/barcode">條碼(Barcodes)</a></dt>
+<dd>下載種原與小區的條碼。</dd>
 
-<dt><a href="/breeders/download">Download Data</a></dt>
-<dd>Download phenotypic and genotypic data by trial, triat and location.</dd>
+<dt><a href="/breeders/download">下載數據(Download Data)</a></dt>
+<dd>依試驗、性狀與地點下載表型及基因型數據。</dd>
 
 </div>
 

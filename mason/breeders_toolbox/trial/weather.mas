@@ -6,7 +6,7 @@ $harvest_date
 </%args>
 
 <div class="well well-sm">
-<p id="trial_weather_noaa_check">NOAA data not available for this location. Make sure the location <a href="/breeders/locations"><% $location %></a> has a valid NOAA Station identifier! Make sure the planting date and harvest date is defined for this field trial!</p>
+<p id="trial_weather_noaa_check">此地點無可用的 NOAA 資料。請確保地點 <a href="/breeders/locations"><% $location %></a> 具有有效的 NOAA 測站識別碼！並確保已定義此田間試驗的種植日期與收穫日期！</p>
 </div>
 
 <!--div class="well well-sm">
@@ -20,11 +20,11 @@ jQuery(document).ready(function () {
         var planting_date_check = "<% $planting_date %>";
         var harvest_date_check = "<% $harvest_date %>";
         if (planting_date_check == '') {
-            alert('Please set the planting date! You can edit the planting date at any time');
+            alert('請設定種植日期！您可以隨時編輯種植日期');
             return false;
         }
         if (harvest_date_check == '') {
-            alert('Please set the harvest date! You can edit the harvest date at any time.');
+            alert('請設定收穫日期！您可以隨時編輯收穫日期。');
             return false;
         }
 
@@ -45,7 +45,7 @@ jQuery(document).ready(function () {
                         success: function(response) {
                             console.log(response);
                             if (response.name) {
-                                alert('Found a valid NOAA Station for this location: '+response.name);
+                                alert('找到此地點的有效 NOAA 測站：'+response.name);
 
                                 var planting_date_formatted = moment(planting_date_check).format('YYYY-MM-DD');
                                 var harvest_date_formatted = moment(harvest_date_check).format('YYYY-MM-DD');
@@ -66,11 +66,11 @@ jQuery(document).ready(function () {
                                             jQuery('#trial_weather_noaa_check').html(html);
                                         }
                                         else {
-                                            alert('There was an error getting NOAA analysis!');
+                                            alert('取得 NOAA 分析時發生錯誤！');
                                         }
                                     },
                                     error: function(response){
-                                        alert('Error getting NOAA NCDC analysis!');
+                                        alert('取得 NOAA NCDC 分析時發生錯誤！');
                                         jQuery('#working_modal').modal('hide');
                                     }
                                 });
@@ -78,23 +78,23 @@ jQuery(document).ready(function () {
 
                             }
                             else {
-                                alert('Could not verify the NOAA StationID you provided. Go to Manage->Locations and make sure your location has a valid NOAA station id!');
+                                alert('無法驗證您提供的 NOAA 測站 ID。請前往「管理->地點」並確保您的地點具有有效的 NOAA 測站 ID！');
                                 jQuery('#working_modal').modal('hide');
                             }
                         },
                         error: function() {
-                            alert('The NOAA NCDC authorization token may not be valid! We could not verify your NOAA StationID. Please contact us!');
+                            alert('NOAA NCDC 授權權杖可能無效！我們無法驗證您的 NOAA 測站 ID。請與我們聯繫！');
                             jQuery('#working_modal').modal('hide');
                         }
                     });
                 }
                 else {
-                    alert('No NOAA NCDC station id for this location. Go to Manage->Locations and edit your location to add a valid NOAA station id!');
+                    alert('此地點沒有 NOAA NCDC 測站 ID。請前往「管理->地點」並編輯您的地點以新增有效的 NOAA 測站 ID！');
                     jQuery('#working_modal').modal('hide');
                 }
             },
             error: function(response){
-                alert('Error getting NOAA NCDC ID for location!');
+                alert('取得地點的 NOAA NCDC ID 時發生錯誤！');
                 jQuery('#working_modal').modal('hide');
             }
         });

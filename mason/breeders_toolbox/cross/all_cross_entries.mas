@@ -5,7 +5,7 @@
 <& /util/import_javascript.mas, classes => [ 'jquery', 'jquery.dataTables' ] &>
 <& /util/import_css.mas, paths => ['/documents/inc/datatables/jquery.dataTables.css'] &>
 
-<a href="/search/download_cross_entries" class="btn btn-sm btn-default">Download All Cross Entries</a>
+<a href="/search/download_cross_entries" class="btn btn-sm btn-default">下載所有雜交條目(Download All Cross Entries)</a>
 </br>
 </br>
 <div style="overflow:scroll">
@@ -23,26 +23,26 @@ jQuery(document).ready(function(){
             'destroy': true,
             'ajax':'/ajax/search/all_cross_entries',
             columns: [
-                { title: "Cross Unique ID", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
-                { title: "Cross Type", "data": "cross_type" },
-                { title: "Female Parent", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.female_id+"/view'>"+row.female_name+"</a>"; } },
-                { title: "Female Ploidy", "data": "female_ploidy" },
-                { title: "Female Genome Structure", "data": "female_genome_structure" },
-                { title: "Male Parent", "data": null, "render": function ( data, type, row ) {
+                { title: "雜交唯一識別碼(Cross Unique ID)", "data": null, "render": function ( data, type, row ) { return "<a href='/cross/"+row.cross_id+"'>"+row.cross_name+"</a>"; } },
+                { title: "雜交類型(Cross Type)", "data": "cross_type" },
+                { title: "母本(Female Parent)", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.female_id+"/view'>"+row.female_name+"</a>"; } },
+                { title: "母本倍數性(Female Ploidy)", "data": "female_ploidy" },
+                { title: "母本基因組結構(Female Genome Structure)", "data": "female_genome_structure" },
+                { title: "父本(Male Parent)", "data": null, "render": function ( data, type, row ) {
                     if (row.male_parent_id === null){
                         return 'NA';
                     } else {
                         return "<a href='/stock/"+row.male_id+"/view'>"+row.male_name+"</a>";
                     }
                 }},
-                { title: "Male Ploidy", "data": "male_ploidy" },
-                { title: "Male Genome Structure", "data": "male_genome_structure" },
-                { title: "Pollination Date", "data": "pollination_date" },
-                { title: "Number of Seeds", "data": "number_of_seeds" },
-                { title: "Number of Progenies", "data": "progeny_count" },
-                { title: "Crossing Experiment", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/trial/"+row.project_id+"'>"+row.project_name+"</a>"; } },
-                { title: "Description", "data": "project_description" },
-                { title: "Location", "data": "project_location" },
+                { title: "父本倍數性(Male Ploidy)", "data": "male_ploidy" },
+                { title: "父本基因組結構(Male Genome Structure)", "data": "male_genome_structure" },
+                { title: "授粉日期(Pollination Date)", "data": "pollination_date" },
+                { title: "種子數量(Number of Seeds)", "data": "number_of_seeds" },
+                { title: "後代數量(Number of Progenies)", "data": "progeny_count" },
+                { title: "雜交實驗(Crossing Experiment)", "data": null, "render": function ( data, type, row ) { return "<a href='/breeders/trial/"+row.project_id+"'>"+row.project_name+"</a>"; } },
+                { title: "描述(Description)", "data": "project_description" },
+                { title: "地點(Location)", "data": "project_location" },
             ],
         });
     });

@@ -24,7 +24,7 @@ $trial_stock_type => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_edit_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_edit_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
                 <button type="button" class="btn btn-primary" name="replace_trial_stock_submit" id="replace_trial_stock_submit"></button>
                 <!-- <button type="button" class="btn btn-primary" name="substitute_stock_submit" id="substitute_stock_submit"></button> -->
             </div>
@@ -62,7 +62,7 @@ $trial_stock_type => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_replace_trial_accession_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_replace_trial_accession_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
                 <button type="button" class="btn btn-primary" name="replace_stock_submit" id="replace_stock_submit"></button>
             </div>
         </div>
@@ -122,7 +122,7 @@ $trial_stock_type => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_replace_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_replace_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
             </div>
         </div>
@@ -144,7 +144,7 @@ $trial_stock_type => undef
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_subs_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_subs_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
             </div>
         </div>
@@ -157,53 +157,53 @@ $trial_stock_type => undef
         <div class="modal-content">
             <div class="modal-header" style="text-align: center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="UsageFieldMapDialog">How to Use and Edit Field Map </h4>
+                <h4 class="modal-title" id="UsageFieldMapDialog">如何使用與編輯田區地圖(How to Use and Edit Field Map)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
 
                 <h4>
-                  Background:
+                  背景：
                 </h4>
-                  <center><p>Field map is a tool that enable users to view the physical layout of plots in a trial. Maps can be generated on the fly while adding a trial or uploading a trial. Field map coordinates can also be uploaded independently after trials have been added or uploaded. It is a very intuitive, flexible and user friendly tool for manipulation/making changes to field trial layouts before phenotypes are uploaded. </p></center>
+                  <center><p>田區地圖是讓使用者檢視試驗中小區實體配置的工具。在新增試驗或上傳試驗時可即時產生田區地圖。在新增或上傳試驗後，也可以單獨上傳田區地圖座標。這是一個非常直覺、靈活且使用者友善的工具，可在上傳表型資料之前操作/修改田間試驗配置。</p></center>
 
                 <h4>
-                  Editing Options:
+                  編輯選項：
                 </h4>
                 <dl>
-                  <dt>Replace Plot Accession</dt>
-                  <dd>A plot accession can be replaced by an accession within or outside of the trial. To do this, <b>click on the plot</b> and <b>provide the name of the new accession</b> (must already exist in the database).</dd>
-                  <dt>Replace Trial Accession</dt>
-                  <dd>An accession used in a trial can be replaced by a new accession or another accession from the trial. When this replace option is used, it replaces every instances (plots and plants) of that accession in the trial. To do this, <b>click on the Edit Field Map link</b> by the top right of the physical trial layout section; <b>click on Replace Accession button</b>; <b>select accession</b> to replace from the trial and <b>provide a new accession</b> (must already exit in the database); <b>click on Replace Trial Accession button</b> to complete the operation.</dd>
+                  <dt>替換小區種原(Replace Plot Accession)</dt>
+                  <dd>小區種原可由試驗內或試驗外的種原替換。操作方式為<b>點擊該小區</b>並<b>提供新種原名稱</b>（該種原必須已存在於資料庫中）。</dd>
+                  <dt>替換試驗種原(Replace Trial Accession)</dt>
+                  <dd>試驗中使用的種原可替換為新種原或該試驗中的另一個種原。使用此替換選項時，將替換該試驗中該種原的所有實例（小區和植株）。操作方式為：<b>點擊實體試驗配置區塊右上角的「編輯田區地圖(Edit Field Map)」連結</b>；<b>點擊「替換種原(Replace Accession)」按鈕</b>；從試驗中<b>選擇要替換的種原</b>並<b>提供新種原名稱</b>（必須已存在於資料庫中）；<b>點擊「替換試驗種原(Replace Trial Accession)」按鈕</b>即可完成操作。</dd>
                   <!--
-                  <dt>Substitute Plot Accessions<dt>
-                  <dd>This feature allows you to switch plot accessions between any two plots. To switch the accessions of two plots, <b>click on the Edit Field Map link</b>; <b>click on Substitute Accession button</b>; <b>select the plots to switch there accessions</b>; <b>click on Substitute Plot Accession</b> to switch the accession in those plots.</dd>
+                  <dt>互換小區種原(Substitute Plot Accessions)<dt>
+                  <dd>此功能允許您在任意兩個小區之間互換小區種原。若要互換兩個小區的種原，<b>點擊「編輯田區地圖(Edit Field Map)」連結</b>；<b>點擊「互換種原(Substitute Accession)」按鈕</b>；<b>選擇要互換種原的小區</b>；<b>點擊「互換小區種原(Substitute Plot Accession)」</b>即可互換這些小區中的種原。</dd>
                   -->
                 </dl>
 
                 <h4>
-                  Features:
+                  功能特性：
                 </h4>
-                <dt>Mouse Over<dt>
-                <dd>Displays plot field information.</dd>
-                <dt>Double Click</dt>
-                <dd>Double clicking on a plot, opens the stock page for that plot.</dd>
-                <dt>Download Map<dt>
-                <dd>Field Map can be downloaded as image using the download button below the map.</dd>
-                <dt>Delete Map</dt>
-                <dd>Field Map can be deleted if the user have the right privilege.</dd>
+                <dt>滑鼠懸停</dt>
+                <dd>顯示小區田間資訊。</dd>
+                <dt>按兩下</dt>
+                <dd>在小區上按兩下即可開啟該小區的品系頁面。</dd>
+                <dt>下載地圖(Download Map)</dt>
+                <dd>可使用地圖下方的下載按鈕將田區地圖下載為圖片。</dd>
+                <dt>刪除地圖(Delete Map)</dt>
+                <dd>若使用者具備相應權限，可刪除田區地圖。</dd>
 
                 <h4>
-                  Note:
+                  注意事項：
                 </h4>
-                <dd>- You have to be a <b>curator</b> or a <b>submitter and associated to the breeding program</b> of the trial to use the features of this tool.</dd>
-                <dd>- <b>Input boxes</b> used within the field map tool will automatically (<b>autocomplete</b>) give accession name options from the database when you start typing the accession name.</dd>
-                <dd>- <b>Changes can only be made to the physical layout when phenotypes are not yet upload for the trial.</b></dd>
+                <dd>- 您必須是<b>管理者 (curator)</b> 或是<b>提交者且關聯至該試驗的育種計畫</b>，才能使用此工具的功能。</dd>
+                <dd>- 田區地圖工具中的<b>輸入框</b>在您開始輸入種原名稱時，會自動（<b>自動完成 (autocomplete)</b>）顯示資料庫中的種原名稱選項。</dd>
+                <dd>- <b>僅在尚未為該試驗上傳表型資料時，才能對實體配置進行修改。</b></dd>
 
                 </div>
             </div>
             <div class="modal-footer">
-                <button id="close_usage_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="close_usage_field_map_dialog" type="button" class="btn btn-default" data-dismiss="modal">關閉(Close)</button>
 
             </div>
         </div>
@@ -250,7 +250,7 @@ jQuery(document).ready(function () {
             jQuery('#stocks_in_trial').html(trial_stocks_html);
         },
 	    error: function(response){
-            alert("Error retrieving stocks.");
+            alert("檢索品系時發生錯誤。");
 	    }
 	});
 
@@ -315,14 +315,14 @@ jQuery(document).ready(function () {
                 jQuery('#working_modal').modal("hide");
 
                 if (response.error) {
-                    alert("Error Replacing Stock: "+response.error);
+                    alert("替換品系時發生錯誤："+response.error);
                 } else {
                     jQuery('#replace_stock_dialog_success_message').modal("show");
                 }
             },
             error: function() {
                 jQuery('#working_modal').modal("hide");
-                alert('An error occurred replacing stock');
+                alert('替換品系時發生錯誤。');
             }
         });
     }
@@ -387,45 +387,45 @@ jQuery(document).ready(function () {
     var subs_success_message = '';
 
     if (trial_stock_type == 'family_name') {
-        edit_dialog_title = 'Replace Trial Family Names Or Substitute Family Names Within A Trial Plots';
-        replace_button_label = 'Replace Family Name';
-        substitute_button_label = 'Substitute Family Name';
-        replace_dialog_title = 'Replace Trial Family Name in '.concat(trial_name);
-        replace_stock_text1 = 'Select Family Name: ';
-        replace_stock_text2 = 'Enter New Family Name: ';
-        replace_button_submit = 'Replace Trial Family Name';
-        substitute_dialog_title = 'Substitute Plot Family Name in '.concat(trial_name);
-        substitute_button_submit = 'Substitute Plot Family Name';
-        replace_message_title = 'Replace Trial Family Name';
-        replace_success_message = 'Family Name was replaced successfully.';
-        subs_message_title = 'Substitute Plot Family Name';
-        subs_success_message = 'Family Name was substituted successfully.';
+        edit_dialog_title = '替換試驗家族名稱或在試驗小區內互換家族名稱';
+        replace_button_label = '替換家族名稱(Replace Family Name)';
+        substitute_button_label = '互換家族名稱(Substitute Family Name)';
+        replace_dialog_title = '替換 '.concat(trial_name, ' 中的試驗家族名稱');
+        replace_stock_text1 = '選擇家族名稱：';
+        replace_stock_text2 = '輸入新家族名稱：';
+        replace_button_submit = '替換試驗家族名稱(Replace Trial Family Name)';
+        substitute_dialog_title = '互換 '.concat(trial_name, ' 中的小區家族名稱');
+        substitute_button_submit = '互換小區家族名稱(Substitute Plot Family Name)';
+        replace_message_title = '替換試驗家族名稱';
+        replace_success_message = '家族名稱已成功替換。';
+        subs_message_title = '互換小區家族名稱';
+        subs_success_message = '家族名稱已成功互換。';
     } else if (trial_stock_type == 'cross') {
-        edit_dialog_title = 'Replace Trial Cross Unique IDs Or Substitute Cross Unique IDs Within A Trial Plots';
-        replace_button_label = 'Replace Cross Unique ID';
-        substitute_button_label = 'Substitute Cross Unique ID';
-        replace_dialog_title = 'Replace Trial Cross Unique ID in '.concat(trial_name);
-        replace_stock_text1 = 'Select Cross Unique ID: ';
-        replace_stock_text2 = 'Enter New Cross Unique ID: ';
-        replace_button_submit = 'Replace Trial Cross Unique ID';
-        substitute_dialog_title = 'Substitute Plot Cross Unique ID in '.concat(trial_name);
-        substitute_button_submit = 'Substitute Plot Cross Unique ID';
-        replace_message_title = 'Replace Cross Unique ID';
-        replace_success_message = 'Cross Unique ID was replaced successfully.';
-        subs_message_title = 'Substitute Cross Unique ID';
-        subs_success_message = 'Crosss Unique ID was substituted successfully.';
+        edit_dialog_title = '替換試驗雜交唯一識別碼或在試驗小區內互換雜交唯一識別碼';
+        replace_button_label = '替換雜交唯一識別碼(Replace Cross Unique ID)';
+        substitute_button_label = '互換雜交唯一識別碼(Substitute Cross Unique ID)';
+        replace_dialog_title = '替換 '.concat(trial_name, ' 中的試驗雜交唯一識別碼');
+        replace_stock_text1 = '選擇雜交唯一識別碼：';
+        replace_stock_text2 = '輸入新雜交唯一識別碼：';
+        replace_button_submit = '替換試驗雜交唯一識別碼(Replace Trial Cross Unique ID)';
+        substitute_dialog_title = '互換 '.concat(trial_name, ' 中的小區雜交唯一識別碼');
+        substitute_button_submit = '互換小區雜交唯一識別碼(Substitute Plot Cross Unique ID)';
+        replace_message_title = '替換雜交唯一識別碼';
+        replace_success_message = '雜交唯一識別碼已成功替換。';
+        subs_message_title = '互換雜交唯一識別碼';
+        subs_success_message = '雜交唯一識別碼已成功互換。';
     } else {
-        edit_dialog_title = 'Replace Trial Accessions Within A Trial Plots';
-        replace_button_label = 'Replace Accession';
-        // substitute_button_label = 'Substitute Accession';
-        replace_dialog_title = 'Replace Trial Accession in '.concat(trial_name);
-        replace_stock_text1 = 'Select Accession: ';
-        replace_stock_text2 = 'Enter New Accession: ';
-        replace_button_submit = 'Replace Trial Accession';
-        // substitute_dialog_title = 'Substitute Plot Accession in '.concat(trial_name);
-        // substitute_button_submit = 'Substitute Plot Accession';
-        replace_message_title = 'Replace Trial Accession';
-        replace_success_message = 'Accession was replaced successfully.';
+        edit_dialog_title = '替換試驗小區內的試驗種原';
+        replace_button_label = '替換種原(Replace Accession)';
+        // substitute_button_label = '互換種原(Substitute Accession)';
+        replace_dialog_title = '替換 '.concat(trial_name, ' 中的試驗種原');
+        replace_stock_text1 = '選擇種原：';
+        replace_stock_text2 = '輸入新種原：';
+        replace_button_submit = '替換試驗種原(Replace Trial Accession)';
+        // substitute_dialog_title = '互換 '.concat(trial_name, ' 中的小區種原');
+        // substitute_button_submit = '互換小區種原(Substitute Plot Accession)';
+        replace_message_title = '替換試驗種原';
+        replace_success_message = '種原已成功替換。';
         // subs_message_title = 'Substitute Plot Accession';
         // subs_success_message = 'Accession was substituted successfully.';
     }

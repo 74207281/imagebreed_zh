@@ -4,34 +4,34 @@
 
 <& /util/import_javascript.mas, classes => ['spin_min', 'ladda_min' ] &>
 
-<& /page/page_title.mas, title=>"Download Using Lists" &>
+<& /page/page_title.mas, title=>"使用清單下載(Download Using Lists)" &>
 
 <div class="container-fluid">
 
 <div class="well">
-Choose a list for each parameter and click "Download".
+為每個參數選擇一個清單，然後點擊「下載(Download)」。
 </div>
 
 <div class="well well-sm">
-<h4>Download Phenotypes Using Lists</h4><p>Select Parameters:</p>
+<h4>使用清單下載表型(Download Phenotypes Using Lists)</h4><p>選擇參數：</p>
 <form id="download_form" action="/breeders/download_action" method="POST" >
 <table class="table table-bordered" >
   <thead>
   <tr>
     <th>
-      Accessions
+      種原(Accessions)
     </th>
     <th>
-      Trials
+      試驗(Trials)
     </th>
     <th>
-      Traits
+      性狀(Traits)
     </th>
     <th>
-        Options
+      選項(Options)
     </th>
     <th>
-      Action
+      動作(Action)
     </th>
   </tr>
   </thead>
@@ -50,43 +50,43 @@ Choose a list for each parameter and click "Download".
       </div>
    </td>
     <td>
-    <b>Format:</b><br/>
+    <b>格式：</b><br/>
     <select class="form-control" id="format" name="format">
-        <option value="csv">CSV Wide</option>
-        <option value="csv_long">CSV Long</option>
-        <option value="xlsx">Excel (xlsx) Wide</option>
-        <option value="xlsx_long">Excel (xlsx) Long</option>
+        <option value="csv">CSV 寬格式 (CSV Wide)</option>
+        <option value="csv_long">CSV 長格式 (CSV Long)</option>
+        <option value="xlsx">Excel (xlsx) 寬格式 (Excel (xlsx) Wide)</option>
+        <option value="xlsx_long">Excel (xlsx) 長格式 (Excel (xlsx) Long)</option>
         <option value="html">HTML</option>
     </select>
     <br/>
-    <b>Data Level:</b><br/>
+    <b>數據層級：</b><br/>
     <select class="form-control" id="phenotype_datalevel" name="phenotype_datalevel">
-        <option value="all">All Levels</option>
-        <option value="plot">Plot</option>
-        <option value="plant">Plant</option>
+        <option value="all">所有層級</option>
+        <option value="plot">小區(Plot)</option>
+        <option value="plant">植株(Plant)</option>
     </select>
     <br/>
-    <b>Repeated Measurements:</b><br/>
+    <b>重複測量：</b><br/>
     <select class="form-control" id="phenotype_repeated_measurements" name="phenotype_repeated_measurements">
-        <option value="all">All Values</option>
-        <option value="average">Average Repeated Values</option>
-        <option value="first">First Value</option>
+        <option value="all">所有數值</option>
+        <option value="average">重複數值取平均</option>
+        <option value="first">取第一筆數值</option>
     </select>
     <br/>
-    <b>Timestamp:</b><br/>
+    <b>時間戳記：</b><br/>
     <select class="form-control" id="timestamp" name="timestamp">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
+        <option value="0">否</option>
+        <option value="1">是</option>
     </select>
     <br/>
-    <b>Exclude Phenotype Outliers:</b><br/>
+    <b>排除表型離群值：</b><br/>
     <select class="form-control" id="exclude_phenotype_outlier" name="exclude_phenotype_outlier">
-        <option value="0">No</option>
-        <option value="1">Yes</option>
+        <option value="0">否</option>
+        <option value="1">是</option>
     </select>
     </td>
     <td>
-      <button class="btn btn-primary" type="button" id="phenotype">Download</button>
+      <button class="btn btn-primary" type="button" id="phenotype">下載(Download)</button>
       <input type="hidden" id="phenotype_download_token" name="phenotype_download_token"/>
     </td>
   </tr>
@@ -96,12 +96,12 @@ Choose a list for each parameter and click "Download".
 </div>
 
 <div class="well well-sm">
-<h4>Inspect Datasets</h4>
+<h4>檢視資料集(Inspect Datasets)</h4>
 <table class="table table-bordered" >
   <thead>
   <tr>
     <th>
-      Datasets
+      資料集(Datasets)
     </th>
   </tr>
   </thead>
@@ -117,19 +117,19 @@ Choose a list for each parameter and click "Download".
 </div>
 
 <div class="well well-sm">
-<h4>Download Metadata</h4><p>Select Parameters:</p>
+<h4>下載元數據(Download Metadata)</h4><p>選擇參數：</p>
 <form id="download_metadata_form" action="/breeders/download_action" method="POST" >
 <table class="table table-bordered" >
   <thead>
   <tr>
     <th>
-      Trials
+      試驗(Trials)
     </th>
     <th>
-        Options
+      選項(Options)
     </th>
     <th>
-      Action
+      動作(Action)
     </th>
   </tr>
   </thead>
@@ -140,7 +140,7 @@ Choose a list for each parameter and click "Download".
       </div>
     </td>
     <td>
-    <b>Format:</b><br/>
+    <b>格式：</b><br/>
     <select class="form-control" id="metadata_format" name="metadata_format">
         <option value=".xlsx">XLSX</option>
         <option value=".csv">CSV</option>
@@ -149,12 +149,12 @@ Choose a list for each parameter and click "Download".
     <br/>
     <div id="datalevel" style="display:none">
       <select class="form-control" id="metadata_datalevel" name="metadata_datalevel">
-          <option value="metadata">Metadata</option>
+          <option value="metadata">元數據(Metadata)</option>
       </select>
     </div>
     </td>
     <td>
-      <button class="btn btn-primary" type="button" id="metadata">Download</button>
+      <button class="btn btn-primary" type="button" id="metadata">下載(Download)</button>
       <input type="hidden" id="metadata_download_token" name="metadata_download_token"/>
     </td>
   </tr>
@@ -186,7 +186,7 @@ $(document).ready(function() {
       }
 
       if (problem_lists.length > 0) {
-      	  alert("The following lists did not pass validation: "+problem_lists.join(", ")+". Please correct the list(s) and try again");
+      	  alert("以下清單未通過驗證："+problem_lists.join(", ")+"。請修正清單後重試");
 	        return;
       }
 
@@ -227,7 +227,7 @@ $(document).ready(function() {
       }
 
       if (problem_lists.length > 0) {
-      	 alert("The following lists did not pass validation: "+problem_lists.join(", ")+". Please correct the list(s) and try again");
+      	 alert("以下清單未通過驗證："+problem_lists.join(", ")+"。請修正清單後重試");
 	 return;
       }
 
@@ -252,11 +252,11 @@ $(document).ready(function() {
   <form id="download_accession_properties" action="/breeders/download_accession_properties_action" method="POST">
     <table class="table"  cellpadding="10">
       <thead>
-        <tr><td colspan="2"><h4>Download Accession Properties</h4><p>Select parameters:</p></tr>
+        <tr><td colspan="2"><h4>下載種原屬性(Download Accession Properties)</h4><p>選擇參數：</p></tr>
         <tr>
-          <th>Accessions</th>
-          <th>Format</th>
-          <th>Action</th>
+          <th>種原(Accessions)</th>
+          <th>格式(Format)</th>
+          <th>動作(Action)</th>
         </tr>
       </thead>
       <tbody>
@@ -271,7 +271,7 @@ $(document).ready(function() {
           </select>
         </td>
         <td>
-          <button class="btn btn-primary" type="button" id="accession_properties_download">Download</button>
+          <button class="btn btn-primary" type="button" id="accession_properties_download">下載(Download)</button>
           <input type="hidden" id="accession_properties_download_token" name="accession_properties_download_token"/>
         </td>
       </tr>
@@ -292,7 +292,7 @@ $(document).ready(function() {
 
         var accession_list_id = $('#accession_properties_accession_list_list_select').val();
         if (!accession_list_id) {
-            alert("You need to select an accession list!");
+            alert("您需要選擇一個種原清單！");
             return;
         }
 
@@ -302,7 +302,7 @@ $(document).ready(function() {
         }
 
         if (accession_validation != 1) {
-            alert("The accession list did not pass validation. Please correct the list and try again");
+            alert("種原清單未通過驗證。請修正清單後重試");
             return;
         }
 
@@ -330,16 +330,16 @@ $(document).ready(function() {
 <form id="download_pedigree" action="/breeders/download_pedigree_action" method="POST">
 <table class="table"  cellpadding="10">
   <thead>
-  <tr><td colspan="2"><h4>Download Pedigree </h4><p>Select parameter:</p></tr>
+  <tr><td colspan="2"><h4>下載譜系(Download Pedigree)</h4><p>選擇參數：</p></tr>
   <tr>
     <th>
-      Accessions
+      種原(Accessions)
     </th>
     <th>
-      Format
+      格式(Format)
     </th>
     <th>
-      Action
+      動作(Action)
     </th>
   </tr>
   </thead>
@@ -351,14 +351,14 @@ $(document).ready(function() {
     </td>
     <td>
  <div class="radio">
-  <label><input type="radio" id="ped_format" name="ped_format" value="parents_only" checked>Direct parents only</label>
+  <label><input type="radio" id="ped_format" name="ped_format" value="parents_only" checked>僅直接親本</label>
  </div>
  <div class="radio">
-   <label><input type="radio" id="ped_format" name="ped_format" value="full">Full pedigrees</label>
+   <label><input type="radio" id="ped_format" name="ped_format" value="full">完整譜系</label>
  </div>
      </td>
     <td>
-      <button class="btn btn-primary" type="button" id="pedigree">Download</button>
+      <button class="btn btn-primary" type="button" id="pedigree">下載(Download)</button>
       <input type="hidden" id="pedigree_download_token" name="pedigree_download_token"/>
     </td>
   </tr>
@@ -379,7 +379,7 @@ $(document).ready(function() {
 
         var accession_list_id = $('#pedigree_accession_list_list_select').val();
         if (!accession_list_id) {
-            alert("You need to select an accession list!");
+            alert("您需要選擇一個種原清單！");
             return;
         }
 
@@ -390,7 +390,7 @@ $(document).ready(function() {
         }
 
         if (accession_validation != 1) {
-            alert("The accession list did not pass validation. Please correct the list and try again");
+            alert("種原清單未通過驗證。請修正清單後重試");
             return;
         }
 
@@ -413,16 +413,16 @@ $(document).ready(function() {
 <form id="download_gbs" action="/breeders/download_gbs_action" method="POST">
 <table class="table"  cellpadding="10">
   <thead>
-  <tr><td colspan="2"><h4>Download Genotype Data</h4><p>Select parameter:</p></tr>
+  <tr><td colspan="2"><h4>下載基因型資料(Download Genotype Data)</h4><p>選擇參數：</p></tr>
   <tr>
     <th>
-      Accessions
+      種原(Accessions)
     </th>
     <th>
-      Genotyping Protocol
+      基因型分型協定(Genotyping Protocol)
     </th>
     <th>
-      Action
+      動作(Action)
     </th>
   </tr>
   </thead>
@@ -437,7 +437,7 @@ $(document).ready(function() {
       </div>
     </td>
     <td>
-      <button class="btn btn-primary" type="button" id="genotype">Download</button>
+      <button class="btn btn-primary" type="button" id="genotype">下載(Download)</button>
       <input type="hidden" id="gbs_download_token" name="gbs_download_token"/>
     </td>
   </tr>
@@ -465,7 +465,7 @@ $(document).ready(function() {
       }
 
       if (!( accession_list_id || protocol_list_id) ) {
-        alert("You need to select a list of accessions and a protocol !");
+        alert("您需要選擇種原清單和協定！");
         return;
       }
 
@@ -479,7 +479,7 @@ $(document).ready(function() {
       console.log(problem_lists);
 
       if (problem_lists.length > 0) {
-        alert("The following lists did not pass validation: "+problem_lists.join(", ")+". Please correct the list(s) and try again");
+        alert("以下清單未通過驗證："+problem_lists.join(", ")+"。請修正清單後重試");
         return;
       }
 
@@ -499,19 +499,19 @@ $(document).ready(function() {
 <form id="gbs_qc" action="/breeders/gbs_qc_action" method="POST">
 <table class="table" cellpadding="10">
   <thead>
-  <tr><td colspan="3"><h4>Genotype Data QC</h4><p>Select parameter:</p></tr>
+  <tr><td colspan="3"><h4>基因型資料品管(Genotype Data QC)</h4><p>選擇參數：</p></tr>
   <tr>
     <th>
-      Trials
+      試驗(Trials)
     </th>
     <th>
-      Accessions
+      種原(Accessions)
     </th>
     <th>
-      Genotyping Protocol
+      基因型分型協定(Genotyping Protocol)
     </th>
     <th>
-      Action
+      動作(Action)
     </th>
   </tr>
   </thead>
@@ -530,7 +530,7 @@ $(document).ready(function() {
       </div>
     </td>
     <td>
-      <button class="btn btn-primary" type="button" id="genotype_qc">Download</button>
+      <button class="btn btn-primary" type="button" id="genotype_qc">下載(Download)</button>
       <input type="hidden" id="qc_download_token" name="qc_download_token"/>
     </td>
   </tr>
@@ -561,7 +561,7 @@ $(document).ready(function() {
 		draggable: true,
 		resizable: true,
 		open: function() { $(this).closest('.ui-dialog').find('.ui-dialog-titlebar-close').hide(); },
-		title: 'Downloading genotype...'
+		title: '下載基因型中...'
 		});
 
       var accession_list_id = $('#genotype_qc_accession_list_list_select').val();
@@ -571,7 +571,7 @@ $(document).ready(function() {
       var trial_validation = lo.validate(trial_list_id, 'trials', true);
 
       if (! (accession_list_id || trial_list_id) ) {
-        alert("You need to select an accession or a trail !");
+        alert("您需要選擇種原或試驗！");
         return;
       }
 
@@ -591,7 +591,7 @@ $(document).ready(function() {
       console.log(problem_lists);
 
       if (problem_lists.length > 0) {
-        alert("The following lists did not pass validation: "+problem_lists.join(", ")+". Please correct the list(s) and try again");
+        alert("以下清單未通過驗證："+problem_lists.join(", ")+"。請修正清單後重試");
         return;
       }
 

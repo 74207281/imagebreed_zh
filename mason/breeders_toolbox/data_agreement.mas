@@ -23,12 +23,12 @@ jQuery(document).ready(function () {
              jQuery('#'+div).html(response.text);
            }
            else { 
-             jQuery('#'+div).html('By default, trial data is provided under the Toronto agreement, as explained in the <a href="/usage_policy">data usage policy</a>.');
+             jQuery('#'+div).html('預設情況下，試驗資料依據多倫多協定（Toronto agreement）提供，詳情請見<a href="/usage_policy">資料使用政策</a>。');
            }
            if (response.message) { alert(response.message); }
         },
         error: function(response) { 
-           alert('An error occurred fetching the data agreement data.');
+           alert('擷取資料協議時發生錯誤。');
         }
       });
     }

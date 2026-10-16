@@ -7,7 +7,7 @@ $locations => undef
 
 <& /util/import_javascript.mas, classes => [ 'CXGN.BreedersToolbox.Trial03152022','CXGN.BreedersToolbox.FieldBook03152022','CXGN.BreedersToolbox.UploadPhenotype03152022', 'CXGN.BreedersToolbox.UploadImages03152022', 'CXGN.BreederSearch03152022', 'CXGN.Trial03152022' ] &>
 
-<& /page/page_title.mas, title=>"Manage Phenotypic Data" &>
+<& /page/page_title.mas, title=>"管理表型資料(Manage Phenotypic Data)" &>
 
 <div class="container-fluid">
 
@@ -22,7 +22,7 @@ $locations => undef
 
 <div class="well">
 
-<&| /page/info_section.mas, title=>'Your Uploaded Files', is_subsection=>1, subtitle=>'[<a id="upload_fieldbook_phenotypes_link" >Upload Fieldbook Database File</a>]    [<a id="upload_spreadsheet_phenotypes_link" >Upload Spreadsheet</a>]<br/>[<a name="create_fieldbook_link" >Create Fieldbook Layout File</a>]    [<a id="create_new_trait_file_link" >Create Fieldbook Trait File</a>]<br/>[<a name="create_spreadsheet_link" >Create Spreadsheet</a>] [<a id="upload_images_link" >Upload Images</a>]' &>
+<&| /page/info_section.mas, title=>'您上傳的檔案(Your Uploaded Files)', is_subsection=>1, subtitle=>'[<a id="upload_fieldbook_phenotypes_link" >上傳 Fieldbook 資料庫檔案(Upload Fieldbook Database File)</a>]    [<a id="upload_spreadsheet_phenotypes_link" >上傳試算表(Upload Spreadsheet)</a>]<br/>[<a name="create_fieldbook_link" >建立 Fieldbook 版面配置檔案(Create Fieldbook Layout File)</a>]    [<a id="create_new_trait_file_link" >建立 Fieldbook 性狀檔案(Create Fieldbook Trait File)</a>]<br/>[<a name="create_spreadsheet_link" >建立試算表(Create Spreadsheet)</a>] [<a id="upload_images_link" >上傳影像(Upload Images)</a>]' &>
   <br/>
   <& /breeders_toolbox/file_list.mas, files=>$phenotype_files, allow_delete=>1 &>
 
@@ -31,7 +31,7 @@ $locations => undef
 </div>
 <div class="well">
 
-<&| /page/info_section.mas, title=>'Your Obsoleted Files', subtitle=>'These files will not be shown anywhere else on the website', is_subsection=>1 &>
+<&| /page/info_section.mas, title=>'您已作廢的檔案(Your Obsoleted Files)', subtitle=>'這些檔案將不會在網站上的任何其他地方顯示', is_subsection=>1 &>
 
   <& /breeders_toolbox/file_list.mas, files=>$deleted_phenotype_files, allow_delete=>0 &>
 
@@ -47,7 +47,7 @@ jQuery(document).ready(function() {
 
     jQuery('button[name=delete_pheno_file_link]').click( function() {
         var delete_phenotypes_file_id = jQuery(this).data('file_id');
-        if (confirm('Are you sure you want to delete all phenotype values related to this file from the database and make this file obsolete?')){
+        if (confirm('您確定要從資料庫中刪除與此檔案相關的所有表型值並作廢此檔案嗎？')){
             jQuery.ajax ( {
                 url : '/ajax/breeders/phenotyping/delete/'+delete_phenotypes_file_id,
                 beforeSend : function() {
@@ -55,12 +55,12 @@ jQuery(document).ready(function() {
                 },
                 success: function(response){
                     jQuery('#working_modal').modal('hide');
-                    alert('Made phenotype file obsolete and deleted all related phenotype values in the database!');
+                    alert('已作廢表型檔案並刪除資料庫中所有相關的表型值！');
                     location.reload();
                 },
                 error: function(response){
                     jQuery('#working_modal').modal('hide');
-                    alert("Error deleting file and phenotypes!");
+                    alert("刪除檔案與表型時發生錯誤！");
                 }
             });
         }

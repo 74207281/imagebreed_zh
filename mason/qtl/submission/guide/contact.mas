@@ -13,11 +13,11 @@ Isaak Y Tecle (iyt2@cornell.edu)
 </%doc>
 
 <&| /page/info_section.mas, 
-   title      => "Contact us",
+   title      => "聯繫我們(Contact us)",
   collapsible => 1,
   collapsed   => 1
 &>
 
-If you have any questions or feedback, please contact us at: <a href="mailto:sgn-feedback@solgenomics.net">sgn-feedback@solgenomics.net</a>. 
+如果您有任何疑問或反饋，請透過以下方式聯繫我們(If you have any questions or feedback, please contact us at)：<a href="mailto:sgn-feedback@solgenomics.net">sgn-feedback@solgenomics.net</a>。
 
 </&>

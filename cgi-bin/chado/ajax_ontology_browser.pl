@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 # a new version of the ontology browser by Lukas.
 
@@ -113,7 +114,7 @@ elsif ( $action eq "roots" ) {
     }
     $res{response} = $print_string;
 
-} else { $res{error} = "ERROR. The action parameter is required."; }
+} else { $res{error} = "錯誤：缺少 action 參數。(ERROR: The action parameter is required.)"; }
 
 
 my @response_list = ();

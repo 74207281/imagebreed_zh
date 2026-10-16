@@ -5,7 +5,7 @@ $col3_width_class => "col-sm-2"
 $icon_class => "glyphicon glyphicon-qrcode"
 $title => "A title."
 $button_id => "3col_id"
-$button_text => "Go"
+$button_text => "前往(Go)"
 </%args>
 
 

@@ -15,32 +15,32 @@ $identifier_prefix
         <table class="table table-hover table-bordered" >
 
             <tr>
-                <td><b>Model Name</b></td>
+                <td><b>模型名稱(Model Name)</b></td>
                 <td>
                     <div id="model_name">
 % if ($model_name) {
 %   print "<a href=\"/analyses_model/$model_id\">$model_name</a>";
 % } else {
-%   print "<span class='text-danger'>[No Model Name]</span>";
+%   print "<span class='text-danger'>[無模型名稱(No Model Name)]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
-            <tr><td><b>Description</b></td>
+            <tr><td><b>描述(Description)</b></td>
                 <td>
                     <div id="model_description">
 % if ($model_description) {
 %  print "$model_description";
 % } else {
-%  print "<span class='text-danger'>[No Description]</span>";
+%  print "<span class='text-danger'>[無描述(No Description)]</span>";
 % }
                     </div>
                 </td>
             </tr>
 
             <tr>
-                <td><b>Model Type</b></td>
+                <td><b>模型類型(Model Type)</b></td>
                 <td>
                     <div id="model_type">
 %  print "$model_type_name";
@@ -49,7 +49,7 @@ $identifier_prefix
             </tr>
 
             <tr>
-                <td><b>Model Properties</b></td>
+                <td><b>模型屬性(Model Properties)</b></td>
                 <td>
                     <div id="model_properties">
 %  my $model_properties_string = '';
@@ -62,13 +62,13 @@ $identifier_prefix
             </tr>
 
             <tr>
-                <td><b>Model Files</b></td>
+                <td><b>模型檔案(Model Files)</b></td>
                 <td>
                     <div id="model_files">
 %  my $model_files_string = '';
 %  while (my ($key, $val) = each %$model_file_ids) {
 %   if ($key) {
-%       $model_files_string .= "$val : <a href=\"/breeders/phenotyping/download/$key\">Download</a><br/>";
+%       $model_files_string .= "$val : <a href=\"/breeders/phenotyping/download/$key\">下載(Download)</a><br/>";
 %   }
 %  }
 %  print "$model_files_string";

@@ -1,5 +1,6 @@
 
 use strict;
+use utf8;
 use CXGN::DB::Connection;
 use CXGN::Page;
 use CXGN::People;
@@ -9,7 +10,7 @@ use CXGN::People::Forum;
 use CXGN::Contact;
 use CXGN::Page::FormattingHelpers qw /page_title_html blue_section_html/;
 
-my $page = CXGN::Page->new("Forum Main", "Lukas");
+my $page = CXGN::Page->new("論壇首頁 (Forum Main)", "Lukas");
 	
 my $dbh = CXGN::DB::Connection->new();
 my $sp_person_id = CXGN::Login->new($dbh)->has_session();
@@ -46,12 +47,12 @@ if ($topic_name) {
 
 $page -> header();
 
-print page_title_html("Forum Topics");
+print page_title_html("論壇主題 (Forum Topics)");
 
 my $login_string="";
 
-if ($name) { $login_string = qq { <div class="row"><div class="panel panel-primary"><div class="panel-body"><div class="row"><div class="col-sm-10">You are logged in as <b>$name</b>.</div><div class="col-sm-2"><button class="btn btn-primary" onclick='location.href="add_topic.pl?action=new";'>Add topic</button>.</div></div></div></div></div> }; }
-else { $login_string="<div class=\"row\"><div class=\"panel panel-primary\"><div class=\"panel-body\"><div class=\"row\"><div class=\"col-sm-10\"><b>Note:</b> <ul><li>You are not logged in.</li><li>You have to be logged in to add new topics and posts. </li><li>You don't need to be logged in for browsing.</li></ul></div><div class=\"col-sm-2\"><button class=\"btn btn-primary\" onclick='location.href=\"/user/login?goto_url=/forum/topics.pl\";'>Login</button></div></div></div></div></div>"; }
+if ($name) { $login_string = qq { <div class="row"><div class="panel panel-primary"><div class="panel-body"><div class="row"><div class="col-sm-10">您已登入為 <b>$name</b> (You are logged in as <b>$name</b>)。</div><div class="col-sm-2"><button class="btn btn-primary" onclick='location.href="add_topic.pl?action=new";'>新增主題 (Add topic)</button></div></div></div></div></div> }; }
+else { $login_string="<div class=\"row\"><div class=\"panel panel-primary\"><div class=\"panel-body\"><div class=\"row\"><div class=\"col-sm-10\"><b>提示 (Note):</b> <ul><li>您尚未登入 (You are not logged in)。</li><li>您必須登入才能新增主題與貼文 (You have to be logged in to add new topics and posts)。</li><li>瀏覽討論板不需要登入 (You don't need to be logged in for browsing)。</li></ul></div><div class=\"col-sm-2\"><button class=\"btn btn-primary\" onclick='location.href=\"/user/login?goto_url=/forum/topics.pl\";'>登入 (Login)</button></div></div></div></div></div>"; }
 
 print $login_string;
 
@@ -93,8 +94,8 @@ sub topics_list {
 	    || $user->get_user_type() eq "curator"
 	    ) {   
 	    $append = qq {
-		<a href="add_topic.pl?action=edit&amp;topic_id=$topic_id">Edit</a> | 
-		    <a href="add_topic.pl?action=delete&amp;topic_id=$topic_id">Delete</a> 
+		<a href="add_topic.pl?action=edit&amp;topic_id=$topic_id">編輯 (Edit)</a> | 
+		    <a href="add_topic.pl?action=delete&amp;topic_id=$topic_id">刪除 (Delete)</a> 
 		    
 		}
 	}
@@ -110,10 +111,10 @@ sub topics_list {
                       <a href="posts.pl?topic_id=$topic_id"><b>$topic_name</b></a>
                     </div>
                     <div class="col-sm-2">
-                      Started by:<br/><b><a href="/solpeople/personal-info.pl?sp_person_id=$submitter_id">$submitter_name</a></b>
+                      發起人 (Started by):<br/><b><a href="/solpeople/personal-info.pl?sp_person_id=$submitter_id">$submitter_name</a></b>
                     </div>
                     <div class="col-sm-2">
-                      <a href="posts.pl?topic_id=$topic_id"><b>$post_count</b> Posts</a>
+                      <a href="posts.pl?topic_id=$topic_id"><b>$post_count</b> 則貼文 (Posts)</a>
                     </div>
                     <div class="col-sm-2">
                       $most_recent_post_date

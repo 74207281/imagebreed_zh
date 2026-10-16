@@ -116,14 +116,14 @@ if (@$accessions) {
 	  my $medium_image = $image->get_image_url("medium");
 	  my $image_page   = "/image/index.pl?image_id=$image_id";
 	  my $thickbox =
-	    qq|<a href="$medium_image" title="<a href=$image_page>Go to image page </a>" class="thickbox" rel="gallery-images"><img src="$small_image" alt="" /></a> |;
+	    qq|<a href="$medium_image" title="<a href=$image_page>前往圖片頁面(Go to image page) </a>" class="thickbox" rel="gallery-images"><img src="$small_image" alt="" /></a> |;
 	  if ( $ind_count < 4 ) { $html .= qq|<td>$thickbox</td>|; }
 	  else                  { $more_html .= qq|<td>$thickbox</td>|; }
 	  $image_count--;
 	}
 	if ( $#{ $imageHoA{$stock_id} } > 4 ) {
 	  my $image_count = ( $#{ $imageHoA{$stock_id} } ) + 1;
-	  $html .= qq|<td>... (Total $image_count images)</td>|;
+	  $html .= qq|<td>... (共 $image_count 張圖片(Total $image_count images))</td>|;
 	}
 	if   ( $ind_count < 4 ) { $html      .= "</tr>"; }
 	else                    { $more_html .= "</tr>"; }
@@ -163,7 +163,7 @@ if (@$accessions) {
 if ($more) {
   $html .= html_optional_show(
 			      "Accessions",
-			      "<b>See $more more accessions</b>",
+			      "<b>查看另外 $more 個品系/種原(See $more more accessions)</b>",
 			      $more_html,
 			      0, #< do not show by default
 			      'abstract_optional_show', #< don't use the default button-like style

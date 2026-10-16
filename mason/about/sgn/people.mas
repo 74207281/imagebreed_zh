@@ -34,9 +34,9 @@ $_</td>\n|}
 }
 sub ul(@) { "<ul>\n".( join '', map {"<li>$_</li>\n"} @_ )."</ul>\n"; }
 
-print info_section_html( title => 'Lab members',
+print info_section_html( title => '實驗室成員(Lab members)',
 			 contents =>
-			 info_section_html( title => 'Staff',
+			 info_section_html( title => '工作人員(Staff)',
 					    is_subsection => 1,
 					    contents => person_set 
               ([
@@ -72,21 +72,21 @@ print info_section_html( title => 'Lab members',
 					    ),
 					  )
 			 
-  .info_section_html( title => 'Interns',
+  .info_section_html( title => '實習生(Interns)',
 					     is_subsection => 1,
 					     contents => 
 					     ul(
-                                                '<a href="/about/Summer_Internship_2008.pl">View summer 2008 intern photos &amp; projects</a>',
-                                                '<a href="/outreach/index.pl#interns">Get information about our bioinformatics summer internship program</a>',            
+                                                '<a href="/about/Summer_Internship_2008.pl">檢視 2008 年夏季實習生照片與專案(View summer 2008 intern photos &amp; projects)</a>',
+                                                '<a href="/outreach/index.pl#interns">取得生物資訊夏季實習計畫資訊(Get info about bioinformatics summer internship)</a>',            
                         ),
                                            )
 
-			 .qq|<a href="/sgn_photos/index.pl"><strong>View more staff &amp; intern photos</strong></a>|
+			 .qq|<a href="/sgn_photos/index.pl"><strong>檢視更多工作人員與實習生照片(View more staff &amp; intern photos)</strong></a>|
 		       );
-print info_section_html( title => 'Emeritus Staff',
+print info_section_html( title => '歷任工作人員(Emeritus Staff)',
 			 contents =>
 			 info_table_html( __multicol => 3, __border => 0,
-					 'Bioinformatics Analysts' =>
+					 '生物資訊分析師(Bioinformatics Analysts)' =>
 					  ul('Aimin Yan',
 					     'Jeremy Edwards',
 					     'Aureliano Bombarely',
@@ -107,7 +107,7 @@ print info_section_html( title => 'Emeritus Staff',
 					     'Robert Ahrens',
 					     'Mark Wright',
 					    ),
-					  'Interns' =>
+					  '實習生(Interns)' =>
 					  ul('Allison Izsak (2015)',
 					     'Jonathan Gomes Selman (2015)',
 					     'Ivana Rodriguez (2015)',

@@ -2,29 +2,29 @@
 <%args>
 </%args>
 
-<& /page/page_title.mas, title=>"Varitome project: Exploitation of genetic and epigenetic variation in the regulation of tomato fruit quality traits" &>
+<& /page/page_title.mas, title=>"Varitome 計畫：開發番茄果實品質性狀調控中的遺傳與表觀遺傳變異(Varitome project: Exploitation of genetic and epigenetic variation in the regulation of tomato fruit quality traits)" &>
 
 <&| /page/info_section.mas, title => ''  &>
 <center><img src="/img/varitome/varitome_tomatoes.jpg" align="center"/></center>
 
 </&>
 
-<&| /page/info_section.mas, title => 'Major goals' &>
+<&| /page/info_section.mas, title => '主要目標(Major goals)' &>
 
 
 <div>
-Future crop improvement relies on harnessing the broader genetic diversity present in the ancestors of our crops. Recently, our team has gained detailed knowledge of the transition from wild species to the earliest tomato landraces. Cultivated tomato (Solanum lycopersicum var lycopersicum) evolved from semi-domesticated and wild populations of S. lycopersicum var cerasiforme, which in turn evolved from a subpopulation of the red-fruited wild species, S. pimpinellifolium. This knowledge allows us to select and exploit underutilized germplasm for the identification of genes controlling fruit quality and beneficial alleles that may have been left behind during crop domestication. With this information, we seek to gain fundamental insights into the molecular and biochemical pathways that impact the traits. This would lead to an advanced understanding into the regulation of basic plant processes of economic importance. To efficiently identify genes and pathways that control complex fruit quality traits in tomato, we propose the following specific aims:
+未來的作物改良依賴於利用作物祖先中存在的更廣泛遺傳多樣性。最近，我們的團隊深入了解了從野生種向最早番茄地方品種的演變歷程。栽培番茄 (Solanum lycopersicum var lycopersicum) 是從半馴化和野生的 S. lycopersicum var cerasiforme 族群演變而來，而後者又是從紅果野生種 S. pimpinellifolium 的一個亞群演變而來。這項知識使我們能夠選取並利用尚未充分利用的種原，以鑑定控制果實品質的基因以及可能在作物馴化過程中遺留下來的有益等位基因。藉由這些資訊，我們期望能深入了解影響這些性狀的分子和生物化學途徑。這將有助於更深入理解具有經濟重要性的基本植物過程調控。為了有效鑑定控制番茄複雜果實品質性狀的基因和途徑，我們提出以下具體目標：(Future crop improvement relies on harnessing the broader genetic diversity present in the ancestors of our crops. Recently, our team has gained detailed knowledge of the transition from wild species to the earliest tomato landraces. Cultivated tomato (Solanum lycopersicum var lycopersicum) evolved from semi-domesticated and wild populations of S. lycopersicum var cerasiforme, which in turn evolved from a subpopulation of the red-fruited wild species, S. pimpinellifolium. This knowledge allows us to select and exploit underutilized germplasm for the identification of genes controlling fruit quality and beneficial alleles that may have been left behind during crop domestication. With this information, we seek to gain fundamental insights into the molecular and biochemical pathways that impact the traits. This would lead to an advanced understanding into the regulation of basic plant processes of economic importance. To efficiently identify genes and pathways that control complex fruit quality traits in tomato, we propose the following specific aims:)
 </div>
 <ol>
-<li>Assembly and phenotyping of a tomato population constituting the continuum of wild, semi-domesticated and ancestral landraces. This collection is named Varitome to distinguish it from other tomato sequencing projects.</li>
-<li>Identification of loci underlying fruit quality traits through genome-wide association studies (GWAS) and differentially expressed small RNAs. </li>
-<li>Genetic confirmation of trait association with candidate regions to genes. </li>
-<li>Functional analysis of developmental and biochemical pathways that control fruit quality. </li>
-<li>Database development and integration at Sol Genomics Network (SGN). </li>
+<li>組裝並鑑定一個由野生、半馴化和祖先地方品種組成的番茄連續族群之表型。該收集命名為 Varitome，以與其他番茄定序計畫區分。(Assembly and phenotyping of a tomato population constituting the continuum of wild, semi-domesticated and ancestral landraces. This collection is named Varitome to distinguish it from other tomato sequencing projects.)</li>
+<li>透過全基因體關聯研究 (GWAS) 與差異表現小 RNA，鑑定影響果實品質性狀的基因座。(Identification of loci underlying fruit quality traits through genome-wide association studies (GWAS) and differentially expressed small RNAs.)</li>
+<li>對候選區域與基因的性狀關聯進行遺傳學驗證。(Genetic confirmation of trait association with candidate regions to genes.)</li>
+<li>對控制果實品質的發育與生物化學途徑進行功能分析。(Functional analysis of developmental and biochemical pathways that control fruit quality.)</li>
+<li>在茄科基因體網路 (SGN) 進行資料庫開發與整合。(Database development and integration at Sol Genomics Network (SGN).)</li>
 </ol>
 </&>
 
-<&| /page/info_section.mas, title => 'The team' &>
+<&| /page/info_section.mas, title => '研究團隊(The team)' &>
 
 <center>
 <img src="/img/varitome/varitome_people.png"  border="0" usemap="#peoplemap" /> 
@@ -49,19 +49,19 @@ Future crop improvement relies on harnessing the broader genetic diversity prese
 
 </&>
 
-<&| /page/info_section.mas, title => 'The products' &>
+<&| /page/info_section.mas, title => '計畫產出(The products)' &>
 
- <&| /page/info_section.mas, title => "NCBI submission" , collapsible=>1 &>
+ <&| /page/info_section.mas, title => "NCBI 提交數據(NCBI submission)" , collapsible=>1 &>
 
   <ul>
     <li>NCBI BioProject <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA454805">PRJNA454805</a></li>
-    <li>Tomato Genomic DNA sequences <a href="https://www.ncbi.nlm.nih.gov/sra/SRP150040">SRP150040</a></il>
-<li>Tomato sRNA and mRNA sequences<a href="https://www.ncbi.nlm.nih.gov/sra/SRP135718">SRP135718</a></i
+    <li>番茄基因體 DNA 序列(Tomato Genomic DNA sequences) <a href="https://www.ncbi.nlm.nih.gov/sra/SRP150040">SRP150040</a></li>
+<li>番茄 sRNA 與 mRNA 序列(Tomato sRNA and mRNA sequences) <a href="https://www.ncbi.nlm.nih.gov/sra/SRP135718">SRP135718</a></li>
   </ul>
 
  </&>
 
- <&| /page/info_section.mas, title => "SNPs" , collapsible=>1 &>
+ <&| /page/info_section.mas, title => "單核苷酸多態性(SNPs)" , collapsible=>1 &>
 
 <%perl>
 my $jbrowse_path = $c->config->{jbrowse_path} ;
@@ -74,14 +74,14 @@ my $iframe_url = $jbrowse_url . "&tracklist=0&nav=1&overview=0" ;
 % if ( $jbrowse_path ) {
 <center>
   <iframe style="border: 1px solid rgb(80, 80, 80);" src="<% $iframe_url %>" height="350" width="1000"  name="jbrowse_iframe">
-  <p>Your browser does not support iframes.</p> </iframe>
+  <p>您的瀏覽器不支援 iframe。(Your browser does not support iframes.)</p> </iframe>
 </center>
 % }
 
 </&>
 
 
-<&| /page/info_section.mas, id=>"program_accessions", title=>"Accessions", collapsible=>1, collapsed=>0, hide_if_empty=>1 &>
+<&| /page/info_section.mas, id=>"program_accessions", title=>"種質/材料(Accessions)", collapsible=>1, collapsed=>0, hide_if_empty=>1 &>
   
   <& /breeders_toolbox/program/program_accessions.mas, program_id => 54 &>
     
@@ -89,7 +89,7 @@ my $iframe_url = $jbrowse_url . "&tracklist=0&nav=1&overview=0" ;
 
 
 
- <&| /page/info_section.mas, id=>"program_traits_assayed", title => "Traits assayed" , collapsible=>1, collapsed=>1, hide_ixsf_empty=>1 &>
+ <&| /page/info_section.mas, id=>"program_traits_assayed", title => "已檢測性狀(Traits assayed)" , collapsible=>1, collapsed=>1, hide_ixsf_empty=>1 &>
 
   <& /breeders_toolbox/program/traits.mas, program_id => 54, collapse_phenotypes_section => 1  &>
 
@@ -97,7 +97,7 @@ my $iframe_url = $jbrowse_url . "&tracklist=0&nav=1&overview=0" ;
 
 
 
- <&| /page/info_section.mas, id=>"program_trials", title => "Trials" , collapsible=>1, collapsed=>0, hide_if_empty=>1 &>
+ <&| /page/info_section.mas, id=>"program_trials", title => "試驗(Trials)" , collapsible=>1, collapsed=>0, hide_if_empty=>1 &>
     
     <& /breeders_toolbox/program/trials.mas, program_id => 54 &>
       
@@ -106,16 +106,16 @@ my $iframe_url = $jbrowse_url . "&tracklist=0&nav=1&overview=0" ;
 
 </&>
 
-<&| /page/info_section.mas, title => 'Resources' &>
+<&| /page/info_section.mas, title => '相關資源(Resources)' &>
  <ul>
-    <li>Download the current version of  <a href="ftp://ftp.solgenomics.net/programs/tomato_analyzer_4.0/">Tomato Analyzer</a></li>
+    <li>下載最新版本的(Download the current version of) <a href="ftp://ftp.solgenomics.net/programs/tomato_analyzer_4.0/">Tomato Analyzer</a></li>
   </ul>
 </&>
 
 
-<&| /page/info_section.mas, title => 'Funding' &>
+<&| /page/info_section.mas, title => '經費贊助(Funding)' &>
 
-Funding is provided by the NSF (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1564366">IOS 1564366</a>).<br />
+本計畫由美國國家科學基金會 (NSF) 贊助 (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1564366">IOS 1564366</a>)。(Funding is provided by the NSF (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1564366">IOS 1564366</a>).)<br />
 <br />
 <img src="/static/img/nsf_logo2.png" />
 

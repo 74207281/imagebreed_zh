@@ -7,7 +7,7 @@ $timestamp => localtime()
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="create_seedlots_trial_dialog_title">Create Seedlots from a Trial</h4>
+                <h4 class="modal-title" id="create_seedlots_trial_dialog_title">從試驗建立種子批次(Create Seedlots from a Trial)</h4>
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
@@ -17,50 +17,47 @@ $timestamp => localtime()
 
 
                         <!-- STEP 1: Intro -->
-                        <&| /util/workflow.mas:step, title=> "Intro" &>
-                            <& /page/page_title.mas, title=>"Introduction" &>
+                        <&| /util/workflow.mas:step, title=> "簡介(Intro)" &>
+                            <& /page/page_title.mas, title=>"簡介" &>
                             <p>
-                                This workflow will guide you through the process of creating seedlots from the accessions
-                                in a field trial.  You can create one new seedlot for each plot or unique accession
-                                in the trial.  You can also set the initial contents (count or weight) of the seedlot
-                                as the value of a recorded trait from the trial.
+                                此工作流程將引導您從田間試驗的品系中建立種子批次。您可以為試驗中的每個小區或每個唯一品系建立一個新種子批次。您也可以將種子批次的初始內容物（數量或重量）設定為該試驗中所記錄性狀的數值。
                             </p>
                             <br/><br/>
                             <center>
-                                <button class="btn btn-primary" onclick="Workflow.complete(this);">Go to Next Step</button>
+                                <button class="btn btn-primary" onclick="Workflow.complete(this);">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
                         <!-- STEP 2: Select Trial -->
-                        <&| /util/workflow.mas:step, title=> "Select Trial" &>
-                            <& /page/page_title.mas, title=>"Select a Field Trial" &>
+                        <&| /util/workflow.mas:step, title=> "選擇試驗(Select Trial)" &>
+                            <& /page/page_title.mas, title=>"選擇田間試驗" &>
                             <p>
-                                Enter the name of the field trial from which to create the seedlots:
+                                請輸入要用來建立種子批次的田間試驗名稱：
                             </p>
                             <br /><br />
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Trial: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">試驗：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control" id="create_seedlots_trial_name" placeholder="Trial Name..." value="">
+                                    <input class="form-control" id="create_seedlots_trial_name" placeholder="試驗名稱..." value="">
                                 </div>
                             </div>
                             <br /><br /><br /><br />
                             <br/><br/>
                             <center>
-                                <button id="create_seedlots_trial_complete_select_trial" class="btn btn-primary">Go to Next Step</button>
+                                <button id="create_seedlots_trial_complete_select_trial" class="btn btn-primary">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
                         <!-- STEP 3: Select Seedlots -->
-                        <&| /util/workflow.mas:step, title=> "Select Seedlots" &>
-                            <& /page/page_title.mas, title=>"Select Seedlots" &>
+                        <&| /util/workflow.mas:step, title=> "選擇種子批次(Select Seedlots)" &>
+                            <& /page/page_title.mas, title=>"選擇種子批次" &>
 
                             <p>
-                                Seedlots can be generated from either each <strong>plot</strong> or <strong>accession</strong> in this trial.
+                                種子批次可以依據此試驗中的每個<strong>小區(plot)</strong>或<strong>品系(accession)</strong>來產生。
                             </p>
                             <ul>
-                                <li>If you select <strong>plots</strong>: <span id="create_seedlots_trial_plot_count"></span> seedlots will be created</li>
-                                <li>If you select <strong>accessions</strong>: <span id="create_seedlots_trial_accession_count"></span> seedlots will be created</li>
+                                <li>若您選擇<strong>小區</strong>：將建立 <span id="create_seedlots_trial_plot_count"></span> 個種子批次</li>
+                                <li>若您選擇<strong>品系</strong>：將建立 <span id="create_seedlots_trial_accession_count"></span> 個種子批次</li>
                             </ul>
 
                             <br /><br />
@@ -69,8 +66,8 @@ $timestamp => localtime()
                                 <div class="col-sm-3"></div>
                                 <div class="col-sm-6" >
                                     <select id="create_seedlots_trial_stock_type" class="form-control">
-                                        <option value="plots">Plots</option>
-                                        <option value="accessions">Accessions</option>
+                                        <option value="plots">小區 (Plots)</option>
+                                        <option value="accessions">品系 (Accessions)</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3"></div>
@@ -78,16 +75,16 @@ $timestamp => localtime()
 
                             <br/><br/><br /><br />
                             <center>
-                                <button id="create_seedlots_trial_complete_select_stock_type" class="btn btn-primary">Go to Next Step</button>
+                                <button id="create_seedlots_trial_complete_select_stock_type" class="btn btn-primary">前往下一步(Go to Next Step)</button>
                             </center>
                         </&>
 
                         <!-- STEP 4: Name Seedlots -->
-                        <&| /util/workflow.mas:step, title=> "Name Seedlots" &>
-                            <& /page/page_title.mas, title=>"Name Seedlots" &>
+                        <&| /util/workflow.mas:step, title=> "命名種子批次(Name Seedlots)" &>
+                            <& /page/page_title.mas, title=>"命名種子批次" &>
 
                             <p>
-                                Enter a template for naming each new seedlot.  The following variables (surrounded by curly braces) can be used in the template and the value of that variable will be replaced.
+                                請輸入命名每個新種子批次的範本。範本中可以使用以下變數（以大括號包圍），該變數將會被替換為實際數值。
                             </p>
                             <ul>
                                 <li><code>trial_name</code></li>
@@ -95,55 +92,49 @@ $timestamp => localtime()
                                 <li class="plot_level_variable"><code>plot_number</code></li>
                                 <li class="plot_level_variable"><code>rep</code></li>
                                 <li class="plot_level_variable"><code>block</code></li>
-                                <li><code>index</code> - an incrementing index number, starting with 1</li>
+                                <li><code>index</code> - 從 1 開始遞增的索引數字</li>
                             </ul>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Name Template: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">名稱範本：</label>
                                 <div class="col-sm-7" >
                                     <input class="form-control" id="create_seedlots_trial_name_template" value="">
                                 </div>
                                 <div class="col-sm-2">
-                                    <button id="create_seedlots_trial_name_update" type="button" class="btn btn-primary btn-block" disabled>Update</button>
+                                    <button id="create_seedlots_trial_name_update" type="button" class="btn btn-primary btn-block" disabled>更新(Update)</button>
                                 </div>
                             </div>
 
                             <br /><br /><br />
 
                             <center>
-                                <button id="create_seedlots_trial_complete_name_seedlots" class="btn btn-primary">Go to Next Step</button>
+                                <button id="create_seedlots_trial_complete_name_seedlots" class="btn btn-primary">前往下一步(Go to Next Step)</button>
                             </center>
 
                             <br /><br />
 
-                            <h4>Seedlot Names</h4>
+                            <h4>種子批次名稱(Seedlot Names)</h4>
                             <table id="create_seedlots_trial_name_table" class="table table-striped table-hover"></table>
                         </&>
 
                         <!-- STEP 5: Seedlot Contents -->
-                        <&| /util/workflow.mas:step, title=> "Set Contents" &>
-                            <& /page/page_title.mas, title=>"Set Seedlot Contents" &>
+                        <&| /util/workflow.mas:step, title=> "設定內容物(Set Contents)" &>
+                            <& /page/page_title.mas, title=>"設定種子批次內容物" &>
 
                             <p>
-                                Each seedlot needs to have its initial contents (either a count or a weight) set.  You
-                                can either set the same initial value for each seedlot, use the value from one of the
-                                traits recorded for this trial, or compute a new value from the recorded traits for this
-                                trial.  If you are creating a seedlot for each accession and select a trait or a computed
-                                value as their initial value, then the sum of the trait values for each of the accession's
-                                plots will be used.  The contents of each seedlot can be modified in the table below
-                                before its creation.
+                                每個種子批次都需要設定其初始內容物（數量或重量）。您可以為每個種子批次設定相同的初始值、使用此試驗所記錄的其中一個性狀值，或根據此試驗記錄的性狀計算新數值。如果您為每個品系建立一個種子批次，並選擇性狀或計算值作為其初始值，則將使用該品系各小區性狀數值的總和。在建立之前，可以在下表中修改每個種子批次的內容物。
                             </p>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Contents Type: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">內容物類型：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="create_seedlots_trial_contents_type">
-                                        <option value="amount">Amount / Count</option>
-                                        <option value="weight">Weight</option>
+                                        <option value="amount">數量 / 計數 (Amount / Count)</option>
+                                        <option value="weight">重量 (Weight)</option>
                                     </select>
                                 </div>
                             </div>
@@ -151,12 +142,12 @@ $timestamp => localtime()
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Contents Value: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">內容物數值：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="create_seedlots_trial_contents_value">
-                                        <option value="constant">Constant Value</option>
-                                        <option value="trait">Trait Value</option>
-                                        <option value="computed">Computed Value from Traits</option>
+                                        <option value="constant">固定數值 (Constant Value)</option>
+                                        <option value="trait">性狀數值 (Trait Value)</option>
+                                        <option value="computed">性狀計算值 (Computed Value from Traits)</option>
                                     </select>
                                 </div>
                             </div>
@@ -164,80 +155,73 @@ $timestamp => localtime()
                             <br /><br />
 
                             <div class="form-group" id="create_seedlots_trial_contents_constant_form">
-                                <label class="col-sm-3 control-label" style="text-align: right">Constant: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">固定值：</label>
                                 <div class="col-sm-9" >
                                     <input class="form-control" id="create_seedlots_trial_contents_constant" value="1">
                                 </div>
                             </div>
 
                             <div class="form-group" id="create_seedlots_trial_contents_trait_form" style="display: none">
-                                <label class="col-sm-3 control-label" style="text-align: right">Trait: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">性狀：</label>
                                 <div class="col-sm-9" >
                                     <select class="form-control" id="create_seedlots_trial_contents_trait"></select>
                                 </div>
                             </div>
 
                             <div class="form-group" id="create_seedlots_trial_contents_computed_form" style="display: none">
-                                <label class="col-sm-3 control-label" style="text-align: right">Trait Variables: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">性狀變數：</label>
                                 <div class="col-sm-9">
                                     <p>
-                                        Use the following variables as substitutions for the trait values to compute a new value
-                                        for the initial seedlot contents.  If you are creating one seedlot <strong>per plot</strong>, then
-                                        the single plot trait value will be used in the computation.  If you are creating one seedlot
-                                        <strong>per accession</strong>, then the sum of the trait values for each plot of that accession
-                                        will be used in the computation.
+                                        使用以下變數替換性狀數值，以計算初始種子批次內容物的新數值。如果您為<strong>每個小區</strong>建立一個種子批次，則計算中將使用單一小區的性狀值。如果您為<strong>每個品系</strong>建立一個種子批次，則計算中將使用該品系每個小區性狀數值的總和。
                                     </p>
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Variable</th>
-                                                <th>Trait</th>
+                                                <th>變數(Variable)</th>
+                                                <th>性狀(Trait)</th>
                                             </tr>
                                         </thead>
                                         <tbody id="create_seedlots_trial_contents_computed_table"></tbody>
                                     </table>
                                 </div>
 
-                                <label class="col-sm-3 control-label" style="text-align: right">Contents Formula: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">內容物公式：</label>
                                 <div class="col-sm-9">
                                     <input class="form-control" id="create_seedlots_trial_contents_computed_formula" value="" placeholder="{trait_1}/10">
                                     <p>
-                                        <strong>NOTE:</strong> The formula is evaluated using javascript, so any basic operators (+-*/) or
-                                        javascript Math functions (Math.abs(x)) can be used.
+                                        <strong>注意：</strong>公式使用 JavaScript 進行求值，因此可以使用任何基本運算子 (+-*/) 或 JavaScript 數學函式 (例如 Math.abs(x))。
                                     </p>
                                 </div>
 
                                 <div class="col-sm-12" style="text-align: center; margin: 25px 0">
-                                    <button id="create_seedlots_trial_complete_computed_compute" class="btn btn-primary" disabled>Compute</button>
+                                    <button id="create_seedlots_trial_complete_computed_compute" class="btn btn-primary" disabled>計算(Compute)</button>
                                 </div>
                             </div>
 
                             <br /><br />
 
                             <center>
-                                <button id="create_seedlots_trial_complete_set_contents" class="btn btn-primary">Go to Next Step</button>
+                                <button id="create_seedlots_trial_complete_set_contents" class="btn btn-primary">前往下一步(Go to Next Step)</button>
                             </center>
 
                             <br /><br />
 
-                            <h4>Seedlot Contents</h4>
+                            <h4>種子批次內容物(Seedlot Contents)</h4>
                             <table id="create_seedlots_trial_contents_table" class="table table-striped table-hover"></table>
                         </&>
 
                         <!-- STEP 6: Seedlot Metadata -->
-                        <&| /util/workflow.mas:step, title=> "Set Metadata" &>
-                            <& /page/page_title.mas, title=>"Set Seedlot Metadata" &>
+                        <&| /util/workflow.mas:step, title=> "設定詮釋資料(Set Metadata)" &>
+                            <& /page/page_title.mas, title=>"設定種子批次詮釋資料" &>
 
                             <p>
-                                The following metadata is required for each seedlot.  Fill out the form at the top
-                                apply the metadata to all of the seedlots.  Then, each seedlot can be manually
-                                modified in the table below.
+                                每個種子批次都需要以下詮釋資料。填寫頂部的表單以將詮釋資料套用至所有種子批次。隨後，可以在下表中手動修改各個種子批次。
                             </p>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Breeding Program: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">育種計畫：</label>
                                 <div class="col-sm-9" >
                                     <div id="create_seedlots_trial_breeding_program_div"></div>
                                 </div>
@@ -246,43 +230,43 @@ $timestamp => localtime()
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Location: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">地點：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_location" value="" placeholder="Required">
+                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_location" value="" placeholder="必填">
                                 </div>
                             </div>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Box Name: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">存放盒名稱：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_box_name" value="" placeholder="Required">
+                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_box_name" value="" placeholder="必填">
                                 </div>
                             </div>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Quality Issues: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">品質問題：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_quality_issues" value="" placeholder="Optional, list quality issues here, or 'ok' for good quality seed">
+                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_quality_issues" value="" placeholder="選填，在此列出品質問題，或填寫 'ok' 表示良質種子">
                                 </div>
                             </div>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Organization: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">組織：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_organization" value="" placeholder="Optional">
+                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_organization" value="" placeholder="選填">
                                 </div>
                             </div>
 
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Timestamp: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">時間戳記：</label>
                                 <div class="col-sm-9" >
                                     <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_timestamp" value="<% $timestamp %>" placeholder="<% $timestamp %>">
                                 </div>
@@ -291,62 +275,60 @@ $timestamp => localtime()
                             <br /><br />
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" style="text-align: right">Description: </label>
+                                <label class="col-sm-3 control-label" style="text-align: right">描述：</label>
                                 <div class="col-sm-9" >
-                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_description" value="" placeholder="Optional">
+                                    <input class="form-control create_seedlots_trial_metadata_input" id="create_seedlots_trial_description" value="" placeholder="選填">
                                 </div>
                             </div>
 
                             <br /><br /><br />
 
                             <center>
-                                <button id="create_seedlots_trial_update_metadata" class="btn btn-primary">Update</button>
+                                <button id="create_seedlots_trial_update_metadata" class="btn btn-primary">更新(Update)</button>
                             </center>
 
                             <br />
 
                             <center>
-                                <button id="create_seedlots_trial_complete_set_metadata" class="btn btn-primary" disabled>Go to Next Step</button>
+                                <button id="create_seedlots_trial_complete_set_metadata" class="btn btn-primary" disabled>前往下一步(Go to Next Step)</button>
                             </center>
 
                             <br /><br />
 
-                            <h4>Seedlot Metadata</h4>
+                            <h4>種子批次詮釋資料(Seedlot Metadata)</h4>
                             <table id="create_seedlots_trial_metadata_table" class="table table-striped table-hover"></table>
                         </&>
 
                         <!-- STEP 7: Confirm -->
-                        <&| /util/workflow.mas:step, title=> "Confirm" &>
-                            <& /page/page_title.mas, title=>"Confirm Seedlots" &>
+                        <&| /util/workflow.mas:step, title=> "確認(Confirm)" &>
+                            <& /page/page_title.mas, title=>"確認種子批次" &>
 
                             <p>
-                                Confirm the attributes for the new seedlots in the table below.  If something
-                                is incorrect, navigate to the previous step and correct the information.  Once
-                                all the information is correct, continue to the next step to create the seedlots.
+                                請在下表中確認新種子批次的各項屬性。若有任何不正確之處，請返回上一步修改。確認所有資訊無誤後，請前往下一步以建立種子批次。
                             </p>
 
                             <br /><br />
 
                             <center>
                                 <button id="create_seedlots_trial_complete_confirm_seedlots" class="btn btn-primary">
-                                    <span class="glyphicon glyphicon-ok"></span>&nbsp;Create Seedlots
+                                    <span class="glyphicon glyphicon-ok"></span>&nbsp;建立種子批次(Create Seedlots)
                                 </button>
                             </center>
 
                             <br /><br />
 
-                            <h4>Seedlots to Create</h4>
+                            <h4>即將建立的種子批次(Seedlots to Create)</h4>
                             <table id="create_seedlots_trial_confirm_table" class="table table-striped table-hover"></table>
                         </&>
 
                         <!-- STEP 8: Create -->
-                        <&| /util/workflow.mas:step, title=> "Create" &>
-                            <& /page/page_title.mas, title=>"Create Seedlots" &>
+                        <&| /util/workflow.mas:step, title=> "建立(Create)" &>
+                            <& /page/page_title.mas, title=>"建立種子批次" &>
 
                             <br /><br />
 
                             <div id="create_seedlots_trial_uploading">
-                                <p id="create_seedlots_trial_status"><strong>Creating Seedlots...</strong></p>
+                                <p id="create_seedlots_trial_status"><strong>正在建立種子批次...</strong></p>
                                 <div class="progress">
                                     <div id="create_seedlots_trial_progress" class="progress-bar" role="progressbar" aria-valuenow="70"
                                     aria-valuemin="0" aria-valuemax="100" style="width:70%">
@@ -359,7 +341,7 @@ $timestamp => localtime()
 
                             <br /><br />
 
-                            <h4>Seedlot Progress</h4>
+                            <h4>種子批次進度(Seedlot Progress)</h4>
                             <table id="create_seedlots_trial_results_table" class="table table-striped table-hover"></table>
                         </&>
 
@@ -490,7 +472,7 @@ $timestamp => localtime()
         // Make sure trial name was entered
         let trial_name = jQuery("#create_seedlots_trial_name").val();
         if ( !trial_name || trial_name === '' ) {
-            alert("Enter a trial name to continue");
+            alert("請輸入試驗名稱以繼續");
             return;
         }
 
@@ -585,7 +567,7 @@ $timestamp => localtime()
             }
         }
         else {
-            alert("ERROR: unknown seedlot stock type!");
+            alert("錯誤：未知的種子批次材料類型！");
         }
 
         Workflow.complete('#create_seedlots_trial_complete_select_stock_type');
@@ -605,14 +587,14 @@ $timestamp => localtime()
         let names = [];
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
             if ( names.includes(SEEDLOTS[i].name) ) {
-                alert("Seedlot names must be unique - '" + SEEDLOTS[i].name + "' is used more than once");
+                alert("種子批次名稱不可重複 - '" + SEEDLOTS[i].name + "' 被重複使用");
                 return;
             }
             names.push(SEEDLOTS[i].name);
         }
 
         // Set trait values
-        let html = "<option value=''>Choose trait...</option>";
+        let html = "<option value=''>選擇性狀...</option>";
         for ( let i = 0; i < TRAITS.length; i++ ) {
             html += "<option value='" + TRAITS[i].id + "'>" + TRAITS[i].name + "</option>";
         }
@@ -670,12 +652,12 @@ $timestamp => localtime()
         let name_template = jQuery("#create_seedlots_trial_name_template").val();
 
         let html = "<thead></tr>";
-        if ( stock_type === 'accessions' ) html += "<th>Trial Name</th>";
-        html += "<th>Accession Name</th>";
-        if ( stock_type === "plots" ) html += "<th>Plot Number</th>";
-        if ( stock_type === "plots" ) html += "<th>Rep</th>";
-        if ( stock_type === "plots" ) html += "<th>Block</th>";
-        html += "<th>Seedlot Name</th>";
+        if ( stock_type === 'accessions' ) html += "<th>試驗名稱(Trial Name)</th>";
+        html += "<th>品系名稱(Accession Name)</th>";
+        if ( stock_type === "plots" ) html += "<th>小區編號(Plot Number)</th>";
+        if ( stock_type === "plots" ) html += "<th>重複(Rep)</th>";
+        if ( stock_type === "plots" ) html += "<th>區集(Block)</th>";
+        html += "<th>種子批次名稱(Seedlot Name)</th>";
         html += "</tr></thead>";
 
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
@@ -719,8 +701,8 @@ $timestamp => localtime()
         let formula = jQuery("#create_seedlots_trial_contents_computed_formula").val();
 
         let html = "<thead></tr>";
-        html += "<th>Seedlot Name</th>";
-        html += "<th>Contents</th>";
+        html += "<th>種子批次名稱(Seedlot Name)</th>";
+        html += "<th>內容物(Contents)</th>";
         html += "</tr></thead>";
 
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
@@ -810,22 +792,22 @@ $timestamp => localtime()
 
         // Check for required fields
         if ( !p_id || p_id === '' ) {
-            if (!quiet) alert("Breeding Program is required");
+            if (!quiet) alert("育種計畫為必填");
             return;
         }
         if ( !l || l === '' ) {
-            if (!quiet) alert("Location is required");
+            if (!quiet) alert("地點為必填");
             return;
         }
         if ( !b || b === '' ) {
-            if (!quiet) alert("Box Name is required");
+            if (!quiet) alert("存放盒名稱為必填");
             return;
         }
 
         // Build Table
         let html = "<thead><tr>";
-        html += "<th>Seedlot Name</th>";
-        html += "<th>Metadata</th>";
+        html += "<th>種子批次名稱(Seedlot Name)</th>";
+        html += "<th>詮釋資料(Metadata)</th>";
         html += "</tr></thead>";
 
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
@@ -834,13 +816,13 @@ $timestamp => localtime()
             html += "<tr>";
             html += "<td>" + SEEDLOTS[i].name + "</td>";
             html += "<td>";
-            html += "<strong>Breeding Program:</strong><select class='form-control  create_seedlots_trial_metadata_input_seedlot_breeding_program' data-index='" + i + "'>" + p_select + "</select><br />";
-            html += "<strong>Location:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='location' data-index='" + i + "' value='" + l + "'><br />";
-            html += "<strong>Box Name:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='box_name' data-index='" + i + "' value='" + b + "'><br />";
-            html += "<strong>Quality Issues:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='quality_issues' data-index='" + i + "' value='" + q + "'><br />";
-            html += "<strong>Organization:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='organization' data-index='" + i + "' value='" + o + "'><br />";
-            html += "<strong>Timestamp:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='timestamp' data-index='" + i + "' value='" + t + "'><br />";
-            html += "<strong>Description:</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='description' data-index='" + i + "' value='" + d + "'><br />";
+            html += "<strong>育種計畫：</strong><select class='form-control  create_seedlots_trial_metadata_input_seedlot_breeding_program' data-index='" + i + "'>" + p_select + "</select><br />";
+            html += "<strong>地點：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='location' data-index='" + i + "' value='" + l + "'><br />";
+            html += "<strong>存放盒名稱：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='box_name' data-index='" + i + "' value='" + b + "'><br />";
+            html += "<strong>品質問題：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='quality_issues' data-index='" + i + "' value='" + q + "'><br />";
+            html += "<strong>組織：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='organization' data-index='" + i + "' value='" + o + "'><br />";
+            html += "<strong>時間戳記：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='timestamp' data-index='" + i + "' value='" + t + "'><br />";
+            html += "<strong>描述：</strong><input class='form-control create_seedlots_trial_metadata_input_seedlot' data-prop='description' data-index='" + i + "' value='" + d + "'><br />";
             html += "</td>";
             html += "</tr>";
 
@@ -873,18 +855,18 @@ $timestamp => localtime()
         let contents_type = jQuery("#create_seedlots_trial_contents_type").val();
 
         let html = "<thead><tr>";
-        html += "<th>Seedlot Name</th>";
-        html += "<th>Breeding Program</th>";
-        html += "<th>Source Accession</th>";
-        if ( stock_type === 'plots' ) html += "<th>Source Plot</th>";
-        if ( contents_type === 'amount' ) html += "<th>Contents (Amount)</th>";
-        if ( contents_type === 'weight' ) html += "<th>Contents (Weight)</th>";
-        html += "<th>Location</th>";
-        html += "<th>Box Name</th>";
-        html += "<th>Quality Issues</th>";
-        html += "<th>Organization</th>";
-        html += "<th>Timestamp</th>";
-        html += "<th>Description</th>";
+        html += "<th>種子批次名稱(Seedlot Name)</th>";
+        html += "<th>育種計畫(Breeding Program)</th>";
+        html += "<th>來源品系(Source Accession)</th>";
+        if ( stock_type === 'plots' ) html += "<th>來源小區(Source Plot)</th>";
+        if ( contents_type === 'amount' ) html += "<th>內容物（數量）(Contents (Amount))</th>";
+        if ( contents_type === 'weight' ) html += "<th>內容物（重量）(Contents (Weight))</th>";
+        html += "<th>地點(Location)</th>";
+        html += "<th>存放盒名稱(Box Name)</th>";
+        html += "<th>品質問題(Quality Issues)</th>";
+        html += "<th>組織(Organization)</th>";
+        html += "<th>時間戳記(Timestamp)</th>";
+        html += "<th>描述(Description)</th>";
         html += "</tr></thead>";
 
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
@@ -921,13 +903,13 @@ $timestamp => localtime()
 
         // Create Results table
         let html = "<thead><tr>";
-        html += "<th>Seedlot</th>";
-        html += "<th>Progress</th>";
+        html += "<th>種子批次(Seedlot)</th>";
+        html += "<th>進度(Progress)</th>";
         html += "</tr></thead>";
         html += "<tbody id='create_seedlots_trial_results_table_body'></tbody>";
         for ( let i = 0; i < SEEDLOTS.length; i++ ) {
             let status_id = "create_seedlots_trial_results_row_" + i;
-            html += "<tr><td>" + SEEDLOTS[i].name + "</td><td id='" + status_id + "'>Pending...</td>";
+            html += "<tr><td>" + SEEDLOTS[i].name + "</td><td id='" + status_id + "'>等待中...</td>";
             SEEDLOTS[i].status_id = status_id;
         }
         jQuery("#create_seedlots_trial_results_table").html(html);
@@ -971,7 +953,7 @@ $timestamp => localtime()
          */
         function _uploadSeedlot(seedlot_index, callback) {
             let seedlot = SEEDLOTS[seedlot_index];
-            _setStatusInfo(seedlot.status_id, "Creating...");
+            _setStatusInfo(seedlot.status_id, "建立中...");
 
             // Set seedlot request data
             let data = {
@@ -1034,14 +1016,14 @@ $timestamp => localtime()
          * Display a complete message for the specified seedlot
          */
         function _setStatusComplete(id) {
-            jQuery("#" + id).html("<strong><span class='glyphicon glyphicon-ok-sign text-success'></span></strong>&nbsp;Seedlot Created!");
+            jQuery("#" + id).html("<strong><span class='glyphicon glyphicon-ok-sign text-success'></span></strong>&nbsp;種子批次已建立！");
         }
 
         /**
          * Display an error message for the specified seedlot
          */
         function _setStatusError(id, error) {
-            jQuery("#" + id).html("<strong><span class='glyphicon glyphicon-exclamation-sign text-danger'></span>&nbsp;ERROR:</strong> " + error);
+            jQuery("#" + id).html("<strong><span class='glyphicon glyphicon-exclamation-sign text-danger'></span>&nbsp;錯誤：</strong> " + error);
         }
 
         /**
@@ -1081,21 +1063,21 @@ $timestamp => localtime()
      * @param {int} upload_count Count of successfully uploaded seedlots
      */
     function displayUploadResults(errors, upload_count) {
-        jQuery("#create_seedlots_trial_status").html("<strong>Upload Complete</strong>");
+        jQuery("#create_seedlots_trial_status").html("<strong>上傳完成</strong>");
         jQuery("#create_seedlots_trial_progress").css('width', '100%').attr('aria-valuenow', 100);
 
         let html = "<br /><br />";
         if ( !errors || errors.length === 0 ) {
             html += "<div class='alert-success' role='alert'>";
             html += "<strong><span class='glyphicon glyphicon-ok-sign'></span></strong>&nbsp;";
-            html += upload_count + " seedlots successfully created!";
+            html += upload_count + " 個種子批次已成功建立！";
             html += "</div>";
         }
         if ( errors && errors.length > 0 ) {
             html += "<div class='alert-danger' role='alert'>"
-            html += "<strong><span class='glyphicon glyphicon-exclamation-sign'></span>&nbsp; " + errors.length + " errors encountered!<br />";
-            html += "See below for which seedlots failed and more details<br />";
-            if ( upload_count > 0 ) html += "<br /><strong><span class='glyphicon glyphicon-ok-sign'></span>&nbsp; " + upload_count + " seedlots successfully created";
+            html += "<strong><span class='glyphicon glyphicon-exclamation-sign'></span>&nbsp; 發生 " + errors.length + " 個錯誤！<br />";
+            html += "請參閱下方了解失敗的種子批次及詳細資訊<br />";
+            if ( upload_count > 0 ) html += "<br /><strong><span class='glyphicon glyphicon-ok-sign'></span>&nbsp; " + upload_count + " 個種子批次已成功建立";
             html += "</div>";
         }
 
@@ -1128,11 +1110,11 @@ $timestamp => localtime()
                     trial_id = response.trial_id;
                 }
                 else {
-                    alert('Could not lookup trial');
+                    alert('無法查詢試驗');
                 }
             },
             error: function(response){
-                alert('Could not lookup trial');
+                alert('無法查詢試驗');
             },
             complete: function() {
                 return callback(trial_id);
@@ -1172,11 +1154,11 @@ $timestamp => localtime()
                         breeding_program_id = response.projects[0][0];
                     }
                     else {
-                        alert('Could not lookup trial breeding program');
+                        alert('無法查詢試驗育種計畫');
                     }
                 },
                 error: function(response){
-                    alert('Could not lookup trial breeding program');
+                    alert('無法查詢試驗育種計畫');
                 },
                 complete: function() {
                     _finish();
@@ -1202,11 +1184,11 @@ $timestamp => localtime()
                         }
                     }
                     else {
-                        alert('Could not lookup trial accessions');
+                        alert('無法查詢試驗品系');
                     }
                 },
                 error: function(response){
-                    alert('Could not lookup trial accessions');
+                    alert('無法查詢試驗品系');
                 },
                 complete: function() {
                     _finish();
@@ -1242,11 +1224,11 @@ $timestamp => localtime()
                         }
                     }
                     else {
-                        alert('Could not lookup trial plots');
+                        alert('無法查詢試驗小區');
                     }
                 },
                 error: function(response){
-                    alert('Could not lookup trial plots');
+                    alert('無法查詢試驗小區');
                 },
                 complete: function() {
                     _finish();
@@ -1280,11 +1262,11 @@ $timestamp => localtime()
                         jQuery("#create_seedlots_trial_contents_computed_table").html(html);
                     }
                     else {
-                        alert('Could not lookup trial traits');
+                        alert('無法查詢試驗性狀');
                     }
                 },
                 error: function(response){
-                    alert('Could not lookup trial traits');
+                    alert('無法查詢試驗性狀');
                 },
                 complete: function() {
                     _finish();
@@ -1325,11 +1307,11 @@ $timestamp => localtime()
                         _parseTraitData(response.data, trait_id, trait_name);
                     }
                     else {
-                        alert('Could not get trait data');
+                        alert('無法取得性狀資料');
                     }
                 },
                 error: function(response){
-                    alert('Could not get trait data');
+                    alert('無法取得性狀資料');
                 },
                 complete: function() {
                     _finish();

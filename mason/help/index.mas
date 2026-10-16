@@ -1,89 +1,88 @@
 
 
-<& /page/page_title.mas, title=>"SGN help" &>
+<& "/page/page_title.mas", title => "SGN 說明(SGN Help)" &>
 
 <p>
-The Sol Genomics Network (SGN) is a database and website dedicated to the genomic information of the nightshade family, which includes species such as tomato, potato, pepper, petunia and eggplant.
+茄科基因體網絡 (Sol Genomics Network, SGN) 是一個專門提供茄科植物基因體資訊的資料庫與網站，包含番茄、馬鈴薯、辣椒、矮牽牛和茄子等物種。(The Sol Genomics Network (SGN) is a database and website dedicated to the genomic information of the nightshade family, which includes species such as tomato, potato, pepper, petunia and eggplant.)
 </p>
-<h4>Citing SGN</h4>
+<h4>引用 SGN(Citing SGN)</h4>
 
-If SGN is useful in your research, please cite SGN in your publications using the following reference:
+如果 SGN 對您的研究有所幫助，請在您的發表文獻中使用以下參考資料引用 SGN：(If SGN is useful in your research, please cite SGN in your publications using the following reference:)
 <br /><br />
 <div class="boxbgcolor2">
 Fernandez-Pozo N, Menda N, Edwards JD, Saha S, Tecle IY, Strickler SR, Bombarely A, Fisher-York T, Pujar A, Foerster H, Yan A, Mueller LA. <b>The Sol Genomics Network (SGN)—from genotype to phenotype to breeding.</b> (2015) Nucleic Acids Res. Volume 43 (Database issue):D1036-41. <a href="http://www.ncbi.nlm.nih.gov/pubmed/25428362?dopt=Abstract">PubMed</a>.
 <br /><br />
 </div>
 
-<br>See more <a href="/help/publications">SGN publications</a>
+<br>查看更多 <a href="/help/publications">SGN 出版文獻(SGN publications)</a>(See more <a href="/help/publications">SGN publications</a>)
 </p>
 
 <a name="individual"></a>
-<h4>Help files for specific SGN components:</h4>
+<h4>特定 SGN 元件的說明文件(Help files for specific SGN components):</h4>
 <ul>
-<li><a href="/help/toolbar">Toolbar</a></li>
-<li><a href="/help/quick_search">Quick search</a></li>
+<li><a href="/help/toolbar">工具列(Toolbar)</a></li>
+<li><a href="/help/quick_search">快速搜尋(Quick search)</a></li>
 
-<li><a href="/help/gene_search_help">Gene search</a></li>
-<li><a href="/help/phenotype_search_help">Phenotype search</a></li>
-<li><a href="/qtl/search/help/">QTL search</a></li>
-<li><a href="/help/gbrowse.pl">GBrowse annotation viewer</a></li>
-<li><a href="/help/cview">Comparative viewer</a></li>
+<li><a href="/help/gene_search_help">基因搜尋(Gene search)</a></li>
+<li><a href="/help/phenotype_search_help">表型搜尋(Phenotype search)</a></li>
+<li><a href="/qtl/search/help/">QTL 搜尋(QTL search)</a></li>
+<li><a href="/help/gbrowse.pl">GBrowse 註釋檢視器(GBrowse annotation viewer)</a></li>
+<li><a href="/help/cview">比較檢視器(Comparative viewer)</a></li>
 <ul>
-  <li><a href="/help/cos_markers">COS</a> and <a href="/help/cosii_markers">COSII markers</a></li>
-  <li><a href="/help/microsats">SSRs markers</a></li>
+  <li><a href="/help/cos_markers">COS</a> 與 <a href="/help/cosii_markers">COSII 標記(COSII markers)</a></li>
+  <li><a href="/help/microsats">SSR 標記(SSRs markers)</a></li>
 </ul>
 </li>
-<li><a href="/help/clone_policy">Clone Request Policy</a></li>
-<li><a href="/help/downloading">Rsync downloading options</a></li>
-<li><a href="/help/faq">Frequently asked questions</a></li>
+<li><a href="/help/clone_policy">選殖株索取政策(Clone Request Policy)</a></li>
+<li><a href="/help/downloading">Rsync 下載選項(Rsync downloading options)</a></li>
+<li><a href="/help/faq">常見問題(Frequently asked questions)</a></li>
 
 </ul>
 
-<h4>General Help Topics</h4>
-<h5>Software requirements</h5>
+<h4>一般說明主題(General Help Topics)</h4>
+<h5>軟體需求(Software requirements)</h5>
 
-<p>The SGN website is designed to work with most common browsers. No additional software is required. The SGN webpages use the <a href="http://www.w3.org/TR/xhtml1/">XHTML 1.0</a> and <a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS)</a> standards from the <a href="http://www.w3.org">W3</a> consortium. Certain documents can be downloaded in the <a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF format</a>.
+<p>SGN 網站設計為可相容於大多數常見瀏覽器。不需要額外的軟體。SGN 網頁使用來自 <a href="http://www.w3.org">W3</a> 聯盟的 <a href="http://www.w3.org/TR/xhtml1/">XHTML 1.0</a> 與<a href="http://www.w3.org/Style/CSS/">階層樣式表 (CSS)</a> 標準。特定文件可以 <a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF 格式</a>下載。(The SGN website is designed to work with most common browsers. No additional software is required. The SGN webpages use the <a href="http://www.w3.org/TR/xhtml1/">XHTML 1.0</a> and <a href="http://www.w3.org/Style/CSS/">Cascading Style Sheets (CSS)</a> standards from the <a href="http://www.w3.org">W3</a> consortium. Certain documents can be downloaded in the <a href="http://en.wikipedia.org/wiki/Portable_Document_Format">PDF format</a>.)
 </p>
 <p>
-We test the pages in Firefox 2.0, Safari 2.0 and Microsoft Explorer 7. Please note that Netscape 4.x browsers are explicitly not supported due to a lack of style sheet support. We recommend the latest version of Firefox, which is available free of charge for all common platforms from the Mozilla project (<a href="http://www.mozilla.org">http://www.mozilla.org</a>). Please let us know if you experience problems with other browsers.
+我們在 Firefox 2.0、Safari 2.0 和 Microsoft Explorer 7 中測試了網頁。請注意，由於缺乏樣式表支援，明確不支援 Netscape 4.x 瀏覽器。我們推薦使用 Mozilla 計畫提供的最新版本 Firefox，可在所有常見平台上免費取得 (<a href="http://www.mozilla.org">http://www.mozilla.org</a>)。如果您在使用其他瀏覽器時遇到問題，請告訴我們。(We test the pages in Firefox 2.0, Safari 2.0 and Microsoft Explorer 7. Please note that Netscape 4.x browsers are explicitly not supported due to a lack of style sheet support. We recommend the latest version of Firefox, which is available free of charge for all common platforms from the Mozilla project (<a href="http://www.mozilla.org">http://www.mozilla.org</a>). Please let us know if you experience problems with other browsers.)
 </p>
 
-<h5>Browser settings</h5>
-Please refer to your browser\'s manual or help pages to enable the following settings:
+<h5>瀏覽器設定(Browser settings)</h5>
+請參考您瀏覽器的手冊或說明頁面以啟用以下設定：(Please refer to your browser's manual or help pages to enable the following settings:)
 <ul>
-<li>JavaScript has to be activated for the drop down menus to work properly.</li>
-<li>Cookies have to be enabled for the log in functions to work.</li>
+<li>必須啟用 JavaScript 才能使下拉式選單正常運作。(JavaScript has to be activated for the drop down menus to work properly.)</li>
+<li>必須啟用 Cookie 才能使登入功能正常運作。(Cookies have to be enabled for the log in functions to work.)</li>
 </ul>
 
-<h5>SGN update cycle</h5>
-<p>The SGN codebase and database are updated weekly, every Wednesday morning. During the updates, for a short period of time, some links may not work properly. Please notify us if these conditions persist.
+<h5>SGN 更新週期(SGN update cycle)</h5>
+<p>SGN 程式碼庫與資料庫每週三上午進行每週更新。在更新期間的短時間內，某些連結可能無法正常運作。如果這些情況持續存在，請通知我們。(The SGN codebase and database are updated weekly, every Wednesday morning. During the updates, for a short period of time, some links may not work properly. Please notify us if these conditions persist.)
 </p>
 
-<h5>Getting more information</h5>
+<h5>取得更多資訊(Getting more information)</h5>
 <ul>
-<li>subscribe to our <a href="http://rubisco.sgn.cornell.edu/mailman/listinfo/sgn-announce">announcement list</a> to keep up to date with the latest developments.</li>
-<li>email to <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a> for questions, comments and suggestions </li>
+<li>訂閱我們的<a href="http://rubisco.sgn.cornell.edu/mailman/listinfo/sgn-announce">公告名單(announcement list)</a>以隨時掌握最新動態。(subscribe to our <a href="http://rubisco.sgn.cornell.edu/mailman/listinfo/sgn-announce">announcement list</a> to keep up to date with the latest developments.)</li>
+<li>若有疑問、意見和建議，請發送電子郵件至 <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a>。(email to <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a> for questions, comments and suggestions)</li>
 </ul>
 
 
 <a name="submit"></a>
-<h5>Submitting information to SGN:</h5>
+<h5>向 SGN 提交資訊(Submitting information to SGN):</h5>
 
 
-SGN has community annotation tools are available for locus, allele, insitu experiments and images. <br />
-The related information can be added, updated and deleted by registered SGN users that have specially designated submitter accounts.
-In addition, for certain database records, only a designated editor may change the information. <br />
-Submitters are always accredited on each information page related to theur work (image, experiment, locus, phenotype, etc.) and are the sole owners of the data.<br />
-<a href="mailto:sgn-feedback@sgn.cornell.edu">Contact us</a> if you would like to use the community annotation tools and become a submitter or editor.
+SGN 擁有可用於基因座 (locus)、等位基因 (allele)、原位實驗 (in situ experiments) 和圖像的社群註釋工具。<br />
+相關資訊可由具有特定提交者帳號的註冊 SGN 使用者進行新增、更新和刪除。此外，對於某些資料庫記錄，只有指定的編輯者才能變更資訊。<br />
+提交者在其工作相關的每個資訊頁面（圖像、實驗、基因座、表型等）上始終獲得署名認可，並且是資料的唯一所有者。<br />
+如果您想使用社群註釋工具並成為提交者或編輯者，請<a href="mailto:sgn-feedback@sgn.cornell.edu">聯絡我們(Contact us)</a>。(SGN has community annotation tools are available for locus, allele, insitu experiments and images. The related information can be added, updated and deleted by registered SGN users that have specially designated submitter accounts. In addition, for certain database records, only a designated editor may change the information. Submitters are always accredited on each information page related to theur work (image, experiment, locus, phenotype, etc.) and are the sole owners of the data. <a href="mailto:sgn-feedback@sgn.cornell.edu">Contact us</a> if you would like to use the community annotation tools and become a submitter or editor.)
 <ul>
-<li>How do I contribute information on my <a href="/phenome/">favorite gene?</a></li>
-<li><a href="/cview/help/map_submission">Submit your phenotyped population</a> and we will add it to our <a href="/search/direct_search.pl?search=phenotypes">phenotype database</a></li>
+<li>我該如何提供有關我<a href="/phenome/">喜愛的基因(favorite gene?)</a>的資訊？(How do I contribute information on my favorite gene?)</li>
+<li><a href="/cview/help/map_submission">提交您的表型鑑定族群(Submit your phenotyped population)</a>，我們將其新增至我們的<a href="/search/direct_search.pl?search=phenotypes">表型資料庫(phenotype database)</a>。(Submit your phenotyped population and we will add it to our phenotype database)</li>
 
-<li>To submit fluorescence in-situ hybridization (FISH) data, please follow the <a href="/help/fish_submission">these guidelines</a>.</li>
-<li>To submit genetic map data, please see the <a href="/content/map_submissions.pl">map and marker submission guidelines</a>.</li>
-<li>To submit genotypic and phenotypic data from a QTL study, please see the <a href="/qtl/guide.pl">QTL data submission guidelines</a>.</li>
+<li>若要提交螢光原位雜交 (FISH) 資料，請遵循<a href="/help/fish_submission">這些指引(these guidelines)</a>。(To submit fluorescence in-situ hybridization (FISH) data, please follow the these guidelines.)</li>
+<li>若要提交遺傳圖譜資料，請參閱<a href="/content/map_submissions.pl">圖譜與標記提交指引(map and marker submission guidelines)</a>。(To submit genetic map data, please see the map and marker submission guidelines.)</li>
+<li>若要提交來自 QTL 研究的基因型和表型資料，請參閱 <a href="/qtl/guide.pl">QTL 資料提交指引(QTL data submission guidelines)</a>。(To submit genotypic and phenotypic data from a QTL study, please see the QTL data submission guidelines.)</li>
 
-<li>If you would like to add sequence, marker or other information to this database, or have any comments or suggestions, please send email to <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a>.</li>
+<li>如果您想將序列、標記或其他資訊新增到此資料庫，或有任何意見或建議，請發送電子郵件至 <a href="mailto:sgn-feedback@sgn.cornell.edu">sgn-feedback@sgn.cornell.edu</a>。(If you would like to add sequence, marker or other information to this database, or have any comments or suggestions, please send email to sgn-feedback@sgn.cornell.edu.)</li>
 </ul>
 <br />
 </P>

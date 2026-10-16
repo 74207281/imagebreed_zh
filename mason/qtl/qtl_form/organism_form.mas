@@ -15,14 +15,14 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 <div id= 'associateTaxonForm' style="display: none">
   <div id= "organism_search">
-    Common name:
+    俗名(Common name):
     <input type="text"
            style="width: 50%"
            id="organism_name"
            onkeyup="Qtl.getTaxons(this.value)">
     <input type="button"
            id="associate_taxon_button"
-           value="associate organism"
+           value="關聯生物體(associate organism)"
            disabled="true"
            onclick="Qtl.associateTaxon();this.disabled=false;">
     <select id="taxon_select"

@@ -103,53 +103,30 @@
   </style>
 
   <div style="width: 80%; margin: 0 auto">
-    <& /page/page_title.mas, title => 'A project to catalog and study the dynamic properties of the cell wall proteome (the secretome), using tomato as a model system.' &>
+    <& /page/page_title.mas, title => '一項以番茄為模式系統編目並研究細胞壁蛋白質組（分泌蛋白質組）動態特性的專案(A project to catalog and study the dynamic properties of the cell wall proteome (the secretome), using tomato as a model system.)' &>
   </div>
 
   <div id="secretom_summary" style="float: left; width: 50%">
-    <&| /page/info_section.mas, title => 'Summary' &>
+    <&| /page/info_section.mas, title => '摘要(Summary)' &>
 
       <p>
-      The <a class="info_link" href="/secretom/detail/cell_wall">plant cell wall/apoplast</a> plays a fundamental role
-      in many aspects of growth, development, and responses to environmental
-      conditions and assault by pathogens and insects. It is therefore not
-      surprising that a substantial portion of the plant proteome is
-      localized in the cell wall/apoplast. However, while major initiatives
-      are now underway to map the proteomes of many plant organelles, such
-      as the <a  href="http://ppdb.tc.cornell.edu/dbsearch/subproteome.aspx">
-      chloroplast</a>, the cell wall proteome, or "secretome", is far
-      less well characterized than those of other subcellular compartments.
+      <a class="info_link" href="/secretom/detail/cell_wall">植物細胞壁／質外體(plant cell wall/apoplast)</a> 在生長、發育以及對環境條件和病原體與昆蟲侵襲的反應等諸多方面發揮著基礎性作用(plays a fundamental role in many aspects of growth, development, and responses to environmental conditions and assault by pathogens and insects)。因此，植物蛋白質組的相當大部分定域於細胞壁／質外體中並不令人意外(It is therefore not surprising that a substantial portion of the plant proteome is localized in the cell wall/apoplast)。然而，儘管目前正在進行主要倡議以繪製許多植物細胞器的蛋白質組圖譜（例如 <a  href="http://ppdb.tc.cornell.edu/dbsearch/subproteome.aspx">
+      葉綠體(chloroplast)</a>），但相較於其他亞細胞區室，細胞壁蛋白質組或「分泌蛋白質組（secretome）」的特徵分析要少得多(the cell wall proteome, or "secretome", is far less well characterized than those of other subcellular compartments)。
       </p>
 
       <img width="250" style="display: block; margin: 0 auto" src="/img/secretom/proteome.png" />
 
       <p>
-      <strong>What is the "secretome"?</strong> The term "secretome" is
-      generally used to refer to the population of proteins that are
-      secreted outside the plasma membrane of a cell, but can also be used
-      to describe the subset of the proteome that enter the <a href="/secretom/detail/secretion_path">secretory
-      pathway</a>.
+      <strong>什麼是「分泌蛋白質組」？(What is the "secretome"?)</strong> 「分泌蛋白質組（secretome）」一詞通常用於指分泌到細胞質膜外的蛋白質群體，但也可以用來描述進入 <a href="/secretom/detail/secretion_path">分泌途徑(secretory pathway)</a> 的蛋白質組子集(The term "secretome" is generally used to refer to the population of proteins that are secreted outside the plasma membrane of a cell, but can also be used to describe the subset of the proteome that enter the secretory pathway)。
       </p>
 
       <p>
-      <strong>The purpose of this NSF-funded project</strong> is to
-      catalog and study the dynamic properties of
-      the cell wall proteome, or secretome, using tomato (<i>Solanum
-      lycopersicum</i>) as a model system.
+      <strong>此項由 NSF 資助的專案之目的(The purpose of this NSF-funded project)</strong> 是以番茄（<i>Solanum lycopersicum</i>）為模式系統，編目並研究細胞壁蛋白質組（或分泌蛋白質組）的動態特性(is to catalog and study the dynamic properties of the cell wall proteome, or secretome, using tomato (Solanum lycopersicum) as a model system)。
       </p>
 
 
       <p>
-      <strong>Why study the "secretome"?</strong> Proteomic analysis of cellular
-      compartments reveals the subcellular locations of a specific protein,
-      or protein complex, which in turn can be a valuable step towards
-      understanding protein function. Localization information also helps in
-      the identification of protein interactions and targeting pathways, and
-      peptide motifs and structural signatures that can direct proteins to
-      various cellular locations. In addition the analysis of a subcellular
-      proteome has the advantage of requiring "biological
-      pre-fractionation," which can substantially enhance the detection of
-      lower-abundance proteins.
+      <strong>為什麼要研究「分泌蛋白質組」？(Why study the "secretome"?)</strong> 細胞區室的蛋白質組分析揭示了特定蛋白質或蛋白質複合物的亞細胞定位，這進而成為理解蛋白質功能的寶貴步驟(Proteomic analysis of cellular compartments reveals the subcellular locations of a specific protein, or protein complex, which in turn can be a valuable step towards understanding protein function)。定位資訊亦有助於鑑定蛋白質交互作用和標靶途徑，以及引導蛋白質至不同細胞位置的胜肽基序和結構標籤(Localization information also helps in the identification of protein interactions and targeting pathways, and peptide motifs and structural signatures that can direct proteins to various cellular locations)。此外，亞細胞蛋白質組的分析具有需要「生物學預分級分離」的優勢，這可大幅提高低豐度蛋白質的檢測率(In addition the analysis of a subcellular proteome has the advantage of requiring "biological pre-fractionation," which can substantially enhance the detection of lower-abundance proteins)。
       </p>
 
     </&>
@@ -157,47 +134,43 @@
   <div style="float: right; width: 50%">
 
      <div class="projects">
-      <&| /page/info_section.mas, title => 'Projects', subtitle => 'download datasets: <a href="ftp://ftp.solgenomics.net/secretom/">[SGN FTP site]</a>' &>
+      <&| /page/info_section.mas, title => '專案(Projects)', subtitle => '下載資料集(download datasets)：<a href="ftp://ftp.solgenomics.net/secretom/">[SGN FTP 站台(SGN FTP site)]</a>' &>
 
-        <a class="project" href="/secretom/detail/prediction">Computational Prediction of the Plant Secretome</a>
-        <a class="project" href="/secretom/detail/functional_screens">Functional Screens for Secreted Proteins</a>
-        <a class="project" href="/secretom/detail/glycoproteome">The Tomato Fruit Glycoproteome</a>
-        <a class="project" href="/secretom/detail/proteomics">Tomato Comparative and Quantitative Proteomics</a>
-        <a class="project" href="/secretom/detail/profiling">Integrated Proteome/Transcriptome Profiling of Tomato Fruit</a>
-        <a class="project" href="/secretom/detail/cuticle">The Tomato Fruit Cuticular Cell Wall Proteome</a>
-        <a class="project" href="/secretom/detail/phytophthora_interaction">The Secretome of Phytophthora/Tomato Interactions</a>
-        <a class="project" href="/secretom/detail/spinoffs">Spin-off Projects and Collaborations</a>
+        <a class="project" href="/secretom/detail/prediction">植物分泌蛋白質組之計算預測(Computational Prediction of the Plant Secretome)</a>
+        <a class="project" href="/secretom/detail/functional_screens">分泌蛋白之功能性篩選(Functional Screens for Secreted Proteins)</a>
+        <a class="project" href="/secretom/detail/glycoproteome">番茄果實醣基化蛋白質組(The Tomato Fruit Glycoproteome)</a>
+        <a class="project" href="/secretom/detail/proteomics">番茄比較與定量蛋白質組學(Tomato Comparative and Quantitative Proteomics)</a>
+        <a class="project" href="/secretom/detail/profiling">番茄果實之整合蛋白質組／轉錄組分析(Integrated Proteome/Transcriptome Profiling of Tomato Fruit)</a>
+        <a class="project" href="/secretom/detail/cuticle">番茄果實角質層細胞壁蛋白質組(The Tomato Fruit Cuticular Cell Wall Proteome)</a>
+        <a class="project" href="/secretom/detail/phytophthora_interaction">疫病菌與番茄交互作用之分泌蛋白質組(The Secretome of Phytophthora/Tomato Interactions)</a>
+        <a class="project" href="/secretom/detail/spinoffs">衍生專案與合作(Spin-off Projects and Collaborations)</a>
 
       </&>
     </div>
      <div class="resources">
-      <&| /page/info_section.mas, title => 'Resources' &>
+      <&| /page/info_section.mas, title => '資源(Resources)' &>
 
         <a href="ftp://ftp.solgenomics.net/secretom/">
-          <span class="secretom">secretom</span> datasets (<span style="text-decoration: underline">SGN FTP</span>)
+          <span class="secretom">secretom</span> 資料集(datasets) (<span style="text-decoration: underline">SGN FTP</span>)
         </a>
         <a href="/secretom/publications">
-          <span class="secretom">secretom</span> publications
+          <span class="secretom">secretom</span> 出版文獻(publications)
         </a>
         <hr />
         <div class="secretary">
-          <a href="/secretom/secretary">Use SecreTary</a>
-          A tool for predicting secreted proteins.
+          <a href="/secretom/secretary">使用 SecreTary(Use SecreTary)</a>
+          用於預測分泌蛋白的工具(A tool for predicting secreted proteins)。
         </div>
       </&>
      </div>
   </div>
 
-  <&| /page/info_section.mas, title => 'News' &>
+  <&| /page/info_section.mas, title => '最新消息(News)' &>
 
     <div style="float: left; width: 50%">
-      <&| /page/info_section.mas, title => 'Job Openings', is_subsection => 1 &>
+      <&| /page/info_section.mas, title => '職缺(Job Openings)', is_subsection => 1 &>
         <p>
-        The Rose lab is currently seeking a postdoctoral research associate with 
-        an interest in plant proteomics, or fruit development and ripening. 
-        Experience in mass spectrometry and plant molecular biology would 
-        be an advantage, and good communication skills are critical. 
-        Please contact Joss Rose if interested: 
+        Rose 實驗室目前正在尋找對植物蛋白質組學或果實發育與成熟感興趣的博士後研究學者(The Rose lab is currently seeking a postdoctoral research associate with an interest in plant proteomics, or fruit development and ripening)。具備質譜分析與植物分子生物學經驗者尤佳，且良好的溝通能力至關重要(Experience in mass spectrometry and plant molecular biology would be an advantage, and good communication skills are critical)。如有興趣請聯繫 Joss Rose(Please contact Joss Rose if interested)： 
         <a href="mailto:jr286@cornell.edu">jr286@cornell.edu</a>
         </p>
       </&>
@@ -206,57 +179,54 @@
 
     <div style="width: 50%; float: right" id="education">
 
-      <&| /page/info_section.mas, title => 'Education, Training, and Outreach', is_subsection => 1 &>
+      <&| /page/info_section.mas, title => '教育、培訓與推廣(Education, Training, and Outreach)', is_subsection => 1 &>
           <img style="border: 1px solid black; display: block; margin: 15px auto 0 auto" src="/img/secretom/tomato_bath.png" />
           <p>
-             <a href="/secretom/training">Education and training
-             opportunities</a> in plant proteomics and cell wall
-             biology are available as part of <span class="secretom">Secretom</span>.
+             作為 <span class="secretom">Secretom</span> 的一部分，提供植物蛋白質組學與細胞壁生物學的 <a href="/secretom/training">教育與培訓機會(Education and training opportunities)</a>。
           </p>
 
-          <p><a href="/secretom/outreach">Internships</a> are also available.</p>
+          <p>亦提供 <a href="/secretom/outreach">實習機會(Internships)</a>。</p>
        </&>
     </div>
 
 
   </&>
-  <&| /page/info_section.mas, title => 'People' &>
+  <&| /page/info_section.mas, title => '人員(People)' &>
     <ul class="people">
-      <li>Joss Rose <a href="http://labs.plantbio.cornell.edu/rose/">[Lab]</a></li>
-      <li>Ted Thannhauser <a href="http://www.ars.usda.gov/PandP/docs.htm?docid=9634">[USDA Personal]</a></li>
-      <li>Jim Giovannoni <a href="http://www.bti.cornell.edu/JimGiovannoni.php?page=Research#page=ResearchSummary">[BTI Personal]</a></li>
+      <li>Joss Rose <a href="http://labs.plantbio.cornell.edu/rose/">[實驗室(Lab)]</a></li>
+      <li>Ted Thannhauser <a href="http://www.ars.usda.gov/PandP/docs.htm?docid=9634">[USDA 個人網頁(USDA Personal)]</a></li>
+      <li>Jim Giovannoni <a href="http://www.bti.cornell.edu/JimGiovannoni.php?page=Research#page=ResearchSummary">[BTI 個人網頁(BTI Personal)]</a></li>
       <li>Lukas Mueller <a href="http://solgenomics.net/about">[SGN]</a></li>
-      <li>Zhangjun Fei <a href="http://www.bti.cornell.edu/ZhangjunFei.php?page=Research#page=ResearchSummary">[BTI Personal]</a></li>
+      <li>Zhangjun Fei <a href="http://www.bti.cornell.edu/ZhangjunFei.php?page=Research#page=ResearchSummary">[BTI 個人網頁(BTI Personal)]</a></li>
     </ul>
 
   </&>
-  <&| /page/info_section.mas, title => 'Funding' &>
+  <&| /page/info_section.mas, title => '資助計畫(Funding)' &>
 
        <table><tr>
        <td><a style="background: none" href="http://www.nsf.gov"><img border="0" src="/documents/img/secretom/NSF_Logo.jpg" width="100" height="100"/></a></td>
        <td style="vertical-align: middle; padding-left: 1em">
-        <p>This project and database are funded by National Science Foundation Grant 
-        <a href="http://nsf.gov/awardsearch/showAward.do?AwardNumber=0606595">0606595</a>.
+        <p>本專案與資料庫由美國國家科學基金會補助金（National Science Foundation Grant） 
+        <a href="http://nsf.gov/awardsearch/showAward.do?AwardNumber=0606595">0606595</a> 資助(This project and database are funded by National Science Foundation Grant 0606595)。
         </p>
 
         <p>
-        For questions and comments regarding the SecreTom project, please
-        contact Jocelyn Rose at <a href="mailto:jr286@cornell.edu">jr286@cornell.edu</a>.
+        有關 SecreTom 專案的疑問與建議，請聯繫 Jocelyn Rose(For questions and comments regarding the SecreTom project, please contact Jocelyn Rose at) <a href="mailto:jr286@cornell.edu">jr286@cornell.edu</a>。
         </p>
       </td></tr>
       </table>
 
   </&>
 
-  <&| /page/info_section.mas, title => 'Related Sites' &>
+  <&| /page/info_section.mas, title => '相關網站(Related Sites)' &>
 
       <ul>
-        <li><a href="http://www.ccrc.uga.edu/~mao/cellwall/main.htm">Plant Cell Wall Overview</a></li>
-        <li><a href="http://cell.ccrc.uga.edu/~mao/wallmab/Home/Home.php">Cell Wall Antibodies</a></li>
-        <li><a href="http://cellwall.genomics.purdue.edu/">Cell Wall Genomics</a></li>
-        <li><a href="http://csbl1.bmb.uga.edu/pDAWG">Plant cell wall genes (pDAWG)</a></li>
-        <li><a href="http://bioweb.ucr.edu/Cellwall">Cell Wall Navigator</a></li>
-        <li><a href="http://www.cazy.org">Carbohydrate Active Enzymes</a></li>
+        <li><a href="http://www.ccrc.uga.edu/~mao/cellwall/main.htm">植物細胞壁概述(Plant Cell Wall Overview)</a></li>
+        <li><a href="http://cell.ccrc.uga.edu/~mao/wallmab/Home/Home.php">細胞壁抗體(Cell Wall Antibodies)</a></li>
+        <li><a href="http://cellwall.genomics.purdue.edu/">細胞壁基因組學(Cell Wall Genomics)</a></li>
+        <li><a href="http://csbl1.bmb.uga.edu/pDAWG">植物細胞壁基因(Plant cell wall genes (pDAWG))</a></li>
+        <li><a href="http://bioweb.ucr.edu/Cellwall">細胞壁導航器(Cell Wall Navigator)</a></li>
+        <li><a href="http://www.cazy.org">碳水化合物活性酵素(Carbohydrate Active Enzymes)</a></li>
       </ul>
 
   </&>

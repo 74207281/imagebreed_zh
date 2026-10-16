@@ -1,4 +1,4 @@
-    <& /page/page_title.mas, title => 'Secretom Project Publications' &>
+    <& /page/page_title.mas, title => 'Secretom 專案出版文獻(Secretom Project Publications)' &>
 
 
   <&| /secretom/section_templates/publications.mas &>

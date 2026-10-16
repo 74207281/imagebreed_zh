@@ -12,33 +12,33 @@ Isaak Y Tecle (iyt2@cornell.edu)
 
 </%doc>
 <&| /page/info_section.mas, 
-   title      => "Step 1:  Population details",
+   title      => "步驟 1：群體詳細資訊(Step 1: Population details)",
   collapsible => 1,
   collapsed   => 1
 &>
 
 <ul>
   <li>
-    <strong> Select organism:</strong> fill in the common name of the species the population belongs to. Press the 'associate organism' button. Then proceed with the rest of the form.
+    <strong>選擇生物體(Select organism)：</strong>填寫群體所屬物種的俗名。點擊「關聯生物體」按鈕。然後繼續填寫表單的其餘部分(fill in the common name of the species the population belongs to. Press the 'associate organism' button. Then proceed with the rest of the form)。
   </li>
   <li>
-    <strong> Cross type:</strong> at this stage only inter cross (F2), backcross, RIL (from both sibling mating and selfing) diploid populations are supported.
+    <strong>雜交類型(Cross type)：</strong>現階段僅支援雙親雜交 (F2)、回交、RIL（來自同胞交配和自交）二倍體群體(at this stage only inter cross (F2), backcross, RIL (from both sibling mating and selfing) diploid populations are supported)。
   </li>
   <li>
-    <strong> Population name:</strong> provide a concise and precise name for the population. This will also serve as the genetic map name of the population.
+    <strong>群體名稱(Population name)：</strong>為群體提供一個簡明精確的名稱。這也將作為群體的遺傳圖譜名稱(provide a concise and precise name for the population. This will also serve as the genetic map name of the population)。
   </li>
    <li>
-     <strong> Population description:</strong> provide an abstract style characterization of the population including experimental design highlights.
+     <strong>群體描述(Population description)：</strong>提供群體的摘要式描述，包括實驗設計重點(provide an abstract style characterization of the population including experimental design highlights)。
    </li>
    <li> 
-     <strong>Female and male parents:</strong> Include the species name and cultivar name. Eg. <i> Solanum lycopersicum</i> cv. moneymaker</it>.
+     <strong>母本與父本親本(Female and male parents)：</strong>包含物種名稱與品種名稱。例如：(Include the species name and cultivar name. Eg.) <i> Solanum lycopersicum</i> cv. moneymaker。
    </li>
   <li>
-    <strong> Recurrent and donor parents:</strong> In the same format as the female and male parents but required only in case of backcross population.
+    <strong>輪迴與供體親本(Recurrent and donor parents)：</strong>格式與母本及父本相同，但僅在回交群體的情況下需要(In the same format as the female and male parents but required only in case of backcross population)。
   </li>
 
   <li>
-    <strong> Do you want to make the data public:</strong> Choose 'Yes' or 'No' depending on whether you want to share the QTL data with the community or not.
+    <strong>您希望將資料公開嗎(Do you want to make the data public)：</strong>根據您是否希望與社群分享 QTL 資料，選擇「是」或「否」(Choose 'Yes' or 'No' depending on whether you want to share the QTL data with the community or not)。
   </li> 
   
 </ul>  

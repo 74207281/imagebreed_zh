@@ -1,10 +1,11 @@
 use strict;
+use utf8;
 
 use CXGN::Page;
 
-my $page = CXGN::Page->new("SGN Featured Lab: The Plant Molecular Genetics Lab, Corpoica, Colombia", "Adri");
+my $page = CXGN::Page->new("SGN 精選實驗室：Corpoica 植物分子遺傳學實驗室 (SGN Featured Lab: The Plant Molecular Genetics Lab, Corpoica, Colombia)", "Adri");
 
-$page->header("The Plant Molecular Genetics Lab, Corpoica, Colombia", "The Plant Molecular Genetics Lab, Corpoica, Colombia");
+$page->header("Corpoica 植物分子遺傳學實驗室 (The Plant Molecular Genetics Lab, Corpoica, Colombia)", "Corpoica 植物分子遺傳學實驗室 (The Plant Molecular Genetics Lab, Corpoica, Colombia)");
 
 print <<HTML;
 
@@ -40,7 +41,7 @@ print <<HTML;
 
 <hr>
 
-<h4>Selected Publications</h4>
+<h4>精選發表文獻 (Selected Publications)</h4>
 
 <p>Pratt R.C., Francis D.A., Barrero L.S. (2008) Genomics of Tropical Solanaceous species: Established and emerging crops. In: Plant Genetics and Genomics: Crops and Models, Volume 1. P.H. Moore, R. Ming (editors); Genomics of tropical Crop Plants, Springer, New York, USA, p. 453-467</p>
 
@@ -62,7 +63,7 @@ print <<HTML;
 
 <p>Mari&ntilde;o-Ram&iacute;rez L, Jordan IK, Landsman D. (2006) Multiple independent evolutionary solutions to core histone gene regulation. Genome Biol. 7(12): R122</p>
 
-<h4>Contact Information</h4>
+<h4>聯絡資訊 (Contact Information)</h4>
 
 Luz Stella Barrero Meneses<br />
 Ph.D. Research Scientist<br />
