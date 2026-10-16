@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('deficientroot.html','html2pl converter');
-$page->header('Roots under mixed mineral deficiencies and stresses');
+$page->header('混合礦物質缺乏與逆境下的根系基因庫 (Roots under mixed mineral deficiencies and stresses)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,112 +13,111 @@ print<<END_HEREDOC;
       <tr>
         <td>
           <center>
-            <h2>Roots under mixed mineral deficiencies and
-            stresses</h2>
+            <h2>混合礦物質缺乏與逆境下的根系基因庫 (Roots under mixed mineral deficiencies and stresses)</h2>
           </center>
 
           <table summary="" width="100\%" cellspacing="5">
             <tr valign="top">
-              <td width="20\%">Library:</td>
+              <td width="20\%">基因庫 (Library):</td>
 
               <td>cLEW</td>
             </tr>
 
             <tr valign="top">
-              <td>TIGR ID:</td>
+              <td>TIGR 編號 (TIGR ID):</td>
 
               <td>TRD</td>
             </tr>
 
             <tr valign="top">
-              <td>Authors:</td>
+              <td>作者 (Authors):</td>
 
               <td>Rutger van der Hoeven, Julie Bezzerides, Dave
               Garvin, Leon Kochian, and Steve Tanksley</td>
             </tr>
 
             <tr valign="top">
-              <td>Date made:</td>
+              <td>製作日期 (Date made):</td>
 
               <td>02/00</td>
             </tr>
 
             <tr valign="top">
-              <td>Species:</td>
+              <td>物種 (Species):</td>
 
               <td><em>Lycopersicon esculentum</em></td>
             </tr>
 
             <tr valign="top">
-              <td>Accession:</td>
+              <td>品系/材料 (Accession):</td>
 
               <td>TA496</td>
             </tr>
 
             <tr valign="top">
-              <td>Tissue:</td>
+              <td>組織 (Tissue):</td>
 
               <td>mixed roots from plants grown under different
               nutrient and mineral deficiencies</td>
             </tr>
 
             <tr valign="top">
-              <td>Developmental stage:</td>
+              <td>發育階段 (Developmental stage):</td>
 
               <td>roots from plants four to eight weeks old with
               mixed nutrient and mineral deficiencies</td>
             </tr>
 
             <tr valign="top">
-              <td>Vector:</td>
+              <td>載體 (Vector):</td>
 
               <td>pBluescript SK(+/-)</td>
             </tr>
 
             <tr valign="top">
-              <td>Host:</td>
+              <td>宿主 (Host):</td>
 
               <td>SOLR</td>
             </tr>
 
             <tr valign="top">
-              <td>Primary pfu:</td>
+              <td>初級 pfu (Primary pfu):</td>
 
               <td>1.3 x 10<small><sup>6</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Number mass excised:</td>
+              <td>大量切除數量 (Number mass excised):</td>
 
               <td>7.0 x 10<small><sup>5</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Average insert length:</td>
+              <td>平均插入片段長度 (Average insert length):</td>
 
               <td>1.4 Kb</td>
             </tr>
 
             <tr valign="top">
-              <td>Cloning sites:</td>
+              <td>選殖位點 (Cloning sites):</td>
 
               <td>5' EcoRI, 3' XhoI</td>
             </tr>
 
             <tr valign="top">
-              <td>Antibiotic:</td>
+              <td>抗生素 (Antibiotic):</td>
 
               <td>ampicillin</td>
             </tr>
 
             <tr valign="top">
-              <td>Primers:</td>
+              <td>引子 (Primers):</td>
 
               <td>M13F and M13R</td>
             </tr>
 
             <tr valign="top">
-              <td>Comments:</td>
+              <td>備註 (Comments):</td>
 
               <td>Tissue supplied by Dave Garvin (USDA-ARS, Ithaca,
               NY, 14850) and Leon Kochian. Roots were harvested
