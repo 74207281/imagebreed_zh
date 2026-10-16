@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('shoot.html','html2pl converter');
-$page->header('Shoot Library');
+$page->header('嫩芽基因庫 (Shoot Library)');
 print<<END_HEREDOC;
 
   <center>
@@ -11,115 +12,115 @@ print<<END_HEREDOC;
       <tr>
         <td>
           <center>
-            <h2>Shoot Library</h2>
+            <h2>嫩芽基因庫 (Shoot Library)</h2>
           </center>
 
           <table summary="" width="100\%" cellspacing="5">
             <tr valign="top">
-              <td width="20\%">Library:</td>
+              <td width="20\%">基因庫 (Library):</td>
 
               <td>cLEB</td>
             </tr>
 
             <tr valign="top">
-              <td>TIGR ID:</td>
+              <td>TIGR 編號 (TIGR ID):</td>
 
               <td>TSH</td>
             </tr>
 
             <tr valign="top">
-              <td>Cer ID:</td>
+              <td>Cer 編號 (Cer ID):</td>
 
               <td>cC-esle</td>
             </tr>
 
             <tr valign="top">
-              <td>Authors:</td>
+              <td>作者 (Authors):</td>
 
               <td>Rutger van der Hoeven and S. D. Tanksley</td>
             </tr>
 
             <tr valign="top">
-              <td>Date made:</td>
+              <td>製作日期 (Date made):</td>
 
               <td>02/98</td>
             </tr>
 
             <tr valign="top">
-              <td>Species:</td>
+              <td>物種 (Species):</td>
 
               <td><em>Lycopersicon esculentum</em></td>
             </tr>
 
             <tr valign="top">
-              <td>Accession:</td>
+              <td>品系/材料 (Accession):</td>
 
               <td>TA496</td>
             </tr>
 
             <tr valign="top">
-              <td>Tissue:</td>
+              <td>組織 (Tissue):</td>
 
               <td>vegetative shoots including meristems and small
               expanding leaves</td>
             </tr>
 
             <tr valign="top">
-              <td>Developmental stage:</td>
+              <td>發育階段 (Developmental stage):</td>
 
               <td>8 week-old plants</td>
             </tr>
 
             <tr valign="top">
-              <td>Vector:</td>
+              <td>載體 (Vector):</td>
 
               <td>pBK_CMV</td>
             </tr>
 
             <tr valign="top">
-              <td>Host:</td>
+              <td>宿主 (Host):</td>
 
               <td>XLOLR</td>
             </tr>
 
             <tr valign="top">
-              <td>Primary pfu:</td>
+              <td>初級 pfu (Primary pfu):</td>
 
               <td>1.4 x 10<small><sup>6</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Number mass excised:</td>
+              <td>大量切除數量 (Number mass excised):</td>
 
               <td>1.4 x 10<small><sup>6</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Average insert length:</td>
+              <td>平均插入片段長度 (Average insert length):</td>
 
               <td>1.5 Kb</td>
             </tr>
 
             <tr valign="top">
-              <td>Cloning sites:</td>
+              <td>選殖位點 (Cloning sites):</td>
 
               <td>5' EcoRI, 3' XhoI</td>
             </tr>
 
             <tr valign="top">
-              <td>Antibiotic:</td>
+              <td>抗生素 (Antibiotic):</td>
 
               <td>kanamycin</td>
             </tr>
 
             <tr valign="top">
-              <td>Primers:</td>
+              <td>引子 (Primers):</td>
 
               <td>T3 and T7</td>
             </tr>
 
             <tr valign="top">
-              <td>Comments:</td>
+              <td>備註 (Comments):</td>
 
               <td>This oligo-dT primed cDNA library was made from
               tomato vegetative shoots including meristems and

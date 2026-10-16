@@ -1,8 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('mixedelicitor.html','html2pl converter');
-$page->header('Library of Leaf Tissue Under Mixed Elicitor
-            Stress');
+$page->header('混合誘導子處理葉片組織基因庫 (Library of Leaf Tissue Under Mixed Elicitor)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,109 +12,108 @@ print<<END_HEREDOC;
       <tr>
         <td>
           <center>
-            <h2>Library of Leaf Tissue Under Mixed Elicitor
-            Stress</h2>
+            <h2>混合誘導子處理葉片組織基因庫 (Library of Leaf Tissue Under Mixed Elicitor)</h2>
           </center>
 
           <table summary="" width="100\%" cellspacing="5">
             <tr valign="top">
-              <td width="20\%">Library:</td>
+              <td width="20\%">基因庫 (Library):</td>
 
               <td>cLET</td>
             </tr>
 
             <tr valign="top">
-              <td>TIGR ID:</td>
+              <td>TIGR 編號 (TIGR ID):</td>
 
               <td>TME</td>
             </tr>
 
             <tr valign="top">
-              <td>Authors:</td>
+              <td>作者 (Authors):</td>
 
               <td>Tishina Subrahmanyam and Gregory Martin</td>
             </tr>
 
             <tr valign="top">
-              <td>Date made:</td>
+              <td>製作日期 (Date made):</td>
 
               <td>07/99</td>
             </tr>
 
             <tr valign="top">
-              <td>Species:</td>
+              <td>物種 (Species):</td>
 
               <td><em>Lycopersicon esculentum</em></td>
             </tr>
 
             <tr valign="top">
-              <td>Accession:</td>
+              <td>品系/材料 (Accession):</td>
 
               <td>Rio Grande PtoR</td>
             </tr>
 
             <tr valign="top">
-              <td>Tissue:</td>
+              <td>組織 (Tissue):</td>
 
               <td>leaf</td>
             </tr>
 
             <tr valign="top">
-              <td>Developmental stage:</td>
+              <td>發育階段 (Developmental stage):</td>
 
               <td>4-6 week old plants</td>
             </tr>
 
             <tr valign="top">
-              <td>Vector:</td>
+              <td>載體 (Vector):</td>
 
               <td>pBluescript SK(+/-)</td>
             </tr>
 
             <tr valign="top">
-              <td>Host:</td>
+              <td>宿主 (Host):</td>
 
               <td>SOLR</td>
             </tr>
 
             <tr valign="top">
-              <td>Primary pfu:</td>
+              <td>初級 pfu (Primary pfu):</td>
 
               <td>1.0 x 10<small><sup>6</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Number mass excised:</td>
+              <td>大量切除數量 (Number mass excised):</td>
 
               <td>1.0 x 10<small><sup>8</sup></small></td>
             </tr>
 
             <tr valign="top">
-              <td>Average insert length:</td>
+              <td>平均插入片段長度 (Average insert length):</td>
 
               <td>1.0 Kb</td>
             </tr>
 
             <tr valign="top">
-              <td>Cloning sites:</td>
+              <td>選殖位點 (Cloning sites):</td>
 
               <td>5' EcoRI, 3' XhoI</td>
             </tr>
 
             <tr valign="top">
-              <td>Antibiotic:</td>
+              <td>抗生素 (Antibiotic):</td>
 
               <td>ampicillin</td>
             </tr>
 
             <tr valign="top">
-              <td>Primers:</td>
+              <td>引子 (Primers):</td>
 
               <td>M13F and M13R</td>
             </tr>
 
             <tr valign="top">
-              <td>Comments:</td>
+              <td>備註 (Comments):</td>
 
               <td>The EcoRI site was destroyed during cloning. Use
               any enzyme to the left of it along with XhoI to cut
