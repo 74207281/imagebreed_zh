@@ -268,10 +268,11 @@ sub is_bot_request {
 
 sub send_content_type_header {
     my ( $self, $type ) = @_;
+    return if $self->{_content_type_header_sent}++;
     my $ct = $type || $self->{content_type} || 'text/html; charset=utf-8';
     $ct .= '; charset=utf-8' if $ct =~ m{^text/html$}i;
     $c->res->content_type($ct) if $c && $c->res;
-    print "\n" unless $c && $c->res && $c->res->body;
+    print "Content-Type: $ct\n\n";
 }
 
 
