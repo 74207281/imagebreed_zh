@@ -1,6 +1,7 @@
 use CatalystX::GlobalContext qw( $c );
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Scrap::AjaxPage;
 use CXGN::DB::Connection;

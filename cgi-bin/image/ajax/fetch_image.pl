@@ -1,6 +1,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CGI;
 use JSON;
@@ -18,7 +19,7 @@ eval {
     
     my $html = $image->get_img_src_tag($size);
     
-    print "Content-Type: text/plain\n\n";
+    print "Content-Type: application/json; charset=UTF-8\n\n";
     print  to_json({ html=>$html });
 
 };

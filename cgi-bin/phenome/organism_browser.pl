@@ -19,6 +19,7 @@ Isaak Y Tecle iyt2@cornell.edu
 
 use strict;
 use warnings;
+use utf8;
 
 use Path::Class;
 

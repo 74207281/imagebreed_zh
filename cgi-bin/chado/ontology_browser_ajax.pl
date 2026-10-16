@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Chado::Cvterm;
 use CXGN::Scrap::AjaxPage;

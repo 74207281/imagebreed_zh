@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Scrap::AjaxPage;
 use CXGN::Login;
@@ -33,7 +34,7 @@ if ($login_user_type eq 'curator') {
    
 	if ($fail) { 
 	    warn "merging locus  failed! . $fail";
-	    my $message=  "merging locus failed!\n $fail ";
+	    my $message=  "合併基因座失敗！ (merging locus failed!)\n $fail ";
 	    CXGN::Contact::send_email('Merging locus failed' ,$message, 'sgn-bugs@sgn.cornell.edu');
 	    $error{"error"} =  $message;
 	   
