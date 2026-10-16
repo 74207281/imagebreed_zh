@@ -1,15 +1,16 @@
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw / page_title_html /;
 
 my $page = CXGN::Page->new();
-$page->header();
-my $title = page_title_html("Coffee Bioinformatics Lab/ National Coffee Research Center/ Chinchina Colombia");
+$page->header('Cenicafe 生物資訊研究組 (Cenicafe Bioinformatics Group, Chinchina, Colombia)');
+my $title = page_title_html("國家咖啡研究中心咖啡生物資訊實驗室 (Coffee Bioinformatics Lab / National Coffee Research Center / Chinchina, Colombia)");
 
 print <<HTML;
 
-<center><b>Featured Lab</b></center>
+<center><b>精選實驗室 (Featured Lab)</b></center>
 
 $title
 

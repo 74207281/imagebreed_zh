@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200601','Teri Solow');
 
@@ -29,11 +30,11 @@ my $stylesheet=<<END_STYLESHEET;
 </style>
 END_STYLESHEET
 
-$page->header('The Petunia Lab at Radboud University, Nijmegen', undef, $stylesheet);
+$page->header('內梅亨拉德堡德大學矮牽牛實驗室 (The Petunia Lab at Radboud University, Nijmegen)', undef, $stylesheet);
 print<<END_HEREDOC;
 
 <center>
-<h1>The Petunia Lab at Radboud University, Nijmegen</h1>
+<h1>內梅亨拉德堡德大學矮牽牛實驗室 (The Petunia Lab at Radboud University, Nijmegen)</h1>
 </center>
 
 <p class="footnote"><img src="/static_content/community/feature/200601-1.jpg" border="4" style="border-color: #0000FF" width="800" height="555" alt="The Petunia Lab" /><br />

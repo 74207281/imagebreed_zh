@@ -105,13 +105,13 @@ sub local_abort {
 
     my ($errstrn) = @_;
     if (not $errstrn) {
-	$errstrn = "Error reading SSR data"; 
+	$errstrn = "讀取 SSR 數據時發生錯誤 (Error reading SSR data)"; 
     }
-    $page->header( "Error reading SSR data." ,"Error reading SSR data." );
+    $page->header( "讀取 SSR 數據時發生錯誤 (Error reading SSR data)" ,"讀取 SSR 數據時發生錯誤 (Error reading SSR data)" );
     if ($errstrn) {
 	print "$errstrn\n";
     } else {
-	print "<I>There has been an error generating data.<br />Please email Robert Ahrens at <a href='mailto:ra97\@cornell.edu'>ra97\@cornell.edu</a> to let him know you are experiencing difficulties.</I>";
+	print "<I>生成數據時發生錯誤。<br />請寄送電子郵件通知系統管理員。</I>";
     }
     $page->footer();
     exit;

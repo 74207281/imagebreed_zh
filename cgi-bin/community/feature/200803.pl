@@ -1,11 +1,12 @@
 
 use strict;
+use utf8;
 
 use CXGN::Page;
 
-my $page = CXGN::Page->new("SGN Featured Lab: The Thompson Water Use Research Group", "Lukas");
+my $page = CXGN::Page->new("SGN 精選實驗室：湯普森水分利用研究組 (SGN Featured Lab: The Thompson Water Use Research Group)", "Lukas");
 
-$page->header("The Thompson Water Use Research Group", "The Thompson Water Use Research Group");
+$page->header("湯普森水分利用研究組 (The Thompson Water Use Research Group)", "湯普森水分利用研究組 (The Thompson Water Use Research Group)");
 
 print <<HTML;
 
@@ -40,7 +41,7 @@ Our research group is part of Warwick HRI, formally a government research instit
 
 <hr>
  
-<h4>SELECTED PUBLICATIONS</h4>
+<h4>精選發表文獻 (SELECTED PUBLICATIONS)</h4>
 <p>
 Thompson A J, Andrews J, Mulholland B J, McKee J M T, Hilton H W, Horridge J S, Farquhar G D, Smeeton R C, Smillie I R A, Black C R, Taylor I B (2007a) 'Over-production of abscisic acid in tomato increases water-use efficiency and root hydraulic conductivity and influences leaf expansion' Plant Physiology 143:1905-1917.</p>
 <p>Thompson A J, Mulholland B J, Jackson A C, McKee J M T, Hilton H W, Symonds R C, Sonneveld T, Burbidge A, Stevenson P, Taylor I B (2007b) 'Regulation and manipulation of ABA biosynthesis in roots.' Plant Cell and Environment 30:67-78.</p>
@@ -48,7 +49,7 @@ Thompson A J, Andrews J, Mulholland B J, McKee J M T, Hilton H W, Horridge J S, 
 <p>Thompson A J, Thorne E T, Burbidge A, Jackson A C, Sharp R E, Taylor I B (2004) 'Complementation of notabilis, an abscisic acid-deficient mutant of tomato: importance of sequence context and utility of partial complementation', Plant Cell And Environment, 27:459-471.  </p>
 <p>Thompson A J, Jackson A C, Symonds R C, Mulholland B J, Dadswell R, Blake P S, Burbidge A and Taylor I B (2000) 'Ectopic expression of a tomato 9-cis-epoxycarotenoid dioxygenase gene causes over-production of abscisic acid', The Plant Journal, 23:363-374.</p>
 
-<h4>Contact Details</h4>
+<h4>聯絡資訊 (Contact Details)</h4>
 
 Dr Andrew J. Thompson<br />
 Warwick HRI<br />

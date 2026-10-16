@@ -1,13 +1,13 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('paran_lab.html','html2pl converter');
-$page->header('Paran Lab');
+$page->header('Paran 實驗室 (Paran Lab)');
 print<<END_HEREDOC;
 
   <div>
     <p dir="ltr" style="text-align: center"><span style=
-    "font-weight: bold"><span style="font-size: 14pt">The Paran
-    Lab</span></span></p>
+    "font-weight: bold"><span style="font-size: 14pt">Paran 實驗室 (The Paran Lab)</span></span></p>
 
     <p dir="ltr" style="text-align: center"><img src=
     "/static_content/community/feature/paran_people.jpg" alt="" /></p>
@@ -18,7 +18,7 @@ print<<END_HEREDOC;
     <p dir="ltr" style="text-align: left">&nbsp;</p>
 
     <p dir="ltr" style="text-align: left"><span style=
-    "font-weight: bold">Research highlights</span></p>
+    "font-weight: bold">研究重點 (Research Highlights)</span></p>
 
     <p dir="ltr" style="text-align: left; text-indent: 0.5000in">
     The focus of my laboratory is the development of molecular
@@ -63,7 +63,7 @@ print<<END_HEREDOC;
     <p dir="ltr" style="text-align: left">&nbsp;</p><br />
 
     <p dir="ltr" style="text-align: left"><span style=
-    "font-weight: bold">Sample results</span></p>
+    "font-weight: bold">研究結果範例 (Sample Results)</span></p>
 
     <p dir="ltr" style="text-align: center"><img src=
     "/static_content/community/feature/paran_figure1.gif" alt="" /></p>
@@ -72,7 +72,7 @@ print<<END_HEREDOC;
     "/static_content/community/feature/paran_figure2.gif" alt="" /></p><br />
 
     <p dir="ltr" style="text-align: left"><span style=
-    "font-weight: bold">Recent publications</span></p>
+    "font-weight: bold">近期發表文獻 (Recent Publications)</span></p>
 
     <p dir="ltr" style=
     "text-align: justify; margin-left: 0.3750in; text-indent: -0.3750in">

@@ -1,11 +1,12 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200404.html','html2pl converter');
-$page->header('The Kuhlemeier Lab');
+$page->header('李傳友實驗室 (The Li Lab)');
 print<<END_HEREDOC;
 
   <center>
-    <h1>The Li Lab</h1>
+    <h1>李傳友實驗室 (The Li Lab)</h1>
 
     <div style="text-align: center; width: 650">
       <img src="/static_content/community/feature/200404-1.jpg" width="640" height="480" border="0"
@@ -50,7 +51,7 @@ print<<END_HEREDOC;
     Another aspect of our research is to identify agriculturally
     important genes in the model system of rice and tomato, using a
     map-based cloning approach.</p>
-  </div><strong>Selected Publications:</strong>
+  </div><strong>精選發表文獻 (Selected Publications):</strong>
 
   <ol style="1">
     <li>Li C, Liu G, Xu C, Lee G, Bauer P, Ganal M, Ling, H and
