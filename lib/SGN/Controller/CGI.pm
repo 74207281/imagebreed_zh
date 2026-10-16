@@ -77,6 +77,14 @@ after 'cgi_to_response' => sub {
     if ( $ct && $ct =~ m{^text/}i && $ct !~ /charset/i ) {
         $c->res->content_type("$ct; charset=utf-8");
     }
+    if ( $ct && $ct =~ m{^(?:text/|application/(?:json|javascript|xml))}i ) {
+        if ( my $body = $c->res->body ) {
+            if ( !ref $body && !utf8::is_utf8($body) ) {
+                utf8::decode($body);
+                $c->res->body($body);
+            }
+        }
+    }
 };
 
 sub cgi_action_for {
