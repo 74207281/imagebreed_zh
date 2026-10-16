@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('unigene-validation.html','html2pl converter');
-$page->header('Assembly Process Validation');
+$page->header('組裝流程驗證 (Assembly Process Validation)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,7 +13,7 @@ print<<END_HEREDOC;
         <td>
           
 
-          <h3>Assembly Process Validation</h3>
+          <h3>組裝流程驗證 (Assembly Process Validation)</h3>
 
           <p>In an effort to validate SGN's unigene assembly
           process, we have attempted to compare our combined
@@ -48,13 +49,13 @@ print<<END_HEREDOC;
             </tr>
 
             <tr>
-              <td>Total # of output sequences</td>
+              <td>輸出序列總數 (Total # of output sequences)</td>
               <td>31278</td>
               <td>31102</td>
             </tr>
 
             <tr>
-              <td>Contigs (TCs)</td>
+              <td>重疊群 (Contigs (TCs))</td>
               <td>16200</td>
               <td>15211</td>
             </tr>
@@ -113,13 +114,13 @@ print<<END_HEREDOC;
             </tr>
 
             <tr>
-              <td>Total # of output sequences</td>
+              <td>輸出序列總數 (Total # of output sequences)</td>
               <td>29234</td>
               <td>30395</td>
             </tr>
 
             <tr>
-              <td>Contigs (TCs)</td>
+              <td>重疊群 (Contigs (TCs))</td>
               <td>15034</td>
               <td>14432</td>
             </tr>
