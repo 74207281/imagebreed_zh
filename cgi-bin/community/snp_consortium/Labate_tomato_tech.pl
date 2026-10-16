@@ -1,11 +1,12 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('Labate_tomato_tech.html','html2pl converter');
-$page->header('SNP Consortium Pre-proposal');
+$page->header('SNP 聯盟先導計畫書 (SNP Consortium Pre-proposal)');
 print<<END_HEREDOC;
 
 
-    <h2>SNP Consortium Pre-proposal</h2>
+    <h2>SNP 聯盟先導計畫書 (SNP Consortium Pre-proposal)</h2>
 
     <p>Joanne Labate and Angela Baldo, USDA Geneva</p>
 
