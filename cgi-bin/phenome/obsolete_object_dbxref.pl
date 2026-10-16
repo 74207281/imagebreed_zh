@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Scrap::AjaxPage;
 use CXGN::DB::Connection;
@@ -41,10 +42,10 @@ if ($login_user_type eq 'curator' || $login_user_type eq 'submitter' || $login_u
     };
     if ($@) { 
 	warn "$action ontology term association failed!  $@"; 
-	$error{error} =  "$action annotation for $type failed!  $@"; 
+	$error{error} =  "$action $type 註釋失敗！ (annotation for $type failed!) $@"; 
     }
     else  { 
-	$error{response} =  "$action annotation for $type worked!"; 
+	$error{response} =  "$action $type 註釋成功！ (annotation for $type worked!)"; 
 	
 	my $subject="[Ontology-$type association $action] ";
 	my $person= CXGN::People::Person->new($dbh, $login_person_id);
@@ -57,7 +58,7 @@ if ($login_user_type eq 'curator' || $login_user_type eq 'submitter' || $login_u
     }
     
 } else {
-    $error{error} =  "User type $login_user_type does not have permissions to obsolete ! ";
+    $error{error} =  "使用者身分 $login_user_type 沒有作廢權限！ (User type $login_user_type does not have permissions to obsolete!)";
 }
 
 my $jobj = $json->encode(\%error);

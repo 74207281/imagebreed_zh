@@ -1,5 +1,6 @@
 
 use strict;
+use utf8;
 
 my $tag_detail_page = CXGN::Tag_detail_page->new();
 
@@ -84,7 +85,7 @@ sub store {
 	   	    
 	    $self->get_page()->header();
 	    print  "Tag '".$tag->get_name(). "' already associated with image " . $args{image_id} . " <br />";
-	    print qq { <a href="javascript:history.back(1)">back to image page</a> };
+	    print qq { <a href="javascript:history.back(1)">返回影像頁面 (back to image page)</a> };
 	    $self->get_page()->footer();
 	    exit();
 	}else { 
@@ -143,15 +144,15 @@ sub delete {
     $self->get_page()->header();
     
     if ($experiment) { 
-	print qq { Removed tag "$tag_name" association from experiment "$experiment_name". }; 
+	print qq { 已從實驗「$experiment_name」移除標籤「$tag_name」關聯。(Removed tag "$tag_name" association from experiment "$experiment_name".) }; 
 	print qq { <a href="/insitu/detail/experiment.pl?experiment_id=$args{experiment_id}&amp;action=view">back to experiment</a> };
     }
     elsif ($image) { 
-	print qq { Removed tag "$tag_name" association from image "$image_name". };
+	print qq { 已從影像「$image_name」移除標籤「$tag_name」關聯。(Removed tag "$tag_name" association from image "$image_name".) };
 	print qq { <a href="/image/index.pl?image_id=$args{image_id}&amp;action=view">back to image detail page</a> };
     }
     if (!$args{image_id} && !$args{experiment_id}) { 
-	print qq { No associations were deleted because no association information was provided. };
+	print qq { 因未提供關聯資訊，未刪除任何關聯。(No associations were deleted because no association information was provided.) };
     }
 	
     $self->get_page()->footer();		   
@@ -177,7 +178,7 @@ sub generate_form {
     
     # add form elements
     #
-    $self->get_form()->add_field(display_name=>"Tag name: ", 
+    $self->get_form()->add_field(display_name=>"標籤名稱 (Tag name): ", 
 				 field_name=>"tag", 
 				 length=>20, 
 				 object=>$tag, 
@@ -240,16 +241,16 @@ sub display_page {
     #
     $self->get_page()->header();
     
-    print qq { <b>Associated tags</b> };
+    print qq { <b>已關聯的標籤 (Associated tags)</b> };
 
     if ($args{experiment_id}) { 
 	$experiment = CXGN::Insitu::Experiment->new($self->get_dbh(), $args{experiment_id});
 	@experiment_tags = $experiment->get_tags();
 	my $experiment_id = $experiment->get_experiment_id();
-	print "for experiment ".$experiment->get_name()."<br /><br />\n";
+	print "實驗 (for experiment) ".$experiment->get_name()."<br /><br />\n";
 	foreach my $t (@experiment_tags) { 
 	    my $tag_id = $t->get_tag_id();
-	    print $t->get_name(). qq { \n <a href="/tag/?experiment_id=$experiment_id&amp;tag_id=$tag_id&action=delete">[Remove]</a> <br />\n };
+	    print $t->get_name(). qq { \n <a href="/tag/?experiment_id=$experiment_id&amp;tag_id=$tag_id&action=delete">[移除 (Remove)]</a> <br />\n };
 	}
 
     }
@@ -258,16 +259,16 @@ sub display_page {
 	@image_tags = (@tags, $image->get_tags());
 	my $image_id = $image->get_image_id();
 	my $image_name = $image->get_name() || "Untitled";
-	print qq { for image "$image_name"<br /><br />\n };
+	print qq { 影像 (for image) "$image_name"<br /><br />\n };
 
 	foreach my $t (@image_tags) { 
 	    my $tag_id = $t->get_tag_id(); 
-	    print $t->get_name(). qq { <a href="/tag/?image_id=$args{image_id}&amp;tag_id=$tag_id&action=delete">[Remove]</a> <br /> \n };
+	    print $t->get_name(). qq { <a href="/tag/?image_id=$args{image_id}&amp;tag_id=$tag_id&action=delete">[移除 (Remove)]</a> <br /> \n };
 	}
     }
-    if (!@experiment_tags && !@image_tags) { print "<b>None found</b><br /><br />\n"; }
+    if (!@experiment_tags && !@image_tags) { print "<b>未找到 (None found)</b><br /><br />\n"; }
 
-    print qq { <br /><br /><b>Associate another tag</b>: };
+    print qq { <br /><br /><b>關聯其他標籤 (Associate another tag)</b>: };
     
     print qq { <center> };
     
@@ -276,9 +277,9 @@ sub display_page {
     print qq { </center> };
    
     if ($args{experiment_id}) {
-    print qq { <a href="/insitu/detail/experiment.pl?experiment_id=$args{experiment_id}&amp;action=view">back to experiment page</a> };
+    print qq { <a href="/insitu/detail/experiment.pl?experiment_id=$args{experiment_id}&amp;action=view">返回實驗頁面 (back to experiment page)</a> };
 }elsif ($args{image_id}) {
-    print qq { <a href="/image/index.pl?image_id=$args{image_id}&amp;action=view">back to image page</a> };
+    print qq { <a href="/image/index.pl?image_id=$args{image_id}&amp;action=view">返回影像頁面 (back to image page)</a> };
 }
     $self->get_page()->footer();
     

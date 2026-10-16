@@ -1,5 +1,6 @@
 use Modern::Perl;
 use warnings;
+use utf8;
 
 use CXGN::Scrap::AjaxPage;
 use CXGN::Login;

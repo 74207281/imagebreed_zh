@@ -1,5 +1,6 @@
 use strict;
 use warnings;
+use utf8;
 
 use CXGN::Scrap::AjaxPage;
 use CXGN::DB::Connection;
@@ -23,7 +24,7 @@ if ($login_user_type eq 'curator' || $login_user_type eq 'submitter' || $login_u
     my $json = JSON->new();
     #Assign a new curator
     if ($action eq 'assign_curator') {
-	$error{"error"} = "Storing pub_curator works!";
+	$error{"error"} = "儲存文獻策展資訊成功！ (Storing pub_curator works!)";
 	eval {
 	    $pub->set_curator_id($curator_id);
 	    $pub->store_pub_curator();
@@ -35,12 +36,12 @@ if ($login_user_type eq 'curator' || $login_user_type eq 'submitter' || $login_u
 	my $jobj = $json->objToJson(\%error);
 	print STDERR "JSON FORMAT: $jobj\n";
 
-        print "Content-Type: text/plain\n\n";
+        print "Content-Type: text/plain; charset=UTF-8\n\n";
 	print  $jobj;
 	
     #Change the pub_curator status	
     } elsif ($action eq 'change_stat') {
-	$error{"error"} = "Updating pub_curator status to $stat!";
+	$error{"error"} = "更新文獻策展狀態為 $stat 成功！ (Updating pub_curator status to $stat!)";
 	eval {
 	    
 	    $pub->set_status($stat);
@@ -62,7 +63,7 @@ if ($login_user_type eq 'curator' || $login_user_type eq 'submitter' || $login_u
 	my $jobj = $json->objToJson(\%error);
 	print STDERR "JSON FORMAT: $jobj\n";
 	
-        print "Content-Type: text/plain\n\n";
+        print "Content-Type: text/plain; charset=UTF-8\n\n";
 	print  $jobj;
     }
 }
