@@ -557,7 +557,7 @@ sub as_table_string {
 	}
     }
     if ($has_required_field) { 
-	$string .= qq { (<font color="red">*</font> denotes required field.)<br /><br /> };
+	$string .= qq { (<font color="red">*</font> 表示必填欄位)<br /><br /> };
     }
     $string .= qq { </td></tr></table></div> };
     $string .= $self->get_form_end();

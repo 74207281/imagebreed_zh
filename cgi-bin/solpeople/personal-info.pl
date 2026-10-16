@@ -79,6 +79,73 @@ sub check_modify_privileges {
 
 }
 
+sub _markdown_to_html {
+	my $text = shift;
+	return "" unless defined $text;
+
+	$text =~ s/\r\n/\n/g;
+	$text =~ s/\r/\n/g;
+
+	# HTML-escape raw tags to avoid XSS
+	$text =~ s/&/&amp;/g;
+	$text =~ s/</&lt;/g;
+	$text =~ s/>/&gt;/g;
+
+	# Headings (# to ######)
+	$text =~ s/^######\s+(.+)$/<h6>$1<\/h6>/gm;
+	$text =~ s/^#####\s+(.+)$/<h5>$1<\/h5>/gm;
+	$text =~ s/^####\s+(.+)$/<h4>$1<\/h4>/gm;
+	$text =~ s/^###\s+(.+)$/<h3>$1<\/h3>/gm;
+	$text =~ s/^##\s+(.+)$/<h2>$1<\/h2>/gm;
+	$text =~ s/^#\s+(.+)$/<h1>$1<\/h1>/gm;
+
+	# Bold and Italic
+	$text =~ s/\*\*\*(.+?)\*\*\*/<b><i>$1<\/i><\/b>/g;
+	$text =~ s/\*\*(.+?)\*\*/<b>$1<\/b>/g;
+	$text =~ s/\*(.+?)\*/<i>$1<\/i>/g;
+	$text =~ s/___(.+?)___/<b><i>$1<\/i><\/b>/g;
+	$text =~ s/__(.+?)__/<b>$1<\/b>/g;
+	$text =~ s/_(.+?)_/<i>$1<\/i>/g;
+
+	# Links: [text](https://url)
+	$text =~ s/\[([^\]]+)\]\((https?:\/\/[^\s\)]+)\)/<a href="$2" target="_blank" rel="noopener noreferrer">$1<\/a>/g;
+
+	# Unordered Lists: lines starting with - or *
+	my @lines = split(/\n/, $text);
+	my $in_list = 0;
+	my @out;
+	for my $line (@lines) {
+		if ($line =~ /^\s*[-*]\s+(.+)$/) {
+			push @out, "<ul>" unless $in_list;
+			$in_list = 1;
+			push @out, "<li>$1</li>";
+		} else {
+			if ($in_list) {
+				push @out, "</ul>";
+				$in_list = 0;
+			}
+			push @out, $line;
+		}
+	}
+	push @out, "</ul>" if $in_list;
+	$text = join("\n", @out);
+
+	# Paragraphs (blocks separated by 2+ newlines)
+	my @blocks = split(/\n{2,}/, $text);
+	my @formatted;
+	for my $b (@blocks) {
+		$b =~ s/^\s+|\s+$//g;
+		next unless length $b;
+		if ($b =~ /^<(?:h[1-6]|ul|ol)/) {
+			push @formatted, $b;
+		} else {
+			$b =~ s/\n/<br \/>/g;
+			push @formatted, "<p>$b<\/p>";
+		}
+	}
+	return join("\n", @formatted);
+}
+
 #specified in SimpleFormPage
 sub validate_parameters_before_store
 {
@@ -87,7 +154,7 @@ sub validate_parameters_before_store
 
 	my ($keywords, $format, $research_interests, $organism_codes_str, $unlisted_organisms_str) =
 		@args{qw(keywords format research_interests organisms unlisted_organisms)};
-	$format = "auto" unless $format eq "html";
+	$format = "markdown" unless defined $format && $format =~ /^(?:markdown|auto|html)$/;
 
 	#after checking for legal values, do the actual storing of existing organism IDs here
 	my @organism_codes = map {$_ =~ tr/[0-9]//cds; $_} split(/\0/, $organism_codes_str);
@@ -121,41 +188,24 @@ sub validate_parameters_before_store
 	}
 	my $unlisted_organisms = join("\0", @unlisted_organisms);
 
-	# Quick, dirty hack method of defenestrating disallowed HTML tags in
-	# research interest statements: replace allowed tags with a marker string,
-	# then delete all tokens of the form "<[^>]+>", then replace the marker string
-	# with the original tag.
-	#
-	# Using the marker string allows us to "save" the information about the tag
-	# that is allowed -- changing it to a token that won't match the "<[^>]+>"
-	# pattern. Using a random marker string prevents a user learning (through a
-	# website error or something that reveals a static marker string) the marker
-	# and trying to insert illegal tags by typing the marker into their statement
-	# manually. This is further guarded against by only recognizing marker strings
-	# with allowed tags encoded. (Yes, I am paranoid)
-	#
-	# The main problem with this is if someone happens to use both a literal "<"
-	# and a matching ">" in their research statement -- if that happens, the
-	# text flanked by these will be deleted -- they'll need to use &lt; and &gt;
-	# instead.
-	my $tag_marker = $self->get_page()->tempname();
-	my $formatted_interests = $research_interests;
-	$formatted_interests =~ s/<(\/{0,1})([pbi]|br)>/$1-$2-$tag_marker/g;
-	$formatted_interests =~ s/\<[^>]+\>//g;
-	$formatted_interests =~ s/(\/{0,1})-([pbi]|br)-$tag_marker/<$1$2>/g;
-
-	# This is stored separately in the database, without tags, for full-text searching.
-	$research_interests =~ s/\<[^>]+\>//g;
-
-	if ($format eq "auto")
-	{
-		$formatted_interests =~ s/\r{0,1}\n\r{0,1}\n/<\/p><p>/g;
-		$formatted_interests = "<p>$formatted_interests</p>";
+	my $formatted_interests;
+	if ($format eq "markdown") {
+		$formatted_interests = _markdown_to_html($research_interests);
+	} elsif ($format eq "auto") {
+		my $escaped = HTML::Entities::encode_entities($research_interests);
+		$escaped =~ s/\r{0,1}\n\r{0,1}\n/<\/p><p>/g;
+		$formatted_interests = "<p>$escaped</p>";
+	} else {
+		my $tag_marker = $self->get_page()->tempname();
+		$formatted_interests = $research_interests;
+		$formatted_interests =~ s/<(\/{0,1})([pbi]|br)>/$1-$2-$tag_marker/g;
+		$formatted_interests =~ s/\<[^>]+\>//g;
+		$formatted_interests =~ s/(\/{0,1})-([pbi]|br)-$tag_marker/<$1$2>/g;
 	}
 
 	$args{keywords} = HTML::Entities::encode_entities($keywords);
 	$args{format} = $format;
-	$args{research_interests} = ($format eq "auto") ? HTML::Entities::encode_entities($research_interests) : $formatted_interests;
+	$args{research_interests} = $formatted_interests;
 	$args{unlisted_organisms} = $unlisted_organisms;
 	$self->set_args(%args); #necessary if you want to affect the arguments that will be stored
 }
@@ -194,7 +244,7 @@ sub generate_form
 			     field_name => "lbl1",
 			     contents => "如果您此時希望輸入或更新資訊，但不希望將其公開顯示，請勾選此選項。");
 
-	    $form->add_checkbox(display_name => "在名錄搜尋與公開顯示中隱藏聯絡資訊 (Censor contact information)",
+	    $form->add_checkbox(display_name => "在名錄搜尋與公開顯示中隱藏聯絡資訊",
 				field_name => "censor",
 				contents => "1",
 				selected => $person->get_censored(),
@@ -207,15 +257,15 @@ sub generate_form
 			     contents => "您在此處輸入的名字與姓氏將顯示在 SGN 名錄中 (若未勾選上方隱藏方塊)。"
 			     . " 您在此系統的使用者名稱不會被公開顯示。");
 	}
-	$form->add_select(display_name => "稱謂 (Salutation)",
+	$form->add_select(display_name => "稱謂",
 			  field_name => "salutation",
 			  contents => $person->get_salutation(),
 			  object => $person,
 			  getter => "get_salutation",
 			  setter => "set_salutation",
-			  select_list_ref => [qw(None Prof. Dr. Mr. Ms. Mrs.)],
+			  select_list_ref => ['無', qw(Prof. Dr. Mr. Ms. Mrs.)],
 			  select_id_list_ref => ['', qw(Prof. Dr. Mr. Ms. Mrs.)]);
-	$form->add_field(display_name => "名字 (First name)",
+	$form->add_field(display_name => "名字",
 			 field_name => "first_name",
 			 contents => $displayed_first_name,
 			 length => $default_field_length,
@@ -223,7 +273,7 @@ sub generate_form
 			 getter => "get_first_name",
 			 setter => "set_first_name",
 			 validate => "string");
-	$form->add_field(display_name => "姓氏 (Last name)",
+	$form->add_field(display_name => "姓氏",
 			 field_name => "last_name",
 			 contents => $displayed_last_name,
 			 length => $default_field_length,
@@ -231,14 +281,14 @@ sub generate_form
 			 getter => "get_last_name",
 			 setter => "set_last_name",
 			 validate => "string");
-	$form->add_field(display_name => "所屬機構 (Organization)",
+	$form->add_field(display_name => "所屬機構",
 			 field_name => "organization",
 			 contents => $person->get_organization(),
 			 length => 50,
 			 object => $person,
 			 getter => "get_organization",
 			 setter => "set_organization");
-	$form->add_textarea(display_name => "地址 (Address)",
+	$form->add_textarea(display_name => "地址",
 			    field_name => "address",
 			    contents => $person->get_address(),
 			    rows => 4,
@@ -246,7 +296,7 @@ sub generate_form
 			    object => $person,
 			    getter => "get_address",
 			    setter => "set_address");
-	$form->add_field(display_name => "國家 (Country)",
+	$form->add_field(display_name => "國家",
 			 field_name => "country",
 			 contents => $person->get_country(),
 			 length => $default_field_length,
@@ -259,14 +309,14 @@ sub generate_form
 			     contents => "若您希望透過電話或傳真被聯絡，請在此輸入電話號碼。"
 			     . " 這些號碼將對檢視您個人資料的 SGN 使用者公開顯示。");
 	}
-	$form->add_field(display_name => "電話 (Phone)",
+	$form->add_field(display_name => "電話",
 			 field_name => "phone",
 			 contents => $person->get_phone_number(),
 			 length => $default_field_length,
 			 object => $person,
 			 getter => "get_phone_number",
 			 setter => "set_phone_number");
-	$form->add_field(display_name => "傳真 (Fax)",
+	$form->add_field(display_name => "傳真",
 							field_name => "fax",
 							contents => $person->get_fax(),
 							length => $default_field_length,
@@ -280,14 +330,14 @@ sub generate_form
 								contents => "若您希望透過電子郵件被聯絡，請在此輸入電子信箱地址。"
 								. " 該地址將對檢視您個人資料的所有使用者公開顯示。");
 	}
-	$form->add_field(display_name => "聯絡電子郵件 (Contact E-mail)",
+	$form->add_field(display_name => "聯絡電子郵件",
 							field_name => "contact_email",
 							contents => $person->get_contact_email(),
 							length => $default_field_length,
 							object => $person,
 							getter => "get_contact_email",
 							setter => "set_contact_email");
-	$form->add_field(display_name => "個人或實驗室網站 (Website)",
+	$form->add_field(display_name => "個人或實驗室網站",
 							field_name => "webpage",
 							contents => $person->get_webpage(),
 							length => $default_field_length,
@@ -300,7 +350,7 @@ sub generate_form
 								field_name => "lbl5",
 								contents => "請在下方輸入研究關鍵字 (供搜尋) 以及更詳細的研究興趣說明 (供搜尋與顯示)。");
 	}
-	$form->add_field(display_name => "研究關鍵字 (Keywords)",
+	$form->add_field(display_name => "研究關鍵字",
 							field_name => "keywords",
 							contents => $person->get_research_keywords(),
 							length => 60,
@@ -314,7 +364,7 @@ sub generate_form
 								contents => "請用<b>分號 (;)</b> 分隔詞彙。請勿使用引號或其他標點符號。(例如: fruit development;"
 												. " host pathogen interaction; drought tolerance)");
 	}
-	$form->add_multiselect(display_name => "研究物種 (Research Organisms)",
+	$form->add_multiselect(display_name => "研究物種",
 									field_name => "organisms",
 									choices => \@organism_ids,
 									labels => \@organism_names,
@@ -328,7 +378,7 @@ sub generate_form
 								contents => "您可以按住 Ctrl (或 Cmd) 鍵點擊多個物種以進行複選。如果某物種未列在選單中，"
 												. " 請在下方文字方塊中輸入正式拉丁學名，並以<b>分號 (;)</b> 分隔。");
 		#the contents will be edited by the pre-storing validation function; notice this field never needs to be gotten, only sotten
-		$form->add_field(display_name => "未列出之物種 (Unlisted Organisms)",
+		$form->add_field(display_name => "未列出之物種",
 								field_name => "unlisted_organisms",
 								id => $self->{organisms_source_element_id},
 								contents => "",
@@ -341,19 +391,18 @@ sub generate_form
 	    $form->add_radio_list(display_name => "",
 				  field_name => "format",
 				  id_prefix => "format_",
-				  choices => ["auto", "html"],
-				  labels => ["自動格式化 (純文字) / Auto-format", "使用 HTML 標籤 (Use HTML markup tags)"],
-				  contents => $person->get_user_format(),
+				  choices => ["markdown", "auto"],
+				  labels => ["Markdown 語法格式", "純文字 (自動分段)"],
+				  contents => ($person->get_user_format() && $person->get_user_format() eq 'auto') ? 'auto' : 'markdown',
 				  object => $person,
 				  getter => 'get_user_format',
 				  setter => 'set_user_format');
 
 	    $form->add_label(display_name => "",
 			     field_name => "lbl8",
-			     contents => "對於自動格式化的純文字項目，請以空行分隔段落。對於 HTML 格式，請僅使用段落"
-			     . " 標籤 (&lt;p&gt;)、粗體與斜體標籤 (&lt;b&gt;, &lt;i&gt;) 以及換行標籤 (&lt;br&gt;)。所有其他標籤將會被移除。");
+			     contents => "支援 Markdown 語法：<b>粗體</b> (<code>**文字**</code>)、<i>斜體</i> (<code>*文字*</code>)、標題 (<code>### 標題</code>)、清單 (<code>- 項目</code>)、連結 (<code>[名稱](網址)</code>)。下方編輯時將自動即時預覽。");
 	}
-	$form->add_textarea(display_name => "研究興趣 (Interests)",
+	$form->add_textarea(display_name => "研究興趣",
 			    field_name => "research_interests",
 			    id => $self->{html_source_element_id},
 			    contents => $person->get_research_interests(),
@@ -366,7 +415,7 @@ sub generate_form
 	{
 		$form->add_label(display_name => "",
 								field_name => "lbl9",
-								contents => "下方的預覽功能 (需啟用 JavaScript) 會顯示您目前的興趣陳述。此外，如果您定義了新物種，預覽也將顯示網站如何解析您輸入的文字。");
+								contents => "下方的預覽功能會即時顯示您目前輸入的 Markdown 內容。此外，如果您定義了新物種，預覽也將顯示系統如何解析您輸入的文字。");
 	}
 
 	#for allowing the form to make changes
@@ -378,8 +427,8 @@ sub generate_form
 
 	if($form->is_editable())
 	{
-		$form->set_reset_button_text("清除 (Clear)");
-		$form->set_submit_button_text("送出變更 (Submit Changes)");
+		$form->set_reset_button_text("清除");
+		$form->set_submit_button_text("送出變更");
 	}
 	if($self->get_action() =~ /view|edit/)
 	{
@@ -409,33 +458,33 @@ sub get_actions_toolbar
 	my $home;
 	if($user_is_owner || $user_type eq 'curator')
 	{
-		$home = qq(<a href="/solpeople/profile/$sp_person_id">[個人檔案首頁 (Profile Home)]</a>&nbsp;&nbsp;);
+		$home = qq(<a href="/solpeople/profile/$sp_person_id">[個人檔案首頁]</a>&nbsp;&nbsp;);
 	}
 	else
 	{
-		$home = qq(<span class="ghosted">[名錄更新首頁 (Directory Update Home)]</span>);
+		$home = qq(<span class="ghosted">[名錄更新首頁]</span>);
 	}
 
 	if($self->get_action() eq "edit")
 	{
 		if($user_is_owner || $user_type eq 'curator')
 		{
-			return $home . qq(<a href="$script_name?action=view&sp_person_id=$sp_person_id">[取消編輯 (Cancel Edit)]</a>);
+			return $home . qq(<a href="$script_name?action=view&sp_person_id=$sp_person_id">[取消編輯]</a>);
 		}
 		else
 		{
-			return $home . qq(<span class="ghosted">[取消編輯 (Cancel Edit)]</span>);
+			return $home . qq(<span class="ghosted">[取消編輯]</span>);
 		}
 	}
 	elsif($self->get_action() eq "view")
 	{
 		if($user_is_owner || $user_type eq 'curator')
 		{
-			return $home . qq(<a href="$script_name?action=edit&sp_person_id=$sp_person_id">[編輯 (Edit)]</a>);
+			return $home . qq(<a href="$script_name?action=edit&sp_person_id=$sp_person_id">[編輯]</a>);
 		}
 		else
 		{
-			return $home . qq(<span class="ghosted">[編輯 (Edit)]</span>);
+			return $home . qq(<span class="ghosted">[編輯]</span>);
 		}
 	}
 	elsif($self->get_action() eq "store") {}
@@ -456,11 +505,11 @@ sub display_page
 	$page->add_style(text => ".subtitle {font-weight: bold; text-align: center}");
 	$page->add_style(text => ".invisible {display: none}");
 	$page->jsan_use("MochiKit.DOM", "MochiKit.Signal"); #include javascript modules
-	$page->header("Sol People: 聯絡與研究資訊 (Contact and Research Info)");
+	$page->header("Sol People: 聯絡與研究資訊");
 
 	print qq{<table><tr valign="middle"><td width="670" align="center" valign="middle" ><br />};
 
-	print page_title_html("個人資訊 - " . $person->get_first_name() . " " . $person->get_last_name() . " (Personal info for " . $person->get_first_name() . " " . $person->get_last_name() . ")");
+	print page_title_html("個人資訊 - " . $person->get_first_name() . " " . $person->get_last_name());
 
 	print "</td><td>";
 
@@ -480,27 +529,41 @@ sub display_page
 		my $organisms_preview_pane_parent_id = 'organisms_preview_pane_parent';
 		print <<EOHTML;
 <hr width="90%" />
-<div class="subtitle">研究興趣與物種預覽 (Interests and Organisms Preview)</div>
-<div id="all_html_preview_stuff">
-您的研究興趣將在 SGN 網站上顯示如下方框所示（方框本身不會顯示）(Your research interests will be displayed on SGN's website as shown in the box below)：
-<div id="$html_preview_pane_parent_id"></div>
+<div class="subtitle">研究興趣與物種預覽</div>
+<div id="all_html_preview_stuff" style="margin: 15px 0;">
+<label style="font-weight: bold;">研究興趣即時預覽 (Markdown Preview)：</label>
+<div id="$html_preview_pane_parent_id" style="border: 1px solid #ccc; padding: 12px; background: #fafafa; border-radius: 4px; min-height: 80px; margin-top: 6px;"></div>
 </div>
-<br />您輸入了以下目前未列出的物種，請檢查這些名稱拼寫是否正確 (You have entered the following currently unlisted organisms. Please check that these names are spelled correctly)。
-儲存後，無法透過此介面變更這些名稱 (Once committed, these names cannot be changed by this interface)。
+<br />您輸入了以下目前未列出的物種，請檢查這些名稱拼寫是否正確。
+儲存後，無法透過此介面變更這些名稱。
 如果您不小心儲存了錯誤的物種名稱，請透過 <a href="mailto:sgn-feedback\@sgn.cornell.edu">sgn-feedback\@sgn.cornell.edu</a> 與我們聯絡。
 <div id="$organisms_preview_pane_parent_id"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
 <script type="text/javascript">
-DynamicPreviewPane.createPreviewPane('html', '$self->{html_source_element_id}', '$html_preview_pane_parent_id');
-DynamicPreviewPane.createPreviewPane('list(;)', '$self->{organisms_source_element_id}', '$organisms_preview_pane_parent_id');
+function updateMarkdownPreview() {
+    var sourceElem = document.getElementById('$self->{html_source_element_id}');
+    var targetElem = document.getElementById('$html_preview_pane_parent_id');
+    if (!sourceElem || !targetElem) return;
+    var content = sourceElem.value || '';
+    if (typeof marked !== 'undefined' && marked.parse) {
+        targetElem.innerHTML = marked.parse(content);
+    } else {
+        var val = content.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        val = val.replace(/\\*\\*(.+?)\\*\\*/g, '<b>$1</b>');
+        val = val.replace(/\\*(.+?)\\*/g, '<i>$1</i>');
+        val = val.replace(/\\n/g, '<br/>');
+        targetElem.innerHTML = val;
+    }
+}
 
-//show or hide the interests preview pane based on user format selection
-function makeVisible() {MochiKit.DOM.removeElementClass(this, "invisible");}
-function makeInvisible() {MochiKit.DOM.addElementClass(this, "invisible");}
-var previewPaneSection = MochiKit.DOM.getElement("all_html_preview_stuff");
-MochiKit.Signal.connect("format_auto", "onclick", previewPaneSection, makeInvisible);
-MochiKit.Signal.connect("format_html", "onclick", previewPaneSection, makeVisible);
-//initialize
-if(MochiKit.DOM.getElement("format_auto").checked) MochiKit.DOM.addElementClass("all_html_preview_stuff", "invisible");
+var textarea = document.getElementById('$self->{html_source_element_id}');
+if (textarea) {
+    textarea.addEventListener('input', updateMarkdownPreview);
+    textarea.addEventListener('keyup', updateMarkdownPreview);
+    updateMarkdownPreview();
+}
+
+DynamicPreviewPane.createPreviewPane('list(;)', '$self->{organisms_source_element_id}', '$organisms_preview_pane_parent_id');
 </script>
 EOHTML
 	}
@@ -536,7 +599,7 @@ EOHTML
 	    }
 
 	    if ($more) {
-		$locus_annotations .= qq|<br><b>以及另外 <a href="/search/locus">$more 個 (and $more more)</a></b><br />|;
+		$locus_annotations .= qq|<br><b>以及另外 <a href="/search/locus">$more 個</a></b><br />|;
 
 
 	    }
@@ -544,7 +607,7 @@ EOHTML
 
 	if (@annotated_loci) {
 	    print "<hr />\n";
-	    print "基因位點編輯者指派 (Locus editor assignments):&nbsp;\n";
+	    print "基因位點編輯者指派:&nbsp;\n";
 	    print $locus_annotations;
 	}
 
@@ -560,7 +623,7 @@ sub owner_populations {
     my $self = shift;
     my $sp_person_id = $self->get_object_id();
     my @pops = CXGN::Phenome::Population->my_populations($sp_person_id);
-    my $pop_list = '族群 (Populations):<br/>';
+    my $pop_list = '族群:<br/>';
 
     if (@pops) {
 	foreach my $pops (@pops) {
