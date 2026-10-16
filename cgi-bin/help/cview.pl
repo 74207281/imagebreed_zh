@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 
 use SGN::Context;
 
