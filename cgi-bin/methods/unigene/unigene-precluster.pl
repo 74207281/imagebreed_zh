@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('unigene-precluster.html','html2pl converter');
-$page->header('Sol Genomics Network');
+$page->header('預聚類與遞移閉包聚類 (Preclustering and Transitive Closure Clustering)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,7 +13,7 @@ print<<END_HEREDOC;
         <td>
           
 
-          <h3>Preclustering</h3>
+          <h3>預聚類 (Preclustering)</h3>
 
           <p>Preclustering is a technique used to partition the
           input data into groups small enough for the assembly
@@ -34,7 +35,7 @@ print<<END_HEREDOC;
           which are small enough to allow the assembler to run
           efficiently.</p>
 
-          <h3>Transitive Closure Clustering</h3>
+          <h3>遞移閉包聚類 (Transitive Closure Clustering)</h3>
 
           <p>There are many general methods of clustering data. For
           purposes of partitioning data into disjoint sets for

@@ -1,7 +1,8 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('unigene-process-2.html','html2pl converter');
-$page->header('SGN Assembly Process Version 2');
+$page->header('SGN 組裝流程第 2 版 (SGN Assembly Process Version 2)');
 print<<END_HEREDOC;
 
   <center>
@@ -12,7 +13,7 @@ print<<END_HEREDOC;
         <td>
           
 
-          <h3>SGN Assembly Process Version 2</h3>
+          <h3>SGN 組裝流程第 2 版 (SGN Assembly Process Version 2)</h3>
 
           <p>ESTs are preclustered using a custom developed tool to
           coarsely identify strong sequence overlaps. (<a href=
@@ -49,10 +50,10 @@ print<<END_HEREDOC;
 
           <table summary="" border="1">
             <tr>
-              <td>CAP3 option</td>
-              <td>default value</td>
-              <td>value used</td>
-              <td>description</td>
+              <td>CAP3 選項 (CAP3 option)</td>
+              <td>預設值 (default value)</td>
+              <td>使用值 (value used)</td>
+              <td>說明 (description)</td>
             </tr>
 
             <tr>
