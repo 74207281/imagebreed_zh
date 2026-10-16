@@ -1,10 +1,11 @@
 use strict;
+use utf8;
 
 use CXGN::Page;
 
-my $page = CXGN::Page->new("SGN Featured Lab: The Tobacco Research Group in the Timko Lab", "Adri");
+my $page = CXGN::Page->new("SGN 精選實驗室：Timko 實驗室菸草研究組 (SGN Featured Lab: The Tobacco Research Group in the Timko Lab)", "Adri");
 
-$page->header("The Tobacco Research Group in the Timko Lab", "The Tobacco Research Group in the Timko Lab");
+$page->header("Timko 實驗室菸草研究組 (The Tobacco Research Group in the Timko Lab)", "Timko 實驗室菸草研究組 (The Tobacco Research Group in the Timko Lab)");
 
 print <<HTML;
 
@@ -35,7 +36,7 @@ John Finer, Paul Rushton, Jeff Chen. (Missing from photograph is Tom Laudeman.)<
 
 <hr>
 
-<h4>Selected Publications</h4>
+<h4>精選發表文獻 (Selected Publications)</h4>
 
 <p>Rushton PJ, Bokowiec MT, Han S, Zhang H, Brannock JF, Chen X, Laudeman TW, and
 Timko MP (2008) Tobacco transcription factors: novel insights into transcriptional regulation in the Solanaceae. Plant Physiology 147: 280-295.</p>
@@ -53,7 +54,7 @@ Timko MP (2008) Tobacco transcription factors: novel insights into transcription
 <p>Wang J, Sheehan M, and Timko MP (2000) Differential expression of two members of the nuclear gene family encoding arginine decarboxylase (ADC) in tobacco (Nicotiana tabacum L.)  J. Plant Biochem. Biotech 9: 57-65.</p>
 
 
-<h4>Contact Information</h4>
+<h4>聯絡資訊 (Contact Information)</h4>
 
 Michael P. Timko<br />
 Department of Biology<br />

@@ -1,11 +1,12 @@
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw / page_title_html /;
 
 my $page = CXGN::Page->new();
-$page->header();
-my $title = page_title_html("Feature: The De Koeyer Lab");
+$page->header('精選實驗室：De Koeyer 實驗室 (Feature: The De Koeyer Lab)');
+my $title = page_title_html("精選實驗室：De Koeyer 實驗室 (Feature: The De Koeyer Lab)");
 
 my $photo_dir = "/static_content/community/feature";
 
@@ -62,7 +63,7 @@ Front row, left to right: K. Douglass, Y. Song.
 
 <div style='clear:all;width:100%'>&nbsp;</div>
 <p>
-<b><u>Contact Information</u></b><br />
+<b><u>聯絡資訊 (Contact Information)</u></b><br />
 Dr. David De Koeyer<br />
 Research Scientist/Chercheur<br />
 Agriculture and Agri-Food Canada/Agriculture et Agroalimentaire Canada<br />
@@ -78,7 +79,7 @@ email: dekoeyerd\@agr.gc.ca
 <img src="$photo_dir/200706-05.jpg" alt="Agriculture and Agri-Food Canada"><br />
 
 <p>
-<b><u>Selected Publications</u></b>
+<b><u>精選發表文獻 (Selected Publications)</u></b>
 <ul style="list-style:none">
 <li>X.-Q. Li, R. Griffiths, M. Lag&uuml;e, D. DeKoeyer, C. Rothwell, M. Haroon, B. Stevens, C. Xu, V. Gustafson, M. Bonierbale, S. Regan, and B. Flinn. 2007. EST sequencing and analysis from cold-stored and reconditioned potato tubers.  Acta Horticulturae (in press).</li>
 <li>Pelletier, Y., C. Clark, and D. De Koeyer. 2007. Level and genetic variability of resistance to the Colorado potato beetle (Leptinotarsa decemlineata (Say)) in wild Solanum species. Am. J. Potato Res. (in press).</li>

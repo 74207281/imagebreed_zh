@@ -1,12 +1,11 @@
 use strict;
+use utf8;
 
 use CXGN::Page;
 
-my $page = CXGN::Page->new("SGN Featured Lab: The Rose Lab, School of integrative plant science", "Adri");
-# my $page = CXGN::Page->new("SGN Featured Lab: The Rose Lab, Department of Plant Biology, Cornell University", "Adri");
+my $page = CXGN::Page->new("SGN 精選實驗室：Rose 實驗室，綜合植物科學學院 (SGN Featured Lab: The Rose Lab, School of integrative plant science)", "Adri");
 
-$page->header("The Rose Lab, School of integrative plant science", "The Rose Lab, School of integrative plant science");
-# $page->header("The Rose Lab, Department of Plant Biology, Cornell University", "The Rose Lab, Department of Plant Biology, Cornell University");
+$page->header("Rose 實驗室，綜合植物科學學院 (The Rose Lab, School of integrative plant science)", "Rose 實驗室，綜合植物科學學院 (The Rose Lab, School of integrative plant science)");
 
 print <<HTML;
 
@@ -14,7 +13,7 @@ print <<HTML;
 <br>
 <br>
 <p style="font-size:20px">
-  Please visit the <a href="http://labs.plantbio.cornell.edu/rose/index.html" target="blank">Rose Lab official website</a>
+  請造訪 <a href="http://labs.plantbio.cornell.edu/rose/index.html" target="blank">Rose 實驗室官方網站 (Rose Lab official website)</a>
 </p>
 
 <br>

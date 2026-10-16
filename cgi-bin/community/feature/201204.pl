@@ -1,17 +1,18 @@
 
 use strict;
+use utf8;
 use CXGN::Page;
 
 my $p = CXGN::Page->new();
 
-$p->header;
+$p->header('精選實驗室：Maloof 實驗室，加州大學戴維斯分校 (Featured Lab: Maloof Lab, UC Davis, USA)');
 
 print <<HTML;
 
 
-<center><h1>Featured Lab: Maloof Lab, UC Davis, USA</h1>
+<center><h1>精選實驗室：Maloof 實驗室，加州大學戴維斯分校 (Featured Lab: Maloof Lab, UC Davis, USA)</h1>
 
-(<a href="/community/feature/index.pl">past featured labs</a>)
+(<a href="/community/feature/index.pl">過去精選實驗室 (past featured labs)</a>)
 </center>
 <br />
 
@@ -37,7 +38,7 @@ print <<HTML;
 <font style="font-style:italic"><p>IL4_3:  RNAseq analysis of the S. pennellii X M82 introgression line IL4_3.  Each segment around the circle represents a chromosome.  From outside to inside the rings show: log fold change of genes differentially expressed between M82 and IL4_3 (the black line represents 0); the genotype of each chromosomal region (blue = M82, green = S. pennellii); genes regulated in trans from the introgression (light green: transgressive expression; dark green: S. pennelli-like expression).</p></font>
 
 
-<h3>Contact</h3>
+<h3>聯絡資訊 (Contact)</h3>
 Julin Maloof, PhD<br />
 Department of Plant Biology<br />
 College of Biological Sciences<br />
@@ -51,7 +52,7 @@ Davis, CA 95616<br />
 
 
 
-<h3>Selected Publications</h3>
+<h3>精選發表文獻 (Selected Publications)</h3>
 <ol>
 <li>Seymour, D. K., Filiault, D. L., Henry, I. M., Monson-Miller, J., Ravi, M., Pang, A., Comai, L., Chan, S. W. L., and Maloof, J. N. (2012). Rapid creation of Arabidopsis doubled haploid lines for quantitative trait locus mapping. Proc Natl Acad Sci USA 109, 4227-4232.</li>
 <li>Filiault, D. L., and Maloof, J. N. (2012). A Genome-Wide Association Study Identifies Variants Underlying the Arabidopsis thaliana Shade Avoidance Response. PLoS Genet 8, e1002589.</li>

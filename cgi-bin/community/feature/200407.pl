@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CXGN::Page;
 my $page=CXGN::Page->new('200407.html','html2pl converter');
 my $stylesheet=<<END_STYLESHEET;
@@ -27,11 +28,11 @@ my $stylesheet=<<END_STYLESHEET;
 </style>
 END_STYLESHEET
 
-$page->header('The Kim Lab', undef, $stylesheet);
+$page->header('Kim 實驗室 (The Kim Lab)', undef, $stylesheet);
 print<<END_HEREDOC;
 
   <center>
-    <h1>The Kim lab</h1>
+    <h1>Kim 實驗室 (The Kim Lab)</h1>
 
     <p class="footnote"><img src="/static_content/community/feature/200407-1.jpg" width="720" height=
     "540" border="0" alt="Members of the Kim lab" /> B. D. Kim Lab
@@ -106,7 +107,7 @@ print<<END_HEREDOC;
   ribosome inactivating protein in Dianthus sinensis L. Mol Cells.
   11:326-333</p>
 
-  <h2>Contact</h2>
+  <h2>聯絡資訊 (Contact)</h2>
 
   <p>Byung-Dong KIM<br />
   Professor and Director<br />

@@ -1,11 +1,12 @@
 
 use strict;
+use utf8;
 use CXGN::Page;
 use CXGN::Page::FormattingHelpers qw / page_title_html /;
 
 my $page = CXGN::Page->new();
-$page->header();
-my $title = page_title_html("Feature: The Litt Lab");
+$page->header('精選實驗室：Litt 實驗室 (Feature: The Litt Lab)');
+my $title = page_title_html("精選實驗室：Litt 實驗室 (Feature: The Litt Lab)");
 
 print <<HTML;
 
@@ -49,7 +50,7 @@ three members of this lineage that are involved in flower development: AP1, CAUL
 
 <div style='clear:all;width:100%'>&nbsp;</div>
 <p>
-<b><u>Contact Information</u></b><br />
+<b><u>聯絡資訊 (Contact Information)</u></b><br />
 Dr. Amy Litt<br />
 The New York Botanical Garden<br />
 200th St and Southern Blvd. <br />
@@ -59,7 +60,7 @@ e-mail: alitt\@nybg.org or amyjlitt\@gmail.com
 </p>
 
 <p>
-<b><u>Selected Publications</u></b>
+<b><u>精選發表文獻 (Selected Publications)</u></b>
 <ul style="list-style:none">
 <li>Litt, A. 2007. An evaluation of A function: evidence from the APETALA1 and APETALA2 gene lineages.  International Journal of Plant Sciences 168(1): 73-91. 
 <li>Litt, A. 2006.  Origins of floral diversity.  Natural History 115(5): 34-40.

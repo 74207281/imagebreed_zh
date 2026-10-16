@@ -1,5 +1,6 @@
 #!/usr/bin/perl
-use strict; 
+use strict;
+use utf8; 
 
 # this script is for ajax use. It just returns the comment html, nothing else.
 
