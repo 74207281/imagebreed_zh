@@ -1,4 +1,5 @@
 use strict;
+use utf8;
 use CatalystX::GlobalContext qw( $c );
 
 #pending until a controller for the help documents is written
