@@ -258,7 +258,7 @@ jQuery(document).ready(function ($) {
                 if (response.error) {
                     alert(response.error);
                 } else {
-                    var html = '已成功新增以下種原 (The following stocks were added)：<br/><br/>';
+                    var html = '\u5df2\u6210\u529f\u65b0\u589e\u4ee5\u4e0b\u7a2e\u539f (The following stocks were added)\uff1a<br/><br/>';
                     for (var i=0; i<response.added.length; i++){
                         html = html + '<a href="/stock/'+response.added[i][0]+'/view">'+response.added[i][1]+'</a><br/>';
                     }
@@ -336,74 +336,118 @@ jQuery(document).ready(function ($) {
         //window.location.href='/breeders/accessions';
     });
 
-    jQuery('#new_accessions_submit').click(function () {
-        var is_list_tab = jQuery('#add_new_accessions_list_tab').hasClass('active');
-        var is_file_tab = jQuery('#add_new_accessions_file_tab').hasClass('active');
-        if (!is_list_tab && !is_file_tab) {
-            var selected_tab = jQuery('#add_new_accessions_tab_select .active').text();
-            if (selected_tab.indexOf('Using Lists') !== -1 || selected_tab.indexOf('使用清單') !== -1) {
-                is_list_tab = true;
-            } else if (selected_tab.indexOf('Uploading a File') !== -1 || selected_tab.indexOf('上傳檔案') !== -1) {
-                is_file_tab = true;
-            }
+    function verify_accessions_file() {
+        var uploadFileInput = document.getElementById("new_accessions_upload_file");
+        if (!uploadFileInput || !uploadFileInput.files || uploadFileInput.files.length === 0) {
+            alert("Please select a file (\u8acb\u9078\u64c7\u6a94\u6848)");
+            return;
         }
 
-        if (is_list_tab) {
+        var file = uploadFileInput.files[0];
+        var private_company_id = jQuery('#add_accessions_file_private_company_select').val();
+
+        get_select_box('private_companies', 'private_company_name_input', {
+            'name': 'add_accessions_list_private_company_select',
+            'id': 'add_accessions_list_private_company_select',
+            'selected': private_company_id
+        });
+
+        var doFuzzySearch = jQuery('#fuzzy_check_upload_accessions').is(':checked');
+
+        var formData = new FormData();
+        formData.append('new_accessions_upload_file', file);
+        if (private_company_id) {
+            formData.append('add_accessions_file_private_company_select', private_company_id);
+        }
+        if (doFuzzySearch) {
+            formData.append('fuzzy_check_upload_accessions', 'on');
+        }
+
+        disable_ui();
+
+        jQuery.ajax({
+            url: '/ajax/accessions/verify_accessions_file',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (response) {
+                enable_ui();
+                jQuery('#add_accessions_dialog').modal("hide");
+
+                if (typeof response === 'string') {
+                    try {
+                        response = JSON.parse(response.replace(/<\/?pre[^>]*>/gi, '').trim());
+                    } catch (e) {
+                        console.error("Error parsing upload response:", response, e);
+                        alert("An error occurred while parsing server response: " + e.message);
+                        return;
+                    }
+                }
+                console.log(response);
+
+                if (response.error || response.error_string) {
+                    fullParsedData = undefined;
+                    alert(response.error || response.error_string);
+                } else if (response.success) {
+                    fullParsedData = response.full_data;
+                    review_verification_results(doFuzzySearch, response, response.list_id);
+                } else {
+                    fullParsedData = undefined;
+                    alert("An unknown error occurred. Please try again later or contact us for help.");
+                }
+            },
+            error: function (xhr, status, error) {
+                enable_ui();
+                var msg = "An error occurred during file upload.";
+                if (xhr.responseJSON && (xhr.responseJSON.error || xhr.responseJSON.error_string)) {
+                    msg += " " + (xhr.responseJSON.error || xhr.responseJSON.error_string);
+                } else if (xhr.responseText) {
+                    try {
+                        var parsed = JSON.parse(xhr.responseText.replace(/<\/?pre[^>]*>/gi, '').trim());
+                        if (parsed.error || parsed.error_string) {
+                            msg += " " + (parsed.error || parsed.error_string);
+                        }
+                    } catch (e) {
+                        msg += " " + error;
+                    }
+                } else if (error) {
+                    msg += " " + error;
+                }
+                alert(msg);
+            }
+        });
+    }
+
+    jQuery('#new_accessions_submit').click(function () {
+        var active_tab_href = jQuery('#add_new_accessions_tab_select li.active a').attr('href');
+        var is_file_tab = active_tab_href === '#with_file_tab' ||
+                          jQuery('#with_file_tab').hasClass('active') ||
+                          jQuery('#with_file_tab').is(':visible') ||
+                          jQuery('#add_new_accessions_file_tab').hasClass('active');
+        var is_list_tab = active_tab_href === '#with_list_tab' ||
+                          jQuery('#with_list_tab').hasClass('active') ||
+                          jQuery('#add_new_accessions_list_tab').hasClass('active');
+
+        var uploadFileInput = document.getElementById("new_accessions_upload_file");
+        if (uploadFileInput && uploadFileInput.files && uploadFileInput.files.length > 0) {
+            is_file_tab = true;
+            is_list_tab = false;
+        }
+
+        if (is_file_tab) {
+            verify_accessions_file();
+        } else if (is_list_tab) {
             accession_list_id = jQuery('#list_div_list_select').val();
+            if (!accession_list_id) {
+                alert("Please select a list of accessions (\u8acb\u9078\u64c7\u7a2e\u539f\u6e05\u55ae)");
+                return;
+            }
             fullParsedData = undefined;
             verify_accession_list(accession_list_id);
-        } else if (is_file_tab) {
-            var uploadFile = jQuery("#new_accessions_upload_file").val();
-            jQuery('#upload_new_accessions_form').attr("action", "/ajax/accessions/verify_accessions_file");
-            if (uploadFile === '') {
-                alert("Please select a file (請選擇檔案)");
-                return;
-            }
-
-            get_select_box('private_companies', 'private_company_name_input', { 'name': 'add_accessions_list_private_company_select', 'id': 'add_accessions_list_private_company_select', 'selected':jQuery('#add_accessions_file_private_company_select').val() });
-
-            jQuery("#upload_new_accessions_form").submit();
-        }
-        jQuery('#add_accessions_dialog').modal("hide");
-    });
-
-    jQuery('#upload_new_accessions_form').iframePostForm({
-        json: false,
-        post: function () {
-            var uploadedSeedlotFile = jQuery("#new_accessions_upload_file").val();
-            jQuery('#working_modal').modal("show");
-            if (uploadedSeedlotFile === '') {
-                jQuery('#working_modal').modal("hide");
-            }
-        },
-        complete: function (r) {
-            //alert("DONE WITH UPLOAD "+r);
-            var clean_r = r.replace(/<\/?pre[^>]*>/gi, '').trim();
-            var response;
-            try {
-                response = JSON.parse(clean_r);
-            } catch (e) {
-                console.error("Error parsing upload response:", clean_r, e);
-                jQuery('#working_modal').modal("hide");
-                alert("An error occurred while parsing server response: " + e.message);
-                return;
-            }
-            console.log(response);
-            jQuery('#working_modal').modal("hide");
-
-            if (response.error || response.error_string) {
-                fullParsedData = undefined;
-                alert(response.error || response.error_string);
-            }
-            else if (response.success) {
-                fullParsedData = response.full_data;
-                doFuzzySearch = jQuery('#fuzzy_check_upload_accessions').is(':checked');
-                review_verification_results(doFuzzySearch, response, response.list_id);
-            }
-            else {
-                fullParsedData = undefined;
-                alert("An unknown error occurred.  Please try again later or contact us for help.");
-            }
+            jQuery('#add_accessions_dialog').modal("hide");
+        } else {
+            alert("Please select either 'Using Lists' or 'Uploading a File' (\u8acb\u9078\u64c7\u4f7f\u7528\u6e05\u55ae\u6216\u4e0a\u50b3\u6a94\u6848)");
         }
     });
 
@@ -536,14 +580,14 @@ function review_verification_results(doFuzzySearch, verifyResponse, accession_li
             if ((verifyResponse.absent && verifyResponse.absent.length > 0) || infoToAdd.length > 0){
                 populate_review_absent_dialog(verifyResponse.absent || [], infoToAdd);
             } else {
-                alert('All accessions in your list already exist in the database (清單中所有種原皆已存在於資料庫中)。');
+                alert('All accessions in your list already exist in the database (\u6e05\u55ae\u4e2d\u6240\u6709\u7a2e\u539f\u7686\u5df2\u5b58\u5728\u65bc\u8cc7\u6599\u5eab\u4e2d)\u3002');
             }
         }
     }
 
     if (verifyResponse.found && verifyResponse.found.length > 0) {
-        jQuery('#count_of_found_accessions').html("已存在於資料庫的種原總數 (Total number already in the database: " + verifyResponse.found.length + ")");
-        var found_html = '<table class="table table-bordered table-striped" id="found_accessions_table"><thead><tr><th>搜尋名稱(Search Name)</th><th>資料庫現存名稱(Found in Database)</th></tr></thead><tbody>';
+        jQuery('#count_of_found_accessions').html("\u5df2\u5b58\u5728\u65bc\u8cc7\u6599\u5eab\u7684\u7a2e\u539f\u7e3d\u6578 (Total number already in the database: " + verifyResponse.found.length + ")");
+        var found_html = '<table class="table table-bordered table-striped" id="found_accessions_table"><thead><tr><th>\u641c\u5c0b\u540d\u7a31(Search Name)</th><th>\u8cc7\u6599\u5eab\u73fe\u5b58\u540d\u7a31(Found in Database)</th></tr></thead><tbody>';
         for( i=0; i < verifyResponse.found.length; i++){
             found_html = found_html
                 +'<tr><td>'+verifyResponse.found[i].matched_string
@@ -573,7 +617,7 @@ function review_verification_results(doFuzzySearch, verifyResponse, accession_li
 
     if (verifyResponse.fuzzy && verifyResponse.fuzzy.length > 0 && doFuzzySearch) {
         fuzzyResponse = verifyResponse.fuzzy;
-        var fuzzy_html = '<table id="add_accession_fuzzy_table" class="table table-bordered"><thead><tr><th class="col-xs-4">清單中的名稱(Name in Your List)</th><th class="col-xs-4">資料庫現存名稱(Existing Name(s) in Database)</th><th class="col-xs-4">選項(Options)&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="add_accession_fuzzy_option_all"/> 套用至所有項目(Use Same Option for All)</th></tr></thead><tbody>';
+        var fuzzy_html = '<table id="add_accession_fuzzy_table" class="table table-bordered"><thead><tr><th class="col-xs-4">\u6e05\u55ae\u4e2d\u7684\u540d\u7a31(Name in Your List)</th><th class="col-xs-4">\u8cc7\u6599\u5eab\u73fe\u5b58\u540d\u7a31(Existing Name(s) in Database)</th><th class="col-xs-4">\u9078\u9805(Options)&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="add_accession_fuzzy_option_all"/> \u5957\u7528\u81f3\u6240\u6709\u9805\u76ee(Use Same Option for All)</th></tr></thead><tbody>';
         for( i=0; i < verifyResponse.fuzzy.length; i++) {
             fuzzy_html = fuzzy_html + '<tr id="add_accession_fuzzy_option_form'+i+'"><td>'+ verifyResponse.fuzzy[i].name + '<input type="hidden" name="fuzzy_name" value="'+ verifyResponse.fuzzy[i].name + '" /></td>';
             fuzzy_html = fuzzy_html + '<td><select class="form-control" name ="fuzzy_select">';
@@ -584,7 +628,7 @@ function review_verification_results(doFuzzySearch, verifyResponse, accession_li
                     fuzzy_html = fuzzy_html + '<option value="' + verifyResponse.fuzzy[i].matches[j].name + '">' + verifyResponse.fuzzy[i].matches[j].name + '</option>';
                 }
             }
-            fuzzy_html = fuzzy_html + '</select></td><td><select class="form-control" name="fuzzy_option"><option value="keep">保留清單中的名稱繼續儲存(Continue saving name in your list)</option><option value="replace">以此現存名稱取代清單中的名稱(Replace name in your list with selected existing name)</option><option value="remove">忽略並自清單中移除(Remove name in your list and ignore)</option><option value="synonymize">將清單中的名稱新增為現存名稱的同義詞(Add name in your list as a synonym to selected existing name)</option></select></td></tr>';
+            fuzzy_html = fuzzy_html + '</select></td><td><select class="form-control" name="fuzzy_option"><option value="keep">\u4fdd\u7559\u6e05\u55ae\u4e2d\u7684\u540d\u7a31\u7e7c\u7e8c\u5132\u5b58(Continue saving name in your list)</option><option value="replace">\u4ee5\u6b64\u73fe\u5b58\u540d\u7a31\u53d6\u4ee3\u6e05\u55ae\u4e2d\u7684\u540d\u7a31(Replace name in your list with selected existing name)</option><option value="remove">\u5ffd\u7565\u4e26\u81ea\u6e05\u55ae\u4e2d\u79fb\u9664(Remove name in your list and ignore)</option><option value="synonymize">\u5c07\u6e05\u55ae\u4e2d\u7684\u540d\u7a31\u65b0\u589e\u70ba\u73fe\u5b58\u540d\u7a31\u7684\u540c\u7fa9\u8a5e(Add name in your list as a synonym to selected existing name)</option></select></td></tr>';
         }
         fuzzy_html = fuzzy_html + '</tbody></table>';
         jQuery('#view_fuzzy_matches').html(fuzzy_html);
@@ -610,7 +654,7 @@ function populate_review_absent_dialog(absent, infoToAdd){
     console.log(absent);
 
     var count_to_show = infoToAdd.length > 0 ? infoToAdd.length : absent.length;
-    jQuery('#count_of_absent_accessions').html("待新增總數(Total number to be added)：" + count_to_show);
+    jQuery('#count_of_absent_accessions').html("\u5f85\u65b0\u589e\u7e3d\u6578(Total number to be added)\uff1a" + count_to_show);
     var absent_html = '';
     jQuery("#species_name_input").autocomplete({
         source: '/organism/autocomplete'
@@ -671,10 +715,10 @@ function populate_review_absent_dialog(absent, infoToAdd){
 
         var infoToAdd_html = '';
         if (new_rows !== '') {
-            infoToAdd_html += '<div class="well"><b>以下將新增的新種原(The following new accessions will be added)：</b><br/><br/><table id="infoToAdd_new_table" class="table table-bordered table-hover"><thead><tr><th>種原名稱(Accession Name)</th><th>屬性資訊(Properties)</th></tr></thead><tbody>' + new_rows + '</tbody></table></div>';
+            infoToAdd_html += '<div class="well"><b>\u4ee5\u4e0b\u5c07\u65b0\u589e\u7684\u65b0\u7a2e\u539f(The following new accessions will be added)\uff1a</b><br/><br/><table id="infoToAdd_new_table" class="table table-bordered table-hover"><thead><tr><th>\u7a2e\u539f\u540d\u7a31(Accession Name)</th><th>\u5c6c\u6027\u8cc7\u8a0a(Properties)</th></tr></thead><tbody>' + new_rows + '</tbody></table></div>';
         }
         if (update_rows !== '') {
-            infoToAdd_html += '<div class="well"><b>以下將更新的種原(The following accessions will be updated)：</b><br/><br/><table id="infoToAdd_updated_table" class="table table-bordered table-hover"><thead><tr><th>種原名稱(Accession Name)</th><th>屬性資訊(Properties)</th></tr></thead><tbody>' + update_rows + '</tbody></table></div>';
+            infoToAdd_html += '<div class="well"><b>\u4ee5\u4e0b\u5c07\u66f4\u65b0\u7684\u7a2e\u539f(The following accessions will be updated)\uff1a</b><br/><br/><table id="infoToAdd_updated_table" class="table table-bordered table-hover"><thead><tr><th>\u7a2e\u539f\u540d\u7a31(Accession Name)</th><th>\u5c6c\u6027\u8cc7\u8a0a(Properties)</th></tr></thead><tbody>' + update_rows + '</tbody></table></div>';
         }
         jQuery('#view_infoToAdd').html(infoToAdd_html);
         jQuery('#add_accessions_using_list_inputs').hide();
@@ -739,7 +783,7 @@ function process_fuzzy_options(accession_list_id) {
                 populate_review_absent_dialog(accessionList, infoToAdd);
                 jQuery('#review_absent_dialog').modal('show');
             } else {
-                alert('All accessions in your list now exist in the database (清單中所有種原皆已存在於資料庫中)。');
+                alert('All accessions in your list now exist in the database (\u6e05\u55ae\u4e2d\u6240\u6709\u7a2e\u539f\u7686\u5df2\u5b58\u5728\u65bc\u8cc7\u6599\u5eab\u4e2d)\u3002');
             }
         },
         error: function () {
