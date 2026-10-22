@@ -1238,6 +1238,7 @@ jQuery(document).ready( function() {
 
                     jQuery("#trait_heatmap").css("display", "none");
                     jQuery("#heatmap_traits_assayed_dropdown").html(traits_assayed_html);
+                    jQuery('#heatmap_traits_assayed_download_div').show();
                 }
                 else {
                     var traits_assayed_html = "<select class='form-control' id='trait_list_dropdown'>";
@@ -1249,6 +1250,7 @@ jQuery(document).ready( function() {
                     traits_assayed_html = traits_assayed_html +"</select>";
                     jQuery("#trait_heatmap").css("display", "none");
                     jQuery("#heatmap_traits_assayed_dropdown").html(traits_assayed_html);
+                    jQuery('#heatmap_traits_assayed_download_div').show();
                 }
             },
             error: function(response){
@@ -1268,6 +1270,7 @@ jQuery(document).ready( function() {
         jQuery("#container_fm").css("display", "none");
         jQuery("#trial_no_phenoMSG").css("display", "none");
         jQuery("#d3legend").css("display", "none");
+        jQuery('#heatmap_traits_assayed_download_div').hide();
     });
 
     jQuery(document).on('change', '#trait_list_dropdown', function () {
@@ -1281,7 +1284,7 @@ jQuery(document).ready( function() {
             jQuery("#view_ctrl_button").css("display", "none");
             jQuery("#ctrldiv").css("display", "none");
             d3.select("#container_heatmap_geo_div").remove();
-            jQuery('#heatmap_traits_assayed_download_div').hide();
+            jQuery('#heatmap_traits_assayed_download_div').show();
 
             field_map_view();
 
@@ -1314,32 +1317,84 @@ jQuery(document).ready( function() {
     });
 
     jQuery(document).on('click', '#trial_phenotype_heatmap_download', function(){
-        var html = d3.select("svg")
-            .attr("version", 1.1)
-            .attr("xmlns", "http://www.w3.org/2000/svg")
-            .node().parentNode.innerHTML;;
+        var svgElement = document.querySelector("#container_heatmap svg") || document.querySelector("#container_fm svg");
+        if (!svgElement) {
+            alert("找不到可下載的地圖或熱圖 (No heatmap or field map SVG found to download)");
+            return;
+        }
 
-        //console.log(html);
-        var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
-        var img = '<img src="'+imgsrc+'">';
+        var isFieldMap = !document.querySelector("#container_heatmap svg") || (jQuery("#container_heatmap").css("display") === "none");
+        var baseFilename = isFieldMap ? "trial_field_map" : "trial_phenotype_heatmap";
 
-        var canvas = document.getElementById("trial_phenotype_heatmap_download_image_canvas"),
-        context = canvas.getContext("2d");
+        var clonedSvg = svgElement.cloneNode(true);
+        clonedSvg.setAttribute("version", "1.1");
+        clonedSvg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+        clonedSvg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
 
-        var image = new Image;
-        image.src = imgsrc;
-        image.onload = function() {
-            context.drawImage(image, 0, 0);
+        var styleElement = document.createElementNS("http://www.w3.org/2000/svg", "style");
+        styleElement.textContent = `
+            rect.bordered { stroke: #E6E6E6; stroke-width: 2px; }
+            text.mono { font-size: 9pt; font-family: Consolas, courier, monospace; fill: #aaa; }
+            text.axis-workweek { fill: #000; }
+            text.axis-worktime { fill: #000; }
+            text { font-family: sans-serif; }
+        `;
+        clonedSvg.insertBefore(styleElement, clonedSvg.firstChild);
 
-            var canvasdata = canvas.toDataURL("image/png");
+        var serializer = new XMLSerializer();
+        var svgString = serializer.serializeToString(clonedSvg);
 
-            var pngimg = '<img src="'+canvasdata+'">';
-
+        function downloadSvg(svgContent, filename) {
+            var blob = new Blob([svgContent], { type: "image/svg+xml;charset=utf-8" });
+            var url = URL.createObjectURL(blob);
             var a = document.createElement("a");
-            a.download = "trial_phenotype_heatmap.png";
-            a.href = canvasdata;
+            a.download = filename + ".svg";
+            a.href = url;
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
+            setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+        }
+
+        var svgWidth = parseFloat(svgElement.getAttribute("width")) || svgElement.getBoundingClientRect().width || 1200;
+        var svgHeight = parseFloat(svgElement.getAttribute("height")) || svgElement.getBoundingClientRect().height || 800;
+
+        var canvas = document.getElementById("trial_phenotype_heatmap_download_image_canvas");
+        if (!canvas) {
+            canvas = document.createElement("canvas");
+            canvas.id = "trial_phenotype_heatmap_download_image_canvas";
+            canvas.style.display = "none";
+            document.body.appendChild(canvas);
+        }
+        canvas.width = svgWidth;
+        canvas.height = svgHeight;
+
+        var context = canvas.getContext("2d");
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        var imgsrc = 'data:image/svg+xml;base64,' + window.btoa(unescape(encodeURIComponent(svgString)));
+
+        var image = new Image();
+        image.onload = function() {
+            try {
+                context.drawImage(image, 0, 0);
+                var canvasdata = canvas.toDataURL("image/png");
+                var a = document.createElement("a");
+                a.download = baseFilename + ".png";
+                a.href = canvasdata;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } catch (err) {
+                console.warn("Canvas toDataURL failed (possibly tainted canvas), downloading SVG directly:", err);
+                downloadSvg(svgString, baseFilename);
+            }
         };
+        image.onerror = function(err) {
+            console.warn("Failed to load SVG into Image element, downloading SVG directly:", err);
+            downloadSvg(svgString, baseFilename);
+        };
+        image.src = imgsrc;
     });
 
     jQuery("#suppress_plot_pheno_dialog_submit").click(function() {
