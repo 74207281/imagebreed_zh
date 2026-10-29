@@ -9,6 +9,8 @@
 
 use strict;
 use utf8;
+binmode STDOUT, ":utf8";
+binmode STDERR, ":utf8";
 use CXGN::Login;
 
 my $contact_info_page = new SolPeoplePersonalInfoPage();

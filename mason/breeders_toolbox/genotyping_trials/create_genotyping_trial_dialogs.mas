@@ -113,7 +113,7 @@ $facilities => ();
                                 <& /page/page_title.mas, title=>"提供微孔盤中孔位的相關資訊(Provide Information About The Wells In Your Plate)" &>
                                 <br/>
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label text-align: right">請選擇一項：</label>
+                                    <label class="col-sm-3 control-label" style="text-align: right;">請選擇一項：</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="genotyping_trial_well_input_option">
                                             <option value="">請選取您要上傳的檔案格式</option>
@@ -313,7 +313,7 @@ $facilities => ();
                                 <br/>
                                 <center>
                                     <button id="trial_linkage_intro_button"  class="btn btn-lg btn-primary" onclick="Workflow.complete(this); return false;" >繼續前往下一步(Continue to Next Step)</button>
-                                <center>
+                                </center>
                             </&>
                             <&| /util/workflow.mas:step, title=> "確認(Confirm)" &>
                                 <& /page/page_title.mas, title=>"確認並送出您的基因分型微孔盤(Finalize And Submit Your Genotyping Plate)" &>
@@ -339,7 +339,7 @@ $facilities => ();
                             </&>
 
                             <&| /util/workflow.mas:complete, title=> "完成(Complete)" &>
-                                <& /page/page_title.mas, title=>"完成！您的基因分型微孔盤已儲存至資料庫。(Complete! Your Genotyping Plate Was Saved In The Database.)"
+                                <& /page/page_title.mas, title=>"完成！您的基因分型微孔盤已儲存至資料庫。(Complete! Your Genotyping Plate Was Saved In The Database.)" &>
                                 <p>
                                     <span class="ui-icon ui-icon-circle-check" style="float: left; margin: 0 7px 50px 0;"></span>
                                     基因分型微孔盤已成功儲存
@@ -517,7 +517,7 @@ $facilities => ();
                     （不支援 Excel 格式）
                     <br /><br />
                     <b>Header:</b>
-                    <br
+                    <br/>
 
                     <p>請注意，若您使用此上傳類型，組織類型將預設設為「葉 (leaf)」，因為上傳中未提供組織類型且 DaRT 需要組織類型。</p>
 

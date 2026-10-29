@@ -21,7 +21,7 @@ sub _validate_with_plugin {
     my ($extension) = $filename =~ /(\.[^.]+)$/;
     my $parser;
 
-    if ($extension eq '.xlsx') {
+    if (defined $extension && lc($extension) eq '.xlsx') {
         $parser = Spreadsheet::ParseXLSX->new();
     }
     else {
@@ -66,18 +66,23 @@ sub _validate_with_plugin {
 
     if ($worksheet->get_cell(0,0)) {
         $accession_name_head  = $worksheet->get_cell(0,0)->value();
+        $accession_name_head =~ s/^\s+|\s+$//g if defined $accession_name_head;
     }
     if ($worksheet->get_cell(0,1)) {
         $species_name_head  = $worksheet->get_cell(0,1)->value();
+        $species_name_head =~ s/^\s+|\s+$//g if defined $species_name_head;
     }
     if ($worksheet->get_cell(0,2)) {
         $population_name_head  = $worksheet->get_cell(0,2)->value();
+        $population_name_head =~ s/^\s+|\s+$//g if defined $population_name_head;
     }
     if ($worksheet->get_cell(0,3)) {
         $organization_name_head  = $worksheet->get_cell(0,3)->value();
+        $organization_name_head =~ s/^\s+|\s+$//g if defined $organization_name_head;
     }
     if ($worksheet->get_cell(0,4)) {
         $synonyms_head  = $worksheet->get_cell(0,4)->value();
+        $synonyms_head =~ s/^\s+|\s+$//g if defined $synonyms_head;
     }
     push @$editable_stockprops, ('location_code(s)','ploidy_level(s)','genome_structure(s)','variety(s)','donor(s)','donor_institute(s)','donor_PUI(s)','country_of_origin(s)','state(s)','institute_code(s)','institute_name(s)','biological_status_of_accession_code(s)','notes(s)','accession_number(s)','PUI(s)','seed_source(s)','type_of_germplasm_storage_code(s)','acquisition_date(s)','transgenic','introgression_parent','introgression_backcross_parent','introgression_map_version','introgression_chromosome','introgression_start_position_bp','introgression_end_position_bp');
     my %allowed_stockprops_head = map { $_ => 1 } @$editable_stockprops;
@@ -85,6 +90,7 @@ sub _validate_with_plugin {
         my $stockprops_head;
         if ($worksheet->get_cell(0,$i)) {
             $stockprops_head  = $worksheet->get_cell(0,$i)->value();
+            $stockprops_head =~ s/^\s+|\s+$//g if defined $stockprops_head;
         }
         if ($stockprops_head && !exists($allowed_stockprops_head{$stockprops_head})){
             push @error_messages, "$stockprops_head is not a valid property to have in the header! Please check the spreadsheet format help.";
@@ -173,7 +179,7 @@ sub _parse_with_plugin {
     my ($extension) = $filename =~ /(\.[^.]+)$/;
     my $parser;
 
-    if ($extension eq '.xlsx') {
+    if (defined $extension && lc($extension) eq '.xlsx') {
         $parser = Spreadsheet::ParseXLSX->new();
     }
     else {

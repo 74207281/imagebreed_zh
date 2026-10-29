@@ -36,6 +36,7 @@ $user_id => undef
       	      <div class="col-sm-10">
                   <select class="form-control" id="location_country" name="location_country">
                     <option value=""></option>
+                    <option value="TWN">TWN Taiwan</option>
                     <option value="ABW">ABW Aruba </option>
                     <option value="AFG">AFG Afghanistan </option>
                     <option value="AGO">AGO Angola </option>
@@ -261,7 +262,6 @@ $user_id => undef
                     <option value="TUN">TUN Tunisia </option>
                     <option value="TUR">TUR Turkey </option>
                     <option value="TUV">TUV Tuvalu </option>
-                    <option value="TWN">TWN Taiwan, Province of China </option>
                     <option value="TZA">TZA Tanzania, United Republic of </option>
                     <option value="UGA">UGA Uganda </option>
                     <option value="UKR">UKR Ukraine </option>

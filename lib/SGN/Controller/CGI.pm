@@ -73,9 +73,19 @@ if( eval{ SGN->debug } ) {
 after 'cgi_to_response' => sub {
     my ( $self, $c ) = @_;
     $c->res->headers->remove_header('content-length');
-    my $ct = $c->res->content_type;
-    if ( $ct && $ct =~ m{^text/}i && $ct !~ /charset/i ) {
-        $c->res->content_type("$ct; charset=utf-8");
+    my $ct = $c->res->content_type || 'text/html; charset=utf-8';
+    if ( $ct =~ m{^text/}i && $ct !~ /charset/i ) {
+        $ct .= "; charset=utf-8";
+    }
+    $c->res->content_type($ct);
+
+    if ( $ct =~ m{^(?:text/|application/(?:json|javascript|xml))}i ) {
+        if ( my $body = $c->res->body ) {
+            if ( !ref $body && !utf8::is_utf8($body) ) {
+                utf8::decode($body);
+                $c->res->body($body);
+            }
+        }
     }
 };
 
