@@ -43,7 +43,7 @@ $program_name
                             <center><h4>新增目標值(Add Target Value)：</h4></center>
                             <div id="target_value_for_trait" >
                             </div>
-                        </div
+                        </div>
                     </form>
                 </div>
             </div>
@@ -137,8 +137,6 @@ jQuery(document).ready(function () {
                     alert('產品概況已成功儲存。');
                 }
             },
-
-        });
 
         });
 
