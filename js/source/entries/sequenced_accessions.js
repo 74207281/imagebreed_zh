@@ -37,14 +37,14 @@ export function init(main_div, stock_id, stockprop_id){
      	    success: function(r) {
      		if (r.error) { alert(r.error + r); }
      		else {
-     		    alert("The entry has been saved. Thank you!");
+     		    alert("該項目已儲存。謝謝！(The entry has been saved. Thank you!)");
      		    jQuery('#edit_sequencing_info_dialog').modal('toggle');
 		    clear_dialog_entries();
 		    jQuery('#sequenced_stocks_table').DataTable().ajax.reload();
      		}
      	    },
      	    error: function(r,e) {
-		alert("An error occurred. (" +r.responseText+")" );
+		alert("發生錯誤。(" +r.responseText+") (An error occurred.)" );
 		var err = eval("(" + r.responseText + ")");
      	    }
      	});
@@ -75,19 +75,19 @@ function clear_dialog_entries() {
 }
 
 export function delete_sequencing_info(stockprop_id) {
-    var answer = confirm("Are you sure you want to delete this entry? (stockprop_id= "+stockprop_id+"). This action cannot be undone.");
+    var answer = confirm("確定要刪除此項目嗎？(stockprop_id= "+stockprop_id+")。此操作無法復原。(Are you sure you want to delete this entry? This action cannot be undone.)");
     if (answer) {
 	jQuery.ajax( {
 	    url : '/ajax/genomes/sequencing_info/delete/'+stockprop_id,
 	    success: function(r) {
 		if (r.error) { alert(r.error); }
 		else {
-		    alert("The entry has been deleted.");
+		    alert("該項目已刪除。(The entry has been deleted.)");
 		    jQuery('#sequenced_stocks_table').DataTable().ajax.reload();
 		}
 	    },
 	    error: function(r) {
-		alert("An error occurred. The entry was not deleted.");
+		alert("發生錯誤。該項目未被刪除。(An error occurred. The entry was not deleted.)");
 	    }
 	});
     }
@@ -119,7 +119,7 @@ export function edit_sequencing_info(stockprop_id) {
 		jQuery('#edit_sequencing_info_dialog').modal("show");
 	    }
 	},
-	error : function(r) { alert("an error occurred"); }
+	error : function(r) { alert("發生錯誤。(An error occurred)"); }
     });
 
 

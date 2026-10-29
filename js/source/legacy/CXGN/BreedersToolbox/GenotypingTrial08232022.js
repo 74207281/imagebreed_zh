@@ -74,7 +74,7 @@ jQuery(document).ready(function() {
         plate_data.include_facility_identifiers = jQuery('#upload_genotype_plate_include_facility_identifiers').val();
 
         if (plate_data.name == '') {
-            alert("A name is required and it should be unique in the database. Please try again.");
+            alert("名稱為必填項目且在資料庫中必須唯一。請再試一次。(A name is required and it should be unique in the database. Please try again.)");
             return;
         }
 
@@ -115,18 +115,18 @@ jQuery(document).ready(function() {
 
         var l = new CXGN.List();
         if (! l.validate(plate_data.list_id, 'accessions', true) && ! l.validate(plate_data.list_id, 'plots', true) && ! l.validate(plate_data.list_id, 'plants', true) && ! l.validate(plate_data.list_id, 'tissue_samples', true)) {
-            alert('The list contains elements that are not accessions or plots or plants or tissue_samples.');
+            alert('清單包含不是種原、小區、植株或組織樣品的元素。(The list contains elements that are not accessions or plots or plants or tissue_samples.)');
             return;
         }
 
         var elements = l.getList(plate_data.list_id);
         if (typeof elements == 'undefined' ) {
-            alert("There are no elements in the list provided.");
+            alert("所提供的清單中沒有任何元素。(There are no elements in the list provided.)");
             return;
         }
 
         if (elements.length > plate_data.plate_format) {
-            alert("The list needs to have less than 96 or 384 elements depending on the plate format you selected");
+            alert("根據您選取的微孔盤格式，清單元素必須少於 96 或 384 個。(The list needs to have less than 96 or 384 elements depending on the plate format you selected)");
             return;
         }
 
@@ -146,15 +146,15 @@ jQuery(document).ready(function() {
             },
             success: function(response) {
                 if (response.metadata.status[0].message) {
-                    alert('Login failed. '+JSON.stringify(response.metadata.status[0].message));
+                    alert('登入失敗。(Login failed.) '+JSON.stringify(response.metadata.status[0].message));
                 }
                 else {
-                    alert("Success!"+ JSON.stringify(response)+" which is "+response.result.access_token);
+                    alert("成功！(Success!) "+ JSON.stringify(response)+" which is "+response.result.access_token);
                     access_token = response.result.access_token;
                 }
             },
             error: function(response) {
-                alert("An error occurred trying to log into the sequencing facility server. Please try again later.");
+                alert("嘗試登入定序機構伺服器時發生錯誤。請稍後再試。(An error occurred trying to log into the sequencing facility server. Please try again later.)");
             }
         });
         return access_token;
@@ -166,7 +166,7 @@ jQuery(document).ready(function() {
         auth_data = get_genotyping_server_credentials();
 
         if (auth_data.error) {
-            alert("Genotyping server credentials are not available. Stop.");
+            alert("基因型鑑定伺服器憑證不可用。停止操作。(Genotyping server credentials are not available. Stop.)");
             return;
         }
 
@@ -180,7 +180,7 @@ jQuery(document).ready(function() {
         if (access_token) {
             auth_data.token = access_token;
 
-            alert("Sending genotyping experiment entry to genotyping facility...");
+            alert("正在將基因型試驗項目發送至定序機構...(Sending genotyping experiment entry to genotyping facility...)");
 
             jQuery.ajax( {
                 url: auth_data.host+'/brapi/v2/plate-register',
@@ -197,7 +197,7 @@ jQuery(document).ready(function() {
                         alert(response.metadata.status);
                     }
                     else {
-                        alert("Successfully submitted the plate to GDF.");
+                        alert("已成功將微孔盤提交給 GDF。(Successfully submitted the plate to GDF.)");
                     }
                 }
             });
@@ -226,7 +226,7 @@ jQuery(document).ready(function() {
                 }
             },
             error: function(response) {
-                alert("An error occurred. Please try again later.");
+                alert("發生錯誤。請稍後再試。(An error occurred. Please try again later.)");
             }
         });
     }
@@ -253,7 +253,7 @@ jQuery(document).ready(function() {
                 }
             },
             error: function(response) {
-                alert('An error occurred trying the create the layout.');
+                alert('嘗試建立配置時發生錯誤。(An error occurred trying to create the layout.)');
                 jQuery("working_modal").modal('hide');
             }
         });
@@ -318,7 +318,7 @@ jQuery(document).ready(function() {
                 }
             },
             error: function(response) {
-                alert('An error occurred trying the create the layout.');
+                alert('嘗試建立配置時發生錯誤。(An error occurred trying the create the layout.)');
                 jQuery("#working_modal").modal('hide');
             }
         });
@@ -356,7 +356,7 @@ jQuery(document).ready(function() {
                     console.log(response);
                 },
                 error: function(response) {
-                    alert("BrAPI vendor specifications call to IGD did not work.");
+                    alert("至 IGD 的 BrAPI 廠商規格呼叫失敗。(BrAPI vendor specifications call to IGD did not work.)");
                 }
             });
         }
@@ -364,13 +364,13 @@ jQuery(document).ready(function() {
 
     jQuery('#delete_layout_data_by_trial_id').click(function() {
         var trial_id = get_trial_id();
-        var yes = confirm("Are you sure you want to delete this experiment with id "+trial_id+" ? This action cannot be undone.");
+        var yes = confirm("確定要刪除 ID 為 "+trial_id+" 的此試驗嗎？此操作無法復原。(Are you sure you want to delete this experiment with id "+trial_id+" ? This action cannot be undone.)");
         if (yes) {
             jQuery.ajax({
                 url: '/ajax/breeders/trial/'+trial_id+'/delete/layout',
                 beforeSend: function(){
                     jQuery('#working_modal').modal("show");
-                    jQuery('#working_msg').html("Deleting genotyping plate...<br />");
+                    jQuery('#working_msg').html("正在刪除基因型微孔盤...(Deleting genotyping plate...)<br />");
                 },
                 success: function(response) {
                     if (response.error) {
@@ -379,14 +379,14 @@ jQuery(document).ready(function() {
                     else {
                         jQuery('#working_modal').modal("hide");
                         jQuery('#working_msg').html('');
-                        alert('The genotyping plate has been deleted.'); // to do: give some idea how many items were deleted.
+                        alert('基因型微孔盤已刪除。(The genotyping plate has been deleted.)'); // to do: give some idea how many items were deleted.
                         window.location.href="/breeders/trial/"+trial_id;
                     }
                 },
                 error: function(response) {
                     jQuery('#working_modal').modal("hide");
                     jQuery('#working_msg').html('');
-                    alert("An error occurred.");
+                    alert("發生錯誤。(An error occurred.)");
                 }
             });
         }
@@ -425,7 +425,7 @@ jQuery(document).ready(function() {
 
     function submit_genotype_data_upload() {
         jQuery('#working_modal').modal('show');
-        jQuery('#working_msg').html('<p>This can take a long time potentially, and process is running even if connection is lost, so please be patient.</p>');
+        jQuery('#working_msg').html('<p>此過程可能需要較長時間，即使連線中斷也仍在後台運行，請耐心等待。(This can take a long time potentially, and process is running even if connection is lost, so please be patient.)</p>');
         jQuery('#upload_genotypes_form').attr("action", "/ajax/genotype/upload");
         jQuery("#upload_genotypes_form").submit();
     }
@@ -450,7 +450,7 @@ jQuery(document).ready(function() {
 
                 if (response.missing_stocks && response.missing_stocks.length > 0){
                     jQuery('#upload_genotypes_missing_stocks_div').show();
-                    var missing_stocks_html = "<div class='well well-sm'><h3>Add the missing stocks to a list as accessions</h3><div id='upload_genotypes_missing_stock_vals' style='display:none'></div><div id='upload_genotypes_add_missing_stocks'></div></div><br/>";
+                    var missing_stocks_html = "<div class='well well-sm'><h3>將缺失的材料作為種原新增至清單(Add the missing stocks to a list as accessions)</h3><div id='upload_genotypes_missing_stock_vals' style='display:none'></div><div id='upload_genotypes_add_missing_stocks'></div></div><br/>";
                     jQuery("#upload_genotypes_add_missing_stocks_html").html(missing_stocks_html);
 
                     var missing_stocks_vals = '';
@@ -474,7 +474,7 @@ jQuery(document).ready(function() {
                 return;
             }
             if (response.success) {
-                var success_string = "<h4>Go to new <a href='/breeders_toolbox/protocol/"+response.nd_protocol_id+"'>protocol detail page</a></h4>";
+                var success_string = "<h4>前往新<a href='/breeders_toolbox/protocol/"+response.nd_protocol_id+"'>協定詳細頁面(protocol detail page)</a></h4>";
                 console.log(success_string);
                 jQuery('#upload_genotype_submit_complete').html(success_string);
                 Workflow.complete('#upload_genotype_submit');
@@ -537,7 +537,7 @@ function edit_genotyping_trial_details(){
             if(jQuery('#'+id).is("select")){
                 new_value = changed_elements[i].options[changed_elements[i].selectedIndex].text
             }
-            success_message += "<li class='list-group-item list-group-item-success'> Changed "+type+" to: <b>"+new_value+"</b></li>";
+            success_message += "<li class='list-group-item list-group-item-success'> 已將 "+type+" 更改為(Changed to): <b>"+new_value+"</b></li>";
         }
 
         save_genotyping_trial_details(categories, new_details, success_message);
@@ -573,7 +573,7 @@ function save_genotyping_trial_details (categories, details, success_message) {
       }
     },
     error: function(response) {
-      document.getElementById('genotyping_trial_details_error_message').innerHTML = "<li class='list-group-item list-group-item-danger'> Trial detail update AJAX request failed. Update not completed.</li>";
+      document.getElementById('genotyping_trial_details_error_message').innerHTML = "<li class='list-group-item list-group-item-danger'> 試驗詳細資訊更新 AJAX 請求失敗。更新未完成。(Trial detail update AJAX request failed. Update not completed.)</li>";
       jQuery('#genotyping_trial_details_error_dialog').modal("show");
     },
   });
@@ -588,7 +588,7 @@ function save_replace_well_accession () {
     var old_plot_id = jQuery('#plot_id').html();
     var old_plot_name = jQuery('#plot_name').html();
 
-    var yes = confirm("Are you sure you want to replace accession "+ old_accession +" with "+ new_accession +" in sample " + old_plot_name + " ?");
+    var yes = confirm("您確定要在樣品 " + old_plot_name + " 中以 "+ new_accession +" 取代種原 "+ old_accession +" 嗎？(Are you sure you want to replace accession "+ old_accession +" with "+ new_accession +" in sample " + old_plot_name + " ?)");
     if (yes) {
         jQuery('#replace_plate_accessions_dialog').modal("hide");
         jQuery('#working_modal').modal("show");
@@ -608,7 +608,7 @@ function save_replace_well_accession () {
               jQuery('#working_modal').modal("hide");
 
               if (response.error) {
-                alert("Error Replacing Plot Accession: "+response.error);
+                alert("取代小區種原時發生錯誤(Error Replacing Plot Accession): "+response.error);
               }
               else {
                 jQuery('#replace_accessions_dialog_message').modal("show");
@@ -616,7 +616,7 @@ function save_replace_well_accession () {
             },
             error: function () {
               jQuery('#working_modal').modal("hide");
-              alert('An error occurred replacing plot accession');
+              alert('取代小區種原時發生錯誤(An error occurred replacing plot accession)');
             }
         });
     }

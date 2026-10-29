@@ -44,7 +44,7 @@ jQuery(document).ready(function ($) {
             $('#working_modal').modal("show");
             if (uploadedPedigreesFile === '') {
                 $('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選取檔案(No file selected)");
             }
         },
         complete: function (r) {
@@ -59,10 +59,10 @@ jQuery(document).ready(function ($) {
             var html;
             archived_file_name = response.archived_file_name;
             if (response.error) {
-                html = '<h3>The Following Issues Were Identified</h3><p class="bg-warning">'+response.error+'</p>';
+                html = '<h3>發現以下問題(The Following Issues Were Identified)</h3><p class="bg-warning">'+response.error+'</p>';
             }
             else {
-                html = '<h3>There Were No Issues Identified</h3>';
+                html = '<h3>未發現任何問題(There Were No Issues Identified)</h3>';
             }
             $("#upload_pedigrees_validate_display tbody").html(html);
             $("#upload_pedigrees_validate_display").modal('show');
@@ -73,7 +73,7 @@ jQuery(document).ready(function ($) {
         var uploadFile = $("#pedigrees_uploaded_file").val();
         $('#upload_pedigrees_form').attr("action", "/ajax/pedigrees/upload_verify");
         if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選擇檔案(Please select a file)");
             return;
         }
         $("#upload_pedigrees_form").submit();
@@ -96,7 +96,7 @@ jQuery(document).ready(function ($) {
             success: function(response) {
                 jQuery('#working_modal').modal('hide');
                 if (response.error) {
-                    alert('An Error Occured: No pedigrees were saved! Try Fixing Your File For The Issues Identified In the Validation. '+response.error);
+                    alert('發生錯誤：未儲存任何系譜！請針對驗證中指出的問題修改您的檔案。(An Error Occured: No pedigrees were saved! Try Fixing Your File For The Issues Identified In the Validation.) '+response.error);
                 }
                 else {
                     jQuery('#pedigrees_upload_success_dialog_message').modal('show');
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
             },
             error: function(response) {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred storing the pedigrees. None were uploaded.');
+                alert('儲存系譜時發生錯誤。未上傳任何內容。(An error occurred storing the pedigrees. None were uploaded.)');
             }
         });
     });

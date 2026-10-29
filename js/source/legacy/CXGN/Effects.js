@@ -28,7 +28,7 @@ var Effects = {
 		if(switchTo == 'remove'){  
 			imgAdd.style.display = "none";
 			imgRemove.style.display = "inline";
-			button.firstChild.nodeValue = "Remove " + optionalText + "from Hotlist";
+			button.firstChild.nodeValue = "自焦點清單移除 " + optionalText + "(Remove " + optionalText + "from Hotlist)";
 			if(clearOnClick){
 				button.setAttribute("onClick", "alert('some')");
 			}
@@ -39,7 +39,7 @@ var Effects = {
 		else if (switchTo == 'add'){ 
 			imgAdd.style.display = "inline";
 			imgRemove.style.display = "none";
-			button.firstChild.nodeValue = "Add " + optionalText + "to Hotlist";
+			button.firstChild.nodeValue = "新增 " + optionalText + "至焦點清單(Add " + optionalText + "to Hotlist)";
 			if(clearOnClick){
 				button.setAttribute("onClick", "alert('some')");
 			}
@@ -47,7 +47,7 @@ var Effects = {
 				button.setAttribute("onClick", "Hotlist.add('" + buttonId + "', '" + content + "'); return false;");
 			}
 		}
-		else { alert("You sent a bad switchTo variable to switchHotlistButton"); }
+		else { alert("傳送給 switchHotlistButton 的 switchTo 變數不正確(You sent a bad switchTo variable to switchHotlistButton)"); }
 	},
 	//These, on the other hand, are generic and belong in CXGN.Effects:
 	showElement: function(elementId, displayMethod) {

@@ -1,7 +1,7 @@
 // Depends on CXGN.BreedersToolbox.HTMLSelect
 
 function delete_phenotype_data_by_trial_id(trial_id) {
-    var yes = confirm("Are you sure you want to delete all phenotypic data associated with trial "+trial_id+" ? This action cannot be undone.");
+    var yes = confirm("確定要刪除與試驗 "+trial_id+" 關聯的所有表型數據嗎？此操作無法復原。(Are you sure you want to delete all phenotypic data associated with trial "+trial_id+" ? This action cannot be undone.)");
     if (yes) {
 
 	jQuery.ajax( {
@@ -15,13 +15,13 @@ function delete_phenotype_data_by_trial_id(trial_id) {
            alert(response.error);
 		       }
 		    else {
-		       alert('The phenotypic data has been deleted.'); // to do: give some idea how many items were deleted.
+		       alert('表型數據已刪除。(The phenotypic data has been deleted.)'); // to do: give some idea how many items were deleted.
 		    window.location.href="/breeders/trial/"+trial_id;
 		}
             },
       error: function(response) {
 		    jQuery('#working_modal').modal('hide');
-		    alert("An error occurred.");
+		    alert("發生錯誤。(An error occurred.)");
             }
 	});
  }
@@ -29,14 +29,14 @@ function delete_phenotype_data_by_trial_id(trial_id) {
 
 
 function delete_layout_data_by_trial_id(trial_id) {
-    var yes = confirm("Are you sure you want to delete the layout data associated with trial "+trial_id+" and the trial entry itself? This action cannot be undone.");
+    var yes = confirm("確定要刪除與試驗 "+trial_id+" 關聯的佈局數據以及試驗項目本身嗎？此操作無法復原。(Are you sure you want to delete the layout data associated with trial "+trial_id+" and the trial entry itself? This action cannot be undone.)");
     if (yes) {
 
         jQuery.ajax( {
             url: '/ajax/breeders/trial/'+trial_id+'/delete/layout',
             beforeSend: function(){
                 jQuery('#working_modal').modal('show');
-                jQuery('#working_msg').html("Deleting trial layout...<br />");
+                jQuery('#working_msg').html("正在刪除試驗佈局...<br />(Deleting trial layout...)");
             },
             success: function(response) {
                 if (response.error) {
@@ -45,14 +45,14 @@ function delete_layout_data_by_trial_id(trial_id) {
                 else {
                     jQuery('#working_modal').modal('hide');
                     jQuery('#working_msg').html('');
-                    alert('The field trial has been deleted.'); // to do: give some idea how many items were deleted.
+                    alert('田間試驗已刪除。(The field trial has been deleted.)'); // to do: give some idea how many items were deleted.
                     window.location.href="/breeders/trial/"+trial_id;
                 }
             },
             error: function(response) {
                 jQuery('#working_modal').modal('hide');
                 jQuery('#working_msg').html('');
-                alert("An error occurred.");
+                alert("發生錯誤。(An error occurred.)");
             }
         });
     }
@@ -67,7 +67,7 @@ function associate_breeding_program() {
 	url: '/breeders/program/associate/'+program+'/'+ trial_id,
 	async: false,
 	success: function(response) {
-            alert("Associated program with id "+program + " to trial with id "+ trial_id);
+            alert("已將計畫 ID "+program + " 與試驗 ID "+ trial_id+" 建立關聯。(Associated program to trial)");
 
 	}
     });
@@ -78,19 +78,19 @@ function load_breeding_program_info(trial_id) {
 	url:'/breeders/programs_by_trial/'+trial_id,
 	success: function(response) {
             if (response.error) {
-		jQuery('#breeding_programs').html('[ An error occurred fetching the breeding program information ]');
+		jQuery('#breeding_programs').html('[ 擷取育種計畫資訊時發生錯誤 (An error occurred fetching the breeding program information) ]');
             }
             else {
 		var programs = response.projects;
 		for (var i=0; i< programs.length; i++) {
 		    var html =  programs[0][1] + ' (' + programs[0][2] + ') ';
 		}
-		if (programs.length == 0) { html = "(none)"; }
+		if (programs.length == 0) { html = "(無 / none)"; }
 		jQuery('#breeding_programs').html(html);
             }
 	},
 	error: function() {
-	    jQuery('#breeding_programs').html('[ An error occurred ]');
+	    jQuery('#breeding_programs').html('[ 發生錯誤 (An error occurred) ]');
 	}
     });
 }
@@ -144,7 +144,7 @@ function create_DataCollector() {
 	 error: function () {
 	     //jQuery('#working').dialog("close");
 	     jQuery('#working_modal').modal("hide");
-             alert('An error occurred creating a DataCollector file.');
+             alert('建立 DataCollector 檔案時發生錯誤。(An error occurred creating a DataCollector file.)');
              jQuery('#open_download_DataCollector_dialog').dialog("close");
 	 }
      });
@@ -169,7 +169,7 @@ function compute_derived_trait() {
     var trait = jQuery('#derived_trait_select').val();
     var trialID = parseInt(jQuery('#trialIDDiv').text());
     if (trait === '') {
-		alert("No trait selected");
+		alert("未選取性狀(No trait selected)");
 	    }
 
      new jQuery.ajax({
@@ -185,7 +185,7 @@ function compute_derived_trait() {
 	     jQuery('#working_modal').modal("hide");
 
              if (response.error) {
-		 alert("Computation stopped: "+response.error);
+		 alert("計算已停止：(Computation stopped: )"+response.error);
 		 //alert("Computation for "+trait+" stopped: "+response.error);
 		 jQuery('#open_derived_trait_dialog').dialog("close");
 
@@ -193,13 +193,13 @@ function compute_derived_trait() {
 		 jQuery('#open_derived_trait_dialog').dialog("close");
 		 jQuery('#working_modal').modal("hide");
 		 jQuery('derived_trait_saved_dialog_message');
-		 alert("Successfully derived and uploaded phenotype");
+		 alert("成功衍生並上傳表型(Successfully derived and uploaded phenotype)");
 		// alert("Successfully derived and uploaded ' "+trait+" ' values for this trial");
              }
 	 },
 	 error: function () {
 	     jQuery('#working_modal').modal("hide");
-             alert('An error occurred creating trait.');
+             alert('建立性狀時發生錯誤。(An error occurred creating trait.)');
 	 }
      });
 }
@@ -216,7 +216,7 @@ function delete_field_map() {
         success: function (response) {
             jQuery('#working_modal').modal("hide");
             if (response.error) {
-                alert("Error Deleting Field Map: "+response.error);
+                alert("刪除田間地圖時發生錯誤：(Error Deleting Field Map: )"+response.error);
             } else {
                 //alert("Field map deletion Successful...");
                 jQuery('#delete_field_map_dialog_message').dialog("open");
@@ -224,7 +224,7 @@ function delete_field_map() {
         },
         error: function () {
             jQuery('#working_modal').modal("hide");
-            alert('An error occurred deleting field map.');
+            alert('刪除田間地圖時發生錯誤。(An error occurred deleting field map.)');
         }
     });
 }
@@ -249,7 +249,7 @@ function replace_accessions() {
  	     jQuery('#working_modal').modal("hide");
 
        if (response.error) {
- 		      alert("Error replacing accessions: "+response.error);
+ 		      alert("替換品系時發生錯誤：(Error replacing accessions: )"+response.error);
        } else {
            //alert("Field map deletion Successful...");
  		      jQuery('#replace_accessions_dialog_message').dialog("open");
@@ -257,7 +257,7 @@ function replace_accessions() {
  	 },
  	 error: function () {
  	     jQuery('#working_modal').modal("hide");
-              alert('An error occurred replacing accessions.');
+              alert('替換品系時發生錯誤。(An error occurred replacing accessions.)');
  	 }
  });
 }
@@ -452,13 +452,13 @@ function trial_detail_page_setup_dialogs() {
 
 		    }
 		    else {
-			html = '<option active="false">No derived trait available</option>';
+			html = '<option active="false">無可用衍生性狀(No derived trait available)</option>';
 		    }
 		}
 		jQuery('#derived_trait_select').html(html);
 	    },
 	    error: function(response) {
-		alert("An error occurred trying to retrieve derived traits.");
+		alert("嘗試擷取衍生性狀時發生錯誤。(An error occurred trying to retrieve derived traits.)");
 	    }
 	});
 
@@ -630,7 +630,7 @@ jQuery(document).ready(function ($) {
 	    $('#working_modal').modal("show");
             if (uploadedtrialcoordFile === '') {
 		$('#working_modal').modal("hide");
-		alert("No file selected");
+		alert("未選取檔案(No file selected)");
             }
 	},
 	complete: function (response) {
@@ -657,7 +657,7 @@ jQuery(document).ready(function ($) {
         var uploadFile = $("#trial_coordinates_uploaded_file").val();
         $('#upload_trial_coordinates_form').attr("action", "/ajax/breeders/trial/"+get_trial_id()+"/coordsupload");
         if (uploadFile === '') {
-	    alert("Please select a file");
+	    alert("請選取一個檔案(Please select a file)");
 	    return;
         }
         $("#upload_trial_coordinates_form").submit();

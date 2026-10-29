@@ -6,7 +6,7 @@ function stock_detail_page_init_dialogs() {
 	'height' : 600,
 	'width' : 700,
 	'buttons' : {
-	    'OK' : function() { 
+	    '確定(OK)' : function() { 
 		jQuery('#stock_trials_info_popup').dialog("close");
 	    }
 	}
@@ -16,11 +16,11 @@ function stock_detail_page_init_dialogs() {
     jQuery('#remove_parent_dialog').dialog({ 
 	'autoOpen' : false,
 	'modal' : true,
-	'title' : 'Remove a parent',
+	'title' : '移除親本(Remove a parent)',
 	'height' : 300,
 	'width' : 400,
 	'buttons' : {
-	    'Done' : function() { 
+	    '完成(Done)' : function() { 
 		jQuery('#remove_parent_dialog').dialog("close");
 	    },
 
@@ -32,7 +32,7 @@ function stock_detail_page_init_dialogs() {
 }
 
 function show_stock_trial_detail(stock_id, stock_name, trial_id, trial_name) { 
-    jQuery('#stock_trials_info_popup').dialog("option", "title", "Phenotypic data for "+stock_name+" from trial "+trial_name);
+    jQuery('#stock_trials_info_popup').dialog("option", "title", "來自試驗 "+trial_name+" 的 "+stock_name+" 表型資料(Phenotypic data for "+stock_name+" from trial "+trial_name+")");
     jQuery('#stock_trials_info_popup').dialog("open");
     jQuery('#stock_trials_info_table').DataTable().destroy();
 
@@ -54,14 +54,14 @@ function get_remove_parents_list(stock_id) {
 	    jQuery('#remove_parent_list').html(html);
 	},
 	error: function(response) { 
-	    alert("an error occurred.");
+	    alert("發生錯誤。(An error occurred.)");
 	}
     });
 
 }
 
 function remove_parents(stock_id, parent_id) { 
-    var yes = confirm("Are you sure you want to remove this parent?");
+    var yes = confirm("確定要移除此親本嗎？(Are you sure you want to remove this parent?)");
     if (yes) { 
 	jQuery.ajax( { 
 	    url: '/ajax/stock/parent/remove',
@@ -71,7 +71,7 @@ function remove_parents(stock_id, parent_id) {
 		    alert(response.error);
 		}
 		else { 
-		    alert("The parent has been removed.");
+		    alert("親本已成功移除。(The parent has been removed.)");
 		    jQuery('#remove_parent_dialog').dialog("close");
 		    window.location.href = '/stock/'+stock_id+'/view';
 		    

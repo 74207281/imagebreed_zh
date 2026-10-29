@@ -752,23 +752,23 @@ Wizard.basicTemplate = `
         <optgroup class="wizard-types-group" label=""></optgroup>
         <optgroup class="wizard-lists-group" label=""></optgroup>
       </select>
-      <input type="text" class="wizard-search" placeholder="Search">
-      <button class="wizard-select-all">Select All</button>
+      <input type="text" class="wizard-search" placeholder="搜尋(Search)">
+      <button class="wizard-select-all">全選(Select All)</button>
       <span>
         <span class="wizard-count-selected">0</span>/<span class="wizard-count-all">0</span>
       </span>
-      <button class="wizard-select-clear">Clear</button>
+      <button class="wizard-select-clear">清除(Clear)</button>
       <ul class="wizard-list-unselected"></ul>
       <ul class="wizard-list-selected"></ul>
-      <div class="wizard-union-toggle">Toggle</div>
+      <div class="wizard-union-toggle">切換(Toggle)</div>
       <div class="wizard-save-to-list">
         <select class="wizard-add-to-list-id">
           <option selected value="" disabled></option>
           <optgroup class="wizard-lists-group" label=""></optgroup>
         </select>
-        <button class="wizard-add-to-list">Add</button>
+        <button class="wizard-add-to-list">新增(Add)</button>
         <input class="wizard-create-list-name" type="text"></input>
-        <button class="wizard-create-list">Create</button>
+        <button class="wizard-create-list">建立(Create)</button>
       </div>
     </div>
   </div>

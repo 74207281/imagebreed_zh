@@ -18,7 +18,7 @@ function isLoggedIn() {
 	    }
 	},
 	error: function(response) {
-	    alert("An error occurred. "+response);
+	    alert("發生錯誤。(An error occurred.) "+response);
 	}
     }
 
@@ -44,7 +44,7 @@ function getUserRoles() {
 	    }
 	},
 	error: function(response) {
-	    alert("An error occurred. "+response);
+	    alert("發生錯誤。(An error occurred.) "+response);
 	}
     }
 
@@ -70,7 +70,7 @@ function setUpLogin() {
     height: 80,
     width: 100,
     modal: true,
-    title: "Working...",
+    title: "處理中...(Working...)",
     closeOnEscape: false,
     autoOpen: false
   });
@@ -79,14 +79,14 @@ jQuery('#login_window').dialog( {
     height: 180,
     width: 300,
     modal: true,
-    title: 'Login',
+    title: '登入(Login)',
     autoOpen: false,
     buttons: {
-      "Login" :
+      "登入(Login)" :
         function() {
           login();
         },
-      "Cancel":
+      "取消(Cancel)":
         function() {
           jQuery('#login_window').dialog("close");
         }

@@ -16,7 +16,7 @@ jQuery( document ).ready( function() {
             var imageFiles = document.getElementById('upload_images_file_input').files;
             if (imageFiles.length < 1) {
                 jQuery('#working_modal').modal("hide");
-                alert("Please select image files");
+                alert("請選擇影像檔案(Please select image files)");
                 return false;
             }
             var [fileData, unitType, transformType, parseErrors] = parseImageFilenames(imageFiles);
@@ -36,11 +36,11 @@ jQuery( document ).ready( function() {
             var zipFile =  document.getElementById('upload_images_zip_file_input').files[0];
             if (!(phenoFile instanceof File)) {
                 jQuery('#working_modal').modal("hide");
-                alert("Please select a phenotype spreadsheet");
+                alert("請選擇表型試算表(Please select a phenotype spreadsheet)");
                 return false;
             } else if (!(zipFile instanceof File)) {
                 jQuery('#working_modal').modal("hide");
-                alert('Please select an image zipfile');
+                alert("請選擇影像壓縮檔(Please select an image zipfile)");
                 return false;
             }
             submitAssociatedPhenotypes(phenoFile, zipFile, "/ajax/phenotype/upload_verify/spreadsheet").done(function(result) {
@@ -56,7 +56,7 @@ jQuery( document ).ready( function() {
         var type = jQuery('#upload_images_file_format').val();
         if (type == 'images') {
             var imageFiles = document.getElementById('upload_images_file_input').files;
-            jQuery('#progress_msg').text('Preparing images for upload');
+            jQuery('#progress_msg').text('正在準備上傳影像(Preparing images for upload)');
             jQuery('#progress_bar').css("width", "0%")
             .attr("aria-valuenow", 0)
             .text("0%");
@@ -105,11 +105,11 @@ jQuery( document ).ready( function() {
             var zipFile =  document.getElementById('upload_images_zip_file_input').files[0];
             if (!(phenoFile instanceof File)) {
                 jQuery('#working_modal').modal("hide");
-                alert("Please select a phenotype spreadsheet");
+                alert("請選擇表型試算表(Please select a phenotype spreadsheet)");
                 return false;
             } else if (!(zipFile instanceof File)) {
                 jQuery('#working_modal').modal("hide");
-                alert('Please select an image zipfile');
+                alert("請選擇影像壓縮檔(Please select an image zipfile)");
                 return false;
             }
 
@@ -139,7 +139,7 @@ function showImagePreview(imageFiles) {
         previewText.className = "col-sm-8";
         previewText.innerHTML =
         '<p class="font-weight-bold text-center"><b>'+file.name+'</b></p><br>' +
-        '<p class="text-center">and '+restCount+' additional image files selected and ready for verification.</p>';
+        '<p class="text-center">以及另外 ' + restCount + ' 個影像檔案已選取並準備好進行驗證。(and '+restCount+' additional image files selected and ready for verification.)</p>';
         preview.append(previewText);
     }
     reader.readAsDataURL(file);
@@ -208,12 +208,12 @@ function parseImageFilenames(imageFiles) {
                 "observationUnit" : justUnit
             };
         } else {
-            parseErrors.push("Filename <b>" + name + "</b> must start with a valid observationUnitName or observationUnitDbId.")
+            parseErrors.push("檔名(Filename) <b>" + name + "</b> 必須以有效的 observationUnitName 或 observationUnitDbId 開頭。")
         }
     }
 
     if (id_count > 0 && name_count > 0) {
-        parseErrors.push("Image filenames include a mix of observationUnitDbIds and observationUnitNames. Please load files with only one naming pattern at a time.");
+        parseErrors.push("影像檔名混合了 observationUnitDbId 與 observationUnitName。請每次只載入使用單一命名模式的檔案。(Image filenames include a mix of observationUnitDbIds and observationUnitNames. Please load files with only one naming pattern at a time.)");
     }
 
     if (id_count > 0) {
@@ -261,12 +261,12 @@ function verifyImageFiles(fileData, unitType, transformType) {
       // console.log("response is "+JSON.stringify(response));
       if (response.missing.length > 0) {
           var errors = response.missing.map(function(name) {
-              return "<b>" + name + "</b> is not a valid "+unitType;
+              return "<b>" + name + "</b> 不是有效的(is not a valid) "+unitType;
           });
           console.log("Errors are "+errors);
           return { "error" : errors };
       } else {
-          var successText = "Verification complete. All image files match an existing observationUnit. Ready to store images.";
+          var successText = "驗證完成。所有影像檔案皆符合現有的觀測單位。已可儲存影像。(Verification complete. All image files match an existing observationUnit. Ready to store images.)";
           return { "success" : successText };
       }
     }).fail(function(error){
@@ -314,7 +314,7 @@ function loadImagesSequentially(imageFiles, imageData, uploadStatus){
         // console.log("load single image response is: " +JSON.stringify(response));
 
         if (response.result) {
-            var msg = "Successfly uploaded image "+response.result.data[0].imageFileName;
+            var msg = "成功上傳影像(Successfully uploaded image) "+response.result.data[0].imageFileName;
             uploadStatus.success.push(msg);
         } else {
             // console.log("handling response errors: "+JSON.stringify(response.metadata.status));
@@ -346,7 +346,7 @@ function loadSingleImage(imageFiles, imageData, uploadStatus){
     var image = imageData[0];
 
     currentImage++;
-    jQuery('#progress_msg').html('<p class="form-group text-center">Working on image '+currentImage+' out of '+total+'</p>');
+    jQuery('#progress_msg').html('<p class="form-group text-center">正在處理影像(Working on image) '+currentImage+' / '+total+'</p>');
     jQuery('#progress_msg').append('<p class="form-group text-center"><b>'+image.imageFileName+'</b></p>')
     var progress = Math.round((currentImage / total) * 100)
     jQuery('#progress_bar').css("width", progress + "%")

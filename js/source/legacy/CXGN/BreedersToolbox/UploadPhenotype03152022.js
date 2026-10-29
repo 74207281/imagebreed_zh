@@ -3,7 +3,7 @@ jQuery( document ).ready( function() {
 
     //For Spreadsheet Upload
     jQuery('#upload_spreadsheet_phenotype_submit_verify').click( function() {
-        initializeUploadPhenotype(jQuery("#upload_spreadsheet_phenotype_file_input").val(), "Verifying Spreadsheet File and Data", "#upload_spreadsheet_phenotype_file_form", "/ajax/phenotype/upload_verify/spreadsheet", jQuery('#upload_spreadsheet_phenotype_file_format').val(), jQuery("#upload_spreadsheet_phenotype_associated_images_file_input").val());
+        initializeUploadPhenotype(jQuery("#upload_spreadsheet_phenotype_file_input").val(), "驗證試算表檔案與資料中...(Verifying Spreadsheet File and Data)", "#upload_spreadsheet_phenotype_file_form", "/ajax/phenotype/upload_verify/spreadsheet", jQuery('#upload_spreadsheet_phenotype_file_format').val(), jQuery("#upload_spreadsheet_phenotype_associated_images_file_input").val());
     });
 
     jQuery("#upload_spreadsheet_phenotype_file_form").iframePostForm({
@@ -15,7 +15,7 @@ jQuery( document ).ready( function() {
             displayPhenotypeUploadVerifyResponse(response, "spreadsheet");
 
             jQuery("#upload_spreadsheet_phenotype_submit_store").click( function() {
-                initializeUploadPhenotype(jQuery("#upload_spreadsheet_phenotype_file_input").val(), "Storing Spreadsheet File and Data", "#upload_spreadsheet_phenotype_file_form", "/ajax/phenotype/upload_store/spreadsheet");
+                initializeUploadPhenotype(jQuery("#upload_spreadsheet_phenotype_file_input").val(), "正在儲存試算表檔案與資料...(Storing Spreadsheet File and Data)", "#upload_spreadsheet_phenotype_file_form", "/ajax/phenotype/upload_store/spreadsheet");
             });
 
             jQuery("#upload_spreadsheet_phenotype_file_form").iframePostForm({
@@ -41,7 +41,7 @@ jQuery( document ).ready( function() {
 
     //For Datacollector Upload
     jQuery('#upload_datacollector_phenotype_submit_verify').click( function() {
-        initializeUploadPhenotype(jQuery("#upload_datacollector_phenotype_file_input").val(), "Verifying Datacollector File and Phenotype Data", "#upload_datacollector_phenotype_file_form", "/ajax/phenotype/upload_verify/datacollector");
+        initializeUploadPhenotype(jQuery("#upload_datacollector_phenotype_file_input").val(), "驗證 DataCollector 檔案與表型資料中...(Verifying Datacollector File and Phenotype Data)", "#upload_datacollector_phenotype_file_form", "/ajax/phenotype/upload_verify/datacollector");
     });
 
     jQuery("#upload_datacollector_phenotype_file_form").iframePostForm({
@@ -53,7 +53,7 @@ jQuery( document ).ready( function() {
             displayPhenotypeUploadVerifyResponse(response, "datacollector");
 
             jQuery("#upload_datacollector_phenotype_submit_store").click( function() {
-                initializeUploadPhenotype(jQuery("#upload_datacollector_phenotype_file_input").val(), "Storing Datacollector File and Phenotype Data", "#upload_datacollector_phenotype_file_form", "/ajax/phenotype/upload_store/datacollector");
+                initializeUploadPhenotype(jQuery("#upload_datacollector_phenotype_file_input").val(), "正在儲存 DataCollector 檔案與表型資料...(Storing Datacollector File and Phenotype Data)", "#upload_datacollector_phenotype_file_form", "/ajax/phenotype/upload_store/datacollector");
             });
 
             jQuery("#upload_datacollector_phenotype_file_form").iframePostForm({
@@ -70,7 +70,7 @@ jQuery( document ).ready( function() {
 
     //For Fieldbook Upload
     jQuery('#upload_fieldbook_phenotype_submit_verify').click( function() {
-        initializeUploadPhenotype(jQuery("#upload_fieldbook_phenotype_file_input").val(), "Verifying Fieldbook File and Phenotype Data", "#upload_fieldbook_phenotype_file_form", "/ajax/phenotype/upload_verify/fieldbook");
+        initializeUploadPhenotype(jQuery("#upload_fieldbook_phenotype_file_input").val(), "驗證 Field Book 檔案與表型資料中...(Verifying Fieldbook File and Phenotype Data)", "#upload_fieldbook_phenotype_file_form", "/ajax/phenotype/upload_verify/fieldbook");
     });
 
     jQuery("#upload_fieldbook_phenotype_file_form").iframePostForm({
@@ -82,7 +82,7 @@ jQuery( document ).ready( function() {
             displayPhenotypeUploadVerifyResponse(response, "fieldbook");
 
             jQuery("#upload_fieldbook_phenotype_submit_store").click( function() {
-                initializeUploadPhenotype(jQuery("#upload_fieldbook_phenotype_file_input").val(), "Storing Fieldbook File and Phenotype Data", "#upload_fieldbook_phenotype_file_form", "/ajax/phenotype/upload_store/fieldbook");
+                initializeUploadPhenotype(jQuery("#upload_fieldbook_phenotype_file_input").val(), "正在儲存 Field Book 檔案與表型資料...(Storing Fieldbook File and Phenotype Data)", "#upload_fieldbook_phenotype_file_form", "/ajax/phenotype/upload_store/fieldbook");
             });
 
             jQuery("#upload_fieldbook_phenotype_file_form").iframePostForm({
@@ -108,18 +108,18 @@ jQuery( document ).ready( function() {
 //	})
 
 	jQuery('#delete_pheno_file_link').click( function() {
-		alert('Deleted successfully.');
+		alert('已成功刪除。(Deleted successfully.)');
         });
 
 });
 
 function initializeUploadPhenotype(uploadFile, message, file_form, url, upload_format, image_zipfile) {
     if (upload_format == 'associated_images' && image_zipfile === '') {
-        alert('Please select an image zipfile if you are using the Associated Images format');
+        alert('若您使用的是關聯影像格式，請選擇影像壓縮檔(Please select an image zipfile if you are using the Associated Images format)');
         return false;
     }
     else if (uploadFile === '') {
-        alert("Please select a file");
+        alert("請選擇檔案(Please select a file)");
     }
     else {
         showPhenotypeUploadWorkingModal(message);
@@ -185,7 +185,7 @@ function displayPhenotypeUploadVerifyResponse(response, upload_type) {
         if (warningarrayLength > 0) {
             message_text += "<li class='list-group-item list-group-item-warning'>";
             message_text += "<span class='badge'><span class='glyphicon glyphicon-asterisk'></span></span>";
-            message_text += "Warnings are shown in yellow. Either fix the file and try again or continue with storing the data.<hr>If you continue, by default any new values will be uploaded as repeated measurements.<hr>To overwrite previously stored values instead: <input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /><br><br>";
+            message_text += "警告以黃色顯示。請修改檔案後再試，或繼續儲存資料。<hr>若您繼續，預設所有新數值將以上傳為重複測量值方式處理。<hr>改為覆寫先前儲存的數值：<input type='checkbox' id='phenotype_upload_overwrite_values' name='phenotype_upload_overwrite_values' /> (Warnings are shown in yellow. Either fix the file and try again or continue with storing the data. If you continue, by default any new values will be uploaded as repeated measurements. To overwrite previously stored values instead check the box)<br><br>";
             message_text += "</li>";
             for (var i = 0; i < warningarrayLength; i++) {
                 message_text += "<li class='list-group-item list-group-item-warning'>";
@@ -234,10 +234,10 @@ function displayPhenotypeUploadStoreResponse(response, upload_type) {
             message_text += "</li>";
         }
         if (errorarrayLength == 0) {
-            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+            message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
         }
     } else {
-        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>Upload Successfull!</h3></li>";
+        message_text += "<li class='list-group-item list-group-item-success'><hr><h3>上傳成功！(Upload Successful!)</h3></li>";
     }
     message_text += "</ul>";
     jQuery(upload_phenotype_status).html(message_text);

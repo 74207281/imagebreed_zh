@@ -72,7 +72,7 @@ CXGN.List.prototype = {
                 }
             },
             error: function(response) {
-                alert("An error occurred.");
+                alert("發生錯誤。(An error occurred.)");
             }
         });
         return list;
@@ -119,7 +119,7 @@ CXGN.List.prototype = {
                 }
             },
             error: function () {
-                alert('An error occurred. Cannot determine type. ');
+                alert('發生錯誤。無法判斷類型。(Cannot determine type.)');
             }
         });
 
@@ -163,7 +163,7 @@ CXGN.List.prototype = {
     typesHtmlSelect: function(list_id, html_select_id, selected) {
         var types = this.allListTypes();
         var html = '<select class="form-control" id="'+html_select_id+'" onchange="javascript:changeListType(\''+html_select_id+'\', '+list_id+');" >';
-        html += '<option name="null">(none)</option>';
+        html += '<option name="null">(無 / none)</option>';
         for (var i=0; i<types.length; i++) {
             var selected_html = '';
             if (types[i][1] == selected) {
@@ -180,7 +180,7 @@ CXGN.List.prototype = {
         var newListId = 0;
 
         if (name == '') {
-            alert('Please provide a name for the new list.');
+            alert('請提供新清單的名稱。(Please provide a name for the new list.)');
             return 0;
         }
 
@@ -201,10 +201,10 @@ CXGN.List.prototype = {
             return newListId;
         }
         else {
-            alert('A list with name "'+ name + '" already exists. Please choose another list name.');
+            alert('名為 "'+ name + '" 的清單已存在。請選擇其他清單名稱。(A list with this name already exists.)');
             return 0;
         }
-        alert("An error occurred. Cannot create new list right now.");
+        alert("發生錯誤。目前無法建立新清單。(Cannot create new list right now.)");
         return 0;
     },
 
@@ -221,7 +221,7 @@ CXGN.List.prototype = {
                 lists = response;
             },
             error: function(response) {
-                alert("An error occurred");
+                alert("發生錯誤。(An error occurred.)");
             }
         });
         return lists;
@@ -240,7 +240,7 @@ CXGN.List.prototype = {
                 lists = response;
             },
             error: function(response) {
-                alert("An error occurred");
+                alert("發生錯誤。(An error occurred.)");
             }
         });
         return lists;
@@ -283,7 +283,7 @@ CXGN.List.prototype = {
                 }
                 else {
                     if (response.duplicates) {
-                        alert("The following items are already in the list and were not added: "+response.duplicates.join(", "));
+                        alert("以下項目已存在於清單中，未被加入："+response.duplicates.join(", ")+" (Items already in list)");
                     }
                     count = response.success;
                 }
@@ -323,29 +323,29 @@ CXGN.List.prototype = {
     renderLists: function(div) {
         var lists = this.availableLists();
         var html = '';
-        html = html + '<div class="well well-sm"><form class="form-horizontal"><div class="form-group form-group-sm"><label class="col-sm-3 control-label">Create New List: </label><div class="col-sm-9"><div class="input-group"><input id="add_list_input" type="text" class="form-control" placeholder="Create New List. Type New List Name Here" /><span class="input-group-btn"><button class="btn btn-primary btn-sm" type="button" id="add_list_button" value="new list">New List</button></span></div></div></div><div class="form-group form-group-sm"><label class="col-sm-3 control-label"></label><div class="col-sm-9">';
-        html = html + '<input id="add_list_input_description" type="text" class="form-control" placeholder="Description For New List" /></div></div></form></div>';
+        html = html + '<div class="well well-sm"><form class="form-horizontal"><div class="form-group form-group-sm"><label class="col-sm-3 control-label">建立新清單(Create New List): </label><div class="col-sm-9"><div class="input-group"><input id="add_list_input" type="text" class="form-control" placeholder="建立新清單。在此輸入新清單名稱(Create New List)" /><span class="input-group-btn"><button class="btn btn-primary btn-sm" type="button" id="add_list_button" value="new list">建立清單(New List)</button></span></div></div></div><div class="form-group form-group-sm"><label class="col-sm-3 control-label"></label><div class="col-sm-9">';
+        html = html + '<input id="add_list_input_description" type="text" class="form-control" placeholder="新清單描述(Description For New List)" /></div></div></form></div>';
 
         if (lists.length===0) {
-            html = html + "None";
+            html = html + "無(None)";
             jQuery('#'+div+'_div').html(html);
         }
 
         html += '<div class="well well-sm"><table id="private_list_data_table" class="table table-hover table-condensed">';
-        html += '<thead><tr><th>List Name</th><th>Description</th><th>Count</th><th>Type</th><th>Validate</th><th>View</th><th>Delete</th><th>Download</th><th>Share</th><th>Group</th></tr></thead><tbody>';
+        html += '<thead><tr><th>清單名稱(List Name)</th><th>描述(Description)</th><th>數量(Count)</th><th>類型(Type)</th><th>驗證(Validate)</th><th>檢視(View)</th><th>刪除(Delete)</th><th>下載(Download)</th><th>分享(Share)</th><th>分組(Group)</th></tr></thead><tbody>';
         for (var i = 0; i < lists.length; i++) {
             html += '<tr><td><a href="javascript:showListItems(\'list_item_dialog\','+lists[i][0]+')"><b>'+lists[i][1]+'</b></a></td>';
             html += '<td>'+lists[i][2]+'</td>';
             html += '<td>'+lists[i][3]+'</td>';
             html += '<td>'+lists[i][5]+'</td>';
             html += '<td><a onclick="(new CXGN.List()).validate(\''+lists[i][0]+'\',\''+lists[i][5]+'\')"><span class="glyphicon glyphicon-ok"></span></a></td>';
-            html += '<td><a title="View" id="view_list_'+lists[i][1]+'" href="javascript:showListItems(\'list_item_dialog\','+lists[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></span></td>';
-            html += '<td><a title="Delete" id="delete_list_'+lists[i][1]+'" href="javascript:deleteList('+lists[i][0]+')"><span class="glyphicon glyphicon-remove"></span></a></td>';
-            html += '<td><a target="_blank" title="Download" id="download_list_'+lists[i][1]+'" href="/list/download?list_id='+lists[i][0]+'"><span class="glyphicon glyphicon-arrow-down"></span></a></td>';
+            html += '<td><a title="檢視(View)" id="view_list_'+lists[i][1]+'" href="javascript:showListItems(\'list_item_dialog\','+lists[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></span></td>';
+            html += '<td><a title="刪除(Delete)" id="delete_list_'+lists[i][1]+'" href="javascript:deleteList('+lists[i][0]+')"><span class="glyphicon glyphicon-remove"></span></a></td>';
+            html += '<td><a target="_blank" title="下載(Download)" id="download_list_'+lists[i][1]+'" href="/list/download?list_id='+lists[i][0]+'"><span class="glyphicon glyphicon-arrow-down"></span></a></td>';
             if (lists[i][6] == 0){
-                html += '<td><a title="Make Public" id="share_list_'+lists[i][1]+'" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-share-alt"></span></a></td>';
+                html += '<td><a title="設為公開(Make Public)" id="share_list_'+lists[i][1]+'" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-share-alt"></span></a></td>';
             } else if (lists[i][6] == 1){
-                html += '<td><a title="Make Private" id="share_list_'+lists[i][1]+'" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-ban-circle"></span></a></td>';
+                html += '<td><a title="設為私人(Make Private)" id="share_list_'+lists[i][1]+'" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-ban-circle"></span></a></td>';
             }
             html += '<td><input type="checkbox" id="list_select_checkbox_'+lists[i][0]+'" name="list_select_checkbox" value="'+lists[i][0]+'"/></td></tr>';
         }
@@ -386,11 +386,11 @@ CXGN.List.prototype = {
                     selected.push(jQuery(this).attr('value'));
                 });
 
-                list_group_select_action_html = '<hr><div class="row well well-sm"><div class="col-sm-4">For Selected Lists:</div><div class="col-sm-8">';
+                list_group_select_action_html = '<hr><div class="row well well-sm"><div class="col-sm-4">針對選取的清單(For Selected Lists)：</div><div class="col-sm-8">';
                 if (total == 1) {
-                    list_group_select_action_html += '<a id="delete_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:deleteSelectedListGroup(['+selected+'])">Delete</a>&nbsp;<a id="make_public_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePublicSelectedListGroup(['+selected+'])">Make Public</a>&nbsp;<a id="make_private_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePrivateSelectedListGroup(['+selected+'])">Make Private</a>';
+                    list_group_select_action_html += '<a id="delete_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:deleteSelectedListGroup(['+selected+'])">刪除(Delete)</a>&nbsp;<a id="make_public_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePublicSelectedListGroup(['+selected+'])">設為公開(Make Public)</a>&nbsp;<a id="make_private_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePrivateSelectedListGroup(['+selected+'])">設為私人(Make Private)</a>';
                 } else if (total > 1) {
-                    list_group_select_action_html += '<a id="delete_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:deleteSelectedListGroup(['+selected+'])">Delete</a>&nbsp;<a id="make_public_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePublicSelectedListGroup(['+selected+'])">Make Public</a>&nbsp;<a id="make_private_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePrivateSelectedListGroup(['+selected+'])">Make Private</a><br/><br/><div class="input-group input-group-sm"><input type="text" class="form-control" id="new_combined_list_name" placeholder="New List Name"><span class="input-group-btn"><a id="combine_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:combineSelectedListGroup(['+selected+'])">Combine</a></span></div>';
+                    list_group_select_action_html += '<a id="delete_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:deleteSelectedListGroup(['+selected+'])">刪除(Delete)</a>&nbsp;<a id="make_public_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePublicSelectedListGroup(['+selected+'])">設為公開(Make Public)</a>&nbsp;<a id="make_private_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:makePrivateSelectedListGroup(['+selected+'])">設為私人(Make Private)</a><br/><br/><div class="input-group input-group-sm"><input type="text" class="form-control" id="new_combined_list_name" placeholder="新清單名稱(New List Name)"><span class="input-group-btn"><a id="combine_selected_list_group" class="btn btn-primary btn-sm" style="color:white" href="javascript:combineSelectedListGroup(['+selected+'])">合併(Combine)</a></span></div>';
                 }
                 list_group_select_action_html += '</div></div>';
             }
@@ -403,7 +403,7 @@ CXGN.List.prototype = {
         var html = '';
 
         html += '<table id="public_list_data_table" class="table table-hover table-condensed">';
-        html += '<thead><tr><th>List Name</th><th>Description</th><th>Count</th><th>Type</th><th>Validate</th><th>View</th><th>Download</th><th>Copy To Your Lists</th><th>Owner</th><th>Make Private</th></tr></thead><tbody>';
+        html += '<thead><tr><th>清單名稱(List Name)</th><th>描述(Description)</th><th>數量(Count)</th><th>類型(Type)</th><th>驗證(Validate)</th><th>檢視(View)</th><th>下載(Download)</th><th>複製至您的清單(Copy To Your Lists)</th><th>擁有者(Owner)</th><th>設為私人(Make Private)</th></tr></thead><tbody>';
         for (var i = 0; i < lists.length; i++) {
             html += '<tr>';
             html += '<td><a href="javascript:showPublicListItems(\'list_item_dialog\','+lists[i][0]+')"><b>'+lists[i][1]+'</b></a></td>';
@@ -411,11 +411,11 @@ CXGN.List.prototype = {
             html += '<td>'+lists[i][3]+'</td>';
             html += '<td>'+lists[i][5]+'</td>';
             html += '<td><a onclick="(new CXGN.List()).validate(\''+lists[i][0]+'\',\''+lists[i][5]+'\')"><span class="glyphicon glyphicon-ok"></span></a></td>';
-            html += '<td><a title="View" id="view_public_list_'+lists[i][1]+'" href="javascript:showPublicListItems(\'list_item_dialog\','+lists[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></a></td>';
-            html += '<td><a target="_blank" title="Download" id="download_public_list_'+lists[i][1]+'" href="/list/download?list_id='+lists[i][0]+'"><span class="glyphicon glyphicon-arrow-down"></span></a></td>';
-            html += '<td><a title="Copy to Your Lists" id="copy_public_list_'+lists[i][1]+'" href="javascript:copyPublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-plus"></span></a></td>';
+            html += '<td><a title="檢視(View)" id="view_public_list_'+lists[i][1]+'" href="javascript:showPublicListItems(\'list_item_dialog\','+lists[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></a></td>';
+            html += '<td><a target="_blank" title="下載(Download)" id="download_public_list_'+lists[i][1]+'" href="/list/download?list_id='+lists[i][0]+'"><span class="glyphicon glyphicon-arrow-down"></span></a></td>';
+            html += '<td><a title="複製至您的清單(Copy to Your Lists)" id="copy_public_list_'+lists[i][1]+'" href="javascript:copyPublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-plus"></span></a></td>';
             html += '<td>'+lists[i][6]+'</td>';
-            html += '<td><a title="Make Private" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-ban-circle"></span></a></td>';
+            html += '<td><a title="設為私人(Make Private)" href="javascript:togglePublicList('+lists[i][0]+')"><span class="glyphicon glyphicon-ban-circle"></span></a></td>';
             html += '</tr>';
         }
         html = html + '</tbody></table>';
@@ -452,10 +452,10 @@ CXGN.List.prototype = {
         var html = '';
 
         if (list_type == 'catalog_items') {
-            html += '<div class="well well-sm"><table id="list_cart_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>List items</b> ('+items.length+')</th><th>&nbsp;</th></tr></thead><tbody>';
+            html += '<div class="well well-sm"><table id="list_cart_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>清單項目(List items)</b> ('+items.length+')</th><th>&nbsp;</th></tr></thead><tbody>';
 
             for(var n=0; n<items.length; n++) {
-                html = html +'<tr><td>'+ items[n][1] + '</td><td><input id="'+items[n][0]+'" type="button" class="btn btn-default btn-xs" value="Remove" /></td></tr>';
+                html = html +'<tr><td>'+ items[n][1] + '</td><td><input id="'+items[n][0]+'" type="button" class="btn btn-default btn-xs" value="移除(Remove)" /></td></tr>';
             }
             html += '</tbody></table></div>';
             jQuery('#'+div+'_div').html(html);
@@ -471,21 +471,21 @@ CXGN.List.prototype = {
         } else {
         html += '<table class="table">';
         if (list_type == 'seedlots') {
-            html += '<a href="/list/details?list_id='+list_id+'">Go to List Details Page</a>';
+            html += '<a href="/list/details?list_id='+list_id+'">前往清單詳細資訊頁面(Go to List Details Page)</a>';
         }
-        html += '<tr><td>List ID</td><td id="list_id_div">'+list_id+'</td></tr>'
-        html += '<tr><td>List name:<br/><input type="button" class="btn btn-primary btn-xs" id="updateNameButton" value="Update" /></td>';
+        html += '<tr><td>清單 ID(List ID)</td><td id="list_id_div">'+list_id+'</td></tr>'
+        html += '<tr><td>清單名稱(List name):<br/><input type="button" class="btn btn-primary btn-xs" id="updateNameButton" value="更新(Update)" /></td>';
         html += '<td><input class="form-control" type="text" id="updateNameField" size="10" value="'+list_name+'" /></td></tr>';
-        html += '<tr><td>Description:<br/><input type="button" class="btn btn-primary btn-xs" id="updateListDescButton" value="Update" /></td>';
+        html += '<tr><td>描述(Description):<br/><input type="button" class="btn btn-primary btn-xs" id="updateListDescButton" value="更新(Update)" /></td>';
         html += '<td><input class="form-control" type="text" id="updateListDescField" size="10" value="'+list_description+'" /></td></tr>';
-        html += '<tr><td>Type:<br/><input id="list_item_dialog_validate" type="button" class="btn btn-primary btn-xs" value="Validate" onclick="javascript:validateList('+list_id+',\'type_select\')" title="Will determine whther the items in your list are saved in the database as valid entries. The validation depends on the list type."/><div id="fuzzySearchStockListDiv"></div><div id="synonymListButtonDiv"></div><div id="availableSeedlotButtonDiv"></div></td><td>'+this.typesHtmlSelect(list_id, 'type_select', list_type)+'</td></tr>';
-        html += '<tr><td>Add New Items:<br/><button class="btn btn-primary btn-xs" type="button" id="dialog_add_list_item_button" value="Add">Add</button></td><td><textarea id="dialog_add_list_item" type="text" class="form-control" placeholder="Add Item(s) To List. Separate items using a new line to add many items at once." /></textarea></td></tr></table>';
+        html += '<tr><td>類型(Type):<br/><input id="list_item_dialog_validate" type="button" class="btn btn-primary btn-xs" value="驗證(Validate)" onclick="javascript:validateList('+list_id+',\'type_select\')" title="將判斷清單中的項目是否作為有效項目儲存在資料庫中。驗證取決於清單類型。(Will determine whether items in your list are saved in the database as valid entries.)"/><div id="fuzzySearchStockListDiv"></div><div id="synonymListButtonDiv"></div><div id="availableSeedlotButtonDiv"></div></td><td>'+this.typesHtmlSelect(list_id, 'type_select', list_type)+'</td></tr>';
+        html += '<tr><td>新增項目(Add New Items):<br/><button class="btn btn-primary btn-xs" type="button" id="dialog_add_list_item_button" value="Add">新增(Add)</button></td><td><textarea id="dialog_add_list_item" type="text" class="form-control" placeholder="新增項目至清單。使用換行分隔多個項目以一次新增多個項目。(Add Item(s) To List. Separate items using a new line to add many items at once.)" /></textarea></td></tr></table>';
 
-        html += '<hr><div class="well well-sm"><div class="row"><div class="col-sm-6"><center><button class="btn btn-default" onclick="(new CXGN.List()).sortItems('+list_id+', \'ASC\')" title="Sort items in list in ascending order (e.g. A->Z and/or 0->9)">Sort Ascending <span class="glyphicon glyphicon-sort-by-alphabet"></span></button></center></div><div class="col-sm-6"><center><button class="btn btn-default" onclick="(new CXGN.List()).sortItems('+list_id+', \'DESC\')" title="Sort items in list in descending order (e.g. Z->A and/or 9->0)">Sort Descending <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></button></center></div></div></div>';
-        html += '<div class="well well-sm"><table id="list_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>List items</b> ('+items.length+')</th><th>&nbsp;</th></tr></thead><tbody>';
+        html += '<hr><div class="well well-sm"><div class="row"><div class="col-sm-6"><center><button class="btn btn-default" onclick="(new CXGN.List()).sortItems('+list_id+', \'ASC\')" title="Sort items in list in ascending order (e.g. A->Z and/or 0->9)">遞增排序(Sort Ascending) <span class="glyphicon glyphicon-sort-by-alphabet"></span></button></center></div><div class="col-sm-6"><center><button class="btn btn-default" onclick="(new CXGN.List()).sortItems('+list_id+', \'DESC\')" title="Sort items in list in descending order (e.g. Z->A and/or 9->0)">遞減排序(Sort Descending) <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></button></center></div></div></div>';
+        html += '<div class="well well-sm"><table id="list_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>清單項目(List items)</b> ('+items.length+')</th><th>&nbsp;</th></tr></thead><tbody>';
 
         for(var n=0; n<items.length; n++) {
-            html = html +'<tr><td id="list_item_toggle_edit_div_'+items[n][0]+'" ><div name="list_item_toggle_edit" data-listitemdiv="list_item_toggle_edit_div_'+items[n][0]+'" data-listitemid="'+items[n][0]+'" data-listitemname="'+items[n][1]+'" >'+ items[n][1] + '</div></td><td><input id="'+items[n][0]+'" type="button" class="btn btn-default btn-xs" value="Remove" /></td></tr>';
+            html = html +'<tr><td id="list_item_toggle_edit_div_'+items[n][0]+'" ><div name="list_item_toggle_edit" data-listitemdiv="list_item_toggle_edit_div_'+items[n][0]+'" data-listitemid="'+items[n][0]+'" data-listitemname="'+items[n][1]+'" >'+ items[n][1] + '</div></td><td><input id="'+items[n][0]+'" type="button" class="btn btn-default btn-xs" value="移除(Remove)" /></td></tr>';
         }
         html += '</tbody></table></div>';
 
@@ -502,22 +502,22 @@ CXGN.List.prototype = {
         }
 
         if (list_type == 'accessions' || list_type == 'crosses'){
-            jQuery('#availableSeedlotButtonDiv').html('<br/><button id="availableSeedlotButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).seedlotSearch('+list_id+')" title="Will display seedlots that have contents of an item in your list.">See Available Seedlots</button>');
+            jQuery('#availableSeedlotButtonDiv').html('<br/><button id="availableSeedlotButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).seedlotSearch('+list_id+')" title="Will display seedlots that have contents of an item in your list.">檢視可用種子批(See Available Seedlots)</button>');
         }
         if (['seedlots', 'plots', 'accessions', 'vector_constructs', 'crosses', 'populations', 'plants', 'tissue_samples', 'family_names'].indexOf(list_type) >= 0){
-            jQuery('#synonymListButtonDiv').html('<br/><button id="synonymListButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).synonymSearch('+list_id+')" title="Will display whether the items in your list are synonyms or actual uniquenames.">Find Synonyms</button>');
-            jQuery('#fuzzySearchStockListDiv').html('<br/><button id="fuzzySearchStockListButton" class="btn btn-primary btn-xs" onclick="javascript:fuzzySearchList('+list_id+',\''+list_type+'\')" title="Will display if the items in your list are uniquenames in the database or whether they look very similar to other accessions in the database.">Fuzzy Search</button>');
+            jQuery('#synonymListButtonDiv').html('<br/><button id="synonymListButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).synonymSearch('+list_id+')" title="Will display whether the items in your list are synonyms or actual uniquenames.">尋找同義詞(Find Synonyms)</button>');
+            jQuery('#fuzzySearchStockListDiv').html('<br/><button id="fuzzySearchStockListButton" class="btn btn-primary btn-xs" onclick="javascript:fuzzySearchList('+list_id+',\''+list_type+'\')" title="Will display if the items in your list are uniquenames in the database or whether they look very similar to other accessions in the database.">模糊搜尋(Fuzzy Search)</button>');
         }
         jQuery(document).on("change", "#type_select", function(){
             if (jQuery('#type_select').val() == 'accessions' || jQuery('#type_select').val() == 'crosses'){
-                jQuery('#availableSeedlotButtonDiv').html('<br/><button id="availableSeedlotButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).seedlotSearch('+list_id+')" title="Will display seedlots that have contents of an item in your list.">See Available Seedlots</button>');
+                jQuery('#availableSeedlotButtonDiv').html('<br/><button id="availableSeedlotButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).seedlotSearch('+list_id+')" title="Will display seedlots that have contents of an item in your list.">檢視可用種子批(See Available Seedlots)</button>');
             } else {
                 jQuery('#availableSeedlotButtonDiv').html('')
             }
 
             if (['seedlots', 'plots', 'accessions', 'vector_constructs', 'crosses', 'populations', 'plants', 'tissue_samples', 'family_names'].indexOf(jQuery('#type_select').val()) >= 0){
-                jQuery('#synonymListButtonDiv').html('<br/><button id="synonymListButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).synonymSearch('+list_id+')" title="Will display whether the items in your list are synonyms or actual uniquenames.">Find Synonyms</button>');
-                jQuery('#fuzzySearchStockListDiv').html('<br/><button id="fuzzySearchStockListButton" class="btn btn-primary btn-xs" onclick="javascript:fuzzySearchList('+list_id+',\''+jQuery('#type_select').val()+'\')" title="Will display if the items in your list are uniquenames in the database or whether they look very similar to other accessions in the database.">Fuzzy Search</button>');
+                jQuery('#synonymListButtonDiv').html('<br/><button id="synonymListButton" class="btn btn-primary btn-xs" onclick="(new CXGN.List()).synonymSearch('+list_id+')" title="Will display whether the items in your list are synonyms or actual uniquenames.">尋找同義詞(Find Synonyms)</button>');
+                jQuery('#fuzzySearchStockListDiv').html('<br/><button id="fuzzySearchStockListButton" class="btn btn-primary btn-xs" onclick="javascript:fuzzySearchList('+list_id+',\''+jQuery('#type_select').val()+'\')" title="Will display if the items in your list are uniquenames in the database or whether they look very similar to other accessions in the database.">模糊搜尋(Fuzzy Search)</button>');
             } else {
                 jQuery('#synonymListButtonDiv').html('');
                 jQuery('#fuzzySearchStockListDiv').html('');
@@ -561,7 +561,7 @@ CXGN.List.prototype = {
             var list_item_id = jQuery(this).data('listitemid');
             var list_item_name = jQuery(this).data('listitemname');
             var list_item_div = jQuery(this).data('listitemdiv');
-            var list_item_edit_html = '<div class="input-group"><input type="text" class="form-control" value="'+list_item_name+'" placeholder="'+list_item_name+'" id="list_item_edit_input_'+list_item_id+'" data-listitemid="'+list_item_id+'" /><span class="input-group-btn"><button class="btn btn-default" type="button" name="list_item_edit_submit" data-inputid="list_item_edit_input_'+list_item_id+'">Ok</button></span></div>';
+            var list_item_edit_html = '<div class="input-group"><input type="text" class="form-control" value="'+list_item_name+'" placeholder="'+list_item_name+'" id="list_item_edit_input_'+list_item_id+'" data-listitemid="'+list_item_id+'" /><span class="input-group-btn"><button class="btn btn-default" type="button" name="list_item_edit_submit" data-inputid="list_item_edit_input_'+list_item_id+'">確定(OK)</button></span></div>';
             jQuery("#"+list_item_div).empty().html(list_item_edit_html);
         });
 
@@ -582,12 +582,12 @@ CXGN.List.prototype = {
         var list_name = this.publicListNameById(list_id);
 
         var html = '';
-        html += '<table class="table"><tr><td>List ID</td><td id="list_id_div">'+list_id+'</td></tr>';
-        html += '<tr><td>List name:</td>';
+        html += '<table class="table"><tr><td>清單 ID(List ID)</td><td id="list_id_div">'+list_id+'</td></tr>';
+        html += '<tr><td>清單名稱(List name):</td>';
         html += '<td>'+list_name+'</td></tr>';
-        html += '<tr><td>Type:</td><td>'+list_type+'</td></tr>';
+        html += '<tr><td>類型(Type):</td><td>'+list_type+'</td></tr>';
         html += '</table>';
-        html += '<table id="public_list_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>List items</b> ('+items.length+')</th></tr></thead><tbody>';
+        html += '<table id="public_list_item_dialog_datatable" class="table table-condensed table-hover table-bordered"><thead style="display: none;"><tr><th><b>清單項目(List items)</b> ('+items.length+')</th></tr></thead><tbody>';
         for(var n=0; n<items.length; n++) {
             html = html +'<tr><td>'+ items[n][1] + '</td></tr>';
         }
@@ -702,12 +702,12 @@ CXGN.List.prototype = {
         if (empty_element) {
             html += '<option value="" >'+empty_element+'</option>\n';
         }
-        html += '<option disabled>--------YOUR LISTS BELOW--------</option>';
+        html += '<option disabled>--------下方為您的清單(YOUR LISTS BELOW)--------</option>';
         for (var n=0; n<lists.length; n++) {
             html += '<option value='+lists[n][0]+'>'+lists[n][1]+'</option>';
         }
         if (hide_public_lists == undefined) {
-            html += '<option disabled>--------PUBLIC LISTS BELOW--------</option>';
+            html += '<option disabled>--------下方為公開清單(PUBLIC LISTS BELOW)--------</option>';
             for (var n=0; n<public_lists.length; n++) {
                 html += '<option value='+public_lists[n][0]+'>'+public_lists[n][1]+'</option>';
             }
@@ -715,7 +715,7 @@ CXGN.List.prototype = {
 
         if (refresh) {
             if (types.length > 1) { types = types.join(',') };
-            html = '<div class="input-group" id="'+div_name+'_list_select_div">'+html+'</select><span class="input-group-btn"><button class="btn btn-default" type="button" id="'+div_name+'_list_refresh" title="Refresh lists" onclick="refreshListSelect(\''+div_name+'\',\''+types+'\')"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></span></div>';
+            html = '<div class="input-group" id="'+div_name+'_list_select_div">'+html+'</select><span class="input-group-btn"><button class="btn btn-default" type="button" id="'+div_name+'_list_refresh" title="重新整理清單(Refresh lists)" onclick="refreshListSelect(\''+div_name+'\',\''+types+'\')"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></span></div>';
             return html;
         }
         else {
@@ -735,10 +735,10 @@ CXGN.List.prototype = {
                     return;
                 }
                 else {
-                    alert("The name of the list was changed to "+new_name);
+                    alert("清單名稱已變更為 "+new_name+"。(The name of the list was changed)");
                 }
             },
-            error: function(response) { alert("An error occurred."); }
+            error: function(response) { alert("發生錯誤。(An error occurred.)"); }
         });
         this.renderLists('list_dialog');
     },
@@ -754,10 +754,10 @@ CXGN.List.prototype = {
                     return;
                 }
                 else {
-                    alert("The description of the list was changed to "+new_description);
+                    alert("清單描述已變更為 "+new_description+"。(The description of the list was changed)");
                 }
             },
-            error: function(response) { alert("An error occurred."); }
+            error: function(response) { alert("發生錯誤。(An error occurred.)"); }
         });
         this.renderLists('list_dialog');
     },
@@ -773,7 +773,7 @@ CXGN.List.prototype = {
                     return;
                 }
             },
-            error: function(response) { alert("An error occurred in sort."); }
+            error: function(response) { alert("排序時發生錯誤。(An error occurred in sort.)"); }
         });
         this.renderItems('list_item_dialog', list_id);
     },
@@ -783,7 +783,7 @@ CXGN.List.prototype = {
         var error = 0;
 
         if (type == null || type == undefined || type == 'null') {
-            alert("Cannot validate a list of type null! Please set a type first!");
+            alert("無法驗證類型為 null 的清單！請先設定類型！(Cannot validate a list of type null! Please set a type first!)");
             return 1;
         }
 
@@ -799,7 +799,7 @@ CXGN.List.prototype = {
                 }
             },
             error: function(response) {
-                alert("An error occurred while validating the list "+list_id);
+                alert("驗證清單 "+list_id+" 時發生錯誤。(An error occurred while validating the list)");
                 error=1;
             }
         });
@@ -807,14 +807,14 @@ CXGN.List.prototype = {
         if (error === 1 ) { return; }
 
         if (missing.length==0) {
-            if (!non_interactive) { alert("This list passed validation."); }
+            if (!non_interactive) { alert("此清單通過驗證。(This list passed validation.)"); }
             return 1;
         } else {
             if (!non_interactive) {
                 if (type == 'accessions') {
                     jQuery("#validate_accession_error_display tbody").html('');
 
-                    var missing_accessions_html = "<div class='well well-sm'><h3>List of Accessions Not Valid!</h3><div id='validate_stock_missing_accessions' style='display:none'></div></div><div id='validate_stock_add_missing_accessions_for_list' style='display:none'></div><button class='btn btn-primary' onclick=\"window.location.href='/breeders/accessions?list_id="+list_id+"'\" >Go to Manage Accessions to add these new accessions to database now.</button><br/><br/><div class='well well-sm'><h3>Optional: Add Missing Accessions to A List</h3><div id='validate_stock_add_missing_accessions_for_list_div'></div></div>";
+                    var missing_accessions_html = "<div class='well well-sm'><h3>品系清單無效！(List of Accessions Not Valid!)</h3><div id='validate_stock_missing_accessions' style='display:none'></div></div><div id='validate_stock_add_missing_accessions_for_list' style='display:none'></div><button class='btn btn-primary' onclick=\"window.location.href='/breeders/accessions?list_id="+list_id+"'\" >前往管理品系以立即將這些新品系新增至資料庫。(Go to Manage Accessions to add these new accessions to database now.)</button><br/><br/><div class='well well-sm'><h3>選用：將缺失的品系新增至清單(Optional: Add Missing Accessions to A List)</h3><div id='validate_stock_add_missing_accessions_for_list_div'></div></div>";
 
 
                     jQuery("#validate_stock_add_missing_accessions_html").html(missing_accessions_html);
@@ -839,7 +839,7 @@ CXGN.List.prototype = {
                     //alert("List validation failed. Elements not found: "+ missing.join(","));
                     //return 0;
                 } else {
-                    alert('List did not pass validation because of these items: '+missing.join(", "));
+                    alert('清單未通過驗證，因為存在以下項目：'+missing.join(", ")+' (List did not pass validation)');
                 }
             }
             return;
@@ -875,7 +875,7 @@ CXGN.List.prototype = {
                 var count = list.addBulk(newListID, names);
                 if (!count) throw "Added nothing to list or addition failed.";
                 jQuery('#working_modal').modal('hide');
-                alert("List \""+form["name"]+"\" created with "+count+" entries.");
+                alert("已建立清單 \""+form["name"]+"\"，包含 "+count+" 個項目。(List created)");
                 self.renderLists('list_dialog');
             }
             catch(err) {
@@ -902,7 +902,7 @@ CXGN.List.prototype = {
                 if (response.success) {
                     html = "";
                     jQuery('#synonym_search_result_display').modal('show');
-                    html += "<table class='table table-hover table-bordered'><thead><tr><th>Name in List</th><th>Unique Name</th></tr></thead><tbody>";
+                    html += "<table class='table table-hover table-bordered'><thead><tr><th>清單中的名稱(Name in List)</th><th>唯一名稱(Unique Name)</th></tr></thead><tbody>";
                     for (var i = 0; i < response.previous_list.length; i++) {
                         if (response.synonyms && response.previous_list[i] in response.synonyms){
                             html+="<tr><td>"+response.previous_list[i]+"</td><td>&harr; "+response.previous_list[i]+"</td></tr>";
@@ -919,7 +919,7 @@ CXGN.List.prototype = {
                             }
                             if (!match){
                                 html+="<tr><td><span style='color:red'>"+response.previous_list[i]+"</span></td>";
-                                html+="<td><span style='color:red'>&times; Not a Name or Synonym</span></td></tr>";
+                                html+="<td><span style='color:red'>&times; 非有效名稱或同義詞(Not a Name or Synonym)</span></td></tr>";
                             }
                         }
                     }
@@ -941,7 +941,7 @@ CXGN.List.prototype = {
                             var count = list.addBulk(newListID,response.list);
                             if (!count) throw "Added nothing to list or addition failed.";
                             jQuery('#working_modal').modal('hide');
-                            alert("List \""+form["name"]+"\" created with "+count+" entries.");
+                            alert("已建立清單 \""+form["name"]+"\"，包含 "+count+" 個項目。(List created)");
                             self.renderLists('list_dialog');
                         }
                         catch(err) {
@@ -953,11 +953,11 @@ CXGN.List.prototype = {
                         }
                     });
                 } else {
-                    alert("An error occurred while desynonymizing list ID:"+list_id);
+                    alert("消除清單 ID:"+list_id+" 的同義詞時發生錯誤。(An error occurred while desynonymizing)");
                 }
             },
             error: function(response) {
-                alert("An error occurred while desynonymizing list ID:"+list_id);
+                alert("消除清單 ID:"+list_id+" 的同義詞時發生錯誤。(An error occurred while desynonymizing)");
                 jQuery('#working_modal').modal('hide');
                 error=1;
             }
@@ -978,26 +978,26 @@ CXGN.List.prototype = {
                 var html = "";
                 var list_type_name = list_type.charAt(0).toUpperCase() + list_type.slice(1);
                 if (response.success) {
-                    html += "<h2>"+list_type_name+" that exactly match as uniquenames (not synonyms)</h2>";
-                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>Found In Database</th></tr></thead><tbody>";
+                    html += "<h2>與唯一名稱完全相符的 "+list_type_name+"（非同義詞）("+list_type_name+" that exactly match as uniquenames)</h2>";
+                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>在資料庫中找到(Found In Database)</th></tr></thead><tbody>";
                     for(var i=0; i<response.found.length; i++){
                         html += "<tr><td>"+response.found[i].unique_name+"</td></tr>";
                     }
                     html += "</tbody></table>";
-                    html += "<h2>"+list_type_name+" that are not found in the database, but fuzzy match (names are visibily similar)</h2>";
-                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>Name In Your List</th><th>Found In Database</th><th>Distance Score</th></tr></thead><tbody>";
+                    html += "<h2>在資料庫中未找到但模糊相符的 "+list_type_name+"（名稱視覺上相似）("+list_type_name+" fuzzy match)</h2>";
+                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>您清單中的名稱(Name In Your List)</th><th>在資料庫中找到(Found In Database)</th><th>距離分數(Distance Score)</th></tr></thead><tbody>";
                     for(var i=0; i<response.fuzzy.length; i++){
                         for(j=0; j <response.fuzzy[i].matches.length; j++){
                             if (response.fuzzy[i].matches[j].is_synonym){
-                                html += "<tr><td>"+response.fuzzy[i].name+"</td><td>"+response.fuzzy[i].matches[j].name+" (SYNONYM OF: "+response.fuzzy[i].matches[j].synonym_of+") </td><td>"+response.fuzzy[i].matches[j].distance+"</td></tr>";
+                                html += "<tr><td>"+response.fuzzy[i].name+"</td><td>"+response.fuzzy[i].matches[j].name+" (同義詞於 / SYNONYM OF: "+response.fuzzy[i].matches[j].synonym_of+") </td><td>"+response.fuzzy[i].matches[j].distance+"</td></tr>";
                             } else {
                                 html += "<tr><td>"+response.fuzzy[i].name+"</td><td>"+response.fuzzy[i].matches[j].name+"</td><td>"+response.fuzzy[i].matches[j].distance+"</td></tr>";
                             }
                         }
                     }
                     html += "</tbody></table>";
-                    html += "<h2>"+list_type_name+" that are not found in the database and have no match</h2>";
-                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>Not Found In Database</th></tr></thead><tbody>";
+                    html += "<h2>在資料庫中未找到且無相符項的 "+list_type_name+"("+list_type_name+" not found and have no match)</h2>";
+                    html += "<table class='table table-hover table-bordered' ><thead><tr><th>在資料庫中未找到(Not Found In Database)</th></tr></thead><tbody>";
                     for(var i=0; i<response.absent.length; i++){
                         html += "<tr><td>"+response.absent[i]+"</td></tr>";
                     }
@@ -1006,11 +1006,11 @@ CXGN.List.prototype = {
                     jQuery('#fuzzy_search_result_display_html').html(html);
                     jQuery('#fuzzy_search_result_display').modal('show');
                 } else {
-                    alert("An error occurred while fuzzy searching list "+list_id);
+                    alert("對清單 "+list_id+" 進行模糊搜尋時發生錯誤。(An error occurred while fuzzy searching)");
                 }
             },
             error: function(response) {
-                alert("An error occurred while fuzzy searching the list "+list_id);
+                alert("對清單 "+list_id+" 進行模糊搜尋時發生錯誤。(An error occurred while fuzzy searching)");
                 error=1;
             }
         });
@@ -1033,7 +1033,7 @@ CXGN.List.prototype = {
                     //console.log("transformed="+ajaxResponse);
                 }
             },
-            error: function(response) { alert("An error occurred while validating the list "+list_id); }
+            error: function(response) { alert("驗證清單 "+list_id+" 時發生錯誤。(An error occurred while validating the list)"); }
         });
         return ajaxResponse.transform;
     },
@@ -1182,13 +1182,13 @@ function addToListMenu(listMenuDiv, dataDiv, options) {
         }
     }
 
-    html = '<div class="row"><div class="col-sm-6" style="margin-right:0px; padding-right:0px;"><input class="form-control input-sm" type="text" id="'+dataDiv+'_new_list_name" placeholder="New list..." value="'+list_name_value+'"/>';
+    html = '<div class="row"><div class="col-sm-6" style="margin-right:0px; padding-right:0px;"><input class="form-control input-sm" type="text" id="'+dataDiv+'_new_list_name" placeholder="新清單...(New list...)" value="'+list_name_value+'"/>';
     html += '</div><div class="col-sm-6" style="margin-left:0px; padding-left:0px; margin-right:0px; padding-right:0px;"><input type="hidden" id="'+dataDiv+'_addition_type" value="'+addition_type+'" /><input type="hidden" id="'+dataDiv+'_list_type" value="'+type+'" />';
-    html += '<input class="btn btn-primary btn-sm" id="'+dataDiv+'_add_to_new_list" type="button" value="add to new list" /></div></div><br />';
+    html += '<input class="btn btn-primary btn-sm" id="'+dataDiv+'_add_to_new_list" type="button" value="新增至新清單(add to new list)" /></div></div><br />';
 
     html += '<div class="row"><div class="col-sm-6" style="margin-right:0px; padding-right:0px;">'+lo.listSelect(dataDiv, [ type ], undefined, undefined, 1);
 
-    html += '</div><div class="col-sm-6" style="margin-left:0px; padding-left:0px; margin-right:0px; padding-right:0px;"><input class="btn btn-primary btn-sm" id="'+dataDiv+'_button" type="button" value="add to list" /></div></div>';
+    html += '</div><div class="col-sm-6" style="margin-left:0px; padding-left:0px; margin-right:0px; padding-right:0px;"><input class="btn btn-primary btn-sm" id="'+dataDiv+'_button" type="button" value="加入清單(add to list)" /></div></div>';
 
     jQuery('#'+listMenuDiv).html(html);
 
@@ -1212,7 +1212,7 @@ function addToListMenu(listMenuDiv, dataDiv, options) {
             if (type) {
                 lo.setListType(list_id, type);
             }
-            alert("Added "+elementsAdded+" list elements to list "+new_name+" and set type to "+type);
+            alert("已將 "+elementsAdded+" 個清單元素加入清單 "+new_name+"，並將類型設為 "+type+"。(Added list elements)");
         }
     });
 
@@ -1222,7 +1222,7 @@ function addToListMenu(listMenuDiv, dataDiv, options) {
         var lo = new CXGN.List();
         var elementsAdded = lo.addToList(list_id, data);
 
-        alert("Added "+elementsAdded+" list elements");
+        alert("已加入 "+elementsAdded+" 個清單元素。(Added list elements)");
         return list_id;
     });
 
@@ -1327,7 +1327,7 @@ function addTextToList(div, list_id) {
     var item = jQuery('#'+div).val();
     var id = lo.addItem(list_id, item);
     if (id == 0) {
-        alert('Item "'+item+'" was not added because it already exists');
+        alert('項目 "'+item+'" 未被新增，因為它已經存在。(Item "'+item+'" was not added because it already exists)');
     }
     lo.renderLists('list_dialog');
 }
@@ -1337,7 +1337,7 @@ function addMultipleItemsToList(div, list_id) {
     var lo = new CXGN.List();
     var content = jQuery('#'+div).val();
     if (content == '') {
-        alert("No items - Please enter items to add to the list.");
+        alert("無項目 - 請輸入要新增至清單的項目。(No items - Please enter items to add to the list.)");
         return;
     }
     //    var items = content.split("\n");
@@ -1368,17 +1368,17 @@ function addArrayToList(items, list_id) {
         }
     }
     if (duplicates.length >0) {
-        alert("The following items were not added because they are already in the list: "+ duplicates.join(", "));
+        alert("下列項目未被新增，因為它們已在清單中: " + duplicates.join(", ") + " (The following items were not added because they are already in the list)");
     }
 }
 
 function deleteList(list_id) {
     var lo = new CXGN.List();
     var list_name = lo.listNameById(list_id);
-    if (confirm('Delete list "'+list_name+'"? (ID='+list_id+'). This cannot be undone.')) {
+    if (confirm('確定要刪除清單 "'+list_name+'" 嗎？(ID='+list_id+')。此操作無法復原。(Delete list? This cannot be undone.)')) {
         lo.deleteList(list_id);
         lo.renderLists('list_dialog');
-        alert('Deleted list '+list_name);
+        alert('已刪除清單(Deleted list) '+list_name);
     }
 }
 
@@ -1392,14 +1392,14 @@ function togglePublicList(list_id) {
             if (r.error) {
                 alert(r.error);
             } else if (r.r == 1) {
-                alert("List set to Private");
+                alert("清單已設為私人(List set to Private)");
             } else if (r.r == 0) {
-                alert("List set to Public");
+                alert("清單已設為公開(List set to Public)");
             }
             lo.renderLists('list_dialog');
         },
         error: function() {
-            alert("Error Setting List to Public! List May Not Exist.");
+            alert("設定清單為公開時發生錯誤！清單可能不存在。(Error Setting List to Public! List May Not Exist.)");
         }
     });
     var lo = new CXGN.List();
@@ -1418,7 +1418,7 @@ function makePublicList(list_id) {
             }
         },
         error: function() {
-            alert("Error Setting List to Public! List May Not Exist.");
+            alert("設定清單為公開時發生錯誤！清單可能不存在。(Error Setting List to Public! List May Not Exist.)");
         }
     });
 }
@@ -1435,7 +1435,7 @@ function makePrivateList(list_id) {
             }
         },
         error: function() {
-            alert("Error Setting List to Private! List May Not Exist.");
+            alert("設定清單為私人時發生錯誤！清單可能不存在。(Error Setting List to Private! List May Not Exist.)");
         }
     });
 }
@@ -1449,11 +1449,11 @@ function copyPublicList(list_id) {
             if (r.error) {
                 alert(r.error);
             } else if (r.success == 'true') {
-                alert("Public List Copied to Your Lists.");
+                alert("公開清單已複製到您的清單中。(Public List Copied to Your Lists.)");
             }
         },
         error: function() {
-            alert("Error Copying Public List! List May Not Exist.");
+            alert("複製公開清單時發生錯誤！清單可能不存在。(Error Copying Public List! List May Not Exist.)");
         }
     });
     var lo = new CXGN.List();
@@ -1493,13 +1493,13 @@ function addNewList(div_id) {
     var name = jQuery('#'+div_id).val();
 
     if (name == '') {
-        alert("Please specify a name for the list.");
+        alert("請指定清單名稱。(Please specify a name for the list.)");
         return;
     }
 
     var list_id = lo.existsList(name);
     if (list_id > 0) {
-        alert('The list '+name+' already exists. Please choose another name.');
+        alert('清單 '+name+' 已經存在。請選擇其他名稱。(The list '+name+' already exists. Please choose another name.)');
         return;
     }
     lo.newList(name);
@@ -1544,7 +1544,7 @@ function fuzzySearchList(list_id, list_type) {
 
 function deleteSelectedListGroup(list_ids) {
     var arrayLength = list_ids.length;
-    if (confirm('Delete the selected lists? This cannot be undone.')) {
+    if (confirm('確定要刪除選取的清單嗎？此操作無法復原。(Delete the selected lists? This cannot be undone.)')) {
         for (var i=0; i<arrayLength; i++) {
             var lo = new CXGN.List();
             lo.deleteList(list_ids[i]);
@@ -1571,7 +1571,7 @@ function pasteTraitList(div_name) {
 
 function makePublicSelectedListGroup(list_ids) {
     var arrayLength = list_ids.length;
-    if (confirm('Make selected lists public?')) {
+    if (confirm('確定要將選取的清單設為公開嗎？(Make selected lists public?)')) {
         for (var i=0; i<arrayLength; i++) {
             makePublicList(list_ids[i]);
         }
@@ -1582,7 +1582,7 @@ function makePublicSelectedListGroup(list_ids) {
 
 function makePrivateSelectedListGroup(list_ids) {
     var arrayLength = list_ids.length;
-    if (confirm('Make selected lists private?')) {
+    if (confirm('確定要將選取的清單設為私人嗎？(Make selected lists private?)')) {
         for (var i=0; i<arrayLength; i++) {
             makePrivateList(list_ids[i]);
         }
@@ -1594,7 +1594,7 @@ function makePrivateSelectedListGroup(list_ids) {
 function combineSelectedListGroup(list_ids) {
     var arrayLength = list_ids.length;
     var list_name = jQuery('#new_combined_list_name').val();
-    if (confirm('Combine selected lists into a new list called '+list_name+'?')) {
+    if (confirm('確定要將選取的清單合併為名為 "'+list_name+'" 的新清單嗎？(Combine selected lists into a new list?)')) {
         var arrayItems = [];
         var lo = new CXGN.List();
         var first_list_type = lo.getListType(list_ids[0]);
@@ -1603,7 +1603,7 @@ function combineSelectedListGroup(list_ids) {
             var list_type = lo.getListType(list_ids[i]);
             if (list_type != first_list_type) {
                 same_list_types = false;
-                if (!confirm('Are you sure you want to combine these list types: '+first_list_type+' and '+list_type)) {
+                if (!confirm('您確定要合併這些不同類型的清單嗎：'+first_list_type+' 與 '+list_type+'？(Are you sure you want to combine these list types?)')) {
                     return;
                 }
             }

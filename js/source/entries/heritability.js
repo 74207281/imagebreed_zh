@@ -211,7 +211,7 @@ function phenotypicHeritability () {
  
     var population = getPopulationDetails();
     
-    jQuery("#heritability_message").html("Running heritability... please wait...");
+    jQuery("#heritability_message").html("正在執行遺傳率分析... 請稍候...(Running heritability... please wait...)");
          
     jQuery.ajax({
             type: 'POST',
@@ -225,7 +225,7 @@ function phenotypicHeritability () {
                 } else {
                     jQuery("#heritability_message")
                         .css({"padding-left": '0px'})
-                        .html("This population has no phenotype data.");
+                        .html("此族群沒有表型數據。(This population has no phenotype data.)");
 
             jQuery("#run_pheno_heritability").show();
                 }
@@ -233,7 +233,7 @@ function phenotypicHeritability () {
             error: function(response) {
                 jQuery("#heritability_message")
                     .css({"padding-left": '0px'})
-                    .html("Error 1 occured preparing the phenotype data for heritability analysis.");
+                    .html("準備遺傳率分析的表型數據時發生錯誤 1。(Error 1 occured preparing the phenotype data for heritability analysis.)");
 
         jQuery("#run_pheno_heritability").show();
             }
@@ -255,7 +255,7 @@ function runPhenoHeritabilityAnalysis () {
                 plotHeritability(response.data);
         
         var h2Download = "<a href=\"/download/phenotypic/heritability/population/" 
-                            + popId + "\">Download heritability coefficients</a>";
+                            + popId + "\">下載遺傳率係數(Download heritability coefficients)</a>";
 
         jQuery("#heritability_canvas").append("<br />[ " + h2Download + " ]").show();
     
@@ -268,7 +268,7 @@ function runPhenoHeritabilityAnalysis () {
             } else {
                 jQuery("#heritability_message")
                     .css({"padding-left": '0px'})
-                    .html("There is no heritability output for this dataset."); 
+                    .html("此資料集沒有遺傳率輸出結果。(There is no heritability output for this dataset.)"); 
         
         jQuery("#run_pheno_heritability").show();
             }
@@ -276,7 +276,7 @@ function runPhenoHeritabilityAnalysis () {
         error: function(response) {                          
             jQuery("#heritability_message")
                 .css({"padding-left": '0px'})
-                .html("Error 2 occured running the heritability analysis.");
+                .html("執行遺傳率分析時發生錯誤 2。(Error 2 occured running the heritability analysis.)");
             
         jQuery("#run_pheno_heritability").show();
         }                

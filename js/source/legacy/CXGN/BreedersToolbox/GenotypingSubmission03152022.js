@@ -35,15 +35,15 @@ jQuery(document).ready(function ($) {
             },
             success: function(response) {
                 if (response.metadata.status[0].message) {
-                    alert('Login failed. '+JSON.stringify(response.metadata.status[0].message));
+                    alert('登入失敗。(Login failed.) '+JSON.stringify(response.metadata.status[0].message));
                 }
                 else {
-                    alert("Success!"+ JSON.stringify(response)+" which is "+response.result.access_token);
+                    alert("成功！(Success!) "+ JSON.stringify(response)+" which is "+response.result.access_token);
                     access_token = response.result.access_token;
                 }
             },
             error: function(response) {
-                alert("An error occurred trying to log into the sequencing facility server. Please try again later.");
+                alert("嘗試登入定序機構伺服器時發生錯誤。請稍後再試。(An error occurred trying to log into the sequencing facility server. Please try again later.)");
             }
         });
         return access_token;
@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function(response) {
-                alert('An error occurred trying to submit the order.');
+                alert('嘗試送出訂單時發生錯誤。(An error occurred trying to submit the order.)');
                 jQuery("#working_modal").modal('hide');
             }
         });
@@ -117,7 +117,7 @@ jQuery(document).ready(function ($) {
         var order;
 
         if (auth_data.error) {
-            alert("Genotyping server credentials are not available. Stop.");
+            alert("基因型鑑定伺服器憑證不可用。停止操作。(Genotyping server credentials are not available. Stop.)");
             return;
         }
 
@@ -143,7 +143,7 @@ jQuery(document).ready(function ($) {
                     const orderId = ((response || {}).result || {}).orderId;
                     if ( orderId ) {
                         order = response.result;
-                        alert("Successfully!. Plate submitted to facility.");
+                        alert("成功！微孔盤已提交給機構。(Successfully! Plate submitted to facility.)");
 
                         store_order(order,parseInt(plate_id));
 
@@ -158,7 +158,7 @@ jQuery(document).ready(function ($) {
                     }
                 },
                 error: function(response) {
-                    alert("An error occurred trying to submit your plate to the facility.");
+                    alert("嘗試將微孔盤提交給機構時發生錯誤。(An error occurred trying to submit your plate to the facility.)");
                     return;
                 }
             });
@@ -172,7 +172,7 @@ jQuery(document).ready(function ($) {
         var submission;
 
         if (auth_data.error) {
-            alert("Genotyping server credentials are not available. Stop.");
+            alert("基因型鑑定伺服器憑證不可用。停止操作。(Genotyping server credentials are not available. Stop.)");
             return;
         }
 
@@ -198,7 +198,7 @@ jQuery(document).ready(function ($) {
                         // submission =  response.result;
                         submission = (response || {}).result || {};
                         jQuery('#submission_lbl').html(submissionId);
-                        alert("Successfully!. Plate submitted to facility.");
+                        alert("成功！微孔盤已提交給機構。(Successfully! Plate submitted to facility.)");
                         store_submission(submission,parseInt(plate_id));
                         Workflow.complete('#submit_plate_btn');
                         document.getElementById("facility_href").href = auth_data.host + "/order.pl"; 
@@ -210,7 +210,7 @@ jQuery(document).ready(function ($) {
                     }
                 },
                 error: function(response) {
-                    alert("An error occurred trying to submit your plate to the facility.");
+                    alert("嘗試將微孔盤提交給機構時發生錯誤。(An error occurred trying to submit your plate to the facility.)");
                     return;
                 }
             });
@@ -232,14 +232,14 @@ jQuery(document).ready(function ($) {
                     alert(response.error);
                 } else {
                     const orderId = response.order_id;
-                    alert('Order stored successfully.');
+                    alert('訂單已成功儲存。(Order stored successfully.)');
                      $('#order_lbl').text(orderId);
                     // Workflow.focus("#plates_to_facilities_workflow", -1); //Go to success page
                     // Workflow.check_complete("#plates_to_facilities_workflow");
                 }
             },
             error: function(response) {
-                alert('An error occurred trying to store the order.');
+                alert('嘗試儲存訂單時發生錯誤。(An error occurred trying to store the order.)');
                 jQuery("#working_modal").modal('hide');
             }
         });
@@ -252,7 +252,7 @@ jQuery(document).ready(function ($) {
         auth_data = get_genotyping_facility_credentials();
 
         if (auth_data.error) {
-            alert("Genotyping server credentials are not available. Stop.");
+            alert("基因型鑑定伺服器憑證不可用。停止操作。(Genotyping server credentials are not available. Stop.)");
             jQuery("#review_order_link").prop("disabled", true);
             return;
         }
@@ -328,7 +328,7 @@ jQuery(document).ready(function ($) {
             auth_data = get_genotyping_facility_credentials();
 
             if (auth_data.error) {
-                alert("Genotyping server credentials are not available. Stop.");
+                alert("基因型鑑定伺服器憑證不可用。停止操作。(Genotyping server credentials are not available. Stop.)");
                 return;
             }
 
@@ -356,7 +356,7 @@ jQuery(document).ready(function ($) {
                         }
                     },
                     error: function(response) {
-                        alert("An error occurred trying to get the order status.");
+                        alert("嘗試取得訂單狀態時發生錯誤。(An error occurred trying to get the order status.)");
                     }
                 });
 
@@ -377,11 +377,11 @@ jQuery(document).ready(function ($) {
                             store_facility_order(gdf_order,parseInt(plate_id));
                         }
                         else{
-                            alert("Something went wrong! Could not get order from submission.");
+                            alert("發生錯誤！無法從提交資料取得訂單。(Something went wrong! Could not get order from submission.)");
                         }
                     },
                     error: function(response) {
-                        alert('Something went wrong!. Complete your order clicking the link.');
+                        alert('發生錯誤！請點擊連結完成您的訂單。(Something went wrong! Complete your order clicking the link.)');
                     }
                 });
             }
@@ -481,7 +481,7 @@ jQuery(document).ready(function ($) {
         order_info.full_order = order_info.facility_id == 'DArT' ? false : true;
         
         if (order_info.plate_id == '' || order_info.client_id == '') {
-            alert("A plate id, client facility id and service are required. Please try again.");
+            alert("微孔盤 ID、客戶機構 ID 與服務為必填項目。請再試一次。(A plate id, client facility id and service are required. Please try again.)");
             return;
         }
 

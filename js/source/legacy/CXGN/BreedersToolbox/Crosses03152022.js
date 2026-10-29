@@ -28,25 +28,25 @@ jQuery(document).ready(function($) {
     $('#create_crossingtrial_submit').click(function() {
         var crossingtrial_name = $("#crossingtrial_name").val();
         if (!crossingtrial_name) {
-            alert("Crossing Experiment name is required");
+            alert("雜交試驗名稱為必填項目(Crossing Experiment name is required)");
             return;
         }
 
         var selectedProgram = $("#crossingtrial_program").val();
         if (!selectedProgram) {
-            alert("Breeding program is required");
+            alert("育種計畫為必填項目(Breeding program is required)");
             return;
         }
 
         var crossingtrial_location = $("#crossingtrial_location").val();
         if (!crossingtrial_location) {
-            alert ("Location is required");
+            alert ("地點為必填項目(Location is required)");
             return;
         }
 
         var year = $("#crosses_add_project_year_select").val();
         if (!year) {
-            alert ("Year is required");
+            alert ("年份為必填項目(Year is required)");
             return;
         }
 
@@ -146,20 +146,20 @@ jQuery(document).ready(function($) {
 
         var crossType = $("#cross_type").val();
         if (!crossType) {
-            alert("No type was selected, please select a type before saving a cross/crosses");
+            alert("未選取類型，請在儲存雜交組合前選取類型。(No type was selected, please select a type before saving a cross/crosses)");
             return;
         }
 
         var crossName = $("#cross_name").val();
         crossName = crossName.trim();
         if (!crossName) {
-            alert("A cross unique id is required");
+            alert("雜交唯一識別碼為必填項目。(A cross unique id is required)");
             return;
         }
 
         var crossing_trial_id = $("#add_cross_crossing_experiment_id").val();
         if (!crossing_trial_id) {
-            alert("A crossing experiment is required");
+            alert("雜交試驗為必填項目。(A crossing experiment is required)");
             return;
         }
 
@@ -241,7 +241,7 @@ jQuery(document).ready(function($) {
         post: function() {
             var uploadFile = $("#crosses_upload_file").val();
             if (uploadFile === '') {
-                alert("No file selected");
+                alert("未選取檔案(No file selected)");
             }
             jQuery("#working_modal").modal("show");
         },
@@ -372,10 +372,10 @@ jQuery(document).ready(function($) {
                 jQuery("#working_modal").modal("show");
             },
             error: function(response) {
-                alert("An error occurred. Please try again later!" + JSON.stringify(response));
+                alert("發生錯誤，請稍後再試！(An error occurred. Please try again later!) " + JSON.stringify(response));
             },
             parseerror: function(response) {
-                alert("A parse error occurred. Please try again." + response);
+                alert("發生解析錯誤，請再試一次。(A parse error occurred. Please try again.) " + response);
             },
             success: function(response) {
                 jQuery("#working_modal").modal("hide");
@@ -395,7 +395,7 @@ jQuery(document).ready(function($) {
         var experiment_id = $("#experiment_id").val();
 
         if (!crossing_trial_id && !experiment_id) {
-            alert("A crossing experiment is required");
+            alert("雜交試驗為必填項目。(A crossing experiment is required)");
             return;
         }
 
@@ -405,7 +405,7 @@ jQuery(document).ready(function($) {
             if (uploadFileXlsPlots === ''){
                 var uploadFileXlsPlants = $("#xls_crosses_plants_file").val();
                 if (uploadFileXlsPlants === '') {
-                    alert("Please select a file");
+                    alert("請選擇檔案(Please select a file)");
                     return;
                 }
             }
@@ -466,11 +466,11 @@ jQuery(document).ready(function($) {
                 jQuery("#working_modal").modal("show");
             },
             error: function(response) {
-                alert("An error occurred!" + JSON.stringify(response));
+                alert("發生錯誤！(An error occurred!) " + JSON.stringify(response));
                 return;
             },
             parseerror: function(response) {
-                alert("A parse error occurred!" + response);
+                alert("發生解析錯誤！(A parse error occurred!) " + response);
                 return;
             },
             success: function(response) {

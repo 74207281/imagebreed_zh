@@ -26,7 +26,7 @@ jQuery(document).ready(function() {
                 return;
             };
 
-            jQuery('#trait_table_label').html('Traits and coefficients for <a href="/breeders_toolbox/trial/'+jQuery(this).val()+'">'+jQuery('option:selected', this).text()+'</a>:')
+            jQuery('#trait_table_label').html('性狀與係數(Traits and coefficients for) <a href="/breeders_toolbox/trial/'+jQuery(this).val()+'">'+jQuery('option:selected', this).text()+'</a>:')
 
             var trial_id = jQuery(this).val();
             var trial_name = jQuery("option:selected", this).text();
@@ -52,7 +52,7 @@ jQuery(document).ready(function() {
                 success: function(response) {
                     var list = response.list || 0;
                     if (!list) {
-                      trait_html = '<option id="select_message" value="" title="No trait measurements found.">No trait measurements found for '+trial_name+'.</option>\n';
+                      trait_html = '<option id="select_message" value="" title="未找到性狀測量值。(No trait measurements found.)">未找到 '+trial_name+' 的性狀測量值。(No trait measurements found for '+trial_name+'.)</option>\n';
                       jQuery('#trait_list').html(trait_html);
                       return;
                     }
@@ -72,7 +72,7 @@ jQuery(document).ready(function() {
                         success: function(response) {
                             synonyms = response.synonyms;
                             //console.log("synonyms = " + JSON.stringify(synonyms));
-                            trait_html = '<option id="select_message" value="" title="Select a trait">Select a trait</option>\n';
+                            trait_html = '<option id="select_message" value="" title="選取性狀(Select a trait)">選取性狀(Select a trait)</option>\n';
                             for (i = 0; i < list.length; i++) {
                                 var trait_id = list[i][0];
                                 var trait_name = list[i][1];
@@ -122,9 +122,9 @@ jQuery(document).ready(function() {
                             var accessions = response.accessions;
                             var accession_html;
                             if (response.accessions[0].length == 0) {
-                                accession_html = '<option value="" title="Select a control">No controls found</a>\n';
+                                accession_html = '<option value="" title="選取對照組(Select a control)">未找到對照組(No controls found)</a>\n';
                             } else {
-                                accession_html = '<option value="" title="Select a control">Select a control</a>\n';
+                                accession_html = '<option value="" title="選取對照組(Select a control)">選取對照組(Select a control)</a>\n';
                                 for (i = 0; i < response.accessions[0].length; i++) {
                                     accession_html += '<option value="' + accessions[0][i].stock_id + '" title="' + response.accessions[0][i].stock_id + '">' + response.accessions[0][i].accession_name + '</a>\n';
                                 }
@@ -133,12 +133,12 @@ jQuery(document).ready(function() {
                             jQuery('#trait_list').focus();
                         },
                         error: function(response) {
-                            jQuery('#control_list').html('<option value="" title="Select a control">Error retrieving trial controls</a>');
+                            jQuery('#control_list').html('<option value="" title="選取對照組(Select a control)">擷取試驗對照組時發生錯誤(Error retrieving trial controls)</a>');
                         }
                     });
                 },
                 error: function(response) {
-                    jQuery('#control_list').html('<option value="" title="Select a control">Error retrieving trial design</a>');
+                    jQuery('#control_list').html('<option value="" title="選取對照組(Select a control)">擷取試驗設計時發生錯誤(Error retrieving trial design)</a>');
                 }
             });
         });
@@ -152,9 +152,9 @@ jQuery(document).ready(function() {
             var trait_synonym = jQuery('option:selected', this).data("synonym");
             var list_name = jQuery('option:selected', this).data("list_name");
             var control_html = jQuery('#control_list').html();
-            var trait_html = "<tr id='" + trait_id + "_row'><td><a href='/cvterm/" + trait_id + "/view' data-list_name='" + list_name + "' data-value='" + trait_id + "'>" + trait_name + "</a></td><td><p id='" + trait_id + "_synonym'>" + trait_synonym + "<p></td><td><input type='text' id='" + coefficient_id + "' class='form-control' placeholder='Default is 1'></input></td><td><select class='form-control' id='" + control_id + "'>" + control_html + "</select></td><td align='center'><a title='Remove' id='" + trait_id + "_remove' href='javascript:remove_trait(" + trait_id + ")'><span class='glyphicon glyphicon-remove'></span></a></td></tr>";
+            var trait_html = "<tr id='" + trait_id + "_row'><td><a href='/cvterm/" + trait_id + "/view' data-list_name='" + list_name + "' data-value='" + trait_id + "'>" + trait_name + "</a></td><td><p id='" + trait_id + "_synonym'>" + trait_synonym + "<p></td><td><input type='text' id='" + coefficient_id + "' class='form-control' placeholder='預設為 1 (Default is 1)'></input></td><td><select class='form-control' id='" + control_id + "'>" + control_html + "</select></td><td align='center'><a title='移除(Remove)' id='" + trait_id + "_remove' href='javascript:remove_trait(" + trait_id + ")'><span class='glyphicon glyphicon-remove'></span></a></td></tr>";
             jQuery('#trait_table').append(trait_html);
-            jQuery('#select_message').text('Add another trait');
+            jQuery('#select_message').text('新增另一個性狀(Add another trait)');
             jQuery('#select_message').attr('selected', true);
             update_formula();
             jQuery('#' + coefficient_id).focus();
@@ -162,7 +162,7 @@ jQuery(document).ready(function() {
                 function() {
                   if (isNaN(jQuery(this).val())) {
                     jQuery(this).val('');
-                    document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> Error.<br> Index coefficients must be a positive or negative number.</li></center>";
+                    document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 錯誤(Error)。<br> 指數係數必須為正數或負數。(Index coefficients must be a positive or negative number.)</li></center>";
                     jQuery('#selection_index_error_dialog').modal("show");
                   }
                   else {
@@ -179,7 +179,7 @@ jQuery(document).ready(function() {
 
     jQuery('#save_sin').click(function() {
       if (jQuery('#trait_table').children().length < 1) {
-        document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> Formula not saved.<br> At least one trait must be selected before saving a SIN formula.</li></center>";
+        document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 公式未儲存(Formula not saved)。<br> 儲存 SIN 公式前必須至少選取一個性狀。(At least one trait must be selected before saving a SIN formula.)</li></center>";
         jQuery('#selection_index_error_dialog').modal("show");
         return;
       }
@@ -216,7 +216,7 @@ jQuery(document).ready(function() {
             lo.setListType(list_id, 'dataset');
         }
         if (elementsAdded) {
-            alert("Saved SIN formula with name " + new_name);
+            alert("已儲存名為 " + new_name + " 的 SIN 公式。(Saved SIN formula)");
         }
 
     });
@@ -233,7 +233,7 @@ jQuery(document).ready(function() {
     jQuery('#calculate_rankings').click(function() {
 
       if (jQuery('#trait_table').children().length < 1) {
-        document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> Error.<br> A trial and at least one trait must be selected before calculating rankings.</li></center>";
+        document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 錯誤(Error)。<br> 計算排名之前必須先選取一個試驗和至少一個性狀。(A trial and at least one trait must be selected before calculating rankings.)</li></center>";
         jQuery('#selection_index_error_dialog').modal("show");
         return;
       }
@@ -249,10 +249,10 @@ jQuery(document).ready(function() {
 
         var trial_name = jQuery('#select_trial_for_selection_index option:selected').text();
         column_names.push({
-            title: "Accession"
+            title: "品系(Accession)"
         });
         weighted_column_names.push({
-            title: "Accession"
+            title: "品系(Accession)"
         });
         jQuery(selected_trait_rows).each(function(index, selected_trait_rows) {
             var trait_id = jQuery('a', this).data("value");
@@ -279,9 +279,9 @@ jQuery(document).ready(function() {
             });
         });
         weighted_column_names.push({
-            title: "SIN"
+            title: "選擇指數 (SIN)"
         }, {
-            title: "SIN Rank"
+            title: "SIN 排名(SIN Rank)"
         });
         var allow_missing = jQuery("#allow_missing").is(':checked');
 
@@ -308,7 +308,7 @@ jQuery(document).ready(function() {
                 build_table(weighted_values, weighted_column_names, trial_name, 'weighted_values_div');
             },
             error: function(response) {
-                alert("An error occurred while retrieving average phenotypes");
+                alert("擷取平均表型時發生錯誤。(An error occurred while retrieving average phenotypes)");
             }
         });
 
@@ -319,9 +319,9 @@ function build_table(data, column_names, trial_name, target_div) {
 
     var table_id = target_div.replace("div", "table");
     var table_type = target_div.replace("_div", "");
-    var table_html = '<br><br><div class="table-responsive" style="margin-top: 10px;"><table id="' + table_id + '" class="table table-hover table-striped table-bordered" width="100%"><caption class="well well-sm" style="caption-side: bottom;margin-top: 10px;"><center> Table description: <i>' + table_type + ' for trial ' + trial_name + '.</i></center></caption></table></div>'
+    var table_html = '<br><br><div class="table-responsive" style="margin-top: 10px;"><table id="' + table_id + '" class="table table-hover table-striped table-bordered" width="100%"><caption class="well well-sm" style="caption-side: bottom;margin-top: 10px;"><center> 表格描述(Table description): <i>試驗 ' + trial_name + ' 的 ' + table_type + '。</i></center></caption></table></div>'
     if (table_type == 'weighted_values') {
-        table_html += '<div class="col-sm-12 col-md-12 col-lg-12"><hr><label>Save top ranked accessions to a list: </label><br><br><div class="col-sm-3 col-md-3 col-lg-3" style="display: inline-block"><label>By number:</label>&nbsp;<select class="form-control" id="top_number"></select></div><div class="col-sm-3 col-md-3 col-lg-3" style="display: inline-block"><label>Or percent:</label>&nbsp;<select class="form-control" id="top_percent"></select></div><div class="col-sm-6 col-md-6 col-lg-6"><div style="text-align:right" id="ranking_to_list_menu"></div><div id="top_ranked_names" style="display: none;"></div></div><br><br><br><br><br></div>';
+        table_html += '<div class="col-sm-12 col-md-12 col-lg-12"><hr><label>將排名前列的品系儲存至清單(Save top ranked accessions to a list)：</label><br><br><div class="col-sm-3 col-md-3 col-lg-3" style="display: inline-block"><label>依數量(By number)：</label>&nbsp;<select class="form-control" id="top_number"></select></div><div class="col-sm-3 col-md-3 col-lg-3" style="display: inline-block"><label>或依百分比(Or percent)：</label>&nbsp;<select class="form-control" id="top_percent"></select></div><div class="col-sm-6 col-md-6 col-lg-6"><div style="text-align:right" id="ranking_to_list_menu"></div><div id="top_ranked_names" style="display: none;"></div></div><br><br><br><br><br></div>';
     }
 
     jQuery('#' + target_div).html(table_html);
@@ -370,8 +370,8 @@ function build_table(data, column_names, trial_name, target_div) {
 
         var table = $('#weighted_values_table').DataTable();
         var name_links = table.column(0).data();
-        jQuery("#top_number").append('<option value="">Select a number</option>');
-        jQuery("#top_percent").append('<option value="">Select a percent</option>');
+        jQuery("#top_number").append('<option value="">選取數量(Select a number)</option>');
+        jQuery("#top_percent").append('<option value="">選取百分比(Select a percent)</option>');
 
         for (i = 1; i <= name_links.length; i++) {
             jQuery("#top_number").append('<option value=' + i + '>' + i + '</option>');
@@ -412,7 +412,7 @@ function build_table(data, column_names, trial_name, target_div) {
 function load_sin() { // update traits and selection index when a saved sin formula is picked
 
     if (!jQuery("#select_trial_for_selection_index option:selected").val()) {
-      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> Error.<br> A trial must be selected before loading a SIN formula.</li></center>";
+      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 錯誤(Error)。<br> 載入 SIN 公式前必須先選取一個試驗。(A trial must be selected before loading a SIN formula.)</li></center>";
       jQuery('#selection_index_error_dialog').modal("show");
       return;
     }
@@ -503,15 +503,15 @@ function load_sin() { // update traits and selection index when a saved sin form
     update_formula();
 
     if (omitted_traits.length > 0 && omitted_controls.length > 0) {
-      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> The following parts of the saved SIN formula have been omitted because they were not found in this trial:</li></center><br><center><p>Traits: " + omitted_traits.join(", ") + "</p></center><br><center><p>Controls: " + omitted_controls.join(", ") + "</p></center>";
+      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 已儲存的 SIN 公式中以下部分已被省略，因為在此試驗中未找到：(The following parts of the saved SIN formula have been omitted because they were not found in this trial:)</li></center><br><center><p>性狀(Traits): " + omitted_traits.join(", ") + "</p></center><br><center><p>對照組(Controls): " + omitted_controls.join(", ") + "</p></center>";
       jQuery('#selection_index_error_dialog').modal("show");
     }
     else if (omitted_traits.length > 0) {
-      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> The following parts of the saved SIN formula have been omitted because they were not found in this trial:</li></center><br><center><p>Traits: " + omitted_traits.join(", ") + "</p></center>";
+      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 已儲存的 SIN 公式中以下部分已被省略，因為在此試驗中未找到：(The following parts of the saved SIN formula have been omitted because they were not found in this trial:)</li></center><br><center><p>性狀(Traits): " + omitted_traits.join(", ") + "</p></center>";
       jQuery('#selection_index_error_dialog').modal("show");
     }
     else if (omitted_controls.length > 0) {
-      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> The following parts of the saved SIN formula have been omitted because they were not found in this trial:</li></center><br><center><p>Controls: " + omitted_controls.join(", ") + "</p></center>";
+      document.getElementById('selection_index_error_message').innerHTML = "<center><li class='list-group-item list-group-item-danger'> 已儲存的 SIN 公式中以下部分已被省略，因為在此試驗中未找到：(The following parts of the saved SIN formula have been omitted because they were not found in this trial:)</li></center><br><center><p>對照組(Controls): " + omitted_controls.join(", ") + "</p></center>";
       jQuery('#selection_index_error_dialog').modal("show");
     }
 
@@ -526,7 +526,7 @@ function update_formula() {
     //console.log("updating formula....");
     var selected_trait_rows = jQuery('#trait_table').children();
     if (selected_trait_rows.length < 1) {
-        jQuery('#ranking_formula').html("<center><i>Select a trial, then pick traits and coefficients (or load a saved formula).</i></center>");
+        jQuery('#ranking_formula').html("<center><i>請選取試驗，然後挑選性狀與係數（或載入已儲存的公式）。(Select a trial, then pick traits and coefficients (or load a saved formula).)</i></center>");
         jQuery('#calculate_rankings').addClass('disabled');
         jQuery('#save_sin').addClass('disabled');
         return;

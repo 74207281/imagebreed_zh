@@ -49,43 +49,43 @@ jQuery(document).ready(function ($) {
 
 
         if (trial_name === '') {
-            alert("Please give a trial name");
+            alert("請提供試驗名稱(Please give a trial name)");
         }
         else if (breeding_program === '') {
-            alert("Please give a breeding program");
+            alert("請提供育種計畫(Please give a breeding program)");
         }
         else if (location === '') {
-            alert("Please give a location");
+            alert("請提供地點(Please give a location)");
         }
         else if (trial_year === '') {
-            alert("Please give a trial year");
+            alert("請提供試驗年份(Please give a trial year)");
         }
         else if (plot_width < 0 ){
-            alert("Please check the plot width");
+            alert("請檢查小區寬度(Please check the plot width)");
         }
         else if (plot_width > 13){
-            alert("Please check the plot width is too high");
+            alert("請檢查小區寬度過大(Please check the plot width is too high)");
         }
         else if (plot_length < 0){
-            alert("Please check the plot length");
+            alert("請檢查小區長度(Please check the plot length)");
         }
         else if (plot_length > 13){
-            alert("Please check the plot length is too high");
+            alert("請檢查小區長度過大(Please check the plot length is too high)");
         }
         else if (plants_per_plot > 500) {
-            alert("Please no more than 500 plants per plot.");
+            alert("每個小區請勿超過 500 株植物。(Please no more than 500 plants per plot.)");
         }
         else if (description === '') {
-            alert("Please give a description");
+            alert("請提供描述(Please give a description)");
         }
         else if (trial_stock_type === '') {
-            alert("Please select stock type being evaluated in trial");
+            alert("請選擇試驗中評估的材料類型(Please select stock type being evaluated in trial)");
         }
         else if (design_type === '') {
-            alert("Please give a design type");
+            alert("請提供設計類型(Please give a design type)");
         }
         else if (uploadFile === '') {
-            alert("Please select a file");
+            alert("請選擇檔案(Please select a file)");
         }
         else {
             verify_upload_trial_name(trial_name);
@@ -113,7 +113,7 @@ jQuery(document).ready(function ($) {
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred checking trial name');
+                alert('檢查試驗名稱時發生錯誤(An error occurred checking trial name)');
             }
         });
     }
@@ -211,7 +211,7 @@ jQuery(document).ready(function ($) {
             jQuery('#working_modal').modal("show");
             if (uploadedTrialLayoutFile === '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選取檔案(No file selected)");
                 return;
             }
         },
@@ -228,7 +228,7 @@ jQuery(document).ready(function ($) {
 
                 if (response.missing_accessions) {
                     jQuery('#upload_trial_missing_accessions_div').show();
-                    var missing_accessions_html = "<div class='well well-sm'><h3>Add the missing accessions to a list</h3><div id='upload_trial_missing_accessions' style='display:none'></div><div id='upload_trial_add_missing_accessions'></div></div><br/>";
+                    var missing_accessions_html = "<div class='well well-sm'><h3>將缺失的種原新增至清單(Add the missing accessions to a list)</h3><div id='upload_trial_missing_accessions' style='display:none'></div><div id='upload_trial_add_missing_accessions'></div></div><br/>";
                     jQuery("#upload_trial_add_missing_accessions_html").html(missing_accessions_html);
 
                     var missing_accessions_vals = '';
@@ -242,7 +242,7 @@ jQuery(document).ready(function ($) {
                     });
                 } else {
                     jQuery('#upload_trial_missing_accessions_div').hide();
-                    var no_missing_accessions_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">There were no errors regarding missing accessions Click Here</button><br/><br/>';
+                    var no_missing_accessions_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">沒有關於缺失種原的錯誤，請點擊此處(There were no errors regarding missing accessions Click Here)</button><br/><br/>';
                     jQuery('#upload_trial_no_error_messages_html').html(no_missing_accessions_html);
                     Workflow.skip('#upload_trial_missing_accessions_div', false);
                 }
@@ -251,7 +251,7 @@ jQuery(document).ready(function ($) {
                     jQuery('#upload_trial_missing_seedlots_div').show();
                 } else {
                     jQuery('#upload_trial_missing_seedlots_div').hide();
-                    var no_missing_seedlot_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">There were no errors regarding missing seedlots Click Here</button><br/><br/>';
+                    var no_missing_seedlot_html = '<button class="btn btn-primary" onclick="Workflow.skip(this);">沒有關於缺失種子批的錯誤，請點擊此處(There were no errors regarding missing seedlots Click Here)</button><br/><br/>';
                     jQuery('#upload_trial_no_error_messages_seedlot_html').html(no_missing_seedlot_html);
                     Workflow.skip('#upload_trial_missing_seedlots_div', false);
                 }
@@ -276,7 +276,7 @@ jQuery(document).ready(function ($) {
                 refreshTrailJsTree(0);
                 jQuery("#upload_trial_error_display_second_try").hide();
                 jQuery('#trial_upload_show_repeat_upload_button').hide();
-                jQuery('[name="upload_trial_completed_message"]').html('<button class="btn btn-primary" name="upload_trial_success_complete_button">The trial was saved to the database with no errors! Congrats Click Here</button><br/><br/>');
+                jQuery('[name="upload_trial_completed_message"]').html('<button class="btn btn-primary" name="upload_trial_success_complete_button">試驗已無錯誤儲存至資料庫！恭喜，請點擊此處(The trial was saved to the database with no errors! Congrats Click Here)</button><br/><br/>');
                 Workflow.skip('#upload_trial_missing_accessions_div', false);
                 Workflow.skip('#upload_trial_missing_seedlots_div', false);
                 Workflow.skip('#upload_trial_error_display_second_try', false);
@@ -294,7 +294,7 @@ jQuery(document).ready(function ($) {
             jQuery('#working_modal').modal("show");
             if (uploadedTrialLayoutFile === '') {
                 jQuery('#working_modal').modal("hide");
-                alert("No file selected");
+                alert("未選取檔案(No file selected)");
                 return;
             }
         },
@@ -306,7 +306,7 @@ jQuery(document).ready(function ($) {
                 warnings = response.warnings;
                 warning_html = "<li>"+warnings.join("</li><li>")+"</li>"
                 jQuery("#upload_multiple_trials_warning_messages").show();
-                jQuery("#upload_multiple_trials_warning_messages").html('<b>Warnings. Fix or ignore the following warnings and try again.</b><br><br>'+warning_html);
+                jQuery("#upload_multiple_trials_warning_messages").html('<b>警告。請修正或忽略以下警告後再試。(Warnings. Fix or ignore the following warnings and try again.)</b><br><br>'+warning_html);
                 return;
             }
             if (response.errors) {
@@ -317,14 +317,14 @@ jQuery(document).ready(function ($) {
                     error_html = "<li>"+errors+"</li>";
                 }
                 jQuery("#upload_multiple_trials_error_messages").show();
-                jQuery("#upload_multiple_trials_error_messages").html('<b>Errors found. Fix the following problems and try again.</b><br><br>'+error_html);
+                jQuery("#upload_multiple_trials_error_messages").html('<b>發現錯誤。請修正以下問題後再試。(Errors found. Fix the following problems and try again.)</b><br><br>'+error_html);
                 return;
             }
             if (response.success) {
                 console.log("Success!!");
                 refreshTrailJsTree(0);
                 jQuery("#upload_multiple_trials_success_messages").show();
-                jQuery("#upload_multiple_trials_success_messages").html("Success! All trials successfully loaded.");
+                jQuery("#upload_multiple_trials_success_messages").html("成功！所有試驗均已成功載入。(Success! All trials successfully loaded.)");
                 jQuery("#multiple_trial_designs_upload_submit").hide();
                 jQuery("#upload_multiple_trials_success_button").show();
                 return;
@@ -332,7 +332,7 @@ jQuery(document).ready(function ($) {
         },
         error: function(response) {
             jQuery("#working_modal").modal("hide");
-            jQuery("#upload_multiple_trials_error_messages").html("An error occurred while trying to upload this file. Please check the formatting and try again");
+            jQuery("#upload_multiple_trials_error_messages").html("嘗試上傳此檔案時發生錯誤。請檢查格式後再試一次。(An error occurred while trying to upload this file. Please check the formatting and try again)");
             return;
         }
     });

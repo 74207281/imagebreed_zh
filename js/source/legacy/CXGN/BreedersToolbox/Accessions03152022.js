@@ -63,7 +63,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function (r) {
-                alert('An error occurred in adding population. sorry '+r.responseText);
+                alert('新增族群時發生錯誤。(An error occurred in adding population.) '+r.responseText);
             }
         });
     });
@@ -86,7 +86,7 @@ jQuery(document).ready(function ($) {
             var table_id = name+i+"_pop_table";
 
             var section_html = '<div class="row"><div class="panel panel-default"><div class="panel-heading" >';
-            section_html += '<div class="panel-title" name="populations_members_table_toggle" data-table_id="#'+table_id+'" data-population_id="'+population_id+'" data-population_name="'+name+'"><div class="row"><div class="col-sm-6" data-toggle="collapse" data-parent="#accordion" data-target="#collapse'+i+'"><a href="#'+table_id+'" class="accordion-toggle">'+name+'</a></div><div class="col-sm-3"><a href="/stock/'+population_id+'/view"><small>[Go To Population Page]</small></a></div><div class="col-sm-3"><a name="manage_populations_add_accessions" data-population_id="'+population_id+'" data-population_name="'+name+'"><small>[Add Accessions To Population]</small></a><br/><a name="manage_populations_delete_population" data-population_id="'+population_id+'" data-population_name="'+name+'"><small>[Delete Population]</small></a></div></div></div></div>';
+            section_html += '<div class="panel-title" name="populations_members_table_toggle" data-table_id="#'+table_id+'" data-population_id="'+population_id+'" data-population_name="'+name+'"><div class="row"><div class="col-sm-6" data-toggle="collapse" data-parent="#accordion" data-target="#collapse'+i+'"><a href="#'+table_id+'" class="accordion-toggle">'+name+'</a></div><div class="col-sm-3"><a href="/stock/'+population_id+'/view"><small>[前往族群頁面(Go To Population Page)]</small></a></div><div class="col-sm-3"><a name="manage_populations_add_accessions" data-population_id="'+population_id+'" data-population_name="'+name+'"><small>[新增種原至族群(Add Accessions To Population)]</small></a><br/><a name="manage_populations_delete_population" data-population_id="'+population_id+'" data-population_name="'+name+'"><small>[刪除族群(Delete Population)]</small></a></div></div></div></div>';
             section_html += '<div id="collapse'+i+'" class="panel-collapse collapse">';
             section_html += '<div class="panel-body" style="overflow:hidden"><div class="table-responsive" style="margin-top: 10px;"><table id="'+table_id+'" class="table table-hover table-striped table-bordered" width="100%"></table><div id="populations_members_add_to_list_data_'+population_id+'" style="display:none"></div><br/><div id="populations_members_add_to_list_menu_'+population_id+'"></div></div>';
             section_html += '</div><br/></div></div></div><br/>';
@@ -97,7 +97,7 @@ jQuery(document).ready(function ($) {
         },
         error: function(response) {
           enable_ui();
-          alert('An error occured retrieving population data.');
+          alert('擷取族群資料時發生錯誤。(An error occured retrieving population data.)');
         }
       });
     });
@@ -111,10 +111,10 @@ jQuery(document).ready(function ($) {
             ajax: '/ajax/manage_accessions/population_members/'+population_id,
             destroy: true,
             columns: [
-                { title: "Accession Name", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.stock_id+"/view'>"+row.name+"</a>"; } },
-                { title: "Description", "data": "description" },
-                { title: "Synonyms", "data": "synonyms[, ]" },
-                { title: "Remove From Population", "data": null, "render": function ( data, type, row ) { return "<a name='populations_member_remove' data-stock_relationship_id='"+row.stock_relationship_id+"'>X</a>"; } },
+                { title: "種原名稱(Accession Name)", "data": null, "render": function ( data, type, row ) { return "<a href='/stock/"+row.stock_id+"/view'>"+row.name+"</a>"; } },
+                { title: "描述(Description)", "data": "description" },
+                { title: "同義詞(Synonyms)", "data": "synonyms[, ]" },
+                { title: "自族群移除(Remove From Population)", "data": null, "render": function ( data, type, row ) { return "<a name='populations_member_remove' data-stock_relationship_id='"+row.stock_relationship_id+"'>X</a>"; } },
             ],
             "fnInitComplete": function(oSettings, json) {
                 //console.log(json);
@@ -181,7 +181,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function () {
-                alert('An error occurred in adding accessions to population. sorry');
+                alert('新增種原至族群時發生錯誤。(An error occurred in adding accessions to population.)');
             }
         });
     });
@@ -208,14 +208,14 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function () {
-                alert('An error occurred in deleting population. sorry');
+                alert('刪除族群時發生錯誤。(An error occurred in deleting population.)');
             }
         });
     });
 
     jQuery(document).on("click", "a[name='populations_member_remove']", function(){
         var stock_relationship_id= jQuery(this).data("stock_relationship_id");
-        if (confirm("Are you sure?")){
+        if (confirm("您確定嗎？(Are you sure?)")){
             jQuery.ajax({
                 url: '/ajax/population/remove_member?stock_relationship_id='+stock_relationship_id,
                 dataType: "json",
@@ -232,7 +232,7 @@ jQuery(document).ready(function ($) {
                     }
                 },
                 error: function () {
-                    alert('An error occurred in removing accession from population. sorry');
+                    alert('自族群移除種原時發生錯誤。(An error occurred in removing accession from population.)');
                 }
             });
         }
@@ -267,7 +267,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function (response) {
-                alert('An error occurred in processing. sorry'+response.responseText);
+                alert('處理時發生錯誤。(An error occurred in processing.) '+response.responseText);
             }
         });
     }
@@ -291,7 +291,7 @@ jQuery(document).ready(function ($) {
                 }
             },
             error: function (response) {
-                alert('An error occurred verifying species name. sorry'+response.responseText);
+                alert('驗證物種名稱時發生錯誤。(An error occurred verifying species name.) '+response.responseText);
                 validSpecies = 0;
             }
         });
@@ -309,14 +309,14 @@ jQuery(document).ready(function ($) {
             var private_company_id = jQuery("#add_accessions_list_private_company_select").val();
             var accessionsToAdd = accessionList;
             if (!speciesName) {
-                alert("Species name required");
+                alert("請輸入物種名稱(Species name required)");
                 return;
             }
             if (!populationName) {
                 populationName = '';
             }
             if (!accessionsToAdd || accessionsToAdd.length == 0) {
-                alert("No accessions to add");
+                alert("沒有要新增的種原(No accessions to add)");
                 return;
             }
             for(var i=0; i<accessionsToAdd.length; i++){
@@ -380,7 +380,7 @@ jQuery(document).ready(function ($) {
                         response = JSON.parse(response.replace(/<\/?pre[^>]*>/gi, '').trim());
                     } catch (e) {
                         console.error("Error parsing upload response:", response, e);
-                        alert("An error occurred while parsing server response: " + e.message);
+                        alert("解析伺服器回應時發生錯誤(An error occurred while parsing server response): " + e.message);
                         return;
                     }
                 }
@@ -394,12 +394,12 @@ jQuery(document).ready(function ($) {
                     review_verification_results(doFuzzySearch, response, response.list_id);
                 } else {
                     fullParsedData = undefined;
-                    alert("An unknown error occurred. Please try again later or contact us for help.");
+                    alert("發生未知錯誤。請稍後再試或聯繫我們尋求協助。(An unknown error occurred. Please try again later or contact us for help.)");
                 }
             },
             error: function (xhr, status, error) {
                 enable_ui();
-                var msg = "An error occurred during file upload.";
+                var msg = "檔案上傳期間發生錯誤。(An error occurred during file upload.)";
                 if (xhr.responseJSON && (xhr.responseJSON.error || xhr.responseJSON.error_string)) {
                     msg += " " + (xhr.responseJSON.error || xhr.responseJSON.error_string);
                 } else if (xhr.responseText) {
@@ -550,7 +550,7 @@ function verify_accession_list(accession_list_id) {
             enable_ui();
 	    console.log(response.responseText);
 
-            alert('An error occurred in processing. sorry'+response.responseText);
+            alert('處理時發生錯誤。(An error occurred in processing.) '+response.responseText);
         }
     });
 }
@@ -623,7 +623,7 @@ function review_verification_results(doFuzzySearch, verifyResponse, accession_li
             fuzzy_html = fuzzy_html + '<td><select class="form-control" name ="fuzzy_select">';
             for(j=0; j < verifyResponse.fuzzy[i].matches.length; j++){
                 if (verifyResponse.fuzzy[i].matches[j].is_synonym){
-                    fuzzy_html = fuzzy_html + '<option value="' + verifyResponse.fuzzy[i].matches[j].synonym_of + '">' + verifyResponse.fuzzy[i].matches[j].name + ' (SYNONYM OF: '+verifyResponse.fuzzy[i].matches[j].synonym_of+')</option>';
+                    fuzzy_html = fuzzy_html + '<option value="' + verifyResponse.fuzzy[i].matches[j].synonym_of + '">' + verifyResponse.fuzzy[i].matches[j].name + ' (同義詞於(SYNONYM OF): '+verifyResponse.fuzzy[i].matches[j].synonym_of+')</option>';
                 } else {
                     fuzzy_html = fuzzy_html + '<option value="' + verifyResponse.fuzzy[i].matches[j].name + '">' + verifyResponse.fuzzy[i].matches[j].name + '</option>';
                 }
@@ -787,7 +787,7 @@ function process_fuzzy_options(accession_list_id) {
             }
         },
         error: function () {
-            alert('An error occurred checking your fuzzy options! Do not try to add a synonym to a synonym! Also do not use any special characters!');
+            alert('檢查您的相似選項時發生錯誤！請勿將同義詞新增為同義詞，也請勿使用任何特殊字元！(An error occurred checking your fuzzy options! Do not try to add a synonym to a synonym! Also do not use any special characters!)');
         }
     });
 }

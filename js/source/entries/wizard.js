@@ -127,7 +127,7 @@ export function WizardSetup(main_id){
            var ids = list.transform2Ids(listID);
            var ldata = list.getListData(listID);
            if(initialtypes.indexOf(ldata.type_name)==-1){
-               setTimeout(()=>alert("List is not of an appropriate type."),1);
+               setTimeout(()=>alert("清單類型不適當。(List is not of an appropriate type.)"),1);
            }
            res({
             "type":ldata.type_name,
@@ -158,7 +158,7 @@ export function WizardSetup(main_id){
 
     wiz.add_to_list((listID,items)=>{
       var count = list.addBulk(listID,items.map(i=>i.name));
-      if(count) alert(`${count} items added to list.`);
+      if(count) alert(`已將 ${count} 個項目加入清單。(items added to list)`);
       load_lists();
     })
     // Function which creates a new list from items
@@ -167,7 +167,7 @@ export function WizardSetup(main_id){
       if(newID){
         list.setListType(newID, colType);
         var count = list.addBulk(newID,items.map(i=>i.name));
-        if(count) alert(`${count} items added to list ${listName}.`);
+        if(count) alert(`已將 ${count} 個項目加入清單 ${listName}。(items added to list)`);
       }
       load_lists();
     });
@@ -176,7 +176,7 @@ export function WizardSetup(main_id){
     var dat = new WizardDatasets(d3.select(main_id).select(".wizard-datasets").node(),wiz);
 
     var lo = new CXGN.List();
-    jQuery('#wizard-download-genotypes-marker-set-list-id').html(lo.listSelect('wizard-download-genotypes-marker-set-list-id', ['markers'], 'Select a markerset', 'refresh', undefined));
+    jQuery('#wizard-download-genotypes-marker-set-list-id').html(lo.listSelect('wizard-download-genotypes-marker-set-list-id', ['markers'], '選取標記組(Select a markerset)', 'refresh', undefined));
 
     return {
       wizard:wiz,
@@ -205,7 +205,7 @@ export function updateStatus(element) {
       return !!json.refreshing;
    })
    .catch(err=>{
-     d3.select(element).html(`<font color="red">${err.message} - If this problem persists, please <a href="../../contact/form">contact developers</a></font>`);
+     d3.select(element).html(`<font color="red">${err.message} - 如果此問題持續存在，請<a href="../../contact/form">聯絡開發團隊(contact developers)</a></font>`);
      return false;
    })
 }

@@ -74,7 +74,7 @@ export function WizardDownloads(main_id,wizard){
         var include_duplicate_genotypes = d3.select(".wizard-download-genotypes-duplicates-include").property("checked");
         var marker_set_list_id = d3.select(".wizard-download-genotypes-marker-set-list-id").node().value;
         if(chromosome_number && marker_set_list_id) {
-            alert(`Please indicate either chromosome or markerset, not both.`);
+            alert(`請指定染色體或標記組其一，勿同時指定。(Please indicate either chromosome or markerset, not both.)`);
             d3.select(this).attr("disabled",null);
             return;
         }
@@ -148,7 +148,7 @@ export function WizardDownloads(main_id,wizard){
     // Download Trial Metadata
     var trials = categories.indexOf("trials")!=-1 ? selections["trials"] : [];
     main.selectAll(".wizard-download-tmetadata-info")
-      .attr("value",`${trials.length||"Too few"} trials`);
+      .attr("value",`${trials.length||"試驗過少(Too few)"} 個試驗(trials)`);
     main.selectAll(".wizard-download-tmetadata")
       .attr("disabled",trials.length>0?null:true)
       .on("click",()=>{
@@ -173,7 +173,7 @@ export function WizardDownloads(main_id,wizard){
 
 
     main.selectAll(".wizard-download-phenotypes-info")
-      .attr("value",`${trials.length||"Too few"} trials`);
+      .attr("value",`${trials.length||"試驗過少(Too few)"} 個試驗(trials)`);
     main.selectAll(".wizard-download-phenotypes")
       .attr("disabled",trials.length>0?null:true)
       .on("click",()=>{

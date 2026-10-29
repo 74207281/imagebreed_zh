@@ -32,12 +32,12 @@ function run_blast(database_types, input_option_types) {
     var word_size = jQuery('#word_size').val();
     
   if (sequence === '') { 
-    alert("Please enter a sequence :-)"); 
+    alert("請輸入序列(Please enter a sequence) :-)"); 
     return;
   }
   
   if (!blast_program_ok(program,  input_option_types[input_option], database_types[database])) { 
-    alert("The BLAST program does not match the selected database and query.");
+    alert("BLAST 程式與選取的資料庫及查詢不相容。(The BLAST program does not match the selected database and query.)");
     return;
   }
   
@@ -67,7 +67,7 @@ function run_blast(database_types, input_option_types) {
       }
     },
     error: function(response) {
-      alert("An error occurred. The service may not be available right now.");
+      alert("發生錯誤。該服務目前可能無法使用。(An error occurred. The service may not be available right now.)");
       enable_ui();
       return;
     }
@@ -95,7 +95,7 @@ function wait_result(jobid, seq_count) {
         }
       },
       error: function(response) { 
-        alert("An  error occurred. "); 
+        alert("發生錯誤。(An error occurred.)"); 
         enable_ui(); 
         done=true; 
         error=true; 
@@ -107,7 +107,7 @@ function wait_result(jobid, seq_count) {
 
 function finish_blast(jobid, seq_count) {
 
-  update_status('Run complete.<br />');
+  update_status('執行完成。(Run complete.)<br />');
   
   var format   =  jQuery('#parse_options').val();
   
@@ -119,7 +119,7 @@ function finish_blast(jobid, seq_count) {
   
   if (seq_count > 1) { 
     format = [ "Table", "Basic" ];
-    alert("Multiple sequences were detected. The output will be shown in the tabular and basic format");
+    alert("偵測到多個序列。輸出將以表格和基本格式顯示。(Multiple sequences were detected. The output will be shown in the tabular and basic format)");
   } else {
     
     // get BLAST Graph
@@ -155,7 +155,7 @@ function finish_blast(jobid, seq_count) {
         
         enable_ui();
       },
-      error: function(response) { alert("SGN BLAST Graph: An error occurred. "+response.error); enable_ui();}
+      error: function(response) { alert("SGN BLAST 圖形：發生錯誤。(SGN BLAST Graph: An error occurred.) "+response.error); enable_ui();}
     });
     
   } //else closed
@@ -163,7 +163,7 @@ function finish_blast(jobid, seq_count) {
   if (format) {
 
     for (var n in format) {
-      update_status('Formatting output ('+format[n]+')<br />');
+      update_status('正在格式化輸出(Formatting output) ('+format[n]+')<br />');
 
       jQuery.ajax( {
         url: '/tools/blast/result/'+jobid,
@@ -198,7 +198,7 @@ function finish_blast(jobid, seq_count) {
           jQuery('#notes').css("width","75%")
           enable_ui();
         },
-        error: function(response) { alert("Parse BLAST: An error occurred. "+response.error); enable_ui();}
+        error: function(response) { alert("解析 BLAST：發生錯誤。(Parse BLAST: An error occurred.) "+response.error); enable_ui();}
       });
     } // for close
 

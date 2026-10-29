@@ -61,40 +61,40 @@ jQuery(document).ready(function ($) {
         plants_per_plot = $("#add_plant_entries").val();
 
         if (trial_name === '') {
-            alert("Please supply a trial name");
+            alert("請提供試驗名稱(Please supply a trial name)");
         }
         else if (breeding_program === '') {
-            alert("Please select a breeding program");
+            alert("請選擇育種計畫(Please select a breeding program)");
         }
         else if (location === '') {
-            alert("Please select at least one location");
+            alert("請至少選擇一個地點(Please select at least one location)");
         }
         else if (trial_year === '') {
-            alert("Please select a trial year");
+            alert("請選擇試驗年份(Please select a trial year)");
         }
         else if (plot_width < 0 ){
-            alert("Please check the plot width");
+            alert("請檢查小區寬度(Please check the plot width)");
         }
         else if (plot_width > 13){
-            alert("Please check the plot width is too high");
+            alert("請檢查小區寬度過大(Please check the plot width is too high)");
         }
         else if (plot_length < 0){
-            alert("Please check the plot length");
+            alert("請檢查小區長度(Please check the plot length)");
         }
         else if (plot_length > 13){
-            alert("Please check the plot length is too high");
+            alert("請檢查小區長度過大(Please check the plot length is too high)");
         }
         else if (plants_per_plot > 500) {
-            alert("Please no more than 500 plants per plot.");
+            alert("每個小區請勿超過 500 株植物。(Please no more than 500 plants per plot.)");
         }
         else if (description === '') {
-            alert("Please suply a description!");
+            alert("請提供描述！(Please supply a description!)");
         }
         else if (design_type === '') {
-            alert("Please select a design type");
+            alert("請選擇設計類型(Please select a design type)");
         }
         else if (stock_type === '') {
-            alert("Please select a stock type");
+            alert("請選擇材料類型(Please select a stock type)");
         }
         else {
             verify_create_trial_name(trial_name);
@@ -119,7 +119,7 @@ jQuery(document).ready(function ($) {
             },
             error: function(response) {
                 jQuery("#working_modal").modal("hide");
-                alert('An error occurred checking trial name');
+                alert('檢查試驗名稱時發生錯誤(An error occurred checking trial name)');
             }
         });
     }
@@ -276,7 +276,7 @@ jQuery(document).ready(function ($) {
             if(stock_list && seedlot_list){
                 verify_seedlot_list(stock_list, seedlot_list, 'stock_list');
             } else {
-                alert('Please make sure to select an accession list above!');
+                alert('請務必在上方選取種原清單！(Please make sure to select an accession list above!)');
             }
             if(check_stock_list && seedlot_list){
                 verify_seedlot_list(check_stock_list, seedlot_list, 'check_stock_list');
@@ -306,7 +306,7 @@ jQuery(document).ready(function ($) {
 
     $(document).on('click', 'button[name="convert_accessions_to_seedlots"]', function(){
         if (!stock_list_id){
-            alert('Please first select a list of accessions above!');
+            alert('請先在上方選取種原清單！(Please first select a list of accessions above!)');
         } else {
             var list = new CXGN.List();
             list.seedlotSearch(stock_list_id);
@@ -339,7 +339,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred. sorry');
+                alert('發生錯誤。(An error occurred.)');
                 stock_list_verified = 0;
             }
         });
@@ -387,7 +387,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred. sorry');
+                alert('發生錯誤。(An error occurred.)');
                 seedlot_list_verified = 0;
             }
         });
@@ -419,7 +419,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred. sorry');
+                alert('發生錯誤。(An error occurred.)');
                 cross_list_verified = 0;
             }
         });
@@ -451,7 +451,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred. sorry');
+                alert('發生錯誤。(An error occurred.)');
                 family_name_list_verified = 0;
             }
         });
@@ -472,9 +472,9 @@ jQuery(document).ready(function ($) {
         var html = '';
         for (var i=0; i<new_count; i++){
             var display_count = i + 5;
-            html = html + '<div class="form-group form-group-sm" ><label class="col-sm-7 control-label">Subplot '+display_count+ 'Treatment Name: </label><div class="col-sm-5" ><input class="form-control" id="create_trial_with_treatment_name_input'+display_count+'" name="create_trial_with_treatment_name_input'+display_count+'" type="text" placeholder="Optional Treatment '+display_count+'"/></div></div>';
+            html = html + '<div class="form-group form-group-sm" ><label class="col-sm-7 control-label">副小區 '+display_count+ ' 處理名稱(Subplot '+display_count+' Treatment Name): </label><div class="col-sm-5" ><input class="form-control" id="create_trial_with_treatment_name_input'+display_count+'" name="create_trial_with_treatment_name_input'+display_count+'" type="text" placeholder="選填處理 '+display_count+'(Optional Treatment '+display_count+')"/></div></div>';
         }
-        html = html + '<input type="hidden" id="create_trial_with_treatment_additional_count" value='+return_count+'><div class="form-group form-group-sm" ><label class="col-sm-7 control-label">Add Another Treatment: </label><div class="col-sm-5" ><button class="btn btn-info btn-sm" id="create_trial_with_treatment_additional_treatment_buton">+ Treatment</button></div></div>';
+        html = html + '<input type="hidden" id="create_trial_with_treatment_additional_count" value='+return_count+'><div class="form-group form-group-sm" ><label class="col-sm-7 control-label">新增其他處理(Add Another Treatment): </label><div class="col-sm-5" ><button class="btn btn-info btn-sm" id="create_trial_with_treatment_additional_treatment_buton">+ 處理(+ Treatment)</button></div></div>';
         jQuery('#create_trial_with_treatment_additional_treatment').html(html);
         return false;
     });
@@ -608,7 +608,7 @@ jQuery(document).ready(function ($) {
         seedlot_hash_combined = extend_obj(seedlot_hash_combined, rep_list_seedlot_hash);
         if (!jQuery.isEmptyObject(seedlot_hash_combined)){
             if (num_seed_per_plot == ''){
-                alert('Number of seeds per plot is required if you have selected a seedlot list!');
+                alert('若您選取了種子批清單，則必須填寫每個小區的種子數量！(Number of seeds per plot is required if you have selected a seedlot list!)');
                 return;
             }
         }
@@ -735,7 +735,7 @@ jQuery(document).ready(function ($) {
                     Workflow.focus("#trial_design_workflow", 6); //Go to review page
 
                     if(response.warning_message){
-                        jQuery('#trial_design_warning_message').html("<center><div class='well'><h4 class='text-warning'>Warning: "+response.warning_message+"</h4></div></center>");
+                        jQuery('#trial_design_warning_message').html("<center><div class='well'><h4 class='text-warning'>警告(Warning): "+response.warning_message+"</h4></div></center>");
                     } else {
                         jQuery('#trial_design_warning_message').html('');
                     }
@@ -927,7 +927,7 @@ jQuery(document).ready(function ($) {
 
                       heatmapChart(datasets);
                       if (false_coord){
-                          alert("Row and column numbers were generated on the fly for displaying the physical layout or map. The plots are displayed in zigzag format. These row and column numbers will not be saved in the database. Click 'ok' to continue...");
+                          alert("行號和列號是即時生成的，用於顯示實體配置或地圖。小區以之字形格式顯示。這些行號和列號不會儲存在資料庫中。點擊「確定」繼續...(Row and column numbers were generated on the fly for displaying the physical layout or map. The plots are displayed in zigzag format. These row and column numbers will not be saved in the database. Click 'ok' to continue...)");
                       }
                   }else {
                       jQuery("#d3_legend").css("display", "none");
@@ -939,7 +939,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 $('#working_modal').modal("hide");
-                alert('An error occurred. sorry.');
+                alert('發生錯誤。(An error occurred.)');
             }
        });
     }
@@ -952,11 +952,11 @@ jQuery(document).ready(function ($) {
         var year = $('#add_project_year').val();
         var desc = $('textarea#add_project_description').val();
         if (name == '') {
-            alert('Trial name required');
+            alert('請輸入試驗名稱(Trial name required)');
             return;
         }
         if (year === '' || desc === '') {
-            alert('Year and description are required.');
+            alert('年份和描述為必填項目。(Year and description are required.)');
             return;
         }
         if (stock_list_verified == 1 && seedlot_list_verified == 1){
@@ -966,7 +966,7 @@ jQuery(document).ready(function ($) {
         } else if (family_name_list_verified == 1 && cross_list_verified == 0 && stock_list_verified == 0){
             generate_experimental_design();
         } else {
-            alert('Accession list, seedlot list, cross list or family name list is not valid!');
+            alert('種原清單、種子批清單、雜交清單或家族名稱清單無效！(Accession list, seedlot list, cross list or family name list is not valid!)');
             return;
         }
     });
@@ -1005,27 +1005,27 @@ jQuery(document).ready(function ($) {
         var stock_type = jQuery('#select_stock_type').val();
 
         if (design_method == "CRD"){
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates a Completely Randomized design (CRD) with equal or different repetition, using the methods of random number generation in R. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>使用 R 中的隨機數生成方法，生成具有相同或不同重複數的完全隨機設計 (Completely Randomized design, CRD)。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "RCBD") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates a Randomized Complete Block design (RCBD), using the methods of random number generation in R. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>使用 R 中的隨機數生成方法，生成隨機完全區集設計 (Randomized Complete Block design, RCBD)。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "RRC") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates a Resolvable Row-Column design (RRC), using the blocksdesign package in R. In addition to the one-way blocks it adds a constraint that no treatment may appear more than once in each row (latinization). Each row becomes an incomplete block.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>使用 R 的 blocksdesign 套件生成可解析行列設計 (Resolvable Row-Column design, RRC)。除了單向區集外，還增加了每個處理在每行中出現不得超過一次的限制 (拉丁化)。每行成為一個不完全區集。</p></div>');
         } else if (design_method == "Alpha") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates an Alpha design starting from design fixing under the 4 series formulated by Patterson and Williams. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>根據 Patterson 和 Williams 制定的 4 個系列設計起點生成 Alpha 格子設計 (Alpha lattice design)。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "Lattice") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates SIMPLE and TRIPLE lattice designs using the design.lattice function from the agricolae R package. Randomizes treatments in K x K lattice. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>使用 R 套件 agricolae 的 design.lattice 函數生成簡單 (SIMPLE) 和三重 (TRIPLE) 格子設計。在 K x K 格子中將處理隨機化。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "Augmented") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates an Augmented design. Some treatments (checks) are replicated r times and other treatments (new) are replicated once. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>生成增廣設計 (Augmented design)。部分處理 (對照品系/checks) 重複 r 次，其他處理 (新品系/new) 重複一次。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "MAD") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Adjustments are calculated using data from all checks. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>修正值是使用所有對照的資料計算而得 (Modified Augmented Design, MAD)。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "greenhouse") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>A greenhouse/nursery houses plants in no particular layout design. The plants can be of named accessions or in the case of seedling nurseries from crosses, the plants can be of named crosses. Creates plot entities with plant entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>溫室/苗圃 (greenhouse/nursery) 容納植物，沒有特定的配置設計。植物可以是有名稱的種原，或者在雜交幼苗苗圃的情況下可以是有名稱的雜交組合。在資料庫中建立包含植株 (Plant) 實體的小區 (Plot) 實體。</p></div>');
         } else if (design_method == "splitplot") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Split plot designs are useful for applying treatments to subplots of a plot. If you give three treatments, there will be three subplots with the treatment(s) distributed randomly among them. Creates plot entities with subplot entities with plant entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>分割小區設計 (Split plot design) 適用於對小區的副小區 (Subplot) 施加處理。如果您指定了三種處理，將會有三個副小區，處理隨機分配於其間。在資料庫中建立包含副小區與植株實體的小區實體。</p></div>');
         } else if (design_method == "p-rep") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Have some treatments that are unreplicated and rely on replicated treatments to make the trial analysable. It is recommended that at least 20% of the experimental units are occupied by replicated treatments. Creates plot entities in the database.</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>部分重複設計 (p-rep design)。部分處理未重複，依靠有重複的處理使試驗可進行分析。建議至少 20% 的試驗單位由重複處理佔用。在資料庫中建立小區 (Plot) 實體。</p></div>');
         } else if (design_method == "Westcott") {
-            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>Generates fieldplan for an unreplicated design with genotypes randomly allocated on a field with checks following the method described on Westcott (1981).</p></div>');
+            jQuery('#create_trial_design_description_div').html('<br/><div class="well"><p>根據 Westcott (1981) 描述的方法，為非重複設計生成田間規劃，基因型隨機分配在設有對照的田間。</p></div>');
         } else {
             jQuery('#create_trial_design_description_div').html('');
         }
@@ -1957,7 +1957,7 @@ jQuery(document).ready(function ($) {
         }
 
         else {
-            alert("Unsupported design method");
+            alert("不支援的設計方法(Unsupported design method)");
         }
     });
 
@@ -2182,7 +2182,7 @@ jQuery(document).ready(function ($) {
             },
             error: function () {
                 jQuery('#working_modal').modal("hide");
-                alert('An error occurred saving the trial.');
+                alert('儲存試驗時發生錯誤。(An error occurred saving the trial.)');
             }
         });
     }
@@ -2303,7 +2303,7 @@ jQuery(document).ready(function ($) {
         var html = "";
         var design_array = JSON.parse(design_json);
         for (var i=0; i<design_array.length; i++){
-            html += "<table class='table table-hover'><thead><tr><th>plot_name</th><th>accession</th><th>plot_number</th><th>block_number</th><th>rep_number</th><th>is_a_control</th><th>row_number</th><th>col_number</th><th class='table-success'>"+treatment_name+" [Select all <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
+            html += "<table class='table table-hover'><thead><tr><th>小區名稱(plot_name)</th><th>種原(accession)</th><th>小區號碼(plot_number)</th><th>區集號碼(block_number)</th><th>重複號碼(rep_number)</th><th>是否為對照(is_a_control)</th><th>行號(row_number)</th><th>列號(col_number)</th><th class='table-success'>"+treatment_name+" [全選(Select all) <input type='checkbox' name='add_trial_treatment_select_all' />]</th></tr></thead><tbody>";
             var design_hash = JSON.parse(design_array[i]);
             //console.log(design_hash);
             for (var key in design_hash){
@@ -2412,7 +2412,7 @@ jQuery(document).ready(function ($) {
             var treatments = design_hash['treatments'];
             //html += "Trial "+i+"<br/>";
             for (var key in treatments){
-                html += "Treatment: <b>"+key+"</b> Plots: ";
+                html += "處理(Treatment): <b>"+key+"</b> 小區(Plots): ";
                 var plot_array = treatments[key]['new_treatment_stocks'];
                 html += plot_array.join(', ') + "<br/>";
             }

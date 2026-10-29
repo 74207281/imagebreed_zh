@@ -29,7 +29,7 @@ function refreshTrailJsTree(refreshpage){
         },
         error: function(response) {
             jQuery("#working_modal").modal("hide");
-            alert('An error occurred refreshing trial jstree html');
+            alert('重新整理試驗樹狀目錄時發生錯誤。(An error occurred refreshing trial jstree html)');
         }
     });
 }
@@ -50,7 +50,7 @@ function refreshCrossJsTree(refreshpage){
         },
         error: function(response) {
             jQuery("#working_modal").modal("hide");
-            alert('An error occurred refreshing crosses jstree html');
+            alert('重新整理雜交樹狀目錄時發生錯誤。(An error occurred refreshing crosses jstree html)');
         }
     });
 }
@@ -69,7 +69,7 @@ function refreshGenotypingTrialJsTree(refreshpage){
         },
         error: function(response) {
             jQuery("#working_modal").modal("hide");
-            alert('An error occurred refreshing genotype trial jstree html');
+            alert('重新整理基因型試驗樹狀目錄時發生錯誤。(An error occurred refreshing genotype trial jstree html)');
         }
     });
 }

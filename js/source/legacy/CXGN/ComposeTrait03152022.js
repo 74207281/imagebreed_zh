@@ -17,13 +17,13 @@ if (matching_traits.length > 0) {
   trait_html = format_options_list(matching_traits);
 }
 else {
-  trait_html = 'No matching traits.';
+  trait_html = '無符合性狀(No matching traits.)';
 }
 if (new_traits.length > 0) {
   new_trait_html = format_options_list(new_traits);
 }
 else {
-  new_trait_html = 'No new traits.';
+  new_trait_html = '無新性狀(No new traits.)';
   jQuery('#compose_trait').prop('disabled', true);
 }
 

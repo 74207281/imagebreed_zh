@@ -125,7 +125,7 @@ export function init(main_div){
                         $( this )
                         //.addClass( "ui-state-highlight" )
                             .find( "p" )
-                            .html( "Dropped!" );
+                            .html( "已置入！(Dropped!)" );
                         var droppable = $(this);
                         var draggable = ui.draggable;
                         // Move draggable into droppable
@@ -144,7 +144,7 @@ export function init(main_div){
                         $( this )
                         //.addClass( "ui-state-highlight" )
                         .find( "p" )
-                        .html( "Dropped!" );
+                        .html( "已置入！(Dropped!)" );
                         var droppable = $(this);
                         var draggable = ui.draggable;
                         // Move draggable into droppable
@@ -161,7 +161,7 @@ export function init(main_div){
 
                 },
                 error: function(r) {
-                    alert("ERROR!!!!!");
+                    alert("錯誤！(ERROR!)");
                 }
             });
            }
@@ -253,7 +253,7 @@ export function init(main_div){
     });
 
        if(trait_selected.length > 1 || trait_selected.length == 0){
-	   jQuery('#trait_histogram').html('Please select only one trait at a time to see the histogram!');
+	   jQuery('#trait_histogram').html('請一次只選取一個性狀以檢視直方圖！(Please select only one trait at a time to see the histogram!)');
        } else {
 	   
 	   var trait = trait_selected[0];
@@ -380,10 +380,10 @@ function get_dataset_id() {
         selected_datasets.push(jQuery(this).val());
     });
     if (selected_datasets.length < 1){
-        alert('Please select at least one dataset!');
+        alert('請至少選取一個資料集！(Please select at least one dataset!)');
         return false;
     } else if (selected_datasets.length > 1){
-        alert('Please select only one dataset!');
+        alert('請僅選取一個資料集！(Please select only one dataset!)');
         return false;
     } else {	
 	var dataset_id=selected_datasets[0];
@@ -512,7 +512,7 @@ function get_model_string() {
 	method: 'POST',
 	data : params,
 	error: function(e) {
-	    alert("An error occurred"+e);
+	    alert("發生錯誤：(An error occurred: )"+e);
 	},
 	success: function(r) {
 	    if (r.error) {

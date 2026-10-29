@@ -4,28 +4,28 @@ jQuery(document).ready(function (){
     get_select_box('genotyping_protocol','selected_protocol', {'empty':1});
 
     var lo = new CXGN.List();
-    jQuery('#selected_marker_set1').html(lo.listSelect('selected_marker_set1', ['markers'], 'Select a markerset', 'refresh', 'hide_public_lists' ));
+    jQuery('#selected_marker_set1').html(lo.listSelect('selected_marker_set1', ['markers'], '選取標記組(Select a markerset)', 'refresh', 'hide_public_lists' ));
 
     var list = new CXGN.List();
-    jQuery('#selected_marker_set2').html(list.listSelect('selected_marker_set2', ['markers'], 'Select a markerset', 'refresh', undefined));
+    jQuery('#selected_marker_set2').html(list.listSelect('selected_marker_set2', ['markers'], '選取標記組(Select a markerset)', 'refresh', undefined));
 
 
     jQuery("#save_marker_set").click(function(){
         var name = $('#new_marker_set').val();
         if (!name) {
-            alert("Markerset name is required");
+            alert("標記組名稱為必填項目(Markerset name is required)");
             return;
         }
 
         var protocol_id = $('#selected_protocol').val();
         if (!protocol_id) {
-            alert("Genotyping protocol is required");
+            alert("基因型鑑定協定為必填項目(Genotyping protocol is required)");
             return;
         }
 
         var data_type = $('#genotyping_data_type').val();
         if (!data_type) {
-            alert("Genotyping data type is required");
+            alert("基因型資料類型為必填項目(Genotyping data type is required)");
             return;
         }
 
@@ -33,7 +33,7 @@ jQuery(document).ready(function (){
         var desc = $('#marker_set_desc').val();
 
         if (!desc) {
-            alert("Please provide description");
+            alert("請提供描述(Please provide description)");
             return;
         }
 
@@ -49,7 +49,7 @@ jQuery(document).ready(function (){
 
         var protocolAdded = lo.addToList(list_id, markersetProtocolString);
         if (protocolAdded){
-            alert ("Added new markerset: " + name + " for genotyping protocol: " + protocol_name + " ," + "data type: " + data_type);
+            alert ("已新增標記組(Added new markerset): " + name + " ，用於基因型協定(for genotyping protocol): " + protocol_name + " ，資料類型(data type): " + data_type);
         }
         location.reload();
         return list_id;
@@ -92,7 +92,7 @@ jQuery(document).ready(function (){
 
         var markerSetID = $('#selected_marker_set1').val();
         if (markerSetID == '') {
-            alert("Markerset name is required");
+            alert("標記組名稱為必填項目(Markerset name is required)");
             return;
         }
 
@@ -101,11 +101,11 @@ jQuery(document).ready(function (){
             var dosage = $('#allele_dosage').val();
 
             if (markerNameDosage == '') {
-                alert("Marker name is required");
+                alert("標記名稱為必填項目(Marker name is required)");
                 return;
             }
             if (dosage == '') {
-                alert("Please indicate a dosage");
+                alert("請指定劑量(Please indicate a dosage)");
                 return;
             }
 
@@ -115,7 +115,7 @@ jQuery(document).ready(function (){
 
             var markerAdded = lo.addToList(markerSetID, markerInfoString);
             if (markerAdded){
-                alert("Added "+markerInfoString);
+                alert("已新增(Added) "+markerInfoString);
             }
         }
 
@@ -125,11 +125,11 @@ jQuery(document).ready(function (){
             var allele2 = $('#allele_2').val();
 
             if (markerNameSNP == '') {
-                alert("Marker name is required");
+                alert("標記名稱為必填項目(Marker name is required)");
                 return;
             }
             if ((allele1 == '') || ( allele2 == '')) {
-                alert("Please indicate SNP alleles");
+                alert("請指定 SNP 等位基因(Please indicate SNP alleles)");
                 return;
             }
 
@@ -140,7 +140,7 @@ jQuery(document).ready(function (){
 
             var markerAdded = lo.addToList(markerSetID, markerInfoString);
             if (markerAdded){
-                alert("Added "+markerInfoString);
+                alert("已新增(Added) "+markerInfoString);
             }
         }
 
@@ -149,7 +149,7 @@ jQuery(document).ready(function (){
             var markerNameDownload = $('#marker_name_download').val();
 
             if (markerNameDownload == '') {
-                alert("Marker name is required");
+                alert("標記名稱為必填項目(Marker name is required)");
                 return;
             }
 
@@ -162,7 +162,7 @@ jQuery(document).ready(function (){
             }
             var markerAdded = lo.addBulk(markerSetID, markerNameArray);
             if (markerAdded){
-                alert("Added "+markerNameArray);
+                alert("已新增(Added) "+markerNameArray);
             }
 
         }
@@ -175,7 +175,7 @@ jQuery(document).ready(function (){
     jQuery("#add_parameters").click(function(){
         var markerSetName = $('#selected_marker_set2').val();
         if (!markerSetName) {
-            alert("Markerset name is required");
+            alert("標記組名稱為必填項目(Markerset name is required)");
             return;
         }
 
@@ -221,7 +221,7 @@ jQuery(document).ready(function (){
 
         var markerAdded = list.addToList(markerSetName, parametersString);
         if (markerAdded) {
-            alert("Added "+parametersString);
+            alert("已新增(Added) "+parametersString);
         }
         location.reload();
         return markerSetName;
@@ -237,17 +237,17 @@ function show_table() {
         'destroy': true,
         'ajax':{'url': '/marker_sets/available'},
         'columns': [
-            {title: "Markerset Name", "data": "markerset_name"},
-            {title: "Number of Markers", "data": "number_of_markers"},
-            {title: "Description", "data": "description"},
-            {title: "", "data": "null", "render": function (data, type, row) {return "<a onclick = 'showMarkersetDetail("+row.markerset_id+")'>Detail</a>" ;}},
-            {title: "", "data": "null", "render": function (data, type, row) {return "<a onclick = 'removeMarkerSet("+row.markerset_id+")'>Delete</a>" ;}},
+            {title: "標記組名稱(Markerset Name)", "data": "markerset_name"},
+            {title: "標記數量(Number of Markers)", "data": "number_of_markers"},
+            {title: "描述(Description)", "data": "description"},
+            {title: "", "data": "null", "render": function (data, type, row) {return "<a onclick = 'showMarkersetDetail("+row.markerset_id+")'>詳細資訊(Detail)</a>" ;}},
+            {title: "", "data": "null", "render": function (data, type, row) {return "<a onclick = 'removeMarkerSet("+row.markerset_id+")'>刪除(Delete)</a>" ;}},
         ],
     });
 }
 
 function removeMarkerSet (markerset_id){
-    if (confirm("Are you sure you want to delete this markerset? This cannot be undone")){
+    if (confirm("確定要刪除此標記組嗎？此操作無法復原。(Are you sure you want to delete this markerset? This cannot be undone)")){
         jQuery.ajax({
             url: '/markerset/delete',
             data: {'markerset_id': markerset_id},
@@ -257,7 +257,7 @@ function removeMarkerSet (markerset_id){
             success: function(response) {
                 jQuery('#working_modal').modal('hide');
                 if (response.success == 1) {
-                    alert("The markerset has been deleted.");
+                    alert("標記組已成功刪除。(The markerset has been deleted.)");
                     location.reload();
                 }
                 if (response.error) {
@@ -266,7 +266,7 @@ function removeMarkerSet (markerset_id){
             },
             error: function(response){
                 jQuery('#working_modal').modal('hide');
-                alert('An error occurred deleting markerset');
+                alert('刪除標記組時發生錯誤(An error occurred deleting markerset)');
             }
         });
     }
@@ -288,7 +288,7 @@ function showMarkersetDetail (markerset_id){
                     'destroy': true,
                     'data': response.data,
                     'columns': [
-                        {title: "Item", "data": "item_name"},
+                        {title: "項目(Item)", "data": "item_name"},
                     ],
                 });
             } else {
@@ -297,7 +297,7 @@ function showMarkersetDetail (markerset_id){
         },
         error: function(response){
             jQuery('#working_modal').modal('hide');
-            alert('An error occurred getting markerset detail');
+            alert('取得標記組詳細資訊時發生錯誤(An error occurred getting markerset detail)');
         }
     });
 }

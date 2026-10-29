@@ -54,7 +54,7 @@ export function WizardDatasets(main_id,wizard){
                 details+= `\n    ${contents.length} ${cat}`;
 	    }
         })
-        if ( confirm(`Dataset ${name} contains\: ${details}\nAre you sure you would like to delete it? Deletion cannot be undone.`)) {
+        if ( confirm(`資料集 ${name} 包含：${details}\n確定要刪除嗎？此操作無法復原。(Dataset ${name} contains: ${details}\nAre you sure you would like to delete it? Deletion cannot be undone.)`)) {
             datasets.deleteDataset(val);
             load_datasets();
         }
@@ -101,7 +101,7 @@ export function WizardDatasets(main_id,wizard){
         return !c.type || c.items.filter(d=>d.selected).length<1
       });
       if(first_irrelevant_col==0) {
-          alert(`Dataset creation failed. No data is selected.`);
+          alert(`資料集建立失敗。未選取任何資料。(Dataset creation failed. No data is selected.)`);
           d3.select(this).attr("disabled",null);
           return;
       }
@@ -123,7 +123,7 @@ export function WizardDatasets(main_id,wizard){
           cols.forEach(c=>{
             details+= `\n    ${c.items.filter(d=>d.selected).length} ${c.type}`;
           })
-        alert(`Dataset ${name} created with\: ${details}`);
+        alert(`已建立資料集 ${name}，包含：${details} (Dataset ${name} created)`);
         load_datasets();
         d3.select(this).attr("disabled",null);
         if ( DSP_ENABLED ) {

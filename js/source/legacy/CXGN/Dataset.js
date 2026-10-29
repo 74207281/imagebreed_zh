@@ -23,7 +23,7 @@ CXGN.Dataset.prototype = {
 
 	    },
             'error': function(response) {
-		alert('An error occurred. Please try again.');
+		alert('發生錯誤。請再試一次。(An error occurred. Please try again.)');
 	    }
 	});
 	return datasets;
@@ -43,7 +43,7 @@ CXGN.Dataset.prototype = {
 
             },
             'error': function(response) {
-                alert('An error occurred. Please try again.');
+                alert('發生錯誤。請再試一次。(An error occurred. Please try again.)');
             }
         });
         return datasets;
@@ -63,7 +63,7 @@ CXGN.Dataset.prototype = {
 		}
 	    },
 	    "error": function(response) {
-		alert("An error occurred. The specified dataset may not exist. Please try again."+JSON.stringify(response));
+		alert("發生錯誤。指定的資料集可能不存在。請再試一次。(An error occurred. The specified dataset may not exist. Please try again.)"+JSON.stringify(response));
 	    }
 	});
 	return dataset;
@@ -77,14 +77,14 @@ CXGN.Dataset.prototype = {
 	    'async': false,
 	    'success': function(response) {
 		if (response.error) {
-		    alert('An error occurred during dataset deletion. '+response.error);
+		    alert('刪除資料集時發生錯誤。(An error occurred during dataset deletion.) '+response.error);
 		}
 		else {
-		    alert('The dataset has been deleted.');
+		    alert('資料集已刪除。(The dataset has been deleted.)');
 		}
 	    },
 	    'error': function(response) {
-		alert('An error occurred. The specified dataset may not exist. Please try again.'+JSON.stringify(response));
+		alert('發生錯誤。指定的資料集可能不存在。請再試一次。(An error occurred. The specified dataset may not exist. Please try again.)'+JSON.stringify(response));
 		
 	    }
 	});
@@ -97,13 +97,13 @@ CXGN.Dataset.prototype = {
             'async': false,
             'success': function(response) {
                 if (response.error) {
-                    alert('An error occurred during action. '+response.error);
+                    alert('執行操作時發生錯誤。(An error occurred during action.) '+response.error);
 		} else {
-                    alert('The dataset is now public.');
+                    alert('資料集現在已公開。(The dataset is now public.)');
                 }
             },
             'error': function(response) {
-                alert('An error occurred. The specified dataset may not exist. Please try again.'+JSON.stringify(response));
+                alert('發生錯誤。指定的資料集可能不存在。請再試一次。(An error occurred. The specified dataset may not exist. Please try again.)'+JSON.stringify(response));
 
             }
         });
@@ -116,13 +116,13 @@ CXGN.Dataset.prototype = {
             'async': false,
             'success': function(response) {
                 if (response.error) {
-                    alert('An error occurred during action. '+response.error);
+                    alert('執行操作時發生錯誤。(An error occurred during action.) '+response.error);
                 } else {
-                    alert('The dataset is now public.');
+                    alert('資料集現在已設為私人。(The dataset is now private.)');
                 }
             },
             'error': function(response) {
-                alert('An error occurred. The specified dataset may not exist. Please try again.'+JSON.stringify(response));
+                alert('發生錯誤。指定的資料集可能不存在。請再試一次。(An error occurred. The specified dataset may not exist. Please try again.)'+JSON.stringify(response));
 
             }
         });
@@ -140,7 +140,7 @@ CXGN.Dataset.prototype = {
       html += '<option value='+datasets[n][0]+'>'+datasets[n][1]+'</option>';
   }
   if (refresh) {
-    html = '<div class="input-group">'+html+'</select><span class="input-group-btn"><button class="btn btn-default" type="button" id="'+div_name+'_dataset_refresh" title="Refresh datasets" onclick="refreshDatasetSelect(\''+div_name+'_dataset_select\',\'Options refreshed.\')"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></span></div>';
+    html = '<div class="input-group">'+html+'</select><span class="input-group-btn"><button class="btn btn-default" type="button" id="'+div_name+'_dataset_refresh" title="重新整理資料集(Refresh datasets)" onclick="refreshDatasetSelect(\''+div_name+'_dataset_select\',\'選項已重新整理。(Options refreshed.)\')"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></span></div>';
     return html;
   }
   else {
@@ -154,18 +154,18 @@ CXGN.Dataset.prototype = {
 	var html = '';
 
 	if (!datasets || datasets.length===0) {
-	    html = html + "None";
+	    html = html + "無(None)";
 	    jQuery('#'+div+'_div').html(html);
 	    return;
 	}
 
 	html += '<table class="table table-hover table-condensed">';
-	html += '<thead><tr><th>Dataset Name</th><th>Description</th><th colspan="4">Actions</th></tr></thead><tbody><tr>';
+	html += '<thead><tr><th>資料集名稱(Dataset Name)</th><th>描述(Description)</th><th colspan="4">操作(Actions)</th></tr></thead><tbody><tr>';
 	for (var i = 0; i < datasets.length; i++) {
 	    html += '<td><b>'+datasets[i][1]+'</b></td>';
 	    html += '<td>'+datasets[i][2]+'</td>';
-	    html += '<td><a title="View" id="view_dataset_'+datasets[i][1]+'" href="javascript:showDatasetItems(\'dataset_item_dialog\','+datasets[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></a></td>';
-	    html += '<td><a title="Delete" id="delete_dataset_'+datasets[i][1]+'" href="javascript:deleteDataset('+datasets[i][0]+')"><span class="glyphicon glyphicon-remove"></span></a></td></tr>';
+	    html += '<td><a title="檢視(View)" id="view_dataset_'+datasets[i][1]+'" href="javascript:showDatasetItems(\'dataset_item_dialog\','+datasets[i][0]+')"><span class="glyphicon glyphicon-th-list"></span></a></td>';
+	    html += '<td><a title="刪除(Delete)" id="delete_dataset_'+datasets[i][1]+'" href="javascript:deleteDataset('+datasets[i][0]+')"><span class="glyphicon glyphicon-remove"></span></a></td></tr>';
 	}
 	html = html + '</tbody></table>';
 	html += '<div id="list_group_select_action"></div>';
@@ -176,7 +176,7 @@ CXGN.Dataset.prototype = {
     renderItems: function(div, dataset_id) {
 	var dataset = this.getDataset(dataset_id);
 
-	var html = "This dataset contains the following:<br />";
+	var html = "此資料集包含以下內容：(This dataset contains the following:)<br />";
 
 	var zero_count = 0;
 	for(var key in dataset.categories) {
@@ -185,13 +185,13 @@ CXGN.Dataset.prototype = {
 		    zero_count++;
 		}
 		else {		   
-		    html += dataset.categories[key].length+" elements of type <b>"+key+"</b><br />";
+		    html += dataset.categories[key].length+" 個類型為 <b>"+key+"</b> 的元素(elements)<br />";
 		}
 	    }
 	}
 
 	if (zero_count === Object.keys(dataset.categories).length) { 
-	    jQuery('#'+div).html("This dataset does not contain any selections.");
+	    jQuery('#'+div).html("此資料集不包含任何選取的項目。(This dataset does not contain any selections.)");
 	}
 	else { 
 	    jQuery('#'+div).html(html);
@@ -225,7 +225,7 @@ function show_datasets() {
 }
 
 function deleteDataset(dataset_id) {
-    var reply = confirm("Are you sure you want to delete the dataset with id "+dataset_id+"? Please note that deletion cannot be undone.");
+    var reply = confirm("確定要刪除 ID 為 "+dataset_id+" 的資料集嗎？請注意，刪除後將無法復原。(Are you sure you want to delete the dataset? This cannot be undone.)");
 
     if (reply) {
 	jQuery.ajax( {
@@ -235,11 +235,11 @@ function deleteDataset(dataset_id) {
 		    alert(response.error);
 		}
 		else {
-		    alert('Successfully deleted dataset with id '+dataset_id);
+		    alert('成功刪除 ID 為 '+dataset_id+' 的資料集。(Successfully deleted dataset)');
 		}
 	    },
 	    'error': function(response) {
-		alert('A processing error occurred.');
+		alert('處理時發生錯誤。(A processing error occurred.)');
 	    }
 	})
     }

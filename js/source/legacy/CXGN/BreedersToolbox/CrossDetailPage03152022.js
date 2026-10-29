@@ -37,8 +37,8 @@ jQuery(document).ready(function() {
                 }
                 if (response.progeny) {
                     var html = '<table class="table borderless" alt="breeder search" border="0" ><tr><td><select multiple class="form-control" id="progeny_data" name="1" size="10" style="min-width: 200px;overflow:auto;"></select></td></tr>'
-                    html += '<tr><td><button class="btn btn-default btn-sm" id="progeny_select_all" name="1">Select All</button><br><br>'
-                    html += '<div class="well well-sm"><div id="progeny_data_count" name="1">No Selection</div></div>'
+                    html += '<tr><td><button class="btn btn-default btn-sm" id="progeny_select_all" name="1">全選(Select All)</button><br><br>'
+                    html += '<div class="well well-sm"><div id="progeny_data_count" name="1">未選取(No Selection)</div></div>'
                     html += '<div id="progeny_to_list_menu"></div><td><tr></table>'
 
                     jQuery('#progeny_information_div').html(html);
@@ -84,7 +84,7 @@ jQuery(document).ready(function() {
                 } // close if (response.progeny)
             },
             error: function(response, a, b) {
-                jQuery('#progeny_information_div').html('An error occurred. '+a +' '+ b);
+                jQuery('#progeny_information_div').html('發生錯誤。(An error occurred.) '+a +' '+ b);
             }
 	    });
     }
@@ -123,16 +123,16 @@ jQuery(document).ready(function() {
                     jQuery('#working').dialog("open");
                     add_more_progeny(get_cross_id(), get_cross_name(), jQuery('#basename').val(), jQuery('#start_number').val(), jQuery('#progeny_count').val());
                 },
-                text: "OK"
+                text: "確定(OK)"
             } ,
             'Cancel': {
                 id: 'add_more_progeny_dialog_cancel_button',
                 click:  function() { jQuery('#add_more_progeny_dialog').dialog("close") },
-                text: "Cancel"
+                text: "取消(Cancel)"
             }
         },
         autoOpen: false,
-        title: 'Add more progeny'
+        title: '新增更多後代(Add more progeny)'
     });
 
     function add_more_progeny(cross_id, cross_name, basename, start_number, progeny_count) {
@@ -144,13 +144,13 @@ jQuery(document).ready(function() {
                 if (response.error) {
                     alert(response.error);
                 }
-                else { alert('Added '+progeny_count+' new progeny');
+                else { alert('已新增(Added) '+progeny_count+' 個新後代(new progeny)');
                     jQuery('#working').dialog("close");
                     display_progeny(get_cross_id());
                     jQuery('#add_more_progeny_dialog').dialog("close");
                 }
             },
-            error: function(response, code, error) { alert('error: '+error); }
+            error: function(response, code, error) { alert('錯誤(error): '+error); }
         });
     }
 
@@ -161,11 +161,11 @@ jQuery(document).ready(function() {
 	        'Done': {
                 id: 'edit_properties_dialog_done_button',
                 click:  function() { jQuery('#edit_properties_dialog').dialog("close") },
-                text: "Done",
+                text: "完成(Done)",
             }
         },
         autoOpen: false,
-        title: 'Edit Field Crossing Data'
+        title: '編輯田間雜交資料(Edit Field Crossing Data)'
     });
 
     jQuery('#edit_properties_link').click( function() {
@@ -225,13 +225,13 @@ jQuery(document).ready(function() {
             if (response.error) { alert(response.error); }
             var yes;
             if (response.message) {
-                yes = confirm(response.message + " Continue? ");
+                yes = confirm(response.message + " 要繼續嗎？(Continue?) ");
                 if (yes) {
-                    alert("Saving it.");
+                    alert("正在儲存。(Saving it.)");
                     save_property(cross_id, type, value);
                 }
                 else {
-                    alert("Not saving.");
+                    alert("不儲存。(Not saving.)");
                 }
             }
             if (response.success) {
@@ -239,7 +239,7 @@ jQuery(document).ready(function() {
                 property_table.ajax.relaod();
             }
         }).fail( function() {
-            alert("The request for checking the parameters failed. Please try again.");
+            alert("檢查參數的請求失敗。請再試一次。(The request for checking the parameters failed. Please try again.)");
         });
     }
 
@@ -251,7 +251,7 @@ jQuery(document).ready(function() {
             get_properties(get_cross_id());
             save_confirm(response);
         }).fail( function(response, x, y) {
-            alert("An error occurred saving the property. "+y);
+            alert("儲存屬性時發生錯誤。(An error occurred saving the property.) "+y);
         });
     }
 
@@ -261,7 +261,7 @@ jQuery(document).ready(function() {
             return;
         }
         else {
-            alert("The property was successfully saved.");
+            alert("屬性已成功儲存。(The property was successfully saved.)");
         }
     }
 
@@ -303,11 +303,11 @@ jQuery(document).ready(function() {
 	        'Done': {
                 id: 'edit_additional_info_dialog_done_button',
                 click:  function() { jQuery('#edit_additional_info_dialog').dialog("close") },
-                text: "Done",
+                text: "完成(Done)",
             }
         },
         autoOpen: false,
-        title: 'Edit Additional Parent Info'
+        title: '編輯親本額外資訊(Edit Additional Parent Info)'
     });
 
     jQuery('#edit_additional_info_link').click( function() {
@@ -344,7 +344,7 @@ jQuery(document).ready(function() {
             display_cross_additional_info(get_cross_id());
             save_confirm(response);
         }).fail( function(response, x, y) {
-            alert("An error occurred saving the property. "+y);
+            alert("儲存屬性時發生錯誤。(An error occurred saving the property.) "+y);
         });
     }
 
