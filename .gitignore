@@ -45,3 +45,4 @@ js/test_build
 typescript
 docs/Gemfile.lock
 docs/_site/
+.DS_Store
