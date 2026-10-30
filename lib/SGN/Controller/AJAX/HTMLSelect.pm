@@ -111,6 +111,16 @@ sub get_breeding_program_select : Path('/ajax/html/select/breeding_programs') Ar
         $c->detach();
     }
     elsif (scalar(@$breeding_programs) == 0) {
+        if ($is_new_user) {
+            my $html = simple_selectbox_html(
+                name => $name,
+                id => $id,
+                choices => [ [ "", "None available" ] ],
+                names_as_values => $names_as_values
+            );
+            $c->stash->{rest} = { select => $html };
+            return;
+        }
         $c->stash->{rest} = { error => "No breeding programs available! Make sure to join atleast one company first!" };
         $c->detach();
     }
@@ -153,6 +163,15 @@ sub get_private_companies_select : Path('/ajax/html/select/private_companies') A
     my @private_companies;
     foreach (@$private_companies_array) {
         push @private_companies, [$_->[0], $_->[1]];
+    }
+    if ($c->req->param('is_new_user') && scalar(@private_companies) == 0) {
+        my $q_all = "SELECT private_company_id, name FROM sgn_people.private_company ORDER BY name ASC;";
+        my $h_all = $c->dbic_schema("Bio::Chado::Schema", "sgn_chado")->storage->dbh()->prepare($q_all);
+        $h_all->execute();
+        while (my ($cid, $cname) = $h_all->fetchrow_array()) {
+            push @private_companies, [$cid, $cname];
+        }
+        $h_all = undef;
     }
     if ($empty) { unshift @private_companies, [ "", "Please select a program" ]; }
 

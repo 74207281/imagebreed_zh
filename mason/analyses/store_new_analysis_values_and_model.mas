@@ -484,12 +484,22 @@ The trait names will be post-composed with the analysis_statistical_ontology_ter
 
 jQuery(document).ready(function() {
 
-    get_select_box('years', 'generic_save_analysis_analysis_year_div', {'auto_generate': 1, 'id':'generic_save_analysis_analysis_year', 'name':'generic_save_analysis_analysis_year'});
-    get_select_box('breeding_programs', 'generic_save_analysis_breeding_program_div', { 'name' : 'generic_save_analysis_breeding_program_id', 'id' : 'generic_save_analysis_breeding_program_id' });
-    get_select_box('models', 'save_new_analysis_model_select_div', { 'id':'save_new_analysis_model_id', 'name':'save_new_analysis_model_id', 'empty':1 });
+    var loaded_generic_save_analysis_selects = false;
+    function load_generic_save_analysis_selects() {
+        if (!loaded_generic_save_analysis_selects) {
+            get_select_box('years', 'generic_save_analysis_analysis_year_div', {'auto_generate': 1, 'id':'generic_save_analysis_analysis_year', 'name':'generic_save_analysis_analysis_year'});
+            get_select_box('breeding_programs', 'generic_save_analysis_breeding_program_div', { 'name' : 'generic_save_analysis_breeding_program_id', 'id' : 'generic_save_analysis_breeding_program_id' });
+            get_select_box('models', 'save_new_analysis_model_select_div', { 'id':'save_new_analysis_model_id', 'name':'save_new_analysis_model_id', 'empty':1 });
 
-    get_select_box('years', 'generic_save_analysis_template_analysis_year_div', {'auto_generate': 1, 'id':'generic_save_analysis_template_analysis_year', 'name':'generic_save_analysis_template_analysis_year'});
-    get_select_box('breeding_programs', 'generic_save_analysis_template_breeding_program_div', { 'name' : 'generic_save_analysis_template_breeding_program_id', 'id' : 'generic_save_analysis_template_breeding_program_id' });
+            get_select_box('years', 'generic_save_analysis_template_analysis_year_div', {'auto_generate': 1, 'id':'generic_save_analysis_template_analysis_year', 'name':'generic_save_analysis_template_analysis_year'});
+            get_select_box('breeding_programs', 'generic_save_analysis_template_breeding_program_div', { 'name' : 'generic_save_analysis_template_breeding_program_id', 'id' : 'generic_save_analysis_template_breeding_program_id' });
+            loaded_generic_save_analysis_selects = true;
+        }
+    }
+
+    jQuery('#generic_save_analysis_dialog, #generic_save_analysis_template_dialog').on('show.bs.modal', function() {
+        load_generic_save_analysis_selects();
+    });
 
     jQuery('#generic_save_analysis_next').click(function(){
         Workflow.complete("#generic_save_analysis_next");

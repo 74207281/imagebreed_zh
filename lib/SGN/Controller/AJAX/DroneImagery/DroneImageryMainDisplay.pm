@@ -45,6 +45,12 @@ sub raw_drone_imagery_summary_top_GET : Args(0) {
 
     my $private_companies = CXGN::PrivateCompany->new( { schema=> $schema } );
     my ($private_companies_array, $private_companies_ids, $allowed_private_company_ids_hash, $allowed_private_company_access_hash, $private_company_access_is_private_hash) = $private_companies->get_users_private_companies($user_id, 0);
+
+    if (scalar(@$private_companies_ids) == 0) {
+        $c->stash->{rest} = { data => [] };
+        return;
+    }
+
     my $private_company_ids_sql = join ',', @$private_companies_ids;
 
     my $drone_run_field_trial_project_relationship_type_id_cvterm_id = SGN::Model::Cvterm->get_cvterm_row($schema, 'drone_run_on_field_trial', 'project_relationship')->cvterm_id();

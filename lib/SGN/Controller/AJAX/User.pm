@@ -136,14 +136,21 @@ sub new_account :Path('/ajax/user/new') Args(0) {
     my $new_user = CXGN::People::Login->new($c->dbc->dbh());
     $new_user->set_username($username);
     $new_user->set_pending_email($email_address);
-    $new_user->set_disabled('unconfirmed account');
+    if ($c->config->{disable_account_confirm}) {
+        $new_user->set_disabled(undef);
+        $new_user->set_private_email($email_address);
+    } else {
+        $new_user->set_disabled('unconfirmed account');
+    }
     $new_user->set_organization($organization);
     $new_user->store();
 
     print STDERR "Generated sp_person_id ".$new_user->get_sp_person_id()."\n";
     print STDERR "Update password and confirm code...\n";
     $new_user->update_password($password);
-    $new_user->update_confirm_code($confirm_code);
+    if (!$c->config->{disable_account_confirm}) {
+        $new_user->update_confirm_code($confirm_code);
+    }
 
     print STDERR "Store Person object...\n";
     #this is being added because the person object still uses two different objects, despite the fact that we've merged the tables
@@ -151,6 +158,7 @@ sub new_account :Path('/ajax/user/new') Args(0) {
     my $new_person=CXGN::People::Person->new($c->dbc->dbh(),$person_id);
     $new_person->set_first_name($first_name);
     $new_person->set_last_name($last_name);
+    $new_person->set_contact_email($email_address);
     $new_person->store();
 
     # Add user to breeding programs
@@ -175,9 +183,24 @@ sub new_account :Path('/ajax/user/new') Args(0) {
                 my $add_role = $person_roles->add_sp_person_role($person_id, $role_id);
             }
         }
+    }
 
-        my $default_company_user_type_id = SGN::Model::Cvterm->get_cvterm_row($schema, 'user_access', 'company_person_type')->cvterm_id();
+    # Add user to private companies
+    my $default_company_user_type_id = SGN::Model::Cvterm->get_cvterm_row($schema, 'user_access', 'company_person_type')->cvterm_id();
 
+    # Fallback to default/first company if none selected so user has company access
+    if (!$private_company_ids || scalar(@$private_company_ids) == 0) {
+        my $q_def = "SELECT private_company_id FROM sgn_people.private_company ORDER BY private_company_id ASC LIMIT 1;";
+        my $h_def = $schema->storage->dbh()->prepare($q_def);
+        $h_def->execute();
+        my ($first_company_id) = $h_def->fetchrow_array();
+        $h_def = undef;
+        if ($first_company_id) {
+            $private_company_ids = [$first_company_id];
+        }
+    }
+
+    if ($private_company_ids && scalar(@$private_company_ids) > 0) {
         my $q = "INSERT INTO sgn_people.private_company_sp_person (private_company_id, sp_person_id, type_id) VALUES (?,?,?);";
         my $h = $schema->storage->dbh()->prepare($q);
         foreach (@$private_company_ids) {
@@ -666,7 +689,7 @@ ername.";}
 
 	if($password eq $username){push @fail,"Password must not be the same as your username.";}
 
-	if($new_user_type ne 'user' and $new_user_type ne 'sequencer' and $new_user_type ne 'submitter'){
+	if($new_user_type ne 'user' and $new_user_type ne 'sequencer' and $new_user_type ne 'submitter' and $new_user_type ne 'curator'){
 	    push @fail,"Sorry, but you cannot create user of type \"$new_user_type\" with web interface.";}
         if(@fail)
         {
@@ -681,6 +704,15 @@ ername.";}
         }
     }
 
+    my $private_company_id = $c->req->param('private_company_id');
+    if (!$private_company_id) {
+        my $q_def = "SELECT private_company_id FROM sgn_people.private_company ORDER BY private_company_id ASC LIMIT 1;";
+        my $h_def = $schema->storage->dbh()->prepare($q_def);
+        $h_def->execute();
+        ($private_company_id) = $h_def->fetchrow_array();
+        $h_def = undef;
+    }
+
     eval {
 	$new_user_login->set_username(encode_entities($username));
 	$new_user_login->set_password($password);
@@ -691,10 +723,27 @@ ername.";}
 	my $new_user_person=CXGN::People::Person->new($c->dbc->dbh, $new_user_person_id);
 	$new_user_person->set_first_name(encode_entities($first_name));
 	$new_user_person->set_last_name(encode_entities($last_name));
+	$new_user_person->set_contact_email(encode_entities($email_address));
 	##removed. This was causing problems with creating new accounts for people,
 	##and then not finding it in the people search.
 	#$new_user_person->set_censor(1);#censor by default, since we are creating this account, not the person whose info might be displayed, and they might not want it to be displayed
 	$new_user_person->store();
+
+	if ($private_company_id) {
+	    my $company_access_type_name = 'user_access';
+	    if ($new_user_type eq 'curator') {
+	        $company_access_type_name = 'curator_access';
+	    } elsif ($new_user_type eq 'submitter') {
+	        $company_access_type_name = 'submitter_access';
+	    }
+	    my $company_access_type_cvterm_id = SGN::Model::Cvterm->get_cvterm_row($schema, $company_access_type_name, 'company_person_type')->cvterm_id();
+	    if ($company_access_type_cvterm_id) {
+	        my $q_comp = "INSERT INTO sgn_people.private_company_sp_person (private_company_id, sp_person_id, type_id) VALUES (?,?,?);";
+	        my $h_comp = $schema->storage->dbh()->prepare($q_comp);
+	        $h_comp->execute($private_company_id, $new_user_person_id, $company_access_type_cvterm_id);
+	        $h_comp = undef;
+	    }
+	}
     };
 
     if ($@) {

@@ -63,9 +63,19 @@ sub get_breeding_programs {
         $company_ids_sql = join ',', @$private_companies_ids;
     }
 
-    my $is_new_user_sql = '';
-    if ($is_new_user) {
-        $is_new_user_sql = "project.is_private='f' OR";
+    my $where_clause = '';
+    if ($company_ids_sql) {
+        if ($is_new_user) {
+            $where_clause = "WHERE (project.is_private='f' OR project.private_company_id IN ($company_ids_sql))";
+        } else {
+            $where_clause = "WHERE project.private_company_id IN ($company_ids_sql)";
+        }
+    } else {
+        if ($is_new_user) {
+            $where_clause = "WHERE project.is_private='f'";
+        } else {
+            return [];
+        }
     }
 
     my $breeding_program_cvterm_id = $self->get_breeding_program_cvterm_id();
@@ -73,7 +83,7 @@ sub get_breeding_programs {
         FROM project
         JOIN projectprop ON(project.project_id=projectprop.project_id AND projectprop.type_id=$breeding_program_cvterm_id)
         JOIN sgn_people.private_company AS p ON(project.private_company_id=p.private_company_id)
-        WHERE $is_new_user_sql project.private_company_id IN ($company_ids_sql)
+        $where_clause
         ORDER BY project.name ASC;";
     my $h = $self->schema->storage->dbh()->prepare($q);
     $h->execute();
